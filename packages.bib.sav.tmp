@@ -1,0 +1,281 @@
+@Manual{R-base,
+  title = {R: A Language and Environment for Statistical Computing},
+  author = {{R Core Team}},
+  organization = {R Foundation for Statistical Computing},
+  address = {Vienna, Austria},
+  year = {2022},
+  url = {https://www.R-project.org/},
+}
+
+@Manual{R-bezier,
+  title = {bezier: Toolkit for Bezier Curves and Splines},
+  author = {Aaron Olsen},
+  year = {2018},
+  note = {R package version 1.1.2},
+  url = {https://CRAN.R-project.org/package=bezier},
+}
+
+@Manual{R-dplyr,
+  title = {dplyr: A Grammar of Data Manipulation},
+  author = {Hadley Wickham and Romain François and Lionel Henry and Kirill Müller},
+  year = {2022},
+  note = {https://dplyr.tidyverse.org},
+}
+
+@Manual{R-extrafont,
+  title = {extrafont: Tools for Using Fonts},
+  author = {Winston Chang},
+  year = {2022},
+  note = {R package version 0.18},
+  url = {https://github.com/wch/extrafont},
+}
+
+@Manual{R-fMultivar,
+  title = {fMultivar: Rmetrics - Modeling of Multivariate Financial Return
+Distributions},
+  author = {Diethelm Wuertz and Tobias Setz and Stefan Theussl and Yohan Chalabi},
+  year = {2022},
+  note = {R package version 4021.83},
+  url = {https://www.rmetrics.org},
+}
+
+@Manual{R-forcats,
+  title = {forcats: Tools for Working with Categorical Variables (Factors)},
+  author = {Hadley Wickham},
+  year = {2022},
+  note = {R package version 0.5.2},
+  url = {https://CRAN.R-project.org/package=forcats},
+}
+
+@Manual{R-gganimate,
+  title = {gganimate: A Grammar of Animated Graphics},
+  author = {Thomas Lin Pedersen and David Robinson},
+  year = {2022},
+  note = {R package version 1.0.8},
+  url = {https://CRAN.R-project.org/package=gganimate},
+}
+
+@Manual{R-ggforce,
+  title = {ggforce: Accelerating ggplot2},
+  author = {Thomas Lin Pedersen},
+  year = {2022},
+  note = {R package version 0.4.1},
+  url = {https://CRAN.R-project.org/package=ggforce},
+}
+
+@Manual{R-ggfx,
+  title = {ggfx: Pixel Filters for ggplot2 and grid},
+  author = {Thomas Lin Pedersen},
+  year = {2022},
+  note = {R package version 1.0.1},
+  url = {https://CRAN.R-project.org/package=ggfx},
+}
+
+@Manual{R-ggplot2,
+  title = {ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics},
+  author = {Hadley Wickham and Winston Chang and Lionel Henry and Thomas Lin Pedersen and Kohske Takahashi and Claus Wilke and Kara Woo and Hiroaki Yutani and Dewey Dunnington},
+  year = {2022},
+  note = {R package version 3.4.0},
+  url = {https://CRAN.R-project.org/package=ggplot2},
+}
+
+@Manual{R-ggtext,
+  title = {ggtext: Improved Text Rendering Support for ggplot2},
+  author = {Claus O. Wilke and Brenton M. Wiernik},
+  year = {2022},
+  note = {R package version 0.1.2},
+  url = {https://wilkelab.org/ggtext/},
+}
+
+@Manual{R-IDPmisc,
+  title = {IDPmisc: Utilities of Institute of Data Analyses and Process Design
+(www.zhaw.ch/idp)},
+  author = {Rene Locher},
+  year = {2020},
+  note = {R package version 1.1.20},
+  url = {https://CRAN.R-project.org/package=IDPmisc},
+}
+
+@Manual{R-knitr,
+  title = {knitr: A General-Purpose Package for Dynamic Report Generation in R},
+  author = {Yihui Xie},
+  year = {2022},
+  note = {R package version 1.41},
+  url = {https://yihui.org/knitr/},
+}
+
+@Manual{R-lemon,
+  title = {lemon: Freshing Up your ggplot2 Plots},
+  author = {Stefan McKinnon Edwards},
+  year = {2022},
+  note = {R package version 0.4.6},
+  url = {https://github.com/stefanedwards/lemon},
+}
+
+@Manual{R-modeest,
+  title = {modeest: Mode Estimation},
+  author = {Paul Poncet},
+  year = {2019},
+  note = {R package version 2.4.0},
+  url = {https://github.com/paulponcet/modeest},
+}
+
+@Manual{R-patchwork,
+  title = {patchwork: The Composer of Plots},
+  author = {Thomas Lin Pedersen},
+  year = {2022},
+  note = {R package version 1.1.2},
+  url = {https://CRAN.R-project.org/package=patchwork},
+}
+
+@Manual{R-psych,
+  title = {psych: Procedures for Psychological, Psychometric, and Personality
+Research},
+  author = {William Revelle},
+  year = {2022},
+  note = {R package version 2.2.9},
+  url = {https://personality-project.org/r/psych/
+https://personality-project.org/r/psych-manual.pdf},
+}
+
+@Manual{R-psycheval,
+  title = {psycheval: A psychological evaluation toolkit},
+  author = {W. Joel Schneider},
+  note = {R package version 0.1.0},
+  url = {https://github.com/wjschne/psycheval},
+  year = {2022},
+}
+
+@Manual{R-purrr,
+  title = {purrr: Functional Programming Tools},
+  author = {Hadley Wickham and Lionel Henry},
+  year = {2023},
+  note = {R package version 1.0.1},
+  url = {https://CRAN.R-project.org/package=purrr},
+}
+
+@Manual{R-qualvar,
+  title = {qualvar: Implements Indices of Qualitative Variation Proposed by Wilcox
+(1973)},
+  author = {Joel Gombin},
+  year = {2018},
+  note = {R package version 0.2.0},
+  url = {http://joelgombin.github.io/qualvar/},
+}
+
+@Manual{R-readr,
+  title = {readr: Read Rectangular Text Data},
+  author = {Hadley Wickham and Jim Hester and Jennifer Bryan},
+  year = {2022},
+  note = {R package version 2.1.3},
+  url = {https://CRAN.R-project.org/package=readr},
+}
+
+@Manual{R-scales,
+  title = {scales: Scale Functions for Visualization},
+  author = {Hadley Wickham and Dana Seidel},
+  year = {2022},
+  note = {R package version 1.2.1},
+  url = {https://CRAN.R-project.org/package=scales},
+}
+
+@Manual{R-signs,
+  title = {signs: Insert Proper Minus Signs},
+  author = {Benjamin E. Wolfe},
+  year = {2020},
+  note = {R package version 0.1.2},
+  url = {https://benjaminwolfe.github.io/signs},
+}
+
+@Manual{R-sjmisc,
+  title = {sjmisc: Data and Variable Transformation Functions},
+  author = {Daniel Lüdecke},
+  year = {2021},
+  note = {R package version 2.8.9},
+  url = {https://strengejacke.github.io/sjmisc/},
+}
+
+@Manual{R-sn,
+  title = {sn: The Skew-Normal and Related Distributions Such as the Skew-t and
+the SUN},
+  author = {Adelchi Azzalini},
+  year = {2022},
+  note = {R package version 2.1.0},
+  url = {http://azzalini.stat.unipd.it/SN/},
+}
+
+@Manual{R-stringr,
+  title = {stringr: Simple, Consistent Wrappers for Common String Operations},
+  author = {Hadley Wickham},
+  year = {2022},
+  note = {R package version 1.5.0},
+  url = {https://CRAN.R-project.org/package=stringr},
+}
+
+@Manual{R-tibble,
+  title = {tibble: Simple Data Frames},
+  author = {Kirill Müller and Hadley Wickham},
+  year = {2022},
+  note = {R package version 3.1.8},
+  url = {https://CRAN.R-project.org/package=tibble},
+}
+
+@Manual{R-tidyr,
+  title = {tidyr: Tidy Messy Data},
+  author = {Hadley Wickham and Maximilian Girlich},
+  year = {2022},
+  note = {R package version 1.2.1},
+  url = {https://CRAN.R-project.org/package=tidyr},
+}
+
+@Manual{R-tidyverse,
+  title = {tidyverse: Easily Install and Load the Tidyverse},
+  author = {Hadley Wickham},
+  year = {2022},
+  note = {R package version 1.3.2},
+  url = {https://CRAN.R-project.org/package=tidyverse},
+}
+
+@Manual{R-tikzDevice,
+  title = {tikzDevice: R Graphics Output in LaTeX Format},
+  author = {Charlie Sharpsteen and Cameron Bracken},
+  year = {2020},
+  note = {R package version 0.12.3.1},
+  url = {https://github.com/daqana/tikzDevice},
+}
+
+@Manual{R-tinter,
+  title = {tinter: Generate a Monochromatic Palette},
+  author = {Sebastian Dalgarno},
+  year = {2020},
+  note = {R package version 0.1.0},
+  url = {https://github.com/poissonconsulting/tinter},
+}
+
+@Manual{R-tippy,
+  title = {tippy: Add Tooltips to R markdown Documents or Shiny Apps},
+  author = {John Coene},
+  year = {2021},
+  note = {R package version 0.1.0},
+  url = {https://tippy.john-coene.com/},
+}
+
+@Manual{R-tufte,
+  title = {tufte: Tufte's Styles for R Markdown Documents},
+  author = {Yihui Xie and JJ Allaire},
+  year = {2022},
+  note = {R package version 0.12},
+  url = {https://github.com/rstudio/tufte},
+}
+
+@Manual{R-WJSmisc,
+  title = {WJSmisc: Miscellaneous functions from W. Joel Schneider},
+  author = {W. Joel Schneider},
+  year = {2021},
+  note = {R package version 0.3},
+  url = {https://github.com/wjschne/WJSmisc},
+}
+
+@Book{ggplot22016,
+  author = {Hadley Wickham},
+  title = {ggplo
