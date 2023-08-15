@@ -53,9 +53,10 @@ p.affiliation, p.date {
   margin: 0px 0px 0px 0px;}
 
 
-h1, h2 {
+h1, h2, .h1, .h2 {
   line-height:normal;
   font-family: 'equity_caps_a_tab', Constantia,'Palatino Linotype',Palatino,serif;
+  font-weight: 400;
   }
 
 h3, h4 {

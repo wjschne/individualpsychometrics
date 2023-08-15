@@ -1,6 +1,4 @@
----
-title: "Descriptive Statistics"
----
+# Descriptives
 
 ```{r loadpacksdist4, include = F, cache=FALSE}
 source("loader.R")
@@ -123,7 +121,6 @@ d %>%
 #| fig-height: 7
 #| fig-cap: "Frequency Distribution Bar Plot"
 #| out-width: "350"
-#| classes: moveup300
 # Make frequency data
 d_freq <- d %>% 
   rename(Anger = anger) %>% 
@@ -579,7 +576,6 @@ The expected value of a random variable is a weighted mean. A mean of what? Ever
 #| fig-width: 4
 #| out-width: "350"
 #| warning: false
-#| classes: moveup400
 
 tibble(x = factor(c(2,4,8), levels = 1:8),
        p = c(0.3, 0.2, 0.5)) %>% 

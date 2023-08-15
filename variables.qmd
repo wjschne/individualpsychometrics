@@ -153,7 +153,6 @@ Like educational attainment, many psychological traits are more differentiated a
 ```{r fig-differentiation, opts.label="marginfigure"}
 #| fig-cap: "Anxiety is more differentiated at higher levels of distress"
 #| fig-width: 6.72
-#| classes: moveup300
 # Anxiety is more differentiated at higher levels of distress
 bind_rows(
   tibble(label = "Paranoia",
@@ -221,7 +220,6 @@ It is not always easy to distinguish between an interval scale and an ordinal sc
 #| fig-cap: "Subjective units of distress may not be of equal length"
 #| fig-height: 6
 #| out-height: "600"
-#| classes: moveup200
 knitr::include_graphics("images/SUDS.svg")
 
 ```

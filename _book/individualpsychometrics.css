@@ -1,9 +1,10 @@
 body {
-  font-family: 'equity_text_a', 'Times', 'Times New Roman', Palatino, 'Palatino Linotype', serif;
   background-color: white;
   font-feature-settings: 'ss02', 'ss01';
   font-variant-numeric: tabular-nums;
 }
+.quarto-title-banner .quarto-title .title {color:#eee; font-size: 36.3pt}
+.quarto-title-banner .quarto-title .subtitle {color:#eee; font-size: 27pt}
 
 sub { font-variant-position: sub; }
 sup { font-variant-position: super;

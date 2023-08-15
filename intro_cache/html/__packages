@@ -1,5 +1,4 @@
 extrafont
-tufte
 knitr
 sn
 fMultivar
@@ -14,11 +13,11 @@ purrr
 dplyr
 stringr
 forcats
+lubridate
 gganimate
 ggforce
 sjmisc
 WJSmisc
-tippy
 tikzDevice
 patchwork
 qualvar
@@ -32,3 +31,6 @@ scales
 psycheval
 bezier
 DescTools
+ggh4x
+ggthemes
+rsvg

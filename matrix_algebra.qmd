@@ -1,0 +1,503 @@
+# Matrix Algebra in R
+
+```{r}
+#| label: loadermatrix
+#| include: false
+#| cache: false
+source("loader.R")
+```
+
+
+[**Matrix algebra** refers to performing arithmetic operations and algebraic manipulations on numbers arranged in rectangular arrays.]{.defword .column-margin} [Matrix algebra]{.defword} sounds intimidating. If I could start somewhere else, I would, but psychometrics is too painful without matrix notation. Spending time to become familiar with matrix algebra makes a lot of otherwise difficult things easy. [For now, we will focus solely on numeric data, setting aside the possibility of creating vectors and matrices with non-numeric data such as logical (Boolean) values, nominal data, ordinal values, dates, or complex structures such as lists.]{.column-margin}
+
+
+
+
+Despite appearances, matrix algebra is not so hard. In my opinion, learning regular algebra is the hard part. If you made it through high school with a strong understanding of algebra, you will see that matrix algebra is mostly an extension of what you already know. Give it a try and see what happens. If learning matrix algebra  seems hard, firming up your foundational knowledge of regular algebra may be a better place to start.
+
+Algebra uses symbols in formulas to represent numbers. You are probability familiar with using algebraic methods to solve for unknown values in equations. For example, in the equation below, there is only one possible value of $x$ that makes the equation true:
+
+$$
+\begin{aligned}
+x-1&=0\\
+x-1+1&=0+1\\
+x&=1\\
+\end{aligned}
+$$
+
+Matrix algebra allows us to use one symbol to represent more than one number at a time. So, instead of using one symbol to represent one number (e.g., $x=4$), a single symbol can represent a sequence of numbers:
+$$\mathbf{x}=\left(3,1,5,9\right)$$
+
+Or just one symbol can represent a rectangular array of numbers:
+
+$$
+\mathbf{A}=\begin{bmatrix}
+5&7&9&2\\
+7&0&1&4\\
+3&2&8&0
+\end{bmatrix}
+$$
+
+
+In this way, we can perform the same operations (e.g., addition, multiplication, exponentiation) on many numbers at once (e.g., creating statistical models from many rows of data). The notation of matrix algebra often makes what would otherwise be large, messy, complex statistical formulas look simple, tidy, and compact.
+
+
+
+In matrix algebra, we can arrange numbers as scalars (single values), vectors (sequences of values), and matrices (values in rectangular arrays).
+
+## Scalars
+
+[Scalars]{.defword}[A **scalar** is a single value.]{.defword .column-margin} are single numeric values. They are the [elements]{.defword}[A vector's **elements** are the individual numbers in a vector or matrix.]{.defword .column-margin} of vectors and matrices. Usually a scalar is represented as an italicized lowercase letter:
+
+$$
+x=9
+$$
+
+### Scalars in R
+
+Technically, there are no scalars in R. Pretty much everything in R is a vector of one kind of another. This feature of R makes a lot of things nice and easy for data analysis, though it slows down certain kinds of computations. However, a vector with just one element in it is often treated like a scalar. If you want to make a "scalar" in R, you assign a value to a variable name like so:
+
+
+```{r scalarassignment}
+#| echo: true
+x <- 1
+```
+
+:::{.column-margin}
+
+In most situations, the `=` sign also functions as an assignment operator. It is easier to type than `<-`, so feel free to use it. 
+
+```{r scalarassignmentequal}
+#| echo: true
+x = 1
+```
+
+I put spaces around most operator symbols (e.g., `+`, `-`, `*`, `/`, `^`, `=`) because it makes complex code easier to read. However, the spaces are optional, and you can use a more compact style if you wish:
+
+```{r scalarassignmencompact}
+#| echo: true
+x=1
+```
+
+:::
+
+The `<-` is called the *assignment operator*.  Instead of typing both characters, I use the {{< kbd Alt+- >}} keyboard shortcut (i.e., press {{< kbd Alt >}} and `-` at the same time time), which puts spaces around the assignment operator.
+
+
+::: {.callout-note title="You Try"}
+
+Create a variable `x` by assigning it a value of 5.
+
+```{r solution-assignment, solution = TRUE}
+x <- 5
+
+# If you prefer, the = assignment operator also works:
+x = 5
+
+# To display the value of x, just run it on its own line like so:
+x
+
+```
+
+:::
+
+## Vectors
+
+```{r}
+#| label: xy
+x_plot <- 4
+y_plot <- 3
+
+```
+
+[Vectors]{.defword}[A **vector** is an ordered sequence of values]{.defword .column-margin} are sequences of numbers. The notation for vectors is not always applied consistently, but typically vectors are bolded lowercase letters and the elements are listed in parentheses and separated by commas. A vector $\mathbf{x}$ with elements 3 and 4 would be notated like so:
+
+$$
+\mathbf{x}=\left(3,4\right)
+$$
+
+
+The [vector length]{.defword}[A vector's **length** is the number of elements the vector contains.]{.defword .column-margin} refers to how many elements it has, not its magnitude. So a 2-element vector like $\{x_1,x_2\}$ has a length of 2.
+
+A sequence of indeterminate length $n$, would be notated like so
+
+$$
+\mathbf{x}=\left(x_1,x_2,\ldots,x_n\right)
+$$
+
+
+
+Vectors in R are created many ways, but the most common way to join vector elements is with the `c` function (i.e. "concatenate" or link together in a chain).
+
+```{r vector}
+#| echo: true
+x <- c(3, 5)
+```
+
+::: {.callout-note title="You Try"}
+
+Create a vector `x` with values 2 and 6.
+
+```{r solution-vector, solution = TRUE}
+x <- c(2, 6)
+x
+```
+
+:::
+
+```{r, opts.label="marginfigure"}
+#| label: fig-vector
+#| fig-cap: !expr paste0("A vector of (",x_plot,",",y_plot,") moves ",x_plot," units to the right and ",y_plot," units up from the origin.")
+#| fig-height: 6
+#| fig-width: 6
+#| cache: true
+
+tibble(x = c(0, x_plot), y = c(0, y_plot)) |>
+  ggplot(aes(x, y)) +
+  geom_line(
+    arrow = arrow(
+      angle = 15,
+      type = "closed",
+      length = unit(5, "mm")
+    ),
+    linewidth = 1,
+    linemitre = 2,
+    linejoin = "mitre",
+    color = myfills[1]
+  ) +
+  theme_classic(
+    base_family = bfont,
+    base_size = 20,
+    base_line_size = .5
+  ) +
+  theme(
+    axis.text = element_text(color = "gray40"),
+    axis.line = element_line(
+      linewidth = .5,
+      color = "gray",
+      arrow = arrow(
+        15,
+        type = "closed",
+        ends = "both",
+        length = unit(5, "mm")
+      )
+    ),
+    axis.ticks = element_line(color = "gray"),
+    axis.title.x = element_text(
+      angle = 0,
+      vjust = .5,
+      face = "italic",
+      color = "gray40"
+    ),
+    axis.title.y = element_text(
+      angle = 0,
+      vjust = .5,
+      face = "italic",
+      color = "gray40"
+    )
+  ) +
+  scale_x_continuous(name = "y", 
+                     breaks = c(-5:-1, 1:5), 
+                     labels = WJSmisc::signs_centered) +
+  scale_y_continuous(name = "x", 
+                     breaks = c(-5:-1, 1:5), 
+                     labels = signs) +
+  ggh4x::coord_axes_inside(
+    xlim = c(-5, 5),
+    ylim = c(-5, 5),
+    labels_inside = T,
+    ratio = 1
+  ) +
+  annotate(
+    "richtext",
+    x_plot,
+    y_plot,
+    label = paste0("**v** = (", 
+                   x_plot, 
+                   ", ", 
+                   y_plot, 
+                   ")"),
+    label.color = NA,
+    vjust = -.2,
+    hjust = 0.5,
+    fill = NA,
+    size = WJSmisc::ggtext_size(18),
+    label.r = unit(5, "mm"),
+    color = myfills[1]
+  ) +
+  annotate(
+    "richtext",
+    x_plot / 2,
+    y_plot / 2,
+    label = paste0("Magnitude of **v**: \u2016**v**\u2016 = ", 
+                   round(sqrt(x_plot ^ 2 + y_plot ^ 2),2)),
+    label.color = NA,
+    angle = atan2(y_plot,x_plot) * 180 / pi,
+    vjust = 0,
+    hjust = 0.5,
+    fill = NA,
+    size = WJSmisc::ggtext_size(18),
+    label.r = unit(5, "mm"),
+    color = myfills[1]
+  )
+
+```
+
+A vector with two scalar elements can be thought of as an arrow in a coordinate plane, as in @fig-vector. The vector $\left(`r x_plot`, `r y_plot`\right)$ is an arrow that displaces any point it is added to by `r x_plot` units to the right and `r y_plot` units up. 
+
+```{r vectorCode}
+#| button_r: true
+#| figlabel: fig-vector
+<<fig-vector>>
+```
+
+### Vector Addition 
+
+To add two vectors, add each element at the same position:
+
+$$
+\begin{aligned}
+\mathbf{x}&= \left(x_1,x_2,\ldots,x_n\right)\\
+\mathbf{y}&= \left(y_1,y_2,\ldots,y_n\right)\\
+\mathbf{x}+\mathbf{y}&= \left(x_1+y_1,x_2+y_2,\ldots,x_n+y_n\right)\\
+\end{aligned}
+$$
+
+As an example:
+
+$$
+\begin{aligned}
+\mathbf{x}&= \left(1,2\right)\\
+\mathbf{y}&= \left(3,4\right)\\
+\\
+\mathbf{x}+\mathbf{y}&= \left(1+3,2+4\right)\\
+&= \left(4,6\right)
+\end{aligned}
+$$
+
+Vector subtraction works the same way as vector addition, subtracting each element at the same position:
+
+$$
+\mathbf{x}-\mathbf{y}= \left(x_1-y_1,x_2-y_2,\ldots,x_n-y_n\right)\\
+$$
+
+Adding and subtracting two vectors is only defined when the vectors have the same number of elements. Thus, if $\mathbf{x}= \left(1,2\right)$ and $\mathbf{y}= \left(3,2,1\right)$, there is no defined way to add $\mathbf{x}$ and $\mathbf{y}$.
+
+
+In R, adding and subtracting vectors is beautifully easy. Unlike many programming language, we do not need to create looping structures to add each element pair one at a time. We just define the vectors and add them:
+
+```{r vectoraddition}
+#| echo: true
+x <- c(1, 2)
+y <- c(3, 4)
+x + y
+```
+
+```{ojs scalar-addition}
+viewof fsab = 
+Inputs.form({
+  ax: Inputs.range([-1,1], {
+    format: (x) => x,
+    value: 1, 
+    step: .01, 
+    label:html`<em>a<sub>x</sub></em>`,
+    labelStyle: "width: 50px"
+  }),
+  ay: Inputs.range([-1,1], {value: 0, step: .01, label: html`<em>a<sub>y</sub></em>`}),
+  bx: Inputs.range([-1,1], {value:0, step: .01, label: html`<em>b<sub>x</sub></em>`}),
+  by: Inputs.range([-1,1], {value: 1, step: .01, label: html`<em>b<sub>y</sub></em>`})
+  })
+ab=[{x0: 0, y0: 0, ax: fsab.ax, ay: fsab.ay, bx: fsab.bx, by: fsab.by, abx: fsab.ax + fsab.bx, aby: fsab.ay + fsab.by, theta: Math.atan2(fsab.ay + fsab.by, fsab.ax + fsab.bx), thetaa: Math.atan2(fsab.ay, fsab.ax), thetab: Math.atan2(fsab.by, fsab.bx), a: 'a', b: 'b', ab:'a + b', fill: '#ffffff', r: 200}]
+
+
+```
+
+
+
+```{ojs fig-vector-addition}
+//| label: fig-vector-addition
+//| fig-cap: "Adding vectors a and b."
+//| cache: true
+//| fig-cap-location: margin
+
+Plot.plot({height: 600, width: 600,
+x: {domain: [-2, 2], grid: true, ticks: 9},
+y: {domain: [-2, 2], grid: true, ticks: 9},
+style: {
+    fontSize: 14, fontFamily: "equity_text_a_tab"
+  },
+marks: [
+  Plot.ruleY([0]),
+  Plot.ruleX([0]),
+  Plot.arrow(ab, {x1: "x0", y1: "y0", x2: "ax", y2: "ay", stroke: "#8B1A1A", headAngle: 30, headLength: 10, fill: "#8B1A1A"}),
+  Plot.arrow(ab, {x1: "ax", y1: "ay", x2: "abx", y2: "aby", stroke: "#27408B", headAngle: 30, headLength: 10, fill: "#27408B", alpha: .5}),
+  Plot.arrow(ab, {x1: "x0", y1: "y0", x2: "abx", y2: "aby", stroke: "#51315E", headAngle: 30, headLength: 10, fill: "#51315E"}),
+  Plot.dot(ab, {x: (d) => d.ax/2, y: (d) => d.ay/2, fill: "fill", r: 7}),
+  Plot.dot(ab, {x: (d) => d.ax + d.bx/2, y: (d) => d.ay + d.by/2, fill: "fill", r: 7}),
+  Plot.dot(ab, {x: (d) => d.abx/2, y: (d) => d.aby/2, fill: "fill", r: 18}),
+  Plot.text(ab, {x: (d) => d.ax/2, y: (d) => d.ay / 2, text: 'a', rotate: (d) => Math.atan(Math.tan(d.thetaa)) * -180 / Math.PI, fill: '#8B1A1A'}),
+   Plot.text(ab, {x: (d) => d.ax + d.bx/2, y: (d) => d.ay + d.by / 2, text: 'b', rotate: (d) => Math.atan(Math.tan(d.thetab)) * -180 / Math.PI, fill: '#27408B'}),
+  Plot.text(ab, {x: (d) => d.abx/2, y: (d) => d.aby / 2, text: 'ab', rotate: (d) => Math.atan(Math.tan(d.theta)) * -180 / Math.PI, fill: '#51315E'})
+]})
+```
+
+
+
+### Scalar Multiplication of Vectors
+
+
+To multiply a scalar by a vector, multiply every element in the vector by the scalar. If *a* is a scalar,
+
+
+$$a\mathbf{x}=\left(ax_1+ax_2+\ldots+ax_n\right)$$
+
+
+They are called "scalars" because a scalar multiplied by a vector "scales" the vector by changing its magnitude.
+
+$$\left\|a\mathbf{x}\right\|=a\left\|\mathbf{x}\right\|$$
+
+You can play with scalar multiplication with the web app in @fig-scalar. Set the *x* and *y* coodinates and 
+
+```{ojs scalar-calculations}
+viewof fs = 
+Inputs.form({
+  xi: Inputs.range([-1,1], {
+    format: (x) => x,
+    value: 1, 
+    step: .01, 
+    label: md`*x* `,
+    labelStyle: "width: 50px"
+  }),
+  yi: Inputs.range([-1,1], {value: 1, step: .01, vertical: true, label: md`*y*`}),
+  a: Inputs.range([-5,5], {value: 1, step: .01, label: md`*a* `, description: 'Scalar'})
+  })
+ax = fs.xi * fs.a
+ay = fs.yi * fs.a
+theta=Math.atan2(ay,ax)
+dd=[{x: fs.xi, y: fs.yi, ax: ax, ay: ay, x0: 0, y0: 0, a: fs.a, theta: theta }]
+
+ns = Inputs.range().classList[0]
+
+html`
+<style>
+form.${ns} {--input-width: 600px; --label-width: 15px;}
+.${ns}-input>input[type=number] {flex-shrink:6;}
+</style>
+`
+```
+
+
+
+```{ojs fig-scalar}
+//| label: fig-scalar
+//| fig-cap: "Multiplying a vector by a scalar changes its magnitude."
+//| cache: true
+//| fig-cap-location: margin
+
+Plot.plot({height: 600, width: 600,
+x: {domain: [-5, 5], grid: true, ticks: 9},
+y: {domain: [-5, 5], grid: true, ticks: 9},
+style: {
+    fontSize: 14, fontFamily: "equity_text_a_tab"
+  },
+marks: [
+Plot.ruleY([0]),
+Plot.ruleX([0]),
+Plot.arrow(dd, {x1: "x0", y1: "y0", x2: "ax", y2: "ay", stroke: "#8B1A1A", headAngle: 30, headLength: 10, fill: "#8B1A1A"}),
+Plot.arrow(dd, {x1: "x0", y1: "y0", x2: "x", y2: "y", stroke: "#27408B", headAngle: 30, headLength: 10, fill: "#27408B"}),
+  Plot.text(dd, {x: (d) => d.ax + .3 * Math.cos(d.theta), y: (d) => d.ay + .3 * Math.sin(d.theta), text: (d) => '('+(d.ax).toFixed(2)+', '+(d.ay).toFixed(2)+')'})
+]})
+```
+
+
+Scalar division looks just like it does in regular algebra and can take on a variety of forms:
+
+$$
+\mathbf{x}/a=\frac{\mathbf{x}}{a}=\frac{1}{a}\mathbf{x}=a^{-1}\mathbf{x}=\mathbf{x}\div a
+$$
+
+
+
+
+
+### Vector Norms
+
+If we visualize a vector as an arrow, we can ask how long the arrow is from end to end. The [norm]{.defword}[A vector's **norm** is the Euclidean distance of the vector's *n* elements to the origin in *n*-dimensional space.]{.defword .column-margin} is the vector's magnitude. Imagine the vector's *n* elements plotted as a single point in *n*-dimensional space. The norm is the distance of the point to the origin (i.e., a vector of *n* zeroes). The distance referred to here is technically the Euclidean distance, which is a generalization of the Pythagorean Theorem to more than 2 dimensions. To calculate it, take the square root of the sum of all squared values in the vector.
+
+:::{.column-margin}
+
+Vector norms sometimes have notation that can be confused with absolute values: 
+
+$$\left|\mathbf{x}\right|$$
+
+The notational confusion is not accidental. Scalar absolute values and vector norms both refer to magnitude. However, to avoid the ambiguity between vector norms and taking the absolute value of each element, I will use the double bar notation: 
+
+$$\left\|\mathbf{x}\right\|$$
+
+I tend to be fastidious about distinguishing between *vector length* (the number of elements in a vector) and vector *norms* (the vector's magnitude) because the concepts are easily confused. Further confusion is that the norm of a vector is not the same thing as a *normal vector*, which is a vector that is perpendicular to a surface (e.g., a plane, a sphere, or any other multidimensional object) at a given point. A normal vector has nothing to do with the normal distribution.
+
+:::
+
+
+$$\left\|\mathbf{x}\right\|=\sqrt{x_1^2+x_2^2+\ldots+x_n^2}$$
+
+
+
+
+### Unit Vectors
+
+A vector norm is useful for create [unit vectors]{.defword}[A *unit vector* $\mathbf{u}$ has a norm of 1: $\left\|\mathbf{u}\right\|=1$]{.defword .column-margin}, which have the same direction as the original vector but have a norm (i.e, magnitude) of 1.
+
+So a unit vector $\mathbf{u}$ that has the same direction as vector $\mathbf{x} = \left(3,4\right)$ is:
+
+$$
+\begin{align*}
+\mathbf{u}&=\frac{\mathbf{x}}{\left\|\mathbf{x}\right\|}\\
+&=\frac{\left(3,4\right)}{\sqrt{3^2+4^2}}\\
+&=\frac{\left(3,4\right)}{5}\\
+&=\left(.6,.8\right)
+\end{align*}
+$$
+
+We can verify that $\mathbf{u}$ has a norm of 1:
+
+$$
+\begin{align*}
+\left\|\mathbf{u}\right\|&=\left\|\left(.6,.8\right)\right\|\\
+&=\sqrt{.6^2+.8^2}\\
+&=1
+\end{align*}
+$$
+
+
+
+
+
+### Vectors in R
+
+
+
+You can make sequential integer sequences with the `:` operator or make any other kind of sequence with the the `seq` function:
+
+```{r vectorseq}
+#| echo: true
+# sequence from 1 to 5
+1:5
+# Another way to make a sequence from 1 to 5
+seq(1,5)
+# or just
+seq(5)
+# from 5 to 1
+seq(5,1)
+# from 0 to 1 by .1 increments
+seq(0, 1, 0.1)
+```
+
+#### Arithmetic operations in R
+
+
+
+
+
+
+

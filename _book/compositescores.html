@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.142">
-
+<meta name="generator" content="quarto-1.3.326">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>Individual Psychometrics - 5&nbsp; Composite Scores</title>
+<title>Individual Psychometrics - 7&nbsp; Composite Scores</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,9 +14,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,48 +44,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -101,9 +70,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
-
+}</style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -112,7 +79,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./unfinished.html" rel="next">
 <link href="./descriptives.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -122,8 +89,7 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -141,11 +107,8 @@ div.csl-indent {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-<style>html{ scroll-behavior: smooth; }</style>
-
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
+}</script><style>html{ scroll-behavior: smooth; }</style>
+<script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -158,178 +121,153 @@ div.csl-indent {
     fleqn: false
    });
 }}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-
+  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 <link rel="stylesheet" href="equity.css">
 <link rel="stylesheet" href="individualpsychometrics.css">
-<meta name="citation_title" content="[5]{.chapter-number}&nbsp; [Composite Scores]{.chapter-title}">
-<meta name="citation_author" content="W. Joel Schneider">
-<meta name="citation_publication_date" content="2023-01-22">
-<meta name="citation_cover_date" content="2023-01-22">
-<meta name="citation_year" content="2023">
-<meta name="citation_language" content="en">
-<meta name="citation_reference" content="citation_title=Rating scales, scales of measurement, issues of reliability: Resolving some critical issues for clinicians and researchers;,citation_author=Domenic Cicchetti;,citation_author=Richard Bronen;,citation_author=Susan Spencer;,citation_author=Sheryl Haut;,citation_author=Anne Berg;,citation_author=Patricia Oliver;,citation_author=Peter Tyrer;,citation_publication_date=2006;,citation_cover_date=2006;,citation_year=2006;,citation_issue=8;,citation_volume=194;,citation_journal_title=The Journal of nervous and mental disease;,citation_publisher=LWW;">
-<meta name="citation_reference" content="citation_title=Natural-born cyborgs: Minds, technologies, and the future of human intelligence;,citation_author=Andy Clark;,citation_publication_date=2004;,citation_cover_date=2004;,citation_year=2004;">
-<meta name="citation_reference" content="citation_title=Applied multiple regression/correlation analysis for the behavioral sciences;,citation_author=Jacob Cohen;,citation_author=Patricia Cohen;,citation_author=Stephen G. West;,citation_author=Leona S. Aiken;,citation_publication_date=2003;,citation_cover_date=2003;,citation_year=2003;">
-<meta name="citation_reference" content="citation_title=Introduction to classical and modern test theory;,citation_author=Linda Crocker;,citation_author=James Algina;,citation_publication_date=2006;,citation_cover_date=2006;,citation_year=2006;">
-<meta name="citation_reference" content="citation_title=Multivariate statistics: A vector space approach;,citation_author=Morris L. Eaton;,citation_publication_date=2007;,citation_cover_date=2007;,citation_year=2007;,citation_isbn=978-0-940600-69-0;,citation_language=en-US;,citation_series_title=Lecture notes-monograph series / Institute of Mathematical Statistics;">
-<meta name="citation_reference" content="citation_title=Item response theory for psychologists;,citation_author=Susan E Embretson;,citation_author=Steven P Reise;,citation_publication_date=2000;,citation_cover_date=2000;,citation_year=2000;">
-<meta name="citation_reference" content="citation_title=Psychometrics: An introduction;,citation_author=R. Furr;,citation_publication_date=2017;,citation_cover_date=2017;,citation_year=2017;,citation_isbn=978-1-5443-0494-6;">
-<meta name="citation_reference" content="citation_title=Women’s reactions to ingroup members who protest discriminatory treatment: The importance of beliefs about inequality and response appropriateness;,citation_author=Donna M Garcia;,citation_author=Michael T Schmitt;,citation_author=Nyla R Branscombe;,citation_author=Naomi Ellemers;,citation_publication_date=2010;,citation_cover_date=2010;,citation_year=2010;,citation_issue=5;,citation_volume=40;,citation_journal_title=European Journal of Social Psychology;">
-<meta name="citation_reference" content="citation_title=Better: A surgeon’s notes on performance;,citation_author=Atul Gawande;,citation_publication_date=2007;,citation_cover_date=2007;,citation_year=2007;">
-<meta name="citation_reference" content="citation_title=Clocking the mind: Mental chronometry and individual differences;,citation_author=Arthur Robert Jensen;,citation_publication_date=2006;,citation_cover_date=2006;,citation_year=2006;,citation_isbn=978-0-08-044939-5;">
-<meta name="citation_reference" content="citation_title=Quantitative aspects of psychological assessment: An introduction;,citation_author=Philip Ley;,citation_publication_date=1972;,citation_cover_date=1972;,citation_year=1972;">
-<meta name="citation_reference" content="citation_title=Item response models, Pathological science and the shape of error: Reply to Borsboom and Mellenbergh;,citation_author=Joel Michell;,citation_publication_date=2004;,citation_cover_date=2004;,citation_year=2004;,citation_issue=1;,citation_volume=14;,citation_journal_title=Theory &amp;amp;amp; Psychology;">
-<meta name="citation_reference" content="citation_title=Is psychometrics pathological science?;,citation_author=Joel Michell;,citation_publication_date=2008;,citation_cover_date=2008;,citation_year=2008;,citation_issue=1-2;,citation_volume=6;,citation_journal_title=Measurement;">
-<meta name="citation_reference" content="citation_title=Quantitative science and the definition of measurement in psychology;,citation_author=Joel Michell;,citation_publication_date=1997;,citation_cover_date=1997;,citation_year=1997;,citation_issue=3;,citation_doi=10.1111/j.2044-8295.1997.tb02641.x;,citation_volume=88;,citation_journal_title=British Journal of Psychology;">
-<meta name="citation_reference" content="citation_title=Psychometric theory;,citation_author=Jum Clarence Nunnally;,citation_publication_date=1967;,citation_cover_date=1967;,citation_year=1967;,citation_isbn=978-0-07-047562-5;,citation_language=en-US;,citation_series_title=McGraw-Hill series in psychology;">
-<meta name="citation_reference" content="citation_title=On Theories of Association;,citation_author=Karl Pearson;,citation_author=David Heron;,citation_publication_date=1913;,citation_cover_date=1913;,citation_year=1913;,citation_fulltext_html_url=http://www.jstor.org/stable/2331805;,citation_issue=1/2;,citation_doi=10.2307/2331805;,citation_issn=0006-3444;,citation_volume=9;,citation_journal_title=Biometrika;">
-<meta name="citation_reference" content="citation_title=Introduction to psychometric theory;,citation_author=Tenko Raykov;,citation_author=George A. Marcoulides;,citation_publication_date=2011;,citation_cover_date=2011;,citation_year=2011;">
-<meta name="citation_reference" content="citation_title=On the theory of scales of measurement;,citation_author=Stanley Smith Stevens;,citation_publication_date=1946;,citation_cover_date=1946;,citation_year=1946;,citation_issue=2684;,citation_doi=10.1126/science.103.2684.677;,citation_volume=103;,citation_journal_title=Science;">
-<meta name="citation_reference" content="citation_title=Introduction to linear algebra;,citation_author=Gilbert Strang;,citation_publication_date=2016;,citation_cover_date=2016;,citation_year=2016;,citation_isbn=978-0-9802327-7-6;,citation_language=en-US;">
-<meta name="citation_reference" content="citation_title=Indices of qualitative variation and political measurement;,citation_author=Allen R. Wilcox;,citation_publication_date=1973-06;,citation_cover_date=1973-06;,citation_year=1973;,citation_fulltext_html_url=https://www.jstor.org/stable/446831?origin=crossref;,citation_issue=2;,citation_doi=10.2307/446831;,citation_issn=00434078;,citation_volume=26;,citation_journal_title=The Western Political Quarterly;,citation_journal_abbrev=The Western Political Quarterly;">
-<meta name="citation_reference" content="citation_title=The trouble with IQ tests;,citation_author=Jerrold R. Zacharias;,citation_publication_date=1975;,citation_cover_date=1975;,citation_year=1975;,citation_issue=4;,citation_volume=54;,citation_journal_title=National Elementary Principal;">
-<meta name="citation_reference" content="citation_title=R: A language and environment for statistical computing;,citation_author=R Core Team;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://www.R-project.org/;">
-<meta name="citation_reference" content="citation_title=Bezier: Toolkit for bezier curves and splines;,citation_author=Aaron Olsen;,citation_publication_date=2018;,citation_cover_date=2018;,citation_year=2018;,citation_fulltext_html_url=https://CRAN.R-project.org/package=bezier;">
-<meta name="citation_reference" content="citation_title=DescTools: Tools for descriptive statistics;,citation_author=Andri Signorell;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://CRAN.R-project.org/package=DescTools;">
-<meta name="citation_reference" content="citation_title=Dplyr: A grammar of data manipulation;,citation_author=Hadley Wickham;,citation_author=Romain François;,citation_author=Lionel Henry;,citation_author=Kirill Müller;,citation_author=Davis Vaughan;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://CRAN.R-project.org/package=dplyr;">
-<meta name="citation_reference" content="citation_title=Extrafont: Tools for using fonts;,citation_author=Winston Chang;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://github.com/wch/extrafont;">
-<meta name="citation_reference" content="citation_title=fMultivar: Rmetrics - modeling of multivariate financial return distributions;,citation_author=Diethelm Wuertz;,citation_author=Tobias Setz;,citation_author=Stefan Theussl;,citation_author=Yohan Chalabi;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://www.rmetrics.org;">
-<meta name="citation_reference" content="citation_title=Forcats: Tools for working with categorical variables (factors);,citation_author=Hadley Wickham;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://CRAN.R-project.org/package=forcats;">
-<meta name="citation_reference" content="citation_title=Gganimate: A grammar of animated graphics;,citation_author=Thomas Lin Pedersen;,citation_author=David Robinson;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://CRAN.R-project.org/package=gganimate;">
-<meta name="citation_reference" content="citation_title=Ggforce: Accelerating ggplot2;,citation_author=Thomas Lin Pedersen;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://CRAN.R-project.org/package=ggforce;">
-<meta name="citation_reference" content="citation_title=Ggfx: Pixel filters for ggplot2 and grid;,citation_author=Thomas Lin Pedersen;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://CRAN.R-project.org/package=ggfx;">
-<meta name="citation_reference" content="citation_title=ggplot2: Create elegant data visualisations using the grammar of graphics;,citation_author=Hadley Wickham;,citation_author=Winston Chang;,citation_author=Lionel Henry;,citation_author=Thomas Lin Pedersen;,citation_author=Kohske Takahashi;,citation_author=Claus Wilke;,citation_author=Kara Woo;,citation_author=Hiroaki Yutani;,citation_author=Dewey Dunnington;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://CRAN.R-project.org/package=ggplot2;">
-<meta name="citation_reference" content="citation_title=Ggtext: Improved text rendering support for ggplot2;,citation_author=Claus O. Wilke;,citation_author=Brenton M. Wiernik;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://wilkelab.org/ggtext/;">
-<meta name="citation_reference" content="citation_title=IDPmisc: Utilities of institute of data analyses and process design (www.zhaw.ch/idp);,citation_author=Rene Locher;,citation_publication_date=2020;,citation_cover_date=2020;,citation_year=2020;,citation_fulltext_html_url=https://CRAN.R-project.org/package=IDPmisc;">
-<meta name="citation_reference" content="citation_title=Knitr: A general-purpose package for dynamic report generation in r;,citation_author=Yihui Xie;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://yihui.org/knitr/;">
-<meta name="citation_reference" content="citation_title=Lemon: Freshing up your ggplot2 plots;,citation_author=Stefan McKinnon Edwards;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://github.com/stefanedwards/lemon;">
-<meta name="citation_reference" content="citation_title=Modeest: Mode estimation;,citation_author=Paul Poncet;,citation_publication_date=2019;,citation_cover_date=2019;,citation_year=2019;,citation_fulltext_html_url=https://github.com/paulponcet/modeest;">
-<meta name="citation_reference" content="citation_title=Patchwork: The composer of plots;,citation_author=Thomas Lin Pedersen;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://CRAN.R-project.org/package=patchwork;">
-<meta name="citation_reference" content="citation_title=Psych: Procedures for psychological, psychometric, and personality research;,citation_author=William Revelle;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://personality-project.org/r/psych/
-https://personality-project.org/r/psych-manual.pdf;">
-<meta name="citation_reference" content="citation_title=Psycheval: A psychological evaluation toolkit;,citation_author=W. Joel Schneider;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://github.com/wjschne/psycheval;">
-<meta name="citation_reference" content="citation_title=Purrr: Functional programming tools;,citation_author=Hadley Wickham;,citation_author=Lionel Henry;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://CRAN.R-project.org/package=purrr;">
-<meta name="citation_reference" content="citation_title=Qualvar: Implements indices of qualitative variation proposed by wilcox (1973);,citation_author=Joel Gombin;,citation_publication_date=2018;,citation_cover_date=2018;,citation_year=2018;,citation_fulltext_html_url=http://joelgombin.github.io/qualvar/;">
-<meta name="citation_reference" content="citation_title=Readr: Read rectangular text data;,citation_author=Hadley Wickham;,citation_author=Jim Hester;,citation_author=Jennifer Bryan;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://CRAN.R-project.org/package=readr;">
-<meta name="citation_reference" content="citation_title=Scales: Scale functions for visualization;,citation_author=Hadley Wickham;,citation_author=Dana Seidel;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://CRAN.R-project.org/package=scales;">
-<meta name="citation_reference" content="citation_title=Signs: Insert proper minus signs;,citation_author=Benjamin E. Wolfe;,citation_publication_date=2020;,citation_cover_date=2020;,citation_year=2020;,citation_fulltext_html_url=https://benjaminwolfe.github.io/signs;">
-<meta name="citation_reference" content="citation_title=Sjmisc: Data and variable transformation functions;,citation_author=Daniel Lüdecke;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_fulltext_html_url=https://strengejacke.github.io/sjmisc/;">
-<meta name="citation_reference" content="citation_title=Sn: The skew-normal and related distributions such as the skew-t and the SUN;,citation_author=Adelchi Azzalini;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=http://azzalini.stat.unipd.it/SN/;">
-<meta name="citation_reference" content="citation_title=Stringr: Simple, consistent wrappers for common string operations;,citation_author=Hadley Wickham;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://CRAN.R-project.org/package=stringr;">
-<meta name="citation_reference" content="citation_title=Tibble: Simple data frames;,citation_author=Kirill Müller;,citation_author=Hadley Wickham;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://CRAN.R-project.org/package=tibble;">
-<meta name="citation_reference" content="citation_title=Tidyr: Tidy messy data;,citation_author=Hadley Wickham;,citation_author=Davis Vaughan;,citation_author=Maximilian Girlich;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://CRAN.R-project.org/package=tidyr;">
-<meta name="citation_reference" content="citation_title=Tidyverse: Easily install and load the tidyverse;,citation_author=Hadley Wickham;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://CRAN.R-project.org/package=tidyverse;">
-<meta name="citation_reference" content="citation_title=tikzDevice: R graphics output in LaTeX format;,citation_author=Charlie Sharpsteen;,citation_author=Cameron Bracken;,citation_publication_date=2020;,citation_cover_date=2020;,citation_year=2020;,citation_fulltext_html_url=https://github.com/daqana/tikzDevice;">
-<meta name="citation_reference" content="citation_title=Tinter: Generate a monochromatic palette;,citation_author=Sebastian Dalgarno;,citation_publication_date=2020;,citation_cover_date=2020;,citation_year=2020;,citation_fulltext_html_url=https://github.com/poissonconsulting/tinter;">
-<meta name="citation_reference" content="citation_title=Tippy: Add tooltips to r markdown documents or shiny apps;,citation_author=John Coene;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_fulltext_html_url=https://tippy.john-coene.com/;">
-<meta name="citation_reference" content="citation_title=Tufte: Tufte’s styles for r markdown documents;,citation_author=Yihui Xie;,citation_author=JJ Allaire;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://github.com/rstudio/tufte;">
-<meta name="citation_reference" content="citation_title=WJSmisc: Miscellaneous functions from w. Joel schneider;,citation_author=W. Joel Schneider;,citation_publication_date=2021;,citation_cover_date=2021;,citation_year=2021;,citation_fulltext_html_url=https://github.com/wjschne/WJSmisc;">
-<meta name="citation_reference" content="citation_title=ggplot2: Elegant graphics for data analysis;,citation_author=Hadley Wickham;,citation_publication_date=2016;,citation_cover_date=2016;,citation_year=2016;,citation_fulltext_html_url=https://ggplot2.tidyverse.org;,citation_isbn=978-3-319-24277-4;">
-<meta name="citation_reference" content="citation_title=Dynamic documents with R and knitr;,citation_author=Yihui Xie;,citation_publication_date=2015;,citation_cover_date=2015;,citation_year=2015;,citation_fulltext_html_url=https://yihui.org/knitr/;">
-<meta name="citation_reference" content="citation_title=Knitr: A comprehensive tool for reproducible research in R;,citation_author=Yihui Xie;,citation_editor=Victoria Stodden;,citation_editor=Friedrich Leisch;,citation_editor=Roger D. Peng;,citation_publication_date=2014;,citation_cover_date=2014;,citation_year=2014;,citation_inbook_title=Implementing reproducible computational research;">
-<meta name="citation_reference" content="citation_title=Sjmisc: Data and variable transformation functions.;,citation_author=Daniel Lüdecke;,citation_publication_date=2018;,citation_cover_date=2018;,citation_year=2018;,citation_issue=26;,citation_doi=10.21105/joss.00754;,citation_volume=3;,citation_journal_title=Journal of Open Source Software;">
-<meta name="citation_reference" content="citation_title=The R package sn: The skew-normal and related distributions such as the skew-t and the SUN (version 2.1.0).;,citation_author=A. Azzalini;,citation_publication_date=2022;,citation_cover_date=2022;,citation_year=2022;,citation_fulltext_html_url=https://cran.r-project.org/package=sn;">
-<meta name="citation_reference" content="citation_title=Welcome to the tidyverse;,citation_author=Hadley Wickham;,citation_author=Mara Averick;,citation_author=Jennifer Bryan;,citation_author=Winston Chang;,citation_author=Lucy D’Agostino McGowan;,citation_author=Romain François;,citation_author=Garrett Grolemund;,citation_author=Alex Hayes;,citation_author=Lionel Henry;,citation_author=Jim Hester;,citation_author=Max Kuhn;,citation_author=Thomas Lin Pedersen;,citation_author=Evan Miller;,citation_author=Stephan Milton Bache;,citation_author=Kirill Müller;,citation_author=Jeroen Ooms;,citation_author=David Robinson;,citation_author=Dana Paige Seidel;,citation_author=Vitalie Spinu;,citation_author=Kohske Takahashi;,citation_author=Davis Vaughan;,citation_author=Claus Wilke;,citation_author=Kara Woo;,citation_author=Hiroaki Yutani;,citation_publication_date=2019;,citation_cover_date=2019;,citation_year=2019;,citation_issue=43;,citation_doi=10.21105/joss.01686;,citation_volume=4;,citation_journal_title=Journal of Open Source Software;">
 </head>
-
 <body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Composite Scores</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./compositescores.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Composite Scores</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Individual Psychometrics</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Getting Started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gettingready.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Ready to Use R via RStudio</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Matrix Algebra in R</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Variables</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./descriptives.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./compositescores.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="./unfinished.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./variables.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Variables</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./distributions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Distributions</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./descriptives.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./compositescores.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Composite Scores</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
-    </div>
-    <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Page Contents</h2>
+</div>
+    <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Page Contents</h2>
    
   <ul>
-  <li><a href="#the-mean-of-the-sum-is-the-sum-of-the-means" id="toc-the-mean-of-the-sum-is-the-sum-of-the-means" class="nav-link active" data-scroll-target="#the-mean-of-the-sum-is-the-sum-of-the-means"><span class="toc-section-number">5.1</span>  The Mean of the Sum Is the Sum of the Means</a>
+<li>
+<a href="#the-mean-of-the-sum-is-the-sum-of-the-means" id="toc-the-mean-of-the-sum-is-the-sum-of-the-means" class="nav-link active" data-scroll-target="#the-mean-of-the-sum-is-the-sum-of-the-means"><span class="header-section-number">7.1</span> The Mean of the Sum Is the Sum of the Means</a>
   <ul class="collapse">
-  <li><a href="#calculating-a-sum" id="toc-calculating-a-sum" class="nav-link" data-scroll-target="#calculating-a-sum"><span class="toc-section-number">5.1.1</span>  Calculating a Sum</a></li>
-  <li><a href="#calculating-the-mean-of-a-sum" id="toc-calculating-the-mean-of-a-sum" class="nav-link" data-scroll-target="#calculating-the-mean-of-a-sum"><span class="toc-section-number">5.1.2</span>  Calculating the Mean of a Sum</a></li>
-  <li><a href="#calculating-the-mean-of-a-weighted-sum" id="toc-calculating-the-mean-of-a-weighted-sum" class="nav-link" data-scroll-target="#calculating-the-mean-of-a-weighted-sum"><span class="toc-section-number">5.1.3</span>  Calculating the Mean of a Weighted Sum</a></li>
-  </ul></li>
-  <li><a href="#the-variance-of-the-sum-is-the-sum-of-the-covariance-matrix" id="toc-the-variance-of-the-sum-is-the-sum-of-the-covariance-matrix" class="nav-link" data-scroll-target="#the-variance-of-the-sum-is-the-sum-of-the-covariance-matrix"><span class="toc-section-number">5.2</span>  The Variance of the Sum Is the Sum of the Covariance Matrix</a></li>
-  <li><a href="#calculating-the-variance-of-a-weighted-sum" id="toc-calculating-the-variance-of-a-weighted-sum" class="nav-link" data-scroll-target="#calculating-the-variance-of-a-weighted-sum"><span class="toc-section-number">5.3</span>  Calculating the Variance of a Weighted Sum</a></li>
-  <li><a href="#calculating-a-composite-score" id="toc-calculating-a-composite-score" class="nav-link" data-scroll-target="#calculating-a-composite-score"><span class="toc-section-number">5.4</span>  Calculating a Composite Score</a>
-  <ul class="collapse">
-  <li><a href="#calculating-a-weighted-composite-score" id="toc-calculating-a-weighted-composite-score" class="nav-link" data-scroll-target="#calculating-a-weighted-composite-score"><span class="toc-section-number">5.4.1</span>  Calculating a Weighted Composite Score</a></li>
-  </ul></li>
-  <li><a href="#the-reliability-coefficient-of-a-composite" id="toc-the-reliability-coefficient-of-a-composite" class="nav-link" data-scroll-target="#the-reliability-coefficient-of-a-composite"><span class="toc-section-number">5.5</span>  The Reliability Coefficient of a Composite</a></li>
-  <li><a href="#composite-scores-and-their-correlations" id="toc-composite-scores-and-their-correlations" class="nav-link" data-scroll-target="#composite-scores-and-their-correlations"><span class="toc-section-number">5.6</span>  Composite Scores and Their Correlations</a></li>
+<li><a href="#calculating-a-sum" id="toc-calculating-a-sum" class="nav-link" data-scroll-target="#calculating-a-sum"><span class="header-section-number">7.1.1</span> Calculating a Sum</a></li>
+  <li><a href="#calculating-the-mean-of-a-sum" id="toc-calculating-the-mean-of-a-sum" class="nav-link" data-scroll-target="#calculating-the-mean-of-a-sum"><span class="header-section-number">7.1.2</span> Calculating the Mean of a Sum</a></li>
+  <li><a href="#calculating-the-mean-of-a-weighted-sum" id="toc-calculating-the-mean-of-a-weighted-sum" class="nav-link" data-scroll-target="#calculating-the-mean-of-a-weighted-sum"><span class="header-section-number">7.1.3</span> Calculating the Mean of a Weighted Sum</a></li>
   </ul>
-</nav>
-</nav>
+</li>
+  <li><a href="#the-variance-of-the-sum-is-the-sum-of-the-covariance-matrix" id="toc-the-variance-of-the-sum-is-the-sum-of-the-covariance-matrix" class="nav-link" data-scroll-target="#the-variance-of-the-sum-is-the-sum-of-the-covariance-matrix"><span class="header-section-number">7.2</span> The Variance of the Sum Is the Sum of the Covariance Matrix</a></li>
+  <li><a href="#calculating-the-variance-of-a-weighted-sum" id="toc-calculating-the-variance-of-a-weighted-sum" class="nav-link" data-scroll-target="#calculating-the-variance-of-a-weighted-sum"><span class="header-section-number">7.3</span> Calculating the Variance of a Weighted Sum</a></li>
+  <li>
+<a href="#calculating-a-composite-score" id="toc-calculating-a-composite-score" class="nav-link" data-scroll-target="#calculating-a-composite-score"><span class="header-section-number">7.4</span> Calculating a Composite Score</a>
+  <ul class="collapse">
+<li><a href="#calculating-a-weighted-composite-score" id="toc-calculating-a-weighted-composite-score" class="nav-link" data-scroll-target="#calculating-a-weighted-composite-score"><span class="header-section-number">7.4.1</span> Calculating a Weighted Composite Score</a></li>
+  </ul>
+</li>
+  <li><a href="#the-reliability-coefficient-of-a-composite" id="toc-the-reliability-coefficient-of-a-composite" class="nav-link" data-scroll-target="#the-reliability-coefficient-of-a-composite"><span class="header-section-number">7.5</span> The Reliability Coefficient of a Composite</a></li>
+  <li><a href="#composite-scores-and-their-correlations" id="toc-composite-scores-and-their-correlations" class="nav-link" data-scroll-target="#composite-scores-and-their-correlations"><span class="header-section-number">7.6</span> Composite Scores and Their Correlations</a></li>
+  </ul></nav>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Composite Scores</span></h1>
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">
+<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Composite Scores</span>
+</h1>
 </div>
 
 
@@ -342,13 +280,11 @@ https://personality-project.org/r/psych-manual.pdf;">
   </div>
   
 
-</header>
-
-<div class="page-columns page-full"><p>Clinicians use <span class="defword">composite scores</span> whenever they can because they tend to be more reliable and valid than single scores. How much more reliable is a composite score than a single score? It, of course, depends. First, the reliability coefficients of all of the scores that make up the composite score matter. Second, the correlations among the components of the composite matter. The more reliable and correlated the components, the more reliable the composite.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>composite variable</strong> is the (possibly weighted) sum of two or more variables.</span></div></div>
+</header><div class="page-columns page-full"><p>Clinicians use <span class="defword">composite scores</span> whenever they can because they tend to be more reliable and valid than single scores. How much more reliable is a composite score than a single score? It, of course, depends. First, the reliability coefficients of all of the scores that make up the composite score matter. Second, the correlations among the components of the composite matter. The more reliable and correlated the components, the more reliable the composite.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>composite variable</strong> is the (possibly weighted) sum of two or more variables.</span></div></div>
 <p>As discussed previously, it is quite possible for different scores from the same test to have different reliability coefficients. Scores from the same test tend to have similar reliability coefficients, though it is quite possible for differences in reliability to be large. In a well designed test, such cases are rare. If we can assume that the test is well designed and that test score reliability coefficients are within a fairly narrow range, we can assume that the classical reliability coefficient is a good estimate of the reliability of all scores from a particular test. To the degree that such assumptions are incorrect, the following equations will be less accurate.</p>
 <div class="page-columns page-full"><p>Before we can discuss the reliability of composites, we must cover more basic statistics as they apply to composite scores. I will present this material in three ways. First, I will show the equations in standard notation. Adjacent to this, I will show the same equations in matrix notation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Then I will walk through the calculations using R.</p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;Why bother with matrices? It does seem to be an unnecessary complication at first. However, many things become clearer and simpler with matrices, which I hope to illustrate. Furthermore, R was designed to work elegantly with vectors and matrices.</p></li></div></div>
-<section id="the-mean-of-the-sum-is-the-sum-of-the-means" class="level2 page-columns page-full" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="the-mean-of-the-sum-is-the-sum-of-the-means"><span class="header-section-number">5.1</span> The Mean of the Sum Is the Sum of the Means</h2>
+<section id="the-mean-of-the-sum-is-the-sum-of-the-means" class="level2 page-columns page-full" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="the-mean-of-the-sum-is-the-sum-of-the-means">
+<span class="header-section-number">7.1</span> The Mean of the Sum Is the Sum of the Means</h2>
 <p>This section is going to make a simple idea look complicated. If you get lost, this is what I am trying to say:</p>
 <blockquote class="blockquote">
 <p>If we create a new random variable by adding a bunch of random variables together, the mean of that new variable is found by adding together the means of all the variables we started with.</p>
@@ -356,36 +292,37 @@ https://personality-project.org/r/psych-manual.pdf;">
 <p>I’m sorry for what comes next, but the work we put into it will pay off later. Okay, now let’s make that simple idea formal and hard to understand:</p>
 <p>We can start with the example of two variables: <span class="math inline">X_1</span> and <span class="math inline">X_2.</span> The sum of these variables, which we will call <span class="math inline">X_S</span>, has a mean, which is the sum of the means of <span class="math inline">X_1</span> and <span class="math inline">X_2.</span> That is, <span class="math inline">\mu_{S}=\mu_{1}+\mu_{2}.</span></p>
 <p>What if we have three variables? or four? or five? It would be tedious to illustrate each case one by one. We need a way of talking about the sum of a bunch of random variables but without worrying about how many variables there are. Here we go:</p>
-<section id="calculating-a-sum" class="level3 page-columns page-full" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="calculating-a-sum"><span class="header-section-number">5.1.1</span> Calculating a Sum</h3>
+<section id="calculating-a-sum" class="level3 page-columns page-full" data-number="7.1.1"><h3 data-number="7.1.1" class="anchored" data-anchor-id="calculating-a-sum">
+<span class="header-section-number">7.1.1</span> Calculating a Sum</h3>
 <p>Suppose <span class="math inline">k</span> is a positive integer greater than 1. So if there are <span class="math inline">k</span> random variables, the notation for the set of all them is <span class="math inline">\{X_1,...,X_k\}.</span> However, it is even more compact to use matrix notation such that <span class="math inline">\boldsymbol{X}=\{X_1,...,X_k\}.</span></p>
 <p>Now, <span class="math inline">\boldsymbol{X}</span> is a set of random variables in their entirety, without referencing any particular values those variables might generate. A set of particular values of these variables would be shown as <span class="math inline">\boldsymbol{x}</span> or <span class="math inline">\{x_1,...,x_k\}.</span> In regular notation, the sum of these particular values would be:</p>
 <p><span class="math display">x_S=\sum_{i=1}^{k}{x_i}</span></p>
 <div class="cell" data-layout-align="center" data-hash="compositescores_cache/html/sum_standard_notation_0a8b9719f280220880cb480adf6fb1a0">
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 20%">
 <col style="width: 80%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;">Symbol</th>
 <th style="text-align: left;">Meaning</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">x_S</span></td>
-<td style="text-align: left;">The sum of all <span class="math inline">k</span> scores in <span class="math inline">\{x_1,...,x_k\}</span></td>
+<td style="text-align: left;">The sum of all <span class="math inline">k</span> scores in <span class="math inline">\{x_1,...,x_k\}</span>
+</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">x_i</span></td>
-<td style="text-align: left;">A particular score generated by variable <span class="math inline">X_i</span></td>
+<td style="text-align: left;">A particular score generated by variable <span class="math inline">X_i</span>
+</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">k</span></td>
-<td style="text-align: left;">The number of variables in <span class="math inline">\{X_1,...,X_k\}</span>, <span class="math inline">(k \in \mathbb{N}_1)</span></td>
+<td style="text-align: left;">The number of variables in <span class="math inline">\{X_1,...,X_k\}</span>, <span class="math inline">(k \in \mathbb{N}_1)</span>
+</td>
 </tr>
 </tbody>
 </table>
@@ -398,25 +335,25 @@ x_S=\boldsymbol{x'1}
 <p>Where</p>
 <div class="cell" data-layout-align="center" data-hash="compositescores_cache/html/sum_matrix_notation_464b6747bcf226ad22c44852435dfad2">
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 20%">
 <col style="width: 80%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;">Symbol</th>
 <th style="text-align: left;">Meaning</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\boldsymbol{x}</span></td>
-<td style="text-align: left;">A <span class="math inline">k \times 1</span> vector of scores <span class="math inline">\{x_1,x_2,...,x_k\}</span></td>
+<td style="text-align: left;">A <span class="math inline">k \times 1</span> vector of scores <span class="math inline">\{x_1,x_2,...,x_k\}</span>
+</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\boldsymbol{1}</span></td>
-<td style="text-align: left;">A <span class="math inline">k \times 1</span> vector of ones <span class="math inline">\{1_1,1_2,...,1_k\}</span></td>
+<td style="text-align: left;">A <span class="math inline">k \times 1</span> vector of ones <span class="math inline">\{1_1,1_2,...,1_k\}</span>
+</td>
 </tr>
 </tbody>
 </table>
@@ -489,82 +426,82 @@ x_S=\boldsymbol{x'1}
 </span></p>
 <p>Let’s do some calculations in R with a particular example. Suppose that there are three variables: <span class="math inline">\boldsymbol{X}=\{X_1, X_2, X_3\}.</span> In R, we will create a vector of the names of variables in <span class="math inline">\boldsymbol{X}</span>:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/MakeXNames_8abb57927aec3449c70165247ed78976">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Xnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"X1"</span>,<span class="st">"X2"</span>,<span class="st">"X3"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes:</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Xnames is a vector of variable names</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The c function combines numbers (or other objects) into a vector.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Xnames</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"X1"</span>,<span class="st">"X2"</span>,<span class="st">"X3"</span><span class="op">)</span></span>
+<span><span class="co"># Notes:</span></span>
+<span><span class="co"># Xnames is a vector of variable names</span></span>
+<span><span class="co"># The c function combines numbers (or other objects) into a vector.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now suppose that there are three particular scores: <span class="math inline">\boldsymbol{x}=\{100,120,118\}</span></p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/MakeX_c004fd2e391698ecf90b3ed4ef9776a1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x = vector of particular scores from variables X1, X2, X3</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">110</span>,<span class="dv">120</span>,<span class="dv">118</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying Xnames to x (to make output easier to read)</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> Xnames </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes: </span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The `names` function returns or sets the names of vector elements.</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># We can set names and values in a single line like so:</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">X1 =</span> <span class="dv">110</span>, <span class="at">X2 =</span> <span class="dv">120</span>, <span class="at">X3 =</span> <span class="dv">118</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># x = vector of particular scores from variables X1, X2, X3</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">110</span>,<span class="fl">120</span>,<span class="fl">118</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Applying Xnames to x (to make output easier to read)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">Xnames</span> </span>
+<span></span>
+<span><span class="co"># Notes: </span></span>
+<span><span class="co"># The `names` function returns or sets the names of vector elements.</span></span>
+<span><span class="co"># We can set names and values in a single line like so:</span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>X1 <span class="op">=</span> <span class="fl">110</span>, X2 <span class="op">=</span> <span class="fl">120</span>, X3 <span class="op">=</span> <span class="fl">118</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The sum of these three scores can be calculated in a variety of ways. Here is the easiest:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/SumX_e61176db89fd049e69ed9138490e0603">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x_S = The sum of scores x1, x2, and x3</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x_S <span class="ot">&lt;-</span> <span class="fu">sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># x_S = The sum of scores x1, x2, and x3</span></span>
+<span><span class="va">x_S</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>However, if we want to be matrix algebra masochists (and, apparently, at least one of us does!), we could do this:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/SumXmatrix_4728ee7a1fd1f6c277e20a90c207ca38">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A vector of ones the same length as x</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ones <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>,<span class="fu">length</span>(x))</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes: </span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The rep function creates vectors of repeated elements. </span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, rep(5,3) is the same as c(5,5,5).</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The length function returns the number of elements in a vector. </span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, length(c(3,3)) returns `2`.</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating x_S with matrix algebra</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>x_S <span class="ot">&lt;-</span> <span class="fu">t</span>(x) <span class="sc">%*%</span> ones</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes: </span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># The t function transposes a vector or matrix.</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># The operator %*% multiplies compatible matrices.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># A vector of ones the same length as x</span></span>
+<span><span class="va">ones</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Notes: </span></span>
+<span><span class="co"># The rep function creates vectors of repeated elements. </span></span>
+<span><span class="co"># For example, rep(5,3) is the same as c(5,5,5).</span></span>
+<span><span class="co"># </span></span>
+<span><span class="co"># The length function returns the number of elements in a vector. </span></span>
+<span><span class="co"># For example, length(c(3,3)) returns `2`.</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Calculating x_S with matrix algebra</span></span>
+<span><span class="va">x_S</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">ones</span></span>
+<span></span>
+<span><span class="co"># Notes: </span></span>
+<span><span class="co"># The t function transposes a vector or matrix.</span></span>
+<span><span class="co"># The operator %*% multiplies compatible matrices.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Either way that we calculate it, <span class="math inline">x_S = 348.</span></p>
-</section>
-<section id="calculating-the-mean-of-a-sum" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="calculating-the-mean-of-a-sum"><span class="header-section-number">5.1.2</span> Calculating the Mean of a Sum</h3>
+</section><section id="calculating-the-mean-of-a-sum" class="level3" data-number="7.1.2"><h3 data-number="7.1.2" class="anchored" data-anchor-id="calculating-the-mean-of-a-sum">
+<span class="header-section-number">7.1.2</span> Calculating the Mean of a Sum</h3>
 <p>The mean of <span class="math inline">X_S</span> is:</p>
 <p><span class="math display">
 \mu_{S}=\sum_{i=1}^{k}{\mu_i}=\boldsymbol{\mu'1}
 </span></p>
 <div class="cell" data-layout-align="center" data-hash="compositescores_cache/html/composite_sum_f5b342ce549b33b13b8ebe7da99cdfa3">
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 21%">
 <col style="width: 78%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;">Symbol</th>
 <th style="text-align: left;">Meaning</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\mu_S</span></td>
-<td style="text-align: left;">The mean of <span class="math inline">X_S</span></td>
+<td style="text-align: left;">The mean of <span class="math inline">X_S</span>
+</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\mu_i</span></td>
-<td style="text-align: left;">The mean of <span class="math inline">X_i</span></td>
+<td style="text-align: left;">The mean of <span class="math inline">X_i</span>
+</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\boldsymbol{\mu}</span></td>
-<td style="text-align: left;">A <span class="math inline">k \times 1</span> vector of means of the variables in <span class="math inline">\boldsymbol{X}</span></td>
+<td style="text-align: left;">A <span class="math inline">k \times 1</span> vector of means of the variables in <span class="math inline">\boldsymbol{X}</span>
+</td>
 </tr>
 </tbody>
 </table>
@@ -572,22 +509,21 @@ x_S=\boldsymbol{x'1}
 </div>
 <p>Suppose that the means of <span class="math inline">X_1</span>, <span class="math inline">X_2</span>, and <span class="math inline">X_3</span> are all 100.</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/MakeMeans_dfdc563b1c68a3044a8f0c566a8f5d99">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># m = vector of means of X</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># m = vector of means of X</span></span>
+<span><span class="va">m</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">100</span>,<span class="fl">100</span>,<span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Again, the mean of <span class="math inline">X_S</span> <span class="math inline">(\mu_S)</span> can be calculated in two ways:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/MeanC_74133a954f0fd9a6ff74bf2ea869fa27">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># m_S = The mean of S</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The easy way</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>m_S <span class="ot">&lt;-</span> <span class="fu">sum</span>(m)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># With matrix algebra</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>m_S <span class="ot">&lt;-</span> <span class="fu">t</span>(m) <span class="sc">%*%</span> ones</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># m_S = The mean of S</span></span>
+<span><span class="co"># The easy way</span></span>
+<span><span class="va">m_S</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># With matrix algebra</span></span>
+<span><span class="va">m_S</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">ones</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Running this code, we can see that <span class="math inline">\mu_S = 300.</span></p>
-</section>
-<section id="calculating-the-mean-of-a-weighted-sum" class="level3 page-columns page-full" data-number="5.1.3">
-<h3 data-number="5.1.3" class="anchored" data-anchor-id="calculating-the-mean-of-a-weighted-sum"><span class="header-section-number">5.1.3</span> Calculating the Mean of a Weighted Sum</h3>
+</section><section id="calculating-the-mean-of-a-weighted-sum" class="level3 page-columns page-full" data-number="7.1.3"><h3 data-number="7.1.3" class="anchored" data-anchor-id="calculating-the-mean-of-a-weighted-sum">
+<span class="header-section-number">7.1.3</span> Calculating the Mean of a Weighted Sum</h3>
 <p>The mean of a weighted sum is the weighted sum of the means. That is, if</p>
 <p><span class="math display">\begin{equation}
 x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
@@ -602,27 +538,25 @@ x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
 <p>Note that the calculation of <span class="math inline">X_S</span> and <span class="math inline">\mu_S</span> with matrix algebra is the same as it was with an equally weighted sum except that instead of post-multiplying by a vector of ones <span class="math inline">(\boldsymbol{x^\prime 1})</span>, we post-multiply by a vector of weights <span class="math inline">(\boldsymbol{x^\prime w}).</span> In truth, an equally weighted sum is a special case of a weighted sum in which <span class="math inline">\boldsymbol{w}</span> consists entirely of ones.</p>
 </div></div><p>Suppose that <span class="math inline">\boldsymbol{w} = \{0.5,1,2\}.</span> That is, the weight for <span class="math inline">X_1</span> is 0.5, the weight for <span class="math inline">X_2</span> is 1, and the weight for <span class="math inline">X_3</span> is 2. We will continue to use the same values for <span class="math inline">\boldsymbol{x}</span> and <span class="math inline">\boldsymbol{\mu}</span> as before:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/WeightedSum_3a552cc28e6a3301691885253cb29057">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># w = The vector of weight for variables X1, X2, and X3</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>w <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The easy way</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>x_S_weighted <span class="ot">&lt;-</span> <span class="fu">sum</span>(x <span class="sc">*</span> w)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>m_S_weighted <span class="ot">&lt;-</span> <span class="fu">sum</span>(m <span class="sc">*</span> w)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes:</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># The multiplication operator * multiplies analogous elements </span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># of vectors  and matrices. In the example, `x * w` is </span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># c(110 * 0.5, 120 * 1, 118 * 2)</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># With matrix algebra</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>x_S_weighted <span class="ot">&lt;-</span> <span class="fu">t</span>(x) <span class="sc">%*%</span> w</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>m_S_weighted <span class="ot">&lt;-</span> <span class="fu">t</span>(m) <span class="sc">%*%</span> w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># w = The vector of weight for variables X1, X2, and X3</span></span>
+<span><span class="va">w</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># The easy way</span></span>
+<span><span class="va">x_S_weighted</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">x</span> <span class="op">*</span> <span class="va">w</span><span class="op">)</span></span>
+<span><span class="va">m_S_weighted</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">m</span> <span class="op">*</span> <span class="va">w</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Notes:</span></span>
+<span><span class="co"># The multiplication operator * multiplies analogous elements </span></span>
+<span><span class="co"># of vectors  and matrices. In the example, `x * w` is </span></span>
+<span><span class="co"># c(110 * 0.5, 120 * 1, 118 * 2)</span></span>
+<span></span>
+<span><span class="co"># With matrix algebra</span></span>
+<span><span class="va">x_S_weighted</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">w</span></span>
+<span><span class="va">m_S_weighted</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">m</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">w</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Running the code shows that <span class="math inline">x_S = 411</span> and that <span class="math inline">\mu_S = 350.</span></p>
-</section>
-</section>
-<section id="the-variance-of-the-sum-is-the-sum-of-the-covariance-matrix" class="level2 page-columns page-full" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="the-variance-of-the-sum-is-the-sum-of-the-covariance-matrix"><span class="header-section-number">5.2</span> The Variance of the Sum Is the Sum of the Covariance Matrix</h2>
+</section></section><section id="the-variance-of-the-sum-is-the-sum-of-the-covariance-matrix" class="level2 page-columns page-full" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="the-variance-of-the-sum-is-the-sum-of-the-covariance-matrix">
+<span class="header-section-number">7.2</span> The Variance of the Sum Is the Sum of the Covariance Matrix</h2>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>Unfortunately, the notation for a covariance matrix is a bold capital sigma <span class="math inline">\boldsymbol{\Sigma}</span>, which is easily confused with the summation symbol, which is generally larger and not bold: <span class="math inline">\sum.</span></p>
@@ -633,29 +567,30 @@ x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
 </span></p>
 <div class="cell" data-layout-align="center" data-hash="compositescores_cache/html/covariance_sum_532cc609a34db259ff331723dc2f12cf">
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 22%">
 <col style="width: 77%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;">Symbol</th>
 <th style="text-align: left;">Meaning</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\sigma_{X_S}^2</span></td>
-<td style="text-align: left;">The variance of <span class="math inline">X_S</span></td>
+<td style="text-align: left;">The variance of <span class="math inline">X_S</span>
+</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\sigma_{ij}</span></td>
-<td style="text-align: left;">The covariance between <span class="math inline">X_i</span> and <span class="math inline">X_j</span> <span class="math inline">(\sigma_{ij}=\sigma_i^2</span> if <span class="math inline">i=j)</span></td>
+<td style="text-align: left;">The covariance between <span class="math inline">X_i</span> and <span class="math inline">X_j</span> <span class="math inline">(\sigma_{ij}=\sigma_i^2</span> if <span class="math inline">i=j)</span>
+</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\boldsymbol{\Sigma}</span></td>
-<td style="text-align: left;">The <span class="math inline">k \times k</span> covariance matrix of all the variables in <span class="math inline">\boldsymbol{X}</span></td>
+<td style="text-align: left;">The <span class="math inline">k \times k</span> covariance matrix of all the variables in <span class="math inline">\boldsymbol{X}</span>
+</td>
 </tr>
 </tbody>
 </table>
@@ -674,15 +609,15 @@ x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
 </span></p>
 <p>To create this matrix in R:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/DisplayR_024a2e9ce46b88d5694bf3e39c2a62b7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R = correlation matrix of variables in X</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>, </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">0.7</span>,  </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.6</span>, <span class="fl">0.7</span>, <span class="dv">1</span>),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">nrow =</span> <span class="dv">3</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ncol =</span> <span class="dv">3</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># R = correlation matrix of variables in X</span></span>
+<span><span class="va">R</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>, </span>
+<span>              <span class="fl">0.5</span>, <span class="fl">1</span>, <span class="fl">0.7</span>,  </span>
+<span>              <span class="fl">0.6</span>, <span class="fl">0.7</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>    nrow <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>    ncol <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>    byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3]
 [1,]  1.0  0.5  0.6
@@ -696,29 +631,31 @@ x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
 </span></p>
 <div class="cell" data-layout-align="center" data-hash="compositescores_cache/html/cov2cortable_75d5b155a0807725d85bbd33e44c3379">
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
 <th style="text-align: left;">Symbol</th>
 <th style="text-align: left;">Meaning</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\sigma_{ij}</span></td>
-<td style="text-align: left;">The covariance between <span class="math inline">X_i</span> and <span class="math inline">X_j</span></td>
+<td style="text-align: left;">The covariance between <span class="math inline">X_i</span> and <span class="math inline">X_j</span>
+</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\rho_{ij}</span></td>
-<td style="text-align: left;">The correlation between <span class="math inline">X_i</span> and <span class="math inline">X_j</span></td>
+<td style="text-align: left;">The correlation between <span class="math inline">X_i</span> and <span class="math inline">X_j</span>
+</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\sigma_{i}</span></td>
-<td style="text-align: left;">The standard deviation of variable <span class="math inline">X_i</span></td>
+<td style="text-align: left;">The standard deviation of variable <span class="math inline">X_i</span>
+</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\sigma_{j}</span></td>
-<td style="text-align: left;">The standard deviation of variable <span class="math inline">X_j</span></td>
+<td style="text-align: left;">The standard deviation of variable <span class="math inline">X_j</span>
+</td>
 </tr>
 </tbody>
 </table>
@@ -726,29 +663,29 @@ x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
 </div>
 <p>Unfortunately, computing a covariance matrix like this in a computer program is inelegant because we have to make use of looping:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/LoopingCM_4bbf2c659e03b31a282ffe4bfb03dbe3">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R = Correlation matrix of variables in X</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">0.5</span>,<span class="fl">0.6</span>,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.5</span>,<span class="dv">1</span>,<span class="fl">0.7</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.6</span>,<span class="fl">0.7</span>,<span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">3</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(R) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(R) <span class="ot">&lt;-</span> Xnames <span class="co">#Apply names</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># s = The standard deviations of variables in X</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">15</span>,<span class="dv">15</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># k = The number of variables</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">length</span>(s)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># CM = Covariance Matrix</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize k by k matrix of zeroes</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>CM <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, k, k)</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(CM) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(CM) <span class="ot">&lt;-</span> Xnames</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, k)) {</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, k)) {</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    CM[i, j] <span class="ot">=</span> s[i] <span class="sc">*</span> s[j] <span class="sc">*</span> R[i, j]</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>CM</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># R = Correlation matrix of variables in X</span></span>
+<span><span class="va">R</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0.5</span>,<span class="fl">0.6</span>,</span>
+<span>              <span class="fl">0.5</span>,<span class="fl">1</span>,<span class="fl">0.7</span>,</span>
+<span>              <span class="fl">0.6</span>,<span class="fl">0.7</span>,<span class="fl">1</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">R</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">R</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">Xnames</span> <span class="co">#Apply names</span></span>
+<span></span>
+<span><span class="co"># s = The standard deviations of variables in X</span></span>
+<span><span class="va">s</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">15</span>,<span class="fl">15</span>,<span class="fl">15</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># k = The number of variables</span></span>
+<span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># CM = Covariance Matrix</span></span>
+<span><span class="co"># Initialize k by k matrix of zeroes</span></span>
+<span><span class="va">CM</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">k</span>, <span class="va">k</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">CM</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">CM</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="va">Xnames</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">k</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">k</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">CM</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span> <span class="op">=</span> <span class="va">s</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">*</span> <span class="va">s</span><span class="op">[</span><span class="va">j</span><span class="op">]</span> <span class="op">*</span> <span class="va">R</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">CM</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      X1    X2    X3
 X1 225.0 112.5 135.0
@@ -821,29 +758,30 @@ A_{kk} =
 </span></p>
 <div class="cell" data-layout-align="center" data-hash="compositescores_cache/html/diagcovtable_853bc636ecfee86a255ad038355c446e">
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 27%">
 <col style="width: 72%">
 </colgroup>
-<thead>
-<tr class="header">
+<thead><tr class="header">
 <th style="text-align: left;">Symbol</th>
 <th style="text-align: left;">Meaning</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\boldsymbol{\Sigma}</span></td>
-<td style="text-align: left;">The covariance matrix of variables in <span class="math inline">\boldsymbol{X}</span></td>
+<td style="text-align: left;">The covariance matrix of variables in <span class="math inline">\boldsymbol{X}</span>
+</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\boldsymbol{\sigma}</span></td>
-<td style="text-align: left;">The standard deviations of variables in <span class="math inline">\boldsymbol{X}</span></td>
+<td style="text-align: left;">The standard deviations of variables in <span class="math inline">\boldsymbol{X}</span>
+</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\boldsymbol{R}</span></td>
-<td style="text-align: left;">The correlation matrix of variables in <span class="math inline">\boldsymbol{X}</span></td>
+<td style="text-align: left;">The correlation matrix of variables in <span class="math inline">\boldsymbol{X}</span>
+</td>
 </tr>
 </tbody>
 </table>
@@ -851,8 +789,8 @@ A_{kk} =
 </div>
 <p>So this is where matrix algebra starts to shine. We do not need to initialize the variable that contains the covariance matrix, or calculate <span class="math inline">k</span>, or do any looping.</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/CovarianceMatrix_6fff4494d9bca6e276a82956d57b36e7">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CM = Covariance matrix of variables in X</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>CM <span class="ot">&lt;-</span> <span class="fu">diag</span>(s) <span class="sc">%*%</span> R <span class="sc">%*%</span> <span class="fu">diag</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># CM = Covariance matrix of variables in X</span></span>
+<span><span class="va">CM</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">R</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">s</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Beautiful!</p>
 <p>Running the code, we get: <span class="math display">
@@ -867,9 +805,8 @@ A_{kk} =
 
 </div>
 <p>Here we see that <span class="math inline">\sigma_X^2=1485</span></p>
-</section>
-<section id="calculating-the-variance-of-a-weighted-sum" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="calculating-the-variance-of-a-weighted-sum"><span class="header-section-number">5.3</span> Calculating the Variance of a Weighted Sum</h2>
+</section><section id="calculating-the-variance-of-a-weighted-sum" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="calculating-the-variance-of-a-weighted-sum">
+<span class="header-section-number">7.3</span> Calculating the Variance of a Weighted Sum</h2>
 <p>If <span class="math inline">X_S</span> is a weighted sum, its variance is the weighted sum of the covariance matrix.</p>
 <p><span class="math display">
 \sigma_S^2=\sum_{i=1}^{k}{\sum_{j=1}^{k}{w_i w_j \sigma_{ij}}}=\boldsymbol{w'\Sigma w}
@@ -877,27 +814,26 @@ A_{kk} =
 </span></p>
 <p>Continuing with the same variables in our example, we see that things are starting to become clumsy and ugly without matrix algebra:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/CalculatingVariance_e95fd144e9e94408b2c2e5c477efded9">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First we initialize var_S as 0</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>var_S_weighted <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we loop through k rows and k columns of CM</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, k)) {</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, k)) {</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    var_S_weighted <span class="ot">&lt;-</span> var_S_weighted <span class="sc">+</span> w[i] <span class="sc">*</span> w[j] <span class="sc">*</span> CM[i, j]</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># First we initialize var_S as 0</span></span>
+<span><span class="va">var_S_weighted</span> <span class="op">&lt;-</span> <span class="fl">0</span></span>
+<span><span class="co"># Now we loop through k rows and k columns of CM</span></span>
+<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">k</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">k</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">var_S_weighted</span> <span class="op">&lt;-</span> <span class="va">var_S_weighted</span> <span class="op">+</span> <span class="va">w</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">*</span> <span class="va">w</span><span class="op">[</span><span class="va">j</span><span class="op">]</span> <span class="op">*</span> <span class="va">CM</span><span class="op">[</span><span class="va">i</span>, <span class="va">j</span><span class="op">]</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>With matrix algebra, this all happens with a single line of code:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/CalculatingVarianceWeightedSumMatrixAlgebra_ddb35d7033f203e022a7180befcf8a11">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>var_S_weighted <span class="ot">&lt;-</span> <span class="fu">t</span>(w) <span class="sc">%*%</span> CM <span class="sc">%*%</span> w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">var_S_weighted</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">CM</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">w</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If we don’t need to know the covariance matrix, we can skip its calculation:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/CalculatingVarianceWeightedSumMatrixAlgebraDirectly_136fc41a5225e1ecabe88fd5d5fccd52">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>var_S_weighted <span class="ot">&lt;-</span> <span class="fu">t</span>(w <span class="sc">*</span> s) <span class="sc">%*%</span> R <span class="sc">%*%</span> (w <span class="sc">*</span> s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">var_S_weighted</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">w</span> <span class="op">*</span> <span class="va">s</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">R</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="op">(</span><span class="va">w</span> <span class="op">*</span> <span class="va">s</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>All three methods give the same answer: <span class="math inline">\sigma_X^2 = 2193.75</span></p>
-</section>
-<section id="calculating-a-composite-score" class="level2 page-columns page-full" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="calculating-a-composite-score"><span class="header-section-number">5.4</span> Calculating a Composite Score</h2>
+</section><section id="calculating-a-composite-score" class="level2 page-columns page-full" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="calculating-a-composite-score">
+<span class="header-section-number">7.4</span> Calculating a Composite Score</h2>
 <p>We now have all of the information needed to make a composite score. First we will make an unweighted composite.</p>
 <p><span class="math display">\begin{equation}
 C = \frac{x_S-\mu_S}{\sigma_{X_S}}\sigma_C + \mu_C
@@ -905,33 +841,36 @@ C = \frac{x_S-\mu_S}{\sigma_{X_S}}\sigma_C + \mu_C
 \end{equation}</span></p>
 <div class="cell" data-layout-align="center" data-hash="compositescores_cache/html/unnamed-chunk-1_f96a29931f490985db77abc204279fdf">
 <div class="cell-output-display">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
 <th style="text-align: left;">Symbol</th>
 <th style="text-align: left;">Meaning</th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">C</span></td>
-<td style="text-align: left;">The composite variable <span class="math inline">C</span></td>
+<td style="text-align: left;">The composite variable <span class="math inline">C</span>
+</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">x_S</span></td>
-<td style="text-align: left;">The sum of all <span class="math inline">k</span> scores in <span class="math inline">\{x_1,...,x_k\}</span></td>
+<td style="text-align: left;">The sum of all <span class="math inline">k</span> scores in <span class="math inline">\{x_1,...,x_k\}</span>
+</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\sigma_{X_S}</span></td>
-<td style="text-align: left;">The standard deviation of <span class="math inline">X_S</span></td>
+<td style="text-align: left;">The standard deviation of <span class="math inline">X_S</span>
+</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><span class="math inline">\sigma_C</span></td>
-<td style="text-align: left;">The standard deviation of <span class="math inline">C</span></td>
+<td style="text-align: left;">The standard deviation of <span class="math inline">C</span>
+</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\mu_C</span></td>
-<td style="text-align: left;">The mean of <span class="math inline">C</span></td>
+<td style="text-align: left;">The mean of <span class="math inline">C</span>
+</td>
 </tr>
 </tbody>
 </table>
@@ -939,18 +878,18 @@ C = \frac{x_S-\mu_S}{\sigma_{X_S}}\sigma_C + \mu_C
 </div>
 <p>Continuing with our example, suppose that <span class="math inline">\mu_C=100</span> and <span class="math inline">\sigma_C=15.</span></p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/CompositeGeneral_799f762f0d9d9c7ae41c9a04f23c06ac">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># m_C = Composite mean</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>m_C <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># s_C = Composite standard deviation</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>s_C <span class="ot">&lt;-</span> <span class="dv">15</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># C = The composite score</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> ((x_S <span class="sc">-</span> m_S) <span class="sc">/</span> <span class="fu">sqrt</span>(var_S)) <span class="sc">*</span> s_C <span class="sc">+</span> m_C</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># m_C = Composite mean</span></span>
+<span><span class="va">m_C</span> <span class="op">&lt;-</span> <span class="fl">100</span></span>
+<span><span class="co"># s_C = Composite standard deviation</span></span>
+<span><span class="va">s_C</span> <span class="op">&lt;-</span> <span class="fl">15</span></span>
+<span><span class="co"># C = The composite score</span></span>
+<span><span class="va">C</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="op">(</span><span class="va">x_S</span> <span class="op">-</span> <span class="va">m_S</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">var_S</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span> <span class="va">s_C</span> <span class="op">+</span> <span class="va">m_C</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span class="math display">
 C=119
 </span></p>
-<section id="calculating-a-weighted-composite-score" class="level3 page-columns page-full" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="calculating-a-weighted-composite-score"><span class="header-section-number">5.4.1</span> Calculating a Weighted Composite Score</h3>
+<section id="calculating-a-weighted-composite-score" class="level3 page-columns page-full" data-number="7.4.1"><h3 data-number="7.4.1" class="anchored" data-anchor-id="calculating-a-weighted-composite-score">
+<span class="header-section-number">7.4.1</span> Calculating a Weighted Composite Score</h3>
 <p>In matrix notation, an unweighted composite score is calculated like so:</p>
 <p><span class="math display">
 C=\boldsymbol{\frac{1'(x-\mu_x)}{\sqrt{1'\Sigma 1}}}\sigma_C+\mu_C
@@ -970,23 +909,21 @@ C = \frac{\boldsymbol{w^\prime z}}{\sqrt{\boldsymbol{w^\prime Rw}}}\sigma_C+\mu_
 </span></p>
 </div></div><p>Continuing with our example, computing a composite score with <span class="math inline">X_1=110</span>, <span class="math inline">X_2=120</span>, and <span class="math inline">X_3=118</span>:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/CalculateWeightedComposite_b7dd113f90e56d1c6036b8839e078bbe">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># C = The composite score</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> (<span class="fu">t</span>(w) <span class="sc">%*%</span> (x <span class="sc">-</span> m) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">t</span>(w) <span class="sc">%*%</span> CM <span class="sc">%*%</span> w)) <span class="sc">*</span> <span class="dv">15</span>  <span class="sc">+</span> <span class="dv">100</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># With index scores, we round to the nearest integer</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">round</span>(C)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes:</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The round function rounds to the nearest integer by default,</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># but you can round to any number of digits you wish. For example, </span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># rounding to 2 significant digits (i.e., the hundredths place), </span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># would be round(x,2).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># C = The composite score</span></span>
+<span><span class="va">C</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="va">m</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">CM</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">w</span><span class="op">)</span><span class="op">)</span> <span class="op">*</span> <span class="fl">15</span>  <span class="op">+</span> <span class="fl">100</span></span>
+<span></span>
+<span><span class="co"># With index scores, we round to the nearest integer</span></span>
+<span><span class="va">C</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">C</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Notes:</span></span>
+<span><span class="co"># The round function rounds to the nearest integer by default,</span></span>
+<span><span class="co"># but you can round to any number of digits you wish. For example, </span></span>
+<span><span class="co"># rounding to 2 significant digits (i.e., the hundredths place), </span></span>
+<span><span class="co"># would be round(x,2).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here we see, that the weighted composite score <span class="math inline">C = 120.</span> If we had wanted an equally weighted composite score, the <code>w</code> vector would be set to equal ones. If we had done so, <span class="math inline">C</span> would have been <span class="math inline">119</span> instead of <span class="math inline">120.</span></p>
-</section>
-</section>
-<section id="the-reliability-coefficient-of-a-composite" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="the-reliability-coefficient-of-a-composite"><span class="header-section-number">5.5</span> The Reliability Coefficient of a Composite</h2>
+</section></section><section id="the-reliability-coefficient-of-a-composite" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="the-reliability-coefficient-of-a-composite">
+<span class="header-section-number">7.5</span> The Reliability Coefficient of a Composite</h2>
 <p>Calculating the reliability coefficient of a composite score is much easier than it might appear at first. Remember that reliability is the ratio of a score’s true score variance to its total variance:</p>
 <p><span class="math display">
 r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
@@ -1010,17 +947,17 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 \end{bmatrix}\boldsymbol{1}
 </span></p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/CalculateReliability_9217a8b5ab8714506d24dd3f2e92340f">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># r_XX = Reliability coefficients for X1, X2, and X3</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>r_XX <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.88</span>,<span class="fl">0.80</span>,<span class="fl">0.76</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># CM_T = Covariance matrix of true scores</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>CM_T <span class="ot">&lt;-</span> CM</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace diagonal with true score variances</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(CM_T) <span class="ot">&lt;-</span> <span class="fu">diag</span>(CM) <span class="sc">*</span> r_XX</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># r_C = Reliability coefficient of composite score</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>r_C <span class="ot">&lt;-</span> <span class="fu">sum</span>(CM_T) <span class="sc">/</span> <span class="fu">sum</span>(CM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># r_XX = Reliability coefficients for X1, X2, and X3</span></span>
+<span><span class="va">r_XX</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.88</span>,<span class="fl">0.80</span>,<span class="fl">0.76</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># CM_T = Covariance matrix of true scores</span></span>
+<span><span class="va">CM_T</span> <span class="op">&lt;-</span> <span class="va">CM</span></span>
+<span></span>
+<span><span class="co"># Replace diagonal with true score variances</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">CM_T</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">CM</span><span class="op">)</span> <span class="op">*</span> <span class="va">r_XX</span></span>
+<span></span>
+<span><span class="co"># r_C = Reliability coefficient of composite score</span></span>
+<span><span class="va">r_C</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">CM_T</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">CM</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The reliability coefficient of the unweighted composite is 0.92.</p>
 <p>For a weighted composite, the reliability is calculated by relplacing each vector of ones <span class="math inline">\boldsymbol{1}</span> with a weight vector <span class="math inline">\boldsymbol{w}</span>:</p>
@@ -1044,13 +981,12 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 \end{bmatrix}\boldsymbol{w}}
 </span></p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/weightedreliability_1877c04c8024e272cb536d34668606bf">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reliability coefficient of the weighted composite</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>r_C_w <span class="ot">&lt;-</span> <span class="fu">t</span>(w) <span class="sc">%*%</span> CM_T <span class="sc">%*%</span> w <span class="sc">/</span> <span class="fu">t</span>(w) <span class="sc">%*%</span> CM <span class="sc">%*%</span> w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Reliability coefficient of the weighted composite</span></span>
+<span><span class="va">r_C_w</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">CM_T</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">w</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">w</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">CM</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">w</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The reliability coefficient of the weighted composite is 0.88.</p>
-</section>
-<section id="composite-scores-and-their-correlations" class="level2 page-columns page-full" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="composite-scores-and-their-correlations"><span class="header-section-number">5.6</span> Composite Scores and Their Correlations</h2>
+</section><section id="composite-scores-and-their-correlations" class="level2 page-columns page-full" data-number="7.6"><h2 data-number="7.6" class="anchored" data-anchor-id="composite-scores-and-their-correlations">
+<span class="header-section-number">7.6</span> Composite Scores and Their Correlations</h2>
 <p>If the population correlations among all of the components are known, it is possible to calculate the correlations among composite scores made from these components. Such correlations can be used in many practical applications, including in prediction models and in the evaluation of difference scores.</p>
 <p>Suppose that Composite <span class="math inline">A</span> is calculated from the sum of two component tests, <span class="math inline">A_1</span> and <span class="math inline">A_2.</span> Composite <span class="math inline">B</span> is calculated from the sum of <span class="math inline">B_1</span> and <span class="math inline">B_2.</span> Suppose that the correlation matrix for the four components is:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/unnamed-chunk-2_84095fad3fbc06ed1ce3de0ad3186c23">
@@ -1066,16 +1002,16 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 \end{array}
 </span></p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/unnamed-chunk-3_228439c42062541e8712432759a3916c">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make correlation matrix R</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, .<span class="dv">30</span>, .<span class="dv">35</span>, .<span class="dv">40</span>,</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>              .<span class="dv">30</span>, <span class="dv">1</span>, .<span class="dv">42</span>, .<span class="dv">48</span>,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>              .<span class="dv">35</span>, .<span class="dv">42</span>, <span class="dv">1</span>, .<span class="dv">56</span>,</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>              .<span class="dv">40</span>, .<span class="dv">48</span>, .<span class="dv">56</span>, <span class="dv">1</span>),</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">nrow =</span> <span class="dv">4</span>,</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">ncol =</span> <span class="dv">4</span>)</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display R</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Make correlation matrix R</span></span>
+<span><span class="va">R</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">.30</span>, <span class="fl">.35</span>, <span class="fl">.40</span>,</span>
+<span>              <span class="fl">.30</span>, <span class="fl">1</span>, <span class="fl">.42</span>, <span class="fl">.48</span>,</span>
+<span>              <span class="fl">.35</span>, <span class="fl">.42</span>, <span class="fl">1</span>, <span class="fl">.56</span>,</span>
+<span>              <span class="fl">.40</span>, <span class="fl">.48</span>, <span class="fl">.56</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>            nrow <span class="op">=</span> <span class="fl">4</span>,</span>
+<span>            ncol <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Display R</span></span>
+<span><span class="va">R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2] [,3] [,4]
 [1,] 1.00 0.30 0.35 0.40
@@ -1099,16 +1035,16 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 </span></p>
 <p>Here is one way to make the weight matrix in R:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/weight matrix_9feac8c5c3831908dfb8dea4a1083b02">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a 4 by 2 matrix of 0s</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>W <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign 1s to rows 1 and 2 to column 1</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>W[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign 1s to rows 3 and 4 to column 2</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>W[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display W</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>W</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Make a 4 by 2 matrix of 0s</span></span>
+<span><span class="va">W</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">0</span>, nrow <span class="op">=</span> <span class="fl">4</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Assign 1s to rows 1 and 2 to column 1</span></span>
+<span><span class="va">W</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span>,<span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span><span class="co"># Assign 1s to rows 3 and 4 to column 2</span></span>
+<span><span class="va">W</span><span class="op">[</span><span class="fl">3</span><span class="op">:</span><span class="fl">4</span>,<span class="fl">2</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">1</span></span>
+<span></span>
+<span><span class="co"># Display W</span></span>
+<span><span class="va">W</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2]
 [1,]    1    0
@@ -1152,11 +1088,11 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 \end{aligned}
 </span></p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/unnamed-chunk-5_8fe531b2d26ccf33c6fafa827c61371e">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Covariance matrix of composites A and B</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>Sigma_AB <span class="ot">&lt;-</span> <span class="fu">t</span>(W) <span class="sc">%*%</span> R <span class="sc">%*%</span> W</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display Sigma_AB</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>Sigma_AB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Covariance matrix of composites A and B</span></span>
+<span><span class="va">Sigma_AB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">W</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">R</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">W</span></span>
+<span></span>
+<span><span class="co"># Display Sigma_AB</span></span>
+<span><span class="va">Sigma_AB</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     [,1] [,2]
 [1,] 2.60 1.65
@@ -1193,11 +1129,11 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 \end{aligned}
 </span></p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/unnamed-chunk-6_462e188bb9f637dec1f8a8259b8b261d">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard deviations</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="fu">diag</span>(Sigma_AB)<span class="sc">^</span>(<span class="fl">0.5</span>))</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display sigma</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>sigma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Standard deviations</span></span>
+<span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">Sigma_AB</span><span class="op">)</span><span class="op">^</span><span class="op">(</span><span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Display sigma</span></span>
+<span><span class="va">sigma</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         [,1]     [,2]
 [1,] 1.612452 0.000000
@@ -1243,9 +1179,9 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 <p>The <code>solve</code> function inverts a square matrix. Inverting a single number <span class="math inline">x</span> gives its reciprocal. If you multiply the inverse of a number by the nunbe itself, you get 1, the <em>identity</em> for the multiplication operator. <span class="math inline">x^{-1}x=1</span>, multiplying a matrix by its inverse creates an identity matrix (a matrix with ones on the diagonal and zeroes elsewhere):</p>
 <p><span class="math display">\boldsymbol{A^{-1}A = I}</span></p>
 </div></div><div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/compositecor_81ec2de3d4e3cc5a1eb34d944cabef59">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlations between composites A and B</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>R_AB <span class="ot">&lt;-</span> <span class="fu">solve</span>(sigma) <span class="sc">%*%</span> Sigma_AB <span class="sc">%*%</span> <span class="fu">solve</span>(sigma)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>R_AB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Correlations between composites A and B</span></span>
+<span><span class="va">R_AB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="va">sigma</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">Sigma_AB</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="va">sigma</span><span class="op">)</span></span>
+<span><span class="va">R_AB</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          [,1]      [,2]
 [1,] 1.0000000 0.5793219
@@ -1254,10 +1190,10 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 </div>
 <p>These calculations in R can be greatly simplified using the <code>cov2cor</code> function, which converts covariances to correlations:</p>
 <div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="compositescores_cache/html/unnamed-chunk-7_3cfb66f497e9fb5cf68a6e6aca01181c">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation matrix of composites A and B</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>R_AB <span class="ot">&lt;-</span> <span class="fu">cov2cor</span>(<span class="fu">t</span>(W) <span class="sc">%*%</span> R <span class="sc">%*%</span> W)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>R_AB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Correlation matrix of composites A and B</span></span>
+<span><span class="va">R_AB</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cov2cor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">W</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">R</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">W</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">R_AB</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>          [,1]      [,2]
 [1,] 1.0000000 0.5793219
@@ -1267,11 +1203,7 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 
 
 
-</section>
-
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1298,9 +1230,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1489,16 +1435,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./descriptives.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Descriptive Statistics</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descriptives</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./unfinished.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

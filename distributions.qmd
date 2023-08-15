@@ -716,7 +716,7 @@ text(0, 0.25, "$\\rho_{XY}=0.6$")
 dev.off()
 ```
 
-## Discrete Distrubitions
+# Discrete Distrubitions
 
 The sample spaces in discrete distributions are discrete sets. Thus, in the x-axis of the probability distributions, you will see isolated numbers with gaps between each number (e.g., integers). 
 
@@ -727,7 +727,7 @@ The throw of a single die is a member of a family of distributions called the [d
 This kind of discrete uniform distribution has a number of characteristics listed in @tbl-uniformfeatures. I will explain each of them in the sections that follow. As we go, I will also explain the mathematical notation. For example, $a \in \{\ldots,-1,0,1,\ldots\}$ means that $a$ is an integer because $\in$ means *is a member of* and $\{\ldots,-1,0,1,\ldots\}$ is the set of all integers.^[**Notation note**: Sometimes the set of all integers is referred to with the symbol $\mathbb{Z}.$] $x \in \{a,a+1,\ldots,b\}$ means that the each member of the sample space $x$ is a member of the set of integers that include $a$, $b$, and all the integers between $a$ and $b$. The notation for the [probability mass function](#sec:pmf) and the [cumuluative distribution function](#sec:CumDist) function will be explained later in this chapter.
 
 
-```{r tbl-uniformfeatures, echo = F, cache = T}
+```{r tbl-uniformfeatures, echo = F}
 #| tbl-cap: Features of Discrete Uniform Distributions
 #| tbl-cap-location: margin
 tibble::tribble(
@@ -1345,7 +1345,7 @@ Suppose that there are 20 questions. Even if a person has the worst memory possi
 
 We can use the binomial distribution's cumulative distribution function. However, doing so by hand is rather tedious. Using R, the answer is found with the `pbinom` function:
 
-```{r pbinom,echo=TRUE, cache=T}
+```{r pbinom,echo=TRUE}
 p <- pbinom(4,20,0.5)
 ```
 
@@ -1706,7 +1706,7 @@ tibble(
 
 ### Geometric Distributions
 
-```{r tbl-GeometricFeatures, cache=T}
+```{r tbl-GeometricFeatures}
 #| tbl-cap: Features of Geometric Distributions
 #| tbl-colwidths: [50, 50]
 tibble::tribble(
@@ -2626,39 +2626,42 @@ broom::augment(fit)
 #| tbl-cap: "Features of *t* Distributions<br>**Notation note**: $\\Gamma$ is the gamma function. $_2F_1$ is the hypergeometric function."
 #| tbl-cap-location: margin
 #| tbl-colwidths: [50,50]
+
+
+
 tribble(
   ~Feature, ~Symbol,
-  "Sample Space", r"($x \in (-\infty,\infty)$)",
+ "Sample Space", r"($x \in (-\infty,\infty)$)",
   "Degrees of Freedom", r"($\nu \in (0,\infty)$)",
   "Mean", r"($\left\{
 \begin{array}{ll}
-      0 & \nu > 1 \\
+      0 & \nu \gt  1 \\
       \text{Undefined} & \nu \le 1 \\
 \end{array} 
 \right.$)",
   "Variance", r"($\left\{
 \begin{array}{ll}
-      \frac{\nu}{\nu-2} & \nu>2 \\
-      \infty & 1<\nu \le 2\\
+      \frac{\nu}{\nu-2} & \nu\gt 2 \\
+      \infty & 1 \lt \nu \le 2\\
       \text{Undefined} & \nu \le 1 \\
 \end{array} 
 \right.$)",
   "Skewness", r"($\left\{
 \begin{array}{ll}
-      0 & \nu > 3 \\
+      0 & \nu \gt  3 \\
       \text{Undefined} & \nu \le 3 \\
 \end{array} 
 \right.$)",
   "Kurtosis", r"($\left\{
 \begin{array}{ll}
-      \frac{6}{\nu-4} & \nu>4 \\
-      \infty & 2<\nu \le 4\\
+      \frac{6}{\nu-4} & \nu \gt 4 \\
+      \infty & 2 \lt \nu \le 4\\
       \text{Undefined} & \nu \le 2 \\
 \end{array} 
 \right.$)",
   "Probability Density Function", r"($f_X(x; \nu) = \frac{\Gamma(\frac{\nu+1}{2})} {\sqrt{\nu\pi}\,\Gamma(\frac{\nu}{2})} \left(1+\frac{x^2}{\nu} \right)^{-\frac{\nu+1}{2}}$)",
   "Cumulative Distribution Function", r"($F_X(x; \nu)=\frac{1}{2} + x \Gamma \left( \frac{\nu+1}{2} \right)  \frac{\phantom{\,}_{2}F_1 \left(\frac{1}{2},\frac{\nu+1}{2};\frac{3}{2};-\frac{x^2}{\nu} \right)} {\sqrt{\pi\nu}\,\Gamma \left(\frac{\nu}{2}\right)}$)") %>% 
-  knitr::kable(escape = F) 
+  kable() 
 ```
 
 
@@ -2787,8 +2790,7 @@ The sum of $\nu$ squared standard normal variates $\left(\sum_{i=1}^\nu z_i^2\ri
 
 
 
-
-## Addititional Distritributions
+## Additional Distributions
 
 ### F Distributions
 

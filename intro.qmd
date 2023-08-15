@@ -22,8 +22,7 @@ That my emphasis is on the practical in no way implies that this book is dumbed 
 
 ```{r fig-philipleysolvents, opts.label="marginfigure"}
 #| fig-cap: "Philip Ley (1933--2015)<br>[Image Credit](https://www.sydney.edu.au/arms/archives/media/me_objects/7583)"
-#| out-width: "300"
-#| classes: moveup400
+#| out-width: "250"
 knitr::include_graphics("images/Philip_Ley2.jpg")
 ```
 

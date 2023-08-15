@@ -4,7 +4,9 @@ project:
 book:
   title: "Individual Psychometrics"
   subtitle: "An Assessment Toolkit With Applications in R"
-  date: "1/22/2023"
+  date: last-modified
+  date-format: "[Last Updated on] MMMM DD, YYYY"
+  available-date: "2020-01-01"
   sidebar:
     background: light
     style: docked
@@ -13,13 +15,21 @@ book:
       affiliation: "Temple University"
       affiliation-url: "https://education.temple.edu/about/faculty-staff/w-joel-schneider-tuh42402"
       orcid: 0000-0002-8393-5316
+  publisher: AssessingPsyche
   chapters:
     - index.qmd
-    - intro.qmd
-    - variables.qmd
-    - distributions.qmd
-    - descriptives.qmd
+    - part: "Getting Started"
+      chapters:
+        - intro.qmd
+        - gettingready.qmd
+        - matrix_algebra.qmd
+    - part: "Variables"
+      chapters: 
+        - variables.qmd
+        - distributions.qmd
+        - descriptives.qmd
     - compositescores.qmd
+    - unfinished.qmd
     - references.qmd
 bibliography: [book.bib, packages.bib]
 csl: "apa"
@@ -27,8 +37,8 @@ nocite: |
   @R-bookdown, @R-dplyr, @R-extrafont, @R-fBasics, @R-forcats, @R-fMultivar, @R-gganimate, @R-ggforce, @R-ggplot2, @R-IDPmisc, @R-knitr, @R-knitr, @R-purrr, @R-rmarkdown, @R-sjmisc, @R-sn, @R-stringr, @R-base, @R-tibble, @R-tidyr, @R-tidyverse, @R-tikzDevice, @R-tufte
 execute:
   echo: false
+  freeze: auto
   cache: true
-  freeze: true
 knitr: 
   opts_chunk: 
     echo: false
@@ -39,19 +49,20 @@ knitr:
     fig.align: center
     out-width: "100%"
     dev: "ragg_png"
-citation: 
-  type: book
-  author: W. Joel Schneider
-  issued: 2023-01-22
-google-scholar: true
+callout-icon: false
+engine: knitr
+filters:
+  - webr
 format:
   html:
     css: [equity.css, individualpsychometrics.css]
     html-math-method: katex
+    self-contained: false
     citation-location: margin
     reference-location: margin
     mainfont: equity_text_a
     code-copy: true
+    code-link: true
     smooth-scroll: true
     toc-location: left
     toc-title: "Page Contents"

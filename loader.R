@@ -1,7 +1,7 @@
 # Load packages
 library(extrafont)
 loadfonts("win", quiet = TRUE)
-library(tufte)
+# library(tufte)
 library(knitr)
 library(sn)
 library(fMultivar)
@@ -12,7 +12,7 @@ library(gganimate)
 library(ggforce)
 library(sjmisc)
 library(WJSmisc)
-library(tippy)
+# library(tippy)
 library(tikzDevice)
 library(patchwork)
 library(qualvar)
@@ -26,7 +26,9 @@ library(scales)
 library(psycheval)
 library(bezier)
 library(DescTools)
-
+library(ggh4x)
+library(ggthemes)
+library(rsvg)
 # Set options
 options(knitr.kable.digits = 2, knitr.kable.na = '')
 knitr::opts_template$set(marginfigure = list(fig.column = "margin", fig.cap.location = "top", out.width = "100%", fig.align = "left"),
@@ -185,7 +187,8 @@ knitr::opts_hooks$set(button_r = function(options) {
   if (isTRUE(options$button_r)) {
     options$button_before_r <- TRUE
     options$button_after <- TRUE
-    options$echo = TRUE; options$eval = FALSE
+    options$echo = TRUE
+    options$eval = FALSE
   }
 
   options
@@ -196,7 +199,8 @@ knitr::opts_hooks$set(button_latex = function(options) {
   if (isTRUE(options$button_latex)) {
     options$button_before_latex <- TRUE
     options$button_after <- TRUE
-    options$echo = TRUE; options$eval = FALSE
+    options$echo = TRUE
+    options$eval = FALSE
   }
 
   options
@@ -265,3 +269,21 @@ knit_hooks$set(button_after = function(before, options, envir) {
   if (!before) return('</div></div></div>')
 })
 
+
+# Solution chunk
+knitr::opts_hooks$set(solution = function(options) {
+  options$echo <- TRUE
+  options$solutionsetter <- TRUE
+  return(options)
+})
+
+knitr::knit_hooks$set(solutionsetter = function(before,options, envir) {
+  
+  if (before) {
+    
+    "\n\n<details><summary>Suggested Solution</summary>\n\n"
+  } else {
+    
+    "\n\n</details>\n\n"
+  }
+})
