@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.326">
+<meta name="generator" content="quarto-1.5.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Individual Psychometrics - References</title>
+<title>Individual Psychometrics – References</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,6 +24,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -65,7 +66,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -74,15 +81,16 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
 
 <link rel="stylesheet" href="equity.css">
-<link rel="stylesheet" href="individualpsychometrics.css">
 </head>
 
 <body class="nav-sidebar docked">
@@ -91,13 +99,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./variables.html">Variables</a></li><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -106,7 +114,7 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Individual Psychometrics</a> 
@@ -146,18 +154,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Ready to Use R via RStudio</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Matrix Algebra in R</span></span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Variables</span></a>
+            <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix Algebra in R</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -165,54 +167,83 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./scalars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Scalars</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vectors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Variables</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./descriptives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./compositescores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./unfinished.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">References</span></a>
   </div>
 </li>
+      </ul>
+  </li>
     </ul>
     </div>
     
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./variables.html">Variables</a></li><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">References</h1>
 </div>
@@ -227,13 +258,15 @@ div.csl-indent {
   </div>
   
 
+
 </header>
 
 
 
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="list">
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list">
 <div id="ref-R-sn" class="csl-entry" role="listitem">
 Azzalini, A. (2023). <em>Sn: The skew-normal and related distributions
 such as the skew-t and the SUN</em>. <a href="http://azzalini.stat.unipd.it/SN/">http://azzalini.stat.unipd.it/SN/</a>
@@ -255,29 +288,29 @@ and researchers. <em>The Journal of Nervous and Mental Disease</em>,
 </div>
 <div id="ref-clarkNaturalbornCyborgsMinds2004" class="csl-entry" role="listitem">
 Clark, A. (2004). <em>Natural-born cyborgs: <span>Minds</span>,
-technologies, and the future of human intelligence</em>. <span>Oxford
-University Press, USA</span>.
+technologies, and the future of human intelligence</em>. Oxford
+University Press, USA.
 </div>
 <div id="ref-cohenAppliedMultipleRegression2003" class="csl-entry" role="listitem">
 Cohen, J., Cohen, P., West, S. G., &amp; Aiken, L. S. (2003).
 <em>Applied multiple regression/correlation analysis for the behavioral
-sciences</em>. <span>L. Erlbaum Associates</span>.
+sciences</em>. L. Erlbaum Associates.
 </div>
 <div id="ref-crockerIntroductionClassicalModern2006" class="csl-entry" role="listitem">
 Crocker, L., &amp; Algina, J. (2006). <em>Introduction to classical and
-modern test theory</em>. <span>Cengage Learning</span>.
+modern test theory</em>. Cengage Learning.
 </div>
 <div id="ref-eatonMultivariateStatisticsVector2007" class="csl-entry" role="listitem">
-Eaton, M. L. (2007). <em>Multivariate statistics: A vector space
-approach</em>. <span>Inst. of Mathematical Statistics</span>.
+Eaton, M. L. (2007). <em>Multivariate statistics: <span>A</span> vector
+space approach</em>. Inst. of Mathematical Statistics.
 </div>
 <div id="ref-embretsonItemResponseTheory2000" class="csl-entry" role="listitem">
 Embretson, S. E., &amp; Reise, S. P. (2000). <em>Item response theory
-for psychologists</em>. <span>Lawrence Erlbaum</span>.
+for psychologists</em>. Lawrence Erlbaum.
 </div>
 <div id="ref-furrPsychometricsIntroduction2017" class="csl-entry" role="listitem">
 Furr, R. (2017). <em>Psychometrics: <span>An</span> introduction</em>
-(3rd ed.). <span>Sage</span>.
+(3rd ed.). Sage.
 </div>
 <div id="ref-garciaWomenReactionsIngroup2010" class="csl-entry" role="listitem">
 Garcia, D. M., Schmitt, M. T., Branscombe, N. R., &amp; Ellemers, N.
@@ -288,24 +321,23 @@ Psychology</em>, <em>40</em>(5), 733–745.
 </div>
 <div id="ref-gawandeBetterSurgeonNotes2007" class="csl-entry" role="listitem">
 Gawande, A. (2007). <em>Better: <span>A</span> surgeon’s notes on
-performance</em>. <span>Metropolitan Books</span>.
+performance</em>. Metropolitan Books.
 </div>
 <div id="ref-R-qualvar" class="csl-entry" role="listitem">
 Gombin, J. (2018). <em>Qualvar: Implements indices of qualitative
 variation proposed by wilcox (1973)</em>. <a href="http://joelgombin.github.io/qualvar/">http://joelgombin.github.io/qualvar/</a>
 </div>
+<div id="ref-ihakaFutureHistory1998" class="csl-entry" role="listitem">
+Ihaka, R. (1998). <em>R: <span>Past</span> and future history</em>.
+Interface 98. <a href="https://www.stat.auckland.ac.nz/~ihaka/downloads/Interface98.pdf">https://www.stat.auckland.ac.nz/~ihaka/downloads/Interface98.pdf</a>
+</div>
 <div id="ref-jensenClockingMindMental2006" class="csl-entry" role="listitem">
 Jensen, A. R. (2006). <em>Clocking the mind: <span>Mental</span>
-chronometry and individual differences</em>. <span>Elsevier Science
-Limited</span>.
+chronometry and individual differences</em>. Elsevier Science Limited.
 </div>
 <div id="ref-leyQuantitativeAspectsPsychological1972" class="csl-entry" role="listitem">
 Ley, P. (1972). <em>Quantitative aspects of psychological assessment:
-<span>An</span> introduction</em>. <span>Duckworth</span>.
-</div>
-<div id="ref-R-IDPmisc" class="csl-entry" role="listitem">
-Locher, R. (2020). <em>IDPmisc: Utilities of institute of data analyses
-and process design (www.zhaw.ch/idp)</em>. <a href="https://CRAN.R-project.org/package=IDPmisc">https://CRAN.R-project.org/package=IDPmisc</a>
+<span>An</span> introduction</em>. Duckworth.
 </div>
 <div id="ref-R-sjmisc" class="csl-entry" role="listitem">
 Lüdecke, D. (2021). <em>Sjmisc: Data and variable transformation
@@ -328,11 +360,10 @@ Michell, J. (2008). Is psychometrics pathological science?
 </div>
 <div id="ref-R-tibble" class="csl-entry" role="listitem">
 Müller, K., &amp; Wickham, H. (2023). <em>Tibble: Simple data
-frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>
+frames</em>. <a href="https://tibble.tidyverse.org/">https://tibble.tidyverse.org/</a>
 </div>
 <div id="ref-nunnallyPsychometricTheory1967" class="csl-entry" role="listitem">
-Nunnally, J. C. (1967). <em>Psychometric theory</em>.
-<span>McGraw-Hill</span>.
+Nunnally, J. C. (1967). <em>Psychometric theory</em>. McGraw-Hill.
 </div>
 <div id="ref-pearsonTheoriesAssociation1913" class="csl-entry" role="listitem">
 Pearson, K., &amp; Heron, D. (1913). On <span>Theories</span> of
@@ -340,22 +371,22 @@ Pearson, K., &amp; Heron, D. (1913). On <span>Theories</span> of
 <a href="https://doi.org/10.2307/2331805">https://doi.org/10.2307/2331805</a>
 </div>
 <div id="ref-R-ggforce" class="csl-entry" role="listitem">
-Pedersen, T. L. (2022). <em>Ggforce: Accelerating ggplot2</em>. <a href="https://CRAN.R-project.org/package=ggforce">https://CRAN.R-project.org/package=ggforce</a>
+Pedersen, T. L. (2024). <em>Ggforce: Accelerating ggplot2</em>. <a href="https://ggforce.data-imaginist.com">https://ggforce.data-imaginist.com</a>
 </div>
 <div id="ref-R-gganimate" class="csl-entry" role="listitem">
-Pedersen, T. L., &amp; Robinson, D. (2022). <em>Gganimate: A grammar of
-animated graphics</em>. <a href="https://CRAN.R-project.org/package=gganimate">https://CRAN.R-project.org/package=gganimate</a>
+Pedersen, T. L., &amp; Robinson, D. (2024). <em>Gganimate: A grammar of
+animated graphics</em>. <a href="https://gganimate.com">https://gganimate.com</a>
 </div>
 <div id="ref-R-modeest" class="csl-entry" role="listitem">
 Poncet, P. (2019). <em>Modeest: Mode estimation</em>. <a href="https://github.com/paulponcet/modeest">https://github.com/paulponcet/modeest</a>
 </div>
 <div id="ref-R-base" class="csl-entry" role="listitem">
-R Core Team. (2023). <em>R: A language and environment for statistical
+R Core Team. (2024). <em>R: A language and environment for statistical
 computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>
 </div>
 <div id="ref-raykovIntroductionPsychometricTheory2011" class="csl-entry" role="listitem">
 Raykov, T., &amp; Marcoulides, G. A. (2011). <em>Introduction to
-psychometric theory</em>. <span>Routledge</span>.
+psychometric theory</em>. Routledge.
 </div>
 <div id="ref-R-psycheval" class="csl-entry" role="listitem">
 Schneider, W. J. (2023). <em>Psycheval: A psychological evaluation
@@ -371,37 +402,37 @@ Stevens, S. S. (1946). On the theory of scales of measurement.
 </div>
 <div id="ref-strangIntroductionLinearAlgebra2016" class="csl-entry" role="listitem">
 Strang, G. (2016). <em>Introduction to linear algebra</em> (5th
-edition). <span>Cambridge press</span>.
-</div>
-<div id="ref-R-stringr" class="csl-entry" role="listitem">
-Wickham, H. (2022). <em>Stringr: Simple, consistent wrappers for common
-string operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>
+edition). Cambridge press.
 </div>
 <div id="ref-R-forcats" class="csl-entry" role="listitem">
 Wickham, H. (2023a). <em>Forcats: Tools for working with categorical
-variables (factors)</em>. <a href="https://CRAN.R-project.org/package=forcats">https://CRAN.R-project.org/package=forcats</a>
+variables (factors)</em>. <a href="https://forcats.tidyverse.org/">https://forcats.tidyverse.org/</a>
+</div>
+<div id="ref-R-stringr" class="csl-entry" role="listitem">
+Wickham, H. (2023b). <em>Stringr: Simple, consistent wrappers for common
+string operations</em>. <a href="https://stringr.tidyverse.org">https://stringr.tidyverse.org</a>
 </div>
 <div id="ref-R-tidyverse" class="csl-entry" role="listitem">
-Wickham, H. (2023b). <em>Tidyverse: Easily install and load the
-tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>
+Wickham, H. (2023c). <em>Tidyverse: Easily install and load the
+tidyverse</em>. <a href="https://tidyverse.tidyverse.org">https://tidyverse.tidyverse.org</a>
 </div>
 <div id="ref-R-ggplot2" class="csl-entry" role="listitem">
 Wickham, H., Chang, W., Henry, L., Pedersen, T. L., Takahashi, K.,
-Wilke, C., Woo, K., Yutani, H., &amp; Dunnington, D. (2023).
-<em>ggplot2: Create elegant data visualisations using the grammar of
-graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>
+Wilke, C., Woo, K., Yutani, H., Dunnington, D., &amp; van den Brand, T.
+(2024). <em>ggplot2: Create elegant data visualisations using the
+grammar of graphics</em>. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>
 </div>
 <div id="ref-R-dplyr" class="csl-entry" role="listitem">
 Wickham, H., François, R., Henry, L., Müller, K., &amp; Vaughan, D.
-(2023). <em>Dplyr: A grammar of data manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>
+(2023). <em>Dplyr: A grammar of data manipulation</em>. <a href="https://dplyr.tidyverse.org">https://dplyr.tidyverse.org</a>
 </div>
 <div id="ref-R-purrr" class="csl-entry" role="listitem">
 Wickham, H., &amp; Henry, L. (2023). <em>Purrr: Functional programming
-tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>
+tools</em>. <a href="https://purrr.tidyverse.org/">https://purrr.tidyverse.org/</a>
 </div>
 <div id="ref-R-tidyr" class="csl-entry" role="listitem">
-Wickham, H., Vaughan, D., &amp; Girlich, M. (2023). <em>Tidyr: Tidy
-messy data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>
+Wickham, H., Vaughan, D., &amp; Girlich, M. (2024). <em>Tidyr: Tidy
+messy data</em>. <a href="https://tidyr.tidyverse.org">https://tidyr.tidyverse.org</a>
 </div>
 <div id="ref-wilcoxIndicesQualitativeVariation1973" class="csl-entry" role="listitem">
 Wilcox, A. R. (1973). Indices of qualitative variation and political
@@ -410,17 +441,16 @@ measurement. <em>The Western Political Quarterly</em>, <em>26</em>(2),
 </div>
 <div id="ref-woodcockWoodcockReadingMastery1973" class="csl-entry" role="listitem">
 Woodcock, R. W. (1973). <em>Woodcock <span>Reading Mastery
-Tests</span></em>. <span>American Guidance Service</span>.
+Tests</span></em>. American Guidance Service.
 </div>
 <div id="ref-woodcockCommonScaleMeasurement1971" class="csl-entry" role="listitem">
 Woodcock, R. W., &amp; Dalh, M. N. (1971). <em>A common scale for the
 measurement of person ability and item difficulty</em> (AGS Paper No.
-10). <span>American Guidance Service</span>.
+10). American Guidance Service.
 </div>
 <div id="ref-R-fMultivar" class="csl-entry" role="listitem">
-Wuertz, D., Setz, T., Theussl, S., &amp; Chalabi, Y. (2022).
-<em>fMultivar: Rmetrics - modeling of multivariate financial return
-distributions</em>. <a href="https://www.rmetrics.org">https://www.rmetrics.org</a>
+Wuertz, D., Setz, T., &amp; Theussl, S. (2023). <em>fMultivar: Rmetrics
+- modeling of multivariate financial return distributions</em>. <a href="https://www.rmetrics.org">https://www.rmetrics.org</a>
 </div>
 <div id="ref-R-knitr" class="csl-entry" role="listitem">
 Xie, Y. (2023). <em>Knitr: A general-purpose package for dynamic report
@@ -466,18 +496,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -509,11 +528,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -523,8 +581,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -536,7 +603,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -580,6 +770,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -605,6 +796,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -666,14 +883,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./unfinished.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span>
+      <a href="./unfinished.html" class="pagination-link" aria-label="Unfinished Odds and Ends">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

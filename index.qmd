@@ -6,8 +6,9 @@ title-block-banner: true
 
 I have ambitious goals for this book, but it is not nearly complete. I have been working on it off and on since 2012. It is accompanied by the R package [psycheval](https://wjschne.github.io/psycheval/) [@R-psycheval], which is also in a preliminary state of development.
 
-```{r setup, include=FALSE, cache=FALSE}
-
+```{r setup}
+#| cache: false
+#| include: false
 source("loader.R")
 
 packages <- c(
@@ -15,26 +16,45 @@ packages <- c(
 knitr::write_bib(packages, 'packages.bib')
 ```
 
-```{r makesvg, eval=F}
-c("SUDS",
-  "DiscreteContinuous",
-  "Stevens",
-  "dichotomy",
-  "Likert",
+```{r makesvg}
+#| eval: false
+myfiles <- c(
+  "cdfDie",
+  "coin",
   "dice",
+  "dichotomy",
+  "DiscreteContinuous",
+  "halfnormal",
+  "Likert",
   "pdfIllustration",
   "pmf",
-  "cdfDie",
-  "QuantileFunction",
-  "coin",
-  "twocoin",
-  "halfnormal") %>% walk(pdf2svg)
+  "Stevens",
+  "SUDS",
+  "twocoin"
+)
+
+mytex <- paste0("tex/", myfiles, ".tex")
+mypdf <- paste0("tex/", myfiles, ".pdf")
+mysvg <- paste0("images/", myfiles, ".svg")
+
+# shell("xelatex -interaction=nonstopmode 'C:/Users/renee/Dropbox/Psychometrics/APsychometricToolkit/individualpsychometrics/tex/SUDS.tex'")
+
+# shell(paste0("xelatex -output-directory=tex '", mytex[4], "'"))
+
+walk(paste0("xelatex -output-directory=tex ", mytex), shell)
+
+walk(paste0("pdf2svg ", mypdf ," ", mysvg, ""), shell)
+
+logfiles <- list.files("tex", pattern = "*.log$|*.aux$|*.pdf$", full.names = TRUE)
+
+walk(logfiles, file.remove)
+# paste("images/", ) |> 
+#   walk(pdf2svg)
 ```
 
-Most of the figures and tables for this book were created in R or in $\LaTeX$. To make the content as accessible and transparent as possible, I have included buttons that will reveal the code used to make each figure or table. For example, the initial setup code used for this book can be seen by clicking the button below:
+Most of the figures for this book were created in R (via [ggplot2](https://ggplot2.tidyverse.org/) and [base R](https://r-graph-gallery.com/base-R.html)), $\small\LaTeX$ (via [Ti*k*Z](https://tikz.dev/)), or [Observable](https://observablehq.com/). To make the content as accessible and transparent as possible, I have included buttons that will reveal the code used to make each figure or table. For example, the initial setup code used for this book can be seen by expanding the note below:
 
-```{r setupCode}
-#| button_r: true
+```{r coder-setup}
 #| code: !expr 'readLines("loader.R")'
 ```
 

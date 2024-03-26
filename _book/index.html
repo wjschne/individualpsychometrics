@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.326">
+<meta name="generator" content="quarto-1.5.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="W. Joel Schneider">
 <title>Individual Psychometrics</title>
@@ -20,7 +20,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -56,6 +56,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -95,7 +96,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -104,8 +111,10 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
 <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
@@ -122,20 +131,44 @@ div.csl-indent {
    });
 }}});
   </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-<link rel="stylesheet" href="equity.css">
-<link rel="stylesheet" href="individualpsychometrics.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script><link rel="stylesheet" href="equity.css">
 </head>
 <body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -153,14 +186,14 @@ div.csl-indent {
       <div class="quarto-title-meta-contents">
       <p class="author">W. Joel Schneider <a href="https://orcid.org/0000-0002-8393-5316" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
     </div>
-      <div class="quarto-title-meta-contents">
+    <div class="quarto-title-meta-contents">
           <p class="affiliation">
               <a href="https://education.temple.edu/about/faculty-staff/w-joel-schneider-tuh42402">
               Temple University
               </a>
             </p>
         </div>
-      </div>
+    </div>
 
   <div class="quarto-title-meta">
 
@@ -168,7 +201,7 @@ div.csl-indent {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">Last Updated on August 15, 2023</p>
+        <p class="date">Last Updated on March 25, 2024</p>
       </div>
     </div>
     
@@ -178,7 +211,7 @@ div.csl-indent {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Individual Psychometrics</a> 
     </div>
@@ -217,18 +250,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Ready to Use R via RStudio</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Matrix Algebra in R</span></span></a>
-  </div>
-</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Variables</span></a>
+            <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix Algebra in R</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -236,41 +263,70 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./scalars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Scalars</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vectors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Variables</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./descriptives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
   </div>
 </li>
-      </ul>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./compositescores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./unfinished.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
+</li>
+      </ul>
 </li>
     </ul>
 </div>
@@ -279,25 +335,39 @@ div.csl-indent {
   <ul>
 <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
   </ul></nav>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content"><section id="preface" class="level1 unnumbered page-columns page-full"><h1 class="unnumbered">Preface</h1>
 <p>I have ambitious goals for this book, but it is not nearly complete. I have been working on it off and on since 2012. It is accompanied by the R package <a href="https://wjschne.github.io/psycheval/">psycheval</a> <span class="citation" data-cites="R-psycheval">(<a href="references.html#ref-R-psycheval" role="doc-biblioref">Schneider, 2023</a>)</span>, which is also in a preliminary state of development.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-R-psycheval" class="csl-entry" role="listitem">
 Schneider, W. J. (2023). <em>Psycheval: A psychological evaluation toolkit</em>. <a href="https://github.com/wjschne/psycheval">https://github.com/wjschne/psycheval</a>
-</div></div><div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="index_cache/html/makesvg_9f226df95af9f6c5353cd9d9f665c780">
+</div></div><div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
 
 </div>
-<p>Most of the figures and tables for this book were created in R or in <span class="math inline">\LaTeX</span>. To make the content as accessible and transparent as possible, I have included buttons that will reveal the code used to make each figure or table. For example, the initial setup code used for this book can be seen by clicking the button below:</p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-button_r="true" data-button_before_r="true" data-button_after="true" data-hash="index_cache/html/setupCode_94b32f2555e6567c6f95d50fb0c60e78">
-<div class="wrap-collapsible" style="margin-top: 1em">
-<input id="collapsible-setupCode" class="toggle" type="checkbox"><label for="collapsible-setupCode" class="lbl-toggle">R Code</label>
-<div class="collapsible-content">
-<div class="content-inner">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load packages</span></span>
+<p>Most of the figures for this book were created in R (via <a href="https://ggplot2.tidyverse.org/">ggplot2</a> and <a href="https://r-graph-gallery.com/base-R.html">base R</a>), <span class="math inline">\small\LaTeX</span> (via <a href="https://tikz.dev/">Ti<em>k</em>Z</a>), or <a href="https://observablehq.com/">Observable</a>. To make the content as accessible and transparent as possible, I have included buttons that will reveal the code used to make each figure or table. For example, the initial setup code used for this book can be seen by expanding the note below:</p>
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R Code
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Load packages</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://conflicted.r-lib.org/">conflicted</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://conflicted.r-lib.org/reference/conflicts_prefer.html">conflicts_prefer</a></span><span class="op">(</span><span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>, </span>
+<span>                 <span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>, </span>
+<span>                 <span class="fu">scales</span><span class="fu">::</span><span class="va"><a href="https://scales.r-lib.org/reference/alpha.html">alpha</a></span>, </span>
+<span>                 <span class="fu">dplyr</span><span class="fu">::</span><span class="va"><a href="https://dplyr.tidyverse.org/reference/lead-lag.html">lag</a></span>,</span>
+<span>                 <span class="fu">tibble</span><span class="fu">::</span><span class="va"><a href="https://tibble.tidyverse.org/reference/add_row.html">add_case</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wch/extrafont">extrafont</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/extrafont/man/loadfonts.html">loadfonts</a></span><span class="op">(</span><span class="st">"win"</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co"># library(tufte)</span></span>
@@ -307,6 +377,8 @@ Schneider, W. J. (2023). <em>Psycheval: A psychological evaluation toolkit</em>.
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">IDPmisc</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span></span>
+<span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gganimate.com">gganimate</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggforce.data-imaginist.com">ggforce</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://strengejacke.github.io/sjmisc/">sjmisc</a></span><span class="op">)</span></span>
@@ -321,13 +393,16 @@ Schneider, W. J. (2023). <em>Psycheval: A psychological evaluation toolkit</em>.
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://wilkelab.org/ggtext/">ggtext</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/stefanedwards/lemon">lemon</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://benjaminwolfe.github.io/signs">signs</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://scales.r-lib.org">scales</a></span><span class="op">)</span></span>
+<span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wjschne/psycheval">psycheval</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">bezier</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://andrisignorell.github.io/DescTools/">DescTools</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/teunbrand/ggh4x">ggh4x</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jrnold/ggthemes">ggthemes</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://jrnold.github.io/ggthemes/">ggthemes</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/rsvg/">rsvg</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://teunbrand.github.io/ggarrow/">ggarrow</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/wjschne/arrowheadr">arrowheadr</a></span><span class="op">)</span></span>
+<span><span class="va">arrow_head_deltoid</span> <span class="op">&lt;-</span> <span class="fu">purrr</span><span class="fu">::</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/partial.html">partial</a></span><span class="op">(</span><span class="fu">arrowheadr</span><span class="fu">::</span><span class="va"><a href="https://wjschne.github.io/arrowheadr/reference/arrow_head_hypotrochoid.html">arrow_head_deltoid</a></span>, d <span class="op">=</span> <span class="fl">2.3</span><span class="op">)</span></span>
 <span><span class="co"># Set options</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>knitr.kable.digits <span class="op">=</span> <span class="fl">2</span>, knitr.kable.na <span class="op">=</span> <span class="st">''</span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_template.html">opts_template</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>marginfigure <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>fig.column <span class="op">=</span> <span class="st">"margin"</span>, fig.cap.location <span class="op">=</span> <span class="st">"top"</span>, out.width <span class="op">=</span> <span class="st">"100%"</span>, fig.align <span class="op">=</span> <span class="st">"left"</span><span class="op">)</span>,</span>
@@ -456,116 +531,123 @@ Schneider, W. J. (2023). <em>Psycheval: A psychological evaluation toolkit</em>.
 <span>  <span class="va">M</span></span>
 <span><span class="op">}</span></span>
 <span></span>
-<span><span class="co"># defword &lt;- function(word,</span></span>
-<span><span class="co">#                     note,</span></span>
-<span><span class="co">#                     wordclass="defword",</span></span>
-<span><span class="co">#                     noteclass = "aside defword",</span></span>
-<span><span class="co">#                     icon = "&amp;#8853;") {</span></span>
-<span><span class="co">#   # Adapted from tufte:::marginnote_html</span></span>
-<span><span class="co"># </span></span>
-<span><span class="co">#   sprintf(</span></span>
-<span><span class="co">#     paste0(</span></span>
-<span><span class="co">#       "&lt;span class=\"%s\"&gt;%s&lt;/span&gt;",</span></span>
-<span><span class="co">#       "&lt;span class=\"%s\"&gt;",</span></span>
-<span><span class="co">#       "&lt;label for=\"tufte-mn-\" class=\"margin-toggle\"&gt;%s&lt;/label&gt;",</span></span>
-<span><span class="co">#       "&lt;input type=\"checkbox\" id=\"tufte-mn-\" class=\"margin-toggle\"&gt;%s",</span></span>
-<span><span class="co">#       "&lt;/span&gt;"</span></span>
-<span><span class="co">#     ),</span></span>
-<span><span class="co">#     wordclass,</span></span>
-<span><span class="co">#     word,</span></span>
-<span><span class="co">#     noteclass,</span></span>
-<span><span class="co">#     icon,</span></span>
-<span><span class="co">#     note</span></span>
-<span><span class="co">#   )</span></span>
-<span><span class="co"># }</span></span>
-<span></span>
 <span><span class="co"># Hooks -------</span></span>
 <span></span>
-<span><span class="co"># Enclose collapsible r chunk in  button</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_hooks.html">opts_hooks</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>button_r <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">options</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Logic.html">isTRUE</a></span><span class="op">(</span><span class="va">options</span><span class="op">$</span><span class="va">button_r</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">options</span><span class="op">$</span><span class="va">button_before_r</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
-<span>    <span class="va">options</span><span class="op">$</span><span class="va">button_after</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
-<span>    <span class="va">options</span><span class="op">$</span><span class="va">echo</span> <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span>    <span class="va">options</span><span class="op">$</span><span class="va">eval</span> <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span>  <span class="op">}</span></span>
-<span></span>
-<span>  <span class="va">options</span></span>
-<span><span class="op">}</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Enclose collapsible latex chunk in  button</span></span>
-<span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_hooks.html">opts_hooks</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>button_latex <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">options</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Logic.html">isTRUE</a></span><span class="op">(</span><span class="va">options</span><span class="op">$</span><span class="va">button_latex</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">options</span><span class="op">$</span><span class="va">button_before_latex</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
-<span>    <span class="va">options</span><span class="op">$</span><span class="va">button_after</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
-<span>    <span class="va">options</span><span class="op">$</span><span class="va">echo</span> <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span>    <span class="va">options</span><span class="op">$</span><span class="va">eval</span> <span class="op">=</span> <span class="cn">FALSE</span></span>
-<span>  <span class="op">}</span></span>
-<span></span>
-<span>  <span class="va">options</span></span>
-<span><span class="op">}</span><span class="op">)</span></span>
+<span><span class="co"># # Enclose collapsible r chunk in  button</span></span>
+<span><span class="co"># knitr::opts_hooks$set(button_r = function(options) {</span></span>
+<span><span class="co">#   if (isTRUE(options$button_r)) {</span></span>
+<span><span class="co">#     options$button_before_r &lt;- TRUE</span></span>
+<span><span class="co">#     options$button_after &lt;- TRUE</span></span>
+<span><span class="co">#     options$echo = TRUE</span></span>
+<span><span class="co">#     options$eval = FALSE</span></span>
+<span><span class="co">#   }</span></span>
+<span><span class="co"># </span></span>
+<span><span class="co">#   options</span></span>
+<span><span class="co"># })</span></span>
+<span><span class="co"># </span></span>
+<span><span class="co"># # Enclose collapsible latex chunk in  button</span></span>
+<span><span class="co"># knitr::opts_hooks$set(button_latex = function(options) {</span></span>
+<span><span class="co">#   if (isTRUE(options$button_latex)) {</span></span>
+<span><span class="co">#     options$button_before_latex &lt;- TRUE</span></span>
+<span><span class="co">#     options$button_after &lt;- TRUE</span></span>
+<span><span class="co">#     options$echo = TRUE</span></span>
+<span><span class="co">#     options$eval = FALSE</span></span>
+<span><span class="co">#   }</span></span>
+<span><span class="co"># </span></span>
+<span><span class="co">#   options</span></span>
+<span><span class="co"># })</span></span>
 <span></span>
 <span><span class="co"># before button for collapsible r chunk</span></span>
 <span><span class="va">knit_hooks</span><span class="op">$</span><span class="fu">set</span><span class="op">(</span></span>
-<span>  button_before_r <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">before</span>, <span class="va">options</span>, <span class="va">envir</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  button_before <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">before</span>, <span class="va">options</span>, <span class="va">envir</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="kw">if</span> <span class="op">(</span><span class="va">before</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="va">codetype</span> <span class="op">&lt;-</span> <span class="st">"R Code"</span></span>
+<span>      <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">options</span><span class="op">$</span><span class="va">figlabel</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="va">l</span> <span class="op">&lt;-</span> <span class="va">options</span><span class="op">$</span><span class="va">label</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>          <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="st">"^coder\\-"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>          <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="st">"^codelatex\\-"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
+<span>          <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_remove.html">str_remove</a></span><span class="op">(</span><span class="st">"^codeojs\\-"</span><span class="op">)</span> </span>
+<span>        <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">l</span>, <span class="st">"^fig\\-"</span><span class="op">)</span> <span class="op">|</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html">str_detect</a></span><span class="op">(</span><span class="va">l</span>, <span class="st">"^tbl\\-"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>          <span class="va">options</span><span class="op">$</span><span class="va">figlabel</span> <span class="op">&lt;-</span> <span class="va">l</span></span>
+<span>        <span class="op">}</span></span>
+<span>        </span>
+<span>      <span class="op">}</span> </span>
+<span>      </span>
+<span>      <span class="va">codetype</span> <span class="op">&lt;-</span> <span class="va">options</span><span class="op">$</span><span class="va">codelabel</span></span>
 <span>      <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">options</span><span class="op">$</span><span class="va">figlabel</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>        <span class="va">codetype</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">codetype</span>, <span class="st">" for @"</span>, <span class="va">options</span><span class="op">$</span><span class="va">figlabel</span><span class="op">)</span></span>
 <span>      <span class="op">}</span> </span>
 <span>      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span></span>
 <span>        <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span></span>
-<span>          <span class="st">'&lt;div class="wrap-collapsible" style="margin-top: 1em"&gt;'</span>,</span>
-<span>          <span class="st">"\n"</span>,</span>
-<span>          <span class="st">'&lt;input id="collapsible-'</span>,</span>
-<span>          <span class="va">options</span><span class="op">$</span><span class="va">label</span>,</span>
-<span>          <span class="st">'" class="toggle" type="checkbox"&gt;'</span>,</span>
-<span>          <span class="st">"\n"</span>,</span>
-<span>          <span class="st">'&lt;label for="collapsible-'</span>,</span>
-<span>          <span class="va">options</span><span class="op">$</span><span class="va">label</span>,</span>
-<span>          <span class="st">'" class="lbl-toggle"&gt;'</span>, <span class="va">codetype</span>,<span class="st">'&lt;/label&gt;'</span>,</span>
-<span>          <span class="st">'&lt;div class="collapsible-content"&gt;'</span>,</span>
-<span>          <span class="st">"\n"</span>,</span>
-<span>          <span class="st">'&lt;div class="content-inner"&gt;'</span></span>
+<span>          <span class="co"># '&lt;div class="wrap-collapsible" style="margin-top: 1em"&gt;',</span></span>
+<span>          <span class="co"># "\n",</span></span>
+<span>          <span class="co"># '&lt;input id="collapsible-',</span></span>
+<span>          <span class="co"># options$label,</span></span>
+<span>          <span class="co"># '" class="toggle" type="checkbox"&gt;',</span></span>
+<span>          <span class="co"># "\n",</span></span>
+<span>          <span class="co"># '&lt;label for="collapsible-',</span></span>
+<span>          <span class="co"># options$label,</span></span>
+<span>          <span class="co"># '" class="lbl-toggle"&gt;', codetype,'&lt;/label&gt;',</span></span>
+<span>          <span class="co"># '&lt;div class="collapsible-content"&gt;',</span></span>
+<span>          <span class="co"># "\n",</span></span>
+<span>          <span class="co"># '&lt;div class="content-inner"&gt;'</span></span>
+<span>          <span class="st">':::{.callout-note collapse="true" appearance="minimal"}\n## '</span>,<span class="va">codetype</span></span>
 <span>        <span class="op">)</span></span>
 <span>      <span class="op">)</span></span>
 <span>    <span class="op">}</span></span>
 <span>  <span class="op">}</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># before button for collapsible latex chunk</span></span>
-<span><span class="va">knit_hooks</span><span class="op">$</span><span class="fu">set</span><span class="op">(</span></span>
-<span>  button_before_latex <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">before</span>, <span class="va">options</span>, <span class="va">envir</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">before</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="va">codetype</span> <span class="op">&lt;-</span> <span class="st">"$\\rm\\LaTeX~Code$"</span></span>
-<span>      <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NULL.html">is.null</a></span><span class="op">(</span><span class="va">options</span><span class="op">$</span><span class="va">figlabel</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>        <span class="va">codetype</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">codetype</span>, <span class="st">" for @"</span>, <span class="va">options</span><span class="op">$</span><span class="va">figlabel</span><span class="op">)</span></span>
-<span>      <span class="op">}</span> </span>
-<span>      <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span></span>
-<span>        <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span></span>
-<span>          <span class="st">'&lt;div class="wrap-collapsible" style="margin-top: 1em"&gt;'</span>,</span>
-<span>          <span class="st">"\n"</span>,</span>
-<span>          <span class="st">'&lt;input id="collapsible-'</span>,</span>
-<span>          <span class="va">options</span><span class="op">$</span><span class="va">label</span>,</span>
-<span>          <span class="st">'" class="toggle" type="checkbox"&gt;'</span>,</span>
-<span>          <span class="st">"\n"</span>,</span>
-<span>          <span class="st">'&lt;label for="collapsible-'</span>,</span>
-<span>          <span class="va">options</span><span class="op">$</span><span class="va">label</span>,</span>
-<span>          <span class="st">'" class="lbl-toggle"&gt;'</span>,</span>
-<span>          <span class="va">codetype</span>,</span>
-<span>          <span class="st">'&lt;/label&gt;'</span>,</span>
-<span>          <span class="st">'&lt;div class="collapsible-content"&gt;'</span>,</span>
-<span>          <span class="st">"\n"</span>,</span>
-<span>          <span class="st">'&lt;div class="content-inner"&gt;'</span></span>
-<span>        <span class="op">)</span></span>
-<span>      <span class="op">)</span></span>
-<span>    <span class="op">}</span></span>
-<span>  <span class="op">}</span></span>
-<span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># After button for collapsible chunks</span></span>
 <span><span class="va">knit_hooks</span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>button_after <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">before</span>, <span class="va">options</span>, <span class="va">envir</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="va">before</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="st">'&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;'</span><span class="op">)</span></span>
+<span>  <span class="co"># if (!before) return('&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;')</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="va">before</span><span class="op">)</span> <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="st">'\n:::\n'</span><span class="op">)</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Solution chunk</span></span>
+<span><span class="co"># knitr::opts_hooks$set(solution = function(options) {</span></span>
+<span><span class="co">#   options$echo &lt;- TRUE</span></span>
+<span><span class="co">#   options$solutionsetter &lt;- TRUE</span></span>
+<span><span class="co">#   return(options)</span></span>
+<span><span class="co"># })</span></span>
+<span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/knit_hooks.html">knit_hooks</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>solutionsetter <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">before</span>,<span class="va">options</span>, <span class="va">envir</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  </span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="va">before</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    </span>
+<span>    <span class="st">"\n\n&lt;details&gt;&lt;summary&gt;Suggested Solution&lt;/summary&gt;\n\n"</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>    </span>
+<span>    <span class="st">"\n\n&lt;/details&gt;\n\n"</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span><span class="co"># Make all chunks with demo-prefix echo = TRUE</span></span>
+<span></span>
+<span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_hooks.html">opts_hooks</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>label <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">options</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/startsWith.html">startsWith</a></span><span class="op">(</span><span class="va">options</span><span class="op">$</span><span class="va">label</span>, <span class="st">"demo-"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">options</span><span class="op">$</span><span class="va">echo</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/startsWith.html">startsWith</a></span><span class="op">(</span><span class="va">options</span><span class="op">$</span><span class="va">label</span>, <span class="st">"solution-"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">options</span><span class="op">$</span><span class="va">echo</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
+<span>    <span class="va">options</span><span class="op">$</span><span class="va">solutionsetter</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_starts.html">str_starts</a></span><span class="op">(</span><span class="va">options</span><span class="op">$</span><span class="va">label</span>, <span class="st">"code"</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">options</span><span class="op">$</span><span class="va">button_before</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
+<span>    <span class="va">options</span><span class="op">$</span><span class="va">button_after</span> <span class="op">&lt;-</span> <span class="cn">TRUE</span></span>
+<span>    <span class="va">options</span><span class="op">$</span><span class="va">echo</span> <span class="op">=</span> <span class="cn">TRUE</span></span>
+<span>    <span class="va">options</span><span class="op">$</span><span class="va">eval</span> <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span>    <span class="va">codelanguages</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>r <span class="op">=</span> <span class="st">"R Code"</span>, </span>
+<span>                       latex <span class="op">=</span> <span class="st">"$\\small\\rm\\LaTeX$ Code"</span>,</span>
+<span>                       ojs <span class="op">=</span> <span class="st">"Observable Code"</span><span class="op">)</span></span>
+<span>    <span class="va">mycode</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_match.html">str_match</a></span><span class="op">(</span><span class="va">options</span><span class="op">$</span><span class="va">label</span>, <span class="st">"^code(.*?)\\-"</span><span class="op">)</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">mycode</span><span class="op">)</span> <span class="op">==</span> <span class="fl">2</span><span class="op">)</span> <span class="op">{</span></span>
+<span>      <span class="va">options</span><span class="op">$</span><span class="va">codelabel</span> <span class="op">=</span> <span class="va">codelanguages</span><span class="op">[</span><span class="va">mycode</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span></span>
+<span>    <span class="op">}</span></span>
+<span>  <span class="op">}</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">options</span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -576,19 +658,19 @@ Schneider, W. J. (2023). <em>Psycheval: A psychological evaluation toolkit</em>.
 
 
 <div class="no-row-height column-margin column-container"><div id="ref-cohenAppliedMultipleRegression2003" class="csl-entry" role="listitem">
-Cohen, J., Cohen, P., West, S. G., &amp; Aiken, L. S. (2003). <em>Applied multiple regression/correlation analysis for the behavioral sciences</em>. <span>L. Erlbaum Associates</span>.
+Cohen, J., Cohen, P., West, S. G., &amp; Aiken, L. S. (2003). <em>Applied multiple regression/correlation analysis for the behavioral sciences</em>. L. Erlbaum Associates.
 </div><div id="ref-crockerIntroductionClassicalModern2006" class="csl-entry" role="listitem">
-Crocker, L., &amp; Algina, J. (2006). <em>Introduction to classical and modern test theory</em>. <span>Cengage Learning</span>.
+Crocker, L., &amp; Algina, J. (2006). <em>Introduction to classical and modern test theory</em>. Cengage Learning.
 </div><div id="ref-eatonMultivariateStatisticsVector2007" class="csl-entry" role="listitem">
-Eaton, M. L. (2007). <em>Multivariate statistics: A vector space approach</em>. <span>Inst. of Mathematical Statistics</span>.
+Eaton, M. L. (2007). <em>Multivariate statistics: <span>A</span> vector space approach</em>. Inst. of Mathematical Statistics.
 </div><div id="ref-furrPsychometricsIntroduction2017" class="csl-entry" role="listitem">
-Furr, R. (2017). <em>Psychometrics: <span>An</span> introduction</em> (3rd ed.). <span>Sage</span>.
+Furr, R. (2017). <em>Psychometrics: <span>An</span> introduction</em> (3rd ed.). Sage.
 </div><div id="ref-nunnallyPsychometricTheory1967" class="csl-entry" role="listitem">
-Nunnally, J. C. (1967). <em>Psychometric theory</em>. <span>McGraw-Hill</span>.
+Nunnally, J. C. (1967). <em>Psychometric theory</em>. McGraw-Hill.
 </div><div id="ref-raykovIntroductionPsychometricTheory2011" class="csl-entry" role="listitem">
-Raykov, T., &amp; Marcoulides, G. A. (2011). <em>Introduction to psychometric theory</em>. <span>Routledge</span>.
+Raykov, T., &amp; Marcoulides, G. A. (2011). <em>Introduction to psychometric theory</em>. Routledge.
 </div><div id="ref-strangIntroductionLinearAlgebra2016" class="csl-entry" role="listitem">
-Strang, G. (2016). <em>Introduction to linear algebra</em> (5th edition). <span>Cambridge press</span>.
+Strang, G. (2016). <em>Introduction to linear algebra</em> (5th edition). Cambridge press.
 </div></div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -625,18 +707,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -668,11 +739,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -682,8 +792,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -695,7 +814,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -739,6 +981,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -764,6 +1007,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -825,7 +1094,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./intro.html" class="pagination-link">
+      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
         <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

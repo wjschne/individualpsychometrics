@@ -2,7 +2,10 @@
 title: "Distributions"
 ---
 
-```{r loadpacksdist3, include = F, eval=TRUE, cache=FALSE}
+```{r loadpacksdist3}
+#| include: false
+#| eval: true
+#| cache: false
 source("loader.R")
 ```
 
@@ -14,17 +17,13 @@ Because we first learn about variables in an algebra class, we tend to think of 
 
 ```{r fig-randomvariable, opts.label="marginfigure"}
 #| fig-cap: "Rolling a six-sided die is a process that creates a randomly ordered series of integers from 1 to 6."
-#| classes: moveup300
 #| out-width: "100"
 knitr::include_graphics("images/randomvariable.gif")
 ```
 
 When we say that the throw of a six-sided die is a random variable, we are not talking about any particular throw of a particular die but, in a sense, *every* throw (that has ever happened or ever could happen) of *every* die (that has ever existed or could exist). Imagine an immense, roaring, neverending, cascading flow of dice falling from the sky. As each die lands and disappears, a giant scoreboard nearby records the relative frequencies of ones, twos, threes, fours, fives, and sixes. That's a random variable.
 
-```{r randomvariableCode}
-#| button_r: true
-#| figlabel: fig-randomvariable
-
+```{r coder-fig-randomvariable}
 # Function to make dice
 makedice <- function(i, id) {
   x = switch(
@@ -131,7 +130,6 @@ With continuous variables, we can define sets in terms of [intervals]{.defword}[
 #| fig-cap: "Interval Notation"
 #| fig-width: 5
 #| fig-height: 3.5
-#| classes: moveup100
 #| out-width: "300"
 
 
@@ -184,9 +182,7 @@ tibble(lb = 1L,
 
 As shown in @fig-intervalnotation, some intervals include their endpoints and others do not. Intervals noted with square brackets include their endpoints and intervals written with parentheses exclude them. Some intervals extend to positive or negative infinity: $(-\infty,5]$ and $(-8,+\infty)$. Use a parenthesis with infinity instead of a square bracket because infinity is not a specific number that can be included in an interval.
 
-```{r intervalnotationCode}
-#| button_r: true
-#| figlabel: fig-intervalnotation
+```{r coder-fig-intervalnotation}
 <<fig-intervalnotation>>
 ```
 
@@ -203,20 +199,17 @@ The sample space of continuous variables is infinitely large for another reason.
 
 
 
-Each element of a random variable's sample space occurs with a particular probability. When we list the probabilities of each possible outcome, we have specified the variable's [probability distribution]{.defword}[In a **probability distribution**, there is an assignment of a probability to each possible element in a variable's sample space.]{.column-margin .defword}. In other words, if we know the probability distribution of a variable, we know how probable each outcome is. In the case of a throw of a single die, each outcome is equally likely (@fig-dice).
+Each element of a random variable's sample space occurs with a particular probability. When we list the probabilities of each possible outcome, we have specified the variable's [probability distribution]{.defword}[In a **probability distribution**, there is an assignment of a probability to each possible element in a variable's sample space.]{.column-margin .defword}. In other words, if we know the probability distribution of a variable, we know how probable each outcome is. In the case of a throw of a single die, each outcome is equally likely (@fig-dicepmf).
 
-```{r fig-dice, opts.label="marginfigure"}
+```{r fig-dicepmf, opts.label="marginfigure"}
 #| fig-cap: "The probability distribution of a throw of a single die"
 #| out-width: "275"
 #| fig-width: 6.72
 #| fig-height: 4
-#| classes: moveup100
 knitr::include_graphics("images/dice.svg")
 ```
 
-```{tikz DicePMF}
-#| button_latex: true
-#| figlabel: fig-dice
+```{tikz codelatex-fig-dicepmf}
 #| code: !expr 'readLines("tex/dice.tex")'
 ```
 
@@ -226,15 +219,11 @@ There is an infinite variety of probability distributions, but a small subset of
 #| fig-cap: "A gallery of useful distributions"
 #| fig-cap-location: top
 #| fig-column: page-right
-
 knitr::include_graphics("images/pdfIllustration.svg")
 ```
 
 
-```{r pdfIllustrationCode}
-#| button_r: true
-#| figlabel: fig-pdfIllustration
-
+```{r coder-fig-pdfIllustration}
 # A gallery of useful distributions
 # Run output file pdfIllustration.tex in LaTeX
 # pdflatex --enable-write18 --extra-mem-bot=10000000 --synctex=1 pdfIllustration.tex
@@ -722,7 +711,7 @@ The sample spaces in discrete distributions are discrete sets. Thus, in the x-ax
 
 ### Discrete Uniform Distributions {#sec:DiscreteUniform}
 
-The throw of a single die is a member of a family of distributions called the [discrete uniform distribution]{.defword}[A **discrete uniform distribution** is a family of random variable distributions in which the sample space is an evenly spaced sequence of numbers, each of which is equally likely to occur.]{.column-margin .defword}. It is "discrete" because the elements in the sample space are countable, with evenly spaced gaps between them. For example, there might be a sequence of 8, 9, 10, and 11 in the sample space but there are no numbers in between. It is "uniform" because all outcomes are equally likely. With dice, the numbers range from a lower bound of 1 to an upper bound of 6. In the family of discrete uniform distributions, the lower and upper bounds are typically integers, mostly likely starting with 1. However, any real number $a$ can be the lower bound and the spacing $k$ between numbers can be any positive real number. For the sake of simplicity and convenience, I will assume that the discrete uniform distribution refers to consecutive integers ranging from a lower bound of $a$ and an upper bound of $b$. 
+The throw of a single die is a member of a family of distributions called the [discrete uniform distribution]{.defword}[A **discrete uniform distribution** is a family of random variable distributions in which the sample space is an evenly spaced sequence of numbers, each of which is equally likely to occur.]{.column-margin .defword}. It is "discrete" because the elements in the sample space are countable, with evenly spaced gaps between them. For example, there might be a sequence of 8, 9, 10, and 11 in the sample space, but there are no numbers in between. It is "uniform" because all outcomes are equally likely. With dice, the numbers range from a lower bound of 1 to an upper bound of 6. In the family of discrete uniform distributions, the lower and upper bounds are typically integers, mostly likely starting with 1. However, any real number $a$ can be the lower bound and the spacing $k$ between numbers can be any positive real number. For the sake of simplicity and convenience, I will assume that the discrete uniform distribution refers to consecutive integers ranging from a lower bound of $a$ and an upper bound of $b$. 
 
 This kind of discrete uniform distribution has a number of characteristics listed in @tbl-uniformfeatures. I will explain each of them in the sections that follow. As we go, I will also explain the mathematical notation. For example, $a \in \{\ldots,-1,0,1,\ldots\}$ means that $a$ is an integer because $\in$ means *is a member of* and $\{\ldots,-1,0,1,\ldots\}$ is the set of all integers.^[**Notation note**: Sometimes the set of all integers is referred to with the symbol $\mathbb{Z}.$] $x \in \{a,a+1,\ldots,b\}$ means that the each member of the sample space $x$ is a member of the set of integers that include $a$, $b$, and all the integers between $a$ and $b$. The notation for the [probability mass function](#sec:pmf) and the [cumuluative distribution function](#sec:CumDist) function will be explained later in this chapter.
 
@@ -765,7 +754,7 @@ The discrete uniform distribution (i.e., the typical variety consisting of conse
 
 Many distribution families are united by the fact that their probability distributions are generated by a particular mathematical function. For discrete distributions, those functions are called [probability mass functions]{.defword}[A **probability mass function** is a mathematical expression that gives the probability that a discrete random variable will equal a particular element of the variable's sample space.]{.column-margin .defword}. In general, a mathematical function is an expression that takes one or more constants (i.e., parameters) and one or more input variables, which are then transformed according to some sort of rule to yield a single number.
 
-A probability mass function transforms a random variable's sample space elements into probabilities. In @fig-dice, the probability mass function can be thought of as the arrows between the sample space and the probabilities. That is, the probability mass function is the thing that was done to the sample space elements to calculate the probabilities. In @fig-dice, each outcome of a throw of the the die was mapped onto a probability of &frac16;. Why &frac16;, and not some other number? The probability mass function of the discrete uniform distribution tells us the answer. 
+A probability mass function transforms a random variable's sample space elements into probabilities. In @fig-dicepmf, the probability mass function can be thought of as the arrows between the sample space and the probabilities. That is, the probability mass function is the thing that was done to the sample space elements to calculate the probabilities. In @fig-dicepmf, each outcome of a throw of the the die was mapped onto a probability of &frac16;. Why &frac16;, and not some other number? The probability mass function of the discrete uniform distribution tells us the answer. 
 
 ```{r fig-pmf}
 #| fig-cap: "Probability mass functions tell us how probable each sample space element is. That is, they are functions that convert samples spaces $(\\boldsymbol{x})$ into probabilities $(\\boldsymbol{p})$ according to specific parameters $(\\boldsymbol{\\theta}).$"
@@ -777,9 +766,7 @@ A probability mass function transforms a random variable's sample space elements
 knitr::include_graphics("images/pmf.svg")
 ```
 
-```{tikz pmfCode}
-#| button_latex: true
-#| figlabel: fig-pmf
+```{tikz codelatex-fig-pmf}
 #| code: !expr 'readLines("tex/pmf.tex")'
 ```
 
@@ -827,16 +814,13 @@ $$
 ```{r fig-cdfDie, opts.label="marginfigure"}
 #| fig-width: 6.72
 #| fig-cap: "The cumulative distribution function of the roll of a die is $F_X(x)=\\frac{x}{6}$"
-#| classes: moveup200
 #| out-width: "90%"
 knitr::include_graphics("images/cdfDie.svg")
 ```
 
 The cumulative distribution function of the roll of a die (@fig-cdfDie) tells us that the probability of rolling at least a 4 is 4&frasl;6 (i.e., &frac23;).
 
-```{tikz cdfDiceCode}
-#| button_latex: true
-#| figlabel: fig-cdfDie
+```{tikz codelatex-fig-cdfDie}
 #| code: !expr 'readLines("tex/cdfDie.tex")'
 ```
 
@@ -888,9 +872,7 @@ knitr::include_graphics("images/pmf2cdf.gif")
 
 
 
-```{r pmf2cdfCode}
-#| button_r: true
-#| figlabel: fig-pmf2cdf
+```{r coder-fig-pmf2cdf}
 # The cumulative distribution function is the sum of the current 
 # and all previous elements of the probability mass function
 p <- crossing(id = 1:6,
@@ -981,11 +963,9 @@ d <- tibble(x = seq(-4, 4, 0.01)) %>%
   mutate(p = pnorm(x))
 
 p1 <- ggplot(d, aes(x, p)) +
-  geom_path(
-    arrow = arrow(type = "closed",
-                  ends = "both",
-                  angle = 12,
-                  length = unit(0.15, "inches")),
+  geom_arrow(
+    arrow_head = arrow_head_deltoid(),
+    arrow_fins = arrow_head_deltoid(),
     color = myfills[1],
     lwd = 1
   ) +
@@ -1015,11 +995,9 @@ p1 <- ggplot(d, aes(x, p)) +
   )
 
 p2 <- ggplot(d, aes(p, x)) +
-  geom_path(
-    arrow = arrow(type = "closed",
-                  ends = "both",
-                  angle = 12,
-                  length = unit(0.15, "inches")),
+  geom_arrow(
+    arrow_head = arrow_head_deltoid(),
+    arrow_fins = arrow_head_deltoid(),
     color = myfills[1],
     lwd = 1
   ) +
@@ -1050,9 +1028,7 @@ p1 + p2
 
 As seen in @fig-cdfvquantile, if you see a graph of a continuous distribution function, just flip the $X$ and $Y$ axes, and you have a graph of a quantile function.
 
-```{r cdfvquantileCode}
-#| button_r: true
-#| figlabel: fig-cdfvquantile
+```{r coder-fig-cdfvquantile}
 <<fig-cdfvquantile>>
 ```
 
@@ -1062,8 +1038,7 @@ As seen in @fig-cdfvquantile, if you see a graph of a continuous distribution fu
 
 In R, the `sample` function generates numbers from the discrete uniform distribution. 
 
-```{r DiscreteUniformSample}
-#| echo: true
+```{r demo-DiscreteUniformSample}
 # n = the sample size
 n <- 6000
 # a = the lower bound
@@ -1087,7 +1062,6 @@ X <- sample(sample_space,
 #| fig-cap: "Frequency distribution of a discrete uniform random variable from 1 to 6 (*n* = 6,000)"
 #| out-width: "400"
 #| warning: false
-#| classes: moveup400
 # Frequency distribution of a discrete uniform random variable from 1 to 6 
 
 tibble(X = factor(X)) %>% 
@@ -1113,9 +1087,7 @@ tibble(X = factor(X)) %>%
         legend.position = "none") 
 ```
 
-```{r discreteplotCode}
-#| button_r: true
-#| figlabel: fig-discreteplot
+```{r coder-fig-discreteplot}
 <<fig-discreteplot>>
 ```
 
@@ -1144,9 +1116,7 @@ tibble::tribble(
 
 The toss of a single coin has the simplest probability distribution that I can think of---there are only two outcomes and each outcome is equally probable (@fig-coin). This is a special case of the [Bernoulli distribution]{.defword}[In the **Bernoulli distribution**, there are only two outcomes: a &ldquo;success&rdquo; (1) and a &ldquo;failure&rdquo; (0). If a success has a probability $p$ then a failure has a probability of $q = 1 - p$.]{.column-margin .defword}. Jakob Bernoulli (@fig-bernoullipic) was a famous mathematician from a famous family of mathematicians. The Bernoulli distribution is just one of the ideas that made Jakob and the other Bernoullis famous. 
 
-```{tikz coinCode}
-#| button_latex: true
-#| figlabel: fig-coin
+```{tikz codelatex-fig-coin}
 #| code: !expr 'readLines("tex/coin.tex")'
 ```
 
@@ -1155,6 +1125,7 @@ The toss of a single coin has the simplest probability distribution that I can t
 #| fig-cap: "The probability distribution of a coin toss"
 knitr::include_graphics("images/coin.svg")
 ```
+
 
 ```{r fig-bernoullipic, opts.label="marginfigure"}
 #| fig-cap: "Jakob Bernoulli (1654--1705)<br>[Image Credits](https://en.wikipedia.org/wiki/File:Jakob_Bernoulli.jpg)"
@@ -1166,7 +1137,7 @@ The Bernoulli distribution can describe any random variable that has two outcome
 
 
 
-In psychological assessment, many of the variables we encounter have a Bernoulli distribution. In ability test items in which there is no partial credit, examinees either succeed or fail. The probability of success on an item (in the whole population) is $p$. In other words, $p$ is the proportion of the entire population that correctly answers the question. Some ability test items are very easy and the probability of success is high. In such cases, $p$ is close to 1. When $p$ is close to 0, few people succeed and items are deemed hard. Thus, in the context of ability testing, $p$ is called the [difficulty parameter]{.defword}[The **difficulty parameter** is the proportion of people who succeed on an item (or say 'Yes' or 'True' or otherwise score a 1 on a random variable with a Bernoulli distribution.).]{.column-margin .defword}. This is confusing because when $p$ is high, the item is easy, not difficult. Many people have suggested that it would make more sense to call it the "easiness parameter" but the idea has never caught on.
+In psychological assessment, many of the variables we encounter have a Bernoulli distribution. In ability test items in which there is no partial credit, examinees either succeed or fail. The probability of success on an item (in the whole population) is $p$. In other words, $p$ is the proportion of the entire population that correctly answers the question. Some ability test items are very easy and the probability of success is high. In such cases, $p$ is close to 1. When $p$ is close to 0, few people succeed and items are deemed hard. Thus, in the context of ability testing, $p$ is called the [difficulty parameter]{.defword}[The **difficulty parameter** is the proportion of people who succeed on an ability item or endorse a yes/no questionnaire item.]{.column-margin .defword}. This is confusing because when $p$ is high, the item is easy, not difficult. Many people have suggested that it would make more sense to call it the "easiness parameter" but the idea has never caught on.
 
 True/False and Yes/No items on questionnaires also have Bernoulli distributions. If an item is frequently endorsed as true ("I like ice cream."), $p$ is high. If an item is infrequently endorsed ("I like black licorice and mayonnaise in my ice cream."), $p$ is very low. Oddly, the language of ability tests prevails even here. Frequently endorsed questionnaire items are referred to as "easy" and infrequently endorsed items are referred to as "difficult," even though there is nothing particularly easy or difficult about answering them either way.
 
@@ -1202,7 +1173,8 @@ ggplot(tibble(X = factor(X)), aes(X)) +
 
 In R, there is no specialized function for the Bernoulli distribution because it turns out that the Bernoulli distribution is a special case of the [binomial distribution](#sec:binomial), which will be described in the next section. With the function `rbinom`, we can generate data with a Bernoulli distribution by setting the `size` parameter equal to 1.
 
-```{r BernoulliSampleCode, eval = FALSE, echo=TRUE}
+```{r demo-BernoulliSample}
+#| eval: false
 # n = sample size
 n <- 1000
 # p = probability
@@ -1215,16 +1187,11 @@ barplot(table(X))
 
 In @fig-BernoulliSample, we can see that the random variable generated a sequence that consists of about 80% ones and 20% zeroes. However, because of sampling error, the results are rarely exactly what the population parameter specifies. 
 
-```{r BernoulliSampleCodeFigure}
-#| button_r: true
-#| figlabel: fig-BernoulliSample
+```{r coder-fig-BernoulliSample}
 <<fig-BernoulliSample>>
 ```
 
-
-
 ### Binomial Distributions {#sec:binomial}
-
 
 ```{r tbl-binomialfeatures}
 #| tbl-colwidths: [50,50]
@@ -1248,18 +1215,13 @@ tibble::tribble(
 ```{r fig-twocoin, opts.label="marginfigure"}
 #| fig-cap: "Probability distribution of the number of heads observed when two coins are tossed"
 #| fig-width: 4
-#| classes: moveup400
 #| out-width: "75%"
 knitr::include_graphics("images/twocoin.svg")
 ```
 
-
-
 Let's extend the idea of coin tosses and see where it leads. Imagine that two coins are tossed at the same time and we count how many heads there are. The outcome we might observe will be zero, one, or two heads. Thus, the sample space for the outcome of the tossing of two coins is the set $\{0,1,2\}$ heads. There is only one way that we will observe no heads (both coins tails) and only one way that we will observe two heads (both coins heads). In contrast, as seen in @fig-twocoin, there are two ways that we can observe one head (heads-tails \& tails-heads).
 
-```{tikz twocoinCode}
-#| button_latex: true
-#| figlabel: fig-twocoin
+```{tikz codelatex-fig-twocoin}
 #| code: !expr 'readLines("tex/twocoin.tex")'
 ```
 
@@ -1288,7 +1250,6 @@ tibble::tribble(
 ```{r fig-pmf6, opts.label="marginfigure"}
 #| fig-cap: "The probability distribution of the number of sixes observed when a six-sided die is thrown 10 times."
 #| fig-height: 7
-#| classes: moveup200
 #| out-width: "350"
 
 # Probability of sixes
@@ -1331,9 +1292,7 @@ f_X(x)=\frac{n!}{x!\left(n-x\right)!}\left(\frac{1}{6}\right)^x\left(\frac{5}{6}
 
 If we take each element $x$ of the sample space from 0 to 10 and plug it into the equation above, the probability distribution will look like @fig-pmf6.
 
-```{r pmf6Code}
-#| button_r: true
-#| figlabel: fig-pmf6
+```{r coder-figpmf6}
 <<fig-pmf6>>
 ```
 
@@ -1345,7 +1304,7 @@ Suppose that there are 20 questions. Even if a person has the worst memory possi
 
 We can use the binomial distribution's cumulative distribution function. However, doing so by hand is rather tedious. Using R, the answer is found with the `pbinom` function:
 
-```{r pbinom,echo=TRUE}
+```{r demo-pbinom}
 p <- pbinom(4,20,0.5)
 ```
 
@@ -1465,9 +1424,7 @@ tibble(SampleSpace = 0:10,
 
 ```
 
-```{r BinomialDistributionCode}
-#| button_r: true
-#| figlabel: fig-BinomialDistribution
+```{r coder-fig-BinomialDistribution}
 <<fig-BinomialDistribution>>
 ```
 
@@ -1495,16 +1452,12 @@ tibble::tribble(
 ```{r fig-PoissonPortrait, opts.label="marginfigure"}
 #| fig-cap: "Siméon Denis Poisson (1781--1840)<br>[Image Credits](https://en.wikipedia.org/wiki/File:Simeon_Poisson.jpg)"
 #| out-width: "250px"
-#| class: moveup300
 knitr::include_graphics("images/Simeon_Poisson.jpg")
 ```
 
 
 
 Imagine that an event happens sporadically at random and we measure how often it occurs in regular time intervals (e.g., events per hour). Sometimes the event does not occur in the interval, sometimes just once, and sometimes more than once. However, we notice that over many intervals, the average number of events is constant. The distribution of the number of events in each interval will follow a [Poisson distribution]{.defword}[The **Poisson distribution** is a discrete distribution used to model how often an event will occur during a particular interval of time.]{.column-margin .defword}. Although "Poisson" means "fish" in French, fish have nothing to do with it. This distribution was named after Siméon Denis Poisson, whose work on the distribution made it famous.
-
-
-
 
 
 
@@ -1515,7 +1468,6 @@ The Poisson distribution has a single parameter $\lambda$, the average number of
 #| fig-cap-location: margin
 #| fig-width: 8
 #| fig-height: 9
-#| class: moveup
 # The shape of the Poisson Distribution
 crossing(lambda = c(0.5, 5, 30), x = 0:60) %>%
   mutate(p = dpois(x, lambda)) %>%
@@ -1539,9 +1491,7 @@ crossing(lambda = c(0.5, 5, 30), x = 0:60) %>%
 ```
 
 
-```{r samelambdaCode}
-#| button_r: true
-#| figlabel: fig-samelambda
+```{r coder-fig-samelambda}
 <<fig-samelambda>>
 ```
 
@@ -1599,9 +1549,7 @@ tibble(
 
 
 
-```{r PanicFrequencyCode}
-#| button_r: true
-#| figlabel: fig-PanicFrequency
+```{r coder-fig-PanicFrequency}
 <<fig-PanicFrequency>>
 ```
 
@@ -1610,9 +1558,8 @@ In R, you can use the `dpois` function to plot the Poisson probability mass func
 
 To calculate the cumulative distribution function of Poisson distribution in R, use the `ppois` function. For example, if we want to estimate the probability of having 4 panic attacks or more in a week if &lambda; = 2, we must subtract the probability of having 3 panic attacks or less from 1, like so:
 
-```{r ppoisCode}
+```{r demo-ppois}
 #| eval: false
-#| echo: true
 1 - ppois(q = 3, lambda = 2)
 ```
 
@@ -1698,9 +1645,7 @@ tibble(
 ```
 
 
-```{r PanicCumulativeFrequencyCode}
-#| button_r: true
-#| figlabel: fig-PanicCumulativeFrequency
+```{r coder-fig-PanicCumulativeFrequency}
 <<fig-PanicCumulativeFrequency>>
 ```
 
@@ -1774,9 +1719,7 @@ tibble(Days = seq(0, total_years * 365, 10),
 ```
 
 
-```{r WithMedicationCDFCode}
-#| button_r: true
-#| figlabel: fig-WithMedicationCDF
+```{r coder-fig-WithMedicationCDF}
 <<fig-WithMedicationCDF>>
 ```
 
@@ -1787,7 +1730,7 @@ $$
 f_X(x;p)=(1-p)^{x-1}p^x
 $$
 
-```{r}
+```{r tbl-geometric}
 tibble::tribble(
   ~Symbol,  ~Meaning,
   "$X$", "A random variable with a geometric distribution",
@@ -1909,9 +1852,7 @@ ggplot(aes(x, y = 0.5)) +
 
 ```
 
-```{r fig-uniformdistCode}
-#| button_r: true
-#| figlabel: fig-uniformdist
+```{r coder-fig-uniformdist}
 <<fig-uniformdist>>
 ```
 
@@ -1957,7 +1898,6 @@ tribble(
 
 ```{r fig-GaussImage, opts.label="marginfigure"}
 #| fig-cap: "Carl Friedrich Gauss (1777--1855)<br>[Image Credits](https://en.wikipedia.org/wiki/File:Carl_Friedrich_Gauss_1840_by_Jensen.jpg)"
-#| classes: moveup300
 #| out-width: "300"
 
 knitr::include_graphics("images/Carl_Friedrich_Gauss2.jpg")
@@ -2172,7 +2112,9 @@ Statisticians write about variables with normal distributions so often that a co
 
 $$X \sim \mathcal{N}(\mu, \sigma^2)$$ 
 
-```{r normal_notation}
+```{r tbl-normal_notation}
+#| tbl-cap: "Features of Half-Normal Distributions"
+#| tbl-colwidths: [40,60]
 tibble::tribble(
   ~Symbol,                                                                           ~Meaning,
   "$X$",                             "A random variable.",
@@ -2498,9 +2440,7 @@ bind_rows(t1, t2) %>%
 
 ```
 
-```{r halfnormalCode}
-#| button_r: true
-#| figlabel: fig-halfnormal
+```{r coder-fig-halfnormal}
 <<fig-halfnormal>>
 ```
 
@@ -2586,7 +2526,7 @@ $$\chi^2_{k-1}=\sum_{i=1}^k{\frac{(o_i-e_i)^2}{e_i}}=5.07$$
 Using the $\chi^2$ cumulative distribution function, we find that the probability of observing the frequencies listed is low under the assumption that tantrums are equally likely each day. 
 
 
-```{r, echo=TRUE}
+```{r demo-expectedfrequencies}
 observed_frequencies <- c(14, 13)
 expected_probabilities <- c(5,2) / 7
 
@@ -2610,7 +2550,7 @@ d_table |>
 knitr::kable(align = "lcc") |>
   kableExtra::kable_styling(bootstrap_options = "basic") |>
   kableExtra::collapse_rows() |> 
-  kableExtra::add_header_above(header = c(` `=1, A = 2)) |> 
+  kableExtra::add_header_above(header = c(` ` = 1, A = 2)) |> 
   html_table_width(400)
 
 fit <- chisq.test(d_table)
@@ -2670,7 +2610,6 @@ tribble(
 #| fig-cap: '"Student" statistician, William Sealy Gosset (1876--1937)<br>[Image Credit](https://en.wikipedia.org/wiki/File:William_Sealy_Gosset.jpg)'
 #| out-width: "60%"
 #| fig-column: margin
-#| classes: moveup300
 knitr::include_graphics("images/william_sealy_gosset.jpg")
 ```
 
@@ -2692,9 +2631,7 @@ Worried about having its trade secrets divulged, Guinness did not allow its empl
 knitr::include_graphics("images/tdist_norm.gif")
 ```
 
-```{r tnormCode}
-#| button_r: true
-#| figlabel: fig-halfnormal
+```{r coder-fig-tnorm}
 # The t distribution approaches the normal distribution
 d <- crossing(x = seq(-6,6,0.02), 
          df = c(seq(1,15,1),
@@ -2813,6 +2750,8 @@ For some events, there is a constant probability that the event will occur. For 
 
 
 the longer we wait the greater the probability will occur. For example, as animals age the probability of death accelerates such that beyond a certain age no individual as been observed to survive. 
+
+### Unfinished
 
 * Gumbel Distributions
 * Beta Distributions

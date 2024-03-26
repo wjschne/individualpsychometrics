@@ -1,0 +1,916 @@
+---
+title: Matrices
+subtitle: Operations
+toc-title: Matrices--Operations
+---
+
+```{r}
+#| label: loadermatrices
+#| include: false
+#| cache: false
+source("loader.R")
+```
+
+Matrices allow us to perform mathematical operations on many sets of numbers all at once. Because statistical analysis requires repeated calculations on rows and columns of data, matrix algebra has become the engine that underlies most statistical analyses.
+
+## Adding Matrices
+
+In order to add matrices, they must be *compatible*, meaning that they must have same number of rows and columns.
+
+To add compatible matrices, simply add elements in the same position.
+$$
+\begin{aligned}\mathbf{A}+\mathbf{B}&=
+\begin{bmatrix}
+a_{11} & a_{12}\\
+a_{21} & a_{22}\\
+a_{31} & a_{32}
+\end{bmatrix}+
+\begin{bmatrix}
+b_{11} & b_{12}\\
+b_{21} & b_{22}\\
+b_{31} & b_{32}
+\end{bmatrix}\\ &=
+\begin{bmatrix}
+a_{11}+b_{11} & a_{12}+b_{12}\\
+a_{21}+b_{21} & a_{22}+b_{22}\\
+a_{31}+b_{31} & a_{32}+b_{32}
+\end{bmatrix}
+\end{aligned}
+$$
+
+## Subtracting Matrices
+
+Subtracting matrices works the same way.
+
+$$
+\begin{aligned}\mathbf{A}-\mathbf{B}&=
+\begin{bmatrix}
+a_{11} & a_{12}\\
+a_{21} & a_{22}\\
+a_{31} & a_{32}
+\end{bmatrix}-
+\begin{bmatrix}
+b_{11} & b_{12}\\
+b_{21} & b_{22}\\
+b_{31} & b_{32}
+\end{bmatrix}\\ &=
+\begin{bmatrix}
+a_{11}-b_{11} & a_{12}-b_{12}\\
+a_{21}-b_{21} & a_{22}-b_{22}\\
+a_{31}-b_{31} & a_{32}-b_{32}
+\end{bmatrix}
+\end{aligned}
+$$
+
+### Adding and Subtracting Matrices in R
+
+```{r demo-AddingSubtracting}
+A <- matrix(1:6,nrow = 2)
+A
+B <- matrix(seq(10,60,10),nrow = 2)
+B
+APlusB <- A + B
+APlusB
+AMinusB <- A - B
+AMinusB
+```
+
+## Scalar-Matrix Multiplication
+
+[A **defword** is a single number, not in a matrix.]{.column-margin .defword}
+
+To multiply a scalar by a matrix, multiply the scalar by every element in the matrix:
+
+$$k\mathbf{A}=
+k\begin{bmatrix}
+a_{11} & a_{12} & a_{13}\\
+a_{21} & a_{22} & a_{23}
+\end{bmatrix}=
+\begin{bmatrix}
+ka_{11} & ka_{12} & ka_{13}\\
+ka_{21} & ka_{22} & ka_{23}
+\end{bmatrix}$$
+
+### Scalar-Matrix Multiplication in R
+
+To perform scalar-matrix multiplication in R, define a scalar, create a matrix, and then multiply them with the `*` operator.
+
+```{r demo-ScalarMatrix}
+k <- 10
+A <- matrix(1:6,nrow = 2)
+A
+k * A
+```
+
+::: {#callout-note title="You Try"}
+
+Create a scalar *k* equal to 5.
+
+Create a matrix **A** equal to 
+
+$$
+\mathbf{A} = \begin{bmatrix}
+1,0\\
+3,5
+\end{bmatrix}
+$$
+
+Calculate $k\mathbf{A}$:
+
+```{webr-r}
+#| label: ex-scalarmatrix
+k <- _
+A <- _
+```
+
+```{r solution-scalarmatrix}
+k <- 5
+A <- matrix(c(1,3,0,5), nrow = 2)
+k * A
+```
+
+:::
+
+
+## Matrix Multiplication
+
+Matrix multiplication is considerably more complex than matrix addition and subtraction. It took me an embarrassingly long time for me to wrap my head around it. I will state things in the abstract first, but it is hard to see what is going on until you see a concrete example.
+
+In order for matrices to be compatible for multiplication, the number of columns of the left matrix must be the same as the number of rows of the right matrix. The product of **A **and **B** will have the the same number of rows as **A** and the same number of columns as **B**.
+
+Imagine that matrix **A** has *n* rows and *m* columns. Matrix **B** has *m* rows and *p* columns. When **A** and **B** are multiplied, the resulting product is matrix **C** with *n* rows and *p* columns.
+
+
+
+$$
+\mathbf{A}_{n\times m} \mathbf{B}_{m\times p} = \mathbf{C}_{n\times p}
+$$
+
+Element $c_{ij}$ of $\mathbf{C}$ is the dot-product of row $i$ of $\mathbf{A}$ and column $j$ of $\mathbf{B}$. That is,
+
+$$c_{ij}=\mathbf{A}_{i\bullet}\mathbf{B}_{\bullet j}$$
+
+[This schematic](http://commons.wikimedia.org/wiki/File:Matrix_multiplication_diagram.svg) gives a nice visual summary:
+
+![Matrix Multiplication](http://upload.wikimedia.org/wikipedia/commons/1/11/Matrix_multiplication_diagram.svg){}
+
+### Matrix Multiplication Example
+
+$$\mathbf{A}=\begin{bmatrix}
+\color{FireBrick}a&\color{FireBrick}b&\color{FireBrick}c\\
+\color{RoyalBlue}e&\color{RoyalBlue}d&\color{RoyalBlue}f
+\end{bmatrix}$$
+
+$$\mathbf{B}=\begin{bmatrix}
+\color{green}g&\color{DarkOrchid}h\\
+\color{green}i&\color{DarkOrchid}j\\
+\color{green}k&\color{DarkOrchid}l
+\end{bmatrix}$$
+
+$$\mathbf{AB}=\begin{bmatrix}
+\color{FireBrick}a\color{Green}g+\color{FireBrick}b\color{green}i+\color{FireBrick}c\color{green}k&\color{FireBrick}a\color{DarkOrchid}h+\color{FireBrick}b\color{DarkOrchid}j+\color{FireBrick}c\color{DarkOrchid}l\\
+\color{RoyalBlue}e\color{green}g+\color{RoyalBlue}d\color{green}i+\color{RoyalBlue}f\color{green}k&\color{RoyalBlue}e\color{DarkOrchid}h+\color{RoyalBlue}d\color{DarkOrchid}j+\color{RoyalBlue}f\color{DarkOrchid}l
+\end{bmatrix}$$
+
+
+Using specific numbers:
+
+$$\mathbf{A}=\begin{bmatrix}
+\color{FireBrick}1&\color{FireBrick}2&\color{FireBrick}3\\
+\color{RoyalBlue}4&\color{RoyalBlue}5&\color{RoyalBlue}6
+\end{bmatrix}$$
+
+$$\mathbf{B}=\begin{bmatrix}
+\color{green}{10}&\color{DarkOrchid}{40}\\
+\color{green}{20}&\color{DarkOrchid}{50}\\
+\color{green}{30}&\color{DarkOrchid}{60}
+\end{bmatrix}$$
+
+$$
+\begin{align}
+\mathbf{AB}&=
+\begin{bmatrix}
+\color{FireBrick}1\cdot\color{green}{10}+\color{FireBrick}2\cdot\color{green}{20}+\color{FireBrick}3\cdot\color{green}{30}&\color{FireBrick}1\cdot\color{DarkOrchid}{40}+\color{FireBrick}2\cdot\color{DarkOrchid}{50}+\color{FireBrick}3\cdot\color{DarkOrchid}{60}\\
+\color{RoyalBlue}4\cdot\color{green}{10}+\color{RoyalBlue}5\cdot\color{green}{20}+\color{RoyalBlue}6\cdot\color{green}{30}&\color{RoyalBlue}4\cdot\color{DarkOrchid}{40}+\color{RoyalBlue}5\cdot\color{DarkOrchid}{50}+\color{RoyalBlue}6\cdot\color{DarkOrchid}{60}
+\end{bmatrix}\\[1ex]
+&=\begin{bmatrix}
+140&320\\
+320&770
+\end{bmatrix}
+\end{align}
+$$
+
+
+### Matrix Multiplication in R
+
+The `%*%` operator multiplies matrices (and the inner products of vectors).
+
+```{r demo-MMinR}
+A <- matrix(1:6,nrow = 2,byrow = TRUE)
+A
+B <- matrix(seq(10,60,10),nrow = 3)
+B
+C <- A %*% B
+C
+```
+
+
+# Elementwise Matrix Multiplication
+
+Elementwise matrix multiplication is when we simply multiply corresponding elements of identically-sized matrices. This is sometimes called the *Hadamard product*.
+
+$$\begin{aligned}A\circ B&=\begin{bmatrix} a_{11} & a_{12} & a_{13}\\ 
+a_{21} & a_{22} & a_{23} 
+\end{bmatrix} \circ 
+\begin{bmatrix} 
+b_{11} & b_{12} & b_{13}\\ 
+b_{21} & b_{22} & b_{23}
+\end{bmatrix}\\ 
+&= \begin{bmatrix} 
+a_{11}\, b_{11} & a_{12}\, b_{12} & a_{13}\, b_{13}\\ 
+a_{21}\, b_{21} & a_{22}\, b_{22} & a_{23}\, b_{23}
+\end{bmatrix}\end{aligned}$$
+
+In R, elementwise multiplication is quite easy.
+
+```{r demo-ElementwiseMultiplication,eval=FALSE}
+C <- A * B
+```
+
+Elementwise division works the same way.
+
+```{r ElementwiseDivision,eval=FALSE}
+C <- A / B
+```
+
+::: {#callout-note title="You Try"}
+
+Suppose we have threse three matrices:
+
+```{r matrixmultyoutry}
+A <- matrix(c(
+  15,9,6,19, 
+	20,11,20,18, 
+	15,3,8,5), 
+  nrow = 3, byrow = TRUE)
+B <- matrix(c(
+  17,14,1,19, 
+	11,2,12,14, 
+	5,16,1,20), 
+  nrow = 3, byrow = TRUE)
+C <- matrix(c(
+  5,16,20, 
+	9,9,12, 
+	15,5,8, 
+	12,8,17), nrow = 4, byrow = TRUE)
+```
+
+
+
+
+$$
+\begin{aligned}
+\mathbf{A} &=`r bmatrix(A)`\\
+\mathbf{B} &=`r bmatrix(B)`\\
+\mathbf{C} &=`r bmatrix(C)`
+\end{aligned}
+$$
+
+1. $\mathbf{A+B}=$ 
+
+```{webr-r}
+#| label: ex-matrixaddAB
+A <- matrix(c(
+  15,9,6,19, 
+	20,11,20,18, 
+	15,3,8,5), 
+  nrow = 3, byrow = TRUE)
+B <- matrix(c(
+  17,14,1,19, 
+	11,2,12,14, 
+	5,16,1,20), 
+  nrow = 3, byrow = TRUE)
+C <- matrix(c(
+  5,16,20, 
+	9,9,12, 
+	15,5,8, 
+	12,8,17), nrow = 4, byrow = TRUE)
+
+# Add A and B
+_ + _
+```
+
+```{r solution-matrixaddAB}
+A + B
+```
+
+
+2. $\mathbf{A-B}=$
+
+```{webr-r}
+#| label: ex-matrixsubractAB
+_ - _
+```
+
+```{r solution-matrixsubtractAB}
+A - B
+```
+
+3. $\mathbf{A\circ B}=$
+
+```{webr-r}
+#| label: ex-matrixhadamardAB
+A _ B
+```
+
+```{r solution-matrixhadamardAB}
+A * B
+```
+
+4. $\mathbf{AC}=$
+
+```{webr-r}
+#| label: ex-matrixmultAB
+A _ B
+```
+
+```{r solution-matrixmultAB}
+A %*% C
+```
+
+:::
+
+## Identity Elements
+
+The *identity element* for a binary operation is the value that when combined with something leaves it unchanged. For example, the additive identity is 0.
+
+$$X+0=X$$
+
+The number 0 is also the identity element for subtraction.
+
+$$X-0=X$$
+
+The multiplicative identity is 1.
+
+$$X \times 1 = X$$
+
+The number 1 is also the identity element for division and exponentiation.
+
+$$X \div 1=X$$
+
+$$X^1=X$$
+
+### Identity Matrix
+
+For matrix multiplication with square matrices, the identity element is called the *identity matrix*, $\mathbf{I}$. 
+
+$$\mathbf{AI}=\mathbf{A}$$
+
+The identity matrix is a diagonal matrix with ones on the diagonal. For example, a $2 \times 2$ identity matrix looks like this:
+
+$$\mathbf{I}_2=\begin{bmatrix}
+1 & 0\\
+0 & 1 
+\end{bmatrix}$$
+
+A size-3 identity matrix looks like this:
+
+$$\mathbf{I}_3=\begin{bmatrix}
+1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1 
+\end{bmatrix}$$
+
+It is usually not necessary to use a subscript because the size of the identity matrix is usually assumed to be the same as that of the matrix it is multiplied by.
+
+Thus, although it is true that $\mathbf{AI}=\mathbf{A}$ and $\mathbf{IA}=\mathbf{A}$, it is possible that the $\mathbf{I}$ is of different sizes in these equations, depending on the dimensions of $\mathbf{A}$.
+
+If $\mathbf{A}$ has $m$ rows and $n$ columns, in $\mathbf{AI}$, it is assumed that $\mathbf{I}$ is of size $n$ so that it is right-compatible with $\mathbf{A}$. In $\mathbf{IA}$, it is assumed that $\mathbf{I}$ is of size $m$ so that it is left-compatible with $\mathbf{A}$. 
+
+
+### The Identity Matrix in R
+
+To create an identity matrix, use the `diag` function with a single integer as its argument. For example `diag(6)` produces a 6 by 6 identity matrix.
+
+```{r demo-identity6}
+diag(6)
+```
+
+## Multiplicative Inverse
+
+$X$ multiplied by its *multiplicative inverse* yields the multiplicative identity, 1. The multiplicative inverse is also known as the *reciprocal*.
+
+$$X\times \frac{1}{X}=1$$
+
+Another way to write the reciprocal is to give it an exponent of $-1$.
+
+$$X^{-1}=\frac{1}{X}$$
+
+## Matrix Inverse
+
+Only square matrices have multiplicative inverses. Multiplying square matrix $\mathbf{A}$ by its inverse $(\mathbf{A}^{-1})$ produces the identity matrix. 
+
+$$\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$$
+
+The inverse matrix produces the identity matrix whether it is pre-multiplied or post-multiplied.
+
+$$\mathbf{A}\mathbf{A}^{-1}=\mathbf{A}^{-1}\mathbf{A}=\mathbf{I}$$
+
+The calculation of an inverse is [quite complex](http://en.wikipedia.org/wiki/Invertible_matrix#Methods_of_matrix_inversion) and is best left to computers.
+
+Although only square matrics can have inverses, not all square matrices have inverses. The procedures for calculating the inverse of a matrix sometimes attempt to divide by 0, which is not possible. Because zero cannot be inverted (i.e., $\frac{1}{0}$ is undefined), any matrix that attempts division by 0 during the inversion process cannot be inverted.
+
+For example, this matrix of ones has no inverse.
+
+$$\begin{bmatrix}
+1 & 1\\
+1 & 1 
+\end{bmatrix}$$
+
+There is no matrix we can multiply it by to produce the identity matrix. In the algorithm for calculating the inverse, division by 0 occurs, and the whole process comes to a halt. A matrix that cannot be inverted is called a *singular matrix*. 
+
+[[Collinear]{.defword} means that at least one of the variables can be perfectly predicted from the other variables.]{.defword .column-margin}
+
+The covariance matrix of [collinear]{.defword} variables is singular. In multiple regression, we use the inverse of the covariance matrix of the predictor variables to calculate the regression matrix. If the predictor variables are collinear, the regression coefficients cannot be calculated. For example, if $Z=X+Y$, we cannot use $X$, $Y$, and $Z$ together as predictors in a multiple regression equation. $Z$ is perfectly predicted from $X$ and $Y$. In the calculation of the regression coefficients, division by 0 will be attempted, and the calculation can proceed no further. 
+
+If use to bother me that that collinear variables could not be used together as predictors. However, thinking a little further, revealed why it is impossible. The definition of a regression coefficient is the independent effect of a variable after holding the other predictors constant. If a variable is perfectly predicted by the other variables, that variable cannot have an independent effect. Controlling for the other predictor, the variable no longer varies. It become a constant. Contants have no effect.
+
+While regression with perfectly collinear predictors is impossible, regression with almost perfectly collinear predictors can produce strange and unstable results. For example, if we round $Z$, the rounding error makes $Z$ nearly collinear with $X$ and $Y$ but not quite perfectly collinear with them. In this case, the regression will run but might give misleading results that might differ dramatically depending on how finely rounded $Z$ is.
+
+### Calculating Inverses in R
+
+You would think that the inverse function in R would be called "inverse" or "inv" or something like that. Unintuitively, the inverse function in R is `solve`. The reason for this is that `solve` covers a wider array of problems than just the inverse. To see how, imagine that we have two matrices of known constants $\mathbf{A}_{m\times m}$ and $\mathbf{B}_{m\times n}$. We also have a matrix of unknowns $\mathbf{X}_{m\times n}$. How do we solve this equation?
+
+$$\mathbf{AX}=\mathbf{B}$$
+
+We can pre-multiply both sides of the equation by the inverse of $\mathbf{A}$. 
+
+$$\begin{aligned}\mathbf{AX}&=\mathbf{B}\\
+\mathbf{A}^{-1}\mathbf{AX}&=\mathbf{A}^{-1}\mathbf{B}\\
+\mathbf{IX}&=\mathbf{A}^{-1}\mathbf{B}\\
+\mathbf{X}&=\mathbf{A}^{-1}\mathbf{B}\end{aligned}$$
+
+You may have encountered this kind of problem in an algebra class when you used matrices to solve systems of linear equations. For example, these equations:
+
+$$\begin{aligned}
+2x -9y -2z &= 5\\
+-2x + 5y + 3z &= 3\\
+2x + 4y - 3z &= 12
+\end{aligned}$$
+
+can be rewritten as matrices
+
+$$\begin{aligned}\mathbf{AX}&=\mathbf{B}\\
+\begin{bmatrix}
+\phantom{-}2 & -9 & -2\\
+-2 & \phantom{-}5 & \phantom{-}3\\
+\phantom{-}2 & \phantom{-}4 & -3
+\end{bmatrix}
+\begin{bmatrix}
+x  \\
+y \\
+z 
+\end{bmatrix}&=
+\begin{bmatrix}
+5  \\
+3 \\
+12 
+\end{bmatrix}
+\end{aligned}$$
+
+
+In R, problems of this sort are solved like so:
+
+`X -> solve(A,B)`
+
+```{r demo-solveAB}
+A <- matrix(c(2, -9, -2,
+             -2,  5,  3,
+              2,  4, -3),
+            nrow = 3,byrow = TRUE)
+B <- matrix(c(5,3,-12),ncol = 1)
+X <- solve(A,B)
+X
+```
+
+If $\mathbf{B}$ is unspecified in the `solve` function, it is assumed that it is the identity matrix and therefore will return the inverse of $\mathbf{A}$. That is, if $\mathbf{B=I}$, then
+
+$$\begin{aligned}
+\mathbf{AX}&=\mathbf{B}\\
+\mathbf{AX}&=\mathbf{I}\\
+\mathbf{A^{-1}AX}&=\mathbf{A^{-1}I}\\
+\mathbf{IX}&=\mathbf{A^{-1}I}\\
+\mathbf{X}&=\mathbf{A^{-1}}\\
+\end{aligned}$$
+
+Thus, `solve(A)` is $\mathbf{A}^{-1}$
+
+
+```{r demo-inverseA}
+A <- matrix(c(1,0.5,0.5,1),nrow = 2)
+A
+Ainverse <- solve(A)
+Ainverse
+A %*% Ainverse
+```
+
+:::{.callout-note title="You Try"}
+
+```{r youtryAB}
+A <- matrix(c(
+  17,14,1,19, 
+	11,2,12,14, 
+	5,16,1,20), 
+  nrow = 3, byrow = TRUE)
+
+B <- matrix(c(
+  5,16,20, 
+	9,9,12, 
+	15,5,8, 
+	12,8,17), 
+  nrow = 4, 
+  byrow = TRUE)
+
+```
+
+$$
+\begin{aligned}
+\mathbf{A} &= `r bmatrix(A)`\\[1ex]
+\mathbf{B} &= `r bmatrix(B)`\\[1ex]
+\mathbf{C} &= `r bmatrix(C)`
+\end{aligned}
+$$
+
+1. Make a 3 $\times$ 3 identity matrix.
+
+
+```{webr-r}
+#| label: ex-identity33
+
+```
+
+```{r solution-identity33}
+diag(3)
+```
+
+2. $(\mathbf{AB})^{-1}=$
+
+```{webr-r}
+#| label: ex-inverseBC
+
+```
+
+```{r solution-inverseBC}
+solve(A %*% B)
+```
+
+
+3. $\mathbf{AB(AB)}^{-1}=$
+
+```{webr-r}
+#| label: ex-identityBC
+
+```
+
+```{r solution-identityBC}
+(A %*% B) %*% solve(A %*% B)
+```
+
+4. $\mathbf{(C'C)^{-1}}=$
+
+
+```{webr-r}
+#| label: ex-inverseCtranspose
+
+```
+
+```{r solution-inverseCtranspose}
+solve(t(C) %*% C)
+```
+
+:::
+
+## Creating Sums with Matrices
+
+A non-bolded $1$ is just the number one.
+
+A bolded $\mathbf{1}$ is a column vector of ones. For example,
+
+$$
+\mathbf{1}_1=\begin{bmatrix}
+1
+\end{bmatrix}\\
+\mathbf{1}_2=\begin{bmatrix}
+1\\ 1
+\end{bmatrix}\\
+\mathbf{1}_3=\begin{bmatrix}
+1\\ 1\\ 1
+\end{bmatrix}\\
+\vdots\\
+\mathbf{1}_n=\begin{bmatrix}
+1\\ 1\\ 1\\ \vdots \\ 1
+\end{bmatrix}
+$$
+
+Like the identity matrix, the length of $\mathbf{1}$ is usually inferred from context.
+
+The one vector is used to create sums. Post multiplying a matrix by $\mathbf{1}$ creates a column vector of row sums.
+
+Suppose that 
+
+$$
+\mathbf{X}=
+\begin{bmatrix}
+1 & 2\\
+3 & 4
+\end{bmatrix}
+$$
+
+
+$$
+\mathbf{X1}=\begin{bmatrix}
+1 & 2\\
+3 & 4
+\end{bmatrix}
+\begin{bmatrix}
+1\\ 1
+\end{bmatrix}
+=\begin{bmatrix}
+3\\ 
+7
+\end{bmatrix}
+$$
+
+Pre-multiplying by a transposed one matrix creates a row vector of column totals.
+
+$$
+\mathbf{1'X}=
+\begin{bmatrix}
+1& 1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 2\\
+3 & 4
+\end{bmatrix}
+=\begin{bmatrix}
+4&6
+\end{bmatrix}
+$$
+
+Making a "one sandwich" creates the sum of the entire matrix.
+
+$$
+\mathbf{1'X1}=
+\begin{bmatrix}
+1& 1
+\end{bmatrix}
+\begin{bmatrix}
+1 & 2\\
+3 & 4
+\end{bmatrix}
+\begin{bmatrix}
+1\\ 1
+\end{bmatrix}
+=\begin{bmatrix}
+10
+\end{bmatrix}
+$$
+
+To create a $\mathbf{1}$ vector that is compatible with the matrix it post-multiplies, use the `ncol` function inside the `rep` function:
+
+```{r demo-rowsums}
+A <- matrix(1:20,nrow = 4)
+Ones <- matrix(1, nrow = ncol(A)) 
+A %*% Ones
+```
+
+Use the `nrow` function to make a $\mathbf{1}$ vector that is compatible with the matrix it pre-multiplies:
+
+```{r demo-columnsums}
+Ones <- matrix(1, nrow = nrow(A))
+t(Ones) %*% A
+```
+
+Of course, creating $\mathbf{1}$ vectors like this can be tedious. Base R has convenient functions to calculate row sums, column sums, and total sums. 
+
+
+`rowSums(A)` will add the rows of $\mathbf{A}$:
+
+```{r demo-rowsumsbase}
+rowSums(A)
+```
+
+`colSums(A)` with give the column totals of $\mathbf{A}$:
+
+```{r demo-colsumsbase}
+colSums(A)
+```
+
+`sum(A)` will give the overall total of $\mathbf{A}$:
+
+```{r demo-sumsbase}
+sum(A)
+```
+
+
+
+## Eigenvectors and Eigenvalues
+
+Consider this equation related Square matrix $\mathbf{A}$, column vector $\mathbf{x}$, and column vector $\mathbf{b}$:
+
+$$\mathbf{A}\vec{x}=\vec{b}$$
+
+Square matrix $\mathbf{A}$ scales and rotates vector $\vec{x}$ into vector $\vec{b}$.
+
+Is there a non-zero vector $\mathbf{v}$ that $\mathbf{A}$ scales but does not rotate? If so, $\mathbf{v}$ is an *eigenvector*. The value $\lambda$ by which $\mathbf{v}$ is scaled is the *eigenvalue*.
+
+$$\mathbf{A}\vec{v}=\lambda\vec{v}$$
+
+Every eigenvector that exists for matrix $\mathbf{A}$, is accompanied by an infinite number of parallel vectors of varying lengths that are also eigenvectors. Thus, we focus on the unit eigenvectors and their accompanying eigenvalues.
+
+Eigenvectors and eigenvalues are extremely important concepts in a wide variety of applications in many disciplines. For us, they play a pivotal role in principal components analyses, factor analysis, and multivariate analyses such as MANOVA.
+
+Eigenvectors (via principal components) help us to summarize multivariate data with a smaller number of variables.
+
+### Eigenvectors and Eigenvalues in R
+
+Suppose that matrix $\mathbf{A}$ is a correlation matrix:
+
+
+
+
+
+```{r eigen, results = "asis", echo = FALSE}
+A <- matrix(c(1.0, 0.8, 0.5,
+              0.8, 1.0, 0.4,
+              0.5, 0.4, 1.0),
+            nrow = 3)
+```
+
+$$\mathbf{A}=`r bmatrix(A)`$$
+[The word, **orthogonal** derives from the Greek word for "right-angled." Orthogonal vectors are mutually perpendicular.]{.margin-column .defword}
+
+Because $\mathbf{A}$ is a 3 &times; 3 matrix, there are three [orthogonal]{.defword} unit vectors that are eigenvectors, $\vec{v}_1$, $\vec{v}_2$, and $\vec{v}_3$. We will collect the three eigenvectors as columns of matrix $\mathbf{V}$:
+
+
+```{r}
+eig <- eigen(A)
+evectors <- eig$vectors %>% prob_label()
+evectors[1,] <- paste0("\\overset{\\vec{v}_", 1:3, "}{",evectors[1,],"}")
+```
+
+
+
+$$\mathbf{V}= `r bmatrix(evectors)`$$
+
+```{r}
+evalues <- eig$values
+```
+
+$$
+\boldsymbol{\lambda} = \{`r paste0(round(eig$values,2),collapse = ",")`\}
+$$
+
+
+The eigenvectors of correlation matrix `A` below, represent the orientation vectors of the ellipsoid that contains the multivariate normal data. 
+
+```{r fig-eigenplot, webgl = TRUE}
+#| fig-cap: "The eigenvectors are the principal axes "
+library(rgl)
+plot3d(
+  mvtnorm::rmvnorm(5000, sigma = A),
+  col = "royalblue",
+  axes = F,
+  box = F,
+  aspect = T,
+  xlab = "",
+  ylab = "",
+  zlab = "",
+  alpha = 0.6,
+  size = 0.2
+)
+z <- sqrt(qchisq(.95, 3))
+plot3d(ellipse3d(A, subdivide = 5, t = z),
+       alpha = 0.05,
+       add = T)
+for (i in 1:3) segments3d(rbind(-z * sqrt(eig$values[i]) * eig$vectors[,i],z * sqrt(eig$values[i]) * eig$vectors[,i]), color = "royalblue4", lwd = 3)
+
+
+xticks <- c(-3:3)
+walk(c("x", "y", "z"), \(a) {
+  axis3d(a, at = xticks)
+  mtext3d(a, a, line = 2, level = 2)
+  })
+
+
+
+
+aspect3d(1,1,1)
+view3d(zoom = 1, 
+       userMatrix = rotationMatrix(0.4 * pi, 0.2, 1, 0.1))
+
+ 
+```
+
+For symmetric matrices (e.g., correlation and covariance matrices), eigenvectors are orthogonal.
+
+
+:::{.callout-note title="You Try"}
+
+Extract the eigenvalues and eigen vectors from correlation matrix `rho`.
+
+$$
+R=\begin{bmatrix}
+1&.7\\
+.7&1
+\end{bmatrix}
+$$
+
+```{webr-r}
+#| label: ex-eigenrho
+rho <- matrix(c(1,0.7,0.7,1),2)
+```
+
+
+
+
+```{r solution-eigenrho}
+rho <- matrix(c(1,0.7,0.7,1),2)
+eigenrho <- eigen(rho)
+eigenrho
+```
+
+
+
+:::
+
+Eigenvalues and eigenvectors are essential ingredients in principal component analysis, a useful data-reduction technique. Principal component analysis allow us to summarize many variables in a way that minimizes information loss. To take a simple example, if we measure the size of people's right and left feet, we would have two scores per person. The two scores are highly correlated because the left foot and right foot are nearly the same size in most people. However, for some people the size difference is notable. 
+
+Principal components transform the two correlated variables into two uncorrelated variables, one for the overall size of the foot and one for the difference between the two feet. The eigenvalues sum to the 2 (then number of variables being summarized) and are proportional to the variances of the principal components.
+
+Eigenvectors have a magnitude of 1, but if they are scaled by the square root of the eigenvalues (and by the appropriate ), they become the principal axes of the ellipse that contains the 95% of the data:
+
+```{r fig-eigenellipse}
+#| fig-cap: "The eigenvectors of rho scaled by the square roots of the eigenvectors are proportional to the principal axes of the ellipse that contains 95% of the data."
+#| fig-height: 8
+
+# the tri2cor converts a vector of correlations from the lower triangle of a correlation matrix into a full correlation matrix
+rho <- tri2cor(.8, variable_names = c("x", "y"))
+eigenrho <- eigen(rho)
+
+# Scaling factor for 95% of 2D ellipse
+z <- sqrt(qchisq(.95,2))
+
+d_scaledeigenvectors <- eigenrho$values %>% 
+  sqrt() %>% 
+  `*`(z) %>% 
+  diag() %>% 
+  `%*%`(t(eigenrho$vectors)) %>% 
+  `colnames<-`(c("x", "y")) %>% 
+  as_tibble()
+
+d_points <- mvtnorm::rmvnorm(
+  n = 1000, 
+  mean = c(x = 0, y = 0), 
+  sigma = rho) %>% 
+  as_tibble()
+
+tibble(t = z,
+       alpha = c(.4,.2)) %>% 
+  mutate(data = pmap(list(t = t), 
+                    ellipse::ellipse, 
+                    x = rho,
+                    npoints = 1000) %>% 
+           map(as_tibble) %>% 
+           map(`colnames<-`, 
+               value = c("x", "y"))) %>% 
+  unnest(data) %>% 
+  ggplot(aes(x,y)) + 
+  geom_point(data = d_points, 
+             pch = 16, 
+             size = .5, 
+             color = "gray30") +
+  geom_polygon(aes(alpha = alpha), fill = myfills[1]) +
+  geom_arrow_segment(
+    data = d_scaledeigenvectors,
+    aes(xend = x, 
+        x = 0, 
+        yend = y, 
+        y = 0),
+    color = "white",
+    arrow_head = arrow_head_deltoid()) +
+  coord_equal(xlim = c(-3, 3),
+              ylim = c(-3, 3)) +
+  scale_x_continuous(labels = \(x) WJSmisc::prob_label(x, 1),
+                     breaks = seq(-4, 4)) +
+  scale_y_continuous(labels = \(x) WJSmisc::prob_label(x, 1),
+                     breaks = seq(-4, 4)) +
+  scale_alpha_identity() +
+  theme(legend.position = "top")
+
+```
+
+
+```{r coder-fig-eigenellipse}
+<<fig-eigenellipse>>
+```

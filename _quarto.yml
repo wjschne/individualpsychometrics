@@ -22,26 +22,31 @@ book:
       chapters:
         - intro.qmd
         - gettingready.qmd
-        - matrix_algebra.qmd
-    - part: "Variables"
+    - part: matrix_algebra.qmd
       chapters: 
+        - scalars.qmd
+        - vectors.qmd
+        - file: matrices_intro.qmd
+          text: Matrices--Introduction
+        - file: matrices_operations.qmd
+          text: Matrices--Operations
+    - part: "Variables"
+      chapters:
         - variables.qmd
         - distributions.qmd
         - descriptives.qmd
-    - compositescores.qmd
-    - unfinished.qmd
-    - references.qmd
+        - compositescores.qmd
+        - unfinished.qmd
+        - references.qmd
 bibliography: [book.bib, packages.bib]
 csl: "apa"
 nocite: |
   @R-bookdown, @R-dplyr, @R-extrafont, @R-fBasics, @R-forcats, @R-fMultivar, @R-gganimate, @R-ggforce, @R-ggplot2, @R-IDPmisc, @R-knitr, @R-knitr, @R-purrr, @R-rmarkdown, @R-sjmisc, @R-sn, @R-stringr, @R-base, @R-tibble, @R-tidyr, @R-tidyverse, @R-tikzDevice, @R-tufte
 execute:
   echo: false
-  freeze: auto
-  cache: true
+  freeze: true
 knitr: 
   opts_chunk: 
-    echo: false
     tbl-cap-location: margin
     fig-cap-location: margin
     fig-width: 7
@@ -51,16 +56,21 @@ knitr:
     dev: "ragg_png"
 callout-icon: false
 engine: knitr
+webr: 
+  show-startup-message: false
+  channel-type: "post-message"
 filters:
   - webr
 format:
   html:
-    css: [equity.css, individualpsychometrics.css]
+    css: [equity.css]
     html-math-method: katex
+    page-navigation: true
     self-contained: false
     citation-location: margin
     reference-location: margin
     mainfont: equity_text_a
+    monofont: Inconsolata
     code-copy: true
     code-link: true
     smooth-scroll: true

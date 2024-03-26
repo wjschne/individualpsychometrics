@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.326">
+<meta name="generator" content="quarto-1.5.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Individual Psychometrics - 3&nbsp; Matrix Algebra in R</title>
+<title>Individual Psychometrics – Matrix Algebra in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,44 +17,11 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -79,7 +46,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./variables.html" rel="next">
+<link href="./scalars.html" rel="next">
 <link href="./gettingready.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -89,15 +56,19 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/kbd/kbd.js"></script>
-<link href="site_libs/quarto-contrib/kbd/kbd.css" rel="stylesheet"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -106,11 +77,12 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
-<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script><link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -125,26 +97,50 @@ div.csl-indent {
    });
 }}});
   </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
-<link rel="stylesheet" href="equity.css">
-<link rel="stylesheet" href="individualpsychometrics.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script><link rel="stylesheet" href="equity.css">
 </head>
 <body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./matrix_algebra.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Matrix Algebra in R</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matrix_algebra.html">Matrix Algebra in R</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Individual Psychometrics</a> 
     </div>
@@ -183,18 +179,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Ready to Use R via RStudio</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Matrix Algebra in R</span></span></a>
-  </div>
-</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Variables</span></a>
+            <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Matrix Algebra in R</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -202,73 +192,87 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./scalars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Scalars</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vectors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices–Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices_operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices–Operations</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Variables</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./descriptives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
   </div>
 </li>
-      </ul>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./compositescores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./unfinished.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
+      </ul>
+</li>
     </ul>
 </div>
-    <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Page Contents</h2>
-   
-  <ul>
-<li>
-<a href="#scalars" id="toc-scalars" class="nav-link active" data-scroll-target="#scalars"><span class="header-section-number">3.1</span> Scalars</a>
-  <ul class="collapse">
-<li><a href="#scalars-in-r" id="toc-scalars-in-r" class="nav-link" data-scroll-target="#scalars-in-r"><span class="header-section-number">3.1.1</span> Scalars in R</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors"><span class="header-section-number">3.2</span> Vectors</a>
-  <ul class="collapse">
-<li><a href="#vector-addition" id="toc-vector-addition" class="nav-link" data-scroll-target="#vector-addition"><span class="header-section-number">3.2.1</span> Vector Addition</a></li>
-  <li><a href="#scalar-multiplication-of-vectors" id="toc-scalar-multiplication-of-vectors" class="nav-link" data-scroll-target="#scalar-multiplication-of-vectors"><span class="header-section-number">3.2.2</span> Scalar Multiplication of Vectors</a></li>
-  <li><a href="#vector-norms" id="toc-vector-norms" class="nav-link" data-scroll-target="#vector-norms"><span class="header-section-number">3.2.3</span> Vector Norms</a></li>
-  <li><a href="#unit-vectors" id="toc-unit-vectors" class="nav-link" data-scroll-target="#unit-vectors"><span class="header-section-number">3.2.4</span> Unit Vectors</a></li>
-  <li><a href="#vectors-in-r" id="toc-vectors-in-r" class="nav-link" data-scroll-target="#vectors-in-r"><span class="header-section-number">3.2.5</span> Vectors in R</a></li>
-  </ul>
-</li>
-  </ul></nav>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+    
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Matrix Algebra in R</span>
-</h1>
+<h1 class="title">Matrix Algebra in R</h1>
 </div>
 
 
@@ -281,17 +285,19 @@ div.csl-indent {
   </div>
   
 
-</header><div class="page-columns page-full"><p> <span class="defword">Matrix algebra</span> sounds intimidating. If I could start somewhere else, I would, but psychometrics is too painful without matrix notation. Spending time to become familiar with matrix algebra makes a lot of otherwise difficult things easy. </p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Matrix algebra</strong> refers to performing arithmetic operations and algebraic manipulations on numbers arranged in rectangular arrays.</span><span class="">For now, we will focus solely on numeric data, setting aside the possibility of creating vectors and matrices with non-numeric data such as logical (Boolean) values, nominal data, ordinal values, dates, or complex structures such as lists.</span></div></div>
+
+</header><div class="page-columns page-full"><p> <span class="defword">Matrix algebra</span> sounds intimidating.  If I could start somewhere else, I would, but psychometrics is too painful without matrix notation. Spending time to become familiar with matrix algebra makes a lot of otherwise difficult things easy. I am continually amazed and surprised by the diverse ways in which learning this material has paid dividends to me. I use matrix algebra to solve problems not just in “mathy” applications like psychometrics and statistics but in domains I never imagined it would have utility (e.g., art, design, and music). Trust me. This is potent stuff, and its power can be yours.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Matrix algebra</strong> refers to performing arithmetic operations and algebraic manipulations on numbers arranged in rectangular arrays.</span><span class="">For now, we will focus solely on numeric data, setting aside the possibility of creating vectors and matrices with non-numeric data such as logical (Boolean) values, nominal data, ordinal values, dates, or complex structures such as lists.</span></div></div>
 <p>Despite appearances, matrix algebra is not so hard. In my opinion, learning regular algebra is the hard part. If you made it through high school with a strong understanding of algebra, you will see that matrix algebra is mostly an extension of what you already know. Give it a try and see what happens. If learning matrix algebra seems hard, firming up your foundational knowledge of regular algebra may be a better place to start.</p>
 <p>Algebra uses symbols in formulas to represent numbers. You are probability familiar with using algebraic methods to solve for unknown values in equations. For example, in the equation below, there is only one possible value of <span class="math inline">x</span> that makes the equation true:</p>
 <p><span class="math display">
 \begin{aligned}
-x-1&amp;=0\\
-x-1+1&amp;=0+1\\
-x&amp;=1\\
+&amp;x-1&amp;=&amp;~0\\
+&amp;x-1+1&amp;=&amp;~0+1\\
+&amp;x+0&amp;=&amp;~1\\
+&amp;x&amp;=&amp;~1
 \end{aligned}
 </span></p>
-<p>Matrix algebra allows us to use one symbol to represent more than one number at a time. So, instead of using one symbol to represent one number (e.g., <span class="math inline">x=4</span>), a single symbol can represent a sequence of numbers: <span class="math display">\mathbf{x}=\left(3,1,5,9\right)</span></p>
+<p>Matrix algebra allows us to use one symbol to represent more than one number at a time. So, instead of using one symbol to represent one number (e.g., <span class="math inline">x=4</span>), a single symbol can represent a sequence of numbers: <span class="math display">\mathbf{x}=\{3,1,5,9\}</span></p>
 <p>Or just one symbol can represent a rectangular array of numbers:</p>
 <p><span class="math display">
 \mathbf{A}=\begin{bmatrix}
@@ -301,483 +307,12 @@ x&amp;=1\\
 \end{bmatrix}
 </span></p>
 <p>In this way, we can perform the same operations (e.g., addition, multiplication, exponentiation) on many numbers at once (e.g., creating statistical models from many rows of data). The notation of matrix algebra often makes what would otherwise be large, messy, complex statistical formulas look simple, tidy, and compact.</p>
-<p>In matrix algebra, we can arrange numbers as scalars (single values), vectors (sequences of values), and matrices (values in rectangular arrays).</p>
-<section id="scalars" class="level2 page-columns page-full" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="scalars">
-<span class="header-section-number">3.1</span> Scalars</h2>
-<div class="page-columns page-full"><p><span class="defword">Scalars</span> are single numeric values. They are the <span class="defword">elements</span> of vectors and matrices. Usually a scalar is represented as an italicized lowercase letter:</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>scalar</strong> is a single value.</span><span class="defword">A vector’s <strong>elements</strong> are the individual numbers in a vector or matrix.</span></div></div>
-<p><span class="math display">
-x=9
-</span></p>
-<section id="scalars-in-r" class="level3 page-columns page-full" data-number="3.1.1"><h3 data-number="3.1.1" class="anchored" data-anchor-id="scalars-in-r">
-<span class="header-section-number">3.1.1</span> Scalars in R</h3>
-<p>Technically, there are no scalars in R. Pretty much everything in R is a vector of one kind of another. This feature of R makes a lot of things nice and easy for data analysis, though it slows down certain kinds of computations. However, a vector with just one element in it is often treated like a scalar. If you want to make a “scalar” in R, you assign a value to a variable name like so:</p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="matrix_algebra_cache/html/scalarassignment_c4244b50d1d5fdc52a087c128358861d">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p>In most situations, the <code>=</code> sign also functions as an assignment operator. It is easier to type than <code>&lt;-</code>, so feel free to use it.</p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="matrix_algebra_cache/html/scalarassignmentequal_0ce3eea8301833eb12043249ccb8d53f">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">=</span> <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>I put spaces around most operator symbols (e.g., <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code>, <code>=</code>) because it makes complex code easier to read. However, the spaces are optional, and you can use a more compact style if you wish:</p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="matrix_algebra_cache/html/scalarassignmencompact_f7f4725c81ee401c290850252de670c9">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span><span class="op">=</span><span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div></div><p>The <code>&lt;-</code> is called the <em>assignment operator</em>. Instead of typing both characters, I use the <kbd>Alt+-</kbd> keyboard shortcut (i.e., press <kbd>Alt</kbd> and <code>-</code> at the same time time), which puts spaces around the assignment operator.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="You Try">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-You Try
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Create a variable <code>x</code> by assigning it a value of 5.</p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-solution="true" data-solutionsetter="true" data-hash="matrix_algebra_cache/html/solution-assignment_ee0621f5529c4cbe7ed3f063622b5462">
-<details><summary>
-Suggested Solution
-</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
-<span></span>
-<span><span class="co"># If you prefer, the = assignment operator also works:</span></span>
-<span><span class="va">x</span> <span class="op">=</span> <span class="fl">5</span></span>
-<span></span>
-<span><span class="co"># To display the value of x, just run it on its own line like so:</span></span>
-<span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5</code></pre>
-</div>
-</details>
-</div>
-</div>
-</div>
-</section></section><section id="vectors" class="level2 page-columns page-full" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="vectors">
-<span class="header-section-number">3.2</span> Vectors</h2>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="matrix_algebra_cache/html/xy_90f31336c3ea2ae5f7db942547a3fb03">
-
-</div>
-<div class="page-columns page-full"><p><span class="defword">Vectors</span> are sequences of numbers. The notation for vectors is not always applied consistently, but typically vectors are bolded lowercase letters and the elements are listed in parentheses and separated by commas. A vector <span class="math inline">\mathbf{x}</span> with elements 3 and 4 would be notated like so:</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>vector</strong> is an ordered sequence of values</span></div></div>
-<p><span class="math display">
-\mathbf{x}=\left(3,4\right)
-</span></p>
-<div class="page-columns page-full"><p>The <span class="defword">vector length</span> refers to how many elements it has, not its magnitude. So a 2-element vector like <span class="math inline">\{x_1,x_2\}</span> has a length of 2.</p><div class="no-row-height column-margin column-container"><span class="defword">A vector’s <strong>length</strong> is the number of elements the vector contains.</span></div></div>
-<p>A sequence of indeterminate length <span class="math inline">n</span>, would be notated like so</p>
-<p><span class="math display">
-\mathbf{x}=\left(x_1,x_2,\ldots,x_n\right)
-</span></p>
-<p>Vectors in R are created many ways, but the most common way to join vector elements is with the <code>c</code> function (i.e.&nbsp;“concatenate” or link together in a chain).</p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="matrix_algebra_cache/html/vector_eeac00cb529775491905abde9e9e6808">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="You Try">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-You Try
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Create a vector <code>x</code> with values 2 and 6.</p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-solution="true" data-solutionsetter="true" data-hash="matrix_algebra_cache/html/solution-vector_f4cb06c818de09c32d0bbd1c64781f3d">
-<details><summary>
-Suggested Solution
-</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">6</span><span class="op">)</span></span>
-<span><span class="va">x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2 6</code></pre>
-</div>
-</details>
-</div>
-</div>
-</div>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-opts.label="marginfigure" data-fig.cap.location="top" data-hash="matrix_algebra_cache/html/fig-vector_d6634a3d833f33712aa2f7db793ebd4f">
-
-<div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-vector" class="quarto-figure quarto-figure-left anchored">
-<figure class="figure"><p><img src="matrix_algebra_files/figure-html/fig-vector-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.1: A vector of (4,3) moves 4 units to the right and 3 units up from the origin.</figcaption><p></p>
-</figure>
-</div>
-</div></div></div>
-<p>A vector with two scalar elements can be thought of as an arrow in a coordinate plane, as in <a href="#fig-vector">Figure&nbsp;<span>3.1</span></a>. The vector <span class="math inline">\left(4, 3\right)</span> is an arrow that displaces any point it is added to by 4 units to the right and 3 units up.</p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-button_r="true" data-figlabel="fig-vector" data-button_before_r="true" data-button_after="true" data-hash="matrix_algebra_cache/html/vectorCode_669202807ef1dc724e83a8741f375982">
-<div class="wrap-collapsible" style="margin-top: 1em">
-<input id="collapsible-vectorCode" class="toggle" type="checkbox"><label for="collapsible-vectorCode" class="lbl-toggle">R Code for <a href="#fig-vector">Figure&nbsp;<span>3.1</span></a></label>
-<div class="collapsible-content">
-<div class="content-inner">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tibble</span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">x_plot</span><span class="op">)</span>, y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">y_plot</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_line</span><span class="op">(</span></span>
-<span>    arrow <span class="op">=</span> <span class="fu">arrow</span><span class="op">(</span></span>
-<span>      angle <span class="op">=</span> <span class="fl">15</span>,</span>
-<span>      type <span class="op">=</span> <span class="st">"closed"</span>,</span>
-<span>      length <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">5</span>, <span class="st">"mm"</span><span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    linewidth <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>    linemitre <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>    linejoin <span class="op">=</span> <span class="st">"mitre"</span>,</span>
-<span>    color <span class="op">=</span> <span class="va">myfills</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme_classic</span><span class="op">(</span></span>
-<span>    base_family <span class="op">=</span> <span class="va">bfont</span>,</span>
-<span>    base_size <span class="op">=</span> <span class="fl">20</span>,</span>
-<span>    base_line_size <span class="op">=</span> <span class="fl">.5</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme</span><span class="op">(</span></span>
-<span>    axis.text <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"gray40"</span><span class="op">)</span>,</span>
-<span>    axis.line <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span></span>
-<span>      linewidth <span class="op">=</span> <span class="fl">.5</span>,</span>
-<span>      color <span class="op">=</span> <span class="st">"gray"</span>,</span>
-<span>      arrow <span class="op">=</span> <span class="fu">arrow</span><span class="op">(</span></span>
-<span>        <span class="fl">15</span>,</span>
-<span>        type <span class="op">=</span> <span class="st">"closed"</span>,</span>
-<span>        ends <span class="op">=</span> <span class="st">"both"</span>,</span>
-<span>        length <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">5</span>, <span class="st">"mm"</span><span class="op">)</span></span>
-<span>      <span class="op">)</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    axis.ticks <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span>color <span class="op">=</span> <span class="st">"gray"</span><span class="op">)</span>,</span>
-<span>    axis.title.x <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span></span>
-<span>      angle <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>      vjust <span class="op">=</span> <span class="fl">.5</span>,</span>
-<span>      face <span class="op">=</span> <span class="st">"italic"</span>,</span>
-<span>      color <span class="op">=</span> <span class="st">"gray40"</span></span>
-<span>    <span class="op">)</span>,</span>
-<span>    axis.title.y <span class="op">=</span> <span class="fu">element_text</span><span class="op">(</span></span>
-<span>      angle <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>      vjust <span class="op">=</span> <span class="fl">.5</span>,</span>
-<span>      face <span class="op">=</span> <span class="st">"italic"</span>,</span>
-<span>      color <span class="op">=</span> <span class="st">"gray40"</span></span>
-<span>    <span class="op">)</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_x_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"y"</span>, </span>
-<span>                     breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span><span class="op">:</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>, </span>
-<span>                     labels <span class="op">=</span> <span class="fu">WJSmisc</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/WJSmisc/man/signs_centered.html">signs_centered</a></span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span>name <span class="op">=</span> <span class="st">"x"</span>, </span>
-<span>                     breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span><span class="op">:</span><span class="op">-</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">)</span>, </span>
-<span>                     labels <span class="op">=</span> <span class="va">signs</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">ggh4x</span><span class="fu">::</span><span class="fu"><a href="https://teunbrand.github.io/ggh4x/reference/coord_axes_inside.html">coord_axes_inside</a></span><span class="op">(</span></span>
-<span>    xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span>,</span>
-<span>    ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">5</span><span class="op">)</span>,</span>
-<span>    labels_inside <span class="op">=</span> <span class="cn">T</span>,</span>
-<span>    ratio <span class="op">=</span> <span class="fl">1</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">annotate</span><span class="op">(</span></span>
-<span>    <span class="st">"richtext"</span>,</span>
-<span>    <span class="va">x_plot</span>,</span>
-<span>    <span class="va">y_plot</span>,</span>
-<span>    label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"**v** = ("</span>, </span>
-<span>                   <span class="va">x_plot</span>, </span>
-<span>                   <span class="st">", "</span>, </span>
-<span>                   <span class="va">y_plot</span>, </span>
-<span>                   <span class="st">")"</span><span class="op">)</span>,</span>
-<span>    label.color <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>    vjust <span class="op">=</span> <span class="op">-</span><span class="fl">.2</span>,</span>
-<span>    hjust <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>    fill <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>    size <span class="op">=</span> <span class="fu">WJSmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/WJSmisc/man/ggtext_size.html">ggtext_size</a></span><span class="op">(</span><span class="fl">18</span><span class="op">)</span>,</span>
-<span>    label.r <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">5</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
-<span>    color <span class="op">=</span> <span class="va">myfills</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">annotate</span><span class="op">(</span></span>
-<span>    <span class="st">"richtext"</span>,</span>
-<span>    <span class="va">x_plot</span> <span class="op">/</span> <span class="fl">2</span>,</span>
-<span>    <span class="va">y_plot</span> <span class="op">/</span> <span class="fl">2</span>,</span>
-<span>    label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Magnitude of **v**: \u2016**v**\u2016 = "</span>, </span>
-<span>                   <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">x_plot</span> <span class="op">^</span> <span class="fl">2</span> <span class="op">+</span> <span class="va">y_plot</span> <span class="op">^</span> <span class="fl">2</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>    label.color <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>    angle <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">atan2</a></span><span class="op">(</span><span class="va">y_plot</span>,<span class="va">x_plot</span><span class="op">)</span> <span class="op">*</span> <span class="fl">180</span> <span class="op">/</span> <span class="va">pi</span>,</span>
-<span>    vjust <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>    hjust <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>    fill <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>    size <span class="op">=</span> <span class="fu">WJSmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/WJSmisc/man/ggtext_size.html">ggtext_size</a></span><span class="op">(</span><span class="fl">18</span><span class="op">)</span>,</span>
-<span>    label.r <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">5</span>, <span class="st">"mm"</span><span class="op">)</span>,</span>
-<span>    color <span class="op">=</span> <span class="va">myfills</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
-<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-<section id="vector-addition" class="level3 page-columns page-full" data-number="3.2.1"><h3 data-number="3.2.1" class="anchored" data-anchor-id="vector-addition">
-<span class="header-section-number">3.2.1</span> Vector Addition</h3>
-<p>To add two vectors, add each element at the same position:</p>
-<p><span class="math display">
-\begin{aligned}
-\mathbf{x}&amp;= \left(x_1,x_2,\ldots,x_n\right)\\
-\mathbf{y}&amp;= \left(y_1,y_2,\ldots,y_n\right)\\
-\mathbf{x}+\mathbf{y}&amp;= \left(x_1+y_1,x_2+y_2,\ldots,x_n+y_n\right)\\
-\end{aligned}
-</span></p>
-<p>As an example:</p>
-<p><span class="math display">
-\begin{aligned}
-\mathbf{x}&amp;= \left(1,2\right)\\
-\mathbf{y}&amp;= \left(3,4\right)\\
-\\
-\mathbf{x}+\mathbf{y}&amp;= \left(1+3,2+4\right)\\
-&amp;= \left(4,6\right)
-\end{aligned}
-</span></p>
-<p>Vector subtraction works the same way as vector addition, subtracting each element at the same position:</p>
-<p><span class="math display">
-\mathbf{x}-\mathbf{y}= \left(x_1-y_1,x_2-y_2,\ldots,x_n-y_n\right)\\
-</span></p>
-<p>Adding and subtracting two vectors is only defined when the vectors have the same number of elements. Thus, if <span class="math inline">\mathbf{x}= \left(1,2\right)</span> and <span class="math inline">\mathbf{y}= \left(3,2,1\right)</span>, there is no defined way to add <span class="math inline">\mathbf{x}</span> and <span class="math inline">\mathbf{y}</span>.</p>
-<p>In R, adding and subtracting vectors is beautifully easy. Unlike many programming language, we do not need to create looping structures to add each element pair one at a time. We just define the vectors and add them:</p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="matrix_algebra_cache/html/vectoraddition_022a9a4017dcbbd11acad311d2d4dfe9">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">x</span> <span class="op">+</span> <span class="va">y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4 6</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb12" data-startfrom="297" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 296;"><span id="cb12-297"><a href="#cb12-297" aria-hidden="true" tabindex="-1"></a>viewof fsab <span class="op">=</span> </span>
-<span id="cb12-298"><a href="#cb12-298" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">form</span>({</span>
-<span id="cb12-299"><a href="#cb12-299" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ax</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span>]<span class="op">,</span> {</span>
-<span id="cb12-300"><a href="#cb12-300" aria-hidden="true" tabindex="-1"></a>    <span class="dt">format</span><span class="op">:</span> (x) <span class="kw">=&gt;</span> x<span class="op">,</span></span>
-<span id="cb12-301"><a href="#cb12-301" aria-hidden="true" tabindex="-1"></a>    <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> </span>
-<span id="cb12-302"><a href="#cb12-302" aria-hidden="true" tabindex="-1"></a>    <span class="dt">step</span><span class="op">:</span> <span class="op">.</span><span class="bn">01</span><span class="op">,</span> </span>
-<span id="cb12-303"><a href="#cb12-303" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span><span class="fu">html</span><span class="vs">`&lt;em&gt;a&lt;sub&gt;x&lt;/sub&gt;&lt;/em&gt;`</span><span class="op">,</span></span>
-<span id="cb12-304"><a href="#cb12-304" aria-hidden="true" tabindex="-1"></a>    <span class="dt">labelStyle</span><span class="op">:</span> <span class="st">"width: 50px"</span></span>
-<span id="cb12-305"><a href="#cb12-305" aria-hidden="true" tabindex="-1"></a>  })<span class="op">,</span></span>
-<span id="cb12-306"><a href="#cb12-306" aria-hidden="true" tabindex="-1"></a>  <span class="dt">ay</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="op">.</span><span class="bn">01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;em&gt;a&lt;sub&gt;y&lt;/sub&gt;&lt;/em&gt;`</span>})<span class="op">,</span></span>
-<span id="cb12-307"><a href="#cb12-307" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bx</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span><span class="dv">0</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="op">.</span><span class="bn">01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;em&gt;b&lt;sub&gt;x&lt;/sub&gt;&lt;/em&gt;`</span>})<span class="op">,</span></span>
-<span id="cb12-308"><a href="#cb12-308" aria-hidden="true" tabindex="-1"></a>  <span class="dt">by</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="op">.</span><span class="bn">01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="fu">html</span><span class="vs">`&lt;em&gt;b&lt;sub&gt;y&lt;/sub&gt;&lt;/em&gt;`</span>})</span>
-<span id="cb12-309"><a href="#cb12-309" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb12-310"><a href="#cb12-310" aria-hidden="true" tabindex="-1"></a>ab<span class="op">=</span>[{<span class="dt">x0</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">y0</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">ax</span><span class="op">:</span> fsab<span class="op">.</span><span class="at">ax</span><span class="op">,</span> <span class="dt">ay</span><span class="op">:</span> fsab<span class="op">.</span><span class="at">ay</span><span class="op">,</span> <span class="dt">bx</span><span class="op">:</span> fsab<span class="op">.</span><span class="at">bx</span><span class="op">,</span> <span class="dt">by</span><span class="op">:</span> fsab<span class="op">.</span><span class="at">by</span><span class="op">,</span> <span class="dt">abx</span><span class="op">:</span> fsab<span class="op">.</span><span class="at">ax</span> <span class="op">+</span> fsab<span class="op">.</span><span class="at">bx</span><span class="op">,</span> <span class="dt">aby</span><span class="op">:</span> fsab<span class="op">.</span><span class="at">ay</span> <span class="op">+</span> fsab<span class="op">.</span><span class="at">by</span><span class="op">,</span> <span class="dt">theta</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">atan2</span>(fsab<span class="op">.</span><span class="at">ay</span> <span class="op">+</span> fsab<span class="op">.</span><span class="at">by</span><span class="op">,</span> fsab<span class="op">.</span><span class="at">ax</span> <span class="op">+</span> fsab<span class="op">.</span><span class="at">bx</span>)<span class="op">,</span> <span class="dt">thetaa</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">atan2</span>(fsab<span class="op">.</span><span class="at">ay</span><span class="op">,</span> fsab<span class="op">.</span><span class="at">ax</span>)<span class="op">,</span> <span class="dt">thetab</span><span class="op">:</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">atan2</span>(fsab<span class="op">.</span><span class="at">by</span><span class="op">,</span> fsab<span class="op">.</span><span class="at">bx</span>)<span class="op">,</span> <span class="dt">a</span><span class="op">:</span> <span class="st">'a'</span><span class="op">,</span> <span class="dt">b</span><span class="op">:</span> <span class="st">'b'</span><span class="op">,</span> <span class="dt">ab</span><span class="op">:</span><span class="st">'a + b'</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">'#ffffff'</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">200</span>}]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-1-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-1-2" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-</div>
-<div class="cell page-columns page-full" data-cache="true">
-<div class="sourceCode cell-code hidden" id="cb13" data-startfrom="321" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 320;"><span id="cb13-321"><a href="#cb13-321" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({<span class="dt">height</span><span class="op">:</span> <span class="dv">600</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">600</span><span class="op">,</span></span>
-<span id="cb13-322"><a href="#cb13-322" aria-hidden="true" tabindex="-1"></a><span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">ticks</span><span class="op">:</span> <span class="dv">9</span>}<span class="op">,</span></span>
-<span id="cb13-323"><a href="#cb13-323" aria-hidden="true" tabindex="-1"></a><span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">2</span><span class="op">,</span> <span class="dv">2</span>]<span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">ticks</span><span class="op">:</span> <span class="dv">9</span>}<span class="op">,</span></span>
-<span id="cb13-324"><a href="#cb13-324" aria-hidden="true" tabindex="-1"></a><span class="dt">style</span><span class="op">:</span> {</span>
-<span id="cb13-325"><a href="#cb13-325" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">14</span><span class="op">,</span> <span class="dt">fontFamily</span><span class="op">:</span> <span class="st">"equity_text_a_tab"</span></span>
-<span id="cb13-326"><a href="#cb13-326" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb13-327"><a href="#cb13-327" aria-hidden="true" tabindex="-1"></a><span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb13-328"><a href="#cb13-328" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])<span class="op">,</span></span>
-<span id="cb13-329"><a href="#cb13-329" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>])<span class="op">,</span></span>
-<span id="cb13-330"><a href="#cb13-330" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">arrow</span>(ab<span class="op">,</span> {<span class="dt">x1</span><span class="op">:</span> <span class="st">"x0"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"y0"</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> <span class="st">"ax"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"ay"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#8B1A1A"</span><span class="op">,</span> <span class="dt">headAngle</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">headLength</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#8B1A1A"</span>})<span class="op">,</span></span>
-<span id="cb13-331"><a href="#cb13-331" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">arrow</span>(ab<span class="op">,</span> {<span class="dt">x1</span><span class="op">:</span> <span class="st">"ax"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"ay"</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> <span class="st">"abx"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"aby"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#27408B"</span><span class="op">,</span> <span class="dt">headAngle</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">headLength</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#27408B"</span><span class="op">,</span> <span class="dt">alpha</span><span class="op">:</span> <span class="op">.</span><span class="dv">5</span>})<span class="op">,</span></span>
-<span id="cb13-332"><a href="#cb13-332" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">arrow</span>(ab<span class="op">,</span> {<span class="dt">x1</span><span class="op">:</span> <span class="st">"x0"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"y0"</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> <span class="st">"abx"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"aby"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#51315E"</span><span class="op">,</span> <span class="dt">headAngle</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">headLength</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#51315E"</span>})<span class="op">,</span></span>
-<span id="cb13-333"><a href="#cb13-333" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">dot</span>(ab<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">ax</span><span class="op">/</span><span class="dv">2</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">ay</span><span class="op">/</span><span class="dv">2</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"fill"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">7</span>})<span class="op">,</span></span>
-<span id="cb13-334"><a href="#cb13-334" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">dot</span>(ab<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">ax</span> <span class="op">+</span> d<span class="op">.</span><span class="at">bx</span><span class="op">/</span><span class="dv">2</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">ay</span> <span class="op">+</span> d<span class="op">.</span><span class="at">by</span><span class="op">/</span><span class="dv">2</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"fill"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">7</span>})<span class="op">,</span></span>
-<span id="cb13-335"><a href="#cb13-335" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">dot</span>(ab<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">abx</span><span class="op">/</span><span class="dv">2</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">aby</span><span class="op">/</span><span class="dv">2</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"fill"</span><span class="op">,</span> <span class="dt">r</span><span class="op">:</span> <span class="dv">18</span>})<span class="op">,</span></span>
-<span id="cb13-336"><a href="#cb13-336" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">text</span>(ab<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">ax</span><span class="op">/</span><span class="dv">2</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">ay</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="st">'a'</span><span class="op">,</span> <span class="dt">rotate</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">atan</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">tan</span>(d<span class="op">.</span><span class="at">thetaa</span>)) <span class="op">*</span> <span class="op">-</span><span class="dv">180</span> <span class="op">/</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">'#8B1A1A'</span>})<span class="op">,</span></span>
-<span id="cb13-337"><a href="#cb13-337" aria-hidden="true" tabindex="-1"></a>   Plot<span class="op">.</span><span class="fu">text</span>(ab<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">ax</span> <span class="op">+</span> d<span class="op">.</span><span class="at">bx</span><span class="op">/</span><span class="dv">2</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">ay</span> <span class="op">+</span> d<span class="op">.</span><span class="at">by</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="st">'b'</span><span class="op">,</span> <span class="dt">rotate</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">atan</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">tan</span>(d<span class="op">.</span><span class="at">thetab</span>)) <span class="op">*</span> <span class="op">-</span><span class="dv">180</span> <span class="op">/</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">'#27408B'</span>})<span class="op">,</span></span>
-<span id="cb13-338"><a href="#cb13-338" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">text</span>(ab<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">abx</span><span class="op">/</span><span class="dv">2</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">aby</span> <span class="op">/</span> <span class="dv">2</span><span class="op">,</span> <span class="dt">text</span><span class="op">:</span> <span class="st">'ab'</span><span class="op">,</span> <span class="dt">rotate</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">atan</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">tan</span>(d<span class="op">.</span><span class="at">theta</span>)) <span class="op">*</span> <span class="op">-</span><span class="dv">180</span> <span class="op">/</span> <span class="bu">Math</span><span class="op">.</span><span class="cn">PI</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">'#51315E'</span>})</span>
-<span id="cb13-339"><a href="#cb13-339" aria-hidden="true" tabindex="-1"></a>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-vector-addition" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full"><div id="ojs-cell-2" data-nodetype="expression">
-
-</div>
-<p></p><figcaption class="figure-caption margin-caption">Figure&nbsp;3.2: Adding vectors a and b.</figcaption><p></p>
-</figure>
-</div>
-</div>
-</section><section id="scalar-multiplication-of-vectors" class="level3 page-columns page-full" data-number="3.2.2"><h3 data-number="3.2.2" class="anchored" data-anchor-id="scalar-multiplication-of-vectors">
-<span class="header-section-number">3.2.2</span> Scalar Multiplication of Vectors</h3>
-<p>To multiply a scalar by a vector, multiply every element in the vector by the scalar. If <em>a</em> is a scalar,</p>
-<p><span class="math display">a\mathbf{x}=\left(ax_1+ax_2+\ldots+ax_n\right)</span></p>
-<p>They are called “scalars” because a scalar multiplied by a vector “scales” the vector by changing its magnitude.</p>
-<p><span class="math display">\left\|a\mathbf{x}\right\|=a\left\|\mathbf{x}\right\|</span></p>
-<p>You can play with scalar multiplication with the web app in <a href="#fig-scalar">Figure&nbsp;<span>3.3</span></a>. Set the <em>x</em> and <em>y</em> coodinates and</p>
-<div class="cell">
-<div class="sourceCode cell-code hidden" id="cb14" data-startfrom="362" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 361;"><span id="cb14-362"><a href="#cb14-362" aria-hidden="true" tabindex="-1"></a>viewof fs <span class="op">=</span> </span>
-<span id="cb14-363"><a href="#cb14-363" aria-hidden="true" tabindex="-1"></a>Inputs<span class="op">.</span><span class="fu">form</span>({</span>
-<span id="cb14-364"><a href="#cb14-364" aria-hidden="true" tabindex="-1"></a>  <span class="dt">xi</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span>]<span class="op">,</span> {</span>
-<span id="cb14-365"><a href="#cb14-365" aria-hidden="true" tabindex="-1"></a>    <span class="dt">format</span><span class="op">:</span> (x) <span class="kw">=&gt;</span> x<span class="op">,</span></span>
-<span id="cb14-366"><a href="#cb14-366" aria-hidden="true" tabindex="-1"></a>    <span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> </span>
-<span id="cb14-367"><a href="#cb14-367" aria-hidden="true" tabindex="-1"></a>    <span class="dt">step</span><span class="op">:</span> <span class="op">.</span><span class="bn">01</span><span class="op">,</span> </span>
-<span id="cb14-368"><a href="#cb14-368" aria-hidden="true" tabindex="-1"></a>    <span class="dt">label</span><span class="op">:</span> <span class="fu">md</span><span class="vs">`*x* `</span><span class="op">,</span></span>
-<span id="cb14-369"><a href="#cb14-369" aria-hidden="true" tabindex="-1"></a>    <span class="dt">labelStyle</span><span class="op">:</span> <span class="st">"width: 50px"</span></span>
-<span id="cb14-370"><a href="#cb14-370" aria-hidden="true" tabindex="-1"></a>  })<span class="op">,</span></span>
-<span id="cb14-371"><a href="#cb14-371" aria-hidden="true" tabindex="-1"></a>  <span class="dt">yi</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">1</span><span class="op">,</span><span class="dv">1</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="op">.</span><span class="bn">01</span><span class="op">,</span> <span class="dt">vertical</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="fu">md</span><span class="vs">`*y*`</span>})<span class="op">,</span></span>
-<span id="cb14-372"><a href="#cb14-372" aria-hidden="true" tabindex="-1"></a>  <span class="dt">a</span><span class="op">:</span> Inputs<span class="op">.</span><span class="fu">range</span>([<span class="op">-</span><span class="dv">5</span><span class="op">,</span><span class="dv">5</span>]<span class="op">,</span> {<span class="dt">value</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span> <span class="dt">step</span><span class="op">:</span> <span class="op">.</span><span class="bn">01</span><span class="op">,</span> <span class="dt">label</span><span class="op">:</span> <span class="fu">md</span><span class="vs">`*a* `</span><span class="op">,</span> <span class="dt">description</span><span class="op">:</span> <span class="st">'Scalar'</span>})</span>
-<span id="cb14-373"><a href="#cb14-373" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb14-374"><a href="#cb14-374" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fs<span class="op">.</span><span class="at">xi</span> <span class="op">*</span> fs<span class="op">.</span><span class="at">a</span></span>
-<span id="cb14-375"><a href="#cb14-375" aria-hidden="true" tabindex="-1"></a>ay <span class="op">=</span> fs<span class="op">.</span><span class="at">yi</span> <span class="op">*</span> fs<span class="op">.</span><span class="at">a</span></span>
-<span id="cb14-376"><a href="#cb14-376" aria-hidden="true" tabindex="-1"></a>theta<span class="op">=</span><span class="bu">Math</span><span class="op">.</span><span class="fu">atan2</span>(ay<span class="op">,</span>ax)</span>
-<span id="cb14-377"><a href="#cb14-377" aria-hidden="true" tabindex="-1"></a>dd<span class="op">=</span>[{<span class="dt">x</span><span class="op">:</span> fs<span class="op">.</span><span class="at">xi</span><span class="op">,</span> <span class="dt">y</span><span class="op">:</span> fs<span class="op">.</span><span class="at">yi</span><span class="op">,</span> <span class="dt">ax</span><span class="op">:</span> ax<span class="op">,</span> <span class="dt">ay</span><span class="op">:</span> ay<span class="op">,</span> <span class="dt">x0</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">y0</span><span class="op">:</span> <span class="dv">0</span><span class="op">,</span> <span class="dt">a</span><span class="op">:</span> fs<span class="op">.</span><span class="at">a</span><span class="op">,</span> <span class="dt">theta</span><span class="op">:</span> theta }]</span>
-<span id="cb14-378"><a href="#cb14-378" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-379"><a href="#cb14-379" aria-hidden="true" tabindex="-1"></a>ns <span class="op">=</span> Inputs<span class="op">.</span><span class="fu">range</span>()<span class="op">.</span><span class="at">classList</span>[<span class="dv">0</span>]</span>
-<span id="cb14-380"><a href="#cb14-380" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-381"><a href="#cb14-381" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`</span></span>
-<span id="cb14-382"><a href="#cb14-382" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;style&gt;</span></span>
-<span id="cb14-383"><a href="#cb14-383" aria-hidden="true" tabindex="-1"></a><span class="vs">form.</span><span class="sc">${</span>ns<span class="sc">}</span><span class="vs"> {--input-width: 600px; --label-width: 15px;}</span></span>
-<span id="cb14-384"><a href="#cb14-384" aria-hidden="true" tabindex="-1"></a><span class="vs">.</span><span class="sc">${</span>ns<span class="sc">}</span><span class="vs">-input&gt;input[type=number] {flex-shrink:6;}</span></span>
-<span id="cb14-385"><a href="#cb14-385" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/style&gt;</span></span>
-<span id="cb14-386"><a href="#cb14-386" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-3-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-3-2" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-3-3" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-3-4" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-3-5" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-3-6" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<div id="ojs-cell-3-7" data-nodetype="expression">
-
-</div>
-</div>
-</div>
-</div>
-<div class="cell page-columns page-full" data-cache="true">
-<div class="sourceCode cell-code hidden" id="cb15" data-startfrom="395" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 394;"><span id="cb15-395"><a href="#cb15-395" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">plot</span>({<span class="dt">height</span><span class="op">:</span> <span class="dv">600</span><span class="op">,</span> <span class="dt">width</span><span class="op">:</span> <span class="dv">600</span><span class="op">,</span></span>
-<span id="cb15-396"><a href="#cb15-396" aria-hidden="true" tabindex="-1"></a><span class="dt">x</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">5</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">ticks</span><span class="op">:</span> <span class="dv">9</span>}<span class="op">,</span></span>
-<span id="cb15-397"><a href="#cb15-397" aria-hidden="true" tabindex="-1"></a><span class="dt">y</span><span class="op">:</span> {<span class="dt">domain</span><span class="op">:</span> [<span class="op">-</span><span class="dv">5</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">,</span> <span class="dt">grid</span><span class="op">:</span> <span class="kw">true</span><span class="op">,</span> <span class="dt">ticks</span><span class="op">:</span> <span class="dv">9</span>}<span class="op">,</span></span>
-<span id="cb15-398"><a href="#cb15-398" aria-hidden="true" tabindex="-1"></a><span class="dt">style</span><span class="op">:</span> {</span>
-<span id="cb15-399"><a href="#cb15-399" aria-hidden="true" tabindex="-1"></a>    <span class="dt">fontSize</span><span class="op">:</span> <span class="dv">14</span><span class="op">,</span> <span class="dt">fontFamily</span><span class="op">:</span> <span class="st">"equity_text_a_tab"</span></span>
-<span id="cb15-400"><a href="#cb15-400" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb15-401"><a href="#cb15-401" aria-hidden="true" tabindex="-1"></a><span class="dt">marks</span><span class="op">:</span> [</span>
-<span id="cb15-402"><a href="#cb15-402" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">ruleY</span>([<span class="dv">0</span>])<span class="op">,</span></span>
-<span id="cb15-403"><a href="#cb15-403" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">ruleX</span>([<span class="dv">0</span>])<span class="op">,</span></span>
-<span id="cb15-404"><a href="#cb15-404" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">arrow</span>(dd<span class="op">,</span> {<span class="dt">x1</span><span class="op">:</span> <span class="st">"x0"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"y0"</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> <span class="st">"ax"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"ay"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#8B1A1A"</span><span class="op">,</span> <span class="dt">headAngle</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">headLength</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#8B1A1A"</span>})<span class="op">,</span></span>
-<span id="cb15-405"><a href="#cb15-405" aria-hidden="true" tabindex="-1"></a>Plot<span class="op">.</span><span class="fu">arrow</span>(dd<span class="op">,</span> {<span class="dt">x1</span><span class="op">:</span> <span class="st">"x0"</span><span class="op">,</span> <span class="dt">y1</span><span class="op">:</span> <span class="st">"y0"</span><span class="op">,</span> <span class="dt">x2</span><span class="op">:</span> <span class="st">"x"</span><span class="op">,</span> <span class="dt">y2</span><span class="op">:</span> <span class="st">"y"</span><span class="op">,</span> <span class="dt">stroke</span><span class="op">:</span> <span class="st">"#27408B"</span><span class="op">,</span> <span class="dt">headAngle</span><span class="op">:</span> <span class="dv">30</span><span class="op">,</span> <span class="dt">headLength</span><span class="op">:</span> <span class="dv">10</span><span class="op">,</span> <span class="dt">fill</span><span class="op">:</span> <span class="st">"#27408B"</span>})<span class="op">,</span></span>
-<span id="cb15-406"><a href="#cb15-406" aria-hidden="true" tabindex="-1"></a>  Plot<span class="op">.</span><span class="fu">text</span>(dd<span class="op">,</span> {<span class="dt">x</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">ax</span> <span class="op">+</span> <span class="op">.</span><span class="dv">3</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">cos</span>(d<span class="op">.</span><span class="at">theta</span>)<span class="op">,</span> <span class="dt">y</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">ay</span> <span class="op">+</span> <span class="op">.</span><span class="dv">3</span> <span class="op">*</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sin</span>(d<span class="op">.</span><span class="at">theta</span>)<span class="op">,</span> <span class="dt">text</span><span class="op">:</span> (d) <span class="kw">=&gt;</span> <span class="st">'('</span><span class="op">+</span>(d<span class="op">.</span><span class="at">ax</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="op">+</span><span class="st">', '</span><span class="op">+</span>(d<span class="op">.</span><span class="at">ay</span>)<span class="op">.</span><span class="fu">toFixed</span>(<span class="dv">2</span>)<span class="op">+</span><span class="st">')'</span>})</span>
-<span id="cb15-407"><a href="#cb15-407" aria-hidden="true" tabindex="-1"></a>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="fig-scalar" class="quarto-figure quarto-figure-center anchored page-columns page-full">
-<figure class="figure page-columns page-full"><div id="ojs-cell-4" data-nodetype="expression">
-
-</div>
-<p></p><figcaption class="figure-caption margin-caption">Figure&nbsp;3.3: Multiplying a vector by a scalar changes its magnitude.</figcaption><p></p>
-</figure>
-</div>
-</div>
-<p>Scalar division looks just like it does in regular algebra and can take on a variety of forms:</p>
-<p><span class="math display">
-\mathbf{x}/a=\frac{\mathbf{x}}{a}=\frac{1}{a}\mathbf{x}=a^{-1}\mathbf{x}=\mathbf{x}\div a
-</span></p>
-</section><section id="vector-norms" class="level3 page-columns page-full" data-number="3.2.3"><h3 data-number="3.2.3" class="anchored" data-anchor-id="vector-norms">
-<span class="header-section-number">3.2.3</span> Vector Norms</h3>
-<div class="page-columns page-full"><p>If we visualize a vector as an arrow, we can ask how long the arrow is from end to end. The <span class="defword">norm</span> is the vector’s magnitude. Imagine the vector’s <em>n</em> elements plotted as a single point in <em>n</em>-dimensional space. The norm is the distance of the point to the origin (i.e., a vector of <em>n</em> zeroes). The distance referred to here is technically the Euclidean distance, which is a generalization of the Pythagorean Theorem to more than 2 dimensions. To calculate it, take the square root of the sum of all squared values in the vector.</p><div class="no-row-height column-margin column-container"><span class="defword">A vector’s <strong>norm</strong> is the Euclidean distance of the vector’s <em>n</em> elements to the origin in <em>n</em>-dimensional space.</span></div></div>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p>Vector norms sometimes have notation that can be confused with absolute values:</p>
-<p><span class="math display">\left|\mathbf{x}\right|</span></p>
-<p>The notational confusion is not accidental. Scalar absolute values and vector norms both refer to magnitude. However, to avoid the ambiguity between vector norms and taking the absolute value of each element, I will use the double bar notation:</p>
-<p><span class="math display">\left\|\mathbf{x}\right\|</span></p>
-<p>I tend to be fastidious about distinguishing between <em>vector length</em> (the number of elements in a vector) and vector <em>norms</em> (the vector’s magnitude) because the concepts are easily confused. Further confusion is that the norm of a vector is not the same thing as a <em>normal vector</em>, which is a vector that is perpendicular to a surface (e.g., a plane, a sphere, or any other multidimensional object) at a given point. A normal vector has nothing to do with the normal distribution.</p>
-</div></div><p><span class="math display">\left\|\mathbf{x}\right\|=\sqrt{x_1^2+x_2^2+\ldots+x_n^2}</span></p>
-</section><section id="unit-vectors" class="level3 page-columns page-full" data-number="3.2.4"><h3 data-number="3.2.4" class="anchored" data-anchor-id="unit-vectors">
-<span class="header-section-number">3.2.4</span> Unit Vectors</h3>
-<div class="page-columns page-full"><p>A vector norm is useful for create <span class="defword">unit vectors</span>, which have the same direction as the original vector but have a norm (i.e, magnitude) of 1.</p><div class="no-row-height column-margin column-container"><span class="defword">A <em>unit vector</em> <span class="math inline">\mathbf{u}</span> has a norm of 1: <span class="math inline">\left\|\mathbf{u}\right\|=1</span></span></div></div>
-<p>So a unit vector <span class="math inline">\mathbf{u}</span> that has the same direction as vector <span class="math inline">\mathbf{x} = \left(3,4\right)</span> is:</p>
-<p><span class="math display">
-\begin{align*}
-\mathbf{u}&amp;=\frac{\mathbf{x}}{\left\|\mathbf{x}\right\|}\\
-&amp;=\frac{\left(3,4\right)}{\sqrt{3^2+4^2}}\\
-&amp;=\frac{\left(3,4\right)}{5}\\
-&amp;=\left(.6,.8\right)
-\end{align*}
-</span></p>
-<p>We can verify that <span class="math inline">\mathbf{u}</span> has a norm of 1:</p>
-<p><span class="math display">
-\begin{align*}
-\left\|\mathbf{u}\right\|&amp;=\left\|\left(.6,.8\right)\right\|\\
-&amp;=\sqrt{.6^2+.8^2}\\
-&amp;=1
-\end{align*}
-</span></p>
-</section><section id="vectors-in-r" class="level3" data-number="3.2.5"><h3 data-number="3.2.5" class="anchored" data-anchor-id="vectors-in-r">
-<span class="header-section-number">3.2.5</span> Vectors in R</h3>
-<p>You can make sequential integer sequences with the <code>:</code> operator or make any other kind of sequence with the the <code>seq</code> function:</p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="matrix_algebra_cache/html/vectorseq_b05a3dad98600ceab3f11bab306dbe08">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># sequence from 1 to 5</span></span>
-<span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 3 4 5</code></pre>
-</div>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Another way to make a sequence from 1 to 5</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 3 4 5</code></pre>
-</div>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># or just</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 3 4 5</code></pre>
-</div>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># from 5 to 1</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 5 4 3 2 1</code></pre>
-</div>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># from 0 to 1 by .1 increments</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0.1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</code></pre>
-</div>
-</div>
-<section id="arithmetic-operations-in-r" class="level4" data-number="3.2.5.1"><h4 data-number="3.2.5.1" class="anchored" data-anchor-id="arithmetic-operations-in-r">
-<span class="header-section-number">3.2.5.1</span> Arithmetic operations in R</h4>
+<p>In matrix algebra, we can arrange numbers as <a href="./scalars.html">scalars</a> (single values), <a href="./vectors.html">vectors</a> (sequences of values), and <a href="matrices.qmd">matrices</a> (values in rectangular arrays).</p>
 
 
 
-</section></section></section></main><!-- /main --><script type="ojs-module-contents">
-{"contents":[{"methodName":"interpret","cellName":"ojs-cell-1","inline":false,"source":"viewof fsab = \nInputs.form({\n  ax: Inputs.range([-1,1], {\n    format: (x) => x,\n    value: 1, \n    step: .01, \n    label:html`<em>a<sub>x</sub></em>`,\n    labelStyle: \"width: 50px\"\n  }),\n  ay: Inputs.range([-1,1], {value: 0, step: .01, label: html`<em>a<sub>y</sub></em>`}),\n  bx: Inputs.range([-1,1], {value:0, step: .01, label: html`<em>b<sub>x</sub></em>`}),\n  by: Inputs.range([-1,1], {value: 1, step: .01, label: html`<em>b<sub>y</sub></em>`})\n  })\nab=[{x0: 0, y0: 0, ax: fsab.ax, ay: fsab.ay, bx: fsab.bx, by: fsab.by, abx: fsab.ax + fsab.bx, aby: fsab.ay + fsab.by, theta: Math.atan2(fsab.ay + fsab.by, fsab.ax + fsab.bx), thetaa: Math.atan2(fsab.ay, fsab.ax), thetab: Math.atan2(fsab.by, fsab.bx), a: 'a', b: 'b', ab:'a + b', fill: '#ffffff', r: 200}]\n\n"},{"methodName":"interpret","cellName":"ojs-cell-2","inline":false,"source":"\nPlot.plot({height: 600, width: 600,\nx: {domain: [-2, 2], grid: true, ticks: 9},\ny: {domain: [-2, 2], grid: true, ticks: 9},\nstyle: {\n    fontSize: 14, fontFamily: \"equity_text_a_tab\"\n  },\nmarks: [\n  Plot.ruleY([0]),\n  Plot.ruleX([0]),\n  Plot.arrow(ab, {x1: \"x0\", y1: \"y0\", x2: \"ax\", y2: \"ay\", stroke: \"#8B1A1A\", headAngle: 30, headLength: 10, fill: \"#8B1A1A\"}),\n  Plot.arrow(ab, {x1: \"ax\", y1: \"ay\", x2: \"abx\", y2: \"aby\", stroke: \"#27408B\", headAngle: 30, headLength: 10, fill: \"#27408B\", alpha: .5}),\n  Plot.arrow(ab, {x1: \"x0\", y1: \"y0\", x2: \"abx\", y2: \"aby\", stroke: \"#51315E\", headAngle: 30, headLength: 10, fill: \"#51315E\"}),\n  Plot.dot(ab, {x: (d) => d.ax/2, y: (d) => d.ay/2, fill: \"fill\", r: 7}),\n  Plot.dot(ab, {x: (d) => d.ax + d.bx/2, y: (d) => d.ay + d.by/2, fill: \"fill\", r: 7}),\n  Plot.dot(ab, {x: (d) => d.abx/2, y: (d) => d.aby/2, fill: \"fill\", r: 18}),\n  Plot.text(ab, {x: (d) => d.ax/2, y: (d) => d.ay / 2, text: 'a', rotate: (d) => Math.atan(Math.tan(d.thetaa)) * -180 / Math.PI, fill: '#8B1A1A'}),\n   Plot.text(ab, {x: (d) => d.ax + d.bx/2, y: (d) => d.ay + d.by / 2, text: 'b', rotate: (d) => Math.atan(Math.tan(d.thetab)) * -180 / Math.PI, fill: '#27408B'}),\n  Plot.text(ab, {x: (d) => d.abx/2, y: (d) => d.aby / 2, text: 'ab', rotate: (d) => Math.atan(Math.tan(d.theta)) * -180 / Math.PI, fill: '#51315E'})\n]})\n"},{"methodName":"interpret","cellName":"ojs-cell-3","inline":false,"source":"viewof fs = \nInputs.form({\n  xi: Inputs.range([-1,1], {\n    format: (x) => x,\n    value: 1, \n    step: .01, \n    label: md`*x* `,\n    labelStyle: \"width: 50px\"\n  }),\n  yi: Inputs.range([-1,1], {value: 1, step: .01, vertical: true, label: md`*y*`}),\n  a: Inputs.range([-5,5], {value: 1, step: .01, label: md`*a* `, description: 'Scalar'})\n  })\nax = fs.xi * fs.a\nay = fs.yi * fs.a\ntheta=Math.atan2(ay,ax)\ndd=[{x: fs.xi, y: fs.yi, ax: ax, ay: ay, x0: 0, y0: 0, a: fs.a, theta: theta }]\n\nns = Inputs.range().classList[0]\n\nhtml`\n<style>\nform.${ns} {--input-width: 600px; --label-width: 15px;}\n.${ns}-input>input[type=number] {flex-shrink:6;}\n</style>\n`\n"},{"methodName":"interpret","cellName":"ojs-cell-4","inline":false,"source":"\nPlot.plot({height: 600, width: 600,\nx: {domain: [-5, 5], grid: true, ticks: 9},\ny: {domain: [-5, 5], grid: true, ticks: 9},\nstyle: {\n    fontSize: 14, fontFamily: \"equity_text_a_tab\"\n  },\nmarks: [\nPlot.ruleY([0]),\nPlot.ruleX([0]),\nPlot.arrow(dd, {x1: \"x0\", y1: \"y0\", x2: \"ax\", y2: \"ay\", stroke: \"#8B1A1A\", headAngle: 30, headLength: 10, fill: \"#8B1A1A\"}),\nPlot.arrow(dd, {x1: \"x0\", y1: \"y0\", x2: \"x\", y2: \"y\", stroke: \"#27408B\", headAngle: 30, headLength: 10, fill: \"#27408B\"}),\n  Plot.text(dd, {x: (d) => d.ax + .3 * Math.cos(d.theta), y: (d) => d.ay + .3 * Math.sin(d.theta), text: (d) => '('+(d.ax).toFixed(2)+', '+(d.ay).toFixed(2)+')'})\n]})\n"},{"methodName":"interpretQuiet","source":"shinyInput('fsab')"},{"methodName":"interpretQuiet","source":"shinyInput('fs')"}]}
-</script><script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../..";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script><script id="quarto-html-after-body" type="application/javascript">
+
+</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -812,18 +347,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -855,11 +379,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -869,8 +432,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -882,7 +454,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -926,6 +621,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -951,6 +647,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1010,13 +732,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./gettingready.html" class="pagination-link">
+      <a href="./gettingready.html" class="pagination-link" aria-label="Getting Ready to Use R via RStudio">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Ready to Use R via RStudio</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./variables.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variables</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./scalars.html" class="pagination-link" aria-label="Scalars">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Scalars</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.326">
+<meta name="generator" content="quarto-1.5.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Individual Psychometrics - 2&nbsp; Getting Ready to Use R via RStudio</title>
+<title>Individual Psychometrics – 2&nbsp; Getting Ready to Use R via RStudio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -17,10 +17,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -61,7 +96,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -70,30 +111,31 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
 <link rel="stylesheet" href="equity.css">
-<link rel="stylesheet" href="individualpsychometrics.css">
 </head>
 <body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./gettingready.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Ready to Use R via RStudio</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./gettingready.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Ready to Use R via RStudio</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Individual Psychometrics</a> 
     </div>
@@ -132,18 +174,12 @@ div.csl-indent {
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Ready to Use R via RStudio</span></span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Matrix Algebra in R</span></span></a>
-  </div>
-</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Variables</span></a>
+            <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matrix Algebra in R</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -151,41 +187,70 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./scalars.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Scalars</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vectors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Variables</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./descriptives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
   </div>
 </li>
-      </ul>
-</li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./compositescores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./unfinished.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
+</li>
+      </ul>
 </li>
     </ul>
 </div>
@@ -193,64 +258,56 @@ div.csl-indent {
    
   <ul>
 <li><a href="#get-ready-for-a-challenge" id="toc-get-ready-for-a-challenge" class="nav-link active" data-scroll-target="#get-ready-for-a-challenge"><span class="header-section-number">2.1</span> Get Ready for a Challenge</a></li>
-  <li>
-<a href="#what-is-r" id="toc-what-is-r" class="nav-link" data-scroll-target="#what-is-r"><span class="header-section-number">2.2</span> What is R?</a>
-  <ul class="collapse">
-<li><a href="#r-is-a-programming-language-built-for-statistics." id="toc-r-is-a-programming-language-built-for-statistics." class="nav-link" data-scroll-target="#r-is-a-programming-language-built-for-statistics."><span class="header-section-number">2.2.1</span> R is a programming language built for statistics.</a></li>
-  <li><a href="#r-is-a-computer-program-that-runs-code-in-the-programming-language-r." id="toc-r-is-a-computer-program-that-runs-code-in-the-programming-language-r." class="nav-link" data-scroll-target="#r-is-a-computer-program-that-runs-code-in-the-programming-language-r."><span class="header-section-number">2.2.2</span> R is a computer program that runs code in the programming language R.</a></li>
-  <li><a href="#r-is-a-data-science-ecosystem-in-which-the-r-community-flourishes" id="toc-r-is-a-data-science-ecosystem-in-which-the-r-community-flourishes" class="nav-link" data-scroll-target="#r-is-a-data-science-ecosystem-in-which-the-r-community-flourishes"><span class="header-section-number">2.2.3</span> R is a data science ecosystem in which the R community flourishes</a></li>
-  </ul>
-</li>
+  <li><a href="#what-is-r" id="toc-what-is-r" class="nav-link" data-scroll-target="#what-is-r"><span class="header-section-number">2.2</span> What is R?</a></li>
   <li><a href="#what-can-you-do-with-r" id="toc-what-can-you-do-with-r" class="nav-link" data-scroll-target="#what-can-you-do-with-r"><span class="header-section-number">2.3</span> What can you do with R?</a></li>
   <li><a href="#what-is-rstudio" id="toc-what-is-rstudio" class="nav-link" data-scroll-target="#what-is-rstudio"><span class="header-section-number">2.4</span> What is RStudio?</a></li>
   <li><a href="#code-clicks" id="toc-code-clicks" class="nav-link" data-scroll-target="#code-clicks"><span class="header-section-number">2.5</span> Code &gt; Clicks</a></li>
-  <li><a href="#a-point-and-click-alternative-to-rstudio" id="toc-a-point-and-click-alternative-to-rstudio" class="nav-link" data-scroll-target="#a-point-and-click-alternative-to-rstudio"><span class="header-section-number">2.6</span> A point-and-click alternative to RStudio</a></li>
   <li>
-<a href="#installing-r" id="toc-installing-r" class="nav-link" data-scroll-target="#installing-r"><span class="header-section-number">2.7</span> Installing R</a>
+<a href="#installing-r" id="toc-installing-r" class="nav-link" data-scroll-target="#installing-r"><span class="header-section-number">2.6</span> Installing R</a>
   <ul class="collapse">
-<li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows"><span class="header-section-number">2.7.1</span> Windows</a></li>
-  <li><a href="#mac" id="toc-mac" class="nav-link" data-scroll-target="#mac"><span class="header-section-number">2.7.2</span> Mac</a></li>
-  <li><a href="#linux" id="toc-linux" class="nav-link" data-scroll-target="#linux"><span class="header-section-number">2.7.3</span> Linux</a></li>
+<li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows"><span class="header-section-number">2.6.1</span> Windows</a></li>
+  <li><a href="#mac" id="toc-mac" class="nav-link" data-scroll-target="#mac"><span class="header-section-number">2.6.2</span> Mac</a></li>
+  <li><a href="#linux" id="toc-linux" class="nav-link" data-scroll-target="#linux"><span class="header-section-number">2.6.3</span> Linux</a></li>
   </ul>
 </li>
   <li>
-<a href="#installing-rstudio" id="toc-installing-rstudio" class="nav-link" data-scroll-target="#installing-rstudio"><span class="header-section-number">2.8</span> Installing RStudio</a>
+<a href="#installing-rstudio" id="toc-installing-rstudio" class="nav-link" data-scroll-target="#installing-rstudio"><span class="header-section-number">2.7</span> Installing RStudio</a>
   <ul class="collapse">
-<li><a href="#rstudio-desktop" id="toc-rstudio-desktop" class="nav-link" data-scroll-target="#rstudio-desktop"><span class="header-section-number">2.8.1</span> RStudio Desktop</a></li>
-  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link" data-scroll-target="#rstudio-cloud"><span class="header-section-number">2.8.2</span> RStudio Cloud</a></li>
+<li><a href="#rstudio-desktop" id="toc-rstudio-desktop" class="nav-link" data-scroll-target="#rstudio-desktop"><span class="header-section-number">2.7.1</span> RStudio Desktop</a></li>
+  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link" data-scroll-target="#rstudio-cloud"><span class="header-section-number">2.7.2</span> RStudio Cloud</a></li>
   </ul>
 </li>
-  <li><a href="#recommended-rstudio-customization" id="toc-recommended-rstudio-customization" class="nav-link" data-scroll-target="#recommended-rstudio-customization"><span class="header-section-number">2.9</span> Recommended RStudio Customization</a></li>
-  <li><a href="#using-rstudio" id="toc-using-rstudio" class="nav-link" data-scroll-target="#using-rstudio"><span class="header-section-number">2.10</span> Using RStudio</a></li>
+  <li><a href="#recommended-rstudio-customization" id="toc-recommended-rstudio-customization" class="nav-link" data-scroll-target="#recommended-rstudio-customization"><span class="header-section-number">2.8</span> Recommended RStudio Customization</a></li>
+  <li><a href="#using-rstudio" id="toc-using-rstudio" class="nav-link" data-scroll-target="#using-rstudio"><span class="header-section-number">2.9</span> Using RStudio</a></li>
   <li>
-<a href="#a-quick-tour-of-rstudios-4-panes" id="toc-a-quick-tour-of-rstudios-4-panes" class="nav-link" data-scroll-target="#a-quick-tour-of-rstudios-4-panes"><span class="header-section-number">2.11</span> A Quick Tour of RStudio’s 4 Panes</a>
+<a href="#a-quick-tour-of-rstudios-4-panes" id="toc-a-quick-tour-of-rstudios-4-panes" class="nav-link" data-scroll-target="#a-quick-tour-of-rstudios-4-panes"><span class="header-section-number">2.10</span> A Quick Tour of RStudio’s 4 Panes</a>
   <ul class="collapse">
-<li><a href="#the-console" id="toc-the-console" class="nav-link" data-scroll-target="#the-console"><span class="header-section-number">2.11.1</span> The Console</a></li>
-  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts"><span class="header-section-number">2.11.2</span> Scripts</a></li>
-  <li><a href="#environment-variables" id="toc-environment-variables" class="nav-link" data-scroll-target="#environment-variables"><span class="header-section-number">2.11.3</span> Environment Variables</a></li>
-  <li><a href="#viewer" id="toc-viewer" class="nav-link" data-scroll-target="#viewer"><span class="header-section-number">2.11.4</span> Viewer</a></li>
+<li><a href="#the-console" id="toc-the-console" class="nav-link" data-scroll-target="#the-console"><span class="header-section-number">2.10.1</span> The Console</a></li>
+  <li><a href="#scripts" id="toc-scripts" class="nav-link" data-scroll-target="#scripts"><span class="header-section-number">2.10.2</span> Scripts</a></li>
+  <li><a href="#environment-variables" id="toc-environment-variables" class="nav-link" data-scroll-target="#environment-variables"><span class="header-section-number">2.10.3</span> Environment Variables</a></li>
+  <li><a href="#viewer" id="toc-viewer" class="nav-link" data-scroll-target="#viewer"><span class="header-section-number">2.10.4</span> Viewer</a></li>
   </ul>
 </li>
-  <li><a href="#installing-and-updating-packages" id="toc-installing-and-updating-packages" class="nav-link" data-scroll-target="#installing-and-updating-packages"><span class="header-section-number">2.12</span> Installing and Updating Packages</a></li>
-  <li><a href="#create-a-new-project" id="toc-create-a-new-project" class="nav-link" data-scroll-target="#create-a-new-project"><span class="header-section-number">2.13</span> Create a New Project</a></li>
-  <li><a href="#be-kind-to-future-you" id="toc-be-kind-to-future-you" class="nav-link" data-scroll-target="#be-kind-to-future-you"><span class="header-section-number">2.14</span> Be Kind to Future-You</a></li>
-  <li><a href="#folder-organization" id="toc-folder-organization" class="nav-link" data-scroll-target="#folder-organization"><span class="header-section-number">2.15</span> Folder Organization</a></li>
+  <li><a href="#installing-and-updating-packages" id="toc-installing-and-updating-packages" class="nav-link" data-scroll-target="#installing-and-updating-packages"><span class="header-section-number">2.11</span> Installing and Updating Packages</a></li>
+  <li><a href="#create-a-new-project" id="toc-create-a-new-project" class="nav-link" data-scroll-target="#create-a-new-project"><span class="header-section-number">2.12</span> Create a New Project</a></li>
+  <li><a href="#be-kind-to-future-you" id="toc-be-kind-to-future-you" class="nav-link" data-scroll-target="#be-kind-to-future-you"><span class="header-section-number">2.13</span> Be Kind to Future-You</a></li>
+  <li><a href="#folder-organization" id="toc-folder-organization" class="nav-link" data-scroll-target="#folder-organization"><span class="header-section-number">2.14</span> Folder Organization</a></li>
   <li>
-<a href="#file-name-guidance" id="toc-file-name-guidance" class="nav-link" data-scroll-target="#file-name-guidance"><span class="header-section-number">2.16</span> File Name Guidance</a>
+<a href="#file-name-guidance" id="toc-file-name-guidance" class="nav-link" data-scroll-target="#file-name-guidance"><span class="header-section-number">2.15</span> File Name Guidance</a>
   <ul class="collapse">
-<li><a href="#give-your-files-long-descriptive-names." id="toc-give-your-files-long-descriptive-names." class="nav-link" data-scroll-target="#give-your-files-long-descriptive-names."><span class="header-section-number">2.16.1</span> Give your files long, descriptive names.</a></li>
-  <li><a href="#separate-words-with-underscores-not-spaces." id="toc-separate-words-with-underscores-not-spaces." class="nav-link" data-scroll-target="#separate-words-with-underscores-not-spaces."><span class="header-section-number">2.16.2</span> Separate words with underscores, not spaces.</a></li>
-  <li><a href="#no-special-characters-in-file-names" id="toc-no-special-characters-in-file-names" class="nav-link" data-scroll-target="#no-special-characters-in-file-names"><span class="header-section-number">2.16.3</span> No special characters in file names:</a></li>
-  <li><a href="#separate-dates-with-hyphens-using-iso-format" id="toc-separate-dates-with-hyphens-using-iso-format" class="nav-link" data-scroll-target="#separate-dates-with-hyphens-using-iso-format"><span class="header-section-number">2.16.4</span> Separate dates with hyphens using ISO format</a></li>
+<li><a href="#give-your-files-long-descriptive-names." id="toc-give-your-files-long-descriptive-names." class="nav-link" data-scroll-target="#give-your-files-long-descriptive-names."><span class="header-section-number">2.15.1</span> Give your files long, descriptive names.</a></li>
+  <li><a href="#separate-words-with-underscores-not-spaces." id="toc-separate-words-with-underscores-not-spaces." class="nav-link" data-scroll-target="#separate-words-with-underscores-not-spaces."><span class="header-section-number">2.15.2</span> Separate words with underscores, not spaces.</a></li>
+  <li><a href="#no-special-characters-in-file-names" id="toc-no-special-characters-in-file-names" class="nav-link" data-scroll-target="#no-special-characters-in-file-names"><span class="header-section-number">2.15.3</span> No special characters in file names:</a></li>
+  <li><a href="#separate-dates-with-hyphens-using-iso-format" id="toc-separate-dates-with-hyphens-using-iso-format" class="nav-link" data-scroll-target="#separate-dates-with-hyphens-using-iso-format"><span class="header-section-number">2.15.4</span> Separate dates with hyphens using ISO format</a></li>
   </ul>
 </li>
   </ul></nav>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./gettingready.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Ready to Use R via RStudio</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
 <span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Ready to Use R via RStudio</span>
 </h1>
@@ -266,176 +323,227 @@ div.csl-indent {
   </div>
   
 
+
 </header><p>This book can be read and understood without using R at all. However, many of the calculations discussed would be quite difficult without the statistical functions of a language like R.</p>
 <section id="get-ready-for-a-challenge" class="level2 page-columns page-full" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="get-ready-for-a-challenge">
 <span class="header-section-number">2.1</span> Get Ready for a Challenge</h2>
 
-<div class="no-row-height column-margin column-container"><div id="fig-williamjames" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/William_James_b1842c.jpg" title="William James" class="img-fluid figure-img" width="200"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.1: “<em>Blooming, buzzing confusion</em>?” I see what you did there. —WJ</figcaption><p></p>
-</figure>
+<div class="no-row-height column-margin column-container"><div id="fig-williamjames" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-williamjames-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/William_James_b1842c.jpg" title="William James" class="img-fluid figure-img" width="200">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-williamjames-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: “<em>Blooming, buzzing confusion</em>?” I see what you did there. —WJ
+</figcaption></figure>
 </div></div><p>For R to pay off, you have to buy in. Learning challenging material does not have to be “fun” at every moment to be worthwhile. The beginning data analyst, assailed by statistical concepts, coding conventions, and baffling error messages, <em>feels it all as one great blooming, buzzing confusion</em>.</p>
 <p>The challenge of learning R is indeed going to be challenging at times, but just there will also be many little <em>a-ha</em> moments, several larger check-out-what-I-can-do celebrations, and a few peak experiences of eudaemonic reverie.</p>
 </section><section id="what-is-r" class="level2 page-columns page-full" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="what-is-r">
 <span class="header-section-number">2.2</span> What is R?</h2>
-<p>R is the eighteenth letter of the alphabet, of course, but for data analysts, it has several specialized meanings.</p>
-<section id="r-is-a-programming-language-built-for-statistics." class="level3 page-columns page-full" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="r-is-a-programming-language-built-for-statistics.">
-<span class="header-section-number">2.2.1</span> R is a programming language built for statistics.</h3>
 
-<div class="no-row-height column-margin column-container"><div id="fig-chambers" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/John_Chambers.png" title="John Chambers" class="img-fluid figure-img" alt="A headshot of statistician John Chambers" width="200"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.2: <a href="https://www.wikiwand.com/en/John_Chambers_(statistician)">John Chambers</a></figcaption><p></p>
-</figure>
-</div><div id="fig-gentleman" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/r_gentleman.jpg" title="Robert Gentleman" class="img-fluid figure-img" alt="A headshot of statistician Robert Gentleman" width="200"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.3: <a href="https://www.wikiwand.com/en/Robert_Gentleman_(statistician)">Robert Gentleman</a></figcaption><p></p>
-</figure>
-</div><div id="fig-ihaka" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="images/Ihaka.jpg" title="Ross Ihaka" class="img-fluid figure-img" alt="A headshot of statistician Ross Ihaka" width="200"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.4: <a href="https://www.wikiwand.com/en/Ross_Ihaka">Ross Ihaka</a></figcaption><p></p>
-</figure>
+<div class="no-row-height column-margin column-container"><div id="fig-chambers" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A headshot of statistician John Chambers">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-chambers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/John_Chambers.png" title="John Chambers" class="img-fluid figure-img" alt="A headshot of statistician John Chambers" width="200">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chambers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: <a href="https://www.wikiwand.com/en/John_Chambers_(statistician)">John Chambers</a>
+</figcaption></figure>
+</div><div id="fig-gentleman" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A headshot of statistician Robert Gentleman">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-gentleman-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/r_gentleman.jpg" title="Robert Gentleman" class="img-fluid figure-img" alt="A headshot of statistician Robert Gentleman" width="200">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gentleman-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: <a href="https://www.wikiwand.com/en/Robert_Gentleman_(statistician)">Robert Gentleman</a>
+</figcaption></figure>
+</div><div id="fig-ihaka" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A headshot of statistician Ross Ihaka">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ihaka-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Ihaka.jpg" title="Ross Ihaka" class="img-fluid figure-img" alt="A headshot of statistician Ross Ihaka" width="200">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ihaka-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: <a href="https://www.wikiwand.com/en/Ross_Ihaka">Ross Ihaka</a>
+</figcaption></figure>
 </div></div>
 
-<p>In 1976, <a href="https://www.wikiwand.com/en/John_Chambers_(statistician)">John Chambers</a> and colleagues at Bell Labs developed <a href="https://www.wikiwand.com/en/S_(programming_language)" target="_blank">S</a>, a programming language specifically designed to facilitate statistical analyses and data visualization.</p>
-<p>In 1995, <a href="https://www.wikiwand.com/en/Robert_Gentleman_(statistician)">Robert Gentleman</a> and <a href="https://www.wikiwand.com/en/Ross_Ihaka">Ross Ihaka</a> released an open-source variant of S and named it “R” after their shared first initial.</p>
-<p>Most S code looks identical to R code, but R has a number of subtle enhancements such as better memory management.</p>
-<p><a href="https://www.stat.auckland.ac.nz/~ihaka/downloads/Interface98.pdf" target="_blank">More about the origins of R</a></p>
-</section><section id="r-is-a-computer-program-that-runs-code-in-the-programming-language-r." class="level3" data-number="2.2.2"><h3 data-number="2.2.2" class="anchored" data-anchor-id="r-is-a-computer-program-that-runs-code-in-the-programming-language-r.">
-<span class="header-section-number">2.2.2</span> R is a computer program that runs code in the programming language R.</h3>
-<p>The primary way that the R language is used is to perform analyses in the R software environment for statistical computing and graphics. This program is free and open source, meaning that not only can anyone download it for free, but its source code can be reused by anyone for any purpose.</p>
-</section><section id="r-is-a-data-science-ecosystem-in-which-the-r-community-flourishes" class="level3" data-number="2.2.3"><h3 data-number="2.2.3" class="anchored" data-anchor-id="r-is-a-data-science-ecosystem-in-which-the-r-community-flourishes">
-<span class="header-section-number">2.2.3</span> R is a data science ecosystem in which the R community flourishes</h3>
-<p>Strictly speaking, R is just one program. However, people use R in startlingly creative ways, often in combination with other programs and in coordination with other people. I like to think of R as the entire ecosystem of software, services, standards, and cultural practices shared by the entire community of R users.</p>
-<p>The technical merits of the R language and software do matter, but the success of R has more to do with the inclusive, welcoming, diverse, and expanding culture of the R community. When an individual R user has a great idea, the R community has as integrated set of technical standards, web services, and cultural practices such that innovations spread quickly to everyone in the community—often with multiple tutorials aimed at users of all levels of expertise. With the support of the R community, ordinary people can leverage R to accomplish far more than anyone would have thought possible not so very long ago.</p>
-</section></section><section id="what-can-you-do-with-r" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="what-can-you-do-with-r">
+<p>R is the eighteenth letter of the alphabet, of course, but for data analysts, it has several specialized meanings.</p>
+<ol type="1">
+<li>
+<strong>R is a programming language built for statistics.</strong> In 1976, <a href="https://www.wikiwand.com/en/John_Chambers_(statistician)">John Chambers</a> and colleagues at Bell Labs developed <a href="https://www.wikiwand.com/en/S_(programming_language)" target="_blank">S</a>, a programming language specifically designed to facilitate statistical analyses and data visualization. In 1995, <a href="https://www.wikiwand.com/en/Robert_Gentleman_(statistician)">Robert Gentleman</a> and <a href="https://www.wikiwand.com/en/Ross_Ihaka">Ross Ihaka</a> released an open-source variant of S and named it “R” after their shared first initial. Most S code looks identical to R code, but R has a number of subtle enhancements such as better memory management. You can read more about the origins of R in <span class="citation" data-cites="ihakaFutureHistory1998">Ihaka (<a href="references.html#ref-ihakaFutureHistory1998" role="doc-biblioref">1998</a>)</span>.</li>
+<li>
+<strong>R is a computer program that runs code in the programming language R.</strong> The primary way that the R language is used is to perform analyses in the R software environment for statistical computing and graphics. This program is free and open source, meaning that not only can anyone download it for free, but its source code can be reused by anyone for any purpose.</li>
+<li>
+<strong>R is a data science ecosystem in which the R community flourishes.</strong> Strictly speaking, R is just one program. However, people use R in startlingly creative ways, often in combination with other programs and in coordination with other people. I like to think of R as the entire ecosystem of software, services, standards, and cultural practices shared by the entire community of R users.</li>
+</ol>
+<div class="no-row-height column-margin column-container"><div id="ref-ihakaFutureHistory1998" class="csl-entry" role="listitem">
+Ihaka, R. (1998). <em>R: <span>Past</span> and future history</em>. Interface 98. <a href="https://www.stat.auckland.ac.nz/~ihaka/downloads/Interface98.pdf">https://www.stat.auckland.ac.nz/~ihaka/downloads/Interface98.pdf</a>
+</div></div><p>The technical merits of the R language and software do matter, but the success of R has more to do with the inclusive, welcoming, diverse, and expanding culture of the R community. When an individual R user has a great idea, the R community has as integrated set of technical standards, web services, and cultural practices such that innovations spread quickly to everyone in the community—often with multiple tutorials aimed at users of all levels of expertise. With the support of the R community, ordinary people can leverage R to accomplish far more than anyone would have thought possible not so very long ago.</p>
+</section><section id="what-can-you-do-with-r" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="what-can-you-do-with-r">
 <span class="header-section-number">2.3</span> What can you do with R?</h2>
 <p>What <em>can’t</em> be done with R is an ever-contracting list. If you let it, R will help you in ways you did not know you needed it. You can (and should) use R for tasks that extend well beyond analyzing data. Because R plays well with many other programs, you can leverage its capacities to do all sorts of things:</p>
 <ul>
-<li>Manage data</li>
-<li>Analyze data</li>
-<li>Visualize data</li>
+<li>Manage, analyze, and visualize data</li>
 <li>Control and run other programs</li>
 <li>Write and publish books, papers, and posters</li>
-<li>Create presentations, tutorials, websites, web apps, and digital a<strong>R</strong>t</li>
+<li>Automate reports and customized letters</li>
+<li>Create slide presentations and interactive tutorials</li>
+<li>Make websites and blogs</li>
+<li>Design web applications and dashboards</li>
+<li>Make music and digital a<strong>R</strong>t</li>
 </ul>
-<p>For example, this Tutorial was “created in R.” That is, I wrote the text in a simple format and then let R (and RStudio) handle all the complex and tedious coordination of many other programs to make this webpage. It does most of its work under the hood without my awareness.</p>
+<p>For example, this book was “created in R.” That is, I wrote the text in a simple format and then let R (and RStudio) handle all the complex and tedious coordination of many other programs to make this webpage. It does most of its work under the hood without my awareness.</p>
 </section><section id="what-is-rstudio" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="what-is-rstudio">
 <span class="header-section-number">2.4</span> What is RStudio?</h2>
-<p>In this class, we will probably never actually open the R program directly. Why not? R’s text editor works well for what it does, but it has limited functionality compared to other ways of interacting with R. Instead, we will run R code in an integrated development environment (IDE) called <a href="https://rstudio.com/products/rstudio/download/" target="_blank">RStudio</a>. An IDE is a program that makes programming easier. RStudio has many features that automates tasks what would otherwise be confusing, difficult, or tedious.</p>
-</section><section id="code-clicks" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="code-clicks">
+<p>Most users never actually open the R program directly. Why not? R’s text editor works well for what it does, but it has limited functionality compared to other ways of interacting with R. Instead, we will run R code in an integrated development environment (IDE) called <a href="https://rstudio.com/products/rstudio/download/" target="_blank">RStudio</a>. An IDE is a program that makes programming easier. RStudio has many features that automates tasks what would otherwise be confusing, difficult, or tedious.</p>
+</section><section id="code-clicks" class="level2 page-columns page-full" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="code-clicks">
 <span class="header-section-number">2.5</span> Code &gt; Clicks</h2>
+
+<div class="no-row-height column-margin column-container"><div id="fig-rfirst" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-rfirst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/r_first_then.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Artwork by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></figcaption><p></p>
-</figure>
+<figcaption>Artwork by <a href="https://github.com/allisonhorst/stats-illustrations">@allison_horst</a></figcaption></figure>
 </div>
-<p>Though R will be frustrating at times, stick with it—the dividends on your invested efforts are huge. Nothing beats the flexibility, freedom, and power of using code. Not only can I do things much faster than I could with point-and-click programs, I can do things I never would have considered doing. If there are no functions that do exactly what you want, you can adapt or make one that fits your needs perfectly. If you need to to re-run your analysis with a point-and-click menu interface, you need a perfect memory of what you did before. With code, every step is perfectly preserved.</p>
-</section><section id="a-point-and-click-alternative-to-rstudio" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="a-point-and-click-alternative-to-rstudio">
-<span class="header-section-number">2.6</span> A point-and-click alternative to RStudio</h2>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rfirst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.5: Frustrations with R are normal. Working through them pays off.
+</figcaption></figure>
+</div></div><p>Though R will be frustrating at times, stick with it—the dividends on your invested efforts are huge. Nothing beats the flexibility, freedom, and power of using code. Not only can I do things much faster than I could with point-and-click programs, I can do things I never would have considered doing. If there are no functions that do exactly what you want, you can adapt or make one that fits your needs perfectly. If you need to to re-run your analysis with a point-and-click menu interface, you need a perfect memory of what you did before. With code, every step is perfectly preserved.</p>
+<p>That said, if you need to complete a simple data-analysis task quickly, and you have no time to learn R, I recommend using <a href="https://www.jamovi.org/">Jamovi</a>. Jamovi has a beautiful point-and-click interface that you can learn to use in just a few minutes. Jamovi uses R under the hood, and like R, it is free.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="https://www.jamovi.org"><img src="https://www.jamovi.org/assets/header-logo.svg" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">jamovi</figcaption><p></p>
-</figure>
+<figure class="figure"><p><a href="https://www.jamovi.org"><img src="https://www.jamovi.org/assets/header-logo.svg" class="img-fluid figure-img" alt="Jamovi: A point-and-click alternative to R and RStudio"></a></p>
+<figcaption>Jamovi: A point-and-click alternative to R and RStudio</figcaption></figure>
 </div>
-<p>That said, if you need to complete a simple data-analysis task quickly, and you have no time to learn R, I recommend using <a href="https://www.jamovi.org/">jamovi</a>. Jamovi has a beautiful point-and-click interface that you can learn to use in just a few minutes. Jamovi uses R under the hood, and like R, it is free.</p>
-<p>The ease of use of a point-and-click interface has a trade-off. If you never learn to code, you will be stuck with a limited set of skills and many tasks will be prohibitively complicated or dauntingly tedious. In <a href="#fig-learningcurve">Figure&nbsp;<span>2.5</span></a> I recreate a plot made by many others before me.</p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="gettingready_cache/html/fig-learningcurve_cfe27e350da8c5d5961dd5c9b7fabf39">
-<div class="cell-output-display">
-<div id="fig-learningcurve" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="gettingready_files/figure-html/fig-learningcurve-1.png" class="img-fluid figure-img" width="672"></p>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.5: Different Learning Curves for Different Tasks</figcaption><p></p>
-</figure>
+<p>The ease of use of a point-and-click interface has a trade-off. If you never learn to code, you will be stuck with a limited set of skills, and many tasks will be prohibitively complicated or dauntingly tedious. In <a href="#fig-learningcurve" class="quarto-xref">Figure&nbsp;<span>2.6</span></a> I recreate a plot made by many others before me.</p>
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
+<div class="cell-output-display page-columns page-full">
+<div id="fig-learningcurve" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full"><div aria-describedby="fig-learningcurve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="gettingready_files/figure-html/fig-learningcurve-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-learningcurve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.6: Different Learning Curves for Different Tasks
+</figcaption></figure>
 </div>
 </div>
 </div>
-</section><section id="installing-r" class="level2" data-number="2.7"><h2 data-number="2.7" class="anchored" data-anchor-id="installing-r">
-<span class="header-section-number">2.7</span> Installing R</h2>
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R Code for <a href="#fig-learningcurve" class="quarto-xref">Figure&nbsp;<span>2.6</span></a>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">tibble</span><span class="op">(</span></span>
+<span>  Complexity <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span>, <span class="fl">0.01</span><span class="op">)</span>,</span>
+<span>  Code <span class="op">=</span> <span class="fl">10.5</span> <span class="op">*</span> <span class="va">Complexity</span> <span class="op">^</span> <span class="op">(</span><span class="fl">1</span> <span class="op">/</span> <span class="fl">3.1</span><span class="op">)</span>,</span>
+<span>  `Point-and-Click` <span class="op">=</span> <span class="fl">0.0002</span> <span class="op">*</span> <span class="va">Complexity</span> <span class="op">^</span> <span class="fl">3.1</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">gather</span><span class="op">(</span><span class="va">Approach</span>, <span class="va">Difficulty</span>,<span class="op">-</span><span class="va">Complexity</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span></span>
+<span>    rotation <span class="op">=</span>  <span class="fl">180</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">atan</a></span><span class="op">(</span><span class="op">(</span><span class="va">Difficulty</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">Difficulty</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">/</span> <span class="va">pi</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Difficulty</span> <span class="op">&lt;=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">Complexity</span>, <span class="va">Difficulty</span>, color <span class="op">=</span> <span class="va">Approach</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_arrow</span><span class="op">(</span>arrow_head <span class="op">=</span> <span class="fu">arrowheadr</span><span class="fu">::</span><span class="fu"><a href="https://wjschne.github.io/arrowheadr/reference/arrow_head_latex.html">arrow_head_latex</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggtext</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/ggtext/reference/geom_richtext.html">geom_richtext</a></span><span class="op">(</span></span>
+<span>    data <span class="op">=</span> <span class="va">.</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">(</span><span class="va">Complexity</span> <span class="op">==</span> <span class="fl">62.5</span> <span class="op">&amp;</span> <span class="va">Approach</span> <span class="op">==</span> <span class="st">"Point-and-Click"</span><span class="op">)</span> <span class="op">|</span> <span class="op">(</span><span class="va">Complexity</span> <span class="op">==</span> <span class="fl">75</span> <span class="op">&amp;</span> <span class="va">Approach</span> <span class="op">==</span> <span class="st">"Code"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    <span class="fu">aes</span><span class="op">(</span>label <span class="op">=</span> <span class="va">Approach</span>, angle <span class="op">=</span> <span class="va">rotation</span><span class="op">)</span>,</span>
+<span>    vjust <span class="op">=</span> <span class="op">-</span><span class="fl">0.2</span>,</span>
+<span>    hjust <span class="op">=</span> <span class="fl">0.5</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">6</span>,</span>
+<span>    fill <span class="op">=</span> <span class="st">"white"</span>,</span>
+<span>    label.color <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>    label.padding <span class="op">=</span> <span class="fu">grid</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">4</span><span class="op">)</span>, <span class="st">"pt"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">annotate</span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"richtext"</span>, label <span class="op">=</span> <span class="st">"Point-and-click&lt;br&gt;programs are great&lt;br&gt;for simple tasks but&lt;br&gt;can be tedious for&lt;br&gt;complex projects"</span>, x <span class="op">=</span> <span class="fl">83</span>, y <span class="op">=</span> <span class="fl">87.5</span>, hjust <span class="op">=</span> <span class="fl">0.5</span>, vjust <span class="op">=</span> <span class="fl">.5</span>, color <span class="op">=</span> <span class="va">myfills</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, label.color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">annotate</span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"richtext"</span>, label <span class="op">=</span> <span class="st">"...but it makes complex&lt;br&gt;tasks much easier."</span>, x <span class="op">=</span> <span class="fl">75</span>, y <span class="op">=</span> <span class="op">(</span><span class="fl">37.5</span> <span class="op">+</span> <span class="fl">25</span><span class="op">)</span> <span class="op">/</span> <span class="fl">2</span>, hjust <span class="op">=</span> <span class="fl">0.5</span>, vjust <span class="op">=</span> <span class="fl">.5</span>, color <span class="op">=</span> <span class="va">myfills</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, label.color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">annotate</span><span class="op">(</span>geom <span class="op">=</span> <span class="st">"richtext"</span>, label <span class="op">=</span> <span class="st">"Coding has a steep&lt;br&gt;learning curve..."</span>, x <span class="op">=</span> <span class="fl">12.5</span>, y <span class="op">=</span> <span class="fl">37.5</span>, hjust <span class="op">=</span> <span class="fl">0.5</span>, vjust <span class="op">=</span> <span class="fl">.5</span>, color <span class="op">=</span> <span class="va">myfills</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, label.color <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">coord_fixed</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_x_continuous</span><span class="op">(</span><span class="st">"Task Complexity"</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span><span class="op">)</span>, expand <span class="op">=</span> <span class="fu">expansion</span><span class="op">(</span><span class="fl">.02</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span><span class="st">"Task Difficulty"</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span><span class="op">)</span>, expand <span class="op">=</span> <span class="fu">expansion</span><span class="op">(</span><span class="fl">.02</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">scale_color_manual</span><span class="op">(</span>values <span class="op">=</span> <span class="va">myfills</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="installing-r" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="installing-r">
+<span class="header-section-number">2.6</span> Installing R</h2>
 <p>Installation depends on your operating system. If you have already installed R, make sure you have the latest version.</p>
-<section id="windows" class="level3" data-number="2.7.1"><h3 data-number="2.7.1" class="anchored" data-anchor-id="windows">
-<span class="header-section-number">2.7.1</span> Windows</h3>
-<p><span class="instruction">Click <a href="https://cloud.r-project.org/bin/windows/base/" target="_blank">here</a> and download the latest version of R for Windows. Open the file and follow installation instructions.</span></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="https://cloud.r-project.org/bin/windows/base/"><img src="WindowsInstall.png" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Screenshot of Windows Installation Link</figcaption><p></p>
-</figure>
-</div>
-</section><section id="mac" class="level3" data-number="2.7.2"><h3 data-number="2.7.2" class="anchored" data-anchor-id="mac">
-<span class="header-section-number">2.7.2</span> Mac</h3>
-<p><span class="instruction">Click <a href="https://cloud.r-project.org/bin/macosx/">here</a> and download the latest version of R for Mac. Double-click the file and follow installation instructions.</span></p>
-<p>The instructions can be overwhelming to newcomers so I have included a picture with the download link highlighted:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="https://cloud.r-project.org/bin/macosx/"><img src="MacInstall.png" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Screenshot of Mac Installation Link</figcaption><p></p>
-</figure>
-</div>
-</section><section id="linux" class="level3" data-number="2.7.3"><h3 data-number="2.7.3" class="anchored" data-anchor-id="linux">
-<span class="header-section-number">2.7.3</span> Linux</h3>
-<p><span class="instruction">Install R on Ubuntu with this Bash script:</span></p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="gettingready_cache/html/unnamed-chunk-3_9f73d5319ee17d3cb631888d309061c4">
+<p>Go to the <a href="https://cran.r-project.org/">CRAN (Comprehensive R Archive Network) site</a>. Click the link that is appropriate for your operating system (Windows, Mac, or Linux) and follow the instructions.</p>
+<section id="windows" class="level3" data-number="2.6.1"><h3 data-number="2.6.1" class="anchored" data-anchor-id="windows">
+<span class="header-section-number">2.6.1</span> Windows</h3>
+<p>Click <a href="https://cran.r-project.org/bin/windows/base/" target="_blank">here</a> and download the latest version of R for Windows. Open the file and follow installation instructions.</p>
+</section><section id="mac" class="level3" data-number="2.6.2"><h3 data-number="2.6.2" class="anchored" data-anchor-id="mac">
+<span class="header-section-number">2.6.2</span> Mac</h3>
+<p>Click <a href="https://cran.r-project.org/bin/macosx/">here</a> and download the latest version of R for Mac. Double-click the file and follow installation instructions.]</p>
+</section><section id="linux" class="level3" data-number="2.6.3"><h3 data-number="2.6.3" class="anchored" data-anchor-id="linux">
+<span class="header-section-number">2.6.3</span> Linux</h3>
+<p>Install R on Ubuntu with this Bash script:]{.instruction}</p>
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
 
 </div>
-<p>If you are a Linux user, you probably know what this means. If not, you probably do not. More detailed instructions <a href="https://cran.r-project.org/bin/linux/ubuntu/README" target="_blank">here</a>.</p>
-</section></section><section id="installing-rstudio" class="level2" data-number="2.8"><h2 data-number="2.8" class="anchored" data-anchor-id="installing-rstudio">
-<span class="header-section-number">2.8</span> Installing RStudio</h2>
-<section id="rstudio-desktop" class="level3" data-number="2.8.1"><h3 data-number="2.8.1" class="anchored" data-anchor-id="rstudio-desktop">
-<span class="header-section-number">2.8.1</span> RStudio Desktop</h3>
+<p>More detailed instructions here:</p>
+<ul>
+<li>
+<a href="https://cran.r-project.org/bin/linux/debian" target="_blank">Debian</a>.</li>
+<li>
+<a href="https://cran.r-project.org/bin/linux/fedora" target="_blank">Fedora/Redhat</a>.</li>
+<li>
+<a href="https://cran.r-project.org/bin/linux/ubuntu" target="_blank">Ubuntu</a>.</li>
+</ul></section></section><section id="installing-rstudio" class="level2" data-number="2.7"><h2 data-number="2.7" class="anchored" data-anchor-id="installing-rstudio">
+<span class="header-section-number">2.7</span> Installing RStudio</h2>
+<section id="rstudio-desktop" class="level3" data-number="2.7.1"><h3 data-number="2.7.1" class="anchored" data-anchor-id="rstudio-desktop">
+<span class="header-section-number">2.7.1</span> RStudio Desktop</h3>
 <p>RStudio is free. <strong>Please do not pay for anything.</strong> The paid versions of RStudio have nothing you will need for this course. They are not better than the free version. They simply have features tailored to businesses and developers.</p>
-<p><span class="instructions">Install the free version of RStudio Desktop <a href="https://rstudio.com/products/rstudio/download/#download" target="_blank">here</a>.</span></p>
-<p>The version recommended for your operation system (I’m using Windows) will appear here:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><a href="https://rstudio.com/products/rstudio/download/#download"><img src="RStudioInstall.png" class="img-fluid figure-img"></a></p>
-<p></p><figcaption class="figure-caption">Screenshot of RStudio Installation Link</figcaption><p></p>
-</figure>
-</div>
-</section><section id="rstudio-cloud" class="level3" data-number="2.8.2"><h3 data-number="2.8.2" class="anchored" data-anchor-id="rstudio-cloud">
-<span class="header-section-number">2.8.2</span> RStudio Cloud</h3>
-<p>One alternative to installing R and RStudio on your machine is to use RStudio in a web browser in <a href="https://rstudio.cloud/">RStudio Cloud</a>. After signing up for a free account, you can use RStudio online. As the internet speeds up, I imagine that this option will become increasingly attractive.</p>
-</section></section><section id="recommended-rstudio-customization" class="level2" data-number="2.9"><h2 data-number="2.9" class="anchored" data-anchor-id="recommended-rstudio-customization">
-<span class="header-section-number">2.9</span> Recommended RStudio Customization</h2>
+<p><span class="instructions">Install the free version of RStudio Desktop <a href="https://posit.co/download/rstudio-desktop/#download" target="_blank">here</a>.</span></p>
+</section><section id="rstudio-cloud" class="level3" data-number="2.7.2"><h3 data-number="2.7.2" class="anchored" data-anchor-id="rstudio-cloud">
+<span class="header-section-number">2.7.2</span> RStudio Cloud</h3>
+<p>One alternative to installing R and RStudio on your machine is to use RStudio in a web browser in <a href="https://posit.cloud/">Posit Cloud</a>. After signing up for a free account, you can use RStudio online. As the internet speeds up, I imagine that this option will become increasingly attractive.</p>
+</section></section><section id="recommended-rstudio-customization" class="level2" data-number="2.8"><h2 data-number="2.8" class="anchored" data-anchor-id="recommended-rstudio-customization">
+<span class="header-section-number">2.8</span> Recommended RStudio Customization</h2>
 <p>To customize RStudio, click the <em>Tools</em> menu, then <em>Global Options</em>.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="GlobalOptions.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Global Options Menu</figcaption><p></p>
-</figure>
+<figure class="figure"><p><img src="images/GlobalOptions.png" class="img-fluid figure-img"></p>
+<figcaption>Global Options Menu</figcaption></figure>
 </div>
 <p>I strongly recommend changing the default data saving behavior to never restoring old sessions and never saving data in memory. Old variables lurking unnoticed in memory cause mystifying errors and baffling behavior. Starting each session fresh will prevent hours and hours of frustrating debugging.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="workspace_options.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">General Options</figcaption><p></p>
-</figure>
+<figure class="figure"><p><img src="images/workspace_options.png" class="img-fluid figure-img"></p>
+<figcaption>General Options</figcaption></figure>
 </div>
 <p>If you use a dark theme, you might have less eye strain. Up to you, though.</p>
-<p>I change my code theme from time to time but for some reason I always return to the Tomorrow Night 80s theme.</p>
-<p>For teaching, I use Consolas. For myself, I use Fira Code. It uses font ligatures to combine symbols in a pleasing manner.</p>
+<p>I change my code theme from time to time, but for some reason I always return to the <a href="https://github.com/chriskempson/tomorrow-theme">Tomorrow Night 80s</a> theme.</p>
+<p>For teaching, I use Consolas. For myself, I use <a href="https://fonts.google.com/specimen/Fira+Code">Fira Code</a>. It uses font ligatures to combine symbols in a pleasing manner.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="appearance_options.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Appearance Options</figcaption><p></p>
-</figure>
+<figure class="figure"><p><img src="images/appearance_options.png" class="img-fluid figure-img"></p>
+<figcaption>Appearance Options</figcaption></figure>
 </div>
-<p>A complete list of options explained <a href="https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio" target="_blank">here</a>.</p>
-</section><section id="using-rstudio" class="level2" data-number="2.10"><h2 data-number="2.10" class="anchored" data-anchor-id="using-rstudio">
-<span class="header-section-number">2.10</span> Using RStudio</h2>
+<p>A complete list of options explained <a href="https://support.posit.co/hc/en-us/articles/200549016-Customizing-RStudio" target="_blank">here</a>.</p>
+</section><section id="using-rstudio" class="level2" data-number="2.9"><h2 data-number="2.9" class="anchored" data-anchor-id="using-rstudio">
+<span class="header-section-number">2.9</span> Using RStudio</h2>
 <p><span class="instructions">Open RStudio the same way you would any other program in your operating system.</span></p>
-</section><section id="a-quick-tour-of-rstudios-4-panes" class="level2" data-number="2.11"><h2 data-number="2.11" class="anchored" data-anchor-id="a-quick-tour-of-rstudios-4-panes">
-<span class="header-section-number">2.11</span> A Quick Tour of RStudio’s 4 Panes</h2>
+</section><section id="a-quick-tour-of-rstudios-4-panes" class="level2" data-number="2.10"><h2 data-number="2.10" class="anchored" data-anchor-id="a-quick-tour-of-rstudios-4-panes">
+<span class="header-section-number">2.10</span> A Quick Tour of RStudio’s 4 Panes</h2>
 <p>RStudio may appear overwhelming at first. That feeling will fade quickly with use. By default, RStudio has 4 panes where you can interact with R in different ways.</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="RStudioTour.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Quick Tour of RStudio</figcaption><p></p>
-</figure>
+<figure class="figure"><p><img src="images/RStudioTour.gif" class="img-fluid figure-img"></p>
+<figcaption>Quick Tour of RStudio</figcaption></figure>
 </div>
-<section id="the-console" class="level3" data-number="2.11.1"><h3 data-number="2.11.1" class="anchored" data-anchor-id="the-console">
-<span class="header-section-number">2.11.1</span> The Console</h3>
+<section id="the-console" class="level3" data-number="2.10.1"><h3 data-number="2.10.1" class="anchored" data-anchor-id="the-console">
+<span class="header-section-number">2.10.1</span> The Console</h3>
 <p>The console (lower left) is where you submit quick temporary calculations and run code you have no intention of saving. Hit <code>Enter</code> to submit code to R. R is interactive in the sense that it will display the result of the code in the console where you typed.</p>
-</section><section id="scripts" class="level3" data-number="2.11.2"><h3 data-number="2.11.2" class="anchored" data-anchor-id="scripts">
-<span class="header-section-number">2.11.2</span> Scripts</h3>
+</section><section id="scripts" class="level3" data-number="2.10.2"><h3 data-number="2.10.2" class="anchored" data-anchor-id="scripts">
+<span class="header-section-number">2.10.2</span> Scripts</h3>
 <p>The script pane (upper left) is for writing code you want to preserve in a script file (.R) or RMarkdown file (.Rmd). More on RMarkdown later. Save your script files frequently.</p>
 <p>You can submit code to the console by hitting Ctrl+Enter (or ⌘+Enter on Macs). You can also submit code by hitting the Run button. If you have code selected, only the selected part will be submitted. If you have no code selected, the current line (wherever the cursor is) will be submitted.</p>
-</section><section id="environment-variables" class="level3" data-number="2.11.3"><h3 data-number="2.11.3" class="anchored" data-anchor-id="environment-variables">
-<span class="header-section-number">2.11.3</span> Environment Variables</h3>
+</section><section id="environment-variables" class="level3" data-number="2.10.3"><h3 data-number="2.10.3" class="anchored" data-anchor-id="environment-variables">
+<span class="header-section-number">2.10.3</span> Environment Variables</h3>
 <p>In the Environment tab in the upper right pane, you can see which variables have been created and a preview of what they contain.</p>
-</section><section id="viewer" class="level3" data-number="2.11.4"><h3 data-number="2.11.4" class="anchored" data-anchor-id="viewer">
-<span class="header-section-number">2.11.4</span> Viewer</h3>
+</section><section id="viewer" class="level3" data-number="2.10.4"><h3 data-number="2.10.4" class="anchored" data-anchor-id="viewer">
+<span class="header-section-number">2.10.4</span> Viewer</h3>
 <p>The lower right pane has several tabs:</p>
 <ul>
 <li>
@@ -448,45 +556,44 @@ div.csl-indent {
 <strong>Help:</strong> Search for help</li>
 <li>
 <strong>Viewer</strong>: View documents created by RStudio</li>
-</ul></section></section><section id="installing-and-updating-packages" class="level2" data-number="2.12"><h2 data-number="2.12" class="anchored" data-anchor-id="installing-and-updating-packages">
-<span class="header-section-number">2.12</span> Installing and Updating Packages</h2>
+</ul></section></section><section id="installing-and-updating-packages" class="level2" data-number="2.11"><h2 data-number="2.11" class="anchored" data-anchor-id="installing-and-updating-packages">
+<span class="header-section-number">2.11</span> Installing and Updating Packages</h2>
 <p>What comes installed with R is called “Base R,” which by itself is quite powerful. However, what makes R especially great is the fact that tens of thousands of free “packages” are available in a central repository called CRAN. These packages extend what R can do far beyond what any one person could have imagined.</p>
 <p>In the bottom right pane, click the <code>Packages</code> tab.</p>
-<p>/</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="package_install.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">R Packages</figcaption><p></p>
-</figure>
+<figure class="figure"><p><img src="images/package_install.png" class="img-fluid figure-img"></p>
+<figcaption>R Packages</figcaption></figure>
 </div>
 <p>Any new package you need but do not have, you can click the <code>Install</code> button and type the name of a new package. For example, click <code>Install</code> button, type <code>tidyverse</code> in the Packages textbox, and click <code>Install</code>.</p>
 <p>You might have to wait a while, but now many new packages have been installed on your machine.</p>
 <p>You do not need to install packages again. However, I update all my packages each time I use RStudio to make sure I have the best and most up-to-date versions of the packages available.</p>
-</section><section id="create-a-new-project" class="level2 page-columns page-full" data-number="2.13"><h2 data-number="2.13" class="anchored" data-anchor-id="create-a-new-project">
-<span class="header-section-number">2.13</span> Create a New Project</h2>
+</section><section id="create-a-new-project" class="level2" data-number="2.12"><h2 data-number="2.12" class="anchored" data-anchor-id="create-a-new-project">
+<span class="header-section-number">2.12</span> Create a New Project</h2>
 <p>When you take on a new data-analysis task, you will want to keep your files organized in a particular folder. You want to make sure that this folder is the first place that R will look when you specify a file name. Otherwise we will have to write out the entire file name, which will be likely different if we need to run the same analysis on a different computer.</p>
 <p>RStudio’s “projects” are useful for making sure that all your analyses are in the same folder and that your analyses will work no matter which machine runs it.</p>
 <p>Without projects, we would need to write out the entire file name like so:</p>
-
-<div class="no-row-height column-margin column-container"><div class="">
-<p>Technically, there are other ways around this problem, but they are not recommended.</p>
-</div></div><div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="gettingready_cache/html/unnamed-chunk-4_1a316243b3bea0705cbd275beff695d0">
-
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
+<div class="sourceCode" id="cb2" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">read_csv</span><span class="op">(</span><span class="st">"C:/Users/my_user_name/Research/My_Project/my_data.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>With projects, we can import data with just the bare file name, like so:</p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="gettingready_cache/html/unnamed-chunk-5_7eb8634606b5620d91e32f7b78a5b277">
-
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
+<div class="sourceCode" id="cb3" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">read_csv</span><span class="op">(</span><span class="st">"my_data.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Much better!</p>
 <p>Okay, let’s get to it.</p>
-<p><strong>Steps to create a project</strong></p>
-<div class="instruction">
-
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Steps to create a project
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>In your operating system, create a folder for this course on your computer (e.g., “EDUC8825” or “Longitudinal Data Analysis”).</p></li>
-<li><p>Open RStudio.</p></li>
-<li>
-<p>Create a new project in the folder for this class.</p>
-<ul>
+<li>In your operating system, create a folder on your computer with a name that describes what the project is about.</li>
+<li>Open RStudio.</li>
 <li>Click <strong>File-&gt;New Project</strong>
 </li>
 <li>Select <strong>Existing Directory</strong>
@@ -498,26 +605,23 @@ div.csl-indent {
 </li>
 <li>Click <strong>Create Project</strong>
 </li>
-</ul>
-</li>
 </ol>
-<p></p>
-
-<section id="be-kind-to-future-you" class="level2" data-number="2.14"><h2 data-number="2.14" class="anchored" data-anchor-id="be-kind-to-future-you">
-<span class="header-section-number">2.14</span> Be Kind to Future-You</h2>
-<p>Hadley Wickham reminds us that the most important person to write code for is future-you.</p>
+</div>
+</div>
+</section><section id="be-kind-to-future-you" class="level2" data-number="2.13"><h2 data-number="2.13" class="anchored" data-anchor-id="be-kind-to-future-you">
+<span class="header-section-number">2.13</span> Be Kind to Future-You</h2>
+<p>Hadley Wickham reminds us that the most important person to write code for is <em>future-you</em>.</p>
 <p>At all times, work with the assumption that 10 minutes from now, you will suffer catastrophic <em>datamnesia</em>—memory failure for everything related to your analysis.</p>
 <div data-align="center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="https://media.giphy.com/media/RSTWNZcvvdDOw/giphy.gif" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><em>Datamnesia</em> happens all the time.</figcaption><p></p>
-</figure>
+<figcaption><em>Datamnesia</em> happens all the time.</figcaption></figure>
 </div>
 </div>
 <p>Present-you thinks future-you has god-like memory capacity. Future-you has very human and very fallible memory. Predicting is hard, especially about the future and what future-you will remember.</p>
 <p>Future-you spends an inordinate amount of time recreating what present-you thought future-you would understand and remember—so much time that future-you neglects to take care of future–future-you. <em>Future-you won’t take care of anything unless present-you learns to take care of future-you.</em></p>
-</section><section id="folder-organization" class="level2" data-number="2.15"><h2 data-number="2.15" class="anchored" data-anchor-id="folder-organization">
-<span class="header-section-number">2.15</span> Folder Organization</h2>
+</section><section id="folder-organization" class="level2" data-number="2.14"><h2 data-number="2.14" class="anchored" data-anchor-id="folder-organization">
+<span class="header-section-number">2.14</span> Folder Organization</h2>
 <ul>
 <li>Bad: All files on your desktop</li>
 <li>Also Bad: All files in the default folder (e.g., My Documents)</li>
@@ -527,15 +631,14 @@ div.csl-indent {
 <li>Also Good: Within your file synchronization service, have a well-organized hierarchical structure to your folders.</li>
 <li>Even Better: Use version control software like <a href="https://git-scm.com/">Git</a>, and save the code in an online repository like <a href="https://github.com/">GitHub</a>.</li>
 </ul>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-hash="gettingready_cache/html/unnamed-chunk-6_7fc73c4730ec176d3afa7d801e9d5486">
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
 
 </div>
-</section><section id="file-name-guidance" class="level2" data-number="2.16"><h2 data-number="2.16" class="anchored" data-anchor-id="file-name-guidance">
-<span class="header-section-number">2.16</span> File Name Guidance</h2>
-<p>Giving convenient, easily understood names to files, whether data files, image files, or script files can have far-reaching consequences for both present-you and future-you.</p>
-<p>Detailed advice on naming things from Jenny Bryan found <a href="http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf">here</a>. My shortened presentation draws from her ideas.</p>
-<section id="give-your-files-long-descriptive-names." class="level3" data-number="2.16.1"><h3 data-number="2.16.1" class="anchored" data-anchor-id="give-your-files-long-descriptive-names.">
-<span class="header-section-number">2.16.1</span> Give your files long, descriptive names.</h3>
+</section><section id="file-name-guidance" class="level2" data-number="2.15"><h2 data-number="2.15" class="anchored" data-anchor-id="file-name-guidance">
+<span class="header-section-number">2.15</span> File Name Guidance</h2>
+<p>Giving convenient, easily understood names to files, whether data files, image files, or script files can have far-reaching consequences for both present-you and future-you. I draw heavily from the <a href="http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf">advice on naming things from Jenny Bryan</a>.</p>
+<section id="give-your-files-long-descriptive-names." class="level3" data-number="2.15.1"><h3 data-number="2.15.1" class="anchored" data-anchor-id="give-your-files-long-descriptive-names.">
+<span class="header-section-number">2.15.1</span> Give your files long, descriptive names.</h3>
 <p>Make it clear to future-you exactly what is in the file.</p>
 <ul>
 <li>
@@ -547,28 +650,27 @@ div.csl-indent {
 <li>
 <strong>Even Better</strong>: <code>student_questionnaire_time_1.csv</code>
 </li>
-</ul></section><section id="separate-words-with-underscores-not-spaces." class="level3" data-number="2.16.2"><h3 data-number="2.16.2" class="anchored" data-anchor-id="separate-words-with-underscores-not-spaces.">
-<span class="header-section-number">2.16.2</span> Separate words with underscores, not spaces.</h3>
+</ul></section><section id="separate-words-with-underscores-not-spaces." class="level3" data-number="2.15.2"><h3 data-number="2.15.2" class="anchored" data-anchor-id="separate-words-with-underscores-not-spaces.">
+<span class="header-section-number">2.15.2</span> Separate words with underscores, not spaces.</h3>
 <p>Replace spaces with underscores (<code>_</code>). Spaces often work fine, but sometimes they do not, which can result in hours and hours of debugging. Play it safe and don’t use spaces in file names.</p>
 <p><code>student scores.xlsx</code> → <code>student_scores.xlsx</code></p>
-</section><section id="no-special-characters-in-file-names" class="level3" data-number="2.16.3"><h3 data-number="2.16.3" class="anchored" data-anchor-id="no-special-characters-in-file-names">
-<span class="header-section-number">2.16.3</span> No special characters in file names:</h3>
+</section><section id="no-special-characters-in-file-names" class="level3" data-number="2.15.3"><h3 data-number="2.15.3" class="anchored" data-anchor-id="no-special-characters-in-file-names">
+<span class="header-section-number">2.15.3</span> No special characters in file names:</h3>
 <p>Avoid including in file names characters that have special meanings in many programming languages such as <code>*@^$!</code> and many others. Otherwise unexpected results can make your life complicated.</p>
 <p><code>parent@emotion*survey.csv</code> → <code>parent_emotion_survey.csv</code></p>
-</section><section id="separate-dates-with-hyphens-using-iso-format" class="level3" data-number="2.16.4"><h3 data-number="2.16.4" class="anchored" data-anchor-id="separate-dates-with-hyphens-using-iso-format">
-<span class="header-section-number">2.16.4</span> Separate dates with hyphens using ISO format</h3>
+</section><section id="separate-dates-with-hyphens-using-iso-format" class="level3" data-number="2.15.4"><h3 data-number="2.15.4" class="anchored" data-anchor-id="separate-dates-with-hyphens-using-iso-format">
+<span class="header-section-number">2.15.4</span> Separate dates with hyphens using ISO format</h3>
 <div data-align="center">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="https://imgs.xkcd.com/comics/iso_8601.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">from <a href="https://xkcd.com/1179/">XKCD</a></figcaption><p></p>
-</figure>
+<figcaption>from <a href="https://xkcd.com/1179/">XKCD</a></figcaption></figure>
 </div>
 </div>
 <p><a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO format</a> for dates is YYYY-MM-DD, meaning that a four-digit year comes first, followed by a two-digit month, followed by a two-digit day. This format makes sorting order much easier than the formats used in the U.S.</p>
 <p>Here is a data file name that begins with a date, followed by the school district from from the data were collected:</p>
 <p><code>2020-01-12_district_A.csv</code></p>
 <p>One of the benefits of using dates in the ISO format is that they sort chronologically. Which file names would you prefer to deal with?</p>
-<div class="cell" data-layout-align="center" data-hash="gettingready_cache/html/unnamed-chunk-7_9b31a7156bea1c3e7304c5361413bece">
+<div class="cell fig-cap-location-margin" data-layout-align="center">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <thead><tr class="header">
@@ -577,36 +679,36 @@ div.csl-indent {
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">August 03, 2010_District_B.csv</td>
-<td style="text-align: left;">2010-08-03_District_B.csv</td>
+<td style="text-align: left;">August 18, 2010_District_X.csv</td>
+<td style="text-align: left;">2008-08-25_District_H.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">January 04, 2012_District_Q.csv</td>
-<td style="text-align: left;">2012-01-04_District_Q.csv</td>
+<td style="text-align: left;">August 25, 2008_District_H.csv</td>
+<td style="text-align: left;">2008-10-06_District_V.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">July 13, 2014_District_H.csv</td>
-<td style="text-align: left;">2012-03-06_District_W.csv</td>
+<td style="text-align: left;">February 19, 2014_District_C.csv</td>
+<td style="text-align: left;">2009-07-01_District_S.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">March 06, 2012_District_W.csv</td>
-<td style="text-align: left;">2013-11-24_District_L.csv</td>
+<td style="text-align: left;">July 01, 2009_District_S.csv</td>
+<td style="text-align: left;">2010-06-23_District_W.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">November 10, 2014_District_V.csv</td>
-<td style="text-align: left;">2013-11-30_District_A.csv</td>
+<td style="text-align: left;">July 21, 2013_District_B.csv</td>
+<td style="text-align: left;">2010-08-18_District_X.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">November 24, 2013_District_L.csv</td>
-<td style="text-align: left;">2014-07-13_District_H.csv</td>
+<td style="text-align: left;">June 23, 2010_District_W.csv</td>
+<td style="text-align: left;">2011-03-17_District_V.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">November 30, 2013_District_A.csv</td>
-<td style="text-align: left;">2014-10-06_District_N.csv</td>
+<td style="text-align: left;">March 17, 2011_District_V.csv</td>
+<td style="text-align: left;">2013-07-21_District_B.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">October 06, 2014_District_N.csv</td>
-<td style="text-align: left;">2014-11-10_District_V.csv</td>
+<td style="text-align: left;">October 06, 2008_District_V.csv</td>
+<td style="text-align: left;">2014-02-19_District_C.csv</td>
 </tr>
 </tbody>
 </table>
@@ -615,7 +717,7 @@ div.csl-indent {
 
 
 
-</section></section><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -650,18 +752,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -693,11 +784,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -707,8 +837,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -720,7 +859,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -764,6 +1026,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -789,6 +1052,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -848,20 +1137,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link">
+      <a href="./intro.html" class="pagination-link" aria-label="Introduction">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./matrix_algebra.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Matrix Algebra in R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./matrix_algebra.html" class="pagination-link" aria-label="Matrix Algebra in R">
+        <span class="nav-page-text">Matrix Algebra in R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 
-</section></main>
-</div>
 
 
 <script src="site_libs/quarto-html/zenscroll-min.js"></script>

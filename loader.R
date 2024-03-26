@@ -1,13 +1,20 @@
 # Load packages
+library(conflicted)
+conflicts_prefer(dplyr::select, 
+                 dplyr::filter, 
+                 scales::alpha, 
+                 dplyr::lag,
+                 tibble::add_case)
 library(extrafont)
 loadfonts("win", quiet = TRUE)
-# library(tufte)
 library(knitr)
 library(sn)
 library(fMultivar)
 library(IDPmisc)
 library(psych)
 library(tidyverse)
+library(scales)
+
 library(gganimate)
 library(ggforce)
 library(sjmisc)
@@ -22,13 +29,18 @@ library(ggfx)
 library(ggtext)
 library(lemon)
 library(signs)
-library(scales)
+
 library(psycheval)
 library(bezier)
 library(DescTools)
 library(ggh4x)
 library(ggthemes)
 library(rsvg)
+library(ggarrow)
+library(arrowheadr)
+library(rgl)
+knitr::knit_hooks$set(webgl = hook_webgl)
+arrow_head_deltoid <- purrr::partial(arrowheadr::arrow_head_deltoid, d = 2.3)
 # Set options
 options(knitr.kable.digits = 2, knitr.kable.na = '')
 knitr::opts_template$set(marginfigure = list(fig.column = "margin", fig.cap.location = "top", out.width = "100%", fig.align = "left"),
@@ -38,11 +50,6 @@ knitr::opts_template$set(marginfigure = list(fig.column = "margin", fig.cap.loca
 bfont = "Equity Text A Tab"
 bsize = 16
 myfills <- c("royalblue4", "firebrick4", "#51315E")
-
-# Function for converting base size to geom_text size
-ggtext_size <- function(base_size, ratio = 0.8) {
-  ratio * base_size / ggplot2:::.pt
-}
 
 btxt_size = ggtext_size(bsize)
 
@@ -78,50 +85,6 @@ span_style <- function(x, style = "font-family:serif") {
          "</span>")
 }
 
-# Probability labels
-prob_label <- function(p,
-                       accuracy = 0.01,
-                       digits = NULL,
-                       max_digits = NULL,
-                       remove_leading_zero = TRUE,
-                       round_zero_one = TRUE) {
-  if (is.null(digits)) {
-    l <- scales::number(p, accuracy = accuracy)
-  } else {
-    sig_digits <- abs(ceiling(log10(p + p / 1000000000)) - digits)
-    sig_digits[p > 0.99] <- abs(ceiling(log10(1 - p[p > 0.99])) - digits + 1)
-    sig_digits[(ceiling(log10(p)) == log10(p)) & (-log10(p) >= digits)] <- sig_digits[ceiling(log10(p)) == log10(p)] - 1
-    sig_digits[is.infinite(sig_digits)] <- 0
-    l <- purrr::map2_chr(p,
-                         sig_digits,
-                         formatC,
-                         format = "f",
-                         flag = "#")
-
-  }
-  if (remove_leading_zero) l <- sub("^-0","-", sub("^0","", l))
-
-  if (round_zero_one) {
-    l[p == 0] <- "0"
-    l[p == 1] <- "1"
-    l[p == -1] <- "-1"
-  }
-
-  if (!is.null(max_digits)) {
-    if (round_zero_one) {
-      l[round(p, digits = max_digits) == 0] <- "0"
-      l[round(p, digits = max_digits) == 1] <- "1"
-      l[round(p, digits = max_digits) == -1] <- "-1"
-    } else {
-      l[round(p, digits = max_digits) == 0] <- paste0(".", paste0(rep("0", max_digits), collapse = ""))
-      l[round(p, digits = max_digits) == 1] <- paste0("1.", paste0(rep("0", max_digits), collapse = ""))
-      l[round(p, digits = max_digits) == -1] <- paste0("-1.", paste0(rep("0", max_digits), collapse = ""))
-    }
-  }
-
-  dim(l) <- dim(p)
-  l
-}
 
 # Set table column width
 # https://github.com/rstudio/bookdown/issues/122#issuecomment-221101375
@@ -157,125 +120,86 @@ bmatrix <- function(M, brace = "bmatrix", includenames=TRUE) {
   M
 }
 
-# defword <- function(word,
-#                     note,
-#                     wordclass="defword",
-#                     noteclass = "aside defword",
-#                     icon = "&#8853;") {
-#   # Adapted from tufte:::marginnote_html
-# 
-#   sprintf(
-#     paste0(
-#       "<span class=\"%s\">%s</span>",
-#       "<span class=\"%s\">",
-#       "<label for=\"tufte-mn-\" class=\"margin-toggle\">%s</label>",
-#       "<input type=\"checkbox\" id=\"tufte-mn-\" class=\"margin-toggle\">%s",
-#       "</span>"
-#     ),
-#     wordclass,
-#     word,
-#     noteclass,
-#     icon,
-#     note
-#   )
-# }
-
 # Hooks -------
 
-# Enclose collapsible r chunk in  button
-knitr::opts_hooks$set(button_r = function(options) {
-  if (isTRUE(options$button_r)) {
-    options$button_before_r <- TRUE
-    options$button_after <- TRUE
-    options$echo = TRUE
-    options$eval = FALSE
-  }
-
-  options
-})
-
-# Enclose collapsible latex chunk in  button
-knitr::opts_hooks$set(button_latex = function(options) {
-  if (isTRUE(options$button_latex)) {
-    options$button_before_latex <- TRUE
-    options$button_after <- TRUE
-    options$echo = TRUE
-    options$eval = FALSE
-  }
-
-  options
-})
+# # Enclose collapsible r chunk in  button
+# knitr::opts_hooks$set(button_r = function(options) {
+#   if (isTRUE(options$button_r)) {
+#     options$button_before_r <- TRUE
+#     options$button_after <- TRUE
+#     options$echo = TRUE
+#     options$eval = FALSE
+#   }
+# 
+#   options
+# })
+# 
+# # Enclose collapsible latex chunk in  button
+# knitr::opts_hooks$set(button_latex = function(options) {
+#   if (isTRUE(options$button_latex)) {
+#     options$button_before_latex <- TRUE
+#     options$button_after <- TRUE
+#     options$echo = TRUE
+#     options$eval = FALSE
+#   }
+# 
+#   options
+# })
 
 # before button for collapsible r chunk
 knit_hooks$set(
-  button_before_r = function(before, options, envir) {
+  button_before = function(before, options, envir) {
     if (before) {
-      codetype <- "R Code"
+      if (is.null(options$figlabel)) {
+        l <- options$label %>% 
+          str_remove("^coder\\-") %>% 
+          str_remove("^codelatex\\-") %>% 
+          str_remove("^codeojs\\-") 
+        if (str_detect(l, "^fig\\-") | str_detect(l, "^tbl\\-")) {
+          options$figlabel <- l
+        }
+        
+      } 
+      
+      codetype <- options$codelabel
       if (!is.null(options$figlabel)) {
         codetype <- paste0(codetype, " for @", options$figlabel)
       } 
       return(
         paste0(
-          '<div class="wrap-collapsible" style="margin-top: 1em">',
-          "\n",
-          '<input id="collapsible-',
-          options$label,
-          '" class="toggle" type="checkbox">',
-          "\n",
-          '<label for="collapsible-',
-          options$label,
-          '" class="lbl-toggle">', codetype,'</label>',
-          '<div class="collapsible-content">',
-          "\n",
-          '<div class="content-inner">'
+          # '<div class="wrap-collapsible" style="margin-top: 1em">',
+          # "\n",
+          # '<input id="collapsible-',
+          # options$label,
+          # '" class="toggle" type="checkbox">',
+          # "\n",
+          # '<label for="collapsible-',
+          # options$label,
+          # '" class="lbl-toggle">', codetype,'</label>',
+          # '<div class="collapsible-content">',
+          # "\n",
+          # '<div class="content-inner">'
+          ':::{.callout-note collapse="true" appearance="minimal"}\n## ',codetype
         )
       )
     }
   }
 )
 
-# before button for collapsible latex chunk
-knit_hooks$set(
-  button_before_latex = function(before, options, envir) {
-    if (before) {
-      codetype <- "$\\rm\\LaTeX~Code$"
-      if (!is.null(options$figlabel)) {
-        codetype <- paste0(codetype, " for @", options$figlabel)
-      } 
-      return(
-        paste0(
-          '<div class="wrap-collapsible" style="margin-top: 1em">',
-          "\n",
-          '<input id="collapsible-',
-          options$label,
-          '" class="toggle" type="checkbox">',
-          "\n",
-          '<label for="collapsible-',
-          options$label,
-          '" class="lbl-toggle">',
-          codetype,
-          '</label>',
-          '<div class="collapsible-content">',
-          "\n",
-          '<div class="content-inner">'
-        )
-      )
-    }
-  }
-)
 
 # After button for collapsible chunks
 knit_hooks$set(button_after = function(before, options, envir) {
-  if (!before) return('</div></div></div>')
+  # if (!before) return('</div></div></div>')
+  if (!before) return('\n:::\n')
 })
 
 
 # Solution chunk
-knitr::opts_hooks$set(solution = function(options) {
-  options$echo <- TRUE
-  options$solutionsetter <- TRUE
-  return(options)
-})
+# knitr::opts_hooks$set(solution = function(options) {
+#   options$echo <- TRUE
+#   options$solutionsetter <- TRUE
+#   return(options)
+# })
 
 knitr::knit_hooks$set(solutionsetter = function(before,options, envir) {
   
@@ -286,4 +210,31 @@ knitr::knit_hooks$set(solutionsetter = function(before,options, envir) {
     
     "\n\n</details>\n\n"
   }
+})
+
+
+# Make all chunks with demo-prefix echo = TRUE
+
+knitr::opts_hooks$set(label = function(options) {
+  if (startsWith(options$label, "demo-")) {
+    options$echo <- TRUE
+  }
+  if (startsWith(options$label, "solution-")) {
+    options$echo <- TRUE
+    options$solutionsetter <- TRUE
+  }
+  if (str_starts(options$label, "code")) {
+    options$button_before <- TRUE
+    options$button_after <- TRUE
+    options$echo = TRUE
+    options$eval = FALSE
+    codelanguages <- c(r = "R Code", 
+                       latex = "$\\small\\rm\\LaTeX$ Code",
+                       ojs = "Observable Code")
+    mycode <- str_match(options$label, "^code(.*?)\\-")
+    if (length(mycode) == 2) {
+      options$codelabel = codelanguages[mycode[2]]
+    }
+  }
+  return(options)
 })

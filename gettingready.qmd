@@ -1,3 +1,7 @@
+---
+title: Getting Ready to Use R via RStudio
+---
+
 ```{r}
 #| label: loaderready
 #| include: false
@@ -5,7 +9,7 @@
 source("loader.R")
 ```
 
-# Getting Ready to Use R via RStudio
+
 
 This book can be read and understood without using R at all. However, many of the calculations discussed would be quite difficult without the statistical functions of a language like R.
 
@@ -21,12 +25,6 @@ The challenge of learning R is indeed going to be challenging at times, but just
 
 ## What is R?
 
-R is the eighteenth letter of the alphabet, of course, but for data analysts, it has several specialized meanings.
-
-### R is a programming language built for statistics.
-
-
-
 
 
 ![[John Chambers](https://www.wikiwand.com/en/John_Chambers_(statistician))](images/John_Chambers.png "John Chambers"){#fig-chambers .column-margin width=200 fig-alt="A headshot of statistician John Chambers"}
@@ -35,25 +33,11 @@ R is the eighteenth letter of the alphabet, of course, but for data analysts, it
 
 ![[Ross Ihaka](https://www.wikiwand.com/en/Ross_Ihaka)](images/Ihaka.jpg "Ross Ihaka"){#fig-ihaka .column-margin width=200  fig-alt="A headshot of statistician Ross Ihaka"}
 
+R is the eighteenth letter of the alphabet, of course, but for data analysts, it has several specialized meanings.
 
-
-
-
-In 1976, [John Chambers](https://www.wikiwand.com/en/John_Chambers_(statistician)) and colleagues at Bell Labs developed [S](https://www.wikiwand.com/en/S_(programming_language)){target="_blank"}, a programming language specifically designed to facilitate statistical analyses and data visualization.
-
-In 1995, [Robert Gentleman](https://www.wikiwand.com/en/Robert_Gentleman_(statistician)) and [Ross Ihaka](https://www.wikiwand.com/en/Ross_Ihaka) released an open-source variant of S and named it "R" after their shared first initial.
-
-Most S code looks identical to R code, but R has a number of subtle enhancements such as better memory management.
-
-[More about the origins of R](https://www.stat.auckland.ac.nz/~ihaka/downloads/Interface98.pdf){target="_blank"}
-
-### R is a computer program that runs code in the programming language R.
-
-The primary way that the R language is used is to perform analyses in the R software environment for statistical computing and graphics. This program is free and open source, meaning that not only can anyone download it for free, but its source code can be reused by anyone for any purpose.
-
-### R is a data science ecosystem in which the R community flourishes
-
-Strictly speaking, R is just one program. However, people use R in startlingly creative ways, often in combination with other programs and in coordination with other people. I like to think of R as the entire ecosystem of software, services, standards, and cultural practices shared by the entire community of R users.
+1. **R is a programming language built for statistics.** In 1976, [John Chambers](https://www.wikiwand.com/en/John_Chambers_(statistician)) and colleagues at Bell Labs developed [S](https://www.wikiwand.com/en/S_(programming_language)){target="_blank"}, a programming language specifically designed to facilitate statistical analyses and data visualization. In 1995, [Robert Gentleman](https://www.wikiwand.com/en/Robert_Gentleman_(statistician)) and [Ross Ihaka](https://www.wikiwand.com/en/Ross_Ihaka) released an open-source variant of S and named it "R" after their shared first initial. Most S code looks identical to R code, but R has a number of subtle enhancements such as better memory management. You can read more about the origins of R in @ihakaFutureHistory1998.
+2. **R is a computer program that runs code in the programming language R.** The primary way that the R language is used is to perform analyses in the R software environment for statistical computing and graphics. This program is free and open source, meaning that not only can anyone download it for free, but its source code can be reused by anyone for any purpose.
+3. **R is a data science ecosystem in which the R community flourishes.** Strictly speaking, R is just one program. However, people use R in startlingly creative ways, often in combination with other programs and in coordination with other people. I like to think of R as the entire ecosystem of software, services, standards, and cultural practices shared by the entire community of R users.  
 
 The technical merits of the R language and software do matter, but the success of R has more to do with the inclusive, welcoming, diverse, and expanding culture of the R community. When an individual R user has a great idea, the R community has as integrated set of technical standards, web services, and cultural practices such that innovations spread quickly to everyone in the community---often with multiple tutorials aimed at users of all levels of expertise. With the support of the R community, ordinary people can leverage R to accomplish far more than anyone would have thought possible not so very long ago.
 
@@ -63,41 +47,46 @@ The technical merits of the R language and software do matter, but the success o
 
 What *can't* be done with R is an ever-contracting list. If you let it, R will help you in ways you did not know you needed it. You can (and should) use R for tasks that extend well beyond analyzing data. Because R plays well with many other programs, you can leverage its capacities to do all sorts of things:
 
--   Manage data
--   Analyze data
--   Visualize data
+-   Manage, analyze, and visualize data
 -   Control and run other programs
 -   Write and publish books, papers, and posters
--   Create presentations, tutorials, websites, web apps, and digital a**R**t
+-   Automate reports and customized letters
+-   Create slide presentations and interactive tutorials
+-   Make websites and blogs
+-   Design web applications and dashboards
+-   Make music and digital a**R**t
 
-
-
-
-
-For example, this Tutorial was "created in R." That is, I wrote the text in a simple format and then let R (and RStudio) handle all the complex and tedious coordination of many other programs to make this webpage. It does most of its work under the hood without my awareness.
+For example, this book was "created in R." That is, I wrote the text in a simple format and then let R (and RStudio) handle all the complex and tedious coordination of many other programs to make this webpage. It does most of its work under the hood without my awareness.
 
 ## What is RStudio?
 
-In this class, we will probably never actually open the R program directly. Why not? R's text editor works well for what it does, but it has limited functionality compared to other ways of interacting with R. Instead, we will run R code in an integrated development environment (IDE) called [RStudio](https://rstudio.com/products/rstudio/download/){target="_blank"}. An IDE is a program that makes programming easier. RStudio has many features that automates tasks what would otherwise be confusing, difficult, or tedious.
+Most users never actually open the R program directly. Why not? R's text editor works well for what it does, but it has limited functionality compared to other ways of interacting with R. Instead, we will run R code in an integrated development environment (IDE) called [RStudio](https://rstudio.com/products/rstudio/download/){target="_blank"}. An IDE is a program that makes programming easier. RStudio has many features that automates tasks what would otherwise be confusing, difficult, or tedious.
 
 ## Code \> Clicks
 
+:::{#fig-rfirst .column-margin fig-cap="Frustrations with R are normal. Working through them pays off."}
 ![Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations)](images/r_first_then.png)
+:::
+
 
 Though R will be frustrating at times, stick with it---the dividends on your invested efforts are huge. Nothing beats the flexibility, freedom, and power of using code. Not only can I do things much faster than I could with point-and-click programs, I can do things I never would have considered doing. If there are no functions that do exactly what you want, you can adapt or make one that fits your needs perfectly. If you need to to re-run your analysis with a point-and-click menu interface, you need a perfect memory of what you did before. With code, every step is perfectly preserved.
 
-## A point-and-click alternative to RStudio
+That said, if you need to complete a simple data-analysis task quickly, and you have no time to learn R, I recommend using [Jamovi](https://www.jamovi.org/). Jamovi has a beautiful point-and-click interface that you can learn to use in just a few minutes. Jamovi uses R under the hood, and like R, it is free.
 
-[![jamovi](https://www.jamovi.org/assets/header-logo.svg)](https://www.jamovi.org)
 
-That said, if you need to complete a simple data-analysis task quickly, and you have no time to learn R, I recommend using [jamovi](https://www.jamovi.org/). Jamovi has a beautiful point-and-click interface that you can learn to use in just a few minutes. Jamovi uses R under the hood, and like R, it is free.
+[![Jamovi: A point-and-click alternative to R and RStudio](https://www.jamovi.org/assets/header-logo.svg)](https://www.jamovi.org)
 
-The ease of use of a point-and-click interface has a trade-off. If you never learn to code, you will be stuck with a limited set of skills and many tasks will be prohibitively complicated or dauntingly tedious. In @fig-learningcurve I recreate a plot made by many others before me.
+
+The ease of use of a point-and-click interface has a trade-off. If you never learn to code, you will be stuck with a limited set of skills, and many tasks will be prohibitively complicated or dauntingly tedious. In @fig-learningcurve I recreate a plot made by many others before me.
 
 ```{r}
 #| label: fig-learningcurve
 #| fig-cap: Different Learning Curves for Different Tasks
 #| warning: false
+#| fig-width: 7
+#| fig-height: 7
+#| out-width: 100%
+#| echo: false
 tibble(
   Complexity = seq(0, 100, 0.01),
   Code = 10.5 * Complexity ^ (1 / 3.1),
@@ -107,15 +96,9 @@ tibble(
     rotation =  180 * atan((Difficulty - lag(Difficulty)) / 0.01) / pi) %>%
   filter(Difficulty <= 100) %>%
   ggplot(aes(Complexity, Difficulty, color = Approach)) +
-  geom_line(arrow = arrow(
-    length = unit(0.3, "cm"),
-    angle = 15,
-    ends = "last",
-    type = "closed"
-  )) +
-  theme(legend.position = "none") +
+  geom_arrow(arrow_head = arrow_head_deltoid()) +
   ggtext::geom_richtext(
-    data = . %>% filter(Complexity == 62.5),
+    data = . %>% filter((Complexity == 62.5 & Approach == "Point-and-Click") | (Complexity == 75 & Approach == "Code")),
     aes(label = Approach, angle = rotation),
     vjust = -0.2,
     hjust = 0.5,
@@ -124,35 +107,38 @@ tibble(
     label.color = NA,
     label.padding = grid::unit(rep(0, 4), "pt")
   ) +
+  annotate(geom = "richtext", label = "Point-and-click<br>programs are great<br>for simple tasks but<br>can be tedious for<br>complex projects", x = 83, y = 87.5, hjust = 0.5, vjust = .5, color = myfills[2], label.color = NA) +
+  annotate(geom = "richtext", label = "...but it makes complex<br>tasks much easier.", x = 75, y = (37.5 + 25) / 2, hjust = 0.5, vjust = .5, color = myfills[1], label.color = NA) +
+  annotate(geom = "richtext", label = "Coding has a steep<br>learning curve...", x = 12.5, y = 37.5, hjust = 0.5, vjust = .5, color = myfills[1], label.color = NA) +
   coord_fixed() +
-  scale_x_continuous(limits = c(0, 100)) +
-  scale_y_continuous(limits = c(0, 100)) +
+  scale_x_continuous("Task Complexity", limits = c(0, 100), expand = expansion(.02)) +
+  scale_y_continuous("Task Difficulty", limits = c(0, 100), expand = expansion(.02)) +
   scale_color_manual(values = myfills) +
-  ggtitle("Point-and-Click Programs Do Simple Tasks Well", 
-          subtitle = "But Complex Tasks Are Best Done With Code")
+  theme(legend.position = "none")
+```
+
+```{r coder-fig-learningcurve}
+<<fig-learningcurve>>
 ```
 
 ## Installing R
 
 Installation depends on your operating system. If you have already installed R, make sure you have the latest version.
 
+Go to the [CRAN (Comprehensive R Archive Network) site](https://cran.r-project.org/). Click the link that is appropriate for your operating system (Windows, Mac, or Linux) and follow the instructions.
+
+
 ### Windows
 
-[Click [here](https://cloud.r-project.org/bin/windows/base/){target="_blank"} and download the latest version of R for Windows. Open the file and follow installation instructions.]{.instruction}
-
-[![Screenshot of Windows Installation Link](WindowsInstall.png)](https://cloud.r-project.org/bin/windows/base/)
+Click [here](https://cran.r-project.org/bin/windows/base/){target="_blank"} and download the latest version of R for Windows. Open the file and follow installation instructions.
 
 ### Mac
 
-[Click [here](https://cloud.r-project.org/bin/macosx/) and download the latest version of R for Mac. Double-click the file and follow installation instructions.]{.instruction}
-
-The instructions can be overwhelming to newcomers so I have included a picture with the download link highlighted:
-
-[![Screenshot of Mac Installation Link](MacInstall.png)](https://cloud.r-project.org/bin/macosx/)
+Click [here](https://cran.r-project.org/bin/macosx/) and download the latest version of R for Mac. Double-click the file and follow installation instructions.]
 
 ### Linux
 
-[Install R on Ubuntu with this Bash script:]{.instruction}
+Install R on Ubuntu with this Bash script:]{.instruction}
 
 ```{bash}
 #| eval: false
@@ -160,7 +146,11 @@ The instructions can be overwhelming to newcomers so I have included a picture w
 sudo apt-get install r-base 
 ```
 
-If you are a Linux user, you probably know what this means. If not, you probably do not. More detailed instructions [here](https://cran.r-project.org/bin/linux/ubuntu/README){target="_blank"}.
+More detailed instructions here:
+
+* [Debian](https://cran.r-project.org/bin/linux/debian){target="_blank"}.
+* [Fedora/Redhat](https://cran.r-project.org/bin/linux/fedora){target="_blank"}.
+* [Ubuntu](https://cran.r-project.org/bin/linux/ubuntu){target="_blank"}.
 
 ## Installing RStudio
 
@@ -168,35 +158,31 @@ If you are a Linux user, you probably know what this means. If not, you probably
 
 RStudio is free. **Please do not pay for anything.** The paid versions of RStudio have nothing you will need for this course. They are not better than the free version. They simply have features tailored to businesses and developers.
 
-[Install the free version of RStudio Desktop [here](https://rstudio.com/products/rstudio/download/#download){target="_blank"}.]{.instructions}
-
-The version recommended for your operation system (I'm using Windows) will appear here:
-
-[![Screenshot of RStudio Installation Link](RStudioInstall.png)](https://rstudio.com/products/rstudio/download/#download)
+[Install the free version of RStudio Desktop [here](https://posit.co/download/rstudio-desktop/#download){target="_blank"}.]{.instructions}
 
 ### RStudio Cloud
 
-One alternative to installing R and RStudio on your machine is to use RStudio in a web browser in [RStudio Cloud](https://rstudio.cloud/). After signing up for a free account, you can use RStudio online. As the internet speeds up, I imagine that this option will become increasingly attractive.
+One alternative to installing R and RStudio on your machine is to use RStudio in a web browser in [Posit Cloud](https://posit.cloud/). After signing up for a free account, you can use RStudio online. As the internet speeds up, I imagine that this option will become increasingly attractive.
 
 ## Recommended RStudio Customization
 
 To customize RStudio, click the *Tools* menu, then *Global Options*.
 
-![Global Options Menu](GlobalOptions.png)
+![Global Options Menu](images/GlobalOptions.png)
 
 I strongly recommend changing the default data saving behavior to never restoring old sessions and never saving data in memory. Old variables lurking unnoticed in memory cause mystifying errors and baffling behavior. Starting each session fresh will prevent hours and hours of frustrating debugging.
 
-![General Options](workspace_options.png)
+![General Options](images/workspace_options.png)
 
 If you use a dark theme, you might have less eye strain. Up to you, though.
 
-I change my code theme from time to time but for some reason I always return to the Tomorrow Night 80s theme.
+I change my code theme from time to time, but for some reason I always return to the [Tomorrow Night 80s](https://github.com/chriskempson/tomorrow-theme) theme.
 
-For teaching, I use Consolas. For myself, I use Fira Code. It uses font ligatures to combine symbols in a pleasing manner.
+For teaching, I use Consolas. For myself, I use [Fira Code](https://fonts.google.com/specimen/Fira+Code). It uses font ligatures to combine symbols in a pleasing manner.
 
-![Appearance Options](appearance_options.png)
+![Appearance Options](images/appearance_options.png)
 
-A complete list of options explained [here](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio){target="_blank"}.
+A complete list of options explained [here](https://support.posit.co/hc/en-us/articles/200549016-Customizing-RStudio){target="_blank"}.
 
 ## Using RStudio
 
@@ -206,7 +192,7 @@ A complete list of options explained [here](https://support.rstudio.com/hc/en-us
 
 RStudio may appear overwhelming at first. That feeling will fade quickly with use. By default, RStudio has 4 panes where you can interact with R in different ways.
 
-![Quick Tour of RStudio](RStudioTour.gif)
+![Quick Tour of RStudio](images/RStudioTour.gif)
 
 ### The Console
 
@@ -238,9 +224,7 @@ What comes installed with R is called "Base R," which by itself is quite powerfu
 
 In the bottom right pane, click the `Packages` tab.
 
-/
-
-![R Packages](package_install.png)
+![R Packages](images/package_install.png)
 
 Any new package you need but do not have, you can click the `Install` button and type the name of a new package. For example, click `Install` button, type `tidyverse` in the Packages textbox, and click `Install`.
 
@@ -256,54 +240,39 @@ RStudio's "projects" are useful for making sure that all your analyses are in th
 
 Without projects, we would need to write out the entire file name like so:
 
-::: {.column-margin}
-Technically, there are other ways around this problem, but they are not recommended.
-:::
-
-```{r}
+```{r demo-readcsvfilename}
 #| eval: false
-#| code-fold: false
 read_csv("C:/Users/my_user_name/Research/My_Project/my_data.csv")
 ```
 
 With projects, we can import data with just the bare file name, like so:
 
-```{r}
+```{r demo-readcsv}
 #| eval: false
-#| code-fold: false
 read_csv("my_data.csv")
 ```
-
-
-
-
 
 Much better!
 
 Okay, let's get to it.
 
-**Steps to create a project**
+:::{.callout-note}
 
-<div class="instruction">
+### Steps to create a project
 
-1.  In your operating system, create a folder for this course on your computer (e.g., "EDUC8825" or "Longitudinal Data Analysis").
-
-2.  Open RStudio.
-
-3.  Create a new project in the folder for this class.
-
-    -   Click **File-\>New Project**
-    -   Select **Existing Directory**
-    -   Click **Browse**
-    -   Navigate to the new folder.
-    -   Click **Open**
-    -   Click **Create Project**
-
-</span>
+1. In your operating system, create a folder on your computer with a name that describes what the project is about.
+2. Open RStudio.
+3. Click **File-\>New Project**
+4. Select **Existing Directory**
+5. Click **Browse**
+6. Navigate to the new folder.
+7. Click **Open**
+8. Click **Create Project**
+:::
 
 ## Be Kind to Future-You
 
-Hadley Wickham reminds us that the most important person to write code for is future-you.
+Hadley Wickham reminds us that the most important person to write code for is *future-you*.
 
 At all times, work with the assumption that 10 minutes from now, you will suffer catastrophic *datamnesia*---memory failure for everything related to your analysis.
 
@@ -326,7 +295,6 @@ Future-you spends an inordinate amount of time recreating what present-you thoug
 -   Even Better: Use version control software like [Git](https://git-scm.com/), and save the code in an online repository like [GitHub](https://github.com/).
 
 ```{r, echo = F, fig.cap="The backtick (`) is not the single quote (').", dev="png", eval = F}
-
 x_scale = 1600 / 1163
 w <- 64 * x_scale
 x <- 10 * x_scale
@@ -352,9 +320,7 @@ img
 
 ## File Name Guidance
 
-Giving convenient, easily understood names to files, whether data files, image files, or script files can have far-reaching consequences for both present-you and future-you.
-
-Detailed advice on naming things from Jenny Bryan found [here](http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf). My shortened presentation draws from her ideas.
+Giving convenient, easily understood names to files, whether data files, image files, or script files can have far-reaching consequences for both present-you and future-you. I draw heavily from the [advice on naming things from Jenny Bryan](http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf). 
 
 ### Give your files long, descriptive names.
 

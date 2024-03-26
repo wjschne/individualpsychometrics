@@ -1,0 +1,585 @@
+---
+title: Matrices
+subtitle: Introduction
+toc-title: Matrices--Introduction
+---
+
+```{r}
+#| label: loadermatrices
+#| include: false
+#| cache: false
+source("loader.R")
+```
+
+A matrix is a series of numbers arranged in rows and columns. We usually abbreviate matrices with a bolded uppercase letter:
+
+
+$$
+\mathbf{A}_{j \times k} =
+\begin{bmatrix}
+  a_{1,1} & a_{1,2} & \cdots & a_{1,k} \\
+  a_{2,1} & a_{2,2} & \cdots & a_{2,k} \\
+  \vdots  & \vdots  & \ddots & \vdots  \\
+  a_{j,1} & a_{j,2} & \cdots & a_{j,k}
+\end{bmatrix}
+$$
+
+
+For example, 
+
+$$
+\mathbf{A} =
+\begin{bmatrix}
+  1&2&3&4\\
+  5&6&7&8\\
+  9&10&11&12
+\end{bmatrix}
+$$
+
+To make a matrix in R, there are many possibilities. For the sake of simplicity, I will recommend using the `matrix` function with the `byrow` option set to `TRUE`. 
+
+The `matrix` function takes a vector and converts it to a matrix. By default, the `matrix` function assumes that the vector is a single column. For example,
+
+```{r demo-matrix1column}
+matrix(1:4)
+```
+
+By setting the `nrow` (number of rows) or `ncol` (number of columns), the matrix dimensions are set. For example,
+
+```{r demo-ncol}
+matrix(1:4, ncol = 2)
+```
+
+Note that the default is to fill in the matrix by columns. If you want it to fill by rows, set the `byrow` option to `TRUE`.
+
+```{r demo-byrow2}
+matrix(1:4, ncol = 2, byrow = TRUE)
+```
+
+In general, creating matrices by row makes the code and the matrix look similar:
+
+```{r demo-byrowsimilar}
+matrix(c(3, 5, 
+         2, 3),
+       nrow = 2,
+       byrow = TRUE)
+```
+
+To achieve the same matrix without the `byrow` option set to `TRUE` is possible, but the code will be the same order as the matrix:
+
+```{r demo-bycolnotsimilar}
+matrix(c(3, 2, 
+         5, 3),
+       nrow = 2)
+```
+
+
+
+::: {.callout-note title="You Try"}
+
+Make vector `A` into a 2 by 2 matrix like so:
+
+$$
+\mathbf{A}=\begin{bmatrix}
+  2&3\\
+  5&7
+ \end{bmatrix}
+$$
+
+```{webr-r}
+#| label: ex-makeA
+A <- matrix(c(_,_,
+              _,_), 
+            nrow = _, 
+            byrow = _)
+
+```
+
+
+```{r solution-binding}
+
+# Using the matrix function setting byrow = TRUE
+A <- matrix(c(2, 3,
+              5, 7),
+            nrow = 2,
+            byrow = TRUE)
+
+```
+
+:::
+
+
+## Appending Matrices
+
+$$
+\color{RoyalBlue}{\mathbf{A}}=\begin{bmatrix}
+\color{RoyalBlue}{1} & \color{RoyalBlue}{2} & \color{RoyalBlue}{3} & \color{RoyalBlue}{4} \\ 
+\color{RoyalBlue}{5} & \color{RoyalBlue}{6} & \color{RoyalBlue}{7} & \color{RoyalBlue}{8} \\ 
+\color{RoyalBlue}{9} & \color{RoyalBlue}{10} & \color{RoyalBlue}{11} & \color{RoyalBlue}{12}
+\end{bmatrix}, \color{Firebrick}{\mathbf{B}}=\begin{bmatrix}
+\color{Firebrick}{13} & \color{Firebrick}{14} & \color{Firebrick}{15} & \color{Firebrick}{16} \\ 
+\color{Firebrick}{17} & \color{Firebrick}{18} & \color{Firebrick}{19} & \color{Firebrick}{20}
+\end{bmatrix}
+$$
+
+The equation below means, "Make a new matrix called C by appending B to the bottom of A."
+
+$$
+\mathbf{C}=\begin{bmatrix}
+\color{RoyalBlue}{\mathbf{A}} \\ \color{FireBrick}{\mathbf{B}} 
+\end{bmatrix}=
+\begin{bmatrix}
+\color{RoyalBlue}{1} & \color{RoyalBlue}{2} & \color{RoyalBlue}{3} & \color{RoyalBlue}{4} \\ 
+\color{RoyalBlue}{5} & \color{RoyalBlue}{6} & \color{RoyalBlue}{7} & \color{RoyalBlue}{8} \\ 
+\color{RoyalBlue}{9} & \color{RoyalBlue}{10} & \color{RoyalBlue}{11} & \color{RoyalBlue}{12}\\
+\color{Firebrick}{13} & \color{Firebrick}{14} & \color{Firebrick}{15} & \color{Firebrick}{16} \\ 
+\color{Firebrick}{17} & \color{Firebrick}{18} & \color{Firebrick}{19} & \color{Firebrick}{20}
+\end{bmatrix}
+$$
+
+In R, adding new rows to a matrix is done with the `rbind` function (Think "row bind"). To append rows, matrices must have the same number of columns to be compatible.
+
+```{r demo-appendrbind}
+A <- matrix(1:12, nrow = 3, byrow = TRUE)
+B <- matrix(13:20, nrow = 2, byrow = TRUE)
+C <- rbind(A,B)
+C
+```
+
+The `cbind` function (Think "column bind") works the same way but it appends columns to the right of a matrix. Matrices must have the same number of rows to be compatible.
+
+```{r demo-appendcbind}
+A <- matrix(1:4, nrow = 2)
+B <- matrix(5:8, nrow = 2)
+C <- cbind(A,B)
+C
+```
+
+::: {.callout-note title="You Try"}
+
+Make a 2 by 2 matrix **A**:
+
+$$
+A=\begin{bmatrix}
+  11&13\\
+  17&19
+\end{bmatrix}
+$$
+
+Make a 2 by 2 matrix `B`:
+
+$$
+B=\begin{bmatrix}
+  11&13\\
+  17&19
+\end{bmatrix}
+$$
+
+
+Append `A` and `B` with `rbind` to make a 4 by 2 matrix like so:
+
+$$
+\begin{bmatrix}
+  2&3\\
+  5&7\\
+  11&13\\
+  17&19
+\end{bmatrix}
+$$
+
+
+```{webr-r}
+#| label: ex-rbinding
+A <- matrix(c(_,_,
+              _,_), 
+            nrow = _, 
+            byrow = _)
+B <- matrix(c(_,_,
+              _,_), 
+            nrow = _, 
+            byrow = _)
+
+# Now bind A and B by rows
+rbind(_,_)
+```
+
+```{r solution-rbindAB}
+A <- matrix(c(2, 5, 3, 7), nrow = 2)
+B <- matrix(c(11,17,13,19), nrow = 2)
+rbind(A, B)
+```
+
+Now use `cbind` to make a 2 by 4 matrix:
+
+$$
+\begin{bmatrix}
+  2&3&11&13\\
+  5&7&17&19
+\end{bmatrix}
+$$
+
+
+```{webr-r}
+#| label: ex-cbinding
+# Now bind A and B by columns
+cbind(_,_)
+```
+
+```{r solution-cbindAB}
+cbind(A, B)
+```
+
+:::
+
+
+
+## Selecting parts of a matrix 
+
+Let's make this matrix:
+
+$$
+\mathbf{A} =
+\begin{bmatrix}
+  1&2&3&4\\
+  5&6&7&8\\
+  9&10&11&12
+\end{bmatrix}
+$$
+
+```{r demo-byrow}
+A <- matrix(1:12, nrow = 3, byrow = TRUE)
+A
+```
+
+
+### Select a single element of a matrix
+
+To select a single element of a matrix, specify the row and column in brackets after the matrix. For example, the element $\mathbf{A}_{3,2}$ (i.e., the 3^rd^ row and 2^nd^ column of $\mathbf{A}$) is 
+
+```{r demo-select32}
+A[3,2]
+```
+
+::: {.callout-note title="You Try"}
+
+Select the element in row 2, column 3
+
+```{webr-r}
+#| label: ex-select
+A <- matrix(1:12, nrow = 3, byrow = TRUE)
+A[_,_]
+```
+
+```{r solution-select}
+A[2,3]
+```
+
+:::
+
+### Select a matrix row
+
+Leaving one of the slots in the bracket empty means that you want all of the elements in that row or column. 
+
+$\mathbf{A}_{1\bullet}$ is the 1^st^ row of $\mathbf{A}$.
+
+```{r demo-selectrow}
+A[1, ]
+```
+
+### Select a matrix column
+
+$\mathbf{A}_{\bullet 3}$ is the 3^rd^ column of $\mathbf{A}$.
+
+```{r demo-selectcolumn}
+A[, 3]
+```
+
+By default, whenever a single row, column, or element is returned from a matrix, R drops the row and column dimensions. If you wish to preserve the result in matrix form, set `drop` to `FALSE`:
+
+```{r demo-selectdrop}
+A[, 3, drop = FALSE]
+```
+
+::: {#callout-note title="You Try"}
+
+Select column 1 of A.
+
+```{webr-r}
+#| label: ex-selectA1
+A
+```
+
+```{r solution-matrixrow}
+A[, 1]
+```
+:::
+
+
+
+### Select several columns or rows
+
+A vector of integers will select whichever rows or columns you wish. Here are the 2^nd^ and 3^rd^ rows:
+
+```{r demo-select23rows}
+A[2:3, ]
+```
+
+Here are the 1^st^ and 4^th^ columns:
+
+```{r demo-select14cols}
+A[, c(1, 4)]
+```
+
+::: {#callout-note title="You Try"}
+
+Select columns 1 and 3 of A. 
+
+```{webr-r}
+#| label: ex-matrixcols
+A
+```
+
+```{r solution-matrixcols}
+A[, c(1, 3)]
+```
+:::
+
+
+### Selecting with Boolean vectors
+
+Here is the first two rows of $\mathbf{A}$:
+
+```{r demo-selectboolean}
+A[c(TRUE,TRUE,FALSE),]
+```
+
+This seems like a strange way to do this but it is actually quite powerful. Any vector of `TRUE` and `FALSE` values can be used to select things. For example, select a column only if its first value is greater than 2:
+
+```{r demo-selectgreaterthan2}
+s <- A[1,] > 2 # Creates a vector that tests whether the first row elements are greater than 2
+A[,s] # Select only the columns whose first value is greater than 2
+```
+
+
+::: {#callout-note title="You Try"}
+
+Use a Boolean vector to select columns that begin with 2. The operator for "is equal to" is `==`.
+
+```{webr-r}
+#| label: ex-boolean
+s <- A[] == _ 
+A[,s] 
+```
+
+```{r solution-boolean}
+s <- A[1,] == 2 
+# When only one column or row is selected, R returns a vector
+A[,s]
+# To force R to return a matrix, set drop = FALSE
+A[,s, drop = FALSE]
+```
+:::
+
+
+### Selecting with name vectors
+
+We can give row and column names to a matrix like so:
+
+```{r demo-selectnamevector}
+rownames(A) <- c("Gold","Silver","Bronze")
+colnames(A) <- c("Vault","Uneven Bars","Balance Beam","Floor")
+A
+```
+
+Now we can select rows and columns by names:
+
+```{r demo-selectgoldbronze}
+A[c("Gold","Bronze"),]
+```
+
+::: {#callout-note title="You Try"}
+
+Use the column names to select the Uneven Bars column
+
+```{webr-r}
+#| label: ex-uneven
+A <- matrix(1:12, nrow = 3, byrow = TRUE)
+rownames(A) <- c("Gold","Silver","Bronze")
+colnames(A) <- c("Vault","Uneven Bars","Balance Beam","Floor")
+# select the Uneven Bars column
+A
+```
+
+```{r solution-uneven}
+A[,"Uneven Bars"]
+# or to force returning a matrix
+A[,"Uneven Bars", drop = FALSE]
+```
+
+Select the intersection of Silver and Floor
+
+```{webr-r}
+#| label: ex-silverfloor
+A
+```
+
+```{r solution-silverfloor}
+A["Silver", "Floor"]
+# or
+A["Silver", "Floor", drop = FALSE]
+```
+
+:::
+
+## Replace portions of a matrix
+
+Any portion of a matrix can be replaced with new values. For example, this will replace the first row with zeros:
+
+```{r demo-replacerow}
+A[1, ] <- c(0, 0, 0, 0)
+A
+```
+
+This can be done by column or row name as well
+
+```{r demo-replacerowgold}
+A["Gold", ] <- c(0, 0, 0, 0)
+A
+```
+
+
+::: {#callout-note title="You Try"}
+
+Replace the Vault column of $\mathbf{A}$ with a vector of $(10,20,30)$
+
+```{webr-r}
+#| label: ex-replacevault
+A
+```
+
+```{r solution-replacevault}
+A[, "Vault"] <- c(10, 20, 30)
+A
+```
+:::
+
+## Transposing matrices
+
+[To *transpose* a matrix is to write its rows as columns and its columns as rows.]{.defword .column-margin}
+
+To [transpose]{.defword} a matrix is to flip its rows into columns.
+
+$\mathbf{A}'$ is matrix $\mathbf{A}$ transposed.
+
+If
+
+$$\mathbf{A}=\begin{bmatrix}
+1&2&3\\
+4&5&6
+\end{bmatrix}$$
+
+Then 
+
+$$\mathbf{A}'=\begin{bmatrix}
+1&4\\
+2&5\\
+3&6
+\end{bmatrix}$$
+
+### Transposing in R
+
+In R the `t` function transposes matrices.
+
+```{r demo-transpose}
+A <- matrix(1:6, nrow = 2, byrow = TRUE)
+A
+Aprime <- t(A)
+Aprime
+```
+
+::: {#callout-note title="You Try"}
+
+1. Make a 2 $\times$ 5 matrix `A` of even numbers up to 20. 
+2. Transpose `A`, assigning it to a variable called `Aprime`.
+3. Replace the last row (row 5) of `Aprime` with zeroes.
+
+```{webr-r}
+#| label: ex-even20transpose
+A <- matrix(seq(_,_,_), nrow = _)
+```
+
+
+```{r solution-even20transpose}
+A <- matrix(seq(2, 20, 2), nrow = 2)
+A
+Aprime <- t(A)
+Aprime
+Aprime[5, ] <- c(0, 0)
+Aprime
+```
+:::
+
+
+
+## Square matrices
+
+In a **square matrix**, the number of rows is equal to the number of columns.
+
+## Symmetric matrices
+
+A **symmetric matrix** is a square matrix that is equal to its transpose.
+
+$$\mathbf{A}=\mathbf{A}'$$
+
+This means that for all elements, $a_{ij}=a_{ji}$.
+
+Here is an example of a symmetric matrix:
+
+$$\begin{bmatrix}
+\color{green}a & \color{Firebrick}b & \color{RoyalBlue}c\\
+\color{Firebrick}b & \color{gold}d & \color{DarkOrchid}e\\
+\color{RoyalBlue}c & \color{DarkOrchid}e & \color{orange}f
+\end{bmatrix}$$
+
+To verify that a matrix is symmetric in R:
+
+```{r demo-symmetrictest}
+#| eval: false
+all(A == t(A))
+# Or use a dedicated function
+isSymmetric(A)
+```
+
+Correlation matrices and covariance matrices are always symmetric.
+
+## Diagonal matrices
+
+A **diagonal matrix** is a square matrix consisting of zeroes everywhere except the diagonal. For example,
+
+$$
+\mathbf{A} = \begin{bmatrix}
+a & 0 & 0\\
+0 & b & 0\\
+0 & 0 & c
+\end{bmatrix}
+$$
+
+To create a diagonal matrix, specify the diagonal vector and then insert it into the `diag` function like so:
+
+```{r demo-MakeDiagonal}
+a <- 1:4
+A <- diag(a)
+A
+```
+
+As we will see later, the `diag` function actually has several different purposes:
+
+1. It creates a diagonal matrix $\mathbf{A}$ from a vector $\vec{a}$.  
+    `A <- diag(a)` 
+2. It extracts a diagonal vector $\vec{a}$ from a matrix $\mathbf{A}$.  
+    `a <- diag(A)`
+3. It creates an identity matrix $\mathbf{I}$ from a positive integer $n$.  
+    `I <- diag(n)`
+4. It replaces the diagonal of matrix $\mathbf{A}$ with a new vector $\vec{b}$.  
+    `diag(A) <- b`
+
