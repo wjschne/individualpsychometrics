@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.26">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Individual Psychometrics – 8&nbsp; Descriptives</title>
+<title>Individual Psychometrics – 9&nbsp; Descriptives</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -165,7 +165,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./variables.html">Variables</a></li><li class="breadcrumb-item"><a href="./descriptives.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Descriptives</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./variables.html">Variables</a></li><li class="breadcrumb-item"><a href="./descriptives.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Descriptives</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -238,8 +238,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices</span></span></a>
+  <a href="./matrices_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices–Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices_operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices–Operations</span></span></a>
   </div>
 </li>
       </ul>
@@ -256,31 +262,31 @@ window.Quarto = {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./descriptives.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./compositescores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./unfinished.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -297,42 +303,42 @@ window.Quarto = {
    
   <ul>
 <li>
-<a href="#frequency-distribution-tables" id="toc-frequency-distribution-tables" class="nav-link active" data-scroll-target="#frequency-distribution-tables"><span class="header-section-number">8.1</span> Frequency Distribution Tables</a>
+<a href="#frequency-distribution-tables" id="toc-frequency-distribution-tables" class="nav-link active" data-scroll-target="#frequency-distribution-tables"><span class="header-section-number">9.1</span> Frequency Distribution Tables</a>
   <ul class="collapse">
-<li><a href="#frequency-distribution-tables-in-r" id="toc-frequency-distribution-tables-in-r" class="nav-link" data-scroll-target="#frequency-distribution-tables-in-r"><span class="header-section-number">8.1.1</span> Frequency Distribution Tables in R</a></li>
-  <li><a href="#frequency-distribution-bar-plots" id="toc-frequency-distribution-bar-plots" class="nav-link" data-scroll-target="#frequency-distribution-bar-plots"><span class="header-section-number">8.1.2</span> Frequency Distribution Bar Plots</a></li>
-  <li><a href="#frequency-distribution-stacked-bar-plots" id="toc-frequency-distribution-stacked-bar-plots" class="nav-link" data-scroll-target="#frequency-distribution-stacked-bar-plots"><span class="header-section-number">8.1.3</span> Frequency Distribution Stacked Bar Plots</a></li>
-  <li><a href="#frequency-distribution-step-line-plots" id="toc-frequency-distribution-step-line-plots" class="nav-link" data-scroll-target="#frequency-distribution-step-line-plots"><span class="header-section-number">8.1.4</span> Frequency Distribution Step Line Plots</a></li>
+<li><a href="#frequency-distribution-tables-in-r" id="toc-frequency-distribution-tables-in-r" class="nav-link" data-scroll-target="#frequency-distribution-tables-in-r"><span class="header-section-number">9.1.1</span> Frequency Distribution Tables in R</a></li>
+  <li><a href="#frequency-distribution-bar-plots" id="toc-frequency-distribution-bar-plots" class="nav-link" data-scroll-target="#frequency-distribution-bar-plots"><span class="header-section-number">9.1.2</span> Frequency Distribution Bar Plots</a></li>
+  <li><a href="#frequency-distribution-stacked-bar-plots" id="toc-frequency-distribution-stacked-bar-plots" class="nav-link" data-scroll-target="#frequency-distribution-stacked-bar-plots"><span class="header-section-number">9.1.3</span> Frequency Distribution Stacked Bar Plots</a></li>
+  <li><a href="#frequency-distribution-step-line-plots" id="toc-frequency-distribution-step-line-plots" class="nav-link" data-scroll-target="#frequency-distribution-step-line-plots"><span class="header-section-number">9.1.4</span> Frequency Distribution Step Line Plots</a></li>
   </ul>
 </li>
   <li>
-<a href="#measures-of-central-tendency" id="toc-measures-of-central-tendency" class="nav-link" data-scroll-target="#measures-of-central-tendency"><span class="header-section-number">8.2</span> Measures of Central Tendency</a>
+<a href="#measures-of-central-tendency" id="toc-measures-of-central-tendency" class="nav-link" data-scroll-target="#measures-of-central-tendency"><span class="header-section-number">9.2</span> Measures of Central Tendency</a>
   <ul class="collapse">
-<li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode"><span class="header-section-number">8.2.1</span> Mode</a></li>
-  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median"><span class="header-section-number">8.2.2</span> Median</a></li>
-  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean"><span class="header-section-number">8.2.3</span> Mean</a></li>
-  <li><a href="#comparing-central-tendency-measures" id="toc-comparing-central-tendency-measures" class="nav-link" data-scroll-target="#comparing-central-tendency-measures"><span class="header-section-number">8.2.4</span> Comparing Central Tendency Measures</a></li>
+<li><a href="#mode" id="toc-mode" class="nav-link" data-scroll-target="#mode"><span class="header-section-number">9.2.1</span> Mode</a></li>
+  <li><a href="#median" id="toc-median" class="nav-link" data-scroll-target="#median"><span class="header-section-number">9.2.2</span> Median</a></li>
+  <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean"><span class="header-section-number">9.2.3</span> Mean</a></li>
+  <li><a href="#comparing-central-tendency-measures" id="toc-comparing-central-tendency-measures" class="nav-link" data-scroll-target="#comparing-central-tendency-measures"><span class="header-section-number">9.2.4</span> Comparing Central Tendency Measures</a></li>
   </ul>
 </li>
-  <li><a href="#expected-values" id="toc-expected-values" class="nav-link" data-scroll-target="#expected-values"><span class="header-section-number">8.3</span> Expected Values</a></li>
+  <li><a href="#expected-values" id="toc-expected-values" class="nav-link" data-scroll-target="#expected-values"><span class="header-section-number">9.3</span> Expected Values</a></li>
   <li>
-<a href="#measures-of-variability" id="toc-measures-of-variability" class="nav-link" data-scroll-target="#measures-of-variability"><span class="header-section-number">8.4</span> Measures of Variability</a>
+<a href="#measures-of-variability" id="toc-measures-of-variability" class="nav-link" data-scroll-target="#measures-of-variability"><span class="header-section-number">9.4</span> Measures of Variability</a>
   <ul class="collapse">
-<li><a href="#variability-of-nominal-variables" id="toc-variability-of-nominal-variables" class="nav-link" data-scroll-target="#variability-of-nominal-variables"><span class="header-section-number">8.4.1</span> Variability of Nominal Variables</a></li>
-  <li><a href="#interquartile-range" id="toc-interquartile-range" class="nav-link" data-scroll-target="#interquartile-range"><span class="header-section-number">8.4.2</span> Interquartile Range</a></li>
-  <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance"><span class="header-section-number">8.4.3</span> Variance</a></li>
-  <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation"><span class="header-section-number">8.4.4</span> Standard Deviation</a></li>
-  <li><a href="#average-absolute-deviations" id="toc-average-absolute-deviations" class="nav-link" data-scroll-target="#average-absolute-deviations"><span class="header-section-number">8.4.5</span> Average Absolute Deviations</a></li>
+<li><a href="#variability-of-nominal-variables" id="toc-variability-of-nominal-variables" class="nav-link" data-scroll-target="#variability-of-nominal-variables"><span class="header-section-number">9.4.1</span> Variability of Nominal Variables</a></li>
+  <li><a href="#interquartile-range" id="toc-interquartile-range" class="nav-link" data-scroll-target="#interquartile-range"><span class="header-section-number">9.4.2</span> Interquartile Range</a></li>
+  <li><a href="#variance" id="toc-variance" class="nav-link" data-scroll-target="#variance"><span class="header-section-number">9.4.3</span> Variance</a></li>
+  <li><a href="#standard-deviation" id="toc-standard-deviation" class="nav-link" data-scroll-target="#standard-deviation"><span class="header-section-number">9.4.4</span> Standard Deviation</a></li>
+  <li><a href="#average-absolute-deviations" id="toc-average-absolute-deviations" class="nav-link" data-scroll-target="#average-absolute-deviations"><span class="header-section-number">9.4.5</span> Average Absolute Deviations</a></li>
   </ul>
 </li>
-  <li><a href="#skewness" id="toc-skewness" class="nav-link" data-scroll-target="#skewness"><span class="header-section-number">8.5</span> Skewness</a></li>
-  <li><a href="#kurtosis" id="toc-kurtosis" class="nav-link" data-scroll-target="#kurtosis"><span class="header-section-number">8.6</span> Kurtosis</a></li>
+  <li><a href="#skewness" id="toc-skewness" class="nav-link" data-scroll-target="#skewness"><span class="header-section-number">9.5</span> Skewness</a></li>
+  <li><a href="#kurtosis" id="toc-kurtosis" class="nav-link" data-scroll-target="#kurtosis"><span class="header-section-number">9.6</span> Kurtosis</a></li>
   <li>
-<a href="#moments-cumulants-and-descriptive-statistics" id="toc-moments-cumulants-and-descriptive-statistics" class="nav-link" data-scroll-target="#moments-cumulants-and-descriptive-statistics"><span class="header-section-number">9</span> Moments, Cumulants, and Descriptive Statistics</a>
+<a href="#moments-cumulants-and-descriptive-statistics" id="toc-moments-cumulants-and-descriptive-statistics" class="nav-link" data-scroll-target="#moments-cumulants-and-descriptive-statistics"><span class="header-section-number">10</span> Moments, Cumulants, and Descriptive Statistics</a>
   <ul class="collapse">
-<li><a href="#raw-moments" id="toc-raw-moments" class="nav-link" data-scroll-target="#raw-moments"><span class="header-section-number">9.1</span> Raw Moments</a></li>
-  <li><a href="#central-moments" id="toc-central-moments" class="nav-link" data-scroll-target="#central-moments"><span class="header-section-number">9.2</span> Central Moments</a></li>
-  <li><a href="#standardized-moments" id="toc-standardized-moments" class="nav-link" data-scroll-target="#standardized-moments"><span class="header-section-number">9.3</span> Standardized Moments</a></li>
+<li><a href="#raw-moments" id="toc-raw-moments" class="nav-link" data-scroll-target="#raw-moments"><span class="header-section-number">10.1</span> Raw Moments</a></li>
+  <li><a href="#central-moments" id="toc-central-moments" class="nav-link" data-scroll-target="#central-moments"><span class="header-section-number">10.2</span> Central Moments</a></li>
+  <li><a href="#standardized-moments" id="toc-standardized-moments" class="nav-link" data-scroll-target="#standardized-moments"><span class="header-section-number">10.3</span> Standardized Moments</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -341,9 +347,9 @@ window.Quarto = {
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./variables.html">Variables</a></li><li class="breadcrumb-item"><a href="./descriptives.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Descriptives</span></a></li></ol></nav><div class="quarto-title">
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./variables.html">Variables</a></li><li class="breadcrumb-item"><a href="./descriptives.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Descriptives</span></a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
-<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Descriptives</span>
+<span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Descriptives</span>
 </h1>
 </div>
 
@@ -359,11 +365,11 @@ window.Quarto = {
 
 
 </header><div class="page-columns page-full"><p>When we encounter large lists of unsorted numbers, we have no natural capacity to perceive the list’s fundamental characteristics such as its average or its variability. Therefore, we need <span class="defword">descriptive statistics</span> to quantify salient characteristics of distributions, or we need to display the numbers in a plot, making them easier to understand and communicate.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Descriptive statistics</strong> summarize noteworthy characteristics of samples.</span></div></div>
-<section id="frequency-distribution-tables" class="level2 page-columns page-full" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="frequency-distribution-tables">
-<span class="header-section-number">8.1</span> Frequency Distribution Tables</h2>
-<div class="page-columns page-full"><p>A simple way to describe a distribution is to list how many times each value in the distribution occurs. For example, in this distribution: <span class="math inline">\{10, 3, 4, 10, 6, 4, 6, 4\}</span>, there is 1 three, 3 fours, 2 sixes, and 2 tens. The value that occurs most often is four. A <span class="defword">frequency distribution table</span> displays the number of times each value occurs, as in <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>8.1</span></a>.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>frequency distribution table</strong> summarises a sample by showing the frequency counts of each member of the sample space.</span></div></div>
+<section id="frequency-distribution-tables" class="level2 page-columns page-full" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="frequency-distribution-tables">
+<span class="header-section-number">9.1</span> Frequency Distribution Tables</h2>
+<div class="page-columns page-full"><p>A simple way to describe a distribution is to list how many times each value in the distribution occurs. For example, in this distribution: <span class="math inline">\{10, 3, 4, 10, 6, 4, 6, 4\}</span>, there is 1 three, 3 fours, 2 sixes, and 2 tens. The value that occurs most often is four. A <span class="defword">frequency distribution table</span> displays the number of times each value occurs, as in <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>9.1</span></a>.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>frequency distribution table</strong> summarises a sample by showing the frequency counts of each member of the sample space.</span></div></div>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="bottom">
-<div id="tbl-frequencydistributiontable" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="bottom" data-layout-align="center">
+<div id="tbl-frequencydistributiontable" class="cell quarto-float anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="bottom">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full"><div aria-describedby="tbl-frequencydistributiontable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
@@ -415,7 +421,7 @@ window.Quarto = {
 </table>
 </div></div></div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-frequencydistributiontable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.1: Frequency Distribution Table<br>The median is 5, halfway between the two middle scores of 4 and 6.
+Table&nbsp;9.1: Frequency Distribution Table<br>The median is 5, halfway between the two middle scores of 4 and 6.
 </figcaption></figure>
 </div>
 </div>
@@ -426,7 +432,7 @@ Table&nbsp;8.1: Frequency Distribution Table<br>The median is 5, halfway between
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>8.1</span></a>
+R Code for <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>9.1</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -465,14 +471,14 @@ R Code for <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&n
 </div>
 <p>It is common to include alongside the frequencies of each value the proportion (or percentage) of times a value occurs. If the frequency of sample space element <span class="math inline">i</span> is <span class="math inline">f_i</span>, and the total sample size is <span class="math inline">n</span>, then the proportion of sample space element <span class="math inline">i</span> is</p>
 <p><span class="math display">p_i = \frac{f_i}{n}</span></p>
-<p>In <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>8.1</span></a>, the frequency of sixes is <span class="math inline">f=2</span> and there are <span class="math inline">n = 8</span> numbers in the distribution, thus the proportion of sixes is <span class="math inline">p = \frac{2}{8} = .25</span>.</p>
+<p>In <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>9.1</span></a>, the frequency of sixes is <span class="math inline">f=2</span> and there are <span class="math inline">n = 8</span> numbers in the distribution, thus the proportion of sixes is <span class="math inline">p = \frac{2}{8} = .25</span>.</p>
 <div class="page-columns page-full"><p>It is also common to supplement frequency distribution tables with additional information such as the <span class="defword">cumulative frequency</span>. For each sample space element, the cumulative frequency <span class="math inline">(cf)</span> is the sum of the frequencies <span class="math inline">(f)</span> of the current and all previous sample space elements.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>cumulative frequency</strong> tells us the number of scores in a distribution that are equal to or lower than a particular sample space element.</span></div></div>
 <p><span class="math display">cf_i= \sum_{j=1}^{i}{f_j}</span></p>
 <p>Ordinal, interval, and ratio variables can have cumulative frequencies, but not nominal variables. To calculate cumulative frequencies, the sample space needs to be sorted in a meaningful way, which is not possible with true nominal variables. That is, there are no scores “below” any other scores in nominal variables.</p>
 <p>The cumulative proportion <span class="math inline">(cp)</span> is the proportion of scores less than or equal to a particular sample space element.</p>
 <p><span class="math display">cp_i = \frac{cf_i}{n}</span></p>
-<section id="frequency-distribution-tables-in-r" class="level3 page-columns page-full" data-number="8.1.1"><h3 data-number="8.1.1" class="anchored" data-anchor-id="frequency-distribution-tables-in-r">
-<span class="header-section-number">8.1.1</span> Frequency Distribution Tables in R</h3>
+<section id="frequency-distribution-tables-in-r" class="level3 page-columns page-full" data-number="9.1.1"><h3 data-number="9.1.1" class="anchored" data-anchor-id="frequency-distribution-tables-in-r">
+<span class="header-section-number">9.1.1</span> Frequency Distribution Tables in R</h3>
 <p>Let’s start with a data set from <span class="citation" data-cites="garciaWomenReactionsIngroup2010">Garcia et al. (<a href="references.html#ref-garciaWomenReactionsIngroup2010" role="doc-biblioref">2010</a>)</span>, which can accessed via the psych package.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-garciaWomenReactionsIngroup2010" class="csl-entry" role="listitem">
 Garcia, D. M., Schmitt, M. T., Branscombe, N. R., &amp; Ellemers, N. (2010). Women’s reactions to ingroup members who protest discriminatory treatment: <span>The</span> importance of beliefs about inequality and response appropriateness. <em>European Journal of Social Psychology</em>, <em>40</em>(5), 733–745.
@@ -501,9 +507,9 @@ Value |  N | Raw % | Valid % | Cum. %
  &lt;NA&gt; |  0 |  0.00 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
 </div>
 </div>
-<p>Typically we use frequency distribution tables to check whether the values of a variable are correct and that the distribution makes sense to us. Thus the <code>frq</code> function is all we need most of the time. However, if you need a publication-ready frequency distribution table, you will probably have to make it from scratch (See <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>8.2</span></a>).</p>
+<p>Typically we use frequency distribution tables to check whether the values of a variable are correct and that the distribution makes sense to us. Thus the <code>frq</code> function is all we need most of the time. However, if you need a publication-ready frequency distribution table, you will probably have to make it from scratch (See <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>9.2</span></a>).</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-freqtablepub" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-freqtablepub" class="cell quarto-float anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full"><div aria-describedby="tbl-freqtablepub-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
@@ -577,7 +583,7 @@ Value |  N | Raw % | Valid % | Cum. %
 </div>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-freqtablepub-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.2: Frequency Distribution Table for Anger<br><em>f</em>&nbsp;=&nbsp;Frequency,<em>cf</em>&nbsp;=&nbsp;Cumulative Frequency, <em>p</em>&nbsp;=&nbsp;Proportion, and <em>cp</em>&nbsp;=&nbsp;Cumulative Proportion
+Table&nbsp;9.2: Frequency Distribution Table for Anger<br><em>f</em>&nbsp;=&nbsp;Frequency,<em>cf</em>&nbsp;=&nbsp;Cumulative Frequency, <em>p</em>&nbsp;=&nbsp;Proportion, and <em>cp</em>&nbsp;=&nbsp;Cumulative Proportion
 </figcaption></figure>
 </div>
 </div>
@@ -588,7 +594,7 @@ Table&nbsp;8.2: Frequency Distribution Table for Anger<br><em>f</em>&nbsp;=&nbsp
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>8.2</span></a>
+R Code for <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>9.2</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -617,45 +623,45 @@ R Code for <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>8.2<
 </div>
 </div>
 </div>
-</section><section id="frequency-distribution-bar-plots" class="level3 page-columns page-full" data-number="8.1.2"><h3 data-number="8.1.2" class="anchored" data-anchor-id="frequency-distribution-bar-plots">
-<span class="header-section-number">8.1.2</span> Frequency Distribution Bar Plots</h3>
+</section><section id="frequency-distribution-bar-plots" class="level3 page-columns page-full" data-number="9.1.2"><h3 data-number="9.1.2" class="anchored" data-anchor-id="frequency-distribution-bar-plots">
+<span class="header-section-number">9.1.2</span> Frequency Distribution Bar Plots</h3>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-freqbarplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-freqbarplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-freqbarplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-freqbarplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-freqbarplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.1: Frequency Distribution Bar Plot
+Figure&nbsp;9.1: Frequency Distribution Bar Plot
 </figcaption></figure>
 </div>
 </div></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-freqstackedbarplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-freqstackedbarplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-freqstackedbarplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-freqstackedbarplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="250">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-freqstackedbarplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.2: Cumulative Frequency Stacked Bar Plot
+Figure&nbsp;9.2: Cumulative Frequency Stacked Bar Plot
 </figcaption></figure>
 </div>
 </div></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-freqstepplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-freqstepplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-freqstepplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-freqstepplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-freqstepplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.3: Cumulative Frequency Step Plot
+Figure&nbsp;9.3: Cumulative Frequency Step Plot
 </figcaption></figure>
 </div>
 </div></div></div>
-<p>In <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>, the frequency distribution from <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>8.2</span></a> is translated into a standard bar plot in which each bar is proportional to the frequency of each response. A column bar plot allows for easy comparison of the frequency of each category. For example, in <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>, the most frequent response to the Anger question—1 (low)—draws your attention immediately. In contrast to the mental effort needed to scan frequencies listed in a table, the relative height of each frequency in the bar plot is perceived, compared, and interpreted almost effortlessly. With a single glance at <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>, no calculation is required to know that none of the other responses is even half as frequent as 1.</p>
+<p>In <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>, the frequency distribution from <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>9.2</span></a> is translated into a standard bar plot in which each bar is proportional to the frequency of each response. A column bar plot allows for easy comparison of the frequency of each category. For example, in <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>, the most frequent response to the Anger question—1 (low)—draws your attention immediately. In contrast to the mental effort needed to scan frequencies listed in a table, the relative height of each frequency in the bar plot is perceived, compared, and interpreted almost effortlessly. With a single glance at <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>, no calculation is required to know that none of the other responses is even half as frequent as 1.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -663,7 +669,7 @@ Figure&nbsp;8.3: Cumulative Frequency Step Plot
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>
+R Code for <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -695,9 +701,9 @@ R Code for <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>8.1<
 </div>
 </div>
 </div>
-</section><section id="frequency-distribution-stacked-bar-plots" class="level3" data-number="8.1.3"><h3 data-number="8.1.3" class="anchored" data-anchor-id="frequency-distribution-stacked-bar-plots">
-<span class="header-section-number">8.1.3</span> Frequency Distribution Stacked Bar Plots</h3>
-<p>In a standard bar plot, one may easily compare frequencies to each other, but that may not be what you wish the reader to notice first. A stacked bar plot emphasizes the proportions of each category as it relates to the whole. It also allows for the visual display of the cumulative frequencies and proportions. For example, in <a href="#fig-freqstackedbarplot" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>, it is easy to see that more than half of participants have an anger level of 1, and three quarters have an anger level of 2 or less.</p>
+</section><section id="frequency-distribution-stacked-bar-plots" class="level3" data-number="9.1.3"><h3 data-number="9.1.3" class="anchored" data-anchor-id="frequency-distribution-stacked-bar-plots">
+<span class="header-section-number">9.1.3</span> Frequency Distribution Stacked Bar Plots</h3>
+<p>In a standard bar plot, one may easily compare frequencies to each other, but that may not be what you wish the reader to notice first. A stacked bar plot emphasizes the proportions of each category as it relates to the whole. It also allows for the visual display of the cumulative frequencies and proportions. For example, in <a href="#fig-freqstackedbarplot" class="quarto-xref">Figure&nbsp;<span>9.2</span></a>, it is easy to see that more than half of participants have an anger level of 1, and three quarters have an anger level of 2 or less.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -705,7 +711,7 @@ R Code for <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>8.1<
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-freqstackedbarplot" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>
+R Code for <a href="#fig-freqstackedbarplot" class="quarto-xref">Figure&nbsp;<span>9.2</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -746,9 +752,9 @@ R Code for <a href="#fig-freqstackedbarplot" class="quarto-xref">Figure&nbsp;<sp
 </div>
 </div>
 </div>
-</section><section id="frequency-distribution-step-line-plots" class="level3" data-number="8.1.4"><h3 data-number="8.1.4" class="anchored" data-anchor-id="frequency-distribution-step-line-plots">
-<span class="header-section-number">8.1.4</span> Frequency Distribution Step Line Plots</h3>
-<p>A step line plot can show the cumulative frequency’s relationship with the variable. For example, in <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>, it appears that the cumulative frequency rises quickly at first but then rises slowly and steadily thereafter.</p>
+</section><section id="frequency-distribution-step-line-plots" class="level3" data-number="9.1.4"><h3 data-number="9.1.4" class="anchored" data-anchor-id="frequency-distribution-step-line-plots">
+<span class="header-section-number">9.1.4</span> Frequency Distribution Step Line Plots</h3>
+<p>A step line plot can show the cumulative frequency’s relationship with the variable. For example, in <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>9.3</span></a>, it appears that the cumulative frequency rises quickly at first but then rises slowly and steadily thereafter.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -756,7 +762,7 @@ R Code for <a href="#fig-freqstackedbarplot" class="quarto-xref">Figure&nbsp;<sp
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>
+R Code for <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>9.3</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -824,30 +830,30 @@ R Code for <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>8.3
 </div>
 </div>
 </div>
-</section></section><section id="measures-of-central-tendency" class="level2 page-columns page-full" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="measures-of-central-tendency">
-<span class="header-section-number">8.2</span> Measures of Central Tendency</h2>
+</section></section><section id="measures-of-central-tendency" class="level2 page-columns page-full" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="measures-of-central-tendency">
+<span class="header-section-number">9.2</span> Measures of Central Tendency</h2>
 <p>If we need to summarize an entire distribution with a single number with the least possible information loss, we use a measure of central tendency—usually the mode, the median, or the mean. Although these numbers are intended to represent the entire distribution, they often require accompaniment from other statistics to perform this role with sufficient fidelity.</p>
 <p>Our choice of which measure of central tendency we use to summarize a distribution depends on which type of variable we are summarizing (i.e., nominal, ordinal, interval, or ratio) and also a consideration of each central tendency measure’s strengths and weaknesses in particular situations.</p>
-<section id="mode" class="level3 page-columns page-full" data-number="8.2.1"><h3 data-number="8.2.1" class="anchored" data-anchor-id="mode">
-<span class="header-section-number">8.2.1</span> Mode</h3>
+<section id="mode" class="level3 page-columns page-full" data-number="9.2.1"><h3 data-number="9.2.1" class="anchored" data-anchor-id="mode">
+<span class="header-section-number">9.2.1</span> Mode</h3>
 <div class="page-columns page-full"><p>The <span class="defword">mode</span> is the most frequent score in a distribution. Suppose we have a distribution that looks like this:</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>mode</strong> is the value in a distribution that occurs most often.</span></div></div>
 <p><span class="math display">\{1,2,2,2,2,3,3\}</span></p>
 <p>Because 2 occurs more frequently than the other values in the distribution, the mode is 2.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
 
 </div>
-<p>In a frequency distribution table, the mode is the value with the highest value in the <span class="math inline">f</span> (frequency) column. In <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>8.2</span></a>, the mode is 1 because it has the highest frequency <span class="math inline">(f = 73)</span>.</p>
-<p>In a bar plot, histogram, or probability density plot, the mode is the value that corresponds to the highest point in the plot. For example, in <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>, the modal value is 1 because its frequency of 73 is the highest point in the bar plot. In <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>8.4</span></a>, the mode is −1 because that is the highest point in the density plot.</p>
-<div class="page-columns page-full"><p>If two values tie, both values are the mode and the distribution is <span class="defword">bimodal</span>. Sometimes a distribution has two distinct clusters, each with its own local mode. The greater of these two modes is the <em>major mode</em>, and the lesser is the <em>minor mode</em> (See <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>8.4</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>bimodal</strong> distribution has two modes.</span></div></div>
+<p>In a frequency distribution table, the mode is the value with the highest value in the <span class="math inline">f</span> (frequency) column. In <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>9.2</span></a>, the mode is 1 because it has the highest frequency <span class="math inline">(f = 73)</span>.</p>
+<p>In a bar plot, histogram, or probability density plot, the mode is the value that corresponds to the highest point in the plot. For example, in <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>, the modal value is 1 because its frequency of 73 is the highest point in the bar plot. In <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>, the mode is −1 because that is the highest point in the density plot.</p>
+<div class="page-columns page-full"><p>If two values tie, both values are the mode and the distribution is <span class="defword">bimodal</span>. Sometimes a distribution has two distinct clusters, each with its own local mode. The greater of these two modes is the <em>major mode</em>, and the lesser is the <em>minor mode</em> (See <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>bimodal</strong> distribution has two modes.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-bimodal" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-bimodal" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-bimodal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-bimodal-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-bimodal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.4: A Bimodal Distribution
+Figure&nbsp;9.4: A Bimodal Distribution
 </figcaption></figure>
 </div>
 </div></div></div>
@@ -858,7 +864,7 @@ Figure&nbsp;8.4: A Bimodal Distribution
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>8.4</span></a>
+R Code for <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -897,7 +903,7 @@ R Code for <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>8.4</spa
 </div>
 </div>
 </div>
-<p>The mode is the only measure of central tendency that be computed for all variable types and is the only choice for nominal variables (See <a href="#tbl-proconCT" class="quarto-xref">Table&nbsp;<span>8.4</span></a>).</p>
+<p>The mode is the only measure of central tendency that be computed for all variable types and is the only choice for nominal variables (See <a href="#tbl-proconCT" class="quarto-xref">Table&nbsp;<span>9.4</span></a>).</p>
 <p>To compute the mode of a variable, use the <code>mfv</code> (most frequent value) function from the modeest package <span class="citation" data-cites="R-modeest">(<a href="references.html#ref-R-modeest" role="doc-biblioref">Poncet, 2019</a>)</span>. In this example, the 2 occurs four times.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-R-modeest" class="csl-entry" role="listitem">
 Poncet, P. (2019). <em>Modeest: Mode estimation</em>. <a href="https://github.com/paulponcet/modeest">https://github.com/paulponcet/modeest</a>
@@ -920,12 +926,12 @@ Poncet, P. (2019). <em>Modeest: Mode estimation</em>. <a href="https://github.co
 <pre data-cap-location="margin"><code>[1] 1 3 4</code></pre>
 </div>
 </div>
-</section><section id="median" class="level3 page-columns page-full" data-number="8.2.2"><h3 data-number="8.2.2" class="anchored" data-anchor-id="median">
-<span class="header-section-number">8.2.2</span> Median</h3>
+</section><section id="median" class="level3 page-columns page-full" data-number="9.2.2"><h3 data-number="9.2.2" class="anchored" data-anchor-id="median">
+<span class="header-section-number">9.2.2</span> Median</h3>
 <div class="page-columns page-full"><p>The <span class="defword">median</span> is midpoint of a distribution, the point that divides the lower half of the distribution from the upper half. To calculate the median, you first need to sort the scores. If there is an odd number of scores, the median is the middle score. If there an even number of scores, it is the mean of the two middle scores. There are other definitions of the median that are a little more complex, but rarely is precision needed for calculating the median.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>median</strong> is the point that divides the lower 50 percent of a distribution from the upper 50 percent.</span></div></div>
-<p>To find the median using a frequency distribution table, find the first sample space element with a cumulative proportion greater than 0.5. For example, in the distribution shown in <a href="#tbl-mediantable" class="quarto-xref">Table&nbsp;<span>8.3</span></a>, the first cumulative proportion greater than 0.5 occurs at 5, which is therefore the median.</p>
+<p>To find the median using a frequency distribution table, find the first sample space element with a cumulative proportion greater than 0.5. For example, in the distribution shown in <a href="#tbl-mediantable" class="quarto-xref">Table&nbsp;<span>9.3</span></a>, the first cumulative proportion greater than 0.5 occurs at 5, which is therefore the median.</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-mediantable" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-mediantable" class="cell quarto-float anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full"><div aria-describedby="tbl-mediantable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
@@ -977,13 +983,13 @@ Poncet, P. (2019). <em>Modeest: Mode estimation</em>. <a href="https://github.co
 </div>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-mediantable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.3: Finding the Median in a Frequency Distribution Table.<br>In this case, the median is 5 because it has the first cumulative proportion that is greater than 0.5.
+Table&nbsp;9.3: Finding the Median in a Frequency Distribution Table.<br>In this case, the median is 5 because it has the first cumulative proportion that is greater than 0.5.
 </figcaption></figure>
 </div>
 </div>
-<p>If a sample space element’s cumulative proportion is exactly 0.5, average that sample space element with the next highest value. For example, in the distribution in <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>8.1</span></a>, the cumulative proportion for 4 is exactly 0.5 and the next value is 6. Thus the median is</p>
+<p>If a sample space element’s cumulative proportion is exactly 0.5, average that sample space element with the next highest value. For example, in the distribution in <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>9.1</span></a>, the cumulative proportion for 4 is exactly 0.5 and the next value is 6. Thus the median is</p>
 <p><span class="math display">\frac{4+6}{2}=5</span></p>
-<p>The median can be computed for ordinal, interval, and ratio variables, but not for nominal variables (See <a href="#tbl-proconCT" class="quarto-xref">Table&nbsp;<span>8.4</span></a>). Because nominal variables have no order, no value is “between” any other value. Thus, because the median is the middle score and nominal variables have no middle, nominal variables cannot have a median.</p>
+<p>The median can be computed for ordinal, interval, and ratio variables, but not for nominal variables (See <a href="#tbl-proconCT" class="quarto-xref">Table&nbsp;<span>9.4</span></a>). Because nominal variables have no order, no value is “between” any other value. Thus, because the median is the middle score and nominal variables have no middle, nominal variables cannot have a median.</p>
 <p>For ordinal variables, the median is the preferred measure of central tendency because it is usually more stable from one sample to the next compared to the mode.</p>
 <p>In R, the <code>median</code> function can compute the median:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
@@ -992,8 +998,8 @@ Table&nbsp;8.3: Finding the Median in a Frequency Distribution Table.<br>In this
 <pre data-cap-location="margin"><code>[1] 2</code></pre>
 </div>
 </div>
-</section><section id="mean" class="level3 page-columns page-full" data-number="8.2.3"><h3 data-number="8.2.3" class="anchored" data-anchor-id="mean">
-<span class="header-section-number">8.2.3</span> Mean</h3>
+</section><section id="mean" class="level3 page-columns page-full" data-number="9.2.3"><h3 data-number="9.2.3" class="anchored" data-anchor-id="mean">
+<span class="header-section-number">9.2.3</span> Mean</h3>
 <div class="page-columns page-full"><p>The <span class="defword">arithmetic mean</span> is the sum of all values of a distribution divided by the size of the distribution.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>arithmetic mean</strong> is the balance point of a disribution.</span></div></div>
 <p><span class="math display">\mu_X = \frac{\sum_{i = 1}^n {X_i}}{n}</span></p>
 <p>Where <span class="math display">\begin{align*}
@@ -1001,16 +1007,16 @@ Table&nbsp;8.3: Finding the Median in a Frequency Distribution Table.<br>In this
   n &amp;= \text{The number of values in } X
 \end{align*}</span></p>
 <p>The arithmetic mean can only be calculated with interval or ratio variables. Why? The formula for the mean requires adding numbers, and the operation of addition is not defined for ordinal and nominal values.</p>
-<div class="page-columns page-full"><p>The arithmetic mean is usually the preferred measure of central tendency for interval and ration variables because it is usually more stable from sample to sample than the median and the mode. In <a href="#fig-centraltendency" class="quarto-xref">Figure&nbsp;<span>8.5</span></a>, it can be seen that the sampling distributions of the mean is narrower than that of the median and the mode. In other words, it has a smaller <span class="defword">standard error</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>standard error</strong> is the standard deviation of a sampling distribution.</span></div></div>
+<div class="page-columns page-full"><p>The arithmetic mean is usually the preferred measure of central tendency for interval and ration variables because it is usually more stable from sample to sample than the median and the mode. In <a href="#fig-centraltendency" class="quarto-xref">Figure&nbsp;<span>9.5</span></a>, it can be seen that the sampling distributions of the mean is narrower than that of the median and the mode. In other words, it has a smaller <span class="defword">standard error</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>standard error</strong> is the standard deviation of a sampling distribution.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-centraltendency" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-centraltendency" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-centraltendency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-centraltendency-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-centraltendency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.5: Sampling Distributions of Central Tendency Measures.<br>The standard normal distribution, <span class="math inline">\mathcal{N}(0,1),</span> was used to generate 10,000 samples with a sample size of 100. The distribution of sample means is slightly narrower than the distribution of sample medians, meaning that the mean is slightly more stable than the median. The distribution of sample modes is very wide, meaning that the mode is much less stable than the mean and median.
+Figure&nbsp;9.5: Sampling Distributions of Central Tendency Measures.<br>The standard normal distribution, <span class="math inline">\mathcal{N}(0,1),</span> was used to generate 10,000 samples with a sample size of 100. The distribution of sample means is slightly narrower than the distribution of sample medians, meaning that the mean is slightly more stable than the median. The distribution of sample modes is very wide, meaning that the mode is much less stable than the mean and median.
 </figcaption></figure>
 </div>
 </div></div></div>
@@ -1021,7 +1027,7 @@ Figure&nbsp;8.5: Sampling Distributions of Central Tendency Measures.<br>The sta
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-centraltendency" class="quarto-xref">Figure&nbsp;<span>8.5</span></a>
+R Code for <a href="#fig-centraltendency" class="quarto-xref">Figure&nbsp;<span>9.5</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1115,11 +1121,11 @@ R Code for <a href="#fig-centraltendency" class="quarto-xref">Figure&nbsp;<span>
 <pre data-cap-location="margin"><code>[1] 2</code></pre>
 </div>
 </div>
-</section><section id="comparing-central-tendency-measures" class="level3 page-columns page-full" data-number="8.2.4"><h3 data-number="8.2.4" class="anchored" data-anchor-id="comparing-central-tendency-measures">
-<span class="header-section-number">8.2.4</span> Comparing Central Tendency Measures</h3>
-<p>Which measure of central tendency is best depends on what kind of variable is needed and also what purpuse it serves. <a href="#tbl-proconCT" class="quarto-xref">Table&nbsp;<span>8.4</span></a> has a list of comparative features of each of the three major central tendency measures.</p>
+</section><section id="comparing-central-tendency-measures" class="level3 page-columns page-full" data-number="9.2.4"><h3 data-number="9.2.4" class="anchored" data-anchor-id="comparing-central-tendency-measures">
+<span class="header-section-number">9.2.4</span> Comparing Central Tendency Measures</h3>
+<p>Which measure of central tendency is best depends on what kind of variable is needed and also what purpuse it serves. <a href="#tbl-proconCT" class="quarto-xref">Table&nbsp;<span>9.4</span></a> has a list of comparative features of each of the three major central tendency measures.</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-proconCT" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-proconCT" class="cell quarto-float anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full"><div aria-describedby="tbl-proconCT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
@@ -1183,12 +1189,12 @@ R Code for <a href="#fig-centraltendency" class="quarto-xref">Figure&nbsp;<span>
 </div>
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-proconCT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;8.4: Comparing Central Tendency Measures
+Table&nbsp;9.4: Comparing Central Tendency Measures
 </figcaption></figure>
 </div>
 </div>
-</section></section><section id="expected-values" class="level2 page-columns page-full" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="expected-values">
-<span class="header-section-number">8.3</span> Expected Values</h2>
+</section></section><section id="expected-values" class="level2 page-columns page-full" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="expected-values">
+<span class="header-section-number">9.3</span> Expected Values</h2>
 <p>(Unfinished)</p>
 <div class="page-columns page-full"><p>At one level, the concept of the <span class="defword">expected value</span> of a random variable is really simple; it is just the population mean of the variable. So why don’t we just talk about population means and be done with this “expected value” business? It just complicates things! True. In this case, however, there is value in letting some simple things appear to become complicated for a while so that later we can show that some apparently complicated things are actually simple.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>expected value</strong> of a random variable is the population mean of the values that the random variable generates.</span></div></div>
 <p>Why can’t we just say that the expected value of a random variable is the population mean? You are familiar, of course, with the formula for a mean. You just add up the numbers and divide by the number of numbers <span class="math inline">n</span>:</p>
@@ -1200,16 +1206,16 @@ m_X=\frac{\sum_{i=1}^{n} {x_i}}{n}
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-pmfX" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-pmfX" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-pmfX-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-pmfX-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-pmfX-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.6: Probability Distribution of a Hypothetical Random Variable
+Figure&nbsp;9.6: Probability Distribution of a Hypothetical Random Variable
 </figcaption></figure>
 </div>
 </div></div></div>
-<p>Suppose that the sample space of a random variable <em>X</em> is {2, 4, 8} with respective probabilities of {0.3, 0.2, 0.5}, as shown in <a href="#fig-pmfX" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>.</p>
+<p>Suppose that the sample space of a random variable <em>X</em> is {2, 4, 8} with respective probabilities of {0.3, 0.2, 0.5}, as shown in <a href="#fig-pmfX" class="quarto-xref">Figure&nbsp;<span>9.6</span></a>.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
@@ -1217,7 +1223,7 @@ Figure&nbsp;8.6: Probability Distribution of a Hypothetical Random Variable
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-pmfX" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>
+R Code for <a href="#fig-pmfX" class="quarto-xref">Figure&nbsp;<span>9.6</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1257,12 +1263,12 @@ R Code for <a href="#fig-pmfX" class="quarto-xref">Figure&nbsp;<span>8.6</span><
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-thinbins" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-thinbins" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-thinbins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-thinbins-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-thinbins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.7: Slicing the Standard Normal Distribution into Ever Thinner Bins
+Figure&nbsp;9.7: Slicing the Standard Normal Distribution into Ever Thinner Bins
 </figcaption></figure>
 </div>
 </div></div></div>
@@ -1277,7 +1283,7 @@ Figure&nbsp;8.7: Slicing the Standard Normal Distribution into Ever Thinner Bins
 <p><span class="math display">
 \mathcal{E}(X)=\int_{-\infty}^{\infty} {x f_X(x)\,\mathrm{d}x}
 </span></p>
-<p>If we multiply each value of <span class="math inline">X</span> by the height of its bin (<span class="math inline">p</span>), we get the mean of the binned distribution. If the bins become ever thinner, as in <a href="#fig-thinbins" class="quarto-xref">Figure&nbsp;<span>8.7</span></a>, the product of <span class="math inline">X</span> and <span class="math inline">p</span> approximates the expected value of the smooth continuous distribution.</p>
+<p>If we multiply each value of <span class="math inline">X</span> by the height of its bin (<span class="math inline">p</span>), we get the mean of the binned distribution. If the bins become ever thinner, as in <a href="#fig-thinbins" class="quarto-xref">Figure&nbsp;<span>9.7</span></a>, the product of <span class="math inline">X</span> and <span class="math inline">p</span> approximates the expected value of the smooth continuous distribution.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
@@ -1285,7 +1291,7 @@ Figure&nbsp;8.7: Slicing the Standard Normal Distribution into Ever Thinner Bins
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-thinbins" class="quarto-xref">Figure&nbsp;<span>8.7</span></a>
+R Code for <a href="#fig-thinbins" class="quarto-xref">Figure&nbsp;<span>9.7</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1347,10 +1353,10 @@ R Code for <a href="#fig-thinbins" class="quarto-xref">Figure&nbsp;<span>8.7</sp
 </div>
 </div>
 </div>
-</section><section id="measures-of-variability" class="level2 page-columns page-full" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="measures-of-variability">
-<span class="header-section-number">8.4</span> Measures of Variability</h2>
-<section id="variability-of-nominal-variables" class="level3 page-columns page-full" data-number="8.4.1"><h3 data-number="8.4.1" class="anchored" data-anchor-id="variability-of-nominal-variables">
-<span class="header-section-number">8.4.1</span> Variability of Nominal Variables</h3>
+</section><section id="measures-of-variability" class="level2 page-columns page-full" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="measures-of-variability">
+<span class="header-section-number">9.4</span> Measures of Variability</h2>
+<section id="variability-of-nominal-variables" class="level3 page-columns page-full" data-number="9.4.1"><h3 data-number="9.4.1" class="anchored" data-anchor-id="variability-of-nominal-variables">
+<span class="header-section-number">9.4.1</span> Variability of Nominal Variables</h3>
 <p>For most purposes, the visual inspection of a frequency distribution table or bar plot is all that is needed to understand a nominal variable’s variability. I have never needed a statistic that measures the variability of a nominal variable, but if you need one, there are <a href="https://en.wikipedia.org/wiki/Qualitative_variation">many from which to choose</a>. For example, <span class="citation" data-cites="wilcoxIndicesQualitativeVariation1973">Wilcox (<a href="references.html#ref-wilcoxIndicesQualitativeVariation1973" role="doc-biblioref">1973</a>)</span> presented this analog to variance for nominal variables:</p>
 <div class="no-row-height column-margin column-container"><div id="ref-wilcoxIndicesQualitativeVariation1973" class="csl-entry" role="listitem">
 Wilcox, A. R. (1973). Indices of qualitative variation and political measurement. <em>The Western Political Quarterly</em>, <em>26</em>(2), 325. <a href="https://doi.org/10.2307/446831">https://doi.org/10.2307/446831</a>
@@ -1363,12 +1369,12 @@ Gombin, J. (2018). <em>Qualvar: Implements indices of qualitative variation prop
 </div></div><div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-nominalvar" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-nominalvar" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-nominalvar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-nominalvar-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="400">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-nominalvar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.8: The Variance Analog (VA) index of qualitative variation ranges from 0 to 1. It equals 0 when every data point is assigned to the same category and 1 when each category has the same frequency.
+Figure&nbsp;9.8: The Variance Analog (VA) index of qualitative variation ranges from 0 to 1. It equals 0 when every data point is assigned to the same category and 1 when each category has the same frequency.
 </figcaption></figure>
 </div>
 </div></div></div>
@@ -1384,7 +1390,7 @@ Figure&nbsp;8.8: The Variance Analog (VA) index of qualitative variation ranges 
 <pre data-cap-location="margin"><code>[1] 0.7533333</code></pre>
 </div>
 </div>
-<p>In all of these indices of qualitative variation, the lowest value is 0 when every data point belongs to the same category (See <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>, left panel). Also, the maximum value is 1 when the data points are equally distributed across categories (See <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>, right panel).</p>
+<p>In all of these indices of qualitative variation, the lowest value is 0 when every data point belongs to the same category (See <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>9.8</span></a>, left panel). Also, the maximum value is 1 when the data points are equally distributed across categories (See <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>9.8</span></a>, right panel).</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
@@ -1392,7 +1398,7 @@ Figure&nbsp;8.8: The Variance Analog (VA) index of qualitative variation ranges 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>8.8</span></a>
+R Code for <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>9.8</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1442,22 +1448,22 @@ R Code for <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>8.8</
 </div>
 </div>
 </div>
-</section><section id="interquartile-range" class="level3 page-columns page-full" data-number="8.4.2"><h3 data-number="8.4.2" class="anchored" data-anchor-id="interquartile-range">
-<span class="header-section-number">8.4.2</span> Interquartile Range</h3>
+</section><section id="interquartile-range" class="level3 page-columns page-full" data-number="9.4.2"><h3 data-number="9.4.2" class="anchored" data-anchor-id="interquartile-range">
+<span class="header-section-number">9.4.2</span> Interquartile Range</h3>
 <div class="page-columns page-full"><p>As with nominal variables, a bar plot or frequency distribution table can tell you most of what you want to know about the variability of an ordinal variable. If you need a quantitative measure of how much an ordinal variable varies, you have many options. The most important of these is the <span class="defword">interquartile range</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>interquartile range</strong> (IQR) is the distance from the score at the 25th percentile to the score at the 75th percentile.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-normalIQR" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-normalIQR" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-normalIQR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-normalIQR-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-normalIQR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.9: In a normal distribution with a mean of 100 and a standard deviation of 15, the interquartile range is about 20.2, the distance between 89.9 and 110.1.
+Figure&nbsp;9.9: In a normal distribution with a mean of 100 and a standard deviation of 15, the interquartile range is about 20.2, the distance between 89.9 and 110.1.
 </figcaption></figure>
 </div>
 </div></div></div>
-<p>When median is a good choice for our central tendency measure, the interquartile range is usually a good choice for our variability measure. Whereas the median is the category that contains the 50th percentile in a distribution, the interquartile range is the distance between the categories that contain the 25th and 75th percentile. That is, it is the range of the 50 percent of data in the middle of the distribution. For example, in <a href="#fig-normalIQR" class="quarto-xref">Figure&nbsp;<span>8.9</span></a>, the shaded region is the space between the 25th and 75th percentiles in a normal distribution. The IQR is the width of the shaded region, about 20.2.</p>
+<p>When median is a good choice for our central tendency measure, the interquartile range is usually a good choice for our variability measure. Whereas the median is the category that contains the 50th percentile in a distribution, the interquartile range is the distance between the categories that contain the 25th and 75th percentile. That is, it is the range of the 50 percent of data in the middle of the distribution. For example, in <a href="#fig-normalIQR" class="quarto-xref">Figure&nbsp;<span>9.9</span></a>, the shaded region is the space between the 25th and 75th percentiles in a normal distribution. The IQR is the width of the shaded region, about 20.2.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
@@ -1465,7 +1471,7 @@ Figure&nbsp;8.9: In a normal distribution with a mean of 100 and a standard devi
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-normalIQR" class="quarto-xref">Figure&nbsp;<span>8.9</span></a>
+R Code for <a href="#fig-normalIQR" class="quarto-xref">Figure&nbsp;<span>9.9</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1523,16 +1529,16 @@ R Code for <a href="#fig-normalIQR" class="quarto-xref">Figure&nbsp;<span>8.9</s
 </div>
 </div>
 </div>
-<p>In ordinal data, there is no distance between categories, thus we cannot report the interquartile range <em>per se</em>. However, we can report the categories that contain the 25th and 75th percentiles. In <a href="#fig-ordinalIQR" class="quarto-xref">Figure&nbsp;<span>8.10</span></a>, the interquartile range has its lower bound at <em>Disagree</em> and its upper bound at <em>Slightly Agree</em>.”</p>
+<p>In ordinal data, there is no distance between categories, thus we cannot report the interquartile range <em>per se</em>. However, we can report the categories that contain the 25th and 75th percentiles. In <a href="#fig-ordinalIQR" class="quarto-xref">Figure&nbsp;<span>9.10</span></a>, the interquartile range has its lower bound at <em>Disagree</em> and its upper bound at <em>Slightly Agree</em>.”</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-ordinalIQR" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-ordinalIQR" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ordinalIQR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-ordinalIQR-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="300">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-ordinalIQR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.10: In this ordinal variable, the interquartile range has a lower bound at <em>Disagree</em> (which contains the 25th percentile) and an upper bound at <em>Slightly Agree</em> (which contains the 75th percentile).
+Figure&nbsp;9.10: In this ordinal variable, the interquartile range has a lower bound at <em>Disagree</em> (which contains the 25th percentile) and an upper bound at <em>Slightly Agree</em> (which contains the 75th percentile).
 </figcaption></figure>
 </div>
 </div></div></div>
@@ -1543,7 +1549,7 @@ Figure&nbsp;8.10: In this ordinal variable, the interquartile range has a lower 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-ordinalIQR" class="quarto-xref">Figure&nbsp;<span>8.10</span></a>
+R Code for <a href="#fig-ordinalIQR" class="quarto-xref">Figure&nbsp;<span>9.10</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1614,15 +1620,15 @@ R Code for <a href="#fig-ordinalIQR" class="quarto-xref">Figure&nbsp;<span>8.10<
 </div>
 </div>
 </div>
-<p>The median and the interquartile range are displayed in box and whiskers plots like <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>8.11</span></a>. The height of the box is the interquartile range, and the horizontal line is the median. The top “whisker” extends no higher than 1.5 × <em>IQR</em> above the 75th percentile. The bottom “whisker” extends no lower than 1.5 × <em>IQR</em> below the 25th percentile. Any data points outside the whiskers can be considered outliers.</p>
+<p>The median and the interquartile range are displayed in box and whiskers plots like <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>9.11</span></a>. The height of the box is the interquartile range, and the horizontal line is the median. The top “whisker” extends no higher than 1.5 × <em>IQR</em> above the 75th percentile. The bottom “whisker” extends no lower than 1.5 × <em>IQR</em> below the 25th percentile. Any data points outside the whiskers can be considered outliers.</p>
 <div class="cell fig-cap-location-top tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-IQRboxplot" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-IQRboxplot" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full"><div aria-describedby="fig-IQRboxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-IQRboxplot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-IQRboxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.11: A Tukey-style Box and Whiskers Plot with Medians and Interquartile Ranges.
+Figure&nbsp;9.11: A Tukey-style Box and Whiskers Plot with Medians and Interquartile Ranges.
 </figcaption></figure>
 </div>
 </div>
@@ -1634,7 +1640,7 @@ Figure&nbsp;8.11: A Tukey-style Box and Whiskers Plot with Medians and Interquar
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>8.11</span></a>
+R Code for <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>9.11</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1736,8 +1742,8 @@ R Code for <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>8.11<
 </div>
 </div>
 </div>
-</section><section id="variance" class="level3 page-columns page-full" data-number="8.4.3"><h3 data-number="8.4.3" class="anchored" data-anchor-id="variance">
-<span class="header-section-number">8.4.3</span> Variance</h3>
+</section><section id="variance" class="level3 page-columns page-full" data-number="9.4.3"><h3 data-number="9.4.3" class="anchored" data-anchor-id="variance">
+<span class="header-section-number">9.4.3</span> Variance</h3>
 <div class="page-columns page-full"><p>A <span class="defword">deviation</span> is computed by subtracting a score from its mean:</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>deviation</strong> is the distance of a score from the score’s mean.</span></div></div>
 <p><span class="math display">X-\mu</span></p>
 <p>We would like to know the typical size of the deviation <span class="math inline">X-\mu</span>. To do so, it might seem intuitively correct to take the average (i.e., expected value) of the deviation, but this quantity is always 0:</p>
@@ -1772,25 +1778,25 @@ s^2=\frac{\sum_i^n{\left(x_i-m\right)^2}}{n-1}
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-besselpic" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-besselpic" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-besselpic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Friedrich_Wilhelm_Bessel_(1839_painting).jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" width="250">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-besselpic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.12: Friedrich Wilhelm Bessel (1784–1846)<br><a href="https://en.wikipedia.org/wiki/File:Friedrich_Wilhelm_Bessel_(1839_painting).jpg">Image Credits</a>
+Figure&nbsp;9.12: Friedrich Wilhelm Bessel (1784–1846)<br><a href="https://en.wikipedia.org/wiki/File:Friedrich_Wilhelm_Bessel_(1839_painting).jpg">Image Credits</a>
 </figcaption></figure>
 </div>
 </div></div></div>
 <p>Unlike with the population variance, we do not divide by the sample size <span class="math inline">n</span> to calculate the sample variance. If we divided by <span class="math inline">n</span>, the sample variance would be negatively biased (i.e., it is likely to underestimate the population variance). In what is known as Bessel’s correction (i.e, dividing by <span class="math inline">n-1</span> instead of by <span class="math inline">n</span>), we get an unbiased estimate of the variance.</p>
-<p>Variance is rarely used for descriptive purposes because it is a squared quantity with no direct connection to the width of the distribution it describes. We mainly use variance as a stepping stone to compute other descriptive statistics (e.g., standard deviations and correlation coefficients) and as an essential ingredient in inferential statistics (e.g., analysis of variance, multiple regression, and structural equation modeling). However, <a href="#fig-variancevisualization" class="quarto-xref">Figure&nbsp;<span>8.13</span></a> attempts a visualization of what variance represents. Along the <span class="math inline">X</span>-axis, the values of a normally distributed variable <span class="math inline">X</span> are plotted as points. The <span class="math inline">Y</span>-axis represents the deviations of variable <span class="math inline">X</span> from <span class="math inline">\mu</span>, the mean of <span class="math inline">X</span>. For each value of <span class="math inline">X</span>, we can create a square with sides as long as the deviations from <span class="math inline">\mu</span>. The red squares have a positive deviation and the blue squares have a negative deviation. The darkness of the color represents the magnitude of the deviation. The black square has an area equal to the average area of all the squares. Its sides have a length equal to the standard deviation, the square root of variance.</p>
+<p>Variance is rarely used for descriptive purposes because it is a squared quantity with no direct connection to the width of the distribution it describes. We mainly use variance as a stepping stone to compute other descriptive statistics (e.g., standard deviations and correlation coefficients) and as an essential ingredient in inferential statistics (e.g., analysis of variance, multiple regression, and structural equation modeling). However, <a href="#fig-variancevisualization" class="quarto-xref">Figure&nbsp;<span>9.13</span></a> attempts a visualization of what variance represents. Along the <span class="math inline">X</span>-axis, the values of a normally distributed variable <span class="math inline">X</span> are plotted as points. The <span class="math inline">Y</span>-axis represents the deviations of variable <span class="math inline">X</span> from <span class="math inline">\mu</span>, the mean of <span class="math inline">X</span>. For each value of <span class="math inline">X</span>, we can create a square with sides as long as the deviations from <span class="math inline">\mu</span>. The red squares have a positive deviation and the blue squares have a negative deviation. The darkness of the color represents the magnitude of the deviation. The black square has an area equal to the average area of all the squares. Its sides have a length equal to the standard deviation, the square root of variance.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-variancevisualization" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-variancevisualization" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full"><div aria-describedby="fig-variancevisualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-variancevisualization-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-variancevisualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.13: Visualizing Variance.<br>The values of variable <em>X</em> are plotted with the deviations of <em>X</em>. Each square is a deviation from the mean of <em>X</em>. Darker squares have larger deviations. The area of the thick black square is the variance—the average size of the squared deviations.
+Figure&nbsp;9.13: Visualizing Variance.<br>The values of variable <em>X</em> are plotted with the deviations of <em>X</em>. Each square is a deviation from the mean of <em>X</em>. Darker squares have larger deviations. The area of the thick black square is the variance—the average size of the squared deviations.
 </figcaption></figure>
 </div>
 </div>
@@ -1802,7 +1808,7 @@ Figure&nbsp;8.13: Visualizing Variance.<br>The values of variable <em>X</em> are
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-variancevisualization" class="quarto-xref">Figure&nbsp;<span>8.13</span></a>
+R Code for <a href="#fig-variancevisualization" class="quarto-xref">Figure&nbsp;<span>9.13</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2016,8 +2022,8 @@ R Code for <a href="#fig-variancevisualization" class="quarto-xref">Figure&nbsp;
 </div>
 </div>
 </div>
-</section><section id="standard-deviation" class="level3 page-columns page-full" data-number="8.4.4"><h3 data-number="8.4.4" class="anchored" data-anchor-id="standard-deviation">
-<span class="header-section-number">8.4.4</span> Standard Deviation</h3>
+</section><section id="standard-deviation" class="level3 page-columns page-full" data-number="9.4.4"><h3 data-number="9.4.4" class="anchored" data-anchor-id="standard-deviation">
+<span class="header-section-number">9.4.4</span> Standard Deviation</h3>
 <div class="page-columns page-full"><p>The <span class="defword">standard deviation</span> is by far the most common measure of variability. The standard deviation <span class="math inline">\sigma</span> is the square root of the variance <span class="math inline">\sigma^2</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>standard deviation</strong> is a measure of variabily that estimates the typical distance of a score from its own mean.</span></div></div>
 <p><span class="math display">
 \begin{aligned}
@@ -2026,15 +2032,15 @@ s&amp;=\sqrt{s^2}=\sqrt{\frac{\sum_i^n{\left(x_i-m\right)^2}}{n-1}}
 \end{aligned}
 </span></p>
 <p>Although it is not an arithmetic average of the deviations, it can be thought of as representing the typical size of the deviations. Technically, it is the square root of the average squared deviation.</p>
-<div class="page-columns page-full"><p>In a normal distribution, the standard deviation is the distance from the mean to the two <span class="defword">inflection points</span> in the probability density curve (see <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span>8.14</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">An <strong>inflection point</strong> in a curve is the point at which the curvature changes from upward to downward or vice versa.</span></div></div>
+<div class="page-columns page-full"><p>In a normal distribution, the standard deviation is the distance from the mean to the two <span class="defword">inflection points</span> in the probability density curve (see <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span>9.14</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">An <strong>inflection point</strong> in a curve is the point at which the curvature changes from upward to downward or vice versa.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-normalinflection" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-normalinflection" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full"><div aria-describedby="fig-normalinflection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-normalinflection-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-normalinflection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;8.14: The inflection points in the normal curve are 1 standard deviation from the mean.
+Figure&nbsp;9.14: The inflection points in the normal curve are 1 standard deviation from the mean.
 </figcaption></figure>
 </div>
 </div>
@@ -2046,7 +2052,7 @@ Figure&nbsp;8.14: The inflection points in the normal curve are 1 standard devia
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span>8.14</span></a>
+R Code for <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span>9.14</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2094,44 +2100,44 @@ R Code for <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span
 </div>
 </div>
 </div>
-</section><section id="average-absolute-deviations" class="level3" data-number="8.4.5"><h3 data-number="8.4.5" class="anchored" data-anchor-id="average-absolute-deviations">
-<span class="header-section-number">8.4.5</span> Average Absolute Deviations</h3>
+</section><section id="average-absolute-deviations" class="level3" data-number="9.4.5"><h3 data-number="9.4.5" class="anchored" data-anchor-id="average-absolute-deviations">
+<span class="header-section-number">9.4.5</span> Average Absolute Deviations</h3>
 <p>Average absolute deviations summarize the absolution values of deviations from a central tendency measure. There are many kinds of average absolute deviations, depending which central tendency each value deviates from and then which measure of central tendency summarizes the absolute deviations. With three central tendency measures, we can imagine nine different “average” absolute deviations:</p>
 <p><span class="math display">\text{The}~\begin{bmatrix}mean\\ median\\ modal\end{bmatrix}~\text{absolute deviation around the}~\begin{bmatrix}mean\\ median\\ mode\end{bmatrix}.</span></p>
 <p>That said, two of these average absolute values are used more than the others: the median deviation around the median and mean deviation around the mean. One struggles to imagine what uses one might have for the others (e.g, the modal absolute deviation around the median or the mean absolute deviation around the mode).</p>
-<section id="median-absolute-deviation-around-the-median" class="level4" data-number="8.4.5.1"><h4 data-number="8.4.5.1" class="anchored" data-anchor-id="median-absolute-deviation-around-the-median">
-<span class="header-section-number">8.4.5.1</span> Median Absolute Deviation (around the Median)</h4>
+<section id="median-absolute-deviation-around-the-median" class="level4" data-number="9.4.5.1"><h4 data-number="9.4.5.1" class="anchored" data-anchor-id="median-absolute-deviation-around-the-median">
+<span class="header-section-number">9.4.5.1</span> Median Absolute Deviation (around the Median)</h4>
 <p>Suppose that we have a random variable <span class="math inline">X</span>, which has a median of <span class="math inline">\tilde{X}</span>. The median absolute deviation (MAD) is the median of the absolute values of the deviations from the median:</p>
 <p><span class="math display">
 \text{Median Absolute Deviation (around the Median)}=\mathrm{median}\left(\left|X-\tilde{X}\right|\right)
 </span></p>
 <p>A primary advantage of the MAD over the standard deviation is that it is robust to the presence of outliers. For symmetric distributions, the MAD is half the distance of the interquartile range.</p>
-</section><section id="mean-absolute-deviation-around-the-mean" class="level4" data-number="8.4.5.2"><h4 data-number="8.4.5.2" class="anchored" data-anchor-id="mean-absolute-deviation-around-the-mean">
-<span class="header-section-number">8.4.5.2</span> Mean Absolute Deviation (around the Mean)</h4>
+</section><section id="mean-absolute-deviation-around-the-mean" class="level4" data-number="9.4.5.2"><h4 data-number="9.4.5.2" class="anchored" data-anchor-id="mean-absolute-deviation-around-the-mean">
+<span class="header-section-number">9.4.5.2</span> Mean Absolute Deviation (around the Mean)</h4>
 <p>If the mean of random variable <span class="math inline">X</span> is <span class="math inline">\mu_X</span>, then:</p>
 <p><span class="math display">
 \text{Mean Absolute Deviation (around the Mean)}=\mathrm{mean}\left(\left|X-\mu_X\right|\right)
 </span></p>
 <p>The primary advantage of this statistic is that it is easy to explain to people with no statistical training. In a straightforward manner, it tells us how far each score is from the mean, on average.</p>
-</section></section></section><section id="skewness" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="skewness">
-<span class="header-section-number">8.5</span> Skewness</h2>
+</section></section></section><section id="skewness" class="level2" data-number="9.5"><h2 data-number="9.5" class="anchored" data-anchor-id="skewness">
+<span class="header-section-number">9.5</span> Skewness</h2>
 <p>(Unfinished)</p>
-</section><section id="kurtosis" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="kurtosis">
-<span class="header-section-number">8.6</span> Kurtosis</h2>
+</section><section id="kurtosis" class="level2" data-number="9.6"><h2 data-number="9.6" class="anchored" data-anchor-id="kurtosis">
+<span class="header-section-number">9.6</span> Kurtosis</h2>
 <p>(Unfinished)</p>
-</section><section id="moments-cumulants-and-descriptive-statistics" class="level1 page-columns page-full" data-number="9"><h1 data-number="9">
-<span class="header-section-number">9</span> Moments, Cumulants, and Descriptive Statistics</h1>
+</section><section id="moments-cumulants-and-descriptive-statistics" class="level1 page-columns page-full" data-number="10"><h1 data-number="10">
+<span class="header-section-number">10</span> Moments, Cumulants, and Descriptive Statistics</h1>
 <p>We can define random variables in terms of their probability mass/density functions. We can also define them in terms of their moments and cumulants.</p>
-<section id="raw-moments" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="raw-moments">
-<span class="header-section-number">9.1</span> Raw Moments</h2>
+<section id="raw-moments" class="level2" data-number="10.1"><h2 data-number="10.1" class="anchored" data-anchor-id="raw-moments">
+<span class="header-section-number">10.1</span> Raw Moments</h2>
 <p>The first raw moment <span class="math inline">\mu'_1</span> of a random variable <span class="math inline">X</span> is its expected value:</p>
 <p><span class="math display">\mu'_1=\mathcal{E}(X)=\mu_X</span></p>
 <p>The second raw moment <span class="math inline">\mu'_2</span> is the expected value of <span class="math inline">X^2</span>:</p>
 <p><span class="math display">\mu'_2=\mathcal{E}(X^2)</span></p>
 <p>The <span class="math inline">n</span>th raw moment <span class="math inline">\mu'_n</span> is the expected value of <span class="math inline">X^n</span>:</p>
 <p><span class="math display">\mu'_n=\mathcal{E}(X^n)</span></p>
-</section><section id="central-moments" class="level2 page-columns page-full" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="central-moments">
-<span class="header-section-number">9.2</span> Central Moments</h2>
+</section><section id="central-moments" class="level2 page-columns page-full" data-number="10.2"><h2 data-number="10.2" class="anchored" data-anchor-id="central-moments">
+<span class="header-section-number">10.2</span> Central Moments</h2>
 <p>The first raw moment, the mean, has obvious significance and is easy to understand. The remaining raw moments do not lend themselves to easy interpretation. We would like to understand the higher moments after accounting for the lower moments. For this reason, we can discuss central moments, which are like raw moments after subtracting mean.</p>
 <p>One can evaluate a moment “about” a constant <span class="math inline">c</span> like so:<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Alternately, we can say that this is the <span class="math inline">n</span>th moment <em>referred to</em> <span class="math inline">c</span>.</p></div></div><p><span class="math display">
@@ -2154,8 +2160,8 @@ R Code for <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span
 <p><span class="math display">
 \mu_2=\mathcal{E}\left(\left(X-\mu_X\right)^2\right)=\sigma_X^2
 </span></p>
-</section><section id="standardized-moments" class="level2 page-columns page-full" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="standardized-moments">
-<span class="header-section-number">9.3</span> Standardized Moments</h2>
+</section><section id="standardized-moments" class="level2 page-columns page-full" data-number="10.3"><h2 data-number="10.3" class="anchored" data-anchor-id="standardized-moments">
+<span class="header-section-number">10.3</span> Standardized Moments</h2>
 <p>A standardized moment<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> is the raw moment of a variable after it has been “standardized” (i.e., converted to a <em>z</em>-score):</p>
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Standardized moments are also called <em>normalized central moments</em>.</p></div><div class="">
 <p>Standardizing a variable by converting it to <em>z</em>-score is accomplished like so: <span class="math display">
@@ -2180,12 +2186,12 @@ z=\frac{X-\mu_X}{\sigma_X}
 <p>Thus a positively skewed variable can be described having a tendency to be become more variable (more sparse) as its value increases.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-skewnessinterpretation" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-skewnessinterpretation" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full"><div aria-describedby="fig-skewnessinterpretation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-skewnessinterpretation-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-skewnessinterpretation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.1: Positive skewness can be interpeted as a tendency for the data to become more sparse as the scores increase.
+Figure&nbsp;10.1: Positive skewness can be interpeted as a tendency for the data to become more sparse as the scores increase.
 </figcaption></figure>
 </div>
 </div>
@@ -2197,7 +2203,7 @@ Figure&nbsp;9.1: Positive skewness can be interpeted as a tendency for the data 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-skewnessinterpretation" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>
+R Code for <a href="#fig-skewnessinterpretation" class="quarto-xref">Figure&nbsp;<span>10.1</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2680,12 +2686,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./distributions.html" class="pagination-link" aria-label="Distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Distributions</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distributions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./compositescores.html" class="pagination-link" aria-label="Composite Scores">
-        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Composite Scores</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Composite Scores</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

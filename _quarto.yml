@@ -44,7 +44,7 @@ nocite: |
   @R-bookdown, @R-dplyr, @R-extrafont, @R-fBasics, @R-forcats, @R-fMultivar, @R-gganimate, @R-ggforce, @R-ggplot2, @R-IDPmisc, @R-knitr, @R-knitr, @R-purrr, @R-rmarkdown, @R-sjmisc, @R-sn, @R-stringr, @R-base, @R-tibble, @R-tidyr, @R-tidyverse, @R-tikzDevice, @R-tufte
 execute:
   echo: false
-  freeze: true
+  freeze: auto
 knitr: 
   opts_chunk: 
     tbl-cap-location: margin

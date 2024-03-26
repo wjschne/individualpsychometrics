@@ -199,8 +199,14 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices</span></span></a>
+  <a href="./matrices_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices–Introduction</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matrices_operations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices–Operations</span></span></a>
   </div>
 </li>
       </ul>
@@ -217,31 +223,31 @@ div.csl-indent {
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./variables.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./distributions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distributions</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./descriptives.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./compositescores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./unfinished.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -446,7 +452,7 @@ R Code for <a href="#fig-learningcurve" class="quarto-xref">Figure&nbsp;<span>2.
 <span>    rotation <span class="op">=</span>  <span class="fl">180</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/Trig.html">atan</a></span><span class="op">(</span><span class="op">(</span><span class="va">Difficulty</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lag.html">lag</a></span><span class="op">(</span><span class="va">Difficulty</span><span class="op">)</span><span class="op">)</span> <span class="op">/</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">/</span> <span class="va">pi</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">Difficulty</span> <span class="op">&lt;=</span> <span class="fl">100</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">Complexity</span>, <span class="va">Difficulty</span>, color <span class="op">=</span> <span class="va">Approach</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_arrow</span><span class="op">(</span>arrow_head <span class="op">=</span> <span class="fu">arrowheadr</span><span class="fu">::</span><span class="fu"><a href="https://wjschne.github.io/arrowheadr/reference/arrow_head_latex.html">arrow_head_latex</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">geom_arrow</span><span class="op">(</span>arrow_head <span class="op">=</span> <span class="fu">arrow_head_deltoid</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">ggtext</span><span class="fu">::</span><span class="fu"><a href="https://wilkelab.org/ggtext/reference/geom_richtext.html">geom_richtext</a></span><span class="op">(</span></span>
 <span>    data <span class="op">=</span> <span class="va">.</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="op">(</span><span class="va">Complexity</span> <span class="op">==</span> <span class="fl">62.5</span> <span class="op">&amp;</span> <span class="va">Approach</span> <span class="op">==</span> <span class="st">"Point-and-Click"</span><span class="op">)</span> <span class="op">|</span> <span class="op">(</span><span class="va">Complexity</span> <span class="op">==</span> <span class="fl">75</span> <span class="op">&amp;</span> <span class="va">Approach</span> <span class="op">==</span> <span class="st">"Code"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    <span class="fu">aes</span><span class="op">(</span>label <span class="op">=</span> <span class="va">Approach</span>, angle <span class="op">=</span> <span class="va">rotation</span><span class="op">)</span>,</span>
@@ -679,36 +685,36 @@ Steps to create a project
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">August 18, 2010_District_X.csv</td>
-<td style="text-align: left;">2008-08-25_District_H.csv</td>
+<td style="text-align: left;">August 29, 2009_District_M.csv</td>
+<td style="text-align: left;">2007-05-22_District_U.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">August 25, 2008_District_H.csv</td>
-<td style="text-align: left;">2008-10-06_District_V.csv</td>
+<td style="text-align: left;">December 31, 2012_District_L.csv</td>
+<td style="text-align: left;">2009-08-29_District_M.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">February 19, 2014_District_C.csv</td>
-<td style="text-align: left;">2009-07-01_District_S.csv</td>
+<td style="text-align: left;">July 29, 2011_District_K.csv</td>
+<td style="text-align: left;">2011-07-29_District_K.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">July 01, 2009_District_S.csv</td>
-<td style="text-align: left;">2010-06-23_District_W.csv</td>
+<td style="text-align: left;">May 22, 2007_District_U.csv</td>
+<td style="text-align: left;">2011-11-12_District_H.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">July 21, 2013_District_B.csv</td>
-<td style="text-align: left;">2010-08-18_District_X.csv</td>
+<td style="text-align: left;">May 23, 2013_District_Z.csv</td>
+<td style="text-align: left;">2012-10-17_District_W.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">June 23, 2010_District_W.csv</td>
-<td style="text-align: left;">2011-03-17_District_V.csv</td>
+<td style="text-align: left;">November 12, 2011_District_H.csv</td>
+<td style="text-align: left;">2012-12-31_District_L.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">March 17, 2011_District_V.csv</td>
-<td style="text-align: left;">2013-07-21_District_B.csv</td>
+<td style="text-align: left;">October 17, 2012_District_W.csv</td>
+<td style="text-align: left;">2013-05-23_District_Z.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">October 06, 2008_District_V.csv</td>
-<td style="text-align: left;">2014-02-19_District_C.csv</td>
+<td style="text-align: left;">September 18, 2014_District_E.csv</td>
+<td style="text-align: left;">2014-09-18_District_E.csv</td>
 </tr>
 </tbody>
 </table>
