@@ -388,6 +388,10 @@ Figure&nbsp;11.1: The relationship between probability and odds. Note that proba
 </figure>
 </div>
 </div></div></div>
+<p>As seen in <a href="#fig-p2oddsfigure" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>, the relationship between probability and odds is not linear. To convert an odds ratio to probability:</p>
+<p><span class="math display">
+p=\frac{odds}{1 + odds}
+</span></p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -405,30 +409,15 @@ R Code for <a href="#fig-p2oddsfigure" class="quarto-xref">Figure&nbsp;<span>11.
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">p =</span> <span class="fu">seq</span>(<span class="dv">0</span>, .<span class="dv">91</span>, .<span class="dv">01</span>),</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">odds =</span> p <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> p)) <span class="sc">%&gt;%</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(p, odds)) <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="dv">15</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>                          <span class="at">length =</span> <span class="fu">unit</span>(<span class="dv">5</span>, <span class="st">"mm"</span>),</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                          <span class="at">type =</span> <span class="st">"closed"</span>)) <span class="sc">+</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"Probability"</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, .<span class="dv">2</span>),</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> prob_label,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="st">"Odds"</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">30</span>, <span class="at">base_family =</span> bfont)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(<span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">arrow_head =</span> <span class="fu">arrow_head_deltoid</span>()) <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"Probability"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, .<span class="dv">2</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> prob_label,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="st">"Odds"</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">30</span>, <span class="at">base_family =</span> bfont)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-</div>
-<p>As seen in <a href="#fig-p2oddsfigure" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>, the relationship between probability and odds is not linear. To convert an odds ratio to probability:</p>
-<p><span class="math display">
-p=\frac{odds}{1 + odds}
-</span></p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-button_r="true" data-figlabel="fig-p2oddsfigure">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="unfinished_files/figure-html/p2oddsfigurecode-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
-</figure>
 </div>
 </div>
 </div>
@@ -484,12 +473,34 @@ Figure&nbsp;11.2: The relationship between probability and logits. Whereas proba
 <p><span class="math display">
 \text{logit}\left(p\right)=\ln\left(\frac{p}{1-p}\right)
 </span></p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-button_r="true" data-figlabel="fig-p2logits">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="unfinished_files/figure-html/p2logitscode-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
-</figure>
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R Code for <a href="#fig-p2logits" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode cell-code" id="cb8" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The relationship between probability and logits</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">p =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, .<span class="dv">001</span>),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">logits =</span> <span class="fu">qlogis</span>(p)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(p, logits)) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(<span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">arrow_head =</span> <span class="fu">arrow_head_deltoid</span>(), </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">arrow_fins =</span> <span class="fu">arrow_head_deltoid</span>()) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"Probability"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, .<span class="dv">2</span>),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> prob_label) <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="st">"Logits"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">2</span>),</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> signs) <span class="sc">+</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">30</span>, <span class="at">base_family =</span> bfont)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -528,12 +539,67 @@ Figure&nbsp;11.3: The relationship between ability-difficulty differences and pr
 <p><span class="math display">
 p = \left(1 + 9^{\left(W_D-W_A\right)/20}\right)^{-1}
 </span></p>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-button_r="true" data-figlabel="fig-w2p">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="unfinished_files/figure-html/w2pcode-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
-</figure>
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R Code for <a href="#fig-w2p" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode cell-code" id="cb9" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The relationship between ability-difficulty differences and probability of answering correctly.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>w2p <span class="ot">&lt;-</span> <span class="cf">function</span>(w, difficulty) {</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  (<span class="dv">1</span> <span class="sc">+</span> <span class="dv">9</span> <span class="sc">^</span> ((difficulty <span class="sc">-</span> w) <span class="sc">/</span> <span class="dv">20</span>))<span class="sc">^</span>(<span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">w =</span> <span class="fu">seq</span>(<span class="dv">445</span>, <span class="dv">555</span>),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">p =</span> <span class="fu">w2p</span>(w, <span class="dv">500</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">slope =</span> (p <span class="sc">-</span> <span class="fu">lag</span>(p, <span class="at">default =</span> <span class="dv">0</span>)) <span class="sc">/</span> (w <span class="sc">-</span> <span class="fu">lag</span>(w, <span class="at">default =</span> <span class="dv">1</span>)),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">theta =</span> <span class="fu">atan</span>(slope <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">+</span> <span class="fu">ifelse</span>(p <span class="sc">&lt;=</span> .<span class="dv">5</span>, pi, <span class="sc">-</span>pi) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(w, p)) <span class="sc">+</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(<span class="at">arrow_head =</span> <span class="fu">arrow_head_deltoid</span>(),</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">arrow_fins =</span> <span class="fu">arrow_head_deltoid</span>(), </span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> . <span class="sc">%&gt;%</span> <span class="fu">filter</span>(w <span class="sc">%in%</span> <span class="fu">seq</span>(<span class="dv">450</span>, <span class="dv">550</span>, <span class="dv">10</span>)),</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> . <span class="sc">%&gt;%</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(w <span class="sc">%in%</span> <span class="fu">seq</span>(<span class="dv">450</span>, <span class="dv">550</span>, <span class="dv">10</span>)),</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> <span class="fu">prob_label</span>(p, <span class="at">digits =</span> <span class="dv">2</span>),</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">vjust =</span> WJSmisc<span class="sc">::</span><span class="fu">angle2vjust</span>(theta),</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">hjust =</span> WJSmisc<span class="sc">::</span><span class="fu">angle2hjust</span>(theta)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">"mm"</span>),</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.margin =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"mm"</span>),</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">18</span>),</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>]</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Ability – Difficulty (in W units)"</span>,</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">450</span>, <span class="dv">550</span>, <span class="dv">10</span>), </span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(),</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> \(x) <span class="fu">paste0</span>(signs<span class="sc">::</span><span class="fu">signs</span>(x <span class="sc">-</span> <span class="dv">500</span>), <span class="fu">if_else</span>(x <span class="sc">&gt;=</span> <span class="dv">500</span>, <span class="st">""</span>, <span class="st">"\u2007"</span>))</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="st">"Probability of Answering Correctly"</span>,</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, .<span class="dv">10</span>),</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(),</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> prob_label) <span class="sc">+</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">22</span>, <span class="at">base_family =</span> bfont) <span class="sc">+</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_text</span>()) <span class="sc">+</span></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="dv">100</span>,</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>              <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">447</span>, <span class="dv">553</span>),</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>              <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>              <span class="at">clip =</span> <span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -562,8 +628,8 @@ RPI = \left(1+e^{-\left(\theta-\mu_{\theta}+\text{logit}(p)\right)}\right)^{-1}
 <p>The psycheval package can calculate the RPI using the the <code>rpi</code> function. By default, the primary inputs <code>x</code> and <code>mu</code> are assumed to be on the W scale, and the criterion <span class="math inline">p</span> is .90.</p>
 <p>Suppose a person’s ability corresponds to a W-score of 460 and same-age peers have an average W score of 500:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psycheval)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rpi</span>(<span class="at">x =</span> <span class="dv">460</span>, <span class="at">mu =</span> <span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psycheval)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rpi</span>(<span class="at">x =</span> <span class="dv">460</span>, <span class="at">mu =</span> <span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>0.1</code></pre>
 </div>
@@ -571,7 +637,7 @@ RPI = \left(1+e^{-\left(\theta-\mu_{\theta}+\text{logit}(p)\right)}\right)^{-1}
 <p>This difference of 40 W score points means that when typical same-age peers have a 90% chance of answering an item correctly (a common benchmark for mastery), this person has a 10% chance of answering the item correctly.</p>
 <p>If <code>x</code> and <code>mu</code> are logits, then you can specify <code>scale = 1</code> like so:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpi</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">mu =</span> <span class="dv">0</span>, <span class="at">scale =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpi</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">mu =</span> <span class="dv">0</span>, <span class="at">scale =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>0.9607297</code></pre>
 </div>
@@ -582,7 +648,7 @@ RPI_{\text{reversed}} = \left(1+e^{-\left(\mu_\theta-\theta+\text{logit}(p_\thet
 </span></p>
 <p>Suppose a person has a W score of 550, which is 50 points higher than typical same-age peers. The standard RPI will give a value close to 1:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpi</span>(<span class="at">x =</span> <span class="dv">550</span>, <span class="at">mu =</span> <span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpi</span>(<span class="at">x =</span> <span class="dv">550</span>, <span class="at">mu =</span> <span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>0.999543</code></pre>
 </div>
@@ -590,7 +656,7 @@ RPI_{\text{reversed}} = \left(1+e^{-\left(\mu_\theta-\theta+\text{logit}(p_\thet
 <p>This means that when same-age peers have a 90% chance of answering the item correctly, this person is almost certain to answer it correctly. Unfortunately, this fact does not convey the degree of giftedness in an evocative manner.</p>
 <p>To get a better sense of how far advanced this person is compared to the performance of typical same-age peers, we can reverse the RPI like so.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpi</span>(<span class="at">x =</span> <span class="dv">550</span>, <span class="at">mu =</span> <span class="dv">500</span>, <span class="at">reverse =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpi</span>(<span class="at">x =</span> <span class="dv">550</span>, <span class="at">mu =</span> <span class="dv">500</span>, <span class="at">reverse =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>0.03571429</code></pre>
 </div>
@@ -598,7 +664,7 @@ RPI_{\text{reversed}} = \left(1+e^{-\left(\mu_\theta-\theta+\text{logit}(p_\thet
 <p>This means that when this person has a .9 probability of answering an item correctly, the typical same-age peer has about a .036 probability of answering it. Thus, this person is capable of completing tasks that are quite difficult for typical same-age peers.</p>
 <p>The standard RPI refers to a proficiency level of .9, but the <code>rpi</code> function can calculate the relative proficiency index at any criterion level. For example:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpi</span>(<span class="at">x =</span> <span class="dv">550</span>, <span class="at">mu =</span> <span class="dv">500</span>, <span class="at">criterion =</span> .<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpi</span>(<span class="at">x =</span> <span class="dv">550</span>, <span class="at">mu =</span> <span class="dv">500</span>, <span class="at">criterion =</span> .<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>0.9642857</code></pre>
 </div>
@@ -631,12 +697,101 @@ Figure&nbsp;11.4: The Probability a True Score Will Be Less Than or Equal to 70
 </div>
 </div>
 </div>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-button_r="true" data-figlabel="fig-thresholdprobability">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="unfinished_files/figure-html/thresholdprobabilityCode-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
-</figure>
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R Code for <a href="#fig-thresholdprobability" class="quarto-xref">Figure&nbsp;<span>11.4</span></a>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode cell-code" id="cb20" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The Probability a True Score Will Be Less Than or Equal to 70</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Reliability Coefficient</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>rxx <span class="ot">&lt;-</span> <span class="fl">0.97</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean of X</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># SD of X</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Threshold tau</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="dv">70</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard error of the estimate in the prediction of T</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>see <span class="ot">&lt;-</span> sigma <span class="sc">*</span> <span class="fu">sqrt</span>(rxx <span class="sc">-</span> rxx <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Bounds for plot</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>x_min <span class="ot">&lt;-</span> <span class="dv">60</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>x_max <span class="ot">&lt;-</span> <span class="dv">80</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Aspect ratio for plot</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>plot_ratio <span class="ot">&lt;-</span> x_max <span class="sc">-</span> x_min</span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(x_min, x_max, .<span class="dv">2</span>),</span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">T_hat =</span> rxx <span class="sc">*</span> (x <span class="sc">-</span> mu) <span class="sc">+</span> mu,</span>
+<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">p =</span> <span class="fu">pnorm</span>((threshold <span class="sc">-</span> T_hat) <span class="sc">/</span> see),</span>
+<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>       <span class="at">slope =</span> plot_ratio <span class="sc">*</span> (p <span class="sc">-</span> <span class="fu">lag</span>(p)) <span class="sc">/</span> (x <span class="sc">-</span> <span class="fu">lag</span>(x)),</span>
+<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>       <span class="at">text_angle =</span> <span class="fu">atan</span>(slope) <span class="sc">+</span> <span class="fu">ifelse</span>(p <span class="sc">&gt;</span> <span class="dv">0</span>, pi <span class="sc">/</span> <span class="dv">2</span>, pi <span class="sc">/</span> <span class="sc">-</span><span class="dv">2</span>))</span>
+<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Data for integer points</span></span>
+<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>d_points <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span> </span>
+<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(p <span class="sc">&gt;</span> .<span class="dv">005</span> <span class="sc">&amp;</span> p <span class="sc">&lt;</span> .<span class="dv">995</span> <span class="sc">&amp;</span> x <span class="sc">%in%</span> <span class="fu">seq</span>(x_min, x_max))</span>
+<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(x, p)) <span class="sc">+</span></span>
+<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> myfills[<span class="dv">1</span>], </span>
+<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> d_points, </span>
+<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> myfills[<span class="dv">1</span>], </span>
+<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>             <span class="at">pch =</span> <span class="dv">16</span>, </span>
+<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(<span class="at">data =</span> d_points, </span>
+<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">label =</span> WJSmisc<span class="sc">::</span><span class="fu">prob_label</span>(p), </span>
+<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a>                    <span class="at">hjust =</span> WJSmisc<span class="sc">::</span><span class="fu">angle2hjust</span>(text_angle),</span>
+<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vjust =</span> WJSmisc<span class="sc">::</span><span class="fu">angle2vjust</span>(text_angle)), </span>
+<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>                <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">"mm"</span>), </span>
+<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>                <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
+<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
+<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">16</span>),</span>
+<span id="cb20-52"><a href="#cb20-52" aria-hidden="true" tabindex="-1"></a>                <span class="at">label.margin =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"mm"</span>)) <span class="sc">+</span></span>
+<span id="cb20-53"><a href="#cb20-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_richtext</span>(<span class="at">data =</span> d_points, </span>
+<span id="cb20-54"><a href="#cb20-54" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">label =</span> x, </span>
+<span id="cb20-55"><a href="#cb20-55" aria-hidden="true" tabindex="-1"></a>                    <span class="at">hjust =</span> WJSmisc<span class="sc">::</span><span class="fu">angle2hjust</span>(text_angle <span class="sc">+</span> pi),</span>
+<span id="cb20-56"><a href="#cb20-56" aria-hidden="true" tabindex="-1"></a>                    <span class="at">vjust =</span> WJSmisc<span class="sc">::</span><span class="fu">angle2vjust</span>(text_angle <span class="sc">+</span> pi)), </span>
+<span id="cb20-57"><a href="#cb20-57" aria-hidden="true" tabindex="-1"></a>                <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">"mm"</span>), </span>
+<span id="cb20-58"><a href="#cb20-58" aria-hidden="true" tabindex="-1"></a>                <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
+<span id="cb20-59"><a href="#cb20-59" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
+<span id="cb20-60"><a href="#cb20-60" aria-hidden="true" tabindex="-1"></a>                <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">16</span>),</span>
+<span id="cb20-61"><a href="#cb20-61" aria-hidden="true" tabindex="-1"></a>                <span class="at">label.margin =</span> <span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"mm"</span>)) <span class="sc">+</span></span>
+<span id="cb20-62"><a href="#cb20-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, </span>
+<span id="cb20-63"><a href="#cb20-63" aria-hidden="true" tabindex="-1"></a>           <span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, </span>
+<span id="cb20-64"><a href="#cb20-64" aria-hidden="true" tabindex="-1"></a>           <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, </span>
+<span id="cb20-65"><a href="#cb20-65" aria-hidden="true" tabindex="-1"></a>           <span class="at">xmax =</span> threshold, </span>
+<span id="cb20-66"><a href="#cb20-66" aria-hidden="true" tabindex="-1"></a>           <span class="at">ymax =</span> <span class="cn">Inf</span>, </span>
+<span id="cb20-67"><a href="#cb20-67" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha =</span> .<span class="dv">2</span>, </span>
+<span id="cb20-68"><a href="#cb20-68" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb20-69"><a href="#cb20-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"Observed Score"</span>,</span>
+<span id="cb20-70"><a href="#cb20-70" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="dv">0</span>),</span>
+<span id="cb20-71"><a href="#cb20-71" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">40</span>, <span class="dv">160</span>, <span class="dv">5</span>),</span>
+<span id="cb20-72"><a href="#cb20-72" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> <span class="fu">seq</span>(<span class="dv">40</span>, <span class="dv">160</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb20-73"><a href="#cb20-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="fu">paste0</span>(<span class="st">"Probability the True Score &amp;le; "</span>,</span>
+<span id="cb20-74"><a href="#cb20-74" aria-hidden="true" tabindex="-1"></a>                            threshold),</span>
+<span id="cb20-75"><a href="#cb20-75" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="fl">0.04</span>),</span>
+<span id="cb20-76"><a href="#cb20-76" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,.<span class="dv">1</span>),</span>
+<span id="cb20-77"><a href="#cb20-77" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> WJSmisc<span class="sc">::</span>prob_label) <span class="sc">+</span> </span>
+<span id="cb20-78"><a href="#cb20-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">caption =</span> <span class="fu">paste0</span>(<span class="st">"*Note:* *&lt;span style='font-family: serif'&gt;&amp;mu;&lt;/span&gt;* = 100, *&lt;span style='font-family: serif'&gt;&amp;sigma;&lt;/span&gt;* = 15, *r&lt;sub&gt;XX&lt;/sub&gt;* = "</span>, <span class="fu">prob_label</span>(rxx))) <span class="sc">+</span></span>
+<span id="cb20-79"><a href="#cb20-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> plot_ratio, <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span> </span>
+<span id="cb20-80"><a href="#cb20-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.caption =</span> <span class="fu">element_markdown</span>(<span class="at">family =</span> bfont),</span>
+<span id="cb20-81"><a href="#cb20-81" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_markdown</span>(<span class="at">family =</span> bfont))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -691,12 +846,126 @@ Figure&nbsp;11.5: If IQ = 68 and Adaptive Behavior = 67, what is the probability
 </div>
 </div>
 </div>
-<div class="cell tbl-cap-location-margin" data-layout-align="center" data-button_r="true" data-figlabel="fig-multiplethresholdprobability">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="unfinished_files/figure-html/multiplethresholdprobabilityCode-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
-</figure>
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+R Code for <a href="#fig-multiplethresholdprobability" class="quarto-xref">Figure&nbsp;<span>11.5</span></a>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode cell-code" id="cb21" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If IQ = 68 and Adaptive Behavior = 67, </span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># what is the probability that both true scores </span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># are less than or equal to 70?</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Observed scores</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="dv">68</span>, <span class="at">AB =</span> <span class="dv">67</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Reliability coefficients</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>rxx <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">IQ =</span> .<span class="dv">97</span>, <span class="at">AB =</span> .<span class="dv">95</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation of IQ and AB</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>rxy <span class="ot">&lt;-</span> .<span class="dv">40</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation matrix</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, rxy, </span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>              rxy, <span class="dv">1</span>), </span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Means</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>mu_X <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="dv">100</span>, <span class="at">AB =</span> <span class="dv">100</span>)</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard deviations</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>s_X <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="fu">c</span>(<span class="at">IQ =</span> <span class="dv">15</span>, <span class="at">AB =</span> <span class="dv">15</span>))</span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Covariance Matrix for X</span></span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>sigma_X <span class="ot">&lt;-</span> s_X <span class="sc">%*%</span> R <span class="sc">%*%</span> s_X</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Covariance Matrix for True Scores</span></span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>sigma_T <span class="ot">&lt;-</span> sigma_X</span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(sigma_T) <span class="ot">&lt;-</span> <span class="fu">diag</span>(sigma_X) <span class="sc">*</span> rxx</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Conditional T means, given X</span></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>mu_T_X <span class="ot">&lt;-</span> <span class="fu">as.vector</span>(mu_X <span class="sc">+</span> sigma_T <span class="sc">%*%</span> <span class="fu">solve</span>(sigma_X) <span class="sc">%*%</span> (X <span class="sc">-</span> mu_X))</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Conditional T covariance matrix, given X</span></span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>sigma_T_X <span class="ot">&lt;-</span> sigma_T <span class="sc">-</span> sigma_T <span class="sc">%*%</span> <span class="fu">solve</span>(sigma_X) <span class="sc">%*%</span> <span class="fu">t</span>(sigma_T)</span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Upper thresholds</span></span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="dv">70</span>, <span class="at">AB =</span> <span class="dv">70</span>)</span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Conditional probability T &lt; tau given X</span></span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> mvtnorm<span class="sc">::</span><span class="fu">pmvnorm</span>(<span class="at">upper =</span> tau, <span class="at">mean =</span> mu_T_X, <span class="at">sigma =</span> sigma_T_X)</span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a>mvtnorm<span class="sc">::</span><span class="fu">rmvnorm</span>(<span class="dv">1000</span>, <span class="at">mean =</span> mu_T_X, <span class="at">sigma =</span> sigma_T_X) <span class="sc">|&gt;</span> </span>
+<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">colnames&lt;-</span><span class="st">`</span>(<span class="fu">c</span>(<span class="st">"IQ"</span>, <span class="st">"AB"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">truepositive =</span> IQ <span class="sc">&lt;</span> tau[<span class="dv">1</span>] <span class="sc">&amp;</span> AB <span class="sc">&lt;</span> tau[<span class="dv">2</span>]) <span class="sc">|&gt;</span> </span>
+<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(IQ, AB)) <span class="sc">+</span> </span>
+<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"richtext"</span>, </span>
+<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> <span class="dv">100</span>, </span>
+<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">100</span>, </span>
+<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"*r&lt;sub&gt;xy&lt;/sub&gt;* = .40"</span>, </span>
+<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a>           <span class="at">label.color =</span> <span class="cn">NA</span>, </span>
+<span id="cb21-56"><a href="#cb21-56" aria-hidden="true" tabindex="-1"></a>           <span class="at">label.margin =</span> <span class="fu">unit</span>(<span class="dv">0</span>,<span class="st">"mm"</span>),</span>
+<span id="cb21-57"><a href="#cb21-57" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">24</span>)) <span class="sc">+</span> </span>
+<span id="cb21-58"><a href="#cb21-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, </span>
+<span id="cb21-59"><a href="#cb21-59" aria-hidden="true" tabindex="-1"></a>           <span class="at">xmin =</span> <span class="sc">-</span><span class="cn">Inf</span>, </span>
+<span id="cb21-60"><a href="#cb21-60" aria-hidden="true" tabindex="-1"></a>           <span class="at">ymin =</span> <span class="sc">-</span><span class="cn">Inf</span>, </span>
+<span id="cb21-61"><a href="#cb21-61" aria-hidden="true" tabindex="-1"></a>           <span class="at">xmax =</span> tau[<span class="dv">1</span>], </span>
+<span id="cb21-62"><a href="#cb21-62" aria-hidden="true" tabindex="-1"></a>           <span class="at">ymax =</span> tau[<span class="dv">2</span>], </span>
+<span id="cb21-63"><a href="#cb21-63" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> myfills[<span class="dv">2</span>], </span>
+<span id="cb21-64"><a href="#cb21-64" aria-hidden="true" tabindex="-1"></a>           <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb21-65"><a href="#cb21-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_polygon</span>(</span>
+<span id="cb21-66"><a href="#cb21-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> WJSmisc<span class="sc">::</span><span class="fu">cor_ellipse</span>(</span>
+<span id="cb21-67"><a href="#cb21-67" aria-hidden="true" tabindex="-1"></a>      rxy, </span>
+<span id="cb21-68"><a href="#cb21-68" aria-hidden="true" tabindex="-1"></a>      <span class="at">mean =</span> mu_X, </span>
+<span id="cb21-69"><a href="#cb21-69" aria-hidden="true" tabindex="-1"></a>      <span class="at">sd =</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">15</span>)), </span>
+<span id="cb21-70"><a href="#cb21-70" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(x,y), </span>
+<span id="cb21-71"><a href="#cb21-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb21-72"><a href="#cb21-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(</span>
+<span id="cb21-73"><a href="#cb21-73" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> WJSmisc<span class="sc">::</span><span class="fu">cor_ellipse</span>(</span>
+<span id="cb21-74"><a href="#cb21-74" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cov2cor</span>(sigma_T_X)[<span class="dv">2</span>,<span class="dv">1</span>], </span>
+<span id="cb21-75"><a href="#cb21-75" aria-hidden="true" tabindex="-1"></a>      <span class="at">mean =</span> mu_T_X, </span>
+<span id="cb21-76"><a href="#cb21-76" aria-hidden="true" tabindex="-1"></a>      <span class="at">sd =</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(sigma_T_X))), </span>
+<span id="cb21-77"><a href="#cb21-77" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(x,y), </span>
+<span id="cb21-78"><a href="#cb21-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> .<span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb21-79"><a href="#cb21-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"IQ (*r&lt;sub&gt;xx&lt;/sub&gt;* =.97)"</span>, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">40</span>, <span class="dv">160</span>, <span class="dv">15</span>), </span>
+<span id="cb21-80"><a href="#cb21-80" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> <span class="fu">seq</span>(<span class="dv">40</span>, <span class="dv">160</span>, <span class="dv">5</span>), </span>
+<span id="cb21-81"><a href="#cb21-81" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">160</span>), <span class="at">expand =</span> <span class="fu">expansion</span>())  <span class="sc">+</span></span>
+<span id="cb21-82"><a href="#cb21-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="st">"Adaptive Behavior Composite (*r&lt;sub&gt;yy&lt;/sub&gt;* =.95)"</span>, </span>
+<span id="cb21-83"><a href="#cb21-83" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">40</span>, <span class="dv">160</span>, <span class="dv">15</span>), </span>
+<span id="cb21-84"><a href="#cb21-84" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> <span class="fu">seq</span>(<span class="dv">40</span>, <span class="dv">160</span>, <span class="dv">5</span>), </span>
+<span id="cb21-85"><a href="#cb21-85" aria-hidden="true" tabindex="-1"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">160</span>), <span class="at">expand =</span> <span class="fu">expansion</span>()) <span class="sc">+</span></span>
+<span id="cb21-86"><a href="#cb21-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> truepositive), </span>
+<span id="cb21-87"><a href="#cb21-87" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="fl">0.5</span>, </span>
+<span id="cb21-88"><a href="#cb21-88" aria-hidden="true" tabindex="-1"></a>             <span class="at">pch =</span> <span class="dv">16</span>, </span>
+<span id="cb21-89"><a href="#cb21-89" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> .<span class="dv">4</span>) <span class="sc">+</span> </span>
+<span id="cb21-90"><a href="#cb21-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> myfills) <span class="sc">+</span> </span>
+<span id="cb21-91"><a href="#cb21-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">35</span>,<span class="dv">165</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">35</span>,<span class="dv">165</span>)) <span class="sc">+</span> </span>
+<span id="cb21-92"><a href="#cb21-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>, </span>
+<span id="cb21-93"><a href="#cb21-93" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> <span class="fu">element_markdown</span>(), </span>
+<span id="cb21-94"><a href="#cb21-94" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> <span class="fu">element_markdown</span>()) <span class="sc">+</span></span>
+<span id="cb21-95"><a href="#cb21-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"point"</span>, <span class="at">x =</span> X[<span class="dv">1</span>], <span class="at">y =</span> X[<span class="dv">2</span>], <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb21-96"><a href="#cb21-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">52.5</span>, <span class="at">y =</span> <span class="dv">50</span>, </span>
+<span id="cb21-97"><a href="#cb21-97" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"Given the observed</span><span class="sc">\n</span><span class="st">scores, the probability</span><span class="sc">\n</span><span class="st">both true scores are</span><span class="sc">\n</span><span class="st"> 70 or below is "</span>, </span>
+<span id="cb21-98"><a href="#cb21-98" aria-hidden="true" tabindex="-1"></a>                          WJSmisc<span class="sc">::</span><span class="fu">prob_label</span>(p), <span class="st">"."</span>),</span>
+<span id="cb21-99"><a href="#cb21-99" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> WJSmisc<span class="sc">::</span><span class="fu">ggtext_size</span>(<span class="dv">17</span>)) <span class="sc">+</span></span>
+<span id="cb21-100"><a href="#cb21-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>,</span>
+<span id="cb21-101"><a href="#cb21-101" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> X[<span class="dv">1</span>],</span>
+<span id="cb21-102"><a href="#cb21-102" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> X[<span class="dv">2</span>],</span>
+<span id="cb21-103"><a href="#cb21-103" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"("</span>, <span class="at">x =</span> X[<span class="dv">1</span>], <span class="st">","</span>, <span class="at">y =</span> X[<span class="dv">2</span>], <span class="st">")"</span>),</span>
+<span id="cb21-104"><a href="#cb21-104" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="fl">1.05</span>,</span>
+<span id="cb21-105"><a href="#cb21-105" aria-hidden="true" tabindex="-1"></a>           <span class="at">vjust =</span> <span class="fl">1.1</span>,</span>
+<span id="cb21-106"><a href="#cb21-106" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> WJSmisc<span class="sc">::</span><span class="fu">ggtext_size</span>(<span class="dv">24</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -705,12 +974,66 @@ Figure&nbsp;11.5: If IQ = 68 and Adaptive Behavior = 67, what is the probability
 <section id="multivariate-thresholds-and-true-scores" class="level1" data-number="12">
 <h1 data-number="12"><span class="header-section-number">12</span> Multivariate Thresholds and True Scores</h1>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>r_xx <span class="ot">&lt;-</span> .<span class="dv">96</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>v_name <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"IQ"</span>, <span class="st">"IQ_true"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>threshold <span class="ot">&lt;-</span> <span class="dv">70</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="fu">rep</span>(r_xx,<span class="dv">3</span>)), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">dimnames =</span> <span class="fu">list</span>(v_name,v_name)) <span class="sc">*</span> <span class="dv">15</span><span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="dv">100</span>, <span class="at">IQ_true =</span> <span class="dv">100</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">lower =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span>  <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span>  <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span>  threshold, <span class="at">IQ_true =</span>  <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span>  <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span>  <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span>  <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span>  threshold)),</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">upper =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>)),</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">outcome =</span> <span class="fu">c</span>(<span class="st">"TP"</span>, <span class="st">"FP"</span>, <span class="st">"FN"</span>, <span class="st">"TN"</span>, <span class="st">"P"</span>, <span class="st">"N"</span>, <span class="st">"D+"</span>, <span class="st">"D-"</span>),</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">p =</span> <span class="fu">pmap_dbl</span>(<span class="fu">list</span>(<span class="at">lower =</span> lower, <span class="at">upper =</span> upper), \(lower, upper) mvtnorm<span class="sc">::</span><span class="fu">pmvnorm</span>(lower, upper, <span class="at">mean =</span> mu, <span class="at">sigma =</span> sigma) <span class="sc">|&gt;</span> <span class="fu">as.vector</span>())) <span class="sc">|&gt;</span> </span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(outcome,p) <span class="sc">|&gt;</span> </span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">deframe</span>()</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>         TP          FP          FN          TN           P           N 
 0.017460927 0.005289205 0.003152489 0.974097379 0.022750132 0.977249868 
          D+          D- 
 0.020613417 0.979386583 </code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb24" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">Statistic =</span> <span class="fu">c</span>(<span class="st">"Sensitivity"</span>, </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Specificity"</span>,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"PPV"</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"NPV"</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Overall Accuracy"</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Prevalence"</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Selection Ratio"</span>,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Positive Likelihood Ratio"</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Negative Likelihood Ratio"</span>,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"True Positive Rate"</span>,</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"False Positive Rate"</span>,</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"True Negative Rate"</span>,</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"False Negative Rate"</span>),</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">Value =</span> <span class="fu">c</span>(p[<span class="st">"TP"</span>] <span class="sc">/</span> p[<span class="st">"D+"</span>],</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>                 p[<span class="st">"TN"</span>] <span class="sc">/</span> p[<span class="st">"D-"</span>],</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>                 p[<span class="st">"TP"</span>] <span class="sc">/</span> p[<span class="st">"P"</span>],</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>                 p[<span class="st">"TN"</span>] <span class="sc">/</span> p[<span class="st">"N"</span>],</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>                 p[<span class="st">"TP"</span>] <span class="sc">+</span> p[<span class="st">"TN"</span>],</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>                 p[<span class="st">"D+"</span>],</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>                 p[<span class="st">"P"</span>],</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>                 (p[<span class="st">"TP"</span>] <span class="sc">/</span> p[<span class="st">"D+"</span>]) <span class="sc">/</span> (p[<span class="st">"FP"</span>] <span class="sc">/</span> p[<span class="st">"D-"</span>]),</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>                 (p[<span class="st">"FN"</span>] <span class="sc">/</span> p[<span class="st">"D+"</span>]) <span class="sc">/</span> (p[<span class="st">"TN"</span>] <span class="sc">/</span> p[<span class="st">"D-"</span>]),</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>                 p[<span class="st">"TP"</span>],</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>                 p[<span class="st">"FP"</span>],</span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>                 p[<span class="st">"TN"</span>],</span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>                 p[<span class="st">"FN"</span>]</span>
+<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>                 )) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code># A tibble: 13 × 2
    Statistic                     Value
@@ -729,6 +1052,33 @@ Figure&nbsp;11.5: If IQ = 68 and Adaptive Behavior = 67, what is the probability
 12 True Negative Rate          0.974  
 13 False Negative Rate         0.00315</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb26" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">statistic =</span> <span class="fu">c</span>(<span class="st">"Sensitivity"</span>, </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"Specificity"</span>, </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"PPV"</span>, </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"NPV"</span>),</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">lowerx =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold)),</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">upperx =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>                     <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>)),</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">lower =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>)),</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">upper =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>                    <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>)),</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">value =</span> <span class="fu">pmap_dbl</span>(<span class="fu">list</span>(<span class="at">lowerx =</span> lowerx,</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>                             <span class="at">upperx =</span> upperx,</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>                             <span class="at">lower =</span> lower,</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>                             <span class="at">upper =</span> upper), tmvtnorm<span class="sc">::</span>ptmvnorm, </span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>                        <span class="at">mean =</span> mu, </span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>                        <span class="at">sigma =</span> sigma)) <span class="sc">|&gt;</span> </span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(statistic, value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code># A tibble: 4 × 2
   statistic   value
@@ -738,6 +1088,78 @@ Figure&nbsp;11.5: If IQ = 68 and Adaptive Behavior = 67, what is the probability
 3 PPV         0.768
 4 NPV         0.997</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb28" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">list</span>(</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="st">"Sensitivity"</span>,</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">lowerx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">upperx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="st">"Specificity"</span>,</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">lowerx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">upperx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>)</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="st">"PPV"</span>,</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">lowerx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">upperx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="cn">Inf</span>)</span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="st">"NPV"</span>,</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">lowerx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">upperx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>)</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="st">"True Positives"</span>,</span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">lowerx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">upperx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>)</span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="st">"False Positives"</span>,</span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">lowerx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">upperx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>)</span>
+<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="st">"True Negatives"</span>,</span>
+<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">lowerx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">upperx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>),</span>
+<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>)</span>
+<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> <span class="st">"False Negatives"</span>,</span>
+<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">lowerx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> threshold, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">upperx =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> threshold),</span>
+<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="sc">-</span><span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="sc">-</span><span class="cn">Inf</span>),</span>
+<span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper =</span> <span class="fu">c</span>(<span class="at">IQ =</span> <span class="cn">Inf</span>, <span class="at">IQ_true =</span> <span class="cn">Inf</span>)</span>
+<span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(\(l) {</span>
+<span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a>    tmvtnorm<span class="sc">::</span><span class="fu">ptmvnorm</span>(</span>
+<span id="cb28-61"><a href="#cb28-61" aria-hidden="true" tabindex="-1"></a>      <span class="at">lowerx =</span> l<span class="sc">$</span>lowerx,</span>
+<span id="cb28-62"><a href="#cb28-62" aria-hidden="true" tabindex="-1"></a>      <span class="at">upperx =</span> l<span class="sc">$</span>upperx,</span>
+<span id="cb28-63"><a href="#cb28-63" aria-hidden="true" tabindex="-1"></a>      <span class="at">lower =</span> l<span class="sc">$</span>lower,</span>
+<span id="cb28-64"><a href="#cb28-64" aria-hidden="true" tabindex="-1"></a>      <span class="at">upper =</span> l<span class="sc">$</span>upper,</span>
+<span id="cb28-65"><a href="#cb28-65" aria-hidden="true" tabindex="-1"></a>      <span class="at">mean =</span> mu,</span>
+<span id="cb28-66"><a href="#cb28-66" aria-hidden="true" tabindex="-1"></a>      <span class="at">sigma =</span> sigma</span>
+<span id="cb28-67"><a href="#cb28-67" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb28-68"><a href="#cb28-68" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.vector</span>() <span class="sc">|&gt;</span></span>
+<span id="cb28-69"><a href="#cb28-69" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">names&lt;-</span><span class="st">`</span>(l<span class="sc">$</span>statistic)</span>
+<span id="cb28-70"><a href="#cb28-70" aria-hidden="true" tabindex="-1"></a>  }) <span class="sc">|&gt;</span></span>
+<span id="cb28-71"><a href="#cb28-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unlist</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb28-72"><a href="#cb28-72" aria-hidden="true" tabindex="-1"></a>  <span class="fu">enframe</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code># A tibble: 8 × 2
   name              value
