@@ -27,10 +27,8 @@ When the odds of winning are 3 to 1, there will be 3 wins for every loss.
 tibble(p = seq(0, .91, .01),
        odds = p / (1 - p)) %>%
   ggplot(aes(p, odds)) +
-  geom_path(color = myfills[1],
-            arrow = arrow(15,
-                          length = unit(5, "mm"),
-                          type = "closed")) +
+  geom_arrow(color = myfills[1],
+             arrow_head = arrow_head_deltoid()) +
   scale_x_continuous("Probability",
                      breaks = seq(0, 1, .2),
                      labels = prob_label,
@@ -40,9 +38,7 @@ tibble(p = seq(0, .91, .01),
 ```
 
 
-```{r coder-fig-p2oddsfigure}
-<<fig-p2oddsfigure>>
-```
+
 
 
 As seen in @fig-p2oddsfigure, the relationship between probability and odds is not linear. To convert an odds ratio to probability:
@@ -51,18 +47,13 @@ $$
 p=\frac{odds}{1 + odds}
 $$
 
-```{r}
-#| label: p2oddsfigurecode
-#| button_r: true
-#| figlabel: fig-p2oddsfigure
+```{r coder-fig-p2oddsfigure}
 <<fig-p2oddsfigure>>
 ```
 
 Thus, 3 to 1 odds is:
 
-```{r}
-#| label: odds2p
-#| echo: true
+```{r demo-odds2p}
 odds <- 3 / 1
 
 p <- odds / (1 + odds)
@@ -71,9 +62,7 @@ p
 
 Or, 2 to 3 odds is:
 
-```{r}
-#| label: odds2p2
-#| echo: true
+```{r demo-odds2p2}
 odds <- 2 / 3
 p <- odds / (1 + odds)
 p
@@ -89,9 +78,7 @@ $$
 
 If the probability of an event is .8, then the odds are:
 
-```{r}
-#| label: p2odds
-#| echo: true
+```{r demo-p2odds}
 p <- .8
 odds <- p / (1 - p)
 odds
@@ -117,11 +104,9 @@ In many statistical applications, we need to convert a probability to a value th
 tibble(p = seq(0, 1, .001),
        logits = qlogis(p)) %>%
   ggplot(aes(p, logits)) +
-  geom_path(color = myfills[1],
-            arrow = arrow(15, 
-                          length = unit(5, "mm"),
-                          ends = "both",
-                          type = "closed")) +
+  geom_arrow(color = myfills[1],
+             arrow_head = arrow_head_deltoid(), 
+             arrow_fins = arrow_head_deltoid()) +
   scale_x_continuous("Probability",
                      breaks = seq(0, 1, .2),
                      labels = prob_label) +
@@ -139,10 +124,7 @@ $$
 \text{logit}\left(p\right)=\ln\left(\frac{p}{1-p}\right)
 $$
 
-```{r}
-#| label: p2logitscode
-#| button_r: true
-#| figlabel: fig-p2logits
+```{r coder-fig-p2logits}
 <<fig-p2logits>>
 ```
 
@@ -178,27 +160,48 @@ w2p <- function(w, difficulty) {
   (1 + 9 ^ ((difficulty - w) / 20))^(-1)
 }
 
-tibble(w = seq(450, 550),
-       p = w2p(w, 500),
-       slope = (p - lag(p, default = 0)) / (w - lag(w, default = 1)),
-       theta = atan(slope * 100) + ifelse(p <= .5, pi, -pi) / 2) %>% 
-  ggplot(aes(w,p)) + 
-  geom_path() + 
-  geom_point(data = . %>% filter(w %in% seq(450, 550, 10))) +
-  geom_richtext(data = . %>% 
-                  filter(w %in% seq(450, 550, 10)), 
-                aes(label = prob_label(p, digits = 2), 
-                    vjust = WJSmisc::angle2vjust(theta),
-                    hjust = WJSmisc::angle2hjust(theta)), 
-                label.color = NA, 
-                label.padding = unit(0,"mm"),
-                label.margin = unit(0.5,"mm"), 
-                size = ggtext_size(18)) +
-  scale_x_continuous("Ability – Difficulty (in W units)", breaks = seq(450, 550, 10), labels = \(x) paste0(signs::signs(x - 500), if_else(x >= 500, "", "\u2007"))) + 
-  scale_y_continuous("Probability of Answering Correctly", breaks = seq(0, 1, .10), labels = prob_label) +
+tibble(
+  w = seq(445, 555),
+  p = w2p(w, 500),
+  slope = (p - lag(p, default = 0)) / (w - lag(w, default = 1)),
+  theta = atan(slope * 100) + ifelse(p <= .5, pi, -pi) / 2
+) %>%
+  ggplot(aes(w, p)) +
+  geom_arrow(arrow_head = arrow_head_deltoid(),
+             arrow_fins = arrow_head_deltoid(), 
+             color = myfills[1]) +
+  geom_point(data = . %>% filter(w %in% seq(450, 550, 10)),
+             color = myfills[1]) +
+  geom_richtext(
+    data = . %>%
+      filter(w %in% seq(450, 550, 10)),
+    aes(
+      label = prob_label(p, digits = 2),
+      vjust = WJSmisc::angle2vjust(theta),
+      hjust = WJSmisc::angle2hjust(theta)
+    ),
+    label.color = NA,
+    label.padding = unit(0, "mm"),
+    label.margin = unit(0.5, "mm"),
+    size = ggtext_size(18),
+    color = myfills[1]
+  ) +
+  scale_x_continuous(
+    "Ability – Difficulty (in W units)",
+    breaks = seq(450, 550, 10), 
+    expand = expansion(),
+    labels = \(x) paste0(signs::signs(x - 500), if_else(x >= 500, "", "\u2007"))
+  ) +
+  scale_y_continuous("Probability of Answering Correctly",
+                     breaks = seq(0, 1, .10),
+                     expand = expansion(),
+                     labels = prob_label) +
   theme_minimal(base_size = 22, base_family = bfont) +
-  theme(axis.title.x = element_text()) + 
-  coord_fixed(100)
+  theme(axis.title.x = element_text()) +
+  coord_fixed(100,
+              xlim = c(447, 553),
+              ylim = c(0, 1),
+              clip = "off")
 ```
 
 This unusual coefficient yields some nice round probabilities of answering an item correctly when the person's ability and the item's difficulty differ by 0, 10, or 20 points (See @fig-w2p).
@@ -211,10 +214,7 @@ $$
 p = \left(1 + 9^{\left(W_D-W_A\right)/20}\right)^{-1}
 $$
 
-```{r}
-#| label: w2pcode
-#| button_r: true
-#| figlabel: fig-w2p
+```{r coder-fig-w2p}
 <<fig-w2p>>
 ```
 
@@ -249,21 +249,16 @@ The psycheval package can calculate the RPI using the the `rpi` function. By def
 
 Suppose a person's ability corresponds to a W-score of 460 and same-age peers have an average W score of 500:
 
-```{r}
-#| label: rpi
-#| echo: true
-
+```{r demo-rpi}
 library(psycheval)
 rpi(x = 460, mu = 500)
-
 ```
 
 This difference of 40 W score points means that when typical same-age peers have a 90% chance of answering an item correctly (a common benchmark for mastery), this person has a 10% chance of answering the item correctly.
 
 If `x` and `mu` are logits, then you can specify `scale = 1` like so:
 
-```{r rpiscale}
-#| echo: true
+```{r demo-rpiscale}
 rpi(x = 1, mu = 0, scale = 1)
 ```
 
@@ -275,8 +270,7 @@ $$
 
 Suppose a person has a W score of 550, which is 50 points higher than typical same-age peers. The standard RPI will give a value close to 1:
 
-```{r rpi550}
-#| echo: true
+```{r demo-rpi550}
 rpi(x = 550, mu = 500)
 
 ```
@@ -285,8 +279,7 @@ This means that when same-age peers have a 90% chance of answering the item corr
 
 To get a better sense of how far advanced this person is compared to the performance of typical same-age peers, we can reverse the RPI like so.
 
-```{r rpi550reverse}
-#| echo: true
+```{r demo-rpi550reverse}
 rpi(x = 550, mu = 500, reverse = TRUE)
 ```
 
@@ -294,8 +287,7 @@ This means that when this person has a .9 probability of answering an item corre
 
 The standard RPI refers to a proficiency level of .9, but the `rpi` function can calculate the relative proficiency index at any criterion level. For example:
 
-```{r rpi550criterion}
-#| echo: true
+```{r demo-rpi550criterion}
 rpi(x = 550, mu = 500, criterion = .10)
 ```
 
@@ -414,10 +406,7 @@ ggplot(d, aes(x, p)) +
         axis.title.y = element_markdown(family = bfont))
 ```
 
-```{r}
-#| label: thresholdprobabilityCode
-#| button_r: true
-#| figlabel: fig-thresholdprobability
+```{r coder-fig-thresholdprobability}
 <<fig-thresholdprobability>>
 ```
 
@@ -601,17 +590,14 @@ mvtnorm::rmvnorm(1000, mean = mu_T_X, sigma = sigma_T_X) |>
 ```
 
 
-```{r}
-#| label: multiplethresholdprobabilityCode
-#| button_r: true
-#| figlabel: fig-multiplethresholdprobability
+```{r coder-fig-multiplethresholdprobability}
 <<fig-multiplethresholdprobability>>
 ```
 
 
 # Multivariate Thresholds and True Scores
 
-```{r}
+```{r demo-mvthresholds}
 r_xx <- .96
 v_name <- c("IQ", "IQ_true")
 threshold <- 70
