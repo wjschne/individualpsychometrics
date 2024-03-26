@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.26">
+<meta name="generator" content="quarto-1.4.552">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Individual Psychometrics – 5&nbsp; Matrices</title>
+
+
+<title>Individual Psychometrics - 5&nbsp; Matrices</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,6 +76,7 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -90,7 +94,8 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -116,9 +121,11 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><style>html{ scroll-behavior: smooth; }</style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/editor/editor.main.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/editor/editor.main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
 <style type="text/css">
 .monaco-editor pre {
   background-color: unset !important;
@@ -282,9 +289,10 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"options":{"warning":"true","autorun":"false","dpi":72,"fig-width":7,"context":"interactive","message":"true","out-height":"","label":"ex-makeA","comment":"","results":"markup","fig-cap":"","output":"true","classes":"","out-width":"700px","fig-height":5},"code":"A <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)"},{"id":2,"options":{"warning":"true","autorun":"false","dpi":72,"fig-width":7,"context":"interactive","message":"true","out-height":"","label":"ex-rbinding","comment":"","results":"markup","fig-cap":"","output":"true","classes":"","out-width":"700px","fig-height":5},"code":"A <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)\nB <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)\n\n# Now bind A and B by rows\nrbind(_,_)"},{"id":3,"options":{"warning":"true","autorun":"false","dpi":72,"fig-width":7,"context":"interactive","message":"true","out-height":"","label":"ex-cbinding","comment":"","results":"markup","fig-cap":"","output":"true","classes":"","out-width":"700px","fig-height":5},"code":"# Now bind A and B by columns\ncbind(_,_)"},{"id":4,"options":{"warning":"true","autorun":"false","dpi":72,"fig-width":7,"context":"interactive","message":"true","out-height":"","label":"ex-select","comment":"","results":"markup","fig-cap":"","output":"true","classes":"","out-width":"700px","fig-height":5},"code":"A <- matrix(1:12, nrow = 3, byrow = TRUE)\nA[_,_]"},{"id":5,"options":{"warning":"true","autorun":"false","dpi":72,"fig-width":7,"context":"interactive","message":"true","out-height":"","label":"ex-selectA1","comment":"","results":"markup","fig-cap":"","output":"true","classes":"","out-width":"700px","fig-height":5},"code":"A"},{"id":6,"options":{"warning":"true","autorun":"false","dpi":72,"fig-width":7,"context":"interactive","message":"true","out-height":"","label":"ex-matrixcols","comment":"","results":"markup","fig-cap":"","output":"true","classes":"","out-width":"700px","fig-height":5},"code":"A"},{"id":7,"options":{"warning":"true","autorun":"false","dpi":72,"fig-width":7,"context":"interactive","message":"true","out-height":"","label":"ex-boolean","comment":"","results":"markup","fig-cap":"","output":"true","classes":"","out-width":"700px","fig-height":5},"code":"s <- A[] == _ \nA[,s] "},{"id":8,"options":{"warning":"true","autorun":"false","dpi":72,"fig-width":7,"context":"interactive","message":"true","out-height":"","label":"ex-uneven","comment":"","results":"markup","fig-cap":"","output":"true","classes":"","out-width":"700px","fig-height":5},"code":"A <- matrix(1:12, nrow = 3, byrow = TRUE)\nrownames(A) <- c(\"Gold\",\"Silver\",\"Bronze\")\ncolnames(A) <- c(\"Vault\",\"Uneven Bars\",\"Balance Beam\",\"Floor\")\n# select the Uneven Bars column\nA"},{"id":9,"options":{"warning":"true","autorun":"false","dpi":72,"fig-width":7,"context":"interactive","message":"true","out-height":"","label":"ex-silverfloor","comment":"","results":"markup","fig-cap":"","output":"true","classes":"","out-width":"700px","fig-height":5},"code":"A"},{"id":10,"options":{"warning":"true","autorun":"false","dpi":72,"fig-width":7,"context":"interactive","message":"true","out-height":"","label":"ex-replacevault","comment":"","results":"markup","fig-cap":"","output":"true","classes":"","out-width":"700px","fig-height":5},"code":"A"},{"id":11,"options":{"warning":"true","autorun":"false","dpi":72,"fig-width":7,"context":"interactive","message":"true","out-height":"","label":"ex-even20transpose","comment":"","results":"markup","fig-cap":"","output":"true","classes":"","out-width":"700px","fig-height":5},"code":"A <- matrix(seq(_,_,_), nrow = _)"}];
+globalThis.qwebrCellDetails = [{"options":{"autorun":"false","comment":"","fig-cap":"","warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","out-width":"700px","context":"interactive","label":"ex-makeA","fig-height":5,"dpi":72,"output":"true","classes":""},"code":"A <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)","id":1},{"options":{"autorun":"false","comment":"","fig-cap":"","warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","out-width":"700px","context":"interactive","label":"ex-rbinding","fig-height":5,"dpi":72,"output":"true","classes":""},"code":"A <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)\nB <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)\n\n# Now bind A and B by rows\nrbind(_,_)","id":2},{"options":{"autorun":"false","comment":"","fig-cap":"","warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","out-width":"700px","context":"interactive","label":"ex-cbinding","fig-height":5,"dpi":72,"output":"true","classes":""},"code":"# Now bind A and B by columns\ncbind(_,_)","id":3},{"options":{"autorun":"false","comment":"","fig-cap":"","warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","out-width":"700px","context":"interactive","label":"ex-select","fig-height":5,"dpi":72,"output":"true","classes":""},"code":"A <- matrix(1:12, nrow = 3, byrow = TRUE)\nA[_,_]","id":4},{"options":{"autorun":"false","comment":"","fig-cap":"","warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","out-width":"700px","context":"interactive","label":"ex-selectA1","fig-height":5,"dpi":72,"output":"true","classes":""},"code":"A","id":5},{"options":{"autorun":"false","comment":"","fig-cap":"","warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","out-width":"700px","context":"interactive","label":"ex-matrixcols","fig-height":5,"dpi":72,"output":"true","classes":""},"code":"A","id":6},{"options":{"autorun":"false","comment":"","fig-cap":"","warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","out-width":"700px","context":"interactive","label":"ex-boolean","fig-height":5,"dpi":72,"output":"true","classes":""},"code":"s <- A[] == _ \nA[,s] ","id":7},{"options":{"autorun":"false","comment":"","fig-cap":"","warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","out-width":"700px","context":"interactive","label":"ex-uneven","fig-height":5,"dpi":72,"output":"true","classes":""},"code":"A <- matrix(1:12, nrow = 3, byrow = TRUE)\nrownames(A) <- c(\"Gold\",\"Silver\",\"Bronze\")\ncolnames(A) <- c(\"Vault\",\"Uneven Bars\",\"Balance Beam\",\"Floor\")\n# select the Uneven Bars column\nA","id":8},{"options":{"autorun":"false","comment":"","fig-cap":"","warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","out-width":"700px","context":"interactive","label":"ex-silverfloor","fig-height":5,"dpi":72,"output":"true","classes":""},"code":"A","id":9},{"options":{"autorun":"false","comment":"","fig-cap":"","warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","out-width":"700px","context":"interactive","label":"ex-replacevault","fig-height":5,"dpi":72,"output":"true","classes":""},"code":"A","id":10},{"options":{"autorun":"false","comment":"","fig-cap":"","warning":"true","out-height":"","message":"true","fig-width":7,"results":"markup","out-width":"700px","context":"interactive","label":"ex-even20transpose","fig-height":5,"dpi":72,"output":"true","classes":""},"code":"A <- matrix(seq(_,_,_), nrow = _)","id":11}];
 
-</script><script type="module">
+</script>
+<script type="module">
 // Declare startupMessageQWebR globally
 globalThis.qwebrStartupMessage = document.createElement("p");
 
@@ -377,7 +385,8 @@ function displayStartupMessage(showStartupMessage, showHeaderMessage) {
 }
 
 displayStartupMessage(qwebrShowStartupMessage, qwebrShowHeaderMessage);
-</script><script type="module">
+</script>
+<script type="module">
 // Supported Evaluation Types for Context
 globalThis.EvalTypes = Object.freeze({
   Interactive: 'interactive',
@@ -623,7 +632,8 @@ globalThis.createLoadingContainer = function(qwebrCounter) {
 
   return container;
 }
-</script><script type="module">
+</script>
+<script type="module">
 // Function to install a single package
 async function qwebrInstallRPackage(packageName) {
   await mainWebR.evalRVoid(`webr::install('${packageName}');`);
@@ -719,7 +729,8 @@ globalThis.qwebrInstance = import(qwebrCustomizedWebROptions.baseURL + "webr.mjs
 // Stop timer
 const initializeWebRTimerEnd = performance.now();
 
-</script><script type="module">
+</script>
+<script type="module">
 // Function to verify a given JavaScript Object is empty
 globalThis.qwebrIsObjectEmpty = function (arr) {
     return Object.keys(arr).length === 0;
@@ -993,7 +1004,10 @@ globalThis.qwebrExecuteCode = async function (
     }
 }
 
-</script><script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -1006,7 +1020,9 @@ globalThis.qwebrExecuteCode = async function (
     fleqn: false
    });
 }}});
-  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
 <script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
@@ -1032,12 +1048,17 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><link rel="stylesheet" href="equity.css">
+</script>
+
+<link rel="stylesheet" href="equity.css">
 </head>
+
 <body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -1048,9 +1069,13 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Individual Psychometrics</a> 
     </div>
@@ -1062,7 +1087,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
@@ -1076,8 +1101,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
@@ -1090,7 +1115,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
@@ -1099,8 +1124,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./scalars.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Scalars</span></span></a>
@@ -1125,7 +1150,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -1134,8 +1159,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
@@ -1172,41 +1197,42 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-    <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Matrices–Introduction</h2>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Matrices–Introduction</h2>
    
   <ul>
-<li><a href="#appending-matrices" id="toc-appending-matrices" class="nav-link active" data-scroll-target="#appending-matrices"><span class="header-section-number">5.1</span> Appending Matrices</a></li>
-  <li>
-<a href="#selecting-parts-of-a-matrix" id="toc-selecting-parts-of-a-matrix" class="nav-link" data-scroll-target="#selecting-parts-of-a-matrix"><span class="header-section-number">5.2</span> Selecting parts of a matrix</a>
+  <li><a href="#appending-matrices" id="toc-appending-matrices" class="nav-link active" data-scroll-target="#appending-matrices"><span class="header-section-number">5.1</span> Appending Matrices</a></li>
+  <li><a href="#selecting-parts-of-a-matrix" id="toc-selecting-parts-of-a-matrix" class="nav-link" data-scroll-target="#selecting-parts-of-a-matrix"><span class="header-section-number">5.2</span> Selecting parts of a matrix</a>
   <ul class="collapse">
-<li><a href="#select-a-single-element-of-a-matrix" id="toc-select-a-single-element-of-a-matrix" class="nav-link" data-scroll-target="#select-a-single-element-of-a-matrix"><span class="header-section-number">5.2.1</span> Select a single element of a matrix</a></li>
+  <li><a href="#select-a-single-element-of-a-matrix" id="toc-select-a-single-element-of-a-matrix" class="nav-link" data-scroll-target="#select-a-single-element-of-a-matrix"><span class="header-section-number">5.2.1</span> Select a single element of a matrix</a></li>
   <li><a href="#select-a-matrix-row" id="toc-select-a-matrix-row" class="nav-link" data-scroll-target="#select-a-matrix-row"><span class="header-section-number">5.2.2</span> Select a matrix row</a></li>
   <li><a href="#select-a-matrix-column" id="toc-select-a-matrix-column" class="nav-link" data-scroll-target="#select-a-matrix-column"><span class="header-section-number">5.2.3</span> Select a matrix column</a></li>
   <li><a href="#select-several-columns-or-rows" id="toc-select-several-columns-or-rows" class="nav-link" data-scroll-target="#select-several-columns-or-rows"><span class="header-section-number">5.2.4</span> Select several columns or rows</a></li>
   <li><a href="#selecting-with-boolean-vectors" id="toc-selecting-with-boolean-vectors" class="nav-link" data-scroll-target="#selecting-with-boolean-vectors"><span class="header-section-number">5.2.5</span> Selecting with Boolean vectors</a></li>
   <li><a href="#selecting-with-name-vectors" id="toc-selecting-with-name-vectors" class="nav-link" data-scroll-target="#selecting-with-name-vectors"><span class="header-section-number">5.2.6</span> Selecting with name vectors</a></li>
-  </ul>
-</li>
+  </ul></li>
   <li><a href="#replace-portions-of-a-matrix" id="toc-replace-portions-of-a-matrix" class="nav-link" data-scroll-target="#replace-portions-of-a-matrix"><span class="header-section-number">5.3</span> Replace portions of a matrix</a></li>
-  <li>
-<a href="#transposing-matrices" id="toc-transposing-matrices" class="nav-link" data-scroll-target="#transposing-matrices"><span class="header-section-number">5.4</span> Transposing matrices</a>
+  <li><a href="#transposing-matrices" id="toc-transposing-matrices" class="nav-link" data-scroll-target="#transposing-matrices"><span class="header-section-number">5.4</span> Transposing matrices</a>
   <ul class="collapse">
-<li><a href="#transposing-in-r" id="toc-transposing-in-r" class="nav-link" data-scroll-target="#transposing-in-r"><span class="header-section-number">5.4.1</span> Transposing in R</a></li>
-  </ul>
-</li>
+  <li><a href="#transposing-in-r" id="toc-transposing-in-r" class="nav-link" data-scroll-target="#transposing-in-r"><span class="header-section-number">5.4.1</span> Transposing in R</a></li>
+  </ul></li>
   <li><a href="#square-matrices" id="toc-square-matrices" class="nav-link" data-scroll-target="#square-matrices"><span class="header-section-number">5.5</span> Square matrices</a></li>
   <li><a href="#symmetric-matrices" id="toc-symmetric-matrices" class="nav-link" data-scroll-target="#symmetric-matrices"><span class="header-section-number">5.6</span> Symmetric matrices</a></li>
   <li><a href="#diagonal-matrices" id="toc-diagonal-matrices" class="nav-link" data-scroll-target="#diagonal-matrices"><span class="header-section-number">5.7</span> Diagonal matrices</a></li>
-  </ul></nav>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script><script type="module" id="qwebr-monaco-editor-init">
+<main class="content page-columns page-full" id="quarto-document-content">
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+<script type="module" id="qwebr-monaco-editor-init">
 
   // Configure the Monaco Editor's loader
   require.config({
@@ -1214,7 +1240,8 @@ window.Quarto = {
       'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs'
     }
   });
-</script><script type="module">
+</script>
+<script type="module">
 // Global dictionary to store Monaco Editor instances
 globalThis.qwebrEditorInstances = {};
 
@@ -1376,10 +1403,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   };
   
 }
-</script><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matrix_algebra.html">Matrix Algebra in R</a></li><li class="breadcrumb-item"><a href="./matrices_intro.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices–Introduction</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices</span>
-</h1>
+</script>
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matrix_algebra.html">Matrix Algebra in R</a></li><li class="breadcrumb-item"><a href="./matrices_intro.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices–Introduction</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices</span></h1>
 <p class="subtitle lead">Introduction</p>
 </div>
 
@@ -1394,7 +1422,10 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   
 
 
-</header><p>A matrix is a series of numbers arranged in rows and columns. We usually abbreviate matrices with a bolded uppercase letter:</p>
+</header>
+
+
+<p>A matrix is a series of numbers arranged in rows and columns. We usually abbreviate matrices with a bolded uppercase letter:</p>
 <p><span class="math display">
 \mathbf{A}_{j \times k} =
 \begin{bmatrix}
@@ -1416,7 +1447,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 <p>To make a matrix in R, there are many possibilities. For the sake of simplicity, I will recommend using the <code>matrix</code> function with the <code>byrow</code> option set to <code>TRUE</code>.</p>
 <p>The <code>matrix</code> function takes a vector and converts it to a matrix. By default, the <code>matrix</code> function assumes that the vector is a single column. For example,</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb1" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1]
 [1,]    1
@@ -1427,7 +1458,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 <p>By setting the <code>nrow</code> (number of rows) or <code>ncol</code> (number of columns), the matrix dimensions are set. For example,</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb3" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    1    3
@@ -1436,7 +1467,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 <p>Note that the default is to fill in the matrix by columns. If you want it to fill by rows, set the <code>byrow</code> option to <code>TRUE</code>.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb5" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, ncol <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    1    2
@@ -1445,10 +1476,10 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 <p>In general, creating matrices by row makes the code and the matrix look similar:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb7" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">5</span>, </span>
-<span>         <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span>,</span>
-<span>       nrow <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>       byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>         <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    3    5
@@ -1457,9 +1488,9 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </div>
 <p>To achieve the same matrix without the <code>byrow</code> option set to <code>TRUE</code> is possible, but the code will be the same order as the matrix:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb9" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, </span>
-<span>         <span class="fl">5</span>, <span class="fl">3</span><span class="op">)</span>,</span>
-<span>       nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>         <span class="dv">5</span>, <span class="dv">3</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">nrow =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    3    5
@@ -1486,19 +1517,21 @@ You Try
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb11" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Using the matrix function setting byrow = TRUE</span></span>
-<span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>,</span>
-<span>              <span class="fl">5</span>, <span class="fl">7</span><span class="op">)</span>,</span>
-<span>            nrow <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>            byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb11" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the matrix function setting byrow = TRUE</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>              <span class="dv">5</span>, <span class="dv">7</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">nrow =</span> <span class="dv">2</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
 </div>
-<section id="appending-matrices" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="appending-matrices">
-<span class="header-section-number">5.1</span> Appending Matrices</h2>
+<section id="appending-matrices" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="appending-matrices"><span class="header-section-number">5.1</span> Appending Matrices</h2>
 <p><span class="math display">
 \color{RoyalBlue}{\mathbf{A}}=\begin{bmatrix}
 \color{RoyalBlue}{1} &amp; \color{RoyalBlue}{2} &amp; \color{RoyalBlue}{3} &amp; \color{RoyalBlue}{4} \\
@@ -1524,10 +1557,10 @@ Suggested Solution
 </span></p>
 <p>In R, adding new rows to a matrix is done with the <code>rbind</code> function (Think “row bind”). To append rows, matrices must have the same number of columns to be compatible.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb12" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>, nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">13</span><span class="op">:</span><span class="fl">20</span>, nrow <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">C</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">A</span>,<span class="va">B</span><span class="op">)</span></span>
-<span><span class="va">C</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">13</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">rbind</span>(A,B)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>C</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4]
 [1,]    1    2    3    4
@@ -1539,10 +1572,10 @@ Suggested Solution
 </div>
 <p>The <code>cbind</code> function (Think “column bind”) works the same way but it appends columns to the right of a matrix. Matrices must have the same number of rows to be compatible.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb14" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">5</span><span class="op">:</span><span class="fl">8</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">C</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">A</span>,<span class="va">B</span><span class="op">)</span></span>
-<span><span class="va">C</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">8</span>, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">cbind</span>(A,B)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>C</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4]
 [1,]    1    3    5    7
@@ -1585,11 +1618,13 @@ B=\begin{bmatrix}
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb16" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">3</span>, <span class="fl">7</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">11</span>,<span class="fl">17</span>,<span class="fl">13</span>,<span class="fl">19</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb16" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">7</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">11</span>,<span class="dv">17</span>,<span class="dv">13</span>,<span class="dv">19</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(A, B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    2    3
@@ -1609,9 +1644,11 @@ Suggested Solution
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb18" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">cbind</a></span><span class="op">(</span><span class="va">A</span>, <span class="va">B</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb18" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(A, B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4]
 [1,]    2    3   11   13
@@ -1621,8 +1658,9 @@ Suggested Solution
 </div>
 </div>
 </div>
-</section><section id="selecting-parts-of-a-matrix" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="selecting-parts-of-a-matrix">
-<span class="header-section-number">5.2</span> Selecting parts of a matrix</h2>
+</section>
+<section id="selecting-parts-of-a-matrix" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="selecting-parts-of-a-matrix"><span class="header-section-number">5.2</span> Selecting parts of a matrix</h2>
 <p>Let’s make this matrix:</p>
 <p><span class="math display">
 \mathbf{A} =
@@ -1633,8 +1671,8 @@ Suggested Solution
 \end{bmatrix}
 </span></p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb20" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">12</span>, nrow <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4]
 [1,]    1    2    3    4
@@ -1642,11 +1680,11 @@ Suggested Solution
 [3,]    9   10   11   12</code></pre>
 </div>
 </div>
-<section id="select-a-single-element-of-a-matrix" class="level3" data-number="5.2.1"><h3 data-number="5.2.1" class="anchored" data-anchor-id="select-a-single-element-of-a-matrix">
-<span class="header-section-number">5.2.1</span> Select a single element of a matrix</h3>
+<section id="select-a-single-element-of-a-matrix" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="select-a-single-element-of-a-matrix"><span class="header-section-number">5.2.1</span> Select a single element of a matrix</h3>
 <p>To select a single element of a matrix, specify the row and column in brackets after the matrix. For example, the element <span class="math inline">\mathbf{A}_{3,2}</span> (i.e., the 3<sup>rd</sup> row and 2<sup>nd</sup> column of <span class="math inline">\mathbf{A}</span>) is</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb22" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span><span class="fl">3</span>,<span class="fl">2</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">3</span>,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 10</code></pre>
 </div>
@@ -1665,9 +1703,11 @@ You Try
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb24" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span><span class="fl">2</span>,<span class="fl">3</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb24" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">2</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 7</code></pre>
 </div>
@@ -1675,28 +1715,30 @@ Suggested Solution
 </div>
 </div>
 </div>
-</section><section id="select-a-matrix-row" class="level3" data-number="5.2.2"><h3 data-number="5.2.2" class="anchored" data-anchor-id="select-a-matrix-row">
-<span class="header-section-number">5.2.2</span> Select a matrix row</h3>
+</section>
+<section id="select-a-matrix-row" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="select-a-matrix-row"><span class="header-section-number">5.2.2</span> Select a matrix row</h3>
 <p>Leaving one of the slots in the bracket empty means that you want all of the elements in that row or column.</p>
 <p><span class="math inline">\mathbf{A}_{1\bullet}</span> is the 1<sup>st</sup> row of <span class="math inline">\mathbf{A}</span>.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb26" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 1 2 3 4</code></pre>
 </div>
 </div>
-</section><section id="select-a-matrix-column" class="level3" data-number="5.2.3"><h3 data-number="5.2.3" class="anchored" data-anchor-id="select-a-matrix-column">
-<span class="header-section-number">5.2.3</span> Select a matrix column</h3>
+</section>
+<section id="select-a-matrix-column" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="select-a-matrix-column"><span class="header-section-number">5.2.3</span> Select a matrix column</h3>
 <p><span class="math inline">\mathbf{A}_{\bullet 3}</span> is the 3<sup>rd</sup> column of <span class="math inline">\mathbf{A}</span>.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb28" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span>, <span class="fl">3</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>A[, <span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1]  3  7 11</code></pre>
 </div>
 </div>
 <p>By default, whenever a single row, column, or element is returned from a matrix, R drops the row and column dimensions. If you wish to preserve the result in matrix form, set <code>drop</code> to <code>FALSE</code>:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb30" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span>, <span class="fl">3</span>, drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>A[, <span class="dv">3</span>, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1]
 [1,]    3
@@ -1709,20 +1751,23 @@ Suggested Solution
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb32" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span>, <span class="fl">1</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb32" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>A[, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 1 5 9</code></pre>
 </div>
 </details>
 </div>
 </div>
-</section><section id="select-several-columns-or-rows" class="level3" data-number="5.2.4"><h3 data-number="5.2.4" class="anchored" data-anchor-id="select-several-columns-or-rows">
-<span class="header-section-number">5.2.4</span> Select several columns or rows</h3>
+</section>
+<section id="select-several-columns-or-rows" class="level3" data-number="5.2.4">
+<h3 data-number="5.2.4" class="anchored" data-anchor-id="select-several-columns-or-rows"><span class="header-section-number">5.2.4</span> Select several columns or rows</h3>
 <p>A vector of integers will select whichever rows or columns you wish. Here are the 2<sup>nd</sup> and 3<sup>rd</sup> rows:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb34" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="fl">3</span>, <span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4]
 [1,]    5    6    7    8
@@ -1731,7 +1776,7 @@ Suggested Solution
 </div>
 <p>Here are the 1<sup>st</sup> and 4<sup>th</sup> columns:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb36" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>A[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    1    4
@@ -1744,9 +1789,11 @@ Suggested Solution
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb38" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb38" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>A[, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    1    3
@@ -1756,11 +1803,12 @@ Suggested Solution
 </details>
 </div>
 </div>
-</section><section id="selecting-with-boolean-vectors" class="level3" data-number="5.2.5"><h3 data-number="5.2.5" class="anchored" data-anchor-id="selecting-with-boolean-vectors">
-<span class="header-section-number">5.2.5</span> Selecting with Boolean vectors</h3>
+</section>
+<section id="selecting-with-boolean-vectors" class="level3" data-number="5.2.5">
+<h3 data-number="5.2.5" class="anchored" data-anchor-id="selecting-with-boolean-vectors"><span class="header-section-number">5.2.5</span> Selecting with Boolean vectors</h3>
 <p>Here is the first two rows of <span class="math inline">\mathbf{A}</span>:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb40" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">FALSE</span><span class="op">)</span>,<span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>A[<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">FALSE</span>),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4]
 [1,]    1    2    3    4
@@ -1769,8 +1817,8 @@ Suggested Solution
 </div>
 <p>This seems like a strange way to do this but it is actually quite powerful. Any vector of <code>TRUE</code> and <code>FALSE</code> values can be used to select things. For example, select a column only if its first value is greater than 2:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb42" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="va">A</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="op">&gt;</span> <span class="fl">2</span> <span class="co"># Creates a vector that tests whether the first row elements are greater than 2</span></span>
-<span><span class="va">A</span><span class="op">[</span>,<span class="va">s</span><span class="op">]</span> <span class="co"># Select only the columns whose first value is greater than 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> A[<span class="dv">1</span>,] <span class="sc">&gt;</span> <span class="dv">2</span> <span class="co"># Creates a vector that tests whether the first row elements are greater than 2</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>A[,s] <span class="co"># Select only the columns whose first value is greater than 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    3    4
@@ -1783,16 +1831,18 @@ Suggested Solution
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb44" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">s</span> <span class="op">&lt;-</span> <span class="va">A</span><span class="op">[</span><span class="fl">1</span>,<span class="op">]</span> <span class="op">==</span> <span class="fl">2</span> </span>
-<span><span class="co"># When only one column or row is selected, R returns a vector</span></span>
-<span><span class="va">A</span><span class="op">[</span>,<span class="va">s</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb44" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> A[<span class="dv">1</span>,] <span class="sc">==</span> <span class="dv">2</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># When only one column or row is selected, R returns a vector</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>A[,s]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1]  2  6 10</code></pre>
 </div>
-<div class="sourceCode" id="cb46" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># To force R to return a matrix, set drop = FALSE</span></span>
-<span><span class="va">A</span><span class="op">[</span>,<span class="va">s</span>, drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To force R to return a matrix, set drop = FALSE</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>A[,s, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1]
 [1,]    2
@@ -1802,13 +1852,14 @@ Suggested Solution
 </details>
 </div>
 </div>
-</section><section id="selecting-with-name-vectors" class="level3" data-number="5.2.6"><h3 data-number="5.2.6" class="anchored" data-anchor-id="selecting-with-name-vectors">
-<span class="header-section-number">5.2.6</span> Selecting with name vectors</h3>
+</section>
+<section id="selecting-with-name-vectors" class="level3" data-number="5.2.6">
+<h3 data-number="5.2.6" class="anchored" data-anchor-id="selecting-with-name-vectors"><span class="header-section-number">5.2.6</span> Selecting with name vectors</h3>
 <p>We can give row and column names to a matrix like so:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb48" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Gold"</span>,<span class="st">"Silver"</span>,<span class="st">"Bronze"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Vault"</span>,<span class="st">"Uneven Bars"</span>,<span class="st">"Balance Beam"</span>,<span class="st">"Floor"</span><span class="op">)</span></span>
-<span><span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Gold"</span>,<span class="st">"Silver"</span>,<span class="st">"Bronze"</span>)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Vault"</span>,<span class="st">"Uneven Bars"</span>,<span class="st">"Balance Beam"</span>,<span class="st">"Floor"</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>       Vault Uneven Bars Balance Beam Floor
 Gold       1           2            3     4
@@ -1818,7 +1869,7 @@ Bronze     9          10           11    12</code></pre>
 </div>
 <p>Now we can select rows and columns by names:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb50" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Gold"</span>,<span class="st">"Bronze"</span><span class="op">)</span>,<span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>A[<span class="fu">c</span>(<span class="st">"Gold"</span>,<span class="st">"Bronze"</span>),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>       Vault Uneven Bars Balance Beam Floor
 Gold       1           2            3     4
@@ -1830,15 +1881,17 @@ Bronze     9          10           11    12</code></pre>
 <div id="qwebr-insertion-location-8"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb52" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span>,<span class="st">"Uneven Bars"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb52" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>A[,<span class="st">"Uneven Bars"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>  Gold Silver Bronze 
      2      6     10 </code></pre>
 </div>
-<div class="sourceCode" id="cb54" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># or to force returning a matrix</span></span>
-<span><span class="va">A</span><span class="op">[</span>,<span class="st">"Uneven Bars"</span>, drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or to force returning a matrix</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>A[,<span class="st">"Uneven Bars"</span>, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>       Uneven Bars
 Gold             2
@@ -1851,14 +1904,16 @@ Bronze          10</code></pre>
 <div id="qwebr-insertion-location-9"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb56" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span><span class="st">"Silver"</span>, <span class="st">"Floor"</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb56" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>A[<span class="st">"Silver"</span>, <span class="st">"Floor"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 8</code></pre>
 </div>
-<div class="sourceCode" id="cb58" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># or</span></span>
-<span><span class="va">A</span><span class="op">[</span><span class="st">"Silver"</span>, <span class="st">"Floor"</span>, drop <span class="op">=</span> <span class="cn">FALSE</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>A[<span class="st">"Silver"</span>, <span class="st">"Floor"</span>, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>       Floor
 Silver     8</code></pre>
@@ -1866,12 +1921,14 @@ Silver     8</code></pre>
 </details>
 </div>
 </div>
-</section></section><section id="replace-portions-of-a-matrix" class="level2" data-number="5.3"><h2 data-number="5.3" class="anchored" data-anchor-id="replace-portions-of-a-matrix">
-<span class="header-section-number">5.3</span> Replace portions of a matrix</h2>
+</section>
+</section>
+<section id="replace-portions-of-a-matrix" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="replace-portions-of-a-matrix"><span class="header-section-number">5.3</span> Replace portions of a matrix</h2>
 <p>Any portion of a matrix can be replaced with new values. For example, this will replace the first row with zeros:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb60" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span><span class="fl">1</span>, <span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span></span>
-<span><span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>, ] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>       Vault Uneven Bars Balance Beam Floor
 Gold       0           0            0     0
@@ -1881,8 +1938,8 @@ Bronze     9          10           11    12</code></pre>
 </div>
 <p>This can be done by column or row name as well</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb62" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span><span class="st">"Gold"</span>, <span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span></span>
-<span><span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>A[<span class="st">"Gold"</span>, ] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>       Vault Uneven Bars Balance Beam Floor
 Gold       0           0            0     0
@@ -1895,10 +1952,12 @@ Bronze     9          10           11    12</code></pre>
 <div id="qwebr-insertion-location-10"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb64" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span><span class="op">[</span>, <span class="st">"Vault"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">20</span>, <span class="fl">30</span><span class="op">)</span></span>
-<span><span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb64" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>A[, <span class="st">"Vault"</span>] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>       Vault Uneven Bars Balance Beam Floor
 Gold      10           0            0     0
@@ -1908,8 +1967,9 @@ Bronze    30          10           11    12</code></pre>
 </details>
 </div>
 </div>
-</section><section id="transposing-matrices" class="level2 page-columns page-full" data-number="5.4"><h2 data-number="5.4" class="anchored" data-anchor-id="transposing-matrices">
-<span class="header-section-number">5.4</span> Transposing matrices</h2>
+</section>
+<section id="transposing-matrices" class="level2 page-columns page-full" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="transposing-matrices"><span class="header-section-number">5.4</span> Transposing matrices</h2>
 <div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="defword">To <em>transpose</em> a matrix is to write its rows as columns and its columns as rows.</span></div></div>
 <p>To <span class="defword">transpose</span> a matrix is to flip its rows into columns.</p>
 <p><span class="math inline">\mathbf{A}'</span> is matrix <span class="math inline">\mathbf{A}</span> transposed.</p>
@@ -1924,19 +1984,19 @@ Bronze    30          10           11    12</code></pre>
 2&amp;5\\
 3&amp;6
 \end{bmatrix}</span></p>
-<section id="transposing-in-r" class="level3" data-number="5.4.1"><h3 data-number="5.4.1" class="anchored" data-anchor-id="transposing-in-r">
-<span class="header-section-number">5.4.1</span> Transposing in R</h3>
+<section id="transposing-in-r" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="transposing-in-r"><span class="header-section-number">5.4.1</span> Transposing in R</h3>
 <p>In R the <code>t</code> function transposes matrices.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb66" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, nrow <span class="op">=</span> <span class="fl">2</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3]
 [1,]    1    2    3
 [2,]    4    5    6</code></pre>
 </div>
-<div class="sourceCode" id="cb68" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Aprime</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span>
-<span><span class="va">Aprime</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>Aprime <span class="ot">&lt;-</span> <span class="fu">t</span>(A)</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>Aprime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    1    4
@@ -1953,17 +2013,19 @@ Bronze    30          10           11    12</code></pre>
 <div id="qwebr-insertion-location-11"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb70" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">20</span>, <span class="fl">2</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb70" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">2</span>, <span class="dv">20</span>, <span class="dv">2</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]    2    6   10   14   18
 [2,]    4    8   12   16   20</code></pre>
 </div>
-<div class="sourceCode" id="cb72" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Aprime</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span>
-<span><span class="va">Aprime</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>Aprime <span class="ot">&lt;-</span> <span class="fu">t</span>(A)</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>Aprime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    2    4
@@ -1972,8 +2034,8 @@ Suggested Solution
 [4,]   14   16
 [5,]   18   20</code></pre>
 </div>
-<div class="sourceCode" id="cb74" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Aprime</span><span class="op">[</span><span class="fl">5</span>, <span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span></span>
-<span><span class="va">Aprime</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>Aprime[<span class="dv">5</span>, ] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>Aprime</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    2    4
@@ -1985,11 +2047,14 @@ Suggested Solution
 </details>
 </div>
 </div>
-</section></section><section id="square-matrices" class="level2" data-number="5.5"><h2 data-number="5.5" class="anchored" data-anchor-id="square-matrices">
-<span class="header-section-number">5.5</span> Square matrices</h2>
+</section>
+</section>
+<section id="square-matrices" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="square-matrices"><span class="header-section-number">5.5</span> Square matrices</h2>
 <p>In a <strong>square matrix</strong>, the number of rows is equal to the number of columns.</p>
-</section><section id="symmetric-matrices" class="level2" data-number="5.6"><h2 data-number="5.6" class="anchored" data-anchor-id="symmetric-matrices">
-<span class="header-section-number">5.6</span> Symmetric matrices</h2>
+</section>
+<section id="symmetric-matrices" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="symmetric-matrices"><span class="header-section-number">5.6</span> Symmetric matrices</h2>
 <p>A <strong>symmetric matrix</strong> is a square matrix that is equal to its transpose.</p>
 <p><span class="math display">\mathbf{A}=\mathbf{A}'</span></p>
 <p>This means that for all elements, <span class="math inline">a_{ij}=a_{ji}</span>.</p>
@@ -2001,13 +2066,14 @@ Suggested Solution
 \end{bmatrix}</span></p>
 <p>To verify that a matrix is symmetric in R:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb76" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/all.html">all</a></span><span class="op">(</span><span class="va">A</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co"># Or use a dedicated function</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/isSymmetric.html">isSymmetric</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all</span>(A <span class="sc">==</span> <span class="fu">t</span>(A))</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Or use a dedicated function</span></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="fu">isSymmetric</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Correlation matrices and covariance matrices are always symmetric.</p>
-</section><section id="diagonal-matrices" class="level2" data-number="5.7"><h2 data-number="5.7" class="anchored" data-anchor-id="diagonal-matrices">
-<span class="header-section-number">5.7</span> Diagonal matrices</h2>
+</section>
+<section id="diagonal-matrices" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="diagonal-matrices"><span class="header-section-number">5.7</span> Diagonal matrices</h2>
 <p>A <strong>diagonal matrix</strong> is a square matrix consisting of zeroes everywhere except the diagonal. For example,</p>
 <p><span class="math display">
 \mathbf{A} = \begin{bmatrix}
@@ -2018,9 +2084,9 @@ a &amp; 0 &amp; 0\\
 </span></p>
 <p>To create a diagonal matrix, specify the diagonal vector and then insert it into the <code>diag</code> function like so:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb77" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span></span>
-<span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="va">a</span><span class="op">)</span></span>
-<span><span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">diag</span>(a)</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4]
 [1,]    1    0    0    0
@@ -2031,19 +2097,22 @@ a &amp; 0 &amp; 0\\
 </div>
 <p>As we will see later, the <code>diag</code> function actually has several different purposes:</p>
 <ol type="1">
-<li>It creates a diagonal matrix <span class="math inline">\mathbf{A}</span> from a vector <span class="math inline">\vec{a}</span>.<br><code>A &lt;- diag(a)</code>
-</li>
-<li>It extracts a diagonal vector <span class="math inline">\vec{a}</span> from a matrix <span class="math inline">\mathbf{A}</span>.<br><code>a &lt;- diag(A)</code>
-</li>
-<li>It creates an identity matrix <span class="math inline">\mathbf{I}</span> from a positive integer <span class="math inline">n</span>.<br><code>I &lt;- diag(n)</code>
-</li>
-<li>It replaces the diagonal of matrix <span class="math inline">\mathbf{A}</span> with a new vector <span class="math inline">\vec{b}</span>.<br><code>diag(A) &lt;- b</code>
-</li>
+<li>It creates a diagonal matrix <span class="math inline">\mathbf{A}</span> from a vector <span class="math inline">\vec{a}</span>.<br>
+<code>A &lt;- diag(a)</code></li>
+<li>It extracts a diagonal vector <span class="math inline">\vec{a}</span> from a matrix <span class="math inline">\mathbf{A}</span>.<br>
+<code>a &lt;- diag(A)</code></li>
+<li>It creates an identity matrix <span class="math inline">\mathbf{I}</span> from a positive integer <span class="math inline">n</span>.<br>
+<code>I &lt;- diag(n)</code></li>
+<li>It replaces the diagonal of matrix <span class="math inline">\mathbf{A}</span> with a new vector <span class="math inline">\vec{b}</span>.<br>
+<code>diag(A) &lt;- b</code></li>
 </ol>
 
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -2078,7 +2147,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2110,29 +2190,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -2140,7 +2198,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -2462,7 +2520,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./vectors.html" class="pagination-link" aria-label="Vectors">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Vectors</span></span>
       </a>          
@@ -2586,6 +2646,8 @@ qwebrInstance.then(
   }
 );
 </script>
+
+
 
 
 <script src="site_libs/quarto-html/zenscroll-min.js"></script>

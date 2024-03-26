@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.26">
+<meta name="generator" content="quarto-1.4.552">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Individual Psychometrics – 6&nbsp; Matrices</title>
+
+
+<title>Individual Psychometrics - 6&nbsp; Matrices</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,6 +76,7 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -90,7 +94,8 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -116,10 +121,33 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><style>html{ scroll-behavior: smooth; }</style>
-<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script><script src="site_libs/rglWebGL-binding-1.3.1/rglWebGL.js"></script><link href="site_libs/rglwidgetClass-1.3.1/rgl.css" rel="stylesheet">
-<script src="site_libs/rglwidgetClass-1.3.1/rglClass.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/utils.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/buffer.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/subscenes.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/shaders.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/shadersrc.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/textures.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/projection.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/mouse.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/init.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/pieces.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/draw.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/controls.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/selection.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/rglTimer.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/pretty.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/axes.src.js"></script><script src="site_libs/rglwidgetClass-1.3.1/animation.src.js"></script><script src="site_libs/CanvasMatrix4-1.3.1/CanvasMatrix.src.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/editor/editor.main.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/rglWebGL-binding-1.3.1/rglWebGL.js"></script>
+<link href="site_libs/rglwidgetClass-1.3.1/rgl.css" rel="stylesheet">
+<script src="site_libs/rglwidgetClass-1.3.1/rglClass.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/utils.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/buffer.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/subscenes.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/shaders.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/shadersrc.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/textures.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/projection.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/mouse.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/init.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/pieces.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/draw.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/controls.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/selection.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/rglTimer.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/pretty.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/axes.src.js"></script>
+<script src="site_libs/rglwidgetClass-1.3.1/animation.src.js"></script>
+<script src="site_libs/CanvasMatrix4-1.3.1/CanvasMatrix.src.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/editor/editor.main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  
 <style type="text/css">
 .monaco-editor pre {
   background-color: unset !important;
@@ -283,9 +311,10 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"k <- _\nA <- _","id":1,"options":{"autorun":"false","out-height":"","context":"interactive","out-width":"700px","fig-width":7,"message":"true","output":"true","comment":"","classes":"","label":"ex-scalarmatrix","dpi":72,"results":"markup","warning":"true","fig-cap":"","fig-height":5}},{"code":"A <- matrix(c(\n  15,9,6,19, \n    20,11,20,18, \n    15,3,8,5), \n  nrow = 3, byrow = TRUE)\nB <- matrix(c(\n  17,14,1,19, \n    11,2,12,14, \n    5,16,1,20), \n  nrow = 3, byrow = TRUE)\nC <- matrix(c(\n  5,16,20, \n    9,9,12, \n    15,5,8, \n    12,8,17), nrow = 4, byrow = TRUE)\n\n# Add A and B\n_ + _","id":2,"options":{"autorun":"false","out-height":"","context":"interactive","out-width":"700px","fig-width":7,"message":"true","output":"true","comment":"","classes":"","label":"ex-matrixaddAB","dpi":72,"results":"markup","warning":"true","fig-cap":"","fig-height":5}},{"code":"_ - _","id":3,"options":{"autorun":"false","out-height":"","context":"interactive","out-width":"700px","fig-width":7,"message":"true","output":"true","comment":"","classes":"","label":"ex-matrixsubractAB","dpi":72,"results":"markup","warning":"true","fig-cap":"","fig-height":5}},{"code":"A _ B","id":4,"options":{"autorun":"false","out-height":"","context":"interactive","out-width":"700px","fig-width":7,"message":"true","output":"true","comment":"","classes":"","label":"ex-matrixhadamardAB","dpi":72,"results":"markup","warning":"true","fig-cap":"","fig-height":5}},{"code":"A _ B","id":5,"options":{"autorun":"false","out-height":"","context":"interactive","out-width":"700px","fig-width":7,"message":"true","output":"true","comment":"","classes":"","label":"ex-matrixmultAB","dpi":72,"results":"markup","warning":"true","fig-cap":"","fig-height":5}},{"code":"","id":6,"options":{"autorun":"false","out-height":"","context":"interactive","out-width":"700px","fig-width":7,"message":"true","output":"true","comment":"","classes":"","label":"ex-identity33","dpi":72,"results":"markup","warning":"true","fig-cap":"","fig-height":5}},{"code":"","id":7,"options":{"autorun":"false","out-height":"","context":"interactive","out-width":"700px","fig-width":7,"message":"true","output":"true","comment":"","classes":"","label":"ex-inverseBC","dpi":72,"results":"markup","warning":"true","fig-cap":"","fig-height":5}},{"code":"","id":8,"options":{"autorun":"false","out-height":"","context":"interactive","out-width":"700px","fig-width":7,"message":"true","output":"true","comment":"","classes":"","label":"ex-identityBC","dpi":72,"results":"markup","warning":"true","fig-cap":"","fig-height":5}},{"code":"","id":9,"options":{"autorun":"false","out-height":"","context":"interactive","out-width":"700px","fig-width":7,"message":"true","output":"true","comment":"","classes":"","label":"ex-inverseCtranspose","dpi":72,"results":"markup","warning":"true","fig-cap":"","fig-height":5}},{"code":"rho <- matrix(c(1,0.7,0.7,1),2)","id":10,"options":{"autorun":"false","out-height":"","context":"interactive","out-width":"700px","fig-width":7,"message":"true","output":"true","comment":"","classes":"","label":"ex-eigenrho","dpi":72,"results":"markup","warning":"true","fig-cap":"","fig-height":5}}];
+globalThis.qwebrCellDetails = [{"options":{"out-height":"","output":"true","comment":"","warning":"true","message":"true","label":"ex-scalarmatrix","classes":"","fig-height":5,"autorun":"false","results":"markup","dpi":72,"fig-width":7,"out-width":"700px","context":"interactive","fig-cap":""},"id":1,"code":"k <- _\nA <- _"},{"options":{"out-height":"","output":"true","comment":"","warning":"true","message":"true","label":"ex-matrixaddAB","classes":"","fig-height":5,"autorun":"false","results":"markup","dpi":72,"fig-width":7,"out-width":"700px","context":"interactive","fig-cap":""},"id":2,"code":"A <- matrix(c(\n  15,9,6,19, \n    20,11,20,18, \n    15,3,8,5), \n  nrow = 3, byrow = TRUE)\nB <- matrix(c(\n  17,14,1,19, \n    11,2,12,14, \n    5,16,1,20), \n  nrow = 3, byrow = TRUE)\nC <- matrix(c(\n  5,16,20, \n    9,9,12, \n    15,5,8, \n    12,8,17), nrow = 4, byrow = TRUE)\n\n# Add A and B\n_ + _"},{"options":{"out-height":"","output":"true","comment":"","warning":"true","message":"true","label":"ex-matrixsubractAB","classes":"","fig-height":5,"autorun":"false","results":"markup","dpi":72,"fig-width":7,"out-width":"700px","context":"interactive","fig-cap":""},"id":3,"code":"_ - _"},{"options":{"out-height":"","output":"true","comment":"","warning":"true","message":"true","label":"ex-matrixhadamardAB","classes":"","fig-height":5,"autorun":"false","results":"markup","dpi":72,"fig-width":7,"out-width":"700px","context":"interactive","fig-cap":""},"id":4,"code":"A _ B"},{"options":{"out-height":"","output":"true","comment":"","warning":"true","message":"true","label":"ex-matrixmultAB","classes":"","fig-height":5,"autorun":"false","results":"markup","dpi":72,"fig-width":7,"out-width":"700px","context":"interactive","fig-cap":""},"id":5,"code":"A _ B"},{"options":{"out-height":"","output":"true","comment":"","warning":"true","message":"true","label":"ex-identity33","classes":"","fig-height":5,"autorun":"false","results":"markup","dpi":72,"fig-width":7,"out-width":"700px","context":"interactive","fig-cap":""},"id":6,"code":""},{"options":{"out-height":"","output":"true","comment":"","warning":"true","message":"true","label":"ex-inverseBC","classes":"","fig-height":5,"autorun":"false","results":"markup","dpi":72,"fig-width":7,"out-width":"700px","context":"interactive","fig-cap":""},"id":7,"code":""},{"options":{"out-height":"","output":"true","comment":"","warning":"true","message":"true","label":"ex-identityBC","classes":"","fig-height":5,"autorun":"false","results":"markup","dpi":72,"fig-width":7,"out-width":"700px","context":"interactive","fig-cap":""},"id":8,"code":""},{"options":{"out-height":"","output":"true","comment":"","warning":"true","message":"true","label":"ex-inverseCtranspose","classes":"","fig-height":5,"autorun":"false","results":"markup","dpi":72,"fig-width":7,"out-width":"700px","context":"interactive","fig-cap":""},"id":9,"code":""},{"options":{"out-height":"","output":"true","comment":"","warning":"true","message":"true","label":"ex-eigenrho","classes":"","fig-height":5,"autorun":"false","results":"markup","dpi":72,"fig-width":7,"out-width":"700px","context":"interactive","fig-cap":""},"id":10,"code":"rho <- matrix(c(1,0.7,0.7,1),2)"}];
 
-</script><script type="module">
+</script>
+<script type="module">
 // Declare startupMessageQWebR globally
 globalThis.qwebrStartupMessage = document.createElement("p");
 
@@ -378,7 +407,8 @@ function displayStartupMessage(showStartupMessage, showHeaderMessage) {
 }
 
 displayStartupMessage(qwebrShowStartupMessage, qwebrShowHeaderMessage);
-</script><script type="module">
+</script>
+<script type="module">
 // Supported Evaluation Types for Context
 globalThis.EvalTypes = Object.freeze({
   Interactive: 'interactive',
@@ -624,7 +654,8 @@ globalThis.createLoadingContainer = function(qwebrCounter) {
 
   return container;
 }
-</script><script type="module">
+</script>
+<script type="module">
 // Function to install a single package
 async function qwebrInstallRPackage(packageName) {
   await mainWebR.evalRVoid(`webr::install('${packageName}');`);
@@ -720,7 +751,8 @@ globalThis.qwebrInstance = import(qwebrCustomizedWebROptions.baseURL + "webr.mjs
 // Stop timer
 const initializeWebRTimerEnd = performance.now();
 
-</script><script type="module">
+</script>
+<script type="module">
 // Function to verify a given JavaScript Object is empty
 globalThis.qwebrIsObjectEmpty = function (arr) {
     return Object.keys(arr).length === 0;
@@ -994,7 +1026,10 @@ globalThis.qwebrExecuteCode = async function (
     }
 }
 
-</script><script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -1007,7 +1042,9 @@ globalThis.qwebrExecuteCode = async function (
     fleqn: false
    });
 }}});
-  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
 <script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
@@ -1033,12 +1070,17 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><link rel="stylesheet" href="equity.css">
+</script>
+
+<link rel="stylesheet" href="equity.css">
 </head>
+
 <body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -1049,9 +1091,13 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Individual Psychometrics</a> 
     </div>
@@ -1063,7 +1109,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
@@ -1077,8 +1123,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
@@ -1091,7 +1137,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
@@ -1100,8 +1146,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./scalars.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Scalars</span></span></a>
@@ -1126,7 +1172,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -1135,8 +1181,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variables</span></span></a>
@@ -1173,65 +1219,56 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-    <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Matrices–Operations</h2>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Matrices–Operations</h2>
    
   <ul>
-<li><a href="#adding-matrices" id="toc-adding-matrices" class="nav-link active" data-scroll-target="#adding-matrices"><span class="header-section-number">6.1</span> Adding Matrices</a></li>
-  <li>
-<a href="#subtracting-matrices" id="toc-subtracting-matrices" class="nav-link" data-scroll-target="#subtracting-matrices"><span class="header-section-number">6.2</span> Subtracting Matrices</a>
+  <li><a href="#adding-matrices" id="toc-adding-matrices" class="nav-link active" data-scroll-target="#adding-matrices"><span class="header-section-number">6.1</span> Adding Matrices</a></li>
+  <li><a href="#subtracting-matrices" id="toc-subtracting-matrices" class="nav-link" data-scroll-target="#subtracting-matrices"><span class="header-section-number">6.2</span> Subtracting Matrices</a>
   <ul class="collapse">
-<li><a href="#adding-and-subtracting-matrices-in-r" id="toc-adding-and-subtracting-matrices-in-r" class="nav-link" data-scroll-target="#adding-and-subtracting-matrices-in-r"><span class="header-section-number">6.2.1</span> Adding and Subtracting Matrices in R</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#scalar-matrix-multiplication" id="toc-scalar-matrix-multiplication" class="nav-link" data-scroll-target="#scalar-matrix-multiplication"><span class="header-section-number">6.3</span> Scalar-Matrix Multiplication</a>
+  <li><a href="#adding-and-subtracting-matrices-in-r" id="toc-adding-and-subtracting-matrices-in-r" class="nav-link" data-scroll-target="#adding-and-subtracting-matrices-in-r"><span class="header-section-number">6.2.1</span> Adding and Subtracting Matrices in R</a></li>
+  </ul></li>
+  <li><a href="#scalar-matrix-multiplication" id="toc-scalar-matrix-multiplication" class="nav-link" data-scroll-target="#scalar-matrix-multiplication"><span class="header-section-number">6.3</span> Scalar-Matrix Multiplication</a>
   <ul class="collapse">
-<li><a href="#scalar-matrix-multiplication-in-r" id="toc-scalar-matrix-multiplication-in-r" class="nav-link" data-scroll-target="#scalar-matrix-multiplication-in-r"><span class="header-section-number">6.3.1</span> Scalar-Matrix Multiplication in R</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#matrix-multiplication" id="toc-matrix-multiplication" class="nav-link" data-scroll-target="#matrix-multiplication"><span class="header-section-number">6.4</span> Matrix Multiplication</a>
+  <li><a href="#scalar-matrix-multiplication-in-r" id="toc-scalar-matrix-multiplication-in-r" class="nav-link" data-scroll-target="#scalar-matrix-multiplication-in-r"><span class="header-section-number">6.3.1</span> Scalar-Matrix Multiplication in R</a></li>
+  </ul></li>
+  <li><a href="#matrix-multiplication" id="toc-matrix-multiplication" class="nav-link" data-scroll-target="#matrix-multiplication"><span class="header-section-number">6.4</span> Matrix Multiplication</a>
   <ul class="collapse">
-<li><a href="#matrix-multiplication-example" id="toc-matrix-multiplication-example" class="nav-link" data-scroll-target="#matrix-multiplication-example"><span class="header-section-number">6.4.1</span> Matrix Multiplication Example</a></li>
+  <li><a href="#matrix-multiplication-example" id="toc-matrix-multiplication-example" class="nav-link" data-scroll-target="#matrix-multiplication-example"><span class="header-section-number">6.4.1</span> Matrix Multiplication Example</a></li>
   <li><a href="#matrix-multiplication-in-r" id="toc-matrix-multiplication-in-r" class="nav-link" data-scroll-target="#matrix-multiplication-in-r"><span class="header-section-number">6.4.2</span> Matrix Multiplication in R</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#elementwise-matrix-multiplication" id="toc-elementwise-matrix-multiplication" class="nav-link" data-scroll-target="#elementwise-matrix-multiplication"><span class="header-section-number">7</span> Elementwise Matrix Multiplication</a>
+  </ul></li>
+  <li><a href="#elementwise-matrix-multiplication" id="toc-elementwise-matrix-multiplication" class="nav-link" data-scroll-target="#elementwise-matrix-multiplication"><span class="header-section-number">7</span> Elementwise Matrix Multiplication</a>
   <ul class="collapse">
-<li>
-<a href="#identity-elements" id="toc-identity-elements" class="nav-link" data-scroll-target="#identity-elements"><span class="header-section-number">7.1</span> Identity Elements</a>
+  <li><a href="#identity-elements" id="toc-identity-elements" class="nav-link" data-scroll-target="#identity-elements"><span class="header-section-number">7.1</span> Identity Elements</a>
   <ul class="collapse">
-<li><a href="#identity-matrix" id="toc-identity-matrix" class="nav-link" data-scroll-target="#identity-matrix"><span class="header-section-number">7.1.1</span> Identity Matrix</a></li>
+  <li><a href="#identity-matrix" id="toc-identity-matrix" class="nav-link" data-scroll-target="#identity-matrix"><span class="header-section-number">7.1.1</span> Identity Matrix</a></li>
   <li><a href="#the-identity-matrix-in-r" id="toc-the-identity-matrix-in-r" class="nav-link" data-scroll-target="#the-identity-matrix-in-r"><span class="header-section-number">7.1.2</span> The Identity Matrix in R</a></li>
-  </ul>
-</li>
+  </ul></li>
   <li><a href="#multiplicative-inverse" id="toc-multiplicative-inverse" class="nav-link" data-scroll-target="#multiplicative-inverse"><span class="header-section-number">7.2</span> Multiplicative Inverse</a></li>
-  <li>
-<a href="#matrix-inverse" id="toc-matrix-inverse" class="nav-link" data-scroll-target="#matrix-inverse"><span class="header-section-number">7.3</span> Matrix Inverse</a>
+  <li><a href="#matrix-inverse" id="toc-matrix-inverse" class="nav-link" data-scroll-target="#matrix-inverse"><span class="header-section-number">7.3</span> Matrix Inverse</a>
   <ul class="collapse">
-<li><a href="#calculating-inverses-in-r" id="toc-calculating-inverses-in-r" class="nav-link" data-scroll-target="#calculating-inverses-in-r"><span class="header-section-number">7.3.1</span> Calculating Inverses in R</a></li>
-  </ul>
-</li>
+  <li><a href="#calculating-inverses-in-r" id="toc-calculating-inverses-in-r" class="nav-link" data-scroll-target="#calculating-inverses-in-r"><span class="header-section-number">7.3.1</span> Calculating Inverses in R</a></li>
+  </ul></li>
   <li><a href="#creating-sums-with-matrices" id="toc-creating-sums-with-matrices" class="nav-link" data-scroll-target="#creating-sums-with-matrices"><span class="header-section-number">7.4</span> Creating Sums with Matrices</a></li>
-  <li>
-<a href="#eigenvectors-and-eigenvalues" id="toc-eigenvectors-and-eigenvalues" class="nav-link" data-scroll-target="#eigenvectors-and-eigenvalues"><span class="header-section-number">7.5</span> Eigenvectors and Eigenvalues</a>
+  <li><a href="#eigenvectors-and-eigenvalues" id="toc-eigenvectors-and-eigenvalues" class="nav-link" data-scroll-target="#eigenvectors-and-eigenvalues"><span class="header-section-number">7.5</span> Eigenvectors and Eigenvalues</a>
   <ul class="collapse">
-<li><a href="#eigenvectors-and-eigenvalues-in-r" id="toc-eigenvectors-and-eigenvalues-in-r" class="nav-link" data-scroll-target="#eigenvectors-and-eigenvalues-in-r"><span class="header-section-number">7.5.1</span> Eigenvectors and Eigenvalues in R</a></li>
+  <li><a href="#eigenvectors-and-eigenvalues-in-r" id="toc-eigenvectors-and-eigenvalues-in-r" class="nav-link" data-scroll-target="#eigenvectors-and-eigenvalues-in-r"><span class="header-section-number">7.5.1</span> Eigenvectors and Eigenvalues in R</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
-</li>
-  </ul>
-</li>
-  </ul></nav>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script><script type="module" id="qwebr-monaco-editor-init">
+<main class="content page-columns page-full" id="quarto-document-content">
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+<script type="module" id="qwebr-monaco-editor-init">
 
   // Configure the Monaco Editor's loader
   require.config({
@@ -1239,7 +1276,8 @@ window.Quarto = {
       'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs'
     }
   });
-</script><script type="module">
+</script>
+<script type="module">
 // Global dictionary to store Monaco Editor instances
 globalThis.qwebrEditorInstances = {};
 
@@ -1401,10 +1439,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   };
   
 }
-</script><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matrix_algebra.html">Matrix Algebra in R</a></li><li class="breadcrumb-item"><a href="./matrices_operations.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices–Operations</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices</span>
-</h1>
+</script>
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matrix_algebra.html">Matrix Algebra in R</a></li><li class="breadcrumb-item"><a href="./matrices_operations.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices–Operations</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Matrices</span></h1>
 <p class="subtitle lead">Operations</p>
 </div>
 
@@ -1419,9 +1458,12 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   
 
 
-</header><p>Matrices allow us to perform mathematical operations on many sets of numbers all at once. Because statistical analysis requires repeated calculations on rows and columns of data, matrix algebra has become the engine that underlies most statistical analyses.</p>
-<section id="adding-matrices" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="adding-matrices">
-<span class="header-section-number">6.1</span> Adding Matrices</h2>
+</header>
+
+
+<p>Matrices allow us to perform mathematical operations on many sets of numbers all at once. Because statistical analysis requires repeated calculations on rows and columns of data, matrix algebra has become the engine that underlies most statistical analyses.</p>
+<section id="adding-matrices" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="adding-matrices"><span class="header-section-number">6.1</span> Adding Matrices</h2>
 <p>In order to add matrices, they must be <em>compatible</em>, meaning that they must have same number of rows and columns.</p>
 <p>To add compatible matrices, simply add elements in the same position. <span class="math display">
 \begin{aligned}\mathbf{A}+\mathbf{B}&amp;=
@@ -1442,8 +1484,9 @@ a_{31}+b_{31} &amp; a_{32}+b_{32}
 \end{bmatrix}
 \end{aligned}
 </span></p>
-</section><section id="subtracting-matrices" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="subtracting-matrices">
-<span class="header-section-number">6.2</span> Subtracting Matrices</h2>
+</section>
+<section id="subtracting-matrices" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="subtracting-matrices"><span class="header-section-number">6.2</span> Subtracting Matrices</h2>
 <p>Subtracting matrices works the same way.</p>
 <p><span class="math display">
 \begin{aligned}\mathbf{A}-\mathbf{B}&amp;=
@@ -1464,40 +1507,42 @@ a_{31}-b_{31} &amp; a_{32}-b_{32}
 \end{bmatrix}
 \end{aligned}
 </span></p>
-<section id="adding-and-subtracting-matrices-in-r" class="level3" data-number="6.2.1"><h3 data-number="6.2.1" class="anchored" data-anchor-id="adding-and-subtracting-matrices-in-r">
-<span class="header-section-number">6.2.1</span> Adding and Subtracting Matrices in R</h3>
+<section id="adding-and-subtracting-matrices-in-r" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="adding-and-subtracting-matrices-in-r"><span class="header-section-number">6.2.1</span> Adding and Subtracting Matrices in R</h3>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb1" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>,nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3]
 [1,]    1    3    5
 [2,]    2    4    6</code></pre>
 </div>
-<div class="sourceCode" id="cb3" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">60</span>,<span class="fl">10</span><span class="op">)</span>,nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">B</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">10</span>,<span class="dv">60</span>,<span class="dv">10</span>),<span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3]
 [1,]   10   30   50
 [2,]   20   40   60</code></pre>
 </div>
-<div class="sourceCode" id="cb5" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">APlusB</span> <span class="op">&lt;-</span> <span class="va">A</span> <span class="op">+</span> <span class="va">B</span></span>
-<span><span class="va">APlusB</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>APlusB <span class="ot">&lt;-</span> A <span class="sc">+</span> B</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>APlusB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3]
 [1,]   11   33   55
 [2,]   22   44   66</code></pre>
 </div>
-<div class="sourceCode" id="cb7" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">AMinusB</span> <span class="op">&lt;-</span> <span class="va">A</span> <span class="op">-</span> <span class="va">B</span></span>
-<span><span class="va">AMinusB</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>AMinusB <span class="ot">&lt;-</span> A <span class="sc">-</span> B</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>AMinusB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3]
 [1,]   -9  -27  -45
 [2,]  -18  -36  -54</code></pre>
 </div>
 </div>
-</section></section><section id="scalar-matrix-multiplication" class="level2 page-columns page-full" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="scalar-matrix-multiplication">
-<span class="header-section-number">6.3</span> Scalar-Matrix Multiplication</h2>
+</section>
+</section>
+<section id="scalar-matrix-multiplication" class="level2 page-columns page-full" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="scalar-matrix-multiplication"><span class="header-section-number">6.3</span> Scalar-Matrix Multiplication</h2>
 <div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>defword</strong> is a single number, not in a matrix.</span></div></div>
 <p>To multiply a scalar by a matrix, multiply the scalar by every element in the matrix:</p>
 <p><span class="math display">k\mathbf{A}=
@@ -1509,19 +1554,19 @@ a_{21} &amp; a_{22} &amp; a_{23}
 ka_{11} &amp; ka_{12} &amp; ka_{13}\\
 ka_{21} &amp; ka_{22} &amp; ka_{23}
 \end{bmatrix}</span></p>
-<section id="scalar-matrix-multiplication-in-r" class="level3" data-number="6.3.1"><h3 data-number="6.3.1" class="anchored" data-anchor-id="scalar-matrix-multiplication-in-r">
-<span class="header-section-number">6.3.1</span> Scalar-Matrix Multiplication in R</h3>
+<section id="scalar-matrix-multiplication-in-r" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="scalar-matrix-multiplication-in-r"><span class="header-section-number">6.3.1</span> Scalar-Matrix Multiplication in R</h3>
 <p>To perform scalar-matrix multiplication in R, define a scalar, create a matrix, and then multiply them with the <code>*</code> operator.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb9" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
-<span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>,nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3]
 [1,]    1    3    5
 [2,]    2    4    6</code></pre>
 </div>
-<div class="sourceCode" id="cb11" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">k</span> <span class="op">*</span> <span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>k <span class="sc">*</span> A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3]
 [1,]   10   30   50
@@ -1541,11 +1586,13 @@ ka_{21} &amp; ka_{22} &amp; ka_{23}
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb13" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
-<span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">0</span>,<span class="fl">5</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">k</span> <span class="op">*</span> <span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb13" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">5</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>k <span class="sc">*</span> A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    5    0
@@ -1554,8 +1601,10 @@ Suggested Solution
 </details>
 </div>
 </div>
-</section></section><section id="matrix-multiplication" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="matrix-multiplication">
-<span class="header-section-number">6.4</span> Matrix Multiplication</h2>
+</section>
+</section>
+<section id="matrix-multiplication" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="matrix-multiplication"><span class="header-section-number">6.4</span> Matrix Multiplication</h2>
 <p>Matrix multiplication is considerably more complex than matrix addition and subtraction. It took me an embarrassingly long time for me to wrap my head around it. I will state things in the abstract first, but it is hard to see what is going on until you see a concrete example.</p>
 <p>In order for matrices to be compatible for multiplication, the number of columns of the left matrix must be the same as the number of rows of the right matrix. The product of <strong>A </strong>and <strong>B</strong> will have the the same number of rows as <strong>A</strong> and the same number of columns as <strong>B</strong>.</p>
 <p>Imagine that matrix <strong>A</strong> has <em>n</em> rows and <em>m</em> columns. Matrix <strong>B</strong> has <em>m</em> rows and <em>p</em> columns. When <strong>A</strong> and <strong>B</strong> are multiplied, the resulting product is matrix <strong>C</strong> with <em>n</em> rows and <em>p</em> columns.</p>
@@ -1566,11 +1615,13 @@ Suggested Solution
 <p><span class="math display">c_{ij}=\mathbf{A}_{i\bullet}\mathbf{B}_{\bullet j}</span></p>
 <p><a href="http://commons.wikimedia.org/wiki/File:Matrix_multiplication_diagram.svg">This schematic</a> gives a nice visual summary:</p>
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="http://upload.wikimedia.org/wikipedia/commons/1/11/Matrix_multiplication_diagram.svg" class="img-fluid figure-img"></p>
-<figcaption>Matrix Multiplication</figcaption></figure>
+<figure class="figure">
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/1/11/Matrix_multiplication_diagram.svg" class="img-fluid figure-img"></p>
+<figcaption>Matrix Multiplication</figcaption>
+</figure>
 </div>
-<section id="matrix-multiplication-example" class="level3" data-number="6.4.1"><h3 data-number="6.4.1" class="anchored" data-anchor-id="matrix-multiplication-example">
-<span class="header-section-number">6.4.1</span> Matrix Multiplication Example</h3>
+<section id="matrix-multiplication-example" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="matrix-multiplication-example"><span class="header-section-number">6.4.1</span> Matrix Multiplication Example</h3>
 <p><span class="math display">\mathbf{A}=\begin{bmatrix}
 \color{FireBrick}a&amp;\color{FireBrick}b&amp;\color{FireBrick}c\\
 \color{RoyalBlue}e&amp;\color{RoyalBlue}d&amp;\color{RoyalBlue}f
@@ -1607,35 +1658,38 @@ Suggested Solution
 \end{bmatrix}
 \end{align}
 </span></p>
-</section><section id="matrix-multiplication-in-r" class="level3" data-number="6.4.2"><h3 data-number="6.4.2" class="anchored" data-anchor-id="matrix-multiplication-in-r">
-<span class="header-section-number">6.4.2</span> Matrix Multiplication in R</h3>
+</section>
+<section id="matrix-multiplication-in-r" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="matrix-multiplication-in-r"><span class="header-section-number">6.4.2</span> Matrix Multiplication in R</h3>
 <p>The <code>%*%</code> operator multiplies matrices (and the inner products of vectors).</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb15" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>,nrow <span class="op">=</span> <span class="fl">2</span>,byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,<span class="at">nrow =</span> <span class="dv">2</span>,<span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3]
 [1,]    1    2    3
 [2,]    4    5    6</code></pre>
 </div>
-<div class="sourceCode" id="cb17" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">60</span>,<span class="fl">10</span><span class="op">)</span>,nrow <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span><span class="va">B</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">10</span>,<span class="dv">60</span>,<span class="dv">10</span>),<span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]   10   40
 [2,]   20   50
 [3,]   30   60</code></pre>
 </div>
-<div class="sourceCode" id="cb19" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">C</span> <span class="op">&lt;-</span> <span class="va">A</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">B</span></span>
-<span><span class="va">C</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> A <span class="sc">%*%</span> B</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>C</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]  140  320
 [2,]  320  770</code></pre>
 </div>
 </div>
-</section></section><section id="elementwise-matrix-multiplication" class="level1 page-columns page-full" data-number="7"><h1 data-number="7">
-<span class="header-section-number">7</span> Elementwise Matrix Multiplication</h1>
+</section>
+</section>
+<section id="elementwise-matrix-multiplication" class="level1 page-columns page-full" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Elementwise Matrix Multiplication</h1>
 <p>Elementwise matrix multiplication is when we simply multiply corresponding elements of identically-sized matrices. This is sometimes called the <em>Hadamard product</em>.</p>
 <p><span class="math display">\begin{aligned}A\circ B&amp;=\begin{bmatrix} a_{11} &amp; a_{12} &amp; a_{13}\\
 a_{21} &amp; a_{22} &amp; a_{23}
@@ -1650,7 +1704,7 @@ a_{21}\, b_{21} &amp; a_{22}\, b_{22} &amp; a_{23}\, b_{23}
 \end{bmatrix}\end{aligned}</span></p>
 <p>In R, elementwise multiplication is quite easy.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb21" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">C</span> <span class="op">&lt;-</span> <span class="va">A</span> <span class="op">*</span> <span class="va">B</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> A <span class="sc">*</span> B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Elementwise division works the same way.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
@@ -1687,9 +1741,11 @@ a_{21}\, b_{21} &amp; a_{22}\, b_{22} &amp; a_{23}\, b_{23}
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb22" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">+</span> <span class="va">B</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb22" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">+</span> B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4]
 [1,]   32   23    7   38
@@ -1704,9 +1760,11 @@ Suggested Solution
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb24" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">-</span> <span class="va">B</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb24" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">-</span> B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4]
 [1,]   -2   -5    5    0
@@ -1721,9 +1779,11 @@ Suggested Solution
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb26" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">*</span> <span class="va">B</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb26" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">*</span> B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4]
 [1,]  255  126    6  361
@@ -1738,9 +1798,11 @@ Suggested Solution
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb28" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">C</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb28" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">%*%</span> C</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3]
 [1,]  474  503  779
@@ -1750,8 +1812,8 @@ Suggested Solution
 </details>
 </div>
 </div>
-<section id="identity-elements" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="identity-elements">
-<span class="header-section-number">7.1</span> Identity Elements</h2>
+<section id="identity-elements" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="identity-elements"><span class="header-section-number">7.1</span> Identity Elements</h2>
 <p>The <em>identity element</em> for a binary operation is the value that when combined with something leaves it unchanged. For example, the additive identity is 0.</p>
 <p><span class="math display">X+0=X</span></p>
 <p>The number 0 is also the identity element for subtraction.</p>
@@ -1761,8 +1823,8 @@ Suggested Solution
 <p>The number 1 is also the identity element for division and exponentiation.</p>
 <p><span class="math display">X \div 1=X</span></p>
 <p><span class="math display">X^1=X</span></p>
-<section id="identity-matrix" class="level3" data-number="7.1.1"><h3 data-number="7.1.1" class="anchored" data-anchor-id="identity-matrix">
-<span class="header-section-number">7.1.1</span> Identity Matrix</h3>
+<section id="identity-matrix" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="identity-matrix"><span class="header-section-number">7.1.1</span> Identity Matrix</h3>
 <p>For matrix multiplication with square matrices, the identity element is called the <em>identity matrix</em>, <span class="math inline">\mathbf{I}</span>.</p>
 <p><span class="math display">\mathbf{AI}=\mathbf{A}</span></p>
 <p>The identity matrix is a diagonal matrix with ones on the diagonal. For example, a <span class="math inline">2 \times 2</span> identity matrix looks like this:</p>
@@ -1779,11 +1841,12 @@ Suggested Solution
 <p>It is usually not necessary to use a subscript because the size of the identity matrix is usually assumed to be the same as that of the matrix it is multiplied by.</p>
 <p>Thus, although it is true that <span class="math inline">\mathbf{AI}=\mathbf{A}</span> and <span class="math inline">\mathbf{IA}=\mathbf{A}</span>, it is possible that the <span class="math inline">\mathbf{I}</span> is of different sizes in these equations, depending on the dimensions of <span class="math inline">\mathbf{A}</span>.</p>
 <p>If <span class="math inline">\mathbf{A}</span> has <span class="math inline">m</span> rows and <span class="math inline">n</span> columns, in <span class="math inline">\mathbf{AI}</span>, it is assumed that <span class="math inline">\mathbf{I}</span> is of size <span class="math inline">n</span> so that it is right-compatible with <span class="math inline">\mathbf{A}</span>. In <span class="math inline">\mathbf{IA}</span>, it is assumed that <span class="math inline">\mathbf{I}</span> is of size <span class="math inline">m</span> so that it is left-compatible with <span class="math inline">\mathbf{A}</span>.</p>
-</section><section id="the-identity-matrix-in-r" class="level3" data-number="7.1.2"><h3 data-number="7.1.2" class="anchored" data-anchor-id="the-identity-matrix-in-r">
-<span class="header-section-number">7.1.2</span> The Identity Matrix in R</h3>
+</section>
+<section id="the-identity-matrix-in-r" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="the-identity-matrix-in-r"><span class="header-section-number">7.1.2</span> The Identity Matrix in R</h3>
 <p>To create an identity matrix, use the <code>diag</code> function with a single integer as its argument. For example <code>diag(6)</code> produces a 6 by 6 identity matrix.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb30" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="fl">6</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4] [,5] [,6]
 [1,]    1    0    0    0    0    0
@@ -1794,14 +1857,17 @@ Suggested Solution
 [6,]    0    0    0    0    0    1</code></pre>
 </div>
 </div>
-</section></section><section id="multiplicative-inverse" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="multiplicative-inverse">
-<span class="header-section-number">7.2</span> Multiplicative Inverse</h2>
+</section>
+</section>
+<section id="multiplicative-inverse" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="multiplicative-inverse"><span class="header-section-number">7.2</span> Multiplicative Inverse</h2>
 <p><span class="math inline">X</span> multiplied by its <em>multiplicative inverse</em> yields the multiplicative identity, 1. The multiplicative inverse is also known as the <em>reciprocal</em>.</p>
 <p><span class="math display">X\times \frac{1}{X}=1</span></p>
 <p>Another way to write the reciprocal is to give it an exponent of <span class="math inline">-1</span>.</p>
 <p><span class="math display">X^{-1}=\frac{1}{X}</span></p>
-</section><section id="matrix-inverse" class="level2 page-columns page-full" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="matrix-inverse">
-<span class="header-section-number">7.3</span> Matrix Inverse</h2>
+</section>
+<section id="matrix-inverse" class="level2 page-columns page-full" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="matrix-inverse"><span class="header-section-number">7.3</span> Matrix Inverse</h2>
 <p>Only square matrices have multiplicative inverses. Multiplying square matrix <span class="math inline">\mathbf{A}</span> by its inverse <span class="math inline">(\mathbf{A}^{-1})</span> produces the identity matrix.</p>
 <p><span class="math display">\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}</span></p>
 <p>The inverse matrix produces the identity matrix whether it is pre-multiplied or post-multiplied.</p>
@@ -1818,8 +1884,8 @@ Suggested Solution
 <p>The covariance matrix of <span class="defword">collinear</span> variables is singular. In multiple regression, we use the inverse of the covariance matrix of the predictor variables to calculate the regression matrix. If the predictor variables are collinear, the regression coefficients cannot be calculated. For example, if <span class="math inline">Z=X+Y</span>, we cannot use <span class="math inline">X</span>, <span class="math inline">Y</span>, and <span class="math inline">Z</span> together as predictors in a multiple regression equation. <span class="math inline">Z</span> is perfectly predicted from <span class="math inline">X</span> and <span class="math inline">Y</span>. In the calculation of the regression coefficients, division by 0 will be attempted, and the calculation can proceed no further.</p>
 <p>If use to bother me that that collinear variables could not be used together as predictors. However, thinking a little further, revealed why it is impossible. The definition of a regression coefficient is the independent effect of a variable after holding the other predictors constant. If a variable is perfectly predicted by the other variables, that variable cannot have an independent effect. Controlling for the other predictor, the variable no longer varies. It become a constant. Contants have no effect.</p>
 <p>While regression with perfectly collinear predictors is impossible, regression with almost perfectly collinear predictors can produce strange and unstable results. For example, if we round <span class="math inline">Z</span>, the rounding error makes <span class="math inline">Z</span> nearly collinear with <span class="math inline">X</span> and <span class="math inline">Y</span> but not quite perfectly collinear with them. In this case, the regression will run but might give misleading results that might differ dramatically depending on how finely rounded <span class="math inline">Z</span> is.</p>
-<section id="calculating-inverses-in-r" class="level3" data-number="7.3.1"><h3 data-number="7.3.1" class="anchored" data-anchor-id="calculating-inverses-in-r">
-<span class="header-section-number">7.3.1</span> Calculating Inverses in R</h3>
+<section id="calculating-inverses-in-r" class="level3" data-number="7.3.1">
+<h3 data-number="7.3.1" class="anchored" data-anchor-id="calculating-inverses-in-r"><span class="header-section-number">7.3.1</span> Calculating Inverses in R</h3>
 <p>You would think that the inverse function in R would be called “inverse” or “inv” or something like that. Unintuitively, the inverse function in R is <code>solve</code>. The reason for this is that <code>solve</code> covers a wider array of problems than just the inverse. To see how, imagine that we have two matrices of known constants <span class="math inline">\mathbf{A}_{m\times m}</span> and <span class="math inline">\mathbf{B}_{m\times n}</span>. We also have a matrix of unknowns <span class="math inline">\mathbf{X}_{m\times n}</span>. How do we solve this equation?</p>
 <p><span class="math display">\mathbf{AX}=\mathbf{B}</span></p>
 <p>We can pre-multiply both sides of the equation by the inverse of <span class="math inline">\mathbf{A}</span>.</p>
@@ -1854,13 +1920,13 @@ z
 <p>In R, problems of this sort are solved like so:</p>
 <p><code>X -&gt; solve(A,B)</code></p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb32" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="op">-</span><span class="fl">9</span>, <span class="op">-</span><span class="fl">2</span>,</span>
-<span>             <span class="op">-</span><span class="fl">2</span>,  <span class="fl">5</span>,  <span class="fl">3</span>,</span>
-<span>              <span class="fl">2</span>,  <span class="fl">4</span>, <span class="op">-</span><span class="fl">3</span><span class="op">)</span>,</span>
-<span>            nrow <span class="op">=</span> <span class="fl">3</span>,byrow <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="va">B</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">5</span>,<span class="fl">3</span>,<span class="op">-</span><span class="fl">12</span><span class="op">)</span>,ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="va">A</span>,<span class="va">B</span><span class="op">)</span></span>
-<span><span class="va">X</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="sc">-</span><span class="dv">9</span>, <span class="sc">-</span><span class="dv">2</span>,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>             <span class="sc">-</span><span class="dv">2</span>,  <span class="dv">5</span>,  <span class="dv">3</span>,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>              <span class="dv">2</span>,  <span class="dv">4</span>, <span class="sc">-</span><span class="dv">3</span>),</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">nrow =</span> <span class="dv">3</span>,<span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">3</span>,<span class="sc">-</span><span class="dv">12</span>),<span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">solve</span>(A,B)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>X</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1]
 [1,]    2
@@ -1878,21 +1944,21 @@ z
 \end{aligned}</span></p>
 <p>Thus, <code>solve(A)</code> is <span class="math inline">\mathbf{A}^{-1}</span></p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb34" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">1</span><span class="op">)</span>,nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="dv">1</span>),<span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]  1.0  0.5
 [2,]  0.5  1.0</code></pre>
 </div>
-<div class="sourceCode" id="cb36" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Ainverse</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span>
-<span><span class="va">Ainverse</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>Ainverse <span class="ot">&lt;-</span> <span class="fu">solve</span>(A)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>Ainverse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>           [,1]       [,2]
 [1,]  1.3333333 -0.6666667
 [2,] -0.6666667  1.3333333</code></pre>
 </div>
-<div class="sourceCode" id="cb38" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">Ainverse</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">%*%</span> Ainverse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    1    0
@@ -1939,9 +2005,11 @@ You Try
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb40" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb40" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3]
 [1,]    1    0    0
@@ -1956,9 +2024,11 @@ Suggested Solution
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb42" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="va">A</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">B</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb42" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(A <span class="sc">%*%</span> B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>             [,1]        [,2]        [,3]
 [1,] -0.004573830  0.01403053 -0.00667532
@@ -1973,9 +2043,11 @@ Suggested Solution
 <div id="qwebr-insertion-location-8"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb44" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">A</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">B</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="va">A</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">B</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb44" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>(A <span class="sc">%*%</span> B) <span class="sc">%*%</span> <span class="fu">solve</span>(A <span class="sc">%*%</span> B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>             [,1] [,2]          [,3]
 [1,] 1.000000e+00    0  0.000000e+00
@@ -1990,9 +2062,11 @@ Suggested Solution
 <div id="qwebr-insertion-location-9"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb46" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/solve.html">solve</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">C</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">C</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb46" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(<span class="fu">t</span>(C) <span class="sc">%*%</span> C)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>             [,1]        [,2]        [,3]
 [1,]  0.008075633  0.01097719 -0.01218111
@@ -2003,8 +2077,10 @@ Suggested Solution
 </div>
 </div>
 </div>
-</section></section><section id="creating-sums-with-matrices" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="creating-sums-with-matrices">
-<span class="header-section-number">7.4</span> Creating Sums with Matrices</h2>
+</section>
+</section>
+<section id="creating-sums-with-matrices" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="creating-sums-with-matrices"><span class="header-section-number">7.4</span> Creating Sums with Matrices</h2>
 <p>A non-bolded <span class="math inline">1</span> is just the number one.</p>
 <p>A bolded <span class="math inline">\mathbf{1}</span> is a column vector of ones. For example,</p>
 <p><span class="math display">
@@ -2078,9 +2154,9 @@ Suggested Solution
 </span></p>
 <p>To create a <span class="math inline">\mathbf{1}</span> vector that is compatible with the matrix it post-multiplies, use the <code>ncol</code> function inside the <code>rep</code> function:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb48" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">20</span>,nrow <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">Ones</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span>, nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span><span class="op">)</span> </span>
-<span><span class="va">A</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">Ones</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>,<span class="at">nrow =</span> <span class="dv">4</span>)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>Ones <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span>, <span class="at">nrow =</span> <span class="fu">ncol</span>(A)) </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>A <span class="sc">%*%</span> Ones</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1]
 [1,]   45
@@ -2091,8 +2167,8 @@ Suggested Solution
 </div>
 <p>Use the <code>nrow</code> function to make a <span class="math inline">\mathbf{1}</span> vector that is compatible with the matrix it pre-multiplies:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb50" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">Ones</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fl">1</span>, nrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">Ones</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/r/base/matmult.html">%*%</a></span> <span class="va">A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>Ones <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span>, <span class="at">nrow =</span> <span class="fu">nrow</span>(A))</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t</span>(Ones) <span class="sc">%*%</span> A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4] [,5]
 [1,]   10   26   42   58   74</code></pre>
@@ -2101,27 +2177,28 @@ Suggested Solution
 <p>Of course, creating <span class="math inline">\mathbf{1}</span> vectors like this can be tedious. Base R has convenient functions to calculate row sums, column sums, and total sums.</p>
 <p><code>rowSums(A)</code> will add the rows of <span class="math inline">\mathbf{A}</span>:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb52" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">rowSums</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowSums</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 45 50 55 60</code></pre>
 </div>
 </div>
 <p><code>colSums(A)</code> with give the column totals of <span class="math inline">\mathbf{A}</span>:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb54" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html">colSums</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 10 26 42 58 74</code></pre>
 </div>
 </div>
 <p><code>sum(A)</code> will give the overall total of <span class="math inline">\mathbf{A}</span>:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode" id="cb56" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 210</code></pre>
 </div>
 </div>
-</section><section id="eigenvectors-and-eigenvalues" class="level2 page-columns page-full" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="eigenvectors-and-eigenvalues">
-<span class="header-section-number">7.5</span> Eigenvectors and Eigenvalues</h2>
+</section>
+<section id="eigenvectors-and-eigenvalues" class="level2 page-columns page-full" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="eigenvectors-and-eigenvalues"><span class="header-section-number">7.5</span> Eigenvectors and Eigenvalues</h2>
 <p>Consider this equation related Square matrix <span class="math inline">\mathbf{A}</span>, column vector <span class="math inline">\mathbf{x}</span>, and column vector <span class="math inline">\mathbf{b}</span>:</p>
 <p><span class="math display">\mathbf{A}\vec{x}=\vec{b}</span></p>
 <p>Square matrix <span class="math inline">\mathbf{A}</span> scales and rotates vector <span class="math inline">\vec{x}</span> into vector <span class="math inline">\vec{b}</span>.</p>
@@ -2130,8 +2207,8 @@ Suggested Solution
 <p>Every eigenvector that exists for matrix <span class="math inline">\mathbf{A}</span>, is accompanied by an infinite number of parallel vectors of varying lengths that are also eigenvectors. Thus, we focus on the unit eigenvectors and their accompanying eigenvalues.</p>
 <p>Eigenvectors and eigenvalues are extremely important concepts in a wide variety of applications in many disciplines. For us, they play a pivotal role in principal components analyses, factor analysis, and multivariate analyses such as MANOVA.</p>
 <p>Eigenvectors (via principal components) help us to summarize multivariate data with a smaller number of variables.</p>
-<section id="eigenvectors-and-eigenvalues-in-r" class="level3 page-columns page-full" data-number="7.5.1"><h3 data-number="7.5.1" class="anchored" data-anchor-id="eigenvectors-and-eigenvalues-in-r">
-<span class="header-section-number">7.5.1</span> Eigenvectors and Eigenvalues in R</h3>
+<section id="eigenvectors-and-eigenvalues-in-r" class="level3 page-columns page-full" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="eigenvectors-and-eigenvalues-in-r"><span class="header-section-number">7.5.1</span> Eigenvectors and Eigenvalues in R</h3>
 <p>Suppose that matrix <span class="math inline">\mathbf{A}</span> is a correlation matrix:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
 
@@ -2182,11 +2259,13 @@ R=\begin{bmatrix}
 <div id="qwebr-insertion-location-10"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-solutionsetter="true">
-<details><summary>
+<details>
+<summary>
 Suggested Solution
-</summary><div class="sourceCode" id="cb58" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rho</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0.7</span>,<span class="fl">0.7</span>,<span class="fl">1</span><span class="op">)</span>,<span class="fl">2</span><span class="op">)</span></span>
-<span><span class="va">eigenrho</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/eigen.html">eigen</a></span><span class="op">(</span><span class="va">rho</span><span class="op">)</span></span>
-<span><span class="va">eigenrho</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</summary>
+<div class="sourceCode cell-code" id="cb58" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">0.7</span>,<span class="fl">0.7</span>,<span class="dv">1</span>),<span class="dv">2</span>)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>eigenrho <span class="ot">&lt;-</span> <span class="fu">eigen</span>(rho)</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>eigenrho</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>eigen() decomposition
 $values
@@ -2207,12 +2286,14 @@ $vectors
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-eigenellipse" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
-<figure class="quarto-float quarto-float-fig figure page-columns page-full"><div aria-describedby="fig-eigenellipse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-eigenellipse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="matrices_operations_files/figure-html/fig-eigenellipse-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-eigenellipse-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;7.1: The eigenvectors of rho scaled by the square roots of the eigenvectors are proportional to the principal axes of the ellipse that contains 95% of the data.
-</figcaption></figure>
+</figcaption>
+</figure>
 </div>
 </div>
 </div>
@@ -2229,59 +2310,59 @@ R Code for <a href="#fig-eigenellipse" class="quarto-xref">Figure&nbsp;<span>7.1
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb60" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># the tri2cor converts a vector of correlations from the lower triangle of a correlation matrix into a full correlation matrix</span></span>
-<span><span class="va">rho</span> <span class="op">&lt;-</span> <span class="fu">tri2cor</span><span class="op">(</span><span class="fl">.8</span>, variable_names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">eigenrho</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/eigen.html">eigen</a></span><span class="op">(</span><span class="va">rho</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Scaling factor for 95% of 2D ellipse</span></span>
-<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Chisquare.html">qchisq</a></span><span class="op">(</span><span class="fl">.95</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">d_scaledeigenvectors</span> <span class="op">&lt;-</span> <span class="va">eigenrho</span><span class="op">$</span><span class="va">values</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">`*`</span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/diag.html">diag</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">`%*%`</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/t.html">t</a></span><span class="op">(</span><span class="va">eigenrho</span><span class="op">$</span><span class="va">vectors</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">`colnames&lt;-`</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">as_tibble</span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">d_points</span> <span class="op">&lt;-</span> <span class="fu">mvtnorm</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/mvtnorm/man/Mvnorm.html">rmvnorm</a></span><span class="op">(</span></span>
-<span>  n <span class="op">=</span> <span class="fl">1000</span>, </span>
-<span>  mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fl">0</span>, y <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>, </span>
-<span>  sigma <span class="op">=</span> <span class="va">rho</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">as_tibble</span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">tibble</span><span class="op">(</span>t <span class="op">=</span> <span class="va">z</span>,</span>
-<span>       alpha <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.4</span>,<span class="fl">.2</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>data <span class="op">=</span> <span class="fu">pmap</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>t <span class="op">=</span> <span class="va">t</span><span class="op">)</span>, </span>
-<span>                    <span class="fu">ellipse</span><span class="fu">::</span><span class="va"><a href="https://dmurdoch.github.io/ellipse/reference/ellipse.html">ellipse</a></span>, </span>
-<span>                    x <span class="op">=</span> <span class="va">rho</span>,</span>
-<span>                    npoints <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>           <span class="fu">map</span><span class="op">(</span><span class="va">as_tibble</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>           <span class="fu">map</span><span class="op">(</span><span class="va">`colnames&lt;-`</span>, </span>
-<span>               value <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"x"</span>, <span class="st">"y"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">unnest</span><span class="op">(</span><span class="va">data</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span>data <span class="op">=</span> <span class="va">d_points</span>, </span>
-<span>             pch <span class="op">=</span> <span class="fl">16</span>, </span>
-<span>             size <span class="op">=</span> <span class="fl">.5</span>, </span>
-<span>             color <span class="op">=</span> <span class="st">"gray30"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_polygon</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>alpha <span class="op">=</span> <span class="va">alpha</span><span class="op">)</span>, fill <span class="op">=</span> <span class="va">myfills</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_arrow_segment</span><span class="op">(</span></span>
-<span>    data <span class="op">=</span> <span class="va">d_scaledeigenvectors</span>,</span>
-<span>    <span class="fu">aes</span><span class="op">(</span>xend <span class="op">=</span> <span class="va">x</span>, </span>
-<span>        x <span class="op">=</span> <span class="fl">0</span>, </span>
-<span>        yend <span class="op">=</span> <span class="va">y</span>, </span>
-<span>        y <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>,</span>
-<span>    color <span class="op">=</span> <span class="st">"white"</span>,</span>
-<span>    arrow_head <span class="op">=</span> <span class="fu">arrow_head_deltoid</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">coord_equal</span><span class="op">(</span>xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span>, <span class="fl">3</span><span class="op">)</span>,</span>
-<span>              ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_x_continuous</span><span class="op">(</span>labels <span class="op">=</span> \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">WJSmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/WJSmisc/man/prob_label.html">prob_label</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span><span class="op">)</span>,</span>
-<span>                     breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_y_continuous</span><span class="op">(</span>labels <span class="op">=</span> \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">WJSmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/WJSmisc/man/prob_label.html">prob_label</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span><span class="op">)</span>,</span>
-<span>                     breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="op">-</span><span class="fl">4</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_alpha_identity</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"top"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the tri2cor converts a vector of correlations from the lower triangle of a correlation matrix into a full correlation matrix</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>rho <span class="ot">&lt;-</span> <span class="fu">tri2cor</span>(.<span class="dv">8</span>, <span class="at">variable_names =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>))</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>eigenrho <span class="ot">&lt;-</span> <span class="fu">eigen</span>(rho)</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Scaling factor for 95% of 2D ellipse</span></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">qchisq</span>(.<span class="dv">95</span>,<span class="dv">2</span>))</span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a>d_scaledeigenvectors <span class="ot">&lt;-</span> eigenrho<span class="sc">$</span>values <span class="sc">%&gt;%</span> </span>
+<span id="cb60-9"><a href="#cb60-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb60-10"><a href="#cb60-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">*</span><span class="st">`</span>(z) <span class="sc">%&gt;%</span> </span>
+<span id="cb60-11"><a href="#cb60-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">diag</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb60-12"><a href="#cb60-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">%*%</span><span class="st">`</span>(<span class="fu">t</span>(eigenrho<span class="sc">$</span>vectors)) <span class="sc">%&gt;%</span> </span>
+<span id="cb60-13"><a href="#cb60-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">colnames&lt;-</span><span class="st">`</span>(<span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb60-14"><a href="#cb60-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb60-15"><a href="#cb60-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-16"><a href="#cb60-16" aria-hidden="true" tabindex="-1"></a>d_points <span class="ot">&lt;-</span> mvtnorm<span class="sc">::</span><span class="fu">rmvnorm</span>(</span>
+<span id="cb60-17"><a href="#cb60-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">n =</span> <span class="dv">1000</span>, </span>
+<span id="cb60-18"><a href="#cb60-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> <span class="fu">c</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>), </span>
+<span id="cb60-19"><a href="#cb60-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">sigma =</span> rho) <span class="sc">%&gt;%</span> </span>
+<span id="cb60-20"><a href="#cb60-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span>
+<span id="cb60-21"><a href="#cb60-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-22"><a href="#cb60-22" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">t =</span> z,</span>
+<span id="cb60-23"><a href="#cb60-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">alpha =</span> <span class="fu">c</span>(.<span class="dv">4</span>,.<span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb60-24"><a href="#cb60-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">data =</span> <span class="fu">pmap</span>(<span class="fu">list</span>(<span class="at">t =</span> t), </span>
+<span id="cb60-25"><a href="#cb60-25" aria-hidden="true" tabindex="-1"></a>                    ellipse<span class="sc">::</span>ellipse, </span>
+<span id="cb60-26"><a href="#cb60-26" aria-hidden="true" tabindex="-1"></a>                    <span class="at">x =</span> rho,</span>
+<span id="cb60-27"><a href="#cb60-27" aria-hidden="true" tabindex="-1"></a>                    <span class="at">npoints =</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb60-28"><a href="#cb60-28" aria-hidden="true" tabindex="-1"></a>           <span class="fu">map</span>(as_tibble) <span class="sc">%&gt;%</span> </span>
+<span id="cb60-29"><a href="#cb60-29" aria-hidden="true" tabindex="-1"></a>           <span class="fu">map</span>(<span class="st">`</span><span class="at">colnames&lt;-</span><span class="st">`</span>, </span>
+<span id="cb60-30"><a href="#cb60-30" aria-hidden="true" tabindex="-1"></a>               <span class="at">value =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>))) <span class="sc">%&gt;%</span> </span>
+<span id="cb60-31"><a href="#cb60-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(data) <span class="sc">%&gt;%</span> </span>
+<span id="cb60-32"><a href="#cb60-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x,y)) <span class="sc">+</span> </span>
+<span id="cb60-33"><a href="#cb60-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> d_points, </span>
+<span id="cb60-34"><a href="#cb60-34" aria-hidden="true" tabindex="-1"></a>             <span class="at">pch =</span> <span class="dv">16</span>, </span>
+<span id="cb60-35"><a href="#cb60-35" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> .<span class="dv">5</span>, </span>
+<span id="cb60-36"><a href="#cb60-36" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"gray30"</span>) <span class="sc">+</span></span>
+<span id="cb60-37"><a href="#cb60-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_polygon</span>(<span class="fu">aes</span>(<span class="at">alpha =</span> alpha), <span class="at">fill =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb60-38"><a href="#cb60-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow_segment</span>(</span>
+<span id="cb60-39"><a href="#cb60-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> d_scaledeigenvectors,</span>
+<span id="cb60-40"><a href="#cb60-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">xend =</span> x, </span>
+<span id="cb60-41"><a href="#cb60-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">x =</span> <span class="dv">0</span>, </span>
+<span id="cb60-42"><a href="#cb60-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">yend =</span> y, </span>
+<span id="cb60-43"><a href="#cb60-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">y =</span> <span class="dv">0</span>),</span>
+<span id="cb60-44"><a href="#cb60-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb60-45"><a href="#cb60-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span> <span class="fu">arrow_head_deltoid</span>()) <span class="sc">+</span></span>
+<span id="cb60-46"><a href="#cb60-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>),</span>
+<span id="cb60-47"><a href="#cb60-47" aria-hidden="true" tabindex="-1"></a>              <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb60-48"><a href="#cb60-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> \(x) WJSmisc<span class="sc">::</span><span class="fu">prob_label</span>(x, <span class="dv">1</span>),</span>
+<span id="cb60-49"><a href="#cb60-49" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>)) <span class="sc">+</span></span>
+<span id="cb60-50"><a href="#cb60-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> \(x) WJSmisc<span class="sc">::</span><span class="fu">prob_label</span>(x, <span class="dv">1</span>),</span>
+<span id="cb60-51"><a href="#cb60-51" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>)) <span class="sc">+</span></span>
+<span id="cb60-52"><a href="#cb60-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_identity</span>() <span class="sc">+</span></span>
+<span id="cb60-53"><a href="#cb60-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -2289,7 +2370,12 @@ R Code for <a href="#fig-eigenellipse" class="quarto-xref">Figure&nbsp;<span>7.1
 
 
 
-</section></section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -2324,7 +2410,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -2356,29 +2453,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -2386,7 +2461,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -2708,7 +2783,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./matrices_intro.html" class="pagination-link" aria-label="Matrices--Introduction">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices–Introduction</span></span>
       </a>          
@@ -2832,6 +2909,8 @@ qwebrInstance.then(
   }
 );
 </script>
+
+
 
 
 <script src="site_libs/quarto-html/zenscroll-min.js"></script>
