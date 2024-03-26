@@ -1,6 +1,6 @@
 ```{r}
-#| label: loadpacksdist10
-#| include: !expr F
+#| label: loadpacksunfinished
+#| include: false
 source("loader.R")
 ```
 
@@ -16,8 +16,7 @@ Most of us are comfortable with the notion of [probability]{.defword}[**Probabil
 
 When the odds of winning are 3 to 1, there will be 3 wins for every loss.
 
-```{r, opts.label="marginfigure"}
-#| label: fig-p2oddsfigure
+```{r fig-p2oddsfigure, opts.label="marginfigure"}
 #| fig-cap: The relationship between probability and odds. Note that probability is bounded
 #|   by 0 and 1, whereas odds can range from 0 to positive infinity.
 #| fig-height: 7.0
@@ -38,6 +37,11 @@ tibble(p = seq(0, .91, .01),
                      limits = c(0, 1)) +
   scale_y_continuous("Odds", breaks = seq(0, 10, 2)) +
   theme_minimal(base_size = 30, base_family = bfont)
+```
+
+
+```{r coder-fig-p2oddsfigure}
+<<fig-p2oddsfigure>>
 ```
 
 

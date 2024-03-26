@@ -43,7 +43,7 @@ In this way, we can perform the same operations (e.g., addition, multiplication,
 
 
 
-In matrix algebra, we can arrange numbers as [scalars](scalars.qmd) (single values), [vectors](vectors.qmd) (sequences of values), and [matrices](matrices.qmd) (values in rectangular arrays).
+In matrix algebra, we can arrange numbers as [scalars](scalars.qmd) (single values), [vectors](vectors.qmd) (sequences of values), and [matrices](matrices_intro.qmd) (values in rectangular arrays).
 
 
 
