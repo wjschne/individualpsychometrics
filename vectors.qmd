@@ -51,6 +51,7 @@ Create a vector `x` with values 2 and 6.
 
 ```{webr-r}
 #| label: ex-vector
+#| echo: true
 x <- c(_, _)
 x
 ```
