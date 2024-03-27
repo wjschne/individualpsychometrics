@@ -489,7 +489,7 @@ $$
 Vector subtraction works the same way as vector addition, subtracting each element at the same position:
 
 $$
-\vec{x}-\vec{y}= \left(x_1-y_1,x_2-y_2,\ldots,x_n-y_n\right)\\
+\vec{x}-\vec{y}= \left(x_1-y_1,x_2-y_2,\ldots,x_n-y_n\right)
 $$
 
 Adding and subtracting two vectors is only defined when the vectors have the same number of elements. Thus, if $\vec{x}= \left(1,2\right)$ and $\vec{y}= \left(3,2,1\right)$, there is no defined way to add $\vec{x}$ and $\vec{y}$.
