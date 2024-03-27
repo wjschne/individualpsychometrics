@@ -130,9 +130,10 @@ d_freq <- d %>%
 d_freq %>% 
   ggplot(aes(Anger, f)) + 
   geom_col(fill = myfills[1]) + 
-  geom_text_fill(aes(label = f), 
-                 vjust = -0.5, 
-                 size = ggtext_size(30)) +
+  geom_richlabel(aes(label = f), 
+                 vjust = 0, 
+                 label.margin = margin(),
+                 text_size = 30) +
   scale_x_continuous(breaks = 1:7, 
                      minor_breaks = NULL) + 
   scale_y_continuous("Frequency", 
@@ -193,19 +194,20 @@ d_freq %>%
   geom_step(direction = "mid",
             color = myfills[1],
             linewidth = 0.5) +
-  geom_text_fill(
+  geom_richlabel(
     aes(label = cf),
-    vjust = -0.5,
+    vjust = 0,
     color = myfills[1],
-    size = ggtext_size(30)
+    label.margin = margin(b = 1),
+    text_size = 30
   ) +
-  geom_text_fill(
+  geom_richlabel(
     aes(label = signs::signs(
       f, accuracy = 1, add_plusses = T
     )),
-    vjust = 1.5,
+    vjust = 1,
     color = "gray40",
-    size = ggtext_size(30)
+    text_size = 30
   ) +
   scale_x_continuous(breaks = 1:7,
                      expand = expansion()) +
@@ -309,20 +311,22 @@ tibble(x = seq(-3, 3.5, .01),
        y = dnorm(x,-1, 0.5) / 0.8 + 
          dnorm(x, 1, 0.75)) %>%
   ggplot(aes(x, y)) +
-  geom_area(fill = myfills[1]) +
+  geom_area(fill = myfills[1], alpha = .5) +
   geom_text(
     data = . %>% dplyr::filter(x == -1),
     vjust = -0.25,
     label = "Major\nMode",
     size = 8,
-    lineheight = 0.9
+    lineheight = 0.9,
+    color = "gray30"
   ) +
   geom_text(
     data = . %>% dplyr::filter(x == 1),
     vjust = -0.25,
     label = "Minor\nMode",
     size = 8,
-    lineheight = 0.9
+    lineheight = 0.9,
+    color = "gray30"
   ) +
   scale_x_continuous(NULL,
                      minor_breaks = NULL,
@@ -380,12 +384,12 @@ map2(X, reps, rep) %>% unlist %>%
   mutate(across(
     .cols = p:cp,
     .fns = function(x)
-      scales::number(x, .01) %>%
+      prob_label(x, .01) %>%
       str_remove("^0")
   )) %>%
   knitr::kable(
     digits = 2,
-    align = "r",
+    align = "c",
     col.names = c(
       "*X*",
       "Frequency",
@@ -536,7 +540,7 @@ tibble::tribble(
   "Sensitive to Outliers/Skewness",     "No",      "No",      "Yes",
   "Standard Error", "Larger", "Smaller", "Smallest"
   ) %>% 
-  kable()
+  kable(align = "lccc")
 ```
 
 
@@ -730,11 +734,13 @@ tibble(
   rename(Frequencies = d) %>%
   ggplot(aes(Category, Frequencies)) +
   geom_col(aes(fill = Variability)) +
-  geom_text_fill(
+  geom_richlabel(
     aes(label = Frequencies),
-    vjust = -.3,
+    vjust = 0,
+    label.margin = margin(),
+    label.padding = margin(b = .5, t = .5, l = .5, r = .5),
     color = "gray30",
-    size = ggtext_size(30)
+    text_size = 30
   ) +
   scale_y_continuous(
     expand = expansion(mult = c(0, 0.08)),

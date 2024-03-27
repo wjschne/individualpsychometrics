@@ -50,29 +50,33 @@ knitr::opts_template$set(marginfigure = list(fig.column = "margin", fig.cap.loca
 bfont = "Equity Text A Tab"
 bsize = 16
 myfills <- c("royalblue4", "firebrick4", "#51315E")
+txt_color <- "gray20"
 
 btxt_size = ggtext_size(bsize)
 
 # Default geoms and themes
-ggplot2::update_geom_defaults("text",
-                              list(family = bfont, size = btxt_size))
-ggplot2::update_geom_defaults("label",
-                              list(
-                                family = bfont,
-                                size = btxt_size,
-                                label.padding = unit(0, "lines"),
-                                label.size = 0
-                              ))
+ggplot2::update_geom_defaults(
+  "text",
+  list(family = bfont, 
+       size = btxt_size,
+       color = txt_color))
+ggplot2::update_geom_defaults(
+  "label",
+  list(
+    family = bfont,
+    size = btxt_size,
+    label.padding = unit(0, "lines"),
+    label.size = 0,
+    color = txt_color))
 
-ggplot2::update_geom_defaults("richtext",
-                              list(family = bfont, size = btxt_size))
+ggplot2::update_geom_defaults(
+  "richtext",
+  list(family = bfont, 
+       size = btxt_size,
+       color = txt_color))
 
 ggplot2::update_geom_defaults("density", list(fill = myfills[1]))
-geom_text_fill <- function(...) {
-  geom_label(...,
-             label.padding = unit(0, "lines"),
-             label.size = 0)
-}
+
 theme_set(theme_minimal(base_size = bsize, base_family = bfont))
 
 
