@@ -58,7 +58,6 @@ callout-icon: false
 engine: knitr
 webr: 
   show-startup-message: false
-  channel-type: "post-message"
 filters:
   - webr
 format:
