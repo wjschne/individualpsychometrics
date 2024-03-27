@@ -126,6 +126,18 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", () => {
+// enable all tooltips with data-bs-toggle
+// see: https://getbootstrap.com/docs/5.3/components/tooltips/#example-enable-tooltips-everywhere
+var tooltipTriggerList = [].slice.call(
+document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+});
+</script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
@@ -292,7 +304,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"id":1,"code":"","options":{"autorun":"false","context":"interactive","comment":"","results":"markup","message":"true","read-only":"false","label":"ex-assignment","classes":"","fig-width":7,"dpi":72,"fig-cap":"","out-width":"700px","warning":"true","output":"true","out-height":"","fig-height":5}},{"id":2,"code":"","options":{"autorun":"false","context":"interactive","comment":"","results":"markup","message":"true","read-only":"false","label":"ex-addition","classes":"","fig-width":7,"dpi":72,"fig-cap":"","out-width":"700px","warning":"true","output":"true","out-height":"","fig-height":5}},{"id":3,"code":"","options":{"autorun":"false","context":"interactive","comment":"","results":"markup","message":"true","read-only":"false","label":"ex-subtraction","classes":"","fig-width":7,"dpi":72,"fig-cap":"","out-width":"700px","warning":"true","output":"true","out-height":"","fig-height":5}},{"id":4,"code":"","options":{"autorun":"false","context":"interactive","comment":"","results":"markup","message":"true","read-only":"false","label":"ex-multiplication","classes":"","fig-width":7,"dpi":72,"fig-cap":"","out-width":"700px","warning":"true","output":"true","out-height":"","fig-height":5}},{"id":5,"code":"","options":{"autorun":"false","context":"interactive","comment":"","results":"markup","message":"true","read-only":"false","label":"ex-exponentiation","classes":"","fig-width":7,"dpi":72,"fig-cap":"","out-width":"700px","warning":"true","output":"true","out-height":"","fig-height":5}}];
+globalThis.qwebrCellDetails = [{"code":"","id":1,"options":{"results":"markup","comment":"","out-height":"","message":"true","warning":"true","dpi":72,"output":"true","context":"interactive","classes":"","fig-width":7,"read-only":"false","autorun":"false","out-width":"700px","label":"ex-assignment","fig-cap":"","fig-height":5}},{"code":"","id":2,"options":{"results":"markup","comment":"","out-height":"","message":"true","warning":"true","dpi":72,"output":"true","context":"interactive","classes":"","fig-width":7,"read-only":"false","autorun":"false","out-width":"700px","label":"ex-addition","fig-cap":"","fig-height":5}},{"code":"","id":3,"options":{"results":"markup","comment":"","out-height":"","message":"true","warning":"true","dpi":72,"output":"true","context":"interactive","classes":"","fig-width":7,"read-only":"false","autorun":"false","out-width":"700px","label":"ex-subtraction","fig-cap":"","fig-height":5}},{"code":"","id":4,"options":{"results":"markup","comment":"","out-height":"","message":"true","warning":"true","dpi":72,"output":"true","context":"interactive","classes":"","fig-width":7,"read-only":"false","autorun":"false","out-width":"700px","label":"ex-multiplication","fig-cap":"","fig-height":5}},{"code":"","id":5,"options":{"results":"markup","comment":"","out-height":"","message":"true","warning":"true","dpi":72,"output":"true","context":"interactive","classes":"","fig-width":7,"read-only":"false","autorun":"false","out-width":"700px","label":"ex-exponentiation","fig-cap":"","fig-height":5}}];
 
 </script>
 <script type="module">
@@ -1413,7 +1425,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<div class="page-columns page-full"><p><span class="defword">Scalars</span> are single numeric values. They are the <span class="defword">elements</span> that compose vectors and matrices. Usually a scalar is represented as an italicized lowercase letter:</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>scalar</strong> is a single value.</span><span class="defword"><strong>Elements</strong> are the individual numbers in a vector or matrix.</span></div></div>
+<div class="page-columns page-full"><p><span class="defword" title="A <strong>scalar</strong> is a single value." data-bs-html="true" data-bs-toggle="tooltip">Scalars</span> are single numeric values. They are the <span class="defword" title="<strong>Elements</strong> are the individual numbers in a vector or matrix." data-bs-html="true" data-bs-toggle="tooltip">elements</span> that compose vectors and matrices. Usually a scalar is represented as an italicized lowercase letter:</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>scalar</strong> is a single value.</span><span class="defword"><strong>Elements</strong> are the individual numbers in a vector or matrix.</span></div></div>
 <p><span class="math display">x = 9</span></p>
 <p>Technically, there are no scalars in R. Pretty much everything in R is a vector of one kind of another. This feature of R makes a lot of things nice and easy for data analysis, though it slows down certain kinds of computations. However, a vector with just one element in it is often treated like a scalar.</p>
 <section id="variable-assignment" class="level2 page-columns page-full" data-number="3.1">

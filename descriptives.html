@@ -124,6 +124,18 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", () => {
+// enable all tooltips with data-bs-toggle
+// see: https://getbootstrap.com/docs/5.3/components/tooltips/#example-enable-tooltips-everywhere
+var tooltipTriggerList = [].slice.call(
+document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+});
+</script>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -383,12 +395,12 @@ window.Quarto = {
 </header>
 
 
-<div class="page-columns page-full"><p>When we encounter large lists of unsorted numbers, we have no natural capacity to perceive the list’s fundamental characteristics such as its average or its variability. Therefore, we need <span class="defword">descriptive statistics</span> to quantify salient characteristics of distributions, or we need to display the numbers in a plot, making them easier to understand and communicate.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Descriptive statistics</strong> summarize noteworthy characteristics of samples.</span></div></div>
+<div class="page-columns page-full"><p>When we encounter large lists of unsorted numbers, we have no natural capacity to perceive the list’s fundamental characteristics such as its average or its variability. Therefore, we need <span class="defword" title="<strong>Descriptive statistics</strong> summarize noteworthy characteristics of samples." data-bs-html="true" data-bs-toggle="tooltip">descriptive statistics</span> to quantify salient characteristics of distributions, or we need to display the numbers in a plot, making them easier to understand and communicate.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Descriptive statistics</strong> summarize noteworthy characteristics of samples.</span></div></div>
 <section id="frequency-distribution-tables" class="level2 page-columns page-full" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="frequency-distribution-tables"><span class="header-section-number">9.1</span> Frequency Distribution Tables</h2>
-<div class="page-columns page-full"><p>A simple way to describe a distribution is to list how many times each value in the distribution occurs. For example, in this distribution: <span class="math inline">\{10, 3, 4, 10, 6, 4, 6, 4\}</span>, there is 1 three, 3 fours, 2 sixes, and 2 tens. The value that occurs most often is four. A <span class="defword">frequency distribution table</span> displays the number of times each value occurs, as in <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>9.1</span></a>.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>frequency distribution table</strong> summarises a sample by showing the frequency counts of each member of the sample space.</span></div></div>
+<div class="page-columns page-full"><p>A simple way to describe a distribution is to list how many times each value in the distribution occurs. For example, in this distribution: <span class="math inline">\{10, 3, 4, 10, 6, 4, 6, 4\}</span>, there is 1 three, 3 fours, 2 sixes, and 2 tens. The value that occurs most often is four. A <span class="defword" title="A <strong>frequency distribution table</strong> summarises a sample by showing the frequency counts of each member of the sample space." data-bs-html="true" data-bs-toggle="tooltip">frequency distribution table</span> displays the number of times each value occurs, as in <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>9.1</span></a>.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>frequency distribution table</strong> summarises a sample by showing the frequency counts of each member of the sample space.</span></div></div>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="bottom">
-<div id="tbl-frequencydistributiontable" class="cell quarto-float anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="bottom">
+<div id="tbl-frequencydistributiontable" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="bottom" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-frequencydistributiontable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 
@@ -495,7 +507,7 @@ R Code for <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&n
 <p>It is common to include alongside the frequencies of each value the proportion (or percentage) of times a value occurs. If the frequency of sample space element <span class="math inline">i</span> is <span class="math inline">f_i</span>, and the total sample size is <span class="math inline">n</span>, then the proportion of sample space element <span class="math inline">i</span> is</p>
 <p><span class="math display">p_i = \frac{f_i}{n}</span></p>
 <p>In <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>9.1</span></a>, the frequency of sixes is <span class="math inline">f=2</span> and there are <span class="math inline">n = 8</span> numbers in the distribution, thus the proportion of sixes is <span class="math inline">p = \frac{2}{8} = .25</span>.</p>
-<div class="page-columns page-full"><p>It is also common to supplement frequency distribution tables with additional information such as the <span class="defword">cumulative frequency</span>. For each sample space element, the cumulative frequency <span class="math inline">(cf)</span> is the sum of the frequencies <span class="math inline">(f)</span> of the current and all previous sample space elements.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>cumulative frequency</strong> tells us the number of scores in a distribution that are equal to or lower than a particular sample space element.</span></div></div>
+<div class="page-columns page-full"><p>It is also common to supplement frequency distribution tables with additional information such as the <span class="defword" title="The <strong>cumulative frequency</strong> tells us the number of scores in a distribution that are equal to or lower than a particular sample space element." data-bs-html="true" data-bs-toggle="tooltip">cumulative frequency</span>. For each sample space element, the cumulative frequency <span class="math inline">(cf)</span> is the sum of the frequencies <span class="math inline">(f)</span> of the current and all previous sample space elements.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>cumulative frequency</strong> tells us the number of scores in a distribution that are equal to or lower than a particular sample space element.</span></div></div>
 <p><span class="math display">cf_i= \sum_{j=1}^{i}{f_j}</span></p>
 <p>Ordinal, interval, and ratio variables can have cumulative frequencies, but not nominal variables. To calculate cumulative frequencies, the sample space needs to be sorted in a meaningful way, which is not possible with true nominal variables. That is, there are no scores “below” any other scores in nominal variables.</p>
 <p>The cumulative proportion <span class="math inline">(cp)</span> is the proportion of scores less than or equal to a particular sample space element.</p>
@@ -532,7 +544,7 @@ Value |  N | Raw % | Valid % | Cum. %
 </div>
 <p>Typically we use frequency distribution tables to check whether the values of a variable are correct and that the distribution makes sense to us. Thus the <code>frq</code> function is all we need most of the time. However, if you need a publication-ready frequency distribution table, you will probably have to make it from scratch (See <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>9.2</span></a>).</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-freqtablepub" class="cell quarto-float anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
+<div id="tbl-freqtablepub" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-freqtablepub-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -876,7 +888,7 @@ R Code for <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>9.3
 <p>Our choice of which measure of central tendency we use to summarize a distribution depends on which type of variable we are summarizing (i.e., nominal, ordinal, interval, or ratio) and also a consideration of each central tendency measure’s strengths and weaknesses in particular situations.</p>
 <section id="mode" class="level3 page-columns page-full" data-number="9.2.1">
 <h3 data-number="9.2.1" class="anchored" data-anchor-id="mode"><span class="header-section-number">9.2.1</span> Mode</h3>
-<div class="page-columns page-full"><p>The <span class="defword">mode</span> is the most frequent score in a distribution. Suppose we have a distribution that looks like this:</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>mode</strong> is the value in a distribution that occurs most often.</span></div></div>
+<div class="page-columns page-full"><p>The <span class="defword" title="The <strong>mode</strong> is the value in a distribution that occurs most often." data-bs-html="true" data-bs-toggle="tooltip">mode</span> is the most frequent score in a distribution. Suppose we have a distribution that looks like this:</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>mode</strong> is the value in a distribution that occurs most often.</span></div></div>
 <p><span class="math display">\{1,2,2,2,2,3,3\}</span></p>
 <p>Because 2 occurs more frequently than the other values in the distribution, the mode is 2.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
@@ -884,7 +896,7 @@ R Code for <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>9.3
 </div>
 <p>In a frequency distribution table, the mode is the value with the highest value in the <span class="math inline">f</span> (frequency) column. In <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>9.2</span></a>, the mode is 1 because it has the highest frequency <span class="math inline">(f = 73)</span>.</p>
 <p>In a bar plot, histogram, or probability density plot, the mode is the value that corresponds to the highest point in the plot. For example, in <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>, the modal value is 1 because its frequency of 73 is the highest point in the bar plot. In <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>, the mode is −1 because that is the highest point in the density plot.</p>
-<div class="page-columns page-full"><p>If two values tie, both values are the mode and the distribution is <span class="defword">bimodal</span>. Sometimes a distribution has two distinct clusters, each with its own local mode. The greater of these two modes is the <em>major mode</em>, and the lesser is the <em>minor mode</em> (See <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>bimodal</strong> distribution has two modes.</span></div></div>
+<div class="page-columns page-full"><p>If two values tie, both values are the mode and the distribution is <span class="defword" title="A <strong>bimodal</strong> distribution has two modes." data-bs-html="true" data-bs-toggle="tooltip">bimodal</span>. Sometimes a distribution has two distinct clusters, each with its own local mode. The greater of these two modes is the <em>major mode</em>, and the lesser is the <em>minor mode</em> (See <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>9.4</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>bimodal</strong> distribution has two modes.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
@@ -973,10 +985,10 @@ Poncet, P. (2019). <em>Modeest: Mode estimation</em>. <a href="https://github.co
 </section>
 <section id="median" class="level3 page-columns page-full" data-number="9.2.2">
 <h3 data-number="9.2.2" class="anchored" data-anchor-id="median"><span class="header-section-number">9.2.2</span> Median</h3>
-<div class="page-columns page-full"><p>The <span class="defword">median</span> is midpoint of a distribution, the point that divides the lower half of the distribution from the upper half. To calculate the median, you first need to sort the scores. If there is an odd number of scores, the median is the middle score. If there an even number of scores, it is the mean of the two middle scores. There are other definitions of the median that are a little more complex, but rarely is precision needed for calculating the median.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>median</strong> is the point that divides the lower 50 percent of a distribution from the upper 50 percent.</span></div></div>
+<div class="page-columns page-full"><p>The <span class="defword" title="The <strong>median</strong> is the point that divides the lower 50 percent of a distribution from the upper 50 percent." data-bs-html="true" data-bs-toggle="tooltip">median</span> is midpoint of a distribution, the point that divides the lower half of the distribution from the upper half. To calculate the median, you first need to sort the scores. If there is an odd number of scores, the median is the middle score. If there an even number of scores, it is the mean of the two middle scores. There are other definitions of the median that are a little more complex, but rarely is precision needed for calculating the median.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>median</strong> is the point that divides the lower 50 percent of a distribution from the upper 50 percent.</span></div></div>
 <p>To find the median using a frequency distribution table, find the first sample space element with a cumulative proportion greater than 0.5. For example, in the distribution shown in <a href="#tbl-mediantable" class="quarto-xref">Table&nbsp;<span>9.3</span></a>, the first cumulative proportion greater than 0.5 occurs at 5, which is therefore the median.</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-mediantable" class="cell quarto-float anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
+<div id="tbl-mediantable" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-mediantable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -1050,14 +1062,14 @@ Table&nbsp;9.3: Finding the Median in a Frequency Distribution Table.<br>In this
 </section>
 <section id="mean" class="level3 page-columns page-full" data-number="9.2.3">
 <h3 data-number="9.2.3" class="anchored" data-anchor-id="mean"><span class="header-section-number">9.2.3</span> Mean</h3>
-<div class="page-columns page-full"><p>The <span class="defword">arithmetic mean</span> is the sum of all values of a distribution divided by the size of the distribution.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>arithmetic mean</strong> is the balance point of a disribution.</span></div></div>
+<div class="page-columns page-full"><p>The <span class="defword" title="The <strong>arithmetic mean</strong> is the balance point of a disribution." data-bs-html="true" data-bs-toggle="tooltip">arithmetic mean</span> is the sum of all values of a distribution divided by the size of the distribution.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>arithmetic mean</strong> is the balance point of a disribution.</span></div></div>
 <p><span class="math display">\mu_X = \frac{\sum_{i = 1}^n {X_i}}{n}</span></p>
 <p>Where <span class="math display">\begin{align*}
   \mu_X &amp;= \text{The population mean of } X\\
   n &amp;= \text{The number of values in } X
 \end{align*}</span></p>
 <p>The arithmetic mean can only be calculated with interval or ratio variables. Why? The formula for the mean requires adding numbers, and the operation of addition is not defined for ordinal and nominal values.</p>
-<div class="page-columns page-full"><p>The arithmetic mean is usually the preferred measure of central tendency for interval and ration variables because it is usually more stable from sample to sample than the median and the mode. In <a href="#fig-centraltendency" class="quarto-xref">Figure&nbsp;<span>9.5</span></a>, it can be seen that the sampling distributions of the mean is narrower than that of the median and the mode. In other words, it has a smaller <span class="defword">standard error</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>standard error</strong> is the standard deviation of a sampling distribution.</span></div></div>
+<div class="page-columns page-full"><p>The arithmetic mean is usually the preferred measure of central tendency for interval and ration variables because it is usually more stable from sample to sample than the median and the mode. In <a href="#fig-centraltendency" class="quarto-xref">Figure&nbsp;<span>9.5</span></a>, it can be seen that the sampling distributions of the mean is narrower than that of the median and the mode. In other words, it has a smaller <span class="defword" title="The <strong>standard error</strong> is the standard deviation of a sampling distribution." data-bs-html="true" data-bs-toggle="tooltip">standard error</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>standard error</strong> is the standard deviation of a sampling distribution.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
@@ -1178,7 +1190,7 @@ R Code for <a href="#fig-centraltendency" class="quarto-xref">Figure&nbsp;<span>
 <h3 data-number="9.2.4" class="anchored" data-anchor-id="comparing-central-tendency-measures"><span class="header-section-number">9.2.4</span> Comparing Central Tendency Measures</h3>
 <p>Which measure of central tendency is best depends on what kind of variable is needed and also what purpuse it serves. <a href="#tbl-proconCT" class="quarto-xref">Table&nbsp;<span>9.4</span></a> has a list of comparative features of each of the three major central tendency measures.</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-proconCT" class="cell quarto-float anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
+<div id="tbl-proconCT" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-proconCT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -1255,7 +1267,7 @@ Table&nbsp;9.4: Comparing Central Tendency Measures
 <section id="expected-values" class="level2 page-columns page-full" data-number="9.3">
 <h2 data-number="9.3" class="anchored" data-anchor-id="expected-values"><span class="header-section-number">9.3</span> Expected Values</h2>
 <p>(Unfinished)</p>
-<div class="page-columns page-full"><p>At one level, the concept of the <span class="defword">expected value</span> of a random variable is really simple; it is just the population mean of the variable. So why don’t we just talk about population means and be done with this “expected value” business? It just complicates things! True. In this case, however, there is value in letting some simple things appear to become complicated for a while so that later we can show that some apparently complicated things are actually simple.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>expected value</strong> of a random variable is the population mean of the values that the random variable generates.</span></div></div>
+<div class="page-columns page-full"><p>At one level, the concept of the <span class="defword" title="The <strong>expected value</strong> of a random variable is the population mean of the values that the random variable generates." data-bs-html="true" data-bs-toggle="tooltip">expected value</span> of a random variable is really simple; it is just the population mean of the variable. So why don’t we just talk about population means and be done with this “expected value” business? It just complicates things! True. In this case, however, there is value in letting some simple things appear to become complicated for a while so that later we can show that some apparently complicated things are actually simple.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>expected value</strong> of a random variable is the population mean of the values that the random variable generates.</span></div></div>
 <p>Why can’t we just say that the expected value of a random variable is the population mean? You are familiar, of course, with the formula for a mean. You just add up the numbers and divide by the number of numbers <span class="math inline">n</span>:</p>
 <p><span class="math display">
 m_X=\frac{\sum_{i=1}^{n} {x_i}}{n}
@@ -1519,7 +1531,7 @@ R Code for <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>9.8</
 </section>
 <section id="interquartile-range" class="level3 page-columns page-full" data-number="9.4.2">
 <h3 data-number="9.4.2" class="anchored" data-anchor-id="interquartile-range"><span class="header-section-number">9.4.2</span> Interquartile Range</h3>
-<div class="page-columns page-full"><p>As with nominal variables, a bar plot or frequency distribution table can tell you most of what you want to know about the variability of an ordinal variable. If you need a quantitative measure of how much an ordinal variable varies, you have many options. The most important of these is the <span class="defword">interquartile range</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>interquartile range</strong> (IQR) is the distance from the score at the 25th percentile to the score at the 75th percentile.</span></div></div>
+<div class="page-columns page-full"><p>As with nominal variables, a bar plot or frequency distribution table can tell you most of what you want to know about the variability of an ordinal variable. If you need a quantitative measure of how much an ordinal variable varies, you have many options. The most important of these is the <span class="defword" title="The <strong>interquartile range</strong> (IQR) is the distance from the score at the 25th percentile to the score at the 75th percentile." data-bs-html="true" data-bs-toggle="tooltip">interquartile range</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>interquartile range</strong> (IQR) is the distance from the score at the 25th percentile to the score at the 75th percentile.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
@@ -1820,7 +1832,7 @@ R Code for <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>9.11<
 </section>
 <section id="variance" class="level3 page-columns page-full" data-number="9.4.3">
 <h3 data-number="9.4.3" class="anchored" data-anchor-id="variance"><span class="header-section-number">9.4.3</span> Variance</h3>
-<div class="page-columns page-full"><p>A <span class="defword">deviation</span> is computed by subtracting a score from its mean:</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>deviation</strong> is the distance of a score from the score’s mean.</span></div></div>
+<div class="page-columns page-full"><p>A <span class="defword" title="A <strong>deviation</strong> is the distance of a score from the score’s mean." data-bs-html="true" data-bs-toggle="tooltip">deviation</span> is computed by subtracting a score from its mean:</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>deviation</strong> is the distance of a score from the score’s mean.</span></div></div>
 <p><span class="math display">X-\mu</span></p>
 <p>We would like to know the typical size of the deviation <span class="math inline">X-\mu</span>. To do so, it might seem intuitively correct to take the average (i.e., expected value) of the deviation, but this quantity is always 0:</p>
 <p><span class="math display">
@@ -1831,7 +1843,7 @@ R Code for <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>9.11<
 \end{aligned}
 </span></p>
 <p>Because the average deviation is always 0, it has no utility as a measure of variability. It would be reasonable to take the average absolute value of the deviations, but absolute values often cause algebraic difficulties later when we want to use them to derive other statistics. A more mathematically tractable solution is to make each deviation positive by squaring them.</p>
-<div class="page-columns page-full"><p><span class="defword">Variance</span> <span class="math inline">\left(\sigma^2\right)</span> is the expected value of squared deviations from the mean <span class="math inline">\left(\mu\right)</span>:</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Variance</strong> is a measure of variability that gives the size of the average squared deviation from the mean.</span></div></div>
+<div class="page-columns page-full"><p><span class="defword" title="<strong>Variance</strong> is a measure of variability that gives the size of the average squared deviation from the mean." data-bs-html="true" data-bs-toggle="tooltip">Variance</span> <span class="math inline">\left(\sigma^2\right)</span> is the expected value of squared deviations from the mean <span class="math inline">\left(\mu\right)</span>:</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Variance</strong> is a measure of variability that gives the size of the average squared deviation from the mean.</span></div></div>
 <p><span class="math display">
 \begin{aligned}
 \sigma^2&amp;=\mathcal{E}\!\left(\left(X-\mu\right)^2\right)\\
@@ -2105,7 +2117,7 @@ R Code for <a href="#fig-variancevisualization" class="quarto-xref">Figure&nbsp;
 </section>
 <section id="standard-deviation" class="level3 page-columns page-full" data-number="9.4.4">
 <h3 data-number="9.4.4" class="anchored" data-anchor-id="standard-deviation"><span class="header-section-number">9.4.4</span> Standard Deviation</h3>
-<div class="page-columns page-full"><p>The <span class="defword">standard deviation</span> is by far the most common measure of variability. The standard deviation <span class="math inline">\sigma</span> is the square root of the variance <span class="math inline">\sigma^2</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>standard deviation</strong> is a measure of variabily that estimates the typical distance of a score from its own mean.</span></div></div>
+<div class="page-columns page-full"><p>The <span class="defword" title="The <strong>standard deviation</strong> is a measure of variabily that estimates the typical distance of a score from its own mean." data-bs-html="true" data-bs-toggle="tooltip">standard deviation</span> is by far the most common measure of variability. The standard deviation <span class="math inline">\sigma</span> is the square root of the variance <span class="math inline">\sigma^2</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>standard deviation</strong> is a measure of variabily that estimates the typical distance of a score from its own mean.</span></div></div>
 <p><span class="math display">
 \begin{aligned}
 \sigma&amp;=\sqrt{\sigma^2}=\sqrt{\frac{\sum_i^n{\left(x_i-\mu\right)^2}}{n}}\\
@@ -2113,7 +2125,7 @@ s&amp;=\sqrt{s^2}=\sqrt{\frac{\sum_i^n{\left(x_i-m\right)^2}}{n-1}}
 \end{aligned}
 </span></p>
 <p>Although it is not an arithmetic average of the deviations, it can be thought of as representing the typical size of the deviations. Technically, it is the square root of the average squared deviation.</p>
-<div class="page-columns page-full"><p>In a normal distribution, the standard deviation is the distance from the mean to the two <span class="defword">inflection points</span> in the probability density curve (see <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span>9.14</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">An <strong>inflection point</strong> in a curve is the point at which the curvature changes from upward to downward or vice versa.</span></div></div>
+<div class="page-columns page-full"><p>In a normal distribution, the standard deviation is the distance from the mean to the two <span class="defword" title="An <strong>inflection point</strong> in a curve is the point at which the curvature changes from upward to downward or vice versa." data-bs-html="true" data-bs-toggle="tooltip">inflection points</span> in the probability density curve (see <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span>9.14</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">An <strong>inflection point</strong> in a curve is the point at which the curvature changes from upward to downward or vice versa.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
 <div id="fig-normalinflection" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
@@ -2234,7 +2246,7 @@ R Code for <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Alternately, we can say that this is the <span class="math inline">n</span>th moment <em>referred to</em> <span class="math inline">c</span>.</p></div></div><p><span class="math display">
 \text{The }n\text{th moment of }X\text{ about }c=\mathcal{E}\left(\left(X-c\right)^n\right)
 </span></p>
-<div class="page-columns page-full"><p>A <span class="defword">central moment</span> <span class="math inline">\mu_n</span> is a moment about the mean (i.e., the first raw moment):</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>central moment</strong> is a raw moment after the variable’s mean has been subracted.</span></div></div>
+<div class="page-columns page-full"><p>A <span class="defword" title="A <strong>central moment</strong> is a raw moment after the variable’s mean has been subracted." data-bs-html="true" data-bs-toggle="tooltip">central moment</span> <span class="math inline">\mu_n</span> is a moment about the mean (i.e., the first raw moment):</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>central moment</strong> is a raw moment after the variable’s mean has been subracted.</span></div></div>
 <p><span class="math display">
 \mu_n=\mathcal{E}\left(\left(X-\mu_X\right)^n\right)
 </span></p>

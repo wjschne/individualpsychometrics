@@ -89,6 +89,18 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", () => {
+// enable all tooltips with data-bs-toggle
+// see: https://getbootstrap.com/docs/5.3/components/tooltips/#example-enable-tooltips-everywhere
+var tooltipTriggerList = [].slice.call(
+document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+});
+</script>
 
 
 <link rel="stylesheet" href="equity.css">

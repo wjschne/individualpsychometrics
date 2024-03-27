@@ -90,6 +90,18 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", () => {
+// enable all tooltips with data-bs-toggle
+// see: https://getbootstrap.com/docs/5.3/components/tooltips/#example-enable-tooltips-everywhere
+var tooltipTriggerList = [].slice.call(
+document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+});
+</script>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -313,7 +325,7 @@ window.Quarto = {
 </header>
 
 
-<div class="page-columns page-full"><p> <span class="defword">Matrix algebra</span> sounds intimidating.  If I could start somewhere else, I would, but psychometrics is too painful without matrix notation. Spending time to become familiar with matrix algebra makes a lot of otherwise difficult things easy. I am continually amazed and surprised by the diverse ways in which learning this material has paid dividends to me. I use matrix algebra to solve problems not just in “mathy” applications like psychometrics and statistics but in domains I never imagined it would have utility (e.g., art, design, and music). Trust me. This is potent stuff, and its power can be yours.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Matrix algebra</strong> refers to performing arithmetic operations and algebraic manipulations on numbers arranged in rectangular arrays.</span><span class="">For now, we will focus solely on numeric data, setting aside the possibility of creating vectors and matrices with non-numeric data such as logical (Boolean) values, nominal data, ordinal values, dates, or complex structures such as lists.</span></div></div>
+<div class="page-columns page-full"><p><span class="defword" title="<strong>Matrix algebra</strong> refers to performing arithmetic operations and algebraic manipulations on numbers arranged in rectangular arrays." data-bs-html="true" data-bs-toggle="tooltip">Matrix algebra</span> sounds intimidating.  If I could start somewhere else, I would, but psychometrics is too painful without matrix notation. Spending time to become familiar with matrix algebra makes a lot of otherwise difficult things easy. I am continually amazed and surprised by the diverse ways in which learning this material has paid dividends to me. I use matrix algebra to solve problems not just in “mathy” applications like psychometrics and statistics but in domains I never imagined it would have utility (e.g., art, design, and music). Trust me. This is potent stuff, and its power can be yours.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Matrix algebra</strong> refers to performing arithmetic operations and algebraic manipulations on numbers arranged in rectangular arrays.</span><span class="">For now, we will focus solely on numeric data, setting aside the possibility of creating vectors and matrices with non-numeric data such as logical (Boolean) values, nominal data, ordinal values, dates, or complex structures such as lists.</span></div></div>
 <p>Despite appearances, matrix algebra is not so hard. In my opinion, learning regular algebra is the hard part. If you made it through high school with a strong understanding of algebra, you will see that matrix algebra is mostly an extension of what you already know. Give it a try and see what happens. If learning matrix algebra seems hard, firming up your foundational knowledge of regular algebra may be a better place to start.</p>
 <p>Algebra uses symbols in formulas to represent numbers. You are probability familiar with using algebraic methods to solve for unknown values in equations. For example, in the equation below, there is only one possible value of <span class="math inline">x</span> that makes the equation true:</p>
 <p><span class="math display">

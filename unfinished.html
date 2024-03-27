@@ -124,6 +124,18 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", () => {
+// enable all tooltips with data-bs-toggle
+// see: https://getbootstrap.com/docs/5.3/components/tooltips/#example-enable-tooltips-everywhere
+var tooltipTriggerList = [].slice.call(
+document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+});
+</script>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -373,7 +385,7 @@ window.Quarto = {
 <h2 data-number="11.1" class="anchored" data-anchor-id="probability-odds-and-logits"><span class="header-section-number">11.1</span> Probability, Odds, and Logits</h2>
 <section id="odds" class="level3 page-columns page-full" data-number="11.1.1">
 <h3 data-number="11.1.1" class="anchored" data-anchor-id="odds"><span class="header-section-number">11.1.1</span> Odds</h3>
-<div class="page-columns page-full"><p>Most of us are comfortable with the notion of <span class="defword">probability</span>, but we find <span class="defword">odds</span> to be a little harder to understand. In everyday language, people use <em>probability</em> and <em>odds</em> interchangeably. Technically, they are related, but not at all the same thing.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Probability</strong> is the ratio of the number outcomes in which the event of interest occurrs over the total number of outcomes.</span><span class="defword"><strong>Odds</strong> refers to the ratio of the number of outcomes in which the event occurs to the number of outcomes in which the event does not occur.</span></div></div>
+<div class="page-columns page-full"><p>Most of us are comfortable with the notion of <span class="defword" title="<strong>Probability</strong> is the ratio of the number outcomes in which the event of interest occurrs over the total number of outcomes." data-bs-html="true" data-bs-toggle="tooltip">probability</span>, but we find <span class="defword" title="<strong>Odds</strong> refers to the ratio of the number of outcomes in which the event occurs to the number of outcomes in which the event does not occur." data-bs-html="true" data-bs-toggle="tooltip">odds</span> to be a little harder to understand. In everyday language, people use <em>probability</em> and <em>odds</em> interchangeably. Technically, they are related, but not at all the same thing.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Probability</strong> is the ratio of the number outcomes in which the event of interest occurrs over the total number of outcomes.</span><span class="defword"><strong>Odds</strong> refers to the ratio of the number of outcomes in which the event occurs to the number of outcomes in which the event does not occur.</span></div></div>
 <p>When the odds of winning are 3 to 1, there will be 3 wins for every loss.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-fig-margin="true" data-fig.cap.location="top">
 
@@ -455,7 +467,7 @@ Odds = \frac{p}{1-p}
 </div>
 </div>
 <p>Probabilities bounded by 0 and 1, inclusive. Odds have a minimum of 0 but have no upper bound (See <a href="#fig-p2oddsfigure" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>).</p>
-<div class="page-columns page-full"><p>In many statistical applications, we need to convert a probability to a value that has neither upper nor lower bounds. A <span class="defword">logit</span> maps probabilities onto real numbers from negative to positive infinity (See <a href="#fig-p2logits" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>logit</strong> is a portmanteau of <em>log unit</em>. In item-response theory, ability and item difficulty are expressed in terms of logits. Logits are sometimes called the <em>log-odds</em> because they are calculated as the (natural) log of the odds: <span class="math inline">\\text{logit}(p)=\\ln\\left(\\frac{p}{1-p}\\right)</span></span></div></div>
+<div class="page-columns page-full"><p>In many statistical applications, we need to convert a probability to a value that has neither upper nor lower bounds. A <span class="defword" title="A <strong>logit</strong> is a “log unit”, which is the natural log of the odds." data-inmargin="false" data-bs-html="true" data-bs-toggle="tooltip">logit</span> maps probabilities onto real numbers from negative to positive infinity (See <a href="#fig-p2logits" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>logit</strong> is a portmanteau of <em>log unit</em>. In item-response theory, ability and item difficulty are expressed in terms of logits. Logits are sometimes called the <em>log-odds</em> because they are calculated as the (natural) log of the odds: <span class="math display">\text{logit}(p)=\ln\left(\frac{p}{1-p}\right)</span></span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-fig-margin="true" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
@@ -609,7 +621,7 @@ R Code for <a href="#fig-w2p" class="quarto-xref">Figure&nbsp;<span>11.3</span><
 <section id="relative-proficiency" class="level2 page-columns page-full" data-number="11.2">
 <h2 data-number="11.2" class="anchored" data-anchor-id="relative-proficiency"><span class="header-section-number">11.2</span> Relative Proficiency</h2>
 <p>One of the benefits of item response theory models is that ability is expressed on the same scale as item difficulties. This feature allows us to make predictions about how like a person with a particular ability level will correctly answer an item of a particular difficulty.</p>
-<div class="page-columns page-full"><p>The <span class="defword">Relative Proficiency Index (RPI)</span> was first used in the <em>Woodcock Reading Mastery Tests</em> <span class="citation" data-cites="woodcockWoodcockReadingMastery1973">(<a href="references.html#ref-woodcockWoodcockReadingMastery1973" role="doc-biblioref">Woodcock, 1973</a>)</span>. The RPI answers the following question:</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>Relative Proficiency Index (RPI)</strong> tells us the proability a person with of ability <span class="math inline">\\theta</span> will answer an item correctly given that a person with ability <span class="math inline">\\mu_\\theta</span> has probability <span class="math inline">p</span> of answering it correctly.</span><div id="ref-woodcockWoodcockReadingMastery1973" class="csl-entry" role="listitem">
+<div class="page-columns page-full"><p>The <span class="defword" title="The <strong>Relative Proficiency Index (RPI)</strong> tells us the proability a person with of ability \theta will answer an item correctly given that a person with ability \mu_\theta has probability p of answering it correctly." data-bs-html="true" data-bs-toggle="tooltip">Relative Proficiency Index (RPI)</span> was first used in the <em>Woodcock Reading Mastery Tests</em> <span class="citation" data-cites="woodcockWoodcockReadingMastery1973">(<a href="references.html#ref-woodcockWoodcockReadingMastery1973" role="doc-biblioref">Woodcock, 1973</a>)</span>. The RPI answers the following question:</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>Relative Proficiency Index (RPI)</strong> tells us the proability a person with of ability <span class="math inline">\theta</span> will answer an item correctly given that a person with ability <span class="math inline">\mu_\theta</span> has probability <span class="math inline">p</span> of answering it correctly.</span><div id="ref-woodcockWoodcockReadingMastery1973" class="csl-entry" role="listitem">
 Woodcock, R. W. (1973). <em>Woodcock <span>Reading Mastery Tests</span></em>. American Guidance Service.
 </div></div></div>
 <blockquote class="blockquote">
@@ -686,7 +698,7 @@ RPI_{\text{reversed}} = \left(1+e^{-\left(\mu_\theta-\theta+\text{logit}(p_\thet
 <p>Using this formula, we can see that our hypothetical person with IQ = 68, the probability that the true score is 70 or lower is about .66. <a href="#fig-thresholdprobability" class="quarto-xref">Figure&nbsp;<span>11.4</span></a> shows the probabilities for all values near the diagnostic threshold of 70.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-thresholdprobability" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-thresholdprobability" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-thresholdprobability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="unfinished_files/figure-html/fig-thresholdprobability-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -835,7 +847,7 @@ Eaton, M. L. (2007). <em>Multivariate statistics: <span>A</span> vector space ap
 <p>We can estimate the probability that both true scores are 70 or lower using the cumulative distribution function of the multivariate normal distribution with upper bounds of 70 for both IQ true scores and adaptive behavior true scores. Under the conditions specified previously, <a href="#fig-multiplethresholdprobability" class="quarto-xref">Figure&nbsp;<span>11.5</span></a> shows that the probability that both scores are 70 or lower is about .53.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-multiplethresholdprobability" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-multiplethresholdprobability" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-multiplethresholdprobability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="unfinished_files/figure-html/fig-multiplethresholdprobability-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">

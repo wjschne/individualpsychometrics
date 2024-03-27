@@ -124,6 +124,18 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", () => {
+// enable all tooltips with data-bs-toggle
+// see: https://getbootstrap.com/docs/5.3/components/tooltips/#example-enable-tooltips-everywhere
+var tooltipTriggerList = [].slice.call(
+document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+});
+</script>
 
 
 <link rel="stylesheet" href="equity.css">
@@ -684,7 +696,7 @@ Steps to create a project
 
 </div>
 </section>
-<section id="file-name-guidance" class="level2" data-number="2.15">
+<section id="file-name-guidance" class="level2 page-columns page-full" data-number="2.15">
 <h2 data-number="2.15" class="anchored" data-anchor-id="file-name-guidance"><span class="header-section-number">2.15</span> File Name Guidance</h2>
 <p>Giving convenient, easily understood names to files, whether data files, image files, or script files can have far-reaching consequences for both present-you and future-you. I draw heavily from the <a href="http://www2.stat.duke.edu/~rcs46/lectures_2015/01-markdown-git/slides/naming-slides/naming-slides.pdf">advice on naming things from Jenny Bryan</a>.</p>
 <section id="give-your-files-long-descriptive-names." class="level3" data-number="2.15.1">
@@ -706,17 +718,24 @@ Steps to create a project
 <p>Avoid including in file names characters that have special meanings in many programming languages such as <code>*@^$!</code> and many others. Otherwise unexpected results can make your life complicated.</p>
 <p><code>parent@emotion*survey.csv</code> → <code>parent_emotion_survey.csv</code></p>
 </section>
-<section id="separate-dates-with-hyphens-using-iso-format" class="level3" data-number="2.15.4">
+<section id="separate-dates-with-hyphens-using-iso-format" class="level3 page-columns page-full" data-number="2.15.4">
 <h3 data-number="2.15.4" class="anchored" data-anchor-id="separate-dates-with-hyphens-using-iso-format"><span class="header-section-number">2.15.4</span> Separate dates with hyphens using ISO format</h3>
-<div data-align="center">
+
+<div class="no-row-height column-margin column-container"><div id="fig-xkcd" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-xkcd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://imgs.xkcd.com/comics/iso_8601.png" class="img-fluid figure-img"></p>
+<p><img src="https://imgs.xkcd.com/comics/iso_8601.png" class="img-fluid figure-img" title="ISO 8601 was published on 06/05/88 and most recently amended on 12/01/04."></p>
 <figcaption>from <a href="https://xkcd.com/1179/">XKCD</a></figcaption>
 </figure>
 </div>
 </div>
-<p><a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO format</a> for dates is YYYY-MM-DD, meaning that a four-digit year comes first, followed by a two-digit month, followed by a two-digit day. This format makes sorting order much easier than the formats used in the U.S.</p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-xkcd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.7: Date formats are fun!
+</figcaption>
+</figure>
+</div></div><p><a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO format</a> for dates is YYYY-MM-DD, meaning that a four-digit year comes first, followed by a two-digit month, followed by a two-digit day. This format makes sorting order much easier than the formats used in the U.S.</p>
 <p>Here is a data file name that begins with a date, followed by the school district from from the data were collected:</p>
 <p><code>2020-01-12_district_A.csv</code></p>
 <p>One of the benefits of using dates in the ISO format is that they sort chronologically. Which file names would you prefer to deal with?</p>
@@ -731,36 +750,36 @@ Steps to create a project
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">April 22, 2007_District_R.csv</td>
-<td style="text-align: left;">2007-04-22_District_R.csv</td>
+<td style="text-align: left;">August 02, 2008_District_E.csv</td>
+<td style="text-align: left;">2008-08-02_District_E.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">April 25, 2014_District_F.csv</td>
-<td style="text-align: left;">2012-02-19_District_G.csv</td>
+<td style="text-align: left;">August 08, 2013_District_N.csv</td>
+<td style="text-align: left;">2009-02-14_District_E.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">August 06, 2012_District_K.csv</td>
-<td style="text-align: left;">2012-05-30_District_X.csv</td>
+<td style="text-align: left;">February 08, 2011_District_J.csv</td>
+<td style="text-align: left;">2009-03-25_District_O.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">February 19, 2012_District_G.csv</td>
-<td style="text-align: left;">2012-07-17_District_J.csv</td>
+<td style="text-align: left;">February 14, 2009_District_E.csv</td>
+<td style="text-align: left;">2009-09-01_District_L.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">July 17, 2012_District_J.csv</td>
-<td style="text-align: left;">2012-08-06_District_K.csv</td>
+<td style="text-align: left;">January 21, 2010_District_U.csv</td>
+<td style="text-align: left;">2010-01-21_District_U.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">May 15, 2014_District_I.csv</td>
-<td style="text-align: left;">2014-04-25_District_F.csv</td>
+<td style="text-align: left;">March 25, 2009_District_O.csv</td>
+<td style="text-align: left;">2011-02-08_District_J.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">May 30, 2012_District_X.csv</td>
-<td style="text-align: left;">2014-05-15_District_I.csv</td>
+<td style="text-align: left;">October 09, 2013_District_D.csv</td>
+<td style="text-align: left;">2013-08-08_District_N.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">May 30, 2014_District_Q.csv</td>
-<td style="text-align: left;">2014-05-30_District_Q.csv</td>
+<td style="text-align: left;">September 01, 2009_District_L.csv</td>
+<td style="text-align: left;">2013-10-09_District_D.csv</td>
 </tr>
 </tbody>
 </table>

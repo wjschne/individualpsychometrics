@@ -124,6 +124,18 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", () => {
+// enable all tooltips with data-bs-toggle
+// see: https://getbootstrap.com/docs/5.3/components/tooltips/#example-enable-tooltips-everywhere
+var tooltipTriggerList = [].slice.call(
+document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+});
+</script>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
@@ -366,7 +378,7 @@ window.Quarto = {
 </header>
 
 
-<div class="page-columns page-full"><p>Clinicians use <span class="defword">composite scores</span> whenever they can because they tend to be more reliable and valid than single scores. How much more reliable is a composite score than a single score? It, of course, depends. First, the reliability coefficients of all of the scores that make up the composite score matter. Second, the correlations among the components of the composite matter. The more reliable and correlated the components, the more reliable the composite.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>composite variable</strong> is the (possibly weighted) sum of two or more variables.</span></div></div>
+<div class="page-columns page-full"><p>Clinicians use <span class="defword" title="A <strong>composite variable</strong> is the (possibly weighted) sum of two or more variables." data-bs-html="true" data-bs-toggle="tooltip">composite scores</span> whenever they can because they tend to be more reliable and valid than single scores. How much more reliable is a composite score than a single score? It, of course, depends. First, the reliability coefficients of all of the scores that make up the composite score matter. Second, the correlations among the components of the composite matter. The more reliable and correlated the components, the more reliable the composite.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>composite variable</strong> is the (possibly weighted) sum of two or more variables.</span></div></div>
 <p>As discussed previously, it is quite possible for different scores from the same test to have different reliability coefficients. Scores from the same test tend to have similar reliability coefficients, though it is quite possible for differences in reliability to be large. In a well designed test, such cases are rare. If we can assume that the test is well designed and that test score reliability coefficients are within a fairly narrow range, we can assume that the classical reliability coefficient is a good estimate of the reliability of all scores from a particular test. To the degree that such assumptions are incorrect, the following equations will be less accurate.</p>
 <p>Before we can discuss the reliability of composites, we must cover more basic statistics as they apply to composite scores. I will present this material in three ways. First, I will show the equations in standard notation. Adjacent to this, I will show the same equations in matrix notation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> Then I will walk through the calculations using R.</p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Why bother with matrices? It does seem to be an unnecessary complication at first. However, many things become clearer and simpler with matrices, which I hope to illustrate. Furthermore, R was designed to work elegantly with vectors and matrices.</p></div></div><section id="the-mean-of-the-sum-is-the-sum-of-the-means" class="level2 page-columns page-full" data-number="10.1">
@@ -380,9 +392,11 @@ window.Quarto = {
 <p>What if we have three variables? or four? or five? It would be tedious to illustrate each case one by one. We need a way of talking about the sum of a bunch of random variables but without worrying about how many variables there are. Here we go:</p>
 <section id="calculating-a-sum" class="level3 page-columns page-full" data-number="10.1.1">
 <h3 data-number="10.1.1" class="anchored" data-anchor-id="calculating-a-sum"><span class="header-section-number">10.1.1</span> Calculating a Sum</h3>
-<p>Suppose <span class="math inline">k</span> is a positive integer greater than 1. So if there are <span class="math inline">k</span> random variables, the notation for the set of all them is <span class="math inline">\{X_1,...,X_k\}.</span> However, it is even more compact to use matrix notation such that <span class="math inline">\boldsymbol{X}=\{X_1,...,X_k\}.</span></p>
-<p>Now, <span class="math inline">\boldsymbol{X}</span> is a set of random variables in their entirety, without referencing any particular values those variables might generate. A set of particular values of these variables would be shown as <span class="math inline">\boldsymbol{x}</span> or <span class="math inline">\{x_1,...,x_k\}.</span> In regular notation, the sum of these particular values would be:</p>
-<p><span class="math display">x_S=\sum_{i=1}^{k}{x_i}</span></p>
+<p>Suppose <span class="math inline">k</span> is a positive integer greater than 1. So if there are <span class="math inline">k</span> random variables, the notation for the set of all them is <span class="math inline">\{X_1,...,X_k\}.</span> However, it is even more compact to use matrix notation such that <span class="math inline">\mathbf{X}=\{X_1,...,X_k\}.</span></p>
+<p>Now, <span class="math inline">\mathbf{X}</span> is a set of random variables in their entirety, without referencing any particular values those variables might generate. A set of particular values of these variables would be shown as <span class="math inline">\mathbf{x}</span> or <span class="math inline">\{x_1,...,x_k\}.</span> In regular notation, the sum of these particular values would be:</p>
+<p><span class="math display">
+x_S=\sum_{i=1}^{k}{x_i}
+</span></p>
 <div class="cell fig-cap-location-margin" data-layout-align="center" data-tbl-colwidths="[20,80]">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
@@ -415,16 +429,12 @@ window.Quarto = {
 </div>
 <p>The same formula is more compact in matrix notation:</p>
 <p><span class="math display">
-x_S=\boldsymbol{x'1}
+x_S=\mathbf{x'1}
 </span></p>
 <p>Where</p>
 <div class="cell fig-cap-location-margin" data-layout-align="center" data-tbl-colwidths="[20,80]">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 76%">
-</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Symbol</th>
@@ -433,31 +443,31 @@ x_S=\boldsymbol{x'1}
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\boldsymbol{x}</span></td>
+<td style="text-align: left;"><span class="math inline">\mathbf{x}</span></td>
 <td style="text-align: left;">A <span class="math inline">k \times 1</span> vector of scores <span class="math inline">\{x_1,x_2,...,x_k\}</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math inline">\boldsymbol{1}</span></td>
+<td style="text-align: left;"><span class="math inline">\mathbf{1}</span></td>
 <td style="text-align: left;">A <span class="math inline">k \times 1</span> vector of ones <span class="math inline">\{1_1,1_2,...,1_k\}</span></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<p>The <span class="math inline">\boldsymbol{1}</span> symbol may be a bit confusing. It is a column of ones that has the same length (number of elements) as <span class="math inline">\boldsymbol{x}.</span> Suppose that <span class="math inline">\boldsymbol{x}</span> has a length of three. In this case:</p>
-<p><span class="math display">\boldsymbol{1}_3=\begin{bmatrix}1\\ 1\\ 1 \end{bmatrix}</span></p>
-<div class="page-columns page-full"><p>Also, <span class="math inline">\boldsymbol{x'}</span>, is <span class="math inline">\boldsymbol{x}</span> <span class="defword">transposed</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">To <strong>transpose</strong> means to make all columns of a matrix into rows (or all rows into columns).</span></div></div>
+<p>The <span class="math inline">\mathbf{1}</span> symbol may be a bit confusing. It is a column of ones that has the same length (number of elements) as <span class="math inline">\mathbf{x}.</span> Suppose that <span class="math inline">\mathbf{x}</span> has a length of three. In this case:</p>
+<p><span class="math display">\mathbf{1}_3=\begin{bmatrix}1\\ 1\\ 1 \end{bmatrix}</span></p>
+<div class="page-columns page-full"><p>Also, <span class="math inline">\mathbf{x'}</span>, is <span class="math inline">\mathbf{x}</span> <span class="defword" title="To <strong>transpose</strong> means to make all columns of a matrix into rows (or all rows into columns)." data-bs-html="true" data-bs-toggle="tooltip">transposed</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">To <strong>transpose</strong> means to make all columns of a matrix into rows (or all rows into columns).</span></div></div>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>Transposition is noted with a prime symbol <span class="math inline">(\boldsymbol{^\prime})</span>. If</p>
+<p>Transposition is noted with a prime symbol <span class="math inline">(\mathbf{^\prime})</span>. If</p>
 <p><span class="math display">
-\boldsymbol{A}= \begin{bmatrix}
+\mathbf{A}= \begin{bmatrix}
 1 &amp; 2 &amp; 3\\
 4 &amp; 5 &amp; 6\\
 \end{bmatrix}
 </span> then</p>
 <p><span class="math display">
-\boldsymbol{A'}= \begin{bmatrix}
+\mathbf{A'}= \begin{bmatrix}
 1 &amp; 4\\
 2 &amp; 5\\
 3 &amp; 6\\
@@ -465,16 +475,16 @@ x_S=\boldsymbol{x'1}
 </span></p>
 <p>A column of 3 ones:</p>
 <p><span class="math display">
-\boldsymbol{1}_3=\begin{bmatrix}1\\1\\1\end{bmatrix}
+\mathbf{1}_3=\begin{bmatrix}1\\1\\1\end{bmatrix}
 </span></p>
 <p>Transposed, a column of 2 ones is a row of 2 ones.</p>
 <p><span class="math display">
-\boldsymbol{{1'}}_2=\begin{bmatrix}1&amp;1\end{bmatrix}
+\mathbf{{1'}}_2=\begin{bmatrix}1&amp;1\end{bmatrix}
 </span></p>
 <p>Typically, the number of ones is implied such that the length of the column or row will be compatible with the adjacent matrix. For example, post-multiplying by a vector ones will create a vector of row totals:</p>
 <p><span class="math display">
 \begin{align*}
-\boldsymbol{A1}&amp;=\begin{bmatrix}
+\mathbf{A1}&amp;=\begin{bmatrix}
 1 &amp; 2 &amp; 3\\
 4 &amp; 5 &amp; 6\\
 \end{bmatrix}\begin{bmatrix}1\\1\\1\end{bmatrix}\\
@@ -485,7 +495,7 @@ x_S=\boldsymbol{x'1}
 <p>Pre-multiplying by a vector of ones will create column totals:</p>
 <p><span class="math display">
 \begin{align*}
-\boldsymbol{1'A}&amp;=\begin{bmatrix}1\\1\end{bmatrix}'\begin{bmatrix}
+\mathbf{1'A}&amp;=\begin{bmatrix}1\\1\end{bmatrix}'\begin{bmatrix}
 1 &amp; 2 &amp; 3\\
 4 &amp; 5 &amp; 6\\
 \end{bmatrix}\\
@@ -496,12 +506,14 @@ x_S=\boldsymbol{x'1}
 &amp;=\begin{bmatrix}1+4 &amp; 2+5 &amp; 3+6\end{bmatrix}\\&amp;=\begin{bmatrix}5 &amp; 7 &amp; 9\end{bmatrix}
 \end{align*}
 </span></p>
-<p>To create a sum of the entire matrix, multiply by <span class="math inline">\boldsymbol{1}</span> on both sides:</p>
-<p><span class="math display">\boldsymbol{1'A1}=21</span></p>
-</div></div><p>Therefore, <span class="math inline">\boldsymbol{x'}</span> is a row vector. A row vector multiplied by a column vector is the sum of the product of each analogous element in the pair of vectors. Thus,</p>
+<p>To create a sum of the entire matrix, multiply by <span class="math inline">\mathbf{1}</span> on both sides:</p>
+<p><span class="math display">
+\mathbf{1}'\mathbf{A1}=21
+</span></p>
+</div></div><p>Therefore, <span class="math inline">\mathbf{x}'</span> is a row vector. A row vector multiplied by a column vector is the sum of the product of each analogous element in the pair of vectors. Thus,</p>
 <p><span class="math display">
 \begin{align*}
-\boldsymbol{x'1}&amp;=\begin{bmatrix} x_1\\ x_2\\ x_3 \end{bmatrix}'
+\mathbf{x'1}&amp;=\begin{bmatrix} x_1\\ x_2\\ x_3 \end{bmatrix}'
 \begin{bmatrix}1\\ 1\\ 1 \end{bmatrix} \\
 &amp;=\begin{bmatrix} x_1 &amp; x_2 &amp; x_3\end{bmatrix}
 \begin{bmatrix}1\\ 1\\ 1\end{bmatrix}\\
@@ -509,50 +521,50 @@ x_S=\boldsymbol{x'1}
 &amp;=  x_1 + x_2 + x_3
 \end{align*}
 </span></p>
-<p>Let’s do some calculations in R with a particular example. Suppose that there are three variables: <span class="math inline">\boldsymbol{X}=\{X_1, X_2, X_3\}.</span> In R, we will create a vector of the names of variables in <span class="math inline">\boldsymbol{X}</span>:</p>
+<p>Let’s do some calculations in R with a particular example. Suppose that there are three variables: <span class="math inline">\mathbf{X}=\{X_1, X_2, X_3\}.</span> In R, we will create a vector of the names of variables in <span class="math inline">\mathbf{X}</span>:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Xnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"X1"</span>,<span class="st">"X2"</span>,<span class="st">"X3"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes:</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Xnames is a vector of variable names</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The c function combines numbers (or other objects) into a vector.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Xnames <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"X1"</span>,<span class="st">"X2"</span>,<span class="st">"X3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now suppose that there are three particular scores: <span class="math inline">\boldsymbol{x}=\{100,120,118\}</span></p>
+<p>Now suppose that there are three particular scores: <span class="math inline">\mathbf{x}=\{100,120,118\}</span></p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x = vector of particular scores from variables X1, X2, X3</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">110</span>,<span class="dv">120</span>,<span class="dv">118</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying Xnames to x (to make output easier to read)</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> Xnames </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes: </span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The `names` function returns or sets the names of vector elements.</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># We can set names and values in a single line like so:</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">X1 =</span> <span class="dv">110</span>, <span class="at">X2 =</span> <span class="dv">120</span>, <span class="at">X3 =</span> <span class="dv">118</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The `names` function returns or sets the names of vector elements.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Applying Xnames to x (to make output easier to read)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(x) <span class="ot">&lt;-</span> Xnames </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="{callout-note}">
+<p>Alternatively, names and values can be set in a single line:</p>
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">X1 =</span> <span class="dv">110</span>, <span class="at">X2 =</span> <span class="dv">120</span>, <span class="at">X3 =</span> <span class="dv">118</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For reasons of clarity and readability, I prefer this approach for name assignments that I only need to perform once. However, when I need to apply the same names to different objects repeated, I use the <code>names</code> function to apply a vector of names.</p>
 </div>
 <p>The sum of these three scores can be calculated in a variety of ways. Here is the easiest:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x_S = The sum of scores x1, x2, and x3</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x_S <span class="ot">&lt;-</span> <span class="fu">sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># x_S = The sum of scores x1, x2, and x3</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x_S <span class="ot">&lt;-</span> <span class="fu">sum</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>However, if we want to be matrix algebra masochists (and, apparently, at least one of us does!), we could do this:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A vector of ones the same length as x</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ones <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>,<span class="fu">length</span>(x))</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes: </span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The rep function creates vectors of repeated elements. </span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, rep(5,3) is the same as c(5,5,5).</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The length function returns the number of elements in a vector. </span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, length(c(3,3)) returns `2`.</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating x_S with matrix algebra</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>x_S <span class="ot">&lt;-</span> <span class="fu">t</span>(x) <span class="sc">%*%</span> ones</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes: </span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># The t function transposes a vector or matrix.</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># The operator %*% multiplies compatible matrices.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A vector of ones the same length as x</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ones <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(x))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes: </span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># The rep function creates vectors of repeated elements. </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, rep(5,3) is the same as c(5,5,5).</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The length function returns the number of elements in a vector. </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># For example, length(c(3,3)) returns `2`.</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculating x_S with matrix algebra</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>x_S <span class="ot">&lt;-</span> <span class="fu">t</span>(x) <span class="sc">%*%</span> ones</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes: </span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># The t function transposes a vector or matrix.</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># The operator %*% multiplies compatible matrices.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Either way that we calculate it, <span class="math inline">x_S = 348.</span></p>
 </section>
@@ -560,14 +572,14 @@ x_S=\boldsymbol{x'1}
 <h3 data-number="10.1.2" class="anchored" data-anchor-id="calculating-the-mean-of-a-sum"><span class="header-section-number">10.1.2</span> Calculating the Mean of a Sum</h3>
 <p>The mean of <span class="math inline">X_S</span> is:</p>
 <p><span class="math display">
-\mu_{S}=\sum_{i=1}^{k}{\mu_i}=\boldsymbol{\mu'1}
+\mu_{S}=\sum_{i=1}^{k}{\mu_i}=\mathbf{\mu'1}
 </span></p>
 <div class="cell fig-cap-location-margin" data-layout-align="center">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 21%">
-<col style="width: 78%">
+<col style="width: 18%">
+<col style="width: 81%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -585,8 +597,8 @@ x_S=\boldsymbol{x'1}
 <td style="text-align: left;">The mean of <span class="math inline">X_i</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\boldsymbol{\mu}</span></td>
-<td style="text-align: left;">A <span class="math inline">k \times 1</span> vector of means of the variables in <span class="math inline">\boldsymbol{X}</span></td>
+<td style="text-align: left;"><span class="math inline">\mathbf{\mu}</span></td>
+<td style="text-align: left;">A <span class="math inline">k \times 1</span> vector of means of the variables in <span class="math inline">\mathbf{X}</span></td>
 </tr>
 </tbody>
 </table>
@@ -594,17 +606,17 @@ x_S=\boldsymbol{x'1}
 </div>
 <p>Suppose that the means of <span class="math inline">X_1</span>, <span class="math inline">X_2</span>, and <span class="math inline">X_3</span> are all 100.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># m = vector of means of X</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># m = vector of means of X</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Again, the mean of <span class="math inline">X_S</span> <span class="math inline">(\mu_S)</span> can be calculated in two ways:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># m_S = The mean of S</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The easy way</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>m_S <span class="ot">&lt;-</span> <span class="fu">sum</span>(m)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># With matrix algebra</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>m_S <span class="ot">&lt;-</span> <span class="fu">t</span>(m) <span class="sc">%*%</span> ones</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># m_S = The mean of S</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The easy way</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>m_S <span class="ot">&lt;-</span> <span class="fu">sum</span>(m)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># With matrix algebra</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>m_S <span class="ot">&lt;-</span> <span class="fu">t</span>(m) <span class="sc">%*%</span> ones</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Running this code, we can see that <span class="math inline">\mu_S = 300.</span></p>
 </section>
@@ -612,33 +624,33 @@ x_S=\boldsymbol{x'1}
 <h3 data-number="10.1.3" class="anchored" data-anchor-id="calculating-the-mean-of-a-weighted-sum"><span class="header-section-number">10.1.3</span> Calculating the Mean of a Weighted Sum</h3>
 <p>The mean of a weighted sum is the weighted sum of the means. That is, if</p>
 <p><span class="math display">\begin{equation}
-x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
+x_S=\sum_{i=1}^{k}{x_i w_i}=\mathbf{x'w}
 \end{equation}</span></p>
 <p>Where</p>
 <p>then</p>
 <p><span class="math display">\begin{equation}
-\mu_S=\sum_{i=1}^{k}{\mu_i w_i}=\boldsymbol{\mu'w}
+\mu_S=\sum_{i=1}^{k}{\mu_i w_i}=\mathbf{\mu'w}
 \end{equation}</span></p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>Note that the calculation of <span class="math inline">X_S</span> and <span class="math inline">\mu_S</span> with matrix algebra is the same as it was with an equally weighted sum except that instead of post-multiplying by a vector of ones <span class="math inline">(\boldsymbol{x^\prime 1})</span>, we post-multiply by a vector of weights <span class="math inline">(\boldsymbol{x^\prime w}).</span> In truth, an equally weighted sum is a special case of a weighted sum in which <span class="math inline">\boldsymbol{w}</span> consists entirely of ones.</p>
-</div></div><p>Suppose that <span class="math inline">\boldsymbol{w} = \{0.5,1,2\}.</span> That is, the weight for <span class="math inline">X_1</span> is 0.5, the weight for <span class="math inline">X_2</span> is 1, and the weight for <span class="math inline">X_3</span> is 2. We will continue to use the same values for <span class="math inline">\boldsymbol{x}</span> and <span class="math inline">\boldsymbol{\mu}</span> as before:</p>
+<p>Note that the calculation of <span class="math inline">X_S</span> and <span class="math inline">\mu_S</span> with matrix algebra is the same as it was with an equally weighted sum except that instead of post-multiplying by a vector of ones <span class="math inline">(\mathbf{x^\prime 1})</span>, we post-multiply by a vector of weights <span class="math inline">(\mathbf{x^\prime w}).</span> In truth, an equally weighted sum is a special case of a weighted sum in which <span class="math inline">\mathbf{w}</span> consists entirely of ones.</p>
+</div></div><p>Suppose that <span class="math inline">\mathbf{w} = \{0.5,1,2\}.</span> That is, the weight for <span class="math inline">X_1</span> is 0.5, the weight for <span class="math inline">X_2</span> is 1, and the weight for <span class="math inline">X_3</span> is 2. We will continue to use the same values for <span class="math inline">\mathbf{x}</span> and <span class="math inline">\mathbf{\mu}</span> as before:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># w = The vector of weight for variables X1, X2, and X3</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>w <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The easy way</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>x_S_weighted <span class="ot">&lt;-</span> <span class="fu">sum</span>(x <span class="sc">*</span> w)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>m_S_weighted <span class="ot">&lt;-</span> <span class="fu">sum</span>(m <span class="sc">*</span> w)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes:</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># The multiplication operator * multiplies analogous elements </span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># of vectors  and matrices. In the example, `x * w` is </span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># c(110 * 0.5, 120 * 1, 118 * 2)</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># With matrix algebra</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>x_S_weighted <span class="ot">&lt;-</span> <span class="fu">t</span>(x) <span class="sc">%*%</span> w</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>m_S_weighted <span class="ot">&lt;-</span> <span class="fu">t</span>(m) <span class="sc">%*%</span> w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># w = The vector of weight for variables X1, X2, and X3</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>w <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># The easy way</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>x_S_weighted <span class="ot">&lt;-</span> <span class="fu">sum</span>(x <span class="sc">*</span> w)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>m_S_weighted <span class="ot">&lt;-</span> <span class="fu">sum</span>(m <span class="sc">*</span> w)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes:</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># The multiplication operator * multiplies analogous elements </span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co"># of vectors  and matrices. In the example, `x * w` is </span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># c(110 * 0.5, 120 * 1, 118 * 2)</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># With matrix algebra</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>x_S_weighted <span class="ot">&lt;-</span> <span class="fu">t</span>(x) <span class="sc">%*%</span> w</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>m_S_weighted <span class="ot">&lt;-</span> <span class="fu">t</span>(m) <span class="sc">%*%</span> w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Running the code shows that <span class="math inline">x_S = 411</span> and that <span class="math inline">\mu_S = 350.</span></p>
 </section>
@@ -647,18 +659,17 @@ x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
 <h2 data-number="10.2" class="anchored" data-anchor-id="the-variance-of-the-sum-is-the-sum-of-the-covariance-matrix"><span class="header-section-number">10.2</span> The Variance of the Sum Is the Sum of the Covariance Matrix</h2>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>Unfortunately, the notation for a covariance matrix is a bold capital sigma <span class="math inline">\boldsymbol{\Sigma}</span>, which is easily confused with the summation symbol, which is generally larger and not bold: <span class="math inline">\sum.</span></p>
+<p>Unfortunately, the notation for a covariance matrix is a bold capital sigma <span class="math inline">\mathbf{\Sigma}</span>, which is easily confused with the summation symbol, which is generally larger and not bold: <span class="math inline">\sum.</span></p>
 </div></div><p>If variables are uncorrelated, the variance of their sum is the sum of their variances. However, this is not true when variables are substantially correlated. The formula for the variance of a sum looks more complex than it is. It is just the sum of the covariance matrix.</p>
-<p><span class="math display">
-\sigma_{X_S}^2=\sum_{i=1}^{k}{\sum_{j=1}^{k}{\sigma_{ij}}}=\boldsymbol{1'\Sigma 1}
-(\#eq:VarianceOfASum)
-</span></p>
+<p><span id="eq-variancesum"><span class="math display">
+\sigma_{X_S}^2=\sum_{i=1}^{k}{\sum_{j=1}^{k}{\sigma_{ij}}}=\mathbf{1'\Sigma 1}
+\tag{10.1}</span></span></p>
 <div class="cell fig-cap-location-margin" data-layout-align="center">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 77%">
+<col style="width: 19%">
+<col style="width: 80%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -676,8 +687,8 @@ x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
 <td style="text-align: left;">The covariance between <span class="math inline">X_i</span> and <span class="math inline">X_j</span> <span class="math inline">(\sigma_{ij}=\sigma_i^2</span> if <span class="math inline">i=j)</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\boldsymbol{\Sigma}</span></td>
-<td style="text-align: left;">The <span class="math inline">k \times k</span> covariance matrix of all the variables in <span class="math inline">\boldsymbol{X}</span></td>
+<td style="text-align: left;"><span class="math inline">\mathbf{\Sigma}</span></td>
+<td style="text-align: left;">The <span class="math inline">k \times k</span> covariance matrix of all the variables in <span class="math inline">\mathbf{X}</span></td>
 </tr>
 </tbody>
 </table>
@@ -685,10 +696,10 @@ x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>The symbol for a sample correlation is the Roman lowercase <span class="math inline">r</span>, and a matrix of such correlations is an uppercase <span class="math inline">\boldsymbol{R}.</span> Therefore, the population correlation coefficient is a Greek lowercase rho: <span class="math inline">\rho.</span> This, unfortunately means that a matrix of correlations should be an uppercase rho: <span class="math inline">\boldsymbol{P}.</span> Somehow, statisticians are okay with <span class="math inline">\rho</span> looking a lot like an italicized Roman letter <em>p</em>. However, using an uppercase rho <span class="math inline">(\boldsymbol{P})</span> for a correlation matrix is too weird even for statisticians! You know, hobgoblins of little minds and all…</p>
-</div></div><p>Suppose that the standard deviations of <span class="math inline">X_1</span>, <span class="math inline">X_2</span>, and <span class="math inline">X_3</span> are all 15. Thus, <span class="math inline">\sigma=\{15,15,15\}.</span> The correlations among the three variables are shown in matrix <span class="math inline">\boldsymbol{R}</span>:</p>
+<p>The symbol for a sample correlation is the Roman lowercase <span class="math inline">r</span>, and a matrix of such correlations is an uppercase <span class="math inline">\mathbf{R}.</span> Therefore, the population correlation coefficient is a Greek lowercase rho: <span class="math inline">\rho.</span> This, unfortunately means that a matrix of correlations should be an uppercase rho: <span class="math inline">\mathbf{P}.</span> Somehow, statisticians are okay with <span class="math inline">\rho</span> looking a lot like an italicized Roman letter <em>p</em>. However, using an uppercase rho <span class="math inline">(\mathbf{P})</span> for a correlation matrix is too weird even for statisticians! You know, hobgoblins of little minds and all…</p>
+</div></div><p>Suppose that the standard deviations of <span class="math inline">X_1</span>, <span class="math inline">X_2</span>, and <span class="math inline">X_3</span> are all 15. Thus, <span class="math inline">\sigma=\{15,15,15\}.</span> The correlations among the three variables are shown in matrix <span class="math inline">\mathbf{R}</span>:</p>
 <p><span class="math display">
-\boldsymbol{R} = \begin{bmatrix}
+\mathbf{R} = \begin{bmatrix}
 1 &amp; 0.5 &amp; 0.6\\
 0.5 &amp; 1 &amp; 0.7\\
 0.6 &amp; 0.7 &amp; 1
@@ -696,15 +707,15 @@ x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
 </span></p>
 <p>To create this matrix in R:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R = correlation matrix of variables in X</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>, </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">0.7</span>,  </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.6</span>, <span class="fl">0.7</span>, <span class="dv">1</span>),</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">nrow =</span> <span class="dv">3</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ncol =</span> <span class="dv">3</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R = correlation matrix of variables in X</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.5</span>, <span class="dv">1</span>, <span class="fl">0.7</span>,  </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.6</span>, <span class="fl">0.7</span>, <span class="dv">1</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">nrow =</span> <span class="dv">3</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">ncol =</span> <span class="dv">3</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3]
 [1,]  1.0  0.5  0.6
@@ -712,7 +723,7 @@ x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
 [3,]  0.6  0.7  1.0</code></pre>
 </div>
 </div>
-<p>The covariance matrix <span class="math inline">\boldsymbol{\Sigma}</span> can be computed from the correlation matrix and the standard deviations like so:</p>
+<p>The covariance matrix <span class="math inline">\mathbf{\Sigma}</span> can be computed from the correlation matrix and the standard deviations like so:</p>
 <p><span class="math display">
 \sigma_{ij} = \sigma_{i} \sigma_{j} \rho_{ij}
 </span></p>
@@ -748,29 +759,29 @@ x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
 </div>
 <p>Unfortunately, computing a covariance matrix like this in a computer program is inelegant because we have to make use of looping:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R = Correlation matrix of variables in X</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">0.5</span>,<span class="fl">0.6</span>,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.5</span>,<span class="dv">1</span>,<span class="fl">0.7</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.6</span>,<span class="fl">0.7</span>,<span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">3</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(R) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(R) <span class="ot">&lt;-</span> Xnames <span class="co">#Apply names</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># s = The standard deviations of variables in X</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">15</span>,<span class="dv">15</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># k = The number of variables</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">length</span>(s)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># CM = Covariance Matrix</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize k by k matrix of zeroes</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>CM <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, k, k)</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(CM) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(CM) <span class="ot">&lt;-</span> Xnames</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, k)) {</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, k)) {</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    CM[i, j] <span class="ot">=</span> s[i] <span class="sc">*</span> s[j] <span class="sc">*</span> R[i, j]</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>CM</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R = Correlation matrix of variables in X</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="fl">0.5</span>,<span class="fl">0.6</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.5</span>,<span class="dv">1</span>,<span class="fl">0.7</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>              <span class="fl">0.6</span>,<span class="fl">0.7</span>,<span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(R) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(R) <span class="ot">&lt;-</span> Xnames <span class="co">#Apply names</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># s = The standard deviations of variables in X</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>,<span class="dv">15</span>,<span class="dv">15</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># k = The number of variables</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="fu">length</span>(s)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># CM = Covariance Matrix</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize k by k matrix of zeroes</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>CM <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, k, k)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(CM) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(CM) <span class="ot">&lt;-</span> Xnames</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, k)) {</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, k)) {</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    CM[i, j] <span class="ot">=</span> s[i] <span class="sc">*</span> s[j] <span class="sc">*</span> R[i, j]</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>CM</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>      X1    X2    X3
 X1 225.0 112.5 135.0
@@ -788,8 +799,8 @@ A_{kk} =
   \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
   a_{k1} &amp; a_{k2} &amp; \cdots &amp; a_{kk}
 \end{bmatrix}
-</span> Then <span class="math display">\mathtt{diag}(\boldsymbol{A}) = \{a_{11},a_{22},...,a_{kk}\}</span> Second, the <code>diag</code> function inserts a vector into the the diagonal of a <span class="math inline">k \times k</span> matrix of zeros: <span class="math display">
-\mathtt{diag}(\boldsymbol{a}) =
+</span> Then <span class="math display">\mathtt{diag}(\mathbf{A}) = \{a_{11},a_{22},...,a_{kk}\}</span> Second, the <code>diag</code> function inserts a vector into the the diagonal of a <span class="math inline">k \times k</span> matrix of zeros: <span class="math display">
+\mathtt{diag}(\mathbf{a}) =
 \begin{bmatrix}
   a_{1} &amp; 0 &amp; \cdots &amp; 0 \\
   0 &amp; a_{2} &amp; \cdots &amp; 0 \\
@@ -808,7 +819,7 @@ A_{kk} =
 </div></div><p>To calculate the covariance matrix in matrix notation, we can make use of the <span class="math inline">\mathtt{diag}</span> function.</p>
 <p><span class="math display">
 \begin{align*}
-\boldsymbol{\Sigma}&amp;=\mathtt{diag}(\boldsymbol{\sigma}) \boldsymbol{R}\, \mathtt{diag}(\boldsymbol{\sigma})\\
+\mathbf{\Sigma}&amp;=\mathtt{diag}(\mathbf{\sigma}) \mathbf{R}\, \mathtt{diag}(\mathbf{\sigma})\\
 &amp;=\begin{bmatrix}
   \sigma_{1} &amp; 0 &amp; \cdots &amp; 0 \\
   0 &amp; \sigma_{2} &amp; \cdots &amp; 0 \\
@@ -845,8 +856,8 @@ A_{kk} =
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
-<col style="width: 27%">
-<col style="width: 72%">
+<col style="width: 25%">
+<col style="width: 75%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -856,16 +867,16 @@ A_{kk} =
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\boldsymbol{\Sigma}</span></td>
-<td style="text-align: left;">The covariance matrix of variables in <span class="math inline">\boldsymbol{X}</span></td>
+<td style="text-align: left;"><span class="math inline">\mathbf{\Sigma}</span></td>
+<td style="text-align: left;">The covariance matrix of variables in <span class="math inline">\mathbf{X}</span></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><span class="math inline">\boldsymbol{\sigma}</span></td>
-<td style="text-align: left;">The standard deviations of variables in <span class="math inline">\boldsymbol{X}</span></td>
+<td style="text-align: left;"><span class="math inline">\mathbf{\sigma}</span></td>
+<td style="text-align: left;">The standard deviations of variables in <span class="math inline">\mathbf{X}</span></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><span class="math inline">\boldsymbol{R}</span></td>
-<td style="text-align: left;">The correlation matrix of variables in <span class="math inline">\boldsymbol{X}</span></td>
+<td style="text-align: left;"><span class="math inline">\mathbf{R}</span></td>
+<td style="text-align: left;">The correlation matrix of variables in <span class="math inline">\mathbf{X}</span></td>
 </tr>
 </tbody>
 </table>
@@ -873,18 +884,18 @@ A_{kk} =
 </div>
 <p>So this is where matrix algebra starts to shine. We do not need to initialize the variable that contains the covariance matrix, or calculate <span class="math inline">k</span>, or do any looping.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CM = Covariance matrix of variables in X</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>CM <span class="ot">&lt;-</span> <span class="fu">diag</span>(s) <span class="sc">%*%</span> R <span class="sc">%*%</span> <span class="fu">diag</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CM = Covariance matrix of variables in X</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>CM <span class="ot">&lt;-</span> <span class="fu">diag</span>(s) <span class="sc">%*%</span> R <span class="sc">%*%</span> <span class="fu">diag</span>(s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Beautiful!</p>
 <p>Running the code, we get: <span class="math display">
-\boldsymbol{\Sigma}=\begin{bmatrix}
+\mathbf{\Sigma}=\begin{bmatrix}
 225 &amp; 112.5 &amp; 135\\
 112.5 &amp; 225 &amp; 157.5\\
 135 &amp; 157.5 &amp; 225
 \end{bmatrix}
 </span></p>
-<p>To calculate the variance of <span class="math inline">X_S</span> if it is an unweighted sum we apply Equation&nbsp;@ref(eq:VarianceOfASum):</p>
+<p>To calculate the variance of <span class="math inline">X_S</span> if it is an unweighted sum we apply <a href="#eq-variancesum" class="quarto-xref">Equation&nbsp;<span>10.1</span></a>:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
 
 </div>
@@ -893,28 +904,27 @@ A_{kk} =
 <section id="calculating-the-variance-of-a-weighted-sum" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="calculating-the-variance-of-a-weighted-sum"><span class="header-section-number">10.3</span> Calculating the Variance of a Weighted Sum</h2>
 <p>If <span class="math inline">X_S</span> is a weighted sum, its variance is the weighted sum of the covariance matrix.</p>
-<p><span class="math display">
-\sigma_S^2=\sum_{i=1}^{k}{\sum_{j=1}^{k}{w_i w_j \sigma_{ij}}}=\boldsymbol{w'\Sigma w}
-(\#eq:VarianceOfAWeightedSum)
-</span></p>
+<p><span id="eq-varianceweightedsum"><span class="math display">
+\sigma_S^2=\sum_{i=1}^{k}{\sum_{j=1}^{k}{w_i w_j \sigma_{ij}}}=\mathbf{w'\Sigma w}
+\tag{10.2}</span></span></p>
 <p>Continuing with the same variables in our example, we see that things are starting to become clumsy and ugly without matrix algebra:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First we initialize var_S as 0</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>var_S_weighted <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we loop through k rows and k columns of CM</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, k)) {</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, k)) {</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    var_S_weighted <span class="ot">&lt;-</span> var_S_weighted <span class="sc">+</span> w[i] <span class="sc">*</span> w[j] <span class="sc">*</span> CM[i, j]</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First we initialize var_S as 0</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>var_S_weighted <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Now we loop through k rows and k columns of CM</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, k)) {</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="fu">seq</span>(<span class="dv">1</span>, k)) {</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    var_S_weighted <span class="ot">&lt;-</span> var_S_weighted <span class="sc">+</span> w[i] <span class="sc">*</span> w[j] <span class="sc">*</span> CM[i, j]</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>With matrix algebra, this all happens with a single line of code:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>var_S_weighted <span class="ot">&lt;-</span> <span class="fu">t</span>(w) <span class="sc">%*%</span> CM <span class="sc">%*%</span> w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>var_S_weighted <span class="ot">&lt;-</span> <span class="fu">t</span>(w) <span class="sc">%*%</span> CM <span class="sc">%*%</span> w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>If we don’t need to know the covariance matrix, we can skip its calculation:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>var_S_weighted <span class="ot">&lt;-</span> <span class="fu">t</span>(w <span class="sc">*</span> s) <span class="sc">%*%</span> R <span class="sc">%*%</span> (w <span class="sc">*</span> s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>var_S_weighted <span class="ot">&lt;-</span> <span class="fu">t</span>(w <span class="sc">*</span> s) <span class="sc">%*%</span> R <span class="sc">%*%</span> (w <span class="sc">*</span> s)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>All three methods give the same answer: <span class="math inline">\sigma_X^2 = 2193.75</span></p>
 </section>
@@ -961,12 +971,12 @@ C = \frac{x_S-\mu_S}{\sigma_{X_S}}\sigma_C + \mu_C
 </div>
 <p>Continuing with our example, suppose that <span class="math inline">\mu_C=100</span> and <span class="math inline">\sigma_C=15.</span></p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># m_C = Composite mean</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>m_C <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># s_C = Composite standard deviation</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>s_C <span class="ot">&lt;-</span> <span class="dv">15</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># C = The composite score</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> ((x_S <span class="sc">-</span> m_S) <span class="sc">/</span> <span class="fu">sqrt</span>(var_S)) <span class="sc">*</span> s_C <span class="sc">+</span> m_C</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># m_C = Composite mean</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>m_C <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># s_C = Composite standard deviation</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>s_C <span class="ot">&lt;-</span> <span class="dv">15</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># C = The composite score</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> ((x_S <span class="sc">-</span> m_S) <span class="sc">/</span> <span class="fu">sqrt</span>(var_S)) <span class="sc">*</span> s_C <span class="sc">+</span> m_C</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span class="math display">
 C=119
@@ -975,34 +985,34 @@ C=119
 <h3 data-number="10.4.1" class="anchored" data-anchor-id="calculating-a-weighted-composite-score"><span class="header-section-number">10.4.1</span> Calculating a Weighted Composite Score</h3>
 <p>In matrix notation, an unweighted composite score is calculated like so:</p>
 <p><span class="math display">
-C=\boldsymbol{\frac{1'(x-\mu_x)}{\sqrt{1'\Sigma 1}}}\sigma_C+\mu_C
-</span> Replacing each vector of ones <span class="math inline">\boldsymbol{1}</span> with a weight vector <span class="math inline">\boldsymbol{w}</span> gives us the formula for computing a weighted composite score:</p>
+C=\mathbf{\frac{1'(x-\mu_x)}{\sqrt{1'\Sigma 1}}}\sigma_C+\mu_C
+</span> Replacing each vector of ones <span class="math inline">\mathbf{1}</span> with a weight vector <span class="math inline">\mathbf{w}</span> gives us the formula for computing a weighted composite score:</p>
 <p><span class="math display">
-C_w=\boldsymbol{\frac{w'(x-\mu_x)}{\sqrt{w'\Sigma w}}}\sigma_C+\mu_C
+C_w=\mathbf{\frac{w'(x-\mu_x)}{\sqrt{w'\Sigma w}}}\sigma_C+\mu_C
 </span></p>
 
 <div class="no-row-height column-margin column-container"><div class="">
-<p>In clinical practice, the most common kind of composite score is an equally weighted composite consisting of scores with the same mean and standard deviation. Sometimes scores are weighted by the degree to which they correlate with the construct the composite is intended to measure. Other weighting schemes are also possible. In most cases, it makes sense to first convert all scores to z-scores and then weight the z-scores. Failing to convert the scores to a common metric such as z-scores will result in an implicit weighting by standard deviations. That is, the score with the largest standard deviation will have the most weight in the composite score. Converting to z-scores first will equalize the each score’s influence on the composite score. We can convert all the scores in <span class="math inline">\boldsymbol{x}</span> to z-scores like so:</p>
+<p>In clinical practice, the most common kind of composite score is an equally weighted composite consisting of scores with the same mean and standard deviation. Sometimes scores are weighted by the degree to which they correlate with the construct the composite is intended to measure. Other weighting schemes are also possible. In most cases, it makes sense to first convert all scores to z-scores and then weight the z-scores. Failing to convert the scores to a common metric such as z-scores will result in an implicit weighting by standard deviations. That is, the score with the largest standard deviation will have the most weight in the composite score. Converting to z-scores first will equalize the each score’s influence on the composite score. We can convert all the scores in <span class="math inline">\mathbf{x}</span> to z-scores like so:</p>
 <p><span class="math display">
-\boldsymbol{z} = \frac{\boldsymbol{x}-\boldsymbol{\mu}}{\boldsymbol{\sigma}}
+\mathbf{z} = \frac{\mathbf{x}-\mathbf{\mu}}{\mathbf{\sigma}}
 </span></p>
 <p>The nice thing about z-scores is that their means are zeros, their standard deviations are ones, and their covariances are correlations. Thus, the formula for a weighted composite score consisting of z-scores is fairly simple, especially if the composite score is a z-score itself:</p>
 <p><span class="math display">
-C = \frac{\boldsymbol{w^\prime z}}{\sqrt{\boldsymbol{w^\prime Rw}}}\sigma_C+\mu_C
+C = \frac{\mathbf{w^\prime z}}{\sqrt{\mathbf{w^\prime Rw}}}\sigma_C+\mu_C
 </span></p>
 </div></div><p>Continuing with our example, computing a composite score with <span class="math inline">X_1=110</span>, <span class="math inline">X_2=120</span>, and <span class="math inline">X_3=118</span>:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># C = The composite score</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> (<span class="fu">t</span>(w) <span class="sc">%*%</span> (x <span class="sc">-</span> m) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">t</span>(w) <span class="sc">%*%</span> CM <span class="sc">%*%</span> w)) <span class="sc">*</span> <span class="dv">15</span>  <span class="sc">+</span> <span class="dv">100</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># With index scores, we round to the nearest integer</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">round</span>(C)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes:</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The round function rounds to the nearest integer by default,</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># but you can round to any number of digits you wish. For example, </span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># rounding to 2 significant digits (i.e., the hundredths place), </span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="co"># would be round(x,2).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># C = The composite score</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> (<span class="fu">t</span>(w) <span class="sc">%*%</span> (x <span class="sc">-</span> m) <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="fu">t</span>(w) <span class="sc">%*%</span> CM <span class="sc">%*%</span> w)) <span class="sc">*</span> <span class="dv">15</span>  <span class="sc">+</span> <span class="dv">100</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># With index scores, we round to the nearest integer</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>C <span class="ot">&lt;-</span> <span class="fu">round</span>(C)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Notes:</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The round function rounds to the nearest integer by default,</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># but you can round to any number of digits you wish. For example, </span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># rounding to 2 significant digits (i.e., the hundredths place), </span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># would be round(x,2).</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here we see, that the weighted composite score <span class="math inline">C = 120.</span> If we had wanted an equally weighted composite score, the <code>w</code> vector would be set to equal ones. If we had done so, <span class="math inline">C</span> would have been <span class="math inline">119</span> instead of <span class="math inline">120.</span></p>
 </section>
@@ -1015,59 +1025,59 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 </span></p>
 <p>The variance of a composite score is the sum of the covariance matrix of the composite’s component scores.</p>
 <p><span class="math display">
-\sigma_X^2=\boldsymbol{1}'\begin{bmatrix}
+\sigma_X^2=\mathbf{1}'\begin{bmatrix}
   \sigma_{1}^2 &amp; \sigma_{12} &amp; \cdots &amp; \sigma_{1k} \\
   \sigma_{21} &amp; \sigma_{2}^2 &amp; \cdots &amp; \sigma_{2 k} \\
   \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
   \sigma_{k1} &amp; \sigma_{k2} &amp; \cdots &amp; \sigma_{k}^2
-\end{bmatrix}\boldsymbol{1}
+\end{bmatrix}\mathbf{1}
 </span></p>
 <p>The covariance matrix of the component true scores is exactly the same as the covariance matrix of the component observed scores, except that the variances on the diagonal are multiplied by the reliability coefficients of each of the component scores like so:</p>
 <p><span class="math display">
-\sigma_T^2=\boldsymbol{1}'\begin{bmatrix}
+\sigma_T^2=\mathbf{1}'\begin{bmatrix}
   {\color{firebrick}r_{11}}\sigma_{1}^2 &amp; \sigma_{12} &amp; \cdots &amp; \sigma_{1k} \\
   \sigma_{21} &amp; {\color{firebrick}r_{22}}\sigma_{2}^2 &amp; \cdots &amp; \sigma_{2 k} \\
   \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
   \sigma_{k1} &amp; \sigma_{k2} &amp; \cdots &amp; {\color{firebrick}r_{kk}}\sigma_{k}^2
-\end{bmatrix}\boldsymbol{1}
+\end{bmatrix}\mathbf{1}
 </span></p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># r_XX = Reliability coefficients for X1, X2, and X3</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>r_XX <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.88</span>,<span class="fl">0.80</span>,<span class="fl">0.76</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># CM_T = Covariance matrix of true scores</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>CM_T <span class="ot">&lt;-</span> CM</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace diagonal with true score variances</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(CM_T) <span class="ot">&lt;-</span> <span class="fu">diag</span>(CM) <span class="sc">*</span> r_XX</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># r_C = Reliability coefficient of composite score</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>r_C <span class="ot">&lt;-</span> <span class="fu">sum</span>(CM_T) <span class="sc">/</span> <span class="fu">sum</span>(CM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># r_XX = Reliability coefficients for X1, X2, and X3</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>r_XX <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.88</span>,<span class="fl">0.80</span>,<span class="fl">0.76</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># CM_T = Covariance matrix of true scores</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>CM_T <span class="ot">&lt;-</span> CM</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace diagonal with true score variances</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">diag</span>(CM_T) <span class="ot">&lt;-</span> <span class="fu">diag</span>(CM) <span class="sc">*</span> r_XX</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co"># r_C = Reliability coefficient of composite score</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>r_C <span class="ot">&lt;-</span> <span class="fu">sum</span>(CM_T) <span class="sc">/</span> <span class="fu">sum</span>(CM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The reliability coefficient of the unweighted composite is 0.92.</p>
-<p>For a weighted composite, the reliability is calculated by relplacing each vector of ones <span class="math inline">\boldsymbol{1}</span> with a weight vector <span class="math inline">\boldsymbol{w}</span>:</p>
+<p>For a weighted composite, the reliability is calculated by relplacing each vector of ones <span class="math inline">\mathbf{1}</span> with a weight vector <span class="math inline">\mathbf{w}</span>:</p>
 <p><span class="math display">
 \rho_{XX}=\frac{\sigma_T^2}
                {\sigma_X^2}
-         =\frac{\boldsymbol{w}^{\prime}
+         =\frac{\mathbf{w}^{\prime}
                \begin{bmatrix}
   {\color{firebrick}r_{11}}\sigma_{1}^2 &amp; \sigma_{12} &amp; \cdots &amp; \sigma_{1k} \\
   \sigma_{21} &amp; {\color{firebrick}r_{22}}\sigma_{2}^2 &amp; \cdots &amp; \sigma_{2 k} \\
   \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
   \sigma_{k1} &amp; \sigma_{k2} &amp; \cdots &amp; {\color{firebrick}r_{kk}}\sigma_{k}^2
                 \end{bmatrix}
-                \boldsymbol{w}}
-          {\boldsymbol{w}^{\prime}
+                \mathbf{w}}
+          {\mathbf{w}^{\prime}
                \begin{bmatrix}
   \sigma_{1}^2 &amp; \sigma_{12} &amp; \cdots &amp; \sigma_{1k} \\
   \sigma_{21} &amp; \sigma_{2}^2 &amp; \cdots &amp; \sigma_{2 k} \\
   \vdots  &amp; \vdots  &amp; \ddots &amp; \vdots  \\
   \sigma_{k1} &amp; \sigma_{k2} &amp; \cdots &amp; \sigma_{k}^2
-\end{bmatrix}\boldsymbol{w}}
+\end{bmatrix}\mathbf{w}}
 </span></p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reliability coefficient of the weighted composite</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>r_C_w <span class="ot">&lt;-</span> <span class="fu">t</span>(w) <span class="sc">%*%</span> CM_T <span class="sc">%*%</span> w <span class="sc">/</span> <span class="fu">t</span>(w) <span class="sc">%*%</span> CM <span class="sc">%*%</span> w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reliability coefficient of the weighted composite</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>r_C_w <span class="ot">&lt;-</span> <span class="fu">t</span>(w) <span class="sc">%*%</span> CM_T <span class="sc">%*%</span> w <span class="sc">/</span> <span class="fu">t</span>(w) <span class="sc">%*%</span> CM <span class="sc">%*%</span> w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The reliability coefficient of the weighted composite is 0.88.</p>
 </section>
@@ -1079,7 +1089,7 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 
 </div>
 <p><span class="math display">
-\boldsymbol{R} = \begin{array}{r|cccc}
+\mathbf{R} = \begin{array}{r|cccc}
 &amp; \color{royalblue}{A_1} &amp; \color{royalblue}{A_2} &amp; \color{firebrick}{B_1} &amp; \color{firebrick}{B_2}\\
 \hline \color{royalblue}{A_1} &amp; \color{royalblue}{1} &amp; \color{royalblue}{.30} &amp; \color{purple}{.35} &amp; \color{purple}{.40}\\
 \color{royalblue}{A_2} &amp; \color{royalblue}{.30} &amp; \color{royalblue}{1} &amp; \color{purple}{.42} &amp; \color{purple}{.48}\\
@@ -1088,16 +1098,16 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 \end{array}
 </span></p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make correlation matrix R</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, .<span class="dv">30</span>, .<span class="dv">35</span>, .<span class="dv">40</span>,</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>              .<span class="dv">30</span>, <span class="dv">1</span>, .<span class="dv">42</span>, .<span class="dv">48</span>,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>              .<span class="dv">35</span>, .<span class="dv">42</span>, <span class="dv">1</span>, .<span class="dv">56</span>,</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>              .<span class="dv">40</span>, .<span class="dv">48</span>, .<span class="dv">56</span>, <span class="dv">1</span>),</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">nrow =</span> <span class="dv">4</span>,</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">ncol =</span> <span class="dv">4</span>)</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display R</span></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make correlation matrix R</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, .<span class="dv">30</span>, .<span class="dv">35</span>, .<span class="dv">40</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>              .<span class="dv">30</span>, <span class="dv">1</span>, .<span class="dv">42</span>, .<span class="dv">48</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>              .<span class="dv">35</span>, .<span class="dv">42</span>, <span class="dv">1</span>, .<span class="dv">56</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>              .<span class="dv">40</span>, .<span class="dv">48</span>, .<span class="dv">56</span>, <span class="dv">1</span>),</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">nrow =</span> <span class="dv">4</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display R</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>R</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2] [,3] [,4]
 [1,] 1.00 0.30 0.35 0.40
@@ -1106,11 +1116,11 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 [4,] 0.40 0.48 0.56 1.00</code></pre>
 </div>
 </div>
-<p>The correlation between Composite <span class="math inline">A</span> and Composite <span class="math inline">B</span> is calculating by adding up the numbers is all three shaded regions of the correlation matrix and then dividing the sum of “between” correlations in purple by the geometric mean of the sums from the “within” correlations in the blue and red regions in the correlation matrix <span class="math inline">\boldsymbol{R}</span> like so:</p>
+<p>The correlation between Composite <span class="math inline">A</span> and Composite <span class="math inline">B</span> is calculating by adding up the numbers is all three shaded regions of the correlation matrix and then dividing the sum of “between” correlations in purple by the geometric mean of the sums from the “within” correlations in the blue and red regions in the correlation matrix <span class="math inline">\mathbf{R}</span> like so:</p>
 <p><span class="math display">r_{AB}=\dfrac{\color{purple}{\text{Sum of Correlations between A and B}}}{\sqrt{\color{royalblue}{\text{Sum of Correlations Within A}}\times\color{firebrick}{{\text{Sum of Correlations Within B}}}}}</span></p>
-<p>To calculate these sums using matrix algebra, we first construct a “weight matrix” <span class="math inline">\boldsymbol{W}</span> that tells us which tests are in which composite. The 1s in the first two rows of column 1 tell us that tests <span class="math inline">A_1</span> and <span class="math inline">A_2</span> belong to composite <span class="math inline">A</span>. Likewise, the 1s in the last two rows of column 2 tell us that <span class="math inline">B_1</span> and <span class="math inline">B_2</span> belong to composite <span class="math inline">B</span>.</p>
+<p>To calculate these sums using matrix algebra, we first construct a “weight matrix” <span class="math inline">\mathbf{W}</span> that tells us which tests are in which composite. The 1s in the first two rows of column 1 tell us that tests <span class="math inline">A_1</span> and <span class="math inline">A_2</span> belong to composite <span class="math inline">A</span>. Likewise, the 1s in the last two rows of column 2 tell us that <span class="math inline">B_1</span> and <span class="math inline">B_2</span> belong to composite <span class="math inline">B</span>.</p>
 <p><span class="math display">
-\boldsymbol{W}=
+\mathbf{W}=
 \begin{array}{r|cc}
 &amp; \color{royalblue}{A} &amp; \color{firebrick}{B}\\
 \hline \color{royalblue}{A_1} &amp; \color{royalblue}{1} &amp; 0\\
@@ -1121,16 +1131,16 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 </span></p>
 <p>Here is one way to make the weight matrix in R:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a 4 by 2 matrix of 0s</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>W <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign 1s to rows 1 and 2 to column 1</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>W[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign 1s to rows 3 and 4 to column 2</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>W[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display W</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>W</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a 4 by 2 matrix of 0s</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>W <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign 1s to rows 1 and 2 to column 1</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>W[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign 1s to rows 3 and 4 to column 2</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>W[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Display W</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>W</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,]    1    0
@@ -1142,9 +1152,9 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
 
 </div>
-<p>The covariance matrix <span class="math inline">\boldsymbol{\Sigma_{AB}}</span> is calculated by pre- and post-mulitplying <span class="math inline">\boldsymbol{R}</span> by the wieght matrix .</p>
+<p>The covariance matrix <span class="math inline">\mathbf{\Sigma_{AB}}</span> is calculated by pre- and post-mulitplying <span class="math inline">\mathbf{R}</span> by the wieght matrix .</p>
 <p><span class="math display">
-\begin{aligned}\boldsymbol{\Sigma_{AB}} &amp;= \boldsymbol{W'RW}\\[2ex]
+\begin{aligned}\mathbf{\Sigma_{AB}} &amp;= \mathbf{W'RW}\\[2ex]
 &amp;=\left[\begin{array}{cc}
 \color{royalblue}{1} &amp; 0\\
 \color{royalblue}{1} &amp; 0\\
@@ -1174,22 +1184,22 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 \end{aligned}
 </span></p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Covariance matrix of composites A and B</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>Sigma_AB <span class="ot">&lt;-</span> <span class="fu">t</span>(W) <span class="sc">%*%</span> R <span class="sc">%*%</span> W</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display Sigma_AB</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>Sigma_AB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Covariance matrix of composites A and B</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>Sigma_AB <span class="ot">&lt;-</span> <span class="fu">t</span>(W) <span class="sc">%*%</span> R <span class="sc">%*%</span> W</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display Sigma_AB</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>Sigma_AB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>     [,1] [,2]
 [1,] 2.60 1.65
 [2,] 1.65 3.12</code></pre>
 </div>
 </div>
-<p>Now we need to extract the variance diagonal from the covariance matrix so that we can use them to convert the covariance matrix to a correlation matrix. The variances are put on a diagonal matrix, and then taking the square root converts the variances to standard deviations in matrix <span class="math inline">\boldsymbol{\sigma}</span>.</p>
+<p>Now we need to extract the variance diagonal from the covariance matrix so that we can use them to convert the covariance matrix to a correlation matrix. The variances are put on a diagonal matrix, and then taking the square root converts the variances to standard deviations in matrix <span class="math inline">\mathbf{\sigma}</span>.</p>
 <p><span class="math display">
 \begin{aligned}
-\boldsymbol{\sigma}
-&amp;=\mathtt{diag}(\mathtt{diag}(\boldsymbol{\Sigma_{AB}}))^{\frac{1}{2}}\\
+\mathbf{\sigma}
+&amp;=\mathtt{diag}(\mathtt{diag}(\mathbf{\Sigma_{AB}}))^{\frac{1}{2}}\\
 &amp;=\mathtt{diag}\left(
 \mathtt{diag}\left({
 \left[\begin{array}{cc}
@@ -1215,30 +1225,30 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 \end{aligned}
 </span></p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard deviations</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="fu">diag</span>(Sigma_AB)<span class="sc">^</span>(<span class="fl">0.5</span>))</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display sigma</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>sigma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Standard deviations</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="fu">diag</span>(Sigma_AB)<span class="sc">^</span>(<span class="fl">0.5</span>))</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display sigma</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>sigma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>         [,1]     [,2]
 [1,] 1.612452 0.000000
 [2,] 0.000000 1.766352</code></pre>
 </div>
 </div>
-<p>Pre- and post-multiplying the covariance matrix <span class="math inline">\boldsymbol{\Sigma_{AB}}</span> by the inverted standard devation matrix <span class="math inline">\boldsymbol{\sigma}</span> to yield the correlations between composites <span class="math inline">A</span> and <span class="math inline">B</span>.</p>
+<p>Pre- and post-multiplying the covariance matrix <span class="math inline">\mathbf{\Sigma_{AB}}</span> by the inverted standard devation matrix <span class="math inline">\mathbf{\sigma}</span> to yield the correlations between composites <span class="math inline">A</span> and <span class="math inline">B</span>.</p>
 <p><span class="math display">
 \begin{aligned}
-\boldsymbol{R_{AB}}&amp;=\boldsymbol{\sigma}^{-1}\boldsymbol{\Sigma_{AB}}\boldsymbol{\sigma}^{-1}\\[2ex]
-&amp;={\boldsymbol{\sigma}^{-1} \atop \left[\begin{array}{cc}
+\mathbf{R_{AB}}&amp;=\mathbf{\sigma}^{-1}\mathbf{\Sigma_{AB}}\mathbf{\sigma}^{-1}\\[2ex]
+&amp;={\mathbf{\sigma}^{-1} \atop \left[\begin{array}{cc}
 \color{royalblue}{1.6125} &amp; 0\\
 0 &amp; \color{firebrick}{1.7664}
 \end{array}\right]^{-1}}
-   {\boldsymbol{\Sigma_{AB}} \atop \left[\begin{array}{cc}
+   {\mathbf{\Sigma_{AB}} \atop \left[\begin{array}{cc}
 \color{royalblue}{2.60} &amp; \color{purple}{1.65}\\
 \color{purple}{1.65} &amp; \color{firebrick}{3.12}
 \end{array}\right]}
-   {\boldsymbol{\sigma}^{-1} \atop \left[\begin{array}{cc}
+   {\mathbf{\sigma}^{-1} \atop \left[\begin{array}{cc}
 \color{royalblue}{1.6125} &amp; 0\\
 0 &amp; \color{firebrick}{1.7664}
 \end{array}\right]^{-1}}\\[1ex]
@@ -1263,11 +1273,11 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>The <code>solve</code> function inverts a square matrix. Inverting a single number <span class="math inline">x</span> gives its reciprocal. If you multiply the inverse of a number by the nunbe itself, you get 1, the <em>identity</em> for the multiplication operator. <span class="math inline">x^{-1}x=1</span>, multiplying a matrix by its inverse creates an identity matrix (a matrix with ones on the diagonal and zeroes elsewhere):</p>
-<p><span class="math display">\boldsymbol{A^{-1}A = I}</span></p>
+<p><span class="math display">\mathbf{A^{-1}A = I}</span></p>
 </div></div><div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlations between composites A and B</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>R_AB <span class="ot">&lt;-</span> <span class="fu">solve</span>(sigma) <span class="sc">%*%</span> Sigma_AB <span class="sc">%*%</span> <span class="fu">solve</span>(sigma)</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>R_AB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlations between composites A and B</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>R_AB <span class="ot">&lt;-</span> <span class="fu">solve</span>(sigma) <span class="sc">%*%</span> Sigma_AB <span class="sc">%*%</span> <span class="fu">solve</span>(sigma)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>R_AB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>          [,1]      [,2]
 [1,] 1.0000000 0.5793219
@@ -1276,10 +1286,10 @@ r_{XX} = \frac{\sigma_T^2}{\sigma_X^2}
 </div>
 <p>These calculations in R can be greatly simplified using the <code>cov2cor</code> function, which converts covariances to correlations:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation matrix of composites A and B</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>R_AB <span class="ot">&lt;-</span> <span class="fu">cov2cor</span>(<span class="fu">t</span>(W) <span class="sc">%*%</span> R <span class="sc">%*%</span> W)</span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>R_AB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correlation matrix of composites A and B</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>R_AB <span class="ot">&lt;-</span> <span class="fu">cov2cor</span>(<span class="fu">t</span>(W) <span class="sc">%*%</span> R <span class="sc">%*%</span> W)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>R_AB</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>          [,1]      [,2]
 [1,] 1.0000000 0.5793219
