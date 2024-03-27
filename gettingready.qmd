@@ -31,7 +31,7 @@ The challenge of learning R is indeed going to be challenging at times, but just
 
 ![[Robert Gentleman](https://www.wikiwand.com/en/Robert_Gentleman_(statistician))](images/r_gentleman.jpg "Robert Gentleman"){#fig-gentleman .column-margin width=200 fig-alt="A headshot of statistician Robert Gentleman"}
 
-![[Ross Ihaka](https://www.wikiwand.com/en/Ross_Ihaka)](images/Ihaka.jpg "Ross Ihaka"){#fig-ihaka .column-margin width=200  fig-alt="A headshot of statistician Ross Ihaka"}
+![[Ross Ihaka](https://www.wikiwand.com/en/Ross_Ihaka)](images/RossIhaka.jpg "Ross Ihaka"){#fig-ihaka .column-margin width=200  fig-alt="A headshot of statistician Ross Ihaka"}
 
 R is the eighteenth letter of the alphabet, of course, but for data analysts, it has several specialized meanings.
 
