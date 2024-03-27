@@ -276,10 +276,6 @@ Hadley Wickham reminds us that the most important person to write code for is *f
 
 At all times, work with the assumption that 10 minutes from now, you will suffer catastrophic *datamnesia*---memory failure for everything related to your analysis.
 
-::: {align="center"}
-![*Datamnesia* happens all the time.](https://media.giphy.com/media/RSTWNZcvvdDOw/giphy.gif)
-:::
-
 Present-you thinks future-you has god-like memory capacity. Future-you has very human and very fallible memory. Predicting is hard, especially about the future and what future-you will remember.
 
 Future-you spends an inordinate amount of time recreating what present-you thought future-you would understand and remember---so much time that future-you neglects to take care of future--future-you. *Future-you won't take care of anything unless present-you learns to take care of future-you.*
