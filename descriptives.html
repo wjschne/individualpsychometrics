@@ -655,7 +655,7 @@ R Code for <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>9.2<
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-freqbarplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-freqbarplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-freqbarplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-freqbarplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
@@ -669,7 +669,7 @@ Figure&nbsp;9.1: Frequency Distribution Bar Plot
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-freqstackedbarplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-freqstackedbarplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-freqstackedbarplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-freqstackedbarplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="250">
@@ -683,7 +683,7 @@ Figure&nbsp;9.2: Cumulative Frequency Stacked Bar Plot
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-freqstepplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-freqstepplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-freqstepplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-freqstepplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
@@ -720,16 +720,17 @@ R Code for <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>9.1<
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>d_freq <span class="sc">%&gt;%</span> </span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Anger, f)) <span class="sc">+</span> </span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span> </span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_fill</span>(<span class="fu">aes</span>(<span class="at">label =</span> f), </span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, </span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">30</span>)) <span class="sc">+</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, </span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span> </span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="st">"Frequency"</span>, </span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.09</span>))) <span class="sc">+</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">30</span>, </span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">base_family =</span> bfont) <span class="sc">+</span> </span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>())       </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richlabel</span>(<span class="fu">aes</span>(<span class="at">label =</span> f), </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">vjust =</span> <span class="dv">0</span>, </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">label.margin =</span> <span class="fu">margin</span>(),</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                 <span class="at">text_size =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span> </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="st">"Frequency"</span>, </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.09</span>))) <span class="sc">+</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">30</span>, </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">base_family =</span> bfont) <span class="sc">+</span> </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>())       </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -809,58 +810,59 @@ R Code for <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>9.3
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_step</span>(<span class="at">direction =</span> <span class="st">"mid"</span>,</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_fill</span>(</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richlabel</span>(</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> cf),</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">0</span>,</span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">30</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_fill</span>(</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> signs<span class="sc">::</span><span class="fu">signs</span>(</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>      f, <span class="at">accuracy =</span> <span class="dv">1</span>, <span class="at">add_plusses =</span> T</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    )),</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="fl">1.5</span>,</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"gray40"</span>,</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">30</span>)</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>,</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>()) <span class="sc">+</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cumulative Frequency"</span>,</span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>),</span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="dv">0</span>,</span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">minor_breaks =</span> <span class="cn">NULL</span>,</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="fl">0.001</span>, <span class="fl">0.07</span>))</span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">30</span>, <span class="at">base_family =</span> bfont) <span class="sc">+</span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"segment"</span>,</span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fl">0.5</span>,</span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="dv">0</span>,</span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="fl">0.5</span>,</span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="dv">73</span>,</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">1</span></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"segment"</span>,</span>
-<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fl">0.5</span>,</span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="dv">73</span>,</span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="dv">1</span>,</span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="dv">73</span>,</span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">0.5</span></span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"segment"</span>,</span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">7</span>,</span>
-<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="dv">129</span>,</span>
-<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="fl">7.5</span>,</span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="dv">129</span>,</span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">0.5</span></span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">1</span>),</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">text_size =</span> <span class="dv">30</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richlabel</span>(</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> signs<span class="sc">::</span><span class="fu">signs</span>(</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>      f, <span class="at">accuracy =</span> <span class="dv">1</span>, <span class="at">add_plusses =</span> T</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    )),</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">1</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"gray40"</span>,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">text_size =</span> <span class="dv">30</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>()) <span class="sc">+</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cumulative Frequency"</span>,</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>),</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="dv">0</span>,</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">minor_breaks =</span> <span class="cn">NULL</span>,</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="fl">0.001</span>, <span class="fl">0.07</span>))</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">30</span>, <span class="at">base_family =</span> bfont) <span class="sc">+</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"segment"</span>,</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fl">0.5</span>,</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="dv">0</span>,</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="fl">0.5</span>,</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="dv">73</span>,</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">1</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"segment"</span>,</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fl">0.5</span>,</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="dv">73</span>,</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="dv">1</span>,</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="dv">73</span>,</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">0.5</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">"segment"</span>,</span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">7</span>,</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="dv">129</span>,</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="fl">7.5</span>,</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="dv">129</span>,</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">0.5</span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -885,7 +887,7 @@ R Code for <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>9.3
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-bimodal" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-bimodal" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bimodal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-bimodal-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -914,30 +916,32 @@ R Code for <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>9.4</spa
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">dnorm</span>(x,<span class="sc">-</span><span class="dv">1</span>, <span class="fl">0.5</span>) <span class="sc">/</span> <span class="fl">0.8</span> <span class="sc">+</span> </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">dnorm</span>(x, <span class="dv">1</span>, <span class="fl">0.75</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">fill =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">fill =</span> myfills[<span class="dv">1</span>], <span class="at">alpha =</span> .<span class="dv">5</span>) <span class="sc">+</span></span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> . <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(x <span class="sc">==</span> <span class="sc">-</span><span class="dv">1</span>),</span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.25</span>,</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"Major</span><span class="sc">\n</span><span class="st">Mode"</span>,</span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">8</span>,</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineheight =</span> <span class="fl">0.9</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> . <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(x <span class="sc">==</span> <span class="dv">1</span>),</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.25</span>,</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"Minor</span><span class="sc">\n</span><span class="st">Mode"</span>,</span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">8</span>,</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineheight =</span> <span class="fl">0.9</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="cn">NULL</span>,</span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> <span class="cn">NULL</span>,</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>)) <span class="sc">+</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>,</span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="cn">NULL</span>,</span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">25</span>))) <span class="sc">+</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">30</span>,</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>                <span class="at">base_family =</span> bfont) <span class="sc">+</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineheight =</span> <span class="fl">0.9</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"gray30"</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> . <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(x <span class="sc">==</span> <span class="dv">1</span>),</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.25</span>,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">"Minor</span><span class="sc">\n</span><span class="st">Mode"</span>,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">8</span>,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">lineheight =</span> <span class="fl">0.9</span>,</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"gray30"</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="cn">NULL</span>,</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> <span class="cn">NULL</span>,</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>,</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="cn">NULL</span>,</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">25</span>))) <span class="sc">+</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">30</span>,</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>                <span class="at">base_family =</span> bfont) <span class="sc">+</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -977,49 +981,49 @@ Poncet, P. (2019). <em>Modeest: Mode estimation</em>. <a href="https://github.co
 <div class="cell-output-display">
 <table class="do-not-create-environment cell table table-sm table-striped small">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 14%">
+<col style="width: 6%">
+<col style="width: 15%">
 <col style="width: 30%">
 <col style="width: 16%">
-<col style="width: 32%">
+<col style="width: 31%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: right;"><em>X</em></th>
-<th style="text-align: right;">Frequency</th>
-<th style="text-align: right;">Cumulative Frequency</th>
-<th style="text-align: right;">Proportion</th>
-<th style="text-align: right;">Cumulative Proportion</th>
+<th style="text-align: center;"><em>X</em></th>
+<th style="text-align: center;">Frequency</th>
+<th style="text-align: center;">Cumulative Frequency</th>
+<th style="text-align: center;">Proportion</th>
+<th style="text-align: center;">Cumulative Proportion</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">.14</td>
-<td style="text-align: right;">.14</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">.14</td>
+<td style="text-align: center;">.14</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">.43</td>
-<td style="text-align: right;">.57</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">.43</td>
+<td style="text-align: center;">.57</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">.14</td>
-<td style="text-align: right;">.71</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">.14</td>
+<td style="text-align: center;">.71</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">.29</td>
-<td style="text-align: right;">1.00</td>
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">.29</td>
+<td style="text-align: center;">1</td>
 </tr>
 </tbody>
 </table>
@@ -1056,7 +1060,7 @@ Table&nbsp;9.3: Finding the Median in a Frequency Distribution Table.<br>In this
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-centraltendency" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-centraltendency" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-centraltendency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-centraltendency-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -1181,59 +1185,59 @@ R Code for <a href="#fig-centraltendency" class="quarto-xref">Figure&nbsp;<span>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Feature</th>
-<th style="text-align: left;">Mode</th>
-<th style="text-align: left;">Median</th>
-<th style="text-align: left;">Mean</th>
+<th style="text-align: center;">Mode</th>
+<th style="text-align: center;">Median</th>
+<th style="text-align: center;">Mean</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Computable for Nominal Variables</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Computable for Ordinal Variables</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">No</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Computable for Interval Variables</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Computable for Ratio Variables</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Algebraic Formula</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Unique Value</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">Yes</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Sensitive to Outliers/Skewness</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Yes</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">Yes</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Standard Error</td>
-<td style="text-align: left;">Larger</td>
-<td style="text-align: left;">Smaller</td>
-<td style="text-align: left;">Smallest</td>
+<td style="text-align: center;">Larger</td>
+<td style="text-align: center;">Smaller</td>
+<td style="text-align: center;">Smallest</td>
 </tr>
 </tbody>
 </table>
@@ -1260,7 +1264,7 @@ m_X=\frac{\sum_{i=1}^{n} {x_i}}{n}
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-pmfX" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-pmfX" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pmfX-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-pmfX-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
@@ -1319,7 +1323,7 @@ R Code for <a href="#fig-pmfX" class="quarto-xref">Figure&nbsp;<span>9.6</span><
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-thinbins" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-thinbins" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-thinbins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-thinbins-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -1428,7 +1432,7 @@ Gombin, J. (2018). <em>Qualvar: Implements indices of qualitative variation prop
 </div></div><div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-nominalvar" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-nominalvar" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nominalvar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-nominalvar-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="400">
@@ -1489,22 +1493,24 @@ R Code for <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>9.8</
 <span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Frequencies =</span> d) <span class="sc">%&gt;%</span></span>
 <span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Category, Frequencies)) <span class="sc">+</span></span>
 <span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Variability)) <span class="sc">+</span></span>
-<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_fill</span>(</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richlabel</span>(</span>
 <span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> Frequencies),</span>
-<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span>.<span class="dv">3</span>,</span>
-<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"gray30"</span>,</span>
-<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">30</span>)</span>
-<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.08</span>)),</span>
-<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
-<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">minor_breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">10</span>)</span>
-<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> myfills) <span class="sc">+</span></span>
-<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">cols =</span> <span class="fu">vars</span>(Variability)) <span class="sc">+</span></span>
-<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_family =</span> bfont, <span class="at">base_size =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
-<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">0</span>,</span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.margin =</span> <span class="fu">margin</span>(),</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.padding =</span> <span class="fu">margin</span>(<span class="at">b =</span> .<span class="dv">5</span>, <span class="at">t =</span> .<span class="dv">5</span>, <span class="at">l =</span> .<span class="dv">5</span>, <span class="at">r =</span> .<span class="dv">5</span>),</span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"gray30"</span>,</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">text_size =</span> <span class="dv">30</span></span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.08</span>)),</span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">20</span>),</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">minor_breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="dv">10</span>)</span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> myfills) <span class="sc">+</span></span>
+<span id="cb27-39"><a href="#cb27-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">cols =</span> <span class="fu">vars</span>(Variability)) <span class="sc">+</span></span>
+<span id="cb27-40"><a href="#cb27-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_family =</span> bfont, <span class="at">base_size =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb27-41"><a href="#cb27-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb27-42"><a href="#cb27-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1516,7 +1522,7 @@ R Code for <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>9.8</
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-normalIQR" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-normalIQR" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normalIQR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-normalIQR-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -1597,7 +1603,7 @@ R Code for <a href="#fig-normalIQR" class="quarto-xref">Figure&nbsp;<span>9.9</s
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-ordinalIQR" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-ordinalIQR" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ordinalIQR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-ordinalIQR-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="300">
@@ -1689,7 +1695,7 @@ R Code for <a href="#fig-ordinalIQR" class="quarto-xref">Figure&nbsp;<span>9.10<
 <p>The median and the interquartile range are displayed in box and whiskers plots like <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>9.11</span></a>. The height of the box is the interquartile range, and the horizontal line is the median. The top “whisker” extends no higher than 1.5 × <em>IQR</em> above the 75th percentile. The bottom “whisker” extends no lower than 1.5 × <em>IQR</em> below the 25th percentile. Any data points outside the whiskers can be considered outliers.</p>
 <div class="cell fig-cap-location-top tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-IQRboxplot" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-IQRboxplot" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-IQRboxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-IQRboxplot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -1847,7 +1853,7 @@ s^2=\frac{\sum_i^n{\left(x_i-m\right)^2}}{n-1}
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-besselpic" class="quarto-figure quarto-figure-left quarto-float anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-besselpic" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-besselpic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Friedrich_Wilhelm_Bessel_(1839_painting).jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" width="250">
@@ -1862,7 +1868,7 @@ Figure&nbsp;9.12: Friedrich Wilhelm Bessel (1784–1846)<br><a href="https://en.
 <p>Variance is rarely used for descriptive purposes because it is a squared quantity with no direct connection to the width of the distribution it describes. We mainly use variance as a stepping stone to compute other descriptive statistics (e.g., standard deviations and correlation coefficients) and as an essential ingredient in inferential statistics (e.g., analysis of variance, multiple regression, and structural equation modeling). However, <a href="#fig-variancevisualization" class="quarto-xref">Figure&nbsp;<span>9.13</span></a> attempts a visualization of what variance represents. Along the <span class="math inline">X</span>-axis, the values of a normally distributed variable <span class="math inline">X</span> are plotted as points. The <span class="math inline">Y</span>-axis represents the deviations of variable <span class="math inline">X</span> from <span class="math inline">\mu</span>, the mean of <span class="math inline">X</span>. For each value of <span class="math inline">X</span>, we can create a square with sides as long as the deviations from <span class="math inline">\mu</span>. The red squares have a positive deviation and the blue squares have a negative deviation. The darkness of the color represents the magnitude of the deviation. The black square has an area equal to the average area of all the squares. Its sides have a length equal to the standard deviation, the square root of variance.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-variancevisualization" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-variancevisualization" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-variancevisualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-variancevisualization-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2109,7 +2115,7 @@ s&amp;=\sqrt{s^2}=\sqrt{\frac{\sum_i^n{\left(x_i-m\right)^2}}{n-1}}
 <div class="page-columns page-full"><p>In a normal distribution, the standard deviation is the distance from the mean to the two <span class="defword">inflection points</span> in the probability density curve (see <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span>9.14</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">An <strong>inflection point</strong> in a curve is the point at which the curvature changes from upward to downward or vice versa.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-normalinflection" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-normalinflection" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-normalinflection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-normalinflection-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2271,7 +2277,7 @@ z=\frac{X-\mu_X}{\sigma_X}
 <p>Thus a positively skewed variable can be described having a tendency to be become more variable (more sparse) as its value increases.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-skewnessinterpretation" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-skewnessinterpretation" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-skewnessinterpretation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-skewnessinterpretation-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
