@@ -1,3 +1,3 @@
-`r defword\("(.*?)", "(.*?)"\)`
+{\.defword}\[(.*?)\]{\.column-margin \.defword}
 
-[\1]{.defword}[\2]{.column-margin .defword}
+{.defword title="\1"}

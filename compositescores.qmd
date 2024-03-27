@@ -2,12 +2,13 @@
 title: "Composite Scores"
 ---
 
-```{r loadpacksdist5, include = F}
+```{r loadpackcomposite}
+#| include: false
 source("loader.R")
 ```
 
 
-Clinicians use [composite scores]{.defword}[A **composite variable** is the (possibly weighted) sum of two or more variables.]{.defword .column-margin} whenever they can because they tend to be more reliable and valid than single scores. How much more reliable is a composite score than a single score? It, of course, depends. First, the reliability coefficients of all of the scores that make up the composite score matter. Second, the correlations among the components of the composite matter. The more reliable and correlated the components, the more reliable the composite.
+Clinicians use [composite scores]{.defword title="A **composite variable** is the (possibly weighted) sum of two or more variables."} whenever they can because they tend to be more reliable and valid than single scores. How much more reliable is a composite score than a single score? It, of course, depends. First, the reliability coefficients of all of the scores that make up the composite score matter. Second, the correlations among the components of the composite matter. The more reliable and correlated the components, the more reliable the composite.
 
 As discussed previously, it is quite possible for different scores from the same test to have different reliability coefficients. Scores from the same test tend to have similar reliability coefficients, though it is quite possible for differences in reliability to be large. In a well designed test, such cases are rare. If we can assume that the test is well designed and that test score reliability coefficients are within a fairly narrow range, we can assume that the classical reliability coefficient is a good estimate of the reliability of all scores from a particular test. To the degree that such assumptions are incorrect, the following equations will be less accurate. 
 
@@ -29,11 +30,13 @@ What if we have three variables? or four? or five? It would be tedious to illust
 
 ### Calculating a Sum 
 
-Suppose $k$ is a positive integer greater than 1. So if there are $k$ random variables, the notation for the set of all them is $\{X_1,...,X_k\}.$ However, it is even more compact to use matrix notation such that $\boldsymbol{X}=\{X_1,...,X_k\}.$
+Suppose $k$ is a positive integer greater than 1. So if there are $k$ random variables, the notation for the set of all them is $\{X_1,...,X_k\}.$ However, it is even more compact to use matrix notation such that $\mathbf{X}=\{X_1,...,X_k\}.$
 
-Now, $\boldsymbol{X}$ is a set of random variables in their entirety, without referencing any particular values those variables might generate. A set of particular values of these variables would be shown as $\boldsymbol{x}$ or $\{x_1,...,x_k\}.$ In regular notation, the sum of these particular values would be:
+Now, $\mathbf{X}$ is a set of random variables in their entirety, without referencing any particular values those variables might generate. A set of particular values of these variables would be shown as $\mathbf{x}$ or $\{x_1,...,x_k\}.$ In regular notation, the sum of these particular values would be:
 
-$$x_S=\sum_{i=1}^{k}{x_i}$$
+$$
+x_S=\sum_{i=1}^{k}{x_i}
+$$
 
 ```{r sum_standard_notation}
 #| tbl-colwidths: [20, 80]
@@ -49,7 +52,7 @@ tibble::tribble(
 The same formula is more compact in matrix notation:
 
 $$
-x_S=\boldsymbol{x'1}
+x_S=\mathbf{x'1}
 $$
 
 
@@ -59,25 +62,25 @@ Where
 #| tbl-colwidths: [20, 80]
 tibble::tribble(
   ~Symbol,  ~Meaning,
-  r"($\boldsymbol{x}$)", r"(A $k \times 1$ vector of scores $\{x_1,x_2,...,x_k\}$)",
-  r"($\boldsymbol{1}$)", r"(A $k \times 1$ vector of ones $\{1_1,1_2,...,1_k\}$)") %>% 
+  r"($\mathbf{x}$)", r"(A $k \times 1$ vector of scores $\{x_1,x_2,...,x_k\}$)",
+  r"($\mathbf{1}$)", r"(A $k \times 1$ vector of ones $\{1_1,1_2,...,1_k\}$)") %>% 
   knitr::kable(escape = FALSE)
 ```
 
-The $\boldsymbol{1}$ symbol may be a bit confusing. It is a column of ones that has the same length (number of elements) as $\boldsymbol{x}.$ Suppose that $\boldsymbol{x}$ has a length of three. In this case:
+The $\mathbf{1}$ symbol may be a bit confusing. It is a column of ones that has the same length (number of elements) as $\mathbf{x}.$ Suppose that $\mathbf{x}$ has a length of three. In this case:
 
-$$\boldsymbol{1}_3=\begin{bmatrix}1\\ 1\\ 1 \end{bmatrix}$$
+$$\mathbf{1}_3=\begin{bmatrix}1\\ 1\\ 1 \end{bmatrix}$$
 
 
-Also, $\boldsymbol{x'}$, is $\boldsymbol{x}$ [transposed]{.defword}[To **transpose** means to make all columns of a matrix into rows (or all rows into columns).]{.defword .column-margin}. 
+Also, $\mathbf{x'}$, is $\mathbf{x}$ [transposed]{.defword title="To **transpose** means to make all columns of a matrix into rows (or all rows into columns)."}. 
 
 
 :::{.column-margin}
 
-Transposition is noted with a prime symbol $(\boldsymbol{^\prime})$. If 
+Transposition is noted with a prime symbol $(\mathbf{^\prime})$. If 
 
 $$
-\boldsymbol{A}= \begin{bmatrix}
+\mathbf{A}= \begin{bmatrix}
 1 & 2 & 3\\
 4 & 5 & 6\\
 \end{bmatrix}
@@ -85,7 +88,7 @@ $$
 then
 
 $$
-\boldsymbol{A'}= \begin{bmatrix}
+\mathbf{A'}= \begin{bmatrix}
 1 & 4\\
 2 & 5\\
 3 & 6\\
@@ -95,13 +98,13 @@ $$
 A column of 3 ones:
 
 $$
-\boldsymbol{1}_3=\begin{bmatrix}1\\1\\1\end{bmatrix}
+\mathbf{1}_3=\begin{bmatrix}1\\1\\1\end{bmatrix}
 $$
 
 Transposed, a column of 2 ones is a row of 2 ones.
 
 $$
-\boldsymbol{{1'}}_2=\begin{bmatrix}1&1\end{bmatrix}
+\mathbf{{1'}}_2=\begin{bmatrix}1&1\end{bmatrix}
 $$
 
 
@@ -109,7 +112,7 @@ Typically, the number of ones is implied such that the length of the column or r
 
 $$
 \begin{align*}
-\boldsymbol{A1}&=\begin{bmatrix}
+\mathbf{A1}&=\begin{bmatrix}
 1 & 2 & 3\\
 4 & 5 & 6\\
 \end{bmatrix}\begin{bmatrix}1\\1\\1\end{bmatrix}\\
@@ -122,7 +125,7 @@ Pre-multiplying by a vector of ones will create column totals:
 
 $$
 \begin{align*}
-\boldsymbol{1'A}&=\begin{bmatrix}1\\1\end{bmatrix}'\begin{bmatrix}
+\mathbf{1'A}&=\begin{bmatrix}1\\1\end{bmatrix}'\begin{bmatrix}
 1 & 2 & 3\\
 4 & 5 & 6\\
 \end{bmatrix}\\
@@ -134,17 +137,19 @@ $$
 \end{align*}
 $$
 
-To create a sum of the entire matrix, multiply by $\boldsymbol{1}$ on both sides:
+To create a sum of the entire matrix, multiply by $\mathbf{1}$ on both sides:
 
-$$\boldsymbol{1'A1}=21$$
+$$
+\mathbf{1}'\mathbf{A1}=21
+$$
 
 :::
 
-Therefore, $\boldsymbol{x'}$ is a row vector. A row vector multiplied by a column vector is the sum of the product of each analogous element in the pair of vectors. Thus,
+Therefore, $\mathbf{x}'$ is a row vector. A row vector multiplied by a column vector is the sum of the product of each analogous element in the pair of vectors. Thus,
 
 $$
 \begin{align*}
-\boldsymbol{x'1}&=\begin{bmatrix} x_1\\ x_2\\ x_3 \end{bmatrix}'
+\mathbf{x'1}&=\begin{bmatrix} x_1\\ x_2\\ x_3 \end{bmatrix}'
 \begin{bmatrix}1\\ 1\\ 1 \end{bmatrix} \\
 &=\begin{bmatrix} x_1 & x_2 & x_3\end{bmatrix}
 \begin{bmatrix}1\\ 1\\ 1\end{bmatrix}\\
@@ -153,42 +158,50 @@ $$
 \end{align*}
 $$
 
-Let's do some calculations in R with a particular example. Suppose that there are three variables: $\boldsymbol{X}=\{X_1, X_2, X_3\}.$ In R, we will create a vector of the names of variables in $\boldsymbol{X}$:
+Let's do some calculations in R with a particular example. Suppose that there are three variables: $\mathbf{X}=\{X_1, X_2, X_3\}.$ In R, we will create a vector of the names of variables in $\mathbf{X}$:
 
-```{r MakeXNames, echo=TRUE}
+```{r demo-MakeXNames}
 Xnames <- c("X1","X2","X3")
-# Notes:
-# Xnames is a vector of variable names
-# The c function combines numbers (or other objects) into a vector.
 ```
 
-Now suppose that there are three particular scores: $\boldsymbol{x}=\{100,120,118\}$
+Now suppose that there are three particular scores: $\mathbf{x}=\{100,120,118\}$
 
-```{r MakeX, echo=TRUE}
+
+
+```{r demo-MakeX}
 # x = vector of particular scores from variables X1, X2, X3
 x <- c(110,120,118)
 
+# The `names` function returns or sets the names of vector elements.
 # Applying Xnames to x (to make output easier to read)
 names(x) <- Xnames 
 
-# Notes: 
-# The `names` function returns or sets the names of vector elements.
-# We can set names and values in a single line like so:
+```
+
+:::{callout-note}
+
+Alternatively, names and values can be set in a single line:
+
+```{r demo-MakeX-alternative}
 x <- c(X1 = 110, X2 = 120, X3 = 118)
 ```
 
+For reasons of clarity and readability, I prefer this approach for name assignments that I only need to perform once. However, when I need to apply the same names to different objects repeated, I use the `names` function to apply a vector of names.
+
+:::
+
 The sum of these three scores can be calculated in a variety of ways. Here is the easiest:
 
-```{r SumX, echo=TRUE}
+```{r demo-SumX}
 # x_S = The sum of scores x1, x2, and x3
 x_S <- sum(x)
 ```
 
 However, if we want to be matrix algebra masochists (and, apparently, at least one of us does!), we could do this:
 
-```{r SumXmatrix, echo=TRUE}
+```{r demo-SumXmatrix}
 # A vector of ones the same length as x
-ones <- rep(1,length(x))
+ones <- rep(1, length(x))
 
 # Notes: 
 # The rep function creates vectors of repeated elements. 
@@ -213,7 +226,7 @@ Either way that we calculate it, $x_S = `r x_S`.$
 The mean of $X_S$ is:
 
 $$
-\mu_{S}=\sum_{i=1}^{k}{\mu_i}=\boldsymbol{\mu'1}
+\mu_{S}=\sum_{i=1}^{k}{\mu_i}=\mathbf{\mu'1}
 $$
 
 ```{r composite_sum}
@@ -221,7 +234,7 @@ tibble::tribble(
   ~Symbol,  ~Meaning,
   "$\\mu_S$", "The mean of $X_S$",
   "$\\mu_i$", "The mean of $X_i$",
-  "$\\boldsymbol{\\mu}$", "A $k \\times 1$ vector of means of the variables in $\\boldsymbol{X}$") %>% 
+  "$\\mathbf{\\mu}$", "A $k \\times 1$ vector of means of the variables in $\\mathbf{X}$") %>% 
   knitr::kable(escape = FALSE)
 ```
 
@@ -248,27 +261,27 @@ Running this code, we can see that $\mu_S = `r m_S`.$
 The mean of a weighted sum is the weighted sum of the means. That is, if
 
 \begin{equation}
-x_S=\sum_{i=1}^{k}{x_i w_i}=\boldsymbol{x'w}
+x_S=\sum_{i=1}^{k}{x_i w_i}=\mathbf{x'w}
 \end{equation}
 
 Where
 
 \begin{conditions*}
 w_i & The weight for $X_i$\\
-\boldsymbol{w} & A $k \times 1$ vector of weights for each of the variables in $\boldsymbol{X}$\\
+\mathbf{w} & A $k \times 1$ vector of weights for each of the variables in $\mathbf{X}$\\
 \end{conditions*}
 
 then
 
 \begin{equation}
-\mu_S=\sum_{i=1}^{k}{\mu_i w_i}=\boldsymbol{\mu'w}
+\mu_S=\sum_{i=1}^{k}{\mu_i w_i}=\mathbf{\mu'w}
 \end{equation}
 
 :::{.column-margin}
-Note that the calculation of $X_S$ and $\mu_S$ with matrix algebra is the same as it was with an equally weighted sum except that instead of post-multiplying by a vector of ones $(\boldsymbol{x^\prime 1})$, we post-multiply by a vector of weights $(\boldsymbol{x^\prime w}).$ In truth, an equally weighted sum is a special case of a weighted sum in which $\boldsymbol{w}$ consists entirely of ones.
+Note that the calculation of $X_S$ and $\mu_S$ with matrix algebra is the same as it was with an equally weighted sum except that instead of post-multiplying by a vector of ones $(\mathbf{x^\prime 1})$, we post-multiply by a vector of weights $(\mathbf{x^\prime w}).$ In truth, an equally weighted sum is a special case of a weighted sum in which $\mathbf{w}$ consists entirely of ones.
 :::
 
-Suppose that $\boldsymbol{w} = \{0.5,1,2\}.$ That is, the weight for $X_1$ is 0.5, the weight for $X_2$ is 1, and the weight for $X_3$ is 2. We will continue to use the same values for $\boldsymbol{x}$ and $\boldsymbol{\mu}$ as before:
+Suppose that $\mathbf{w} = \{0.5,1,2\}.$ That is, the weight for $X_1$ is 0.5, the weight for $X_2$ is 1, and the weight for $X_3$ is 2. We will continue to use the same values for $\mathbf{x}$ and $\mathbf{\mu}$ as before:
 
 
 
@@ -295,31 +308,30 @@ Running the code shows that $x_S = `r x_S_weighted`$ and that $\mu_S = `r m_S_we
 ## The Variance of the Sum Is the Sum of the Covariance Matrix
 
 :::{.column-margin}
-Unfortunately, the notation for a covariance matrix is a bold capital sigma $\boldsymbol{\Sigma}$, which is easily confused with the summation symbol, which is generally larger and not bold: $\sum.$
+Unfortunately, the notation for a covariance matrix is a bold capital sigma $\mathbf{\Sigma}$, which is easily confused with the summation symbol, which is generally larger and not bold: $\sum.$
 :::
 
 If variables are uncorrelated, the variance of their sum is the sum of their variances. However, this is not true when variables are substantially correlated. The formula for the variance of a sum looks more complex than it is. It is just the sum of the covariance matrix.
 
 $$
-\sigma_{X_S}^2=\sum_{i=1}^{k}{\sum_{j=1}^{k}{\sigma_{ij}}}=\boldsymbol{1'\Sigma 1}
-(\#eq:VarianceOfASum)
-$$
+\sigma_{X_S}^2=\sum_{i=1}^{k}{\sum_{j=1}^{k}{\sigma_{ij}}}=\mathbf{1'\Sigma 1}
+$$ {#eq-variancesum}
 
 ```{r covariance_sum}
 tibble::tribble(
   ~Symbol,  ~Meaning,
   "$\\sigma_{X_S}^2$", "The variance of $X_S$",
   "$\\sigma_{ij}$", "The covariance between $X_i$ and $X_j$ $(\\sigma_{ij}=\\sigma_i^2$ if $i=j)$",
-  "$\\boldsymbol{\\Sigma}$", "The $k \\times k$ covariance matrix of all the variables in $\\boldsymbol{X}$") %>% 
+  "$\\mathbf{\\Sigma}$", "The $k \\times k$ covariance matrix of all the variables in $\\mathbf{X}$") %>% 
   knitr::kable(escape = FALSE)
 ```
 
 :::{.column-margin}
-The symbol for a sample correlation is the Roman lowercase $r$, and a matrix of such correlations is an uppercase $\boldsymbol{R}.$ Therefore, the population correlation coefficient is a Greek lowercase rho: $\rho.$ This, unfortunately means that a matrix of correlations should be an uppercase rho: $\boldsymbol{P}.$ Somehow, statisticians are okay with $\rho$ looking a lot like an italicized Roman letter *p*. However, using an uppercase rho $(\boldsymbol{P})$ for a correlation matrix is too weird even for statisticians! You know, hobgoblins of little minds and all...
+The symbol for a sample correlation is the Roman lowercase $r$, and a matrix of such correlations is an uppercase $\mathbf{R}.$ Therefore, the population correlation coefficient is a Greek lowercase rho: $\rho.$ This, unfortunately means that a matrix of correlations should be an uppercase rho: $\mathbf{P}.$ Somehow, statisticians are okay with $\rho$ looking a lot like an italicized Roman letter *p*. However, using an uppercase rho $(\mathbf{P})$ for a correlation matrix is too weird even for statisticians! You know, hobgoblins of little minds and all...
 :::
 
 
-Suppose that the standard deviations of $X_1$, $X_2$, and $X_3$ are all 15. Thus, $\sigma=\{15,15,15\}.$ The correlations among the three variables are shown in matrix $\boldsymbol{R}$:
+Suppose that the standard deviations of $X_1$, $X_2$, and $X_3$ are all 15. Thus, $\sigma=\{15,15,15\}.$ The correlations among the three variables are shown in matrix $\mathbf{R}$:
 
 ```{r setR, include=FALSE}
 # R = correlation matrix of variables in X
@@ -334,20 +346,20 @@ R
 ```
 
 $$
-\boldsymbol{R} = `r bmatrix(R)`
+\mathbf{R} = `r bmatrix(R)`
 $$
 
 To create this matrix in R:
 
-```{r DisplayR, echo = TRUE, ref.label="setR"}
-
+```{r demo-setR}
+<<setR>>
 ```  
 
 
 
 
 
-The covariance matrix $\boldsymbol{\Sigma}$ can be computed from the correlation matrix and the standard deviations like so:
+The covariance matrix $\mathbf{\Sigma}$ can be computed from the correlation matrix and the standard deviations like so:
 
 $$
 \sigma_{ij} = \sigma_{i} \sigma_{j} \rho_{ij}
@@ -366,7 +378,7 @@ tibble::tribble(
 
 Unfortunately, computing a covariance matrix like this in a computer program is inelegant because we have to make use of looping:
 
-```{r LoopingCM, echo=TRUE}
+```{r demo-LoopingCM}
 # R = Correlation matrix of variables in X
 R <- matrix(c(1,0.5,0.6,
               0.5,1,0.7,
@@ -404,10 +416,10 @@ A_{kk} =
  \end{bmatrix}
 $$
 Then 
-$$\mathtt{diag}(\boldsymbol{A}) = \{a_{11},a_{22},...,a_{kk}\}$$
+$$\mathtt{diag}(\mathbf{A}) = \{a_{11},a_{22},...,a_{kk}\}$$
 Second, the `diag` function inserts a vector into the the diagonal of a $k \times k$ matrix of zeros:
 $$
-\mathtt{diag}(\boldsymbol{a}) = 
+\mathtt{diag}(\mathbf{a}) = 
 \begin{bmatrix}
   a_{1} & 0 & \cdots & 0 \\
   0 & a_{2} & \cdots & 0 \\
@@ -432,7 +444,7 @@ To calculate the covariance matrix in matrix notation, we can make use of the $\
 
 $$
 \begin{align*}
-\boldsymbol{\Sigma}&=\mathtt{diag}(\boldsymbol{\sigma}) \boldsymbol{R}\, \mathtt{diag}(\boldsymbol{\sigma})\\ 
+\mathbf{\Sigma}&=\mathtt{diag}(\mathbf{\sigma}) \mathbf{R}\, \mathtt{diag}(\mathbf{\sigma})\\ 
 &=\begin{bmatrix}
   \sigma_{1} & 0 & \cdots & 0 \\
   0 & \sigma_{2} & \cdots & 0 \\
@@ -469,9 +481,9 @@ $$
 ```{r diagcovtable}
 tibble::tribble(
   ~Symbol,  ~Meaning,
-  "$\\boldsymbol{\\Sigma}$", "The covariance matrix of variables in $\\boldsymbol{X}$",
-  "$\\boldsymbol{\\sigma}$", "The standard deviations of variables in  $\\boldsymbol{X}$",
-  "$\\boldsymbol{R}$", "The correlation matrix of variables in $\\boldsymbol{X}$") %>% 
+  "$\\mathbf{\\Sigma}$", "The covariance matrix of variables in $\\mathbf{X}$",
+  "$\\mathbf{\\sigma}$", "The standard deviations of variables in  $\\mathbf{X}$",
+  "$\\mathbf{R}$", "The correlation matrix of variables in $\\mathbf{X}$") %>% 
   knitr::kable(escape = FALSE)
 ```
 
@@ -486,10 +498,10 @@ Beautiful!
 
 Running the code, we get:
 $$
-\boldsymbol{\Sigma}=`r bmatrix(CM)`
+\mathbf{\Sigma}=`r bmatrix(CM)`
 $$
 
-To calculate the variance of $X_S$ if it is an unweighted sum we apply Equation\ \@ref(eq:VarianceOfASum):
+To calculate the variance of $X_S$ if it is an unweighted sum we apply @eq-variancesum:
 
 ```{r CalculatingVarianceofComposite}
 # var_S = The variance of X_S
@@ -507,9 +519,8 @@ If $X_S$ is a weighted sum, its variance is the weighted sum of the covariance m
 
 
 $$
-\sigma_S^2=\sum_{i=1}^{k}{\sum_{j=1}^{k}{w_i w_j \sigma_{ij}}}=\boldsymbol{w'\Sigma w}
-(\#eq:VarianceOfAWeightedSum)
-$$
+\sigma_S^2=\sum_{i=1}^{k}{\sum_{j=1}^{k}{w_i w_j \sigma_{ij}}}=\mathbf{w'\Sigma w}
+$$ {#eq-varianceweightedsum}
 
 Continuing with the same variables in our example, we see that things are starting to become clumsy and ugly without matrix algebra:
 
@@ -579,25 +590,25 @@ $$
 In matrix notation, an unweighted composite score is calculated like so:
 
 $$
-C=\boldsymbol{\frac{1'(x-\mu_x)}{\sqrt{1'\Sigma 1}}}\sigma_C+\mu_C
+C=\mathbf{\frac{1'(x-\mu_x)}{\sqrt{1'\Sigma 1}}}\sigma_C+\mu_C
 $$
-Replacing each vector of ones $\boldsymbol{1}$ with a weight vector $\boldsymbol{w}$ gives us the formula for computing a weighted composite score:
+Replacing each vector of ones $\mathbf{1}$ with a weight vector $\mathbf{w}$ gives us the formula for computing a weighted composite score:
 
 $$
-C_w=\boldsymbol{\frac{w'(x-\mu_x)}{\sqrt{w'\Sigma w}}}\sigma_C+\mu_C
+C_w=\mathbf{\frac{w'(x-\mu_x)}{\sqrt{w'\Sigma w}}}\sigma_C+\mu_C
 $$
 
 :::{.column-margin}
-In clinical practice, the most common kind of composite score is an equally weighted composite consisting of scores with the same mean and standard deviation. Sometimes scores are weighted by the degree to which they correlate with the construct the composite is intended to measure. Other weighting schemes are also possible. In most cases, it makes sense to first convert all scores to z-scores and then weight the z-scores. Failing to convert the scores to a common metric such as z-scores will result in an implicit weighting by standard deviations. That is, the score with the largest standard deviation will have the most weight in the composite score. Converting to z-scores first will equalize the each score&rsquo;s influence on the composite score. We can convert all the scores in $\boldsymbol{x}$ to z-scores like so:
+In clinical practice, the most common kind of composite score is an equally weighted composite consisting of scores with the same mean and standard deviation. Sometimes scores are weighted by the degree to which they correlate with the construct the composite is intended to measure. Other weighting schemes are also possible. In most cases, it makes sense to first convert all scores to z-scores and then weight the z-scores. Failing to convert the scores to a common metric such as z-scores will result in an implicit weighting by standard deviations. That is, the score with the largest standard deviation will have the most weight in the composite score. Converting to z-scores first will equalize the each score&rsquo;s influence on the composite score. We can convert all the scores in $\mathbf{x}$ to z-scores like so:
   
 $$
-\boldsymbol{z} = \frac{\boldsymbol{x}-\boldsymbol{\mu}}{\boldsymbol{\sigma}}
+\mathbf{z} = \frac{\mathbf{x}-\mathbf{\mu}}{\mathbf{\sigma}}
 $$
 
 The nice thing about z-scores is that their means are zeros, their standard deviations are ones, and their covariances are correlations. Thus, the formula for a weighted composite score consisting of z-scores is fairly simple, especially if the composite score is a z-score itself:
   
 $$
-C = \frac{\boldsymbol{w^\prime z}}{\sqrt{\boldsymbol{w^\prime Rw}}}\sigma_C+\mu_C
+C = \frac{\mathbf{w^\prime z}}{\sqrt{\mathbf{w^\prime Rw}}}\sigma_C+\mu_C
 $$
 :::
 
@@ -633,24 +644,24 @@ $$
 The variance of a composite score is the sum of the covariance matrix of the composite's component scores. 
 
 $$
-\sigma_X^2=\boldsymbol{1}'\begin{bmatrix}
+\sigma_X^2=\mathbf{1}'\begin{bmatrix}
   \sigma_{1}^2 & \sigma_{12} & \cdots & \sigma_{1k} \\
   \sigma_{21} & \sigma_{2}^2 & \cdots & \sigma_{2 k} \\
   \vdots  & \vdots  & \ddots & \vdots  \\
   \sigma_{k1} & \sigma_{k2} & \cdots & \sigma_{k}^2
- \end{bmatrix}\boldsymbol{1}
+ \end{bmatrix}\mathbf{1}
 $$
 
 The covariance matrix of the component true scores is exactly the same as the covariance matrix of the component observed scores, except that the variances on the diagonal are multiplied by the reliability coefficients of each of the component scores like so:
 
 
 $$
-\sigma_T^2=\boldsymbol{1}'\begin{bmatrix}
+\sigma_T^2=\mathbf{1}'\begin{bmatrix}
   {\color{firebrick}r_{11}}\sigma_{1}^2 & \sigma_{12} & \cdots & \sigma_{1k} \\
   \sigma_{21} & {\color{firebrick}r_{22}}\sigma_{2}^2 & \cdots & \sigma_{2 k} \\
   \vdots  & \vdots  & \ddots & \vdots  \\
   \sigma_{k1} & \sigma_{k2} & \cdots & {\color{firebrick}r_{kk}}\sigma_{k}^2
- \end{bmatrix}\boldsymbol{1}
+ \end{bmatrix}\mathbf{1}
 $$
 
 ```{r CalculateReliability, echo=TRUE}
@@ -669,26 +680,26 @@ r_C <- sum(CM_T) / sum(CM)
 
 The reliability coefficient of the unweighted composite is `r round(r_C, 2)`.
 
-For a weighted composite, the reliability is calculated by relplacing each vector of ones $\boldsymbol{1}$ with a weight vector $\boldsymbol{w}$: 
+For a weighted composite, the reliability is calculated by relplacing each vector of ones $\mathbf{1}$ with a weight vector $\mathbf{w}$: 
 
 $$
 \rho_{XX}=\frac{\sigma_T^2}
                {\sigma_X^2}
-         =\frac{\boldsymbol{w}^{\prime}
+         =\frac{\mathbf{w}^{\prime}
                \begin{bmatrix}
   {\color{firebrick}r_{11}}\sigma_{1}^2 & \sigma_{12} & \cdots & \sigma_{1k} \\
   \sigma_{21} & {\color{firebrick}r_{22}}\sigma_{2}^2 & \cdots & \sigma_{2 k} \\
   \vdots  & \vdots  & \ddots & \vdots  \\
   \sigma_{k1} & \sigma_{k2} & \cdots & {\color{firebrick}r_{kk}}\sigma_{k}^2
                 \end{bmatrix}
-                \boldsymbol{w}}
-          {\boldsymbol{w}^{\prime}
+                \mathbf{w}}
+          {\mathbf{w}^{\prime}
                \begin{bmatrix}
   \sigma_{1}^2 & \sigma_{12} & \cdots & \sigma_{1k} \\
   \sigma_{21} & \sigma_{2}^2 & \cdots & \sigma_{2 k} \\
   \vdots  & \vdots  & \ddots & \vdots  \\
   \sigma_{k1} & \sigma_{k2} & \cdots & \sigma_{k}^2
- \end{bmatrix}\boldsymbol{w}}
+ \end{bmatrix}\mathbf{w}}
 $$
 
 ```{r weightedreliability, echo=TRUE}
@@ -849,7 +860,7 @@ R_AB_nolabel <- R_AB %>%
 
 
 $$
-\boldsymbol{R} = `r R_latex`
+\mathbf{R} = `r R_latex`
 $$
 
 ```{r, echo=TRUE}
@@ -867,14 +878,14 @@ R
 
 
 
-The correlation between Composite $A$ and Composite $B$ is calculating by adding up the numbers is all three shaded regions of the correlation matrix and then dividing the sum of "between" correlations in purple by the geometric mean of the sums from the "within" correlations in the blue and red regions in the correlation matrix $\boldsymbol{R}$ like so:
+The correlation between Composite $A$ and Composite $B$ is calculating by adding up the numbers is all three shaded regions of the correlation matrix and then dividing the sum of "between" correlations in purple by the geometric mean of the sums from the "within" correlations in the blue and red regions in the correlation matrix $\mathbf{R}$ like so:
 
 $$r_{AB}=\dfrac{\color{purple}{\text{Sum of Correlations between A and B}}}{\sqrt{\color{royalblue}{\text{Sum of Correlations Within A}}\times\color{firebrick}{{\text{Sum of Correlations Within B}}}}}$$
 
-To calculate these sums using matrix algebra, we first construct a "weight matrix" $\boldsymbol{W}$ that tells us which tests are in which composite. The 1s in the first two rows of column 1 tell us that tests $A_1$ and $A_2$ belong to composite $A$. Likewise, the 1s in the last two rows of column 2 tell us that $B_1$ and $B_2$ belong to composite $B$.
+To calculate these sums using matrix algebra, we first construct a "weight matrix" $\mathbf{W}$ that tells us which tests are in which composite. The 1s in the first two rows of column 1 tell us that tests $A_1$ and $A_2$ belong to composite $A$. Likewise, the 1s in the last two rows of column 2 tell us that $B_1$ and $B_2$ belong to composite $B$.
 
 $$
-\boldsymbol{W}=
+\mathbf{W}=
 `r w_latex` 
 $$
 
@@ -899,10 +910,10 @@ W
 
 ```
 
-The covariance matrix $\boldsymbol{\Sigma_{AB}}$ is calculated by pre- and post-mulitplying $\boldsymbol{R}$ by the wieght matrix \boldsymbol{W}.
+The covariance matrix $\mathbf{\Sigma_{AB}}$ is calculated by pre- and post-mulitplying $\mathbf{R}$ by the wieght matrix \mathbf{W}.
 
 $$
-\begin{aligned}\boldsymbol{\Sigma_{AB}} &= \boldsymbol{W'RW}\\[2ex] 
+\begin{aligned}\mathbf{\Sigma_{AB}} &= \mathbf{W'RW}\\[2ex] 
 &=`r w_latex_nolabel`'`r R_latex_nolabel``r w_latex_nolabel`\\[2ex]
 &=`r sigma_AB_step1`\\[2ex]
 &=`r sigma_AB_latex`
@@ -919,12 +930,12 @@ Sigma_AB
 
 
 
-Now we need to extract the variance diagonal from the covariance matrix so that we can use them to convert the covariance matrix to a correlation matrix. The variances are put on a diagonal matrix, and then taking the square root converts the variances to standard deviations in matrix $\boldsymbol{\sigma}$. 
+Now we need to extract the variance diagonal from the covariance matrix so that we can use them to convert the covariance matrix to a correlation matrix. The variances are put on a diagonal matrix, and then taking the square root converts the variances to standard deviations in matrix $\mathbf{\sigma}$. 
 
 $$
 \begin{aligned}
-\boldsymbol{\sigma}
-&=\mathtt{diag}(\mathtt{diag}(\boldsymbol{\Sigma_{AB}}))^{\frac{1}{2}}\\
+\mathbf{\sigma}
+&=\mathtt{diag}(\mathtt{diag}(\mathbf{\Sigma_{AB}}))^{\frac{1}{2}}\\
 &=\mathtt{diag}\left(
 \mathtt{diag}\left({
 `r sigma_AB_latex_nolabel`
@@ -947,14 +958,14 @@ sigma
 ```
 
 
-Pre- and post-multiplying the covariance matrix $\boldsymbol{\Sigma_{AB}}$ by the inverted standard devation matrix $\boldsymbol{\sigma}$ to yield the correlations between composites $A$ and $B$.
+Pre- and post-multiplying the covariance matrix $\mathbf{\Sigma_{AB}}$ by the inverted standard devation matrix $\mathbf{\sigma}$ to yield the correlations between composites $A$ and $B$.
 
 $$
 \begin{aligned}
-\boldsymbol{R_{AB}}&=\boldsymbol{\sigma}^{-1}\boldsymbol{\Sigma_{AB}}\boldsymbol{\sigma}^{-1}\\[2ex]
-&={\boldsymbol{\sigma}^{-1} \atop `r sigma_step3`^{-1}}
-   {\boldsymbol{\Sigma_{AB}} \atop `r sigma_AB_latex_nolabel`}
-   {\boldsymbol{\sigma}^{-1} \atop `r sigma_step3`^{-1}}\\[1ex]
+\mathbf{R_{AB}}&=\mathbf{\sigma}^{-1}\mathbf{\Sigma_{AB}}\mathbf{\sigma}^{-1}\\[2ex]
+&={\mathbf{\sigma}^{-1} \atop `r sigma_step3`^{-1}}
+   {\mathbf{\Sigma_{AB}} \atop `r sigma_AB_latex_nolabel`}
+   {\mathbf{\sigma}^{-1} \atop `r sigma_step3`^{-1}}\\[1ex]
 &=`r sigma_step4`
    `r sigma_AB_latex_nolabel`
    `r sigma_step4`\\[1ex]
@@ -965,7 +976,7 @@ $$
 :::{.column-margin}
 The `solve` function inverts a square matrix. Inverting a single number $x$ gives its reciprocal. If you multiply the inverse of a number by the nunbe itself, you get 1, the *identity* for the multiplication operator. $x^{-1}x=1$, multiplying a matrix by its inverse creates an identity matrix (a matrix with ones on the diagonal and zeroes elsewhere):
   
-$$\boldsymbol{A^{-1}A = I}$$
+$$\mathbf{A^{-1}A = I}$$
 :::
 
 ```{r compositecor, echo=T}

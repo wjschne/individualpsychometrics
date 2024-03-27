@@ -16,14 +16,14 @@ y_plot <- 3
 
 ```
 
-[Vectors]{.defword}[A **vector** is an ordered sequence of values]{.defword .column-margin} are sequences of numbers. The notation for vectors is not always applied consistently, but often vectors are topped with an arrow (or are bold lowercase letters), and the elements are listed in parentheses and separated by commas. A vector $\vec{x}$ with elements `r x_plot` and `r y_plot` would be notated like so:
+[Vectors]{.defword title="A **vector** is an ordered sequence of values."} are sequences of numbers. The notation for vectors is not always applied consistently, but often vectors are topped with an arrow (or are bold lowercase letters), and the elements are listed in parentheses and separated by commas. A vector $\vec{x}$ with elements `r x_plot` and `r y_plot` would be notated like so:
 
 $$
 \vec{x}=\left(`r x_plot`,`r y_plot`\right)
 $$
 
 
-The [vector length]{.defword}[A vector's **length** is the number of elements the vector contains.]{.defword .column-margin} refers to how many elements it has, not its magnitude. So a 2-element vector like $(x_1,x_2)$ has a length of 2.
+The [vector length]{.defword title="A vector's **length** is the number of elements the vector contains."} refers to how many elements it has, not its magnitude. So a 2-element vector like $(x_1,x_2)$ has a length of 2.
 
 A sequence of indeterminate length $n$, would be notated like so
 
@@ -38,7 +38,7 @@ R is a peculiar peculiar language in that almost every object created in R is ul
 
 ### Making vectors with the `c` function
 
-Vectors in R are created in many ways, but the most common way to join vector elements is with the `c` function. The `c` function "combines" (or [concatenates]{.defword}[To **concatenate** is to link things together in a chain or series.]{.defword .column-margin}) elements into a vector. For example, to combine 3 and 5:
+Vectors in R are created in many ways, but the most common way to join vector elements is with the `c` function. The `c` function "combines" (or [concatenates]{.defword title="To **concatenate** is to link things together in a chain or series."}) elements into a vector. For example, to combine 3 and 5:
 
 ```{r demo-vector}
 #| echo: true
@@ -772,7 +772,7 @@ A vector with two scalar elements can be thought of as an arrow in a coordinate 
 
 ### Vector Norms
 
-If we visualize a vector as an arrow, we can ask how long the arrow is from end to end. The [norm]{.defword}[A vector's **norm** is the Euclidean distance of the vector's *n* elements to the origin in *n*-dimensional space.]{.defword .column-margin} is the vector's magnitude. Imagine the vector's *n* elements plotted as a single point in *n*-dimensional space. The norm is the distance of the point to the origin (i.e., a vector of *n* zeroes). The distance referred to here is technically the Euclidean distance, which is a generalization of the Pythagorean Theorem to more than 2 dimensions. To calculate it, take the square root of the sum of all squared values in the vector.
+If we visualize a vector as an arrow, we can ask how long the arrow is from end to end. The [norm]{.defword title="A vector's **norm** is the Euclidean distance of the vector's *n* elements to the origin in *n*-dimensional space."} is the vector's magnitude. Imagine the vector's *n* elements plotted as a single point in *n*-dimensional space. The norm is the distance of the point to the origin (i.e., a vector of *n* zeroes). The distance referred to here is technically the Euclidean distance, which is a generalization of the Pythagorean Theorem to more than 2 dimensions. To calculate it, take the square root of the sum of all squared values in the vector.
 
 :::{.column-margin}
 
@@ -813,7 +813,7 @@ norm(x, type = "2")
 
 ### Unit Vectors
 
-A vector norm is useful for creating [unit vectors]{.defword}[A *unit vector* $\vec{u}$ has a norm of 1: $\left\|\vec{u}\right\|=1$]{.defword .column-margin}, which have the same direction as the original vector but have a norm (i.e, magnitude) of 1.
+A vector norm is useful for creating [unit vectors]{.defword title="A unit vector has a norm of 1" inmargin="false"}[A *unit vector* $\vec{u}$ has a norm of 1: $\left\|\vec{u}\right\|=1$]{.defword .column-margin}, which have the same direction as the original vector but have a norm (i.e, magnitude) of 1.
 
 So a unit vector $\vec{u}$ that has the same direction as vector $\vec{x} = \left(3,4\right)$ is:
 

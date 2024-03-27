@@ -340,8 +340,8 @@ Avoid including in file names characters that have special meanings in many prog
 
 ### Separate dates with hyphens using ISO format
 
-::: {align="center"}
-![from [XKCD](https://xkcd.com/1179/)](https://imgs.xkcd.com/comics/iso_8601.png)
+:::{#fig-xkcd fig-cap="Date formats are fun!" .column-margin}
+![from [XKCD](https://xkcd.com/1179/)](https://imgs.xkcd.com/comics/iso_8601.png){title="ISO 8601 was published on 06/05/88 and most recently amended on 12/01/04."}
 :::
 
 [ISO format](https://www.iso.org/iso-8601-date-and-time-format.html) for dates is YYYY-MM-DD, meaning that a four-digit year comes first, followed by a two-digit month, followed by a two-digit day. This format makes sorting order much easier than the formats used in the U.S.

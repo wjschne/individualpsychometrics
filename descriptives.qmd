@@ -6,11 +6,11 @@
 source("loader.R")
 ```
 
-When we encounter large lists of unsorted numbers, we have no natural capacity to perceive the list's fundamental characteristics such as its average or its variability. Therefore, we need [descriptive statistics]{.defword}[**Descriptive statistics** summarize noteworthy characteristics of samples.]{.defword .column-margin} to quantify salient characteristics of distributions, or we need to display the numbers in a plot, making them easier to understand and communicate.
+When we encounter large lists of unsorted numbers, we have no natural capacity to perceive the list's fundamental characteristics such as its average or its variability. Therefore, we need [descriptive statistics]{.defword title="**Descriptive statistics** summarize noteworthy characteristics of samples."} to quantify salient characteristics of distributions, or we need to display the numbers in a plot, making them easier to understand and communicate.
 
 ## Frequency Distribution Tables
 
-A simple way to describe a distribution is to list how many times each value in the distribution occurs. For example, in this distribution: $\{10, 3, 4, 10, 6, 4, 6, 4\}$, there is 1 three, 3 fours, 2 sixes, and 2 tens. The value that occurs most often is four. A [frequency distribution table]{.defword}[A **frequency distribution table** summarises a sample by showing the frequency counts of each member of the sample space.]{.defword .column-margin} displays the number of times each value occurs, as in @tbl-frequencydistributiontable.
+A simple way to describe a distribution is to list how many times each value in the distribution occurs. For example, in this distribution: $\{10, 3, 4, 10, 6, 4, 6, 4\}$, there is 1 three, 3 fours, 2 sixes, and 2 tens. The value that occurs most often is four. A [frequency distribution table]{.defword title="A **frequency distribution table** summarises a sample by showing the frequency counts of each member of the sample space."} displays the number of times each value occurs, as in @tbl-frequencydistributiontable.
 
 ```{r tbl-frequencydistributiontable}
 #| tbl-cap: "Frequency Distribution Table<br>The median is 5, halfway between the two middle scores of 4 and 6."
@@ -56,7 +56,7 @@ $$p_i = \frac{f_i}{n}$$
 
 In @tbl-frequencydistributiontable, the frequency of sixes is $f=`r sixes`$ and there are $n = `r sample_size`$ numbers in the distribution, thus the proportion of sixes is $p = \frac{`r sixes`}{`r sample_size`} = `r WJSmisc::remove_leading_zero(sixes / sample_size)`$.
 
-It is also common to supplement frequency distribution tables with additional information such as the [cumulative frequency]{.defword}[The **cumulative frequency** tells us the number of scores in a distribution that are equal to or lower than a particular sample space element.]{.defword .column-margin}. For each sample space element, the cumulative frequency $(cf)$ is the sum of the frequencies $(f)$ of the current and all previous sample space elements.
+It is also common to supplement frequency distribution tables with additional information such as the [cumulative frequency]{.defword title="The **cumulative frequency** tells us the number of scores in a distribution that are equal to or lower than a particular sample space element."}. For each sample space element, the cumulative frequency $(cf)$ is the sum of the frequencies $(f)$ of the current and all previous sample space elements.
 
 $$cf_i= \sum_{j=1}^{i}{f_j}$$
 
@@ -282,7 +282,7 @@ Our choice of which measure of central tendency we use to summarize a distributi
 
 ### Mode
 
-The [mode]{.defword}[The **mode** is the value in a distribution that occurs most often.]{.defword .column-margin} is the most frequent score in a distribution. Suppose we have a distribution that looks like this: 
+The [mode]{.defword title="The **mode** is the value in a distribution that occurs most often."} is the most frequent score in a distribution. Suppose we have a distribution that looks like this: 
 
 $$\{1,2,2,2,2,3,3\}$$
 
@@ -301,7 +301,7 @@ In a frequency distribution table, the mode is the value with the highest value 
 
 In a bar plot, histogram, or probability density plot, the mode is the value that corresponds to the highest point in the plot. For example, in @fig-freqbarplot, the modal value is 1 because its frequency of 73 is the highest point in the bar plot. In @fig-bimodal, the mode is &minus;1 because that is the highest point in the density plot. 
 
-If two values tie, both values are the mode and the distribution is [bimodal]{.defword}[A **bimodal** distribution has two modes.]{.defword .column-margin}. Sometimes a distribution has two distinct clusters, each with its own local mode. The greater of these two modes is the *major mode*, and the lesser is the *minor mode* (See @fig-bimodal).
+If two values tie, both values are the mode and the distribution is [bimodal]{.defword title="A **bimodal** distribution has two modes."}. Sometimes a distribution has two distinct clusters, each with its own local mode. The greater of these two modes is the *major mode*, and the lesser is the *minor mode* (See @fig-bimodal).
 
 ```{r fig-bimodal, opts.label="marginfigure"}
 #| fig-cap: A Bimodal Distribution
@@ -366,7 +366,7 @@ modeest::mfv(x)
 
 ### Median
 
-The [median]{.defword}[The **median** is the point that divides the lower 50 percent of a distribution from the upper 50 percent.]{.defword .column-margin} is midpoint of a distribution, the point that divides the lower half of the distribution from the upper half. To calculate the median, you first need to sort the scores. If there is an odd number of scores, the median is the middle score. If there an even number of scores, it is the mean of the two middle scores. There are other definitions of the median that are a little more complex, but rarely is precision needed for calculating the median.
+The [median]{.defword title="The **median** is the point that divides the lower 50 percent of a distribution from the upper 50 percent."} is midpoint of a distribution, the point that divides the lower half of the distribution from the upper half. To calculate the median, you first need to sort the scores. If there is an odd number of scores, the median is the middle score. If there an even number of scores, it is the mean of the two middle scores. There are other definitions of the median that are a little more complex, but rarely is precision needed for calculating the median.
 
 To find the median using a frequency distribution table, find the first sample space element with a cumulative proportion greater than 0.5. For example, in the distribution shown in @tbl-mediantable, the first cumulative proportion greater than 0.5 occurs at 5, which is therefore the median.
 
@@ -416,7 +416,7 @@ median(c(1,2,3))
 
 ### Mean
 
-The [arithmetic mean]{.defword}[The **arithmetic mean** is the balance point of a disribution.]{.defword .column-margin} is the sum of all values of a distribution divided by the size of the distribution.
+The [arithmetic mean]{.defword title="The **arithmetic mean** is the balance point of a disribution."} is the sum of all values of a distribution divided by the size of the distribution.
 
 $$\mu_X = \frac{\sum_{i = 1}^n {X_i}}{n}$$
 
@@ -427,7 +427,7 @@ Where \begin{align*}
 
 The arithmetic mean can only be calculated with interval or ratio variables. Why? The formula for the mean requires adding numbers, and the operation of addition is not defined for ordinal and nominal values.
 
-The arithmetic mean is usually the preferred measure of central tendency for interval and ration variables because it is usually more stable from sample to sample than the median and the mode. In @fig-centraltendency, it can be seen that the sampling distributions of the mean is narrower than that of the median and the mode. In other words, it has a smaller [standard error]{.defword}[The **standard error** is the standard deviation of a sampling distribution.]{.defword .column-margin}.
+The arithmetic mean is usually the preferred measure of central tendency for interval and ration variables because it is usually more stable from sample to sample than the median and the mode. In @fig-centraltendency, it can be seen that the sampling distributions of the mean is narrower than that of the median and the mode. In other words, it has a smaller [standard error]{.defword title="The **standard error** is the standard deviation of a sampling distribution."}.
 
 ```{r fig-centraltendency, opts.label="marginfigure"}
 #| fig-cap: "Sampling Distributions of Central Tendency Measures.<br>The standard normal distribution, $\\mathcal{N}(0,1),$ was used to generate 10,000 samples with a sample size of 100. The distribution of sample means is slightly narrower than the distribution of sample medians, meaning that the mean is slightly more stable than the median. The distribution of sample modes is very wide, meaning that the mode is much less stable than the mean and median."
@@ -549,7 +549,7 @@ tibble::tribble(
 
 (Unfinished)
 
-At one level, the concept of the [expected value]{.defword}[The **expected value** of a random variable is the population mean of the values that the random variable generates.]{.defword .column-margin} of a random variable is really simple; it is just the population mean of the variable. So why don't we just talk about population means and be done with this "expected value" business? It just complicates things! True. In this case, however, there is value in letting some simple things appear to become complicated for a while so that later we can show that some apparently complicated things are actually simple.
+At one level, the concept of the [expected value]{.defword title="The **expected value** of a random variable is the population mean of the values that the random variable generates."} of a random variable is really simple; it is just the population mean of the variable. So why don't we just talk about population means and be done with this "expected value" business? It just complicates things! True. In this case, however, there is value in letting some simple things appear to become complicated for a while so that later we can show that some apparently complicated things are actually simple.
 
 Why can't we just say that the expected value of a random variable is the population mean? You are familiar, of course, with the formula for a mean. You just add up the numbers and divide by the number of numbers $n$:
 
@@ -774,7 +774,7 @@ In all of these indices of qualitative variation, the lowest value is 0 when eve
 
 ### Interquartile Range
 
-As with nominal variables, a bar plot or frequency distribution table can tell you most of what you want to know about the variability of an ordinal variable. If you need a quantitative measure of how much an ordinal variable varies, you have many options. The most important of these is the [interquartile range]{.defword}[The **interquartile range** (IQR) is the distance from the score at the 25th percentile to the score at the 75th percentile.]{.defword .column-margin}.
+As with nominal variables, a bar plot or frequency distribution table can tell you most of what you want to know about the variability of an ordinal variable. If you need a quantitative measure of how much an ordinal variable varies, you have many options. The most important of these is the [interquartile range]{.defword title="The **interquartile range** (IQR) is the distance from the score at the 25th percentile to the score at the 75th percentile."}.
 
 ```{r fig-normalIQR, opts.label="marginfigure"}
 #| fig-cap: "In a normal distribution with a mean of 100 and a standard deviation of 15, the interquartile range is about 20.2, the distance between 89.9 and 110.1."
@@ -1019,7 +1019,7 @@ d %>%
 
 ### Variance 
 
-A [deviation]{.defword}[A **deviation** is the distance of a score from the score's mean.]{.defword .column-margin} is computed by subtracting a score from its mean:
+A [deviation]{.defword title="A **deviation** is the distance of a score from the score's mean."} is computed by subtracting a score from its mean:
 
 $$X-\mu$$
 
@@ -1035,7 +1035,7 @@ $$
 
 Because the average deviation is always 0, it has no utility as a measure of variability. It would be reasonable to take the average absolute value of the deviations, but absolute values often cause algebraic difficulties later when we want to use them to derive other statistics. A more mathematically tractable solution is to make each deviation positive by squaring them.
 
-[Variance]{.defword}[**Variance** is a measure of variability that gives the size of the average squared deviation from the mean.]{.defword .column-margin} $\left(\sigma^2\right)$ is the expected value of squared deviations from the mean $\left(\mu\right)$:
+[Variance]{.defword title="**Variance** is a measure of variability that gives the size of the average squared deviation from the mean."} $\left(\sigma^2\right)$ is the expected value of squared deviations from the mean $\left(\mu\right)$:
 
 $$
 \begin{aligned}
@@ -1293,7 +1293,7 @@ tibble(x = x,
 
 ### Standard Deviation
 
-The [standard deviation]{.defword}[The **standard deviation** is a measure of variabily that estimates the typical distance of a score from its own mean.]{.defword .column-margin} is by far the most common measure of variability. The standard deviation $\sigma$ is the square root of the variance $\sigma^2$.
+The [standard deviation]{.defword title="The **standard deviation** is a measure of variabily that estimates the typical distance of a score from its own mean."} is by far the most common measure of variability. The standard deviation $\sigma$ is the square root of the variance $\sigma^2$.
 
 $$
 \begin{aligned}
@@ -1307,7 +1307,7 @@ $$
 
 Although it is not an arithmetic average of the deviations, it can be thought of as representing the typical size of the deviations. Technically, it is the square root of the average squared deviation.
 
-In a normal distribution, the standard deviation is the distance from the mean to the two [inflection points]{.defword}[An **inflection point** in a curve is the point at which the curvature changes from upward to downward or vice versa.]{.defword .column-margin} in the probability density curve (see @fig-normalinflection).
+In a normal distribution, the standard deviation is the distance from the mean to the two [inflection points]{.defword title="An **inflection point** in a curve is the point at which the curvature changes from upward to downward or vice versa."} in the probability density curve (see @fig-normalinflection).
 
 ```{r fig-normalinflection}
 #| fig-width: 8
@@ -1430,7 +1430,7 @@ $$
 
 
 
-A [central moment]{.defword}[A **central moment** is a raw moment after the variable's mean has been subracted.]{.defword .column-margin} $\mu_n$ is a moment about the mean (i.e., the first raw moment):
+A [central moment]{.defword title="A **central moment** is a raw moment after the variable's mean has been subracted."} $\mu_n$ is a moment about the mean (i.e., the first raw moment):
 
 $$
 \mu_n=\mathcal{E}\left(\left(X-\mu_X\right)^n\right)

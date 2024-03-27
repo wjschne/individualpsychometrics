@@ -12,7 +12,7 @@ source("loader.R")
 
 ### Odds
 
-Most of us are comfortable with the notion of [probability]{.defword}[**Probability** is the ratio of the number outcomes in which the event of interest occurrs over the total number of outcomes.]{.defword .column-margin}, but we find [odds]{.defword}[**Odds** refers to the ratio of the number of outcomes in which the event occurs to the number of outcomes in which the event does not occur.]{.defword .column-margin} to be a little harder to understand. In everyday language, people use *probability* and *odds* interchangeably. Technically, they are related, but not at all the same thing.
+Most of us are comfortable with the notion of [probability]{.defword title="**Probability** is the ratio of the number outcomes in which the event of interest occurrs over the total number of outcomes."}, but we find [odds]{.defword title="**Odds** refers to the ratio of the number of outcomes in which the event occurs to the number of outcomes in which the event does not occur."} to be a little harder to understand. In everyday language, people use *probability* and *odds* interchangeably. Technically, they are related, but not at all the same thing.
 
 When the odds of winning are 3 to 1, there will be 3 wins for every loss.
 
@@ -90,7 +90,7 @@ odds
 
 Probabilities bounded by 0 and 1, inclusive. Odds have a minimum of 0 but have no upper bound (See @fig-p2oddsfigure). 
 
-In many statistical applications, we need to convert a probability to a value that has neither upper nor lower bounds. A [logit]{.defword}[A **logit** is a portmanteau of *log unit*. In item-response theory, ability and item difficulty are expressed in terms of logits. Logits are sometimes called the *log-odds* because they are calculated as the (natural) log of the odds: $\\text{logit}(p)=\\ln\\left(\\frac{p}{1-p}\\right)$]{.defword .column-margin} maps probabilities onto real numbers from negative to positive infinity (See @fig-p2logits).
+In many statistical applications, we need to convert a probability to a value that has neither upper nor lower bounds. A [logit]{.defword title="A **logit** is a &ldquo;log unit&rdquo;, which is the natural log of the odds." inmargin="false"}[A **logit** is a portmanteau of *log unit*. In item-response theory, ability and item difficulty are expressed in terms of logits. Logits are sometimes called the *log-odds* because they are calculated as the (natural) log of the odds: $$\text{logit}(p)=\ln\left(\frac{p}{1-p}\right)$$]{.defword .column-margin} maps probabilities onto real numbers from negative to positive infinity (See @fig-p2logits).
 
 ```{r, opts.label="marginfigure"}
 #| label: fig-p2logits
@@ -225,7 +225,7 @@ One of the benefits of item response theory models is that ability is expressed 
 
 
 
-The [Relative Proficiency Index (RPI)]{.defword}[The **Relative Proficiency Index (RPI)** tells us the proability a person with of ability $\\theta$ will answer an item correctly given that a person with ability $\\mu_\\theta$ has probability $p$ of answering it correctly.]{.defword .column-margin} was first used in the *Woodcock Reading Mastery Tests* [@woodcockWoodcockReadingMastery1973]. The RPI answers the following question:
+The [Relative Proficiency Index (RPI)]{.defword title="The **Relative Proficiency Index (RPI)** tells us the proability a person with of ability $\theta$ will answer an item correctly given that a person with ability $\mu_\theta$ has probability $p$ of answering it correctly."} was first used in the *Woodcock Reading Mastery Tests* [@woodcockWoodcockReadingMastery1973]. The RPI answers the following question:
 
 
 > When the average same-age peer with ability $\mu_\theta$ has probability $p$ of answering an item, what is the probability of answering correctly for a person of ability $\theta$?

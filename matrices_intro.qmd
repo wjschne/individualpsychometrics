@@ -465,9 +465,7 @@ A
 
 ## Transposing matrices
 
-[To *transpose* a matrix is to write its rows as columns and its columns as rows.]{.defword .column-margin}
-
-To [transpose]{.defword} a matrix is to flip its rows into columns.
+To [transpose]{.defword title="To *transpose* a matrix is to write its rows as columns and its columns as rows."} a matrix is to flip its rows into columns.
 
 $\mathbf{A}'$ is matrix $\mathbf{A}$ transposed.
 

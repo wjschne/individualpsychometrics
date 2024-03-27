@@ -63,12 +63,12 @@ webr:
   channel-type: "post-message"
 filters:
   - webr
+  - defword.lua
 format:
   html:
     css: [equity.css]
     html-math-method: katex
     page-navigation: true
-    self-contained: false
     citation-location: margin
     reference-location: margin
     mainfont: equity_text_a
@@ -84,3 +84,17 @@ format:
     grid:
       margin-width: 450px
       sidebar-width: 400px
+    include-in-header: 
+      text: |
+        <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", () => {
+        // enable all tooltips with data-bs-toggle
+        // see: https://getbootstrap.com/docs/5.3/components/tooltips/#example-enable-tooltips-everywhere
+        var tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+        );
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+        });
+        </script>

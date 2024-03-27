@@ -77,9 +77,7 @@ AMinusB
 
 ## Scalar-Matrix Multiplication
 
-[A **defword** is a single number, not in a matrix.]{.column-margin .defword}
-
-To multiply a scalar by a matrix, multiply the scalar by every element in the matrix:
+To multiply a [scalar]{.defword title="A **scalar** is a single number, not in a matrix."} by a matrix, multiply the scalar by every element in the matrix:
 
 $$k\mathbf{A}=
 k\begin{bmatrix}
@@ -245,7 +243,7 @@ C <- A / B
 
 ::: {#callout-note title="You Try"}
 
-Suppose we have threse three matrices:
+Suppose we have these three matrices:
 
 ```{r matrixmultyoutry}
 A <- matrix(c(
@@ -418,7 +416,7 @@ $$\mathbf{A}\mathbf{A}^{-1}=\mathbf{A}^{-1}\mathbf{A}=\mathbf{I}$$
 
 The calculation of an inverse is [quite complex](http://en.wikipedia.org/wiki/Invertible_matrix#Methods_of_matrix_inversion) and is best left to computers.
 
-Although only square matrics can have inverses, not all square matrices have inverses. The procedures for calculating the inverse of a matrix sometimes attempt to divide by 0, which is not possible. Because zero cannot be inverted (i.e., $\frac{1}{0}$ is undefined), any matrix that attempts division by 0 during the inversion process cannot be inverted.
+Although only square matrices can have inverses, not all square matrices have inverses. The procedures for calculating the inverse of a matrix sometimes attempt to divide by 0, which is not possible. Because zero cannot be inverted (i.e., $\frac{1}{0}$ is undefined), any matrix that attempts division by 0 during the inversion process cannot be inverted.
 
 For example, this matrix of ones has no inverse.
 
@@ -429,11 +427,9 @@ $$\begin{bmatrix}
 
 There is no matrix we can multiply it by to produce the identity matrix. In the algorithm for calculating the inverse, division by 0 occurs, and the whole process comes to a halt. A matrix that cannot be inverted is called a *singular matrix*. 
 
-[[Collinear]{.defword} means that at least one of the variables can be perfectly predicted from the other variables.]{.defword .column-margin}
+The covariance matrix of [collinear]{.defword title="**Collinear** means that at least one of the variables can be perfectly predicted from the other variables."} variables is singular. In multiple regression, we use the inverse of the covariance matrix of the predictor variables to calculate the regression matrix. If the predictor variables are collinear, the regression coefficients cannot be calculated. For example, if $Z=X+Y$, we cannot use $X$, $Y$, and $Z$ together as predictors in a multiple regression equation. $Z$ is perfectly predicted from $X$ and $Y$. In the calculation of the regression coefficients, division by 0 will be attempted, and the calculation can proceed no further. 
 
-The covariance matrix of [collinear]{.defword} variables is singular. In multiple regression, we use the inverse of the covariance matrix of the predictor variables to calculate the regression matrix. If the predictor variables are collinear, the regression coefficients cannot be calculated. For example, if $Z=X+Y$, we cannot use $X$, $Y$, and $Z$ together as predictors in a multiple regression equation. $Z$ is perfectly predicted from $X$ and $Y$. In the calculation of the regression coefficients, division by 0 will be attempted, and the calculation can proceed no further. 
-
-If use to bother me that that collinear variables could not be used together as predictors. However, thinking a little further, revealed why it is impossible. The definition of a regression coefficient is the independent effect of a variable after holding the other predictors constant. If a variable is perfectly predicted by the other variables, that variable cannot have an independent effect. Controlling for the other predictor, the variable no longer varies. It become a constant. Contants have no effect.
+If use to bother me that that collinear variables could not be used together as predictors. However, thinking a little further, revealed why it is impossible. The definition of a regression coefficient is the independent effect of a variable after holding the other predictors constant. If a variable is perfectly predicted by the other variables, that variable cannot have an independent effect. Controlling for the other predictor, the variable no longer varies. It become a constant. Constants have no effect.
 
 While regression with perfectly collinear predictors is impossible, regression with almost perfectly collinear predictors can produce strange and unstable results. For example, if we round $Z$, the rounding error makes $Z$ nearly collinear with $X$ and $Y$ but not quite perfectly collinear with them. In this case, the regression will run but might give misleading results that might differ dramatically depending on how finely rounded $Z$ is.
 
@@ -748,9 +744,8 @@ A <- matrix(c(1.0, 0.8, 0.5,
 ```
 
 $$\mathbf{A}=`r bmatrix(A)`$$
-[The word, **orthogonal** derives from the Greek word for "right-angled." Orthogonal vectors are mutually perpendicular.]{.margin-column .defword}
 
-Because $\mathbf{A}$ is a 3 &times; 3 matrix, there are three [orthogonal]{.defword} unit vectors that are eigenvectors, $\vec{v}_1$, $\vec{v}_2$, and $\vec{v}_3$. We will collect the three eigenvectors as columns of matrix $\mathbf{V}$:
+Because $\mathbf{A}$ is a 3 &times; 3 matrix, there are three [orthogonal]{.defword title="The word, **orthogonal** derives from the Greek word for "right-angled." Orthogonal vectors are mutually perpendicular."} unit vectors that are eigenvectors, $\vec{v}_1$, $\vec{v}_2$, and $\vec{v}_3$. We will collect the three eigenvectors as columns of matrix $\mathbf{V}$:
 
 
 ```{r}
@@ -817,7 +812,7 @@ For symmetric matrices (e.g., correlation and covariance matrices), eigenvectors
 
 :::{.callout-note title="You Try"}
 
-Extract the eigenvalues and eigen vectors from correlation matrix `rho`.
+Extract the eigenvalues and eigenvectors from correlation matrix `rho`.
 
 $$
 R=\begin{bmatrix}

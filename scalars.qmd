@@ -10,7 +10,7 @@ editor: source
 source("loader.R")
 ```
 
-[Scalars]{.defword}[A **scalar** is a single value.]{.defword .column-margin} are single numeric values. They are the [elements]{.defword}[**Elements** are the individual numbers in a vector or matrix.]{.defword .column-margin} that compose vectors and matrices. Usually a scalar is represented as an italicized lowercase letter:
+[Scalars]{.defword title="A **scalar** is a single value."} are single numeric values. They are the [elements]{.defword title="**Elements** are the individual numbers in a vector or matrix."} that compose vectors and matrices. Usually a scalar is represented as an italicized lowercase letter:
 
 $$x = 9$$
 
@@ -36,7 +36,6 @@ x = 1
 The spaces around the assignment operator are optional, and you can use a more compact style if you wish:
 
 ```{r demo-scalarassignmencompact}
-
 x=1
 ```
 
