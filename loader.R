@@ -223,6 +223,9 @@ knitr::opts_hooks$set(label = function(options) {
   if (startsWith(options$label, "demo-")) {
     options$echo <- TRUE
   }
+  if (startsWith(options$label, "ex-")) {
+    options$echo <- TRUE
+  }
   if (startsWith(options$label, "solution-")) {
     options$echo <- TRUE
     options$solutionsetter <- TRUE
