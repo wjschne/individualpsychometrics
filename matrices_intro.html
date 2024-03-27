@@ -123,8 +123,8 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/editor/editor.main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
 <style type="text/css">
 .monaco-editor pre {
@@ -282,14 +282,14 @@ globalThis.qwebrShowHeaderMessage = false;
 
 // Describe the webR settings that should be used
 globalThis.qwebrCustomizedWebROptions = {
-  "baseURL": "https://webr.r-wasm.org/v0.2.2/",
+  "baseURL": "https://webr.r-wasm.org/v0.3.1/",
   "serviceWorkerUrl": "",
   "homedir": "/home/web_user", 
-  "channelType": "ChannelType.PostMessage"
+  "channelType": "ChannelType.Automatic"
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"A <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)","id":1,"options":{"message":"true","context":"interactive","warning":"true","fig-height":5,"output":"true","autorun":"false","out-height":"","label":"ex-makeA","results":"markup","classes":"","out-width":"700px","comment":"","fig-cap":"","dpi":72,"fig-width":7}},{"code":"A <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)\nB <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)\n\n# Now bind A and B by rows\nrbind(_,_)","id":2,"options":{"message":"true","context":"interactive","warning":"true","fig-height":5,"output":"true","autorun":"false","out-height":"","label":"ex-rbinding","results":"markup","classes":"","out-width":"700px","comment":"","fig-cap":"","dpi":72,"fig-width":7}},{"code":"# Now bind A and B by columns\ncbind(_,_)","id":3,"options":{"message":"true","context":"interactive","warning":"true","fig-height":5,"output":"true","autorun":"false","out-height":"","label":"ex-cbinding","results":"markup","classes":"","out-width":"700px","comment":"","fig-cap":"","dpi":72,"fig-width":7}},{"code":"A <- matrix(1:12, nrow = 3, byrow = TRUE)\nA[_,_]","id":4,"options":{"message":"true","context":"interactive","warning":"true","fig-height":5,"output":"true","autorun":"false","out-height":"","label":"ex-select","results":"markup","classes":"","out-width":"700px","comment":"","fig-cap":"","dpi":72,"fig-width":7}},{"code":"A","id":5,"options":{"message":"true","context":"interactive","warning":"true","fig-height":5,"output":"true","autorun":"false","out-height":"","label":"ex-selectA1","results":"markup","classes":"","out-width":"700px","comment":"","fig-cap":"","dpi":72,"fig-width":7}},{"code":"A","id":6,"options":{"message":"true","context":"interactive","warning":"true","fig-height":5,"output":"true","autorun":"false","out-height":"","label":"ex-matrixcols","results":"markup","classes":"","out-width":"700px","comment":"","fig-cap":"","dpi":72,"fig-width":7}},{"code":"s <- A[] == _ \nA[,s] ","id":7,"options":{"message":"true","context":"interactive","warning":"true","fig-height":5,"output":"true","autorun":"false","out-height":"","label":"ex-boolean","results":"markup","classes":"","out-width":"700px","comment":"","fig-cap":"","dpi":72,"fig-width":7}},{"code":"A <- matrix(1:12, nrow = 3, byrow = TRUE)\nrownames(A) <- c(\"Gold\",\"Silver\",\"Bronze\")\ncolnames(A) <- c(\"Vault\",\"Uneven Bars\",\"Balance Beam\",\"Floor\")\n# select the Uneven Bars column\nA","id":8,"options":{"message":"true","context":"interactive","warning":"true","fig-height":5,"output":"true","autorun":"false","out-height":"","label":"ex-uneven","results":"markup","classes":"","out-width":"700px","comment":"","fig-cap":"","dpi":72,"fig-width":7}},{"code":"A","id":9,"options":{"message":"true","context":"interactive","warning":"true","fig-height":5,"output":"true","autorun":"false","out-height":"","label":"ex-silverfloor","results":"markup","classes":"","out-width":"700px","comment":"","fig-cap":"","dpi":72,"fig-width":7}},{"code":"A","id":10,"options":{"message":"true","context":"interactive","warning":"true","fig-height":5,"output":"true","autorun":"false","out-height":"","label":"ex-replacevault","results":"markup","classes":"","out-width":"700px","comment":"","fig-cap":"","dpi":72,"fig-width":7}},{"code":"A <- matrix(seq(_,_,_), nrow = _)","id":11,"options":{"message":"true","context":"interactive","warning":"true","fig-height":5,"output":"true","autorun":"false","out-height":"","label":"ex-even20transpose","results":"markup","classes":"","out-width":"700px","comment":"","fig-cap":"","dpi":72,"fig-width":7}}];
+globalThis.qwebrCellDetails = [{"options":{"context":"interactive","warning":"true","fig-cap":"","message":"true","label":"ex-makeA","fig-height":5,"fig-width":7,"out-height":"","read-only":"false","out-width":"700px","autorun":"false","classes":"","results":"markup","comment":"","output":"true","dpi":72},"id":1,"code":"A <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)"},{"options":{"context":"interactive","warning":"true","fig-cap":"","message":"true","label":"ex-rbinding","fig-height":5,"fig-width":7,"out-height":"","read-only":"false","out-width":"700px","autorun":"false","classes":"","results":"markup","comment":"","output":"true","dpi":72},"id":2,"code":"A <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)\nB <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)\n\n# Now bind A and B by rows\nrbind(_,_)"},{"options":{"context":"interactive","warning":"true","fig-cap":"","message":"true","label":"ex-cbinding","fig-height":5,"fig-width":7,"out-height":"","read-only":"false","out-width":"700px","autorun":"false","classes":"","results":"markup","comment":"","output":"true","dpi":72},"id":3,"code":"# Now bind A and B by columns\ncbind(_,_)"},{"options":{"context":"interactive","warning":"true","fig-cap":"","message":"true","label":"ex-select","fig-height":5,"fig-width":7,"out-height":"","read-only":"false","out-width":"700px","autorun":"false","classes":"","results":"markup","comment":"","output":"true","dpi":72},"id":4,"code":"A <- matrix(1:12, nrow = 3, byrow = TRUE)\nA[_,_]"},{"options":{"context":"interactive","warning":"true","fig-cap":"","message":"true","label":"ex-selectA1","fig-height":5,"fig-width":7,"out-height":"","read-only":"false","out-width":"700px","autorun":"false","classes":"","results":"markup","comment":"","output":"true","dpi":72},"id":5,"code":"A"},{"options":{"context":"interactive","warning":"true","fig-cap":"","message":"true","label":"ex-matrixcols","fig-height":5,"fig-width":7,"out-height":"","read-only":"false","out-width":"700px","autorun":"false","classes":"","results":"markup","comment":"","output":"true","dpi":72},"id":6,"code":"A"},{"options":{"context":"interactive","warning":"true","fig-cap":"","message":"true","label":"ex-boolean","fig-height":5,"fig-width":7,"out-height":"","read-only":"false","out-width":"700px","autorun":"false","classes":"","results":"markup","comment":"","output":"true","dpi":72},"id":7,"code":"s <- A[] == _ \nA[,s] "},{"options":{"context":"interactive","warning":"true","fig-cap":"","message":"true","label":"ex-uneven","fig-height":5,"fig-width":7,"out-height":"","read-only":"false","out-width":"700px","autorun":"false","classes":"","results":"markup","comment":"","output":"true","dpi":72},"id":8,"code":"A <- matrix(1:12, nrow = 3, byrow = TRUE)\nrownames(A) <- c(\"Gold\",\"Silver\",\"Bronze\")\ncolnames(A) <- c(\"Vault\",\"Uneven Bars\",\"Balance Beam\",\"Floor\")\n# select the Uneven Bars column\nA"},{"options":{"context":"interactive","warning":"true","fig-cap":"","message":"true","label":"ex-silverfloor","fig-height":5,"fig-width":7,"out-height":"","read-only":"false","out-width":"700px","autorun":"false","classes":"","results":"markup","comment":"","output":"true","dpi":72},"id":9,"code":"A"},{"options":{"context":"interactive","warning":"true","fig-cap":"","message":"true","label":"ex-replacevault","fig-height":5,"fig-width":7,"out-height":"","read-only":"false","out-width":"700px","autorun":"false","classes":"","results":"markup","comment":"","output":"true","dpi":72},"id":10,"code":"A"},{"options":{"context":"interactive","warning":"true","fig-cap":"","message":"true","label":"ex-even20transpose","fig-height":5,"fig-width":7,"out-height":"","read-only":"false","out-width":"700px","autorun":"false","classes":"","results":"markup","comment":"","output":"true","dpi":72},"id":11,"code":"A <- matrix(seq(_,_,_), nrow = _)"}];
 
 </script>
 <script type="module">
@@ -797,10 +797,8 @@ globalThis.qwebrComputeEngine = async function(
     // 1. We setup a canvas device to write to by making a namespace call into the {webr} package
     // 2. We use values inside of the options array to set the figure size.
     // 3. We capture the output stream information (STDOUT and STERR)
-    // 4. While parsing the results, we disable image creation.
-
-    // Create a canvas variable for graphics
-    let canvas = undefined;
+    // 4. We disable the current device's image creation.
+    // 5. Piece-wise parse the results into the different output areas
 
     // Create a pager variable for help/file contents
     let pager = [];
@@ -825,9 +823,14 @@ globalThis.qwebrComputeEngine = async function(
     await mainWebR.init();
 
     // Setup a webR canvas by making a namespace call into the {webr} package
-    await mainWebR.evalRVoid(`webr::canvas(width=${fig_width}, height=${fig_height})`);
-
-    const result = await mainWebRCodeShelter.captureR(codeToRun, {
+    // Evaluate the R code
+    // Remove the active canvas silently
+    const result = await mainWebRCodeShelter.captureR(
+        `webr::canvas(width=${fig_width}, height=${fig_height}, capture = TRUE)
+        .webr_cvs_id <- dev.cur()
+        ${codeToRun}
+        invisible(dev.off(.webr_cvs_id))
+        `, {
         withAutoprint: true,
         captureStreams: true,
         captureConditions: false//,
@@ -838,9 +841,6 @@ globalThis.qwebrComputeEngine = async function(
 
     // Start attempting to parse the result data
     processResultOutput:try {
-
-        // Stop creating images
-        await mainWebR.evalRVoid("dev.off()");
         
         // Avoid running through output processing
         if (options.results === "hide" || options.output === "false") { 
@@ -863,33 +863,10 @@ globalThis.qwebrComputeEngine = async function(
 
 
         // Clean the state
-        // We're now able to process both graphics and pager events.
+        // We're now able to process pager events.
         // As a result, we cannot maintain a true 1-to-1 output order 
         // without individually feeding each line
         const msgs = await mainWebR.flush();
-
-        // Output each image event stored
-        msgs.forEach((msg) => {
-        // Determine if old canvas can be used or a new canvas is required.
-        if (msg.type === 'canvas'){
-            // Add image to the current canvas
-            if (msg.data.event === 'canvasImage') {
-                canvas.getContext('2d').drawImage(msg.data.image, 0, 0);
-            } else if (msg.data.event === 'canvasNewPage') {
-
-                // Generate a new canvas element
-                canvas = document.createElement("canvas");
-                canvas.setAttribute("width", 2 * fig_width);
-                canvas.setAttribute("height", 2 * fig_height);
-                canvas.style.width = options["out-width"] ? options["out-width"] : `${fig_width}px`;
-                if (options["out-height"]) {
-                    canvas.style.height = options["out-height"];
-                }
-                canvas.style.display = "block";
-                canvas.style.margin = "auto";
-            }
-        } 
-        });
 
         // Use `map` to process the filtered "pager" events asynchronously
         const pager = await Promise.all(
@@ -918,13 +895,37 @@ globalThis.qwebrComputeEngine = async function(
 
         elements.outputCodeDiv.appendChild(pre);
 
-        // Place the graphics on the canvas
-        if (canvas) {
+        // Determine if we have graphs to display
+        if (result.images.length > 0) {
             // Create figure element
             const figureElement = document.createElement('figure');
 
-            // Append canvas to figure
-            figureElement.appendChild(canvas);
+            // Place each rendered graphic onto a canvas element
+            result.images.forEach((img) => {
+                // Construct canvas for object
+                const canvas = document.createElement("canvas");
+
+                // Set canvas size to image
+                canvas.width = img.width;
+                canvas.height = img.height;
+
+                // Apply output truncations
+                canvas.style.width = options["out-width"] ? options["out-width"] : `${fig_width}px`;
+                if (options["out-height"]) {
+                    canvas.style.height = options["out-height"];
+                }
+
+                // Apply styling
+                canvas.style.display = "block";
+                canvas.style.margin = "auto";
+
+                // Draw image onto Canvas
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0, img.width, img.height);
+          
+                // Append canvas to figure output area
+                figureElement.appendChild(canvas);
+            });
 
             if (options['fig-cap']) {
                 // Create figcaption element
@@ -1231,13 +1232,13 @@ window.Quarto = {
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
-<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
 <script type="module" id="qwebr-monaco-editor-init">
 
   // Configure the Monaco Editor's loader
   require.config({
     paths: {
-      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs'
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs'
     }
   });
 </script>
@@ -1272,7 +1273,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
       },
       fontSize: '17.5pt',              // Bootstrap is 1 rem
       renderLineHighlight: "none",     // Disable current line highlighting
-      hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+      hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+      readOnly: qwebrOptions['read-only'] ?? false
     });
 
     // Store the official counter ID to be used in keyboard shortcuts

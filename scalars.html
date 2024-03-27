@@ -125,8 +125,8 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/editor/editor.main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
 <style type="text/css">
 .monaco-editor pre {
@@ -284,14 +284,14 @@ globalThis.qwebrShowHeaderMessage = false;
 
 // Describe the webR settings that should be used
 globalThis.qwebrCustomizedWebROptions = {
-  "baseURL": "https://webr.r-wasm.org/v0.2.2/",
+  "baseURL": "https://webr.r-wasm.org/v0.3.1/",
   "serviceWorkerUrl": "",
   "homedir": "/home/web_user", 
-  "channelType": "ChannelType.PostMessage"
+  "channelType": "ChannelType.Automatic"
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"","id":1,"options":{"warning":"true","out-height":"","results":"markup","message":"true","context":"interactive","autorun":"false","out-width":"700px","classes":"","fig-height":5,"fig-cap":"","fig-width":7,"output":"true","comment":"","label":"ex-assignment","dpi":72}},{"code":"","id":2,"options":{"warning":"true","out-height":"","results":"markup","message":"true","context":"interactive","autorun":"false","out-width":"700px","classes":"","fig-height":5,"fig-cap":"","fig-width":7,"output":"true","comment":"","label":"ex-addition","dpi":72}},{"code":"","id":3,"options":{"warning":"true","out-height":"","results":"markup","message":"true","context":"interactive","autorun":"false","out-width":"700px","classes":"","fig-height":5,"fig-cap":"","fig-width":7,"output":"true","comment":"","label":"ex-subtraction","dpi":72}},{"code":"","id":4,"options":{"warning":"true","out-height":"","results":"markup","message":"true","context":"interactive","autorun":"false","out-width":"700px","classes":"","fig-height":5,"fig-cap":"","fig-width":7,"output":"true","comment":"","label":"ex-multiplication","dpi":72}},{"code":"","id":5,"options":{"warning":"true","out-height":"","results":"markup","message":"true","context":"interactive","autorun":"false","out-width":"700px","classes":"","fig-height":5,"fig-cap":"","fig-width":7,"output":"true","comment":"","label":"ex-exponentiation","dpi":72}}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"","options":{"warning":"true","context":"interactive","results":"markup","fig-height":5,"classes":"","read-only":"false","output":"true","out-height":"","comment":"","label":"ex-assignment","fig-cap":"","fig-width":7,"autorun":"false","dpi":72,"out-width":"700px","message":"true"}},{"id":2,"code":"","options":{"warning":"true","context":"interactive","results":"markup","fig-height":5,"classes":"","read-only":"false","output":"true","out-height":"","comment":"","label":"ex-addition","fig-cap":"","fig-width":7,"autorun":"false","dpi":72,"out-width":"700px","message":"true"}},{"id":3,"code":"","options":{"warning":"true","context":"interactive","results":"markup","fig-height":5,"classes":"","read-only":"false","output":"true","out-height":"","comment":"","label":"ex-subtraction","fig-cap":"","fig-width":7,"autorun":"false","dpi":72,"out-width":"700px","message":"true"}},{"id":4,"code":"","options":{"warning":"true","context":"interactive","results":"markup","fig-height":5,"classes":"","read-only":"false","output":"true","out-height":"","comment":"","label":"ex-multiplication","fig-cap":"","fig-width":7,"autorun":"false","dpi":72,"out-width":"700px","message":"true"}},{"id":5,"code":"","options":{"warning":"true","context":"interactive","results":"markup","fig-height":5,"classes":"","read-only":"false","output":"true","out-height":"","comment":"","label":"ex-exponentiation","fig-cap":"","fig-width":7,"autorun":"false","dpi":72,"out-width":"700px","message":"true"}}];
 
 </script>
 <script type="module">
@@ -799,10 +799,8 @@ globalThis.qwebrComputeEngine = async function(
     // 1. We setup a canvas device to write to by making a namespace call into the {webr} package
     // 2. We use values inside of the options array to set the figure size.
     // 3. We capture the output stream information (STDOUT and STERR)
-    // 4. While parsing the results, we disable image creation.
-
-    // Create a canvas variable for graphics
-    let canvas = undefined;
+    // 4. We disable the current device's image creation.
+    // 5. Piece-wise parse the results into the different output areas
 
     // Create a pager variable for help/file contents
     let pager = [];
@@ -827,9 +825,14 @@ globalThis.qwebrComputeEngine = async function(
     await mainWebR.init();
 
     // Setup a webR canvas by making a namespace call into the {webr} package
-    await mainWebR.evalRVoid(`webr::canvas(width=${fig_width}, height=${fig_height})`);
-
-    const result = await mainWebRCodeShelter.captureR(codeToRun, {
+    // Evaluate the R code
+    // Remove the active canvas silently
+    const result = await mainWebRCodeShelter.captureR(
+        `webr::canvas(width=${fig_width}, height=${fig_height}, capture = TRUE)
+        .webr_cvs_id <- dev.cur()
+        ${codeToRun}
+        invisible(dev.off(.webr_cvs_id))
+        `, {
         withAutoprint: true,
         captureStreams: true,
         captureConditions: false//,
@@ -840,9 +843,6 @@ globalThis.qwebrComputeEngine = async function(
 
     // Start attempting to parse the result data
     processResultOutput:try {
-
-        // Stop creating images
-        await mainWebR.evalRVoid("dev.off()");
         
         // Avoid running through output processing
         if (options.results === "hide" || options.output === "false") { 
@@ -865,33 +865,10 @@ globalThis.qwebrComputeEngine = async function(
 
 
         // Clean the state
-        // We're now able to process both graphics and pager events.
+        // We're now able to process pager events.
         // As a result, we cannot maintain a true 1-to-1 output order 
         // without individually feeding each line
         const msgs = await mainWebR.flush();
-
-        // Output each image event stored
-        msgs.forEach((msg) => {
-        // Determine if old canvas can be used or a new canvas is required.
-        if (msg.type === 'canvas'){
-            // Add image to the current canvas
-            if (msg.data.event === 'canvasImage') {
-                canvas.getContext('2d').drawImage(msg.data.image, 0, 0);
-            } else if (msg.data.event === 'canvasNewPage') {
-
-                // Generate a new canvas element
-                canvas = document.createElement("canvas");
-                canvas.setAttribute("width", 2 * fig_width);
-                canvas.setAttribute("height", 2 * fig_height);
-                canvas.style.width = options["out-width"] ? options["out-width"] : `${fig_width}px`;
-                if (options["out-height"]) {
-                    canvas.style.height = options["out-height"];
-                }
-                canvas.style.display = "block";
-                canvas.style.margin = "auto";
-            }
-        } 
-        });
 
         // Use `map` to process the filtered "pager" events asynchronously
         const pager = await Promise.all(
@@ -920,13 +897,37 @@ globalThis.qwebrComputeEngine = async function(
 
         elements.outputCodeDiv.appendChild(pre);
 
-        // Place the graphics on the canvas
-        if (canvas) {
+        // Determine if we have graphs to display
+        if (result.images.length > 0) {
             // Create figure element
             const figureElement = document.createElement('figure');
 
-            // Append canvas to figure
-            figureElement.appendChild(canvas);
+            // Place each rendered graphic onto a canvas element
+            result.images.forEach((img) => {
+                // Construct canvas for object
+                const canvas = document.createElement("canvas");
+
+                // Set canvas size to image
+                canvas.width = img.width;
+                canvas.height = img.height;
+
+                // Apply output truncations
+                canvas.style.width = options["out-width"] ? options["out-width"] : `${fig_width}px`;
+                if (options["out-height"]) {
+                    canvas.style.height = options["out-height"];
+                }
+
+                // Apply styling
+                canvas.style.display = "block";
+                canvas.style.margin = "auto";
+
+                // Draw image onto Canvas
+                const ctx = canvas.getContext("2d");
+                ctx.drawImage(img, 0, 0, img.width, img.height);
+          
+                // Append canvas to figure output area
+                figureElement.appendChild(canvas);
+            });
 
             if (options['fig-cap']) {
                 // Create figcaption element
@@ -1217,13 +1218,13 @@ window.Quarto = {
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
-<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/loader.js"></script>
 <script type="module" id="qwebr-monaco-editor-init">
 
   // Configure the Monaco Editor's loader
   require.config({
     paths: {
-      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs'
+      'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs'
     }
   });
 </script>
@@ -1258,7 +1259,8 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
       },
       fontSize: '17.5pt',              // Bootstrap is 1 rem
       renderLineHighlight: "none",     // Disable current line highlighting
-      hideCursorInOverviewRuler: true  // Remove cursor indictor in right hand side scroll bar
+      hideCursorInOverviewRuler: true,  // Remove cursor indictor in right hand side scroll bar
+      readOnly: qwebrOptions['read-only'] ?? false
     });
 
     // Store the official counter ID to be used in keyboard shortcuts
