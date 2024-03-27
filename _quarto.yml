@@ -7,6 +7,8 @@ book:
   date: last-modified
   date-format: "[Last Updated on] MMMM DD, YYYY"
   available-date: "2020-01-01"
+  favicon: images/Logo.svg
+  site-url: https://wjschne.github.io/individualpsychometrics/
   sidebar:
     background: light
     style: docked
