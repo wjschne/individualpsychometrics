@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.5.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Individual Psychometrics - 11&nbsp; Unfinished Odds and Ends</title>
+<title>Individual Psychometrics – 11&nbsp; Unfinished Odds and Ends</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -357,7 +357,7 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -698,7 +698,7 @@ RPI_{\text{reversed}} = \left(1+e^{-\left(\mu_\theta-\theta+\text{logit}(p_\thet
 <p>Using this formula, we can see that our hypothetical person with IQ = 68, the probability that the true score is 70 or lower is about .66. <a href="#fig-thresholdprobability" class="quarto-xref">Figure&nbsp;<span>11.4</span></a> shows the probabilities for all values near the diagnostic threshold of 70.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-thresholdprobability" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-thresholdprobability" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-thresholdprobability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="unfinished_files/figure-html/fig-thresholdprobability-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -847,7 +847,7 @@ Eaton, M. L. (2007). <em>Multivariate statistics: <span>A</span> vector space ap
 <p>We can estimate the probability that both true scores are 70 or lower using the cumulative distribution function of the multivariate normal distribution with upper bounds of 70 for both IQ true scores and adaptive behavior true scores. Under the conditions specified previously, <a href="#fig-multiplethresholdprobability" class="quarto-xref">Figure&nbsp;<span>11.5</span></a> shows that the probability that both scores are 70 or lower is about .53.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-multiplethresholdprobability" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-multiplethresholdprobability" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-multiplethresholdprobability-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="unfinished_files/figure-html/fig-multiplethresholdprobability-1.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -1268,18 +1268,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1311,7 +1300,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/wjschne\.github\.io\/individualpsychometrics\/");
@@ -1319,7 +1330,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
