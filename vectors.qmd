@@ -342,6 +342,7 @@ $$\left\|a\vec{x}\right\|=a\left\|\vec{x}\right\|$$
 You can play with scalar multiplication with the web app in @fig-scalar. Set the *x* and *y* coordinates for the blue vector, and alter the scalar *a* to see how the red vector's magnitude changes. When *a* is negative, the red vector reverses direction.
 
 ```{ojs scalar-calculations}
+//| eval: false
 viewof fs = 
 Inputs.form({
   xi: Inputs.range([-1,1], {
@@ -394,7 +395,7 @@ form.${ns} {--input-width: 600px; --label-width: 15px;}
 //| fig-cap: "Multiplying a vector by a scalar changes its magnitude."
 //| cache: true
 //| fig-cap-location: margin
-
+//| eval: false
 Plot.plot({height: 600, width: 600,
 x: {domain: [-5, 5], grid: true, ticks: 9},
 y: {domain: [-5, 5], grid: true, ticks: 9},
@@ -525,6 +526,7 @@ In @fig-vector-addition, you can see that adding vectors is like
 
 ```{ojs scalar-addition}
 //| echo: false
+//| eval: false
 viewof fsab = 
 Inputs.form({
   ax: Inputs.range([-1,1], {
@@ -578,6 +580,7 @@ ab=[{x0: 0,
 //| cache: true
 //| fig-cap-location: margin
 //| echo: false
+//| eval: false
 Plot.plot({height: 600, width: 600,
 x: {domain: [-2, 2], grid: true, ticks: 9},
 y: {domain: [-2, 2], grid: true, ticks: 9},
