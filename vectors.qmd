@@ -412,7 +412,14 @@ x + y
 
 ::: {.callout-note title="You Try"}
 
-If vector $\vec{a}$ is (5, 6) and vector $\vec{b} is (10, 1), what is the sum of $\vec{a} and $\vec{b}? Use R to compute your answer.
+If vector $\vec{a}$ is (5, 6) and vector $\vec{b}$ is (10, 1), what is the sum of $\vec{a}$ and $\vec{b}$? Use R to compute your answer.
+
+```{webr-r}
+#| label: ex-addvectors
+a <- c(5, 6)
+b <- c(10, 1)
+```
+
 
 ```{r solution-addvectors}
 a <- c(5, 6)
