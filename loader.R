@@ -14,7 +14,7 @@ library(IDPmisc)
 library(psych)
 library(tidyverse)
 library(scales)
-
+library(rmarkdown)
 library(gganimate)
 library(ggforce)
 library(sjmisc)
