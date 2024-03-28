@@ -1,0 +1,250 @@
+---
+title: "OJS figures"
+---
+
+
+```{r loadojs}
+#| include: false
+source("loader.R")
+```
+
+
+```{ojs scalar-addition}
+//| echo: false
+viewof fsab = 
+Inputs.form({
+  ax: Inputs.range([-1,1], {
+    format: (x) => x,
+    value: 1, 
+    step: .01, 
+    label:html`<em>a<sub>x</sub></em>`,
+    labelStyle: "width: 50px"
+  }),
+  ay: Inputs.range(
+    [-1,1], 
+    {value: 0.5, 
+     step: .01, 
+     label: html`<em>a<sub>y</sub></em>`}),
+  bx: Inputs.range(
+    [-1,1], 
+    {value:0.5, 
+     step: .01, 
+     label: html`<em>b<sub>x</sub></em>`}),
+  by: Inputs.range(
+    [-1,1], 
+    {value: 1, 
+     step: .01, 
+     label: html`<em>b<sub>y</sub></em>`})
+  })
+ab=[{x0: 0, 
+     y0: 0, 
+     ax: fsab.ax, 
+     ay: fsab.ay, 
+     bx: fsab.bx, 
+     by: fsab.by, 
+     abx: fsab.ax + fsab.bx, 
+     aby: fsab.ay + fsab.by, 
+     theta: Math.atan2(fsab.ay + fsab.by, fsab.ax + fsab.bx), 
+     thetaa: Math.atan2(fsab.ay, fsab.ax), 
+     thetab: Math.atan2(fsab.by, fsab.bx), 
+     a: 'a', 
+     b: 'b', 
+     ab:'a + b', 
+     fill: '#ffffff', 
+     r: 200}]
+
+
+```
+
+
+
+```{ojs fig-vector-addition}
+//| label: fig-vector-addition
+//| fig-cap: "Adding vectors a and b."
+//| fig-cap-location: margin
+//| echo: false
+Plot.plot({height: 600, width: 600,
+x: {domain: [-2, 2], grid: true, ticks: 9},
+y: {domain: [-2, 2], grid: true, ticks: 9},
+style: {
+    fontSize: 14, fontFamily: "equity_text_a_tab"
+  },
+marks: [
+  Plot.ruleY([0]),
+  Plot.ruleX([0]),
+  Plot.arrow(
+    ab, 
+    {x1: "x0", 
+     y1: "y0", 
+     x2: "ax", 
+     y2: "ay", 
+     stroke: "#8B1A1A", 
+     headAngle: 30, 
+     headLength: 10, 
+     fill: "#8B1A1A"}),
+  Plot.arrow(
+    ab, 
+    {x1: "ax", 
+     y1: "ay", 
+     x2: "abx", 
+     y2: "aby", 
+     stroke: "#27408B", 
+     headAngle: 30, 
+     headLength: 10, 
+     fill: "#27408B", 
+     alpha: .5}),
+  Plot.arrow(
+    ab, 
+    {x1: "x0", 
+     y1: "y0", 
+     x2: "abx", 
+     y2: "aby", 
+     stroke: "#51315E", 
+     headAngle: 30, 
+     headLength: 10, 
+     fill: "#51315E"}),
+  Plot.dot(
+    ab, 
+    {x: (d) => d.ax/2, 
+     y: (d) => d.ay/2, 
+     fill: "fill", 
+     r: 7}),
+  Plot.dot(
+    ab, 
+    {x: (d) => d.ax + d.bx/2, 
+     y: (d) => d.ay + d.by/2, 
+     fill: "fill", 
+     r: 7}),
+  Plot.dot(
+    ab, 
+    {x: (d) => d.abx/2, 
+     y: (d) => d.aby/2, 
+     fill: "fill", 
+     r: 18}),
+  Plot.text(
+    ab, 
+    {x: (d) => d.ax/2, 
+     y: (d) => d.ay / 2, 
+     text: 'a', 
+     rotate: (d) => Math.atan(Math.tan(d.thetaa)) * -180 / Math.PI, 
+     fill: '#8B1A1A'}),
+   Plot.text(
+     ab, 
+     {x: (d) => d.ax + d.bx/2, 
+      y: (d) => d.ay + d.by / 2, 
+      text: 'b', 
+      rotate: (d) => Math.atan(Math.tan(d.thetab)) * -180 / Math.PI, 
+      fill: '#27408B'}),
+  Plot.text(
+    ab, 
+    {x: (d) => d.abx/2, 
+     y: (d) => d.aby / 2, 
+     text: 'ab', 
+     rotate: (d) => Math.atan(Math.tan(d.theta)) * -180 / Math.PI, 
+     fill: '#51315E'})
+]})
+```
+
+```{r codeojs-fig-vector-addition}
+<<scalar-addition>>
+<<fig-vector-addition>>
+```
+
+
+
+```{ojs scalar-calculations}
+viewof fs = 
+Inputs.form({
+  xi: Inputs.range([-1,1], {
+    format: (x) => x,
+    value: 1, 
+    step: .01, 
+    label: md`*x* `,
+    labelStyle: "width: 50px"
+  }),
+  yi: Inputs.range(
+    [-1,1], 
+    {value: 1, 
+     step: .01, 
+     vertical: true, 
+     label: md`*y*`}),
+  a: Inputs.range(
+    [-5,5], 
+    {value: 2, 
+     step: .01, 
+     label: md`*a* `, 
+     description: 'Scalar'})
+  })
+ax = fs.xi * fs.a
+ay = fs.yi * fs.a
+theta=Math.atan2(ay,ax)
+dd=[{
+  x: fs.xi, 
+  y: fs.yi, 
+  ax: ax, 
+  ay: ay, 
+  x0: 0, 
+  y0: 0, 
+  a: fs.a, 
+  theta: theta }]
+
+ns = Inputs.range().classList[0]
+
+html`
+<style>
+form.${ns} {--input-width: 600px; --label-width: 15px;}
+.${ns}-input>input[type=number] {flex-shrink:6;}
+</style>
+`
+```
+
+
+
+```{ojs fig-scalar}
+//| label: fig-scalar
+//| fig-cap: "Multiplying a vector by a scalar changes its magnitude."
+//| fig-cap-location: margin
+
+Plot.plot({height: 600, width: 600,
+x: {domain: [-5, 5], grid: true, ticks: 9},
+y: {domain: [-5, 5], grid: true, ticks: 9},
+style: {
+    fontSize: 14, 
+    fontFamily: "equity_text_a_tab"
+  },
+marks: [
+Plot.ruleY([0]),
+Plot.ruleX([0]),
+Plot.arrow(
+  dd, 
+  {x1: "x0", 
+   y1: "y0", 
+   x2: "ax", 
+   y2: "ay", 
+   stroke: "#8B1A1A", 
+   headAngle: 30, 
+   headLength: 10, 
+   fill: "#8B1A1A"}),
+Plot.arrow(
+  dd, 
+  {x1: "x0", 
+   y1: "y0", 
+   x2: "x", 
+   y2: "y", 
+   stroke: "#27408B", 
+   headAngle: 30, 
+   headLength: 10, 
+   fill: "#27408B"}),
+  Plot.text(
+    dd, 
+    {x: (d) => d.ax + .3 * Math.cos(d.theta), 
+     y: (d) => d.ay + .3 * Math.sin(d.theta), 
+     text: (d) => '('+(d.ax).toFixed(2)+', '+(d.ay).toFixed(2)+')'})
+]})
+```
+
+
+```{r codeojs-fig-scalar}
+<<scalar-calculations>>
+<<fig-scalar>>
+```

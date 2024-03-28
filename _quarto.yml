@@ -38,6 +38,7 @@ book:
         - distributions.qmd
         - descriptives.qmd
         - compositescores.qmd
+        - ojs.qmd
         - unfinished.qmd
         - references.qmd
 bibliography: [book.bib, packages.bib]
