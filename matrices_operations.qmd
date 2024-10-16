@@ -712,31 +712,25 @@ sum(A)
 
 ## Eigenvectors and Eigenvalues
 
-Consider this equation related Square matrix $\mathbf{A}$, column vector $\mathbf{x}$, and column vector $\mathbf{b}$:
+Consider this equation showing the relationship between a square matrix $\mathbf{A}$, a column vector $\vec{x}$, and a column vector $\vec{b}$:
 
 $$\mathbf{A}\vec{x}=\vec{b}$$
 
-Square matrix $\mathbf{A}$ scales and rotates vector $\vec{x}$ into vector $\vec{b}$.
+As explained in 3Blue1Brown's wonderful [*Essence of Linear Algebra*](https://youtu.be/PFDu9oVAE-g?si=PteIZU-T4KCGSCV1) series, we can think of the square matrix $\mathbf{A}$ as a mechanism for scaling and rotating vector $\vec{x}$ to become vector $\vec{b}$.
 
-Is there a non-zero vector $\mathbf{v}$ that $\mathbf{A}$ scales but does not rotate? If so, $\mathbf{v}$ is an *eigenvector*. The value $\lambda$ by which $\mathbf{v}$ is scaled is the *eigenvalue*.
+Is there a non-zero vector $\vec{v}$ that $\mathbf{A}$ will scale but not rotate? If so, $\vec{v}$ is an [eigenvector]{.defword title="An **eigenvector**" of a matrix is a vector that the matrix does not rotate.}. The value $\lambda$ by which $\vec{v}$ is scaled is the [eigenvalue]{.defword title="The **eigenvalue** is the magnitude by which a matrix scales a unit eigenvector."}.
 
 $$\mathbf{A}\vec{v}=\lambda\vec{v}$$
 
 Every eigenvector that exists for matrix $\mathbf{A}$, is accompanied by an infinite number of parallel vectors of varying lengths that are also eigenvectors. Thus, we focus on the unit eigenvectors and their accompanying eigenvalues.
 
-Eigenvectors and eigenvalues are extremely important concepts in a wide variety of applications in many disciplines. For us, they play a pivotal role in principal components analyses, factor analysis, and multivariate analyses such as MANOVA.
-
-Eigenvectors (via principal components) help us to summarize multivariate data with a smaller number of variables.
+Eigenvectors and eigenvalues are extremely important concepts in a wide variety of applications in many disciplines, including psychometrics. Via principal components analysis, eigenvectors can help us summarize a large number of variables with a much smaller set of variables.
 
 ### Eigenvectors and Eigenvalues in R
 
 Suppose that matrix $\mathbf{A}$ is a correlation matrix:
 
-
-
-
-
-```{r eigen, results = "asis", echo = FALSE}
+```{r correlationA}
 A <- matrix(c(1.0, 0.8, 0.5,
               0.8, 1.0, 0.4,
               0.5, 0.4, 1.0),
@@ -748,30 +742,43 @@ $$\mathbf{A}=`r bmatrix(A)`$$
 Because $\mathbf{A}$ is a 3 &times; 3 matrix, there are three [orthogonal]{.defword title="The word, **orthogonal** derives from the Greek word for "right-angled." Orthogonal vectors are mutually perpendicular."} unit vectors that are eigenvectors, $\vec{v}_1$, $\vec{v}_2$, and $\vec{v}_3$. We will collect the three eigenvectors as columns of matrix $\mathbf{V}$:
 
 
-```{r}
+```{r eigenA}
 eig <- eigen(A)
 evectors <- eig$vectors %>% prob_label()
 evectors[1,] <- paste0("\\overset{\\vec{v}_", 1:3, "}{",evectors[1,],"}")
-```
-
-
-
-$$\mathbf{V}= `r bmatrix(evectors)`$$
-
-```{r}
 evalues <- eig$values
 ```
 
+
+
 $$
-\boldsymbol{\lambda} = \{`r paste0(round(eig$values,2),collapse = ",")`\}
+\mathbf{V}= `r bmatrix(evectors)`
+$$
+
+The three eigenvalues of $\mathbf{A}$ are collected in the vector $\vec{\lambda}$
+
+$$
+\vec{\lambda} = (`r paste0(round(evalues,2),collapse = ",")`)
 $$
 
 
-The eigenvectors of correlation matrix `A` below, represent the orientation vectors of the ellipsoid that contains the multivariate normal data. 
+$$
+\begin{aligned}
+\mathbf{AV}&=\mathtt{diag}\left(\vec{\lambda}\right)\mathbf{V}\\
+\mathbf{AV}-\mathtt{diag}\left(\vec{\lambda}\right)\mathbf{V}&=\mathbf{0}\\
+\left(\mathbf{A}-\mathtt{diag}\left(\vec{\lambda}\right)\right)\mathbf{V}&=\mathbf{0}
+\end{aligned}
+$$
 
-```{r fig-eigenplot, webgl = TRUE}
-#| fig-cap: "The eigenvectors are the principal axes "
+Suppose we generate multivariate normal data with population correlations equal to matrix $\mathbf{A}$. Plotted in three dimensions, the data would have the shape of an ellipsoid. As seen in @fig-eigenplot, the eigenvectors of $\mathbf{A}$, scaled by the square roots of the eigenvalues align with and are proportional to the principal axes of the ellipsoid that contains 95% of the data.
+
+:::{#fig-eigenplot fig-cap="The eigenvectors align with the principal axes of the ellipsoid that contains 95% of the data. The principal axes are proportional to the squart roots of the eigenvalues." fig-cap-location="margin"}
+
+```{r eigen3d, webgl = TRUE}
+<<correlationA>>
+<<eigenA>>
 library(rgl)
+# Plot the data
 plot3d(
   mvtnorm::rmvnorm(5000, sigma = A),
   col = "royalblue",
@@ -784,11 +791,27 @@ plot3d(
   alpha = 0.6,
   size = 0.2
 )
+# Because there are 3 variables, the scaling factor 
+# that contains 95% of the data is a chi-square 
+# variate with 3 degrees of freedom.
 z <- sqrt(qchisq(.95, 3))
+
+# Plot the ellipsoid
 plot3d(ellipse3d(A, subdivide = 5, t = z),
        alpha = 0.05,
        add = T)
-for (i in 1:3) segments3d(rbind(-z * sqrt(eig$values[i]) * eig$vectors[,i],z * sqrt(eig$values[i]) * eig$vectors[,i]), color = "royalblue4", lwd = 3)
+
+for (i in 1:3) {
+  principalaxis <- sqrt(eig$values[i]) * eig$vectors[, i]
+  segments3d(
+    rbind(
+      -z * principalaxis,
+       z * principalaxis
+    ),
+    color = "royalblue4",
+    lwd = 3
+  )
+}
 
 
 xticks <- c(-3:3)
@@ -806,6 +829,8 @@ view3d(zoom = 1,
 
  
 ```
+
+:::
 
 For symmetric matrices (e.g., correlation and covariance matrices), eigenvectors are orthogonal.
 

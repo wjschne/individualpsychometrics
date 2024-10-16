@@ -10,6 +10,7 @@ Because there are so many different kinds of [variables]{.defword title="A **var
 
 The classic [taxonomy]{.defword title="A **taxonomy** is a classification system."} for variable types [@stevensTheoryScalesMeasurement1946] distinguishes among nominal, ordinal, interval, and ratio scales (@fig-Stevens). Although it is clear that this taxonomy is incomplete [@cicchetti2006rating], there is no consensus about how exactly the list should be amended. If this book were about how to design psychological tests, we would explore this topic in depth. For our purposes, it is enough to say that the fundamentals of measurement and [scaling]{.defword title="**Scaling** refers to the procedures by which we decide how to assign numbers to the attributes we measure."} for variable types is philosophically complex and that controversies abound [@michellQuantitativeScienceDefinition1997].
 
+
 ```{r fig-Stevens, opts.label="marginfigure"}
 #| fig-width: 6.72
 #| out-width: "100%"
@@ -18,10 +19,11 @@ knitr::include_graphics("images/Stevens.svg")
 ```
 
 
-```{tikz codelatex-fig-Stevens}
-#| button_latex: true
-#| code: !expr 'readLines("tex/Stevens.tex")'
-```
+<!-- ```{tikz} -->
+<!-- #| label: codelatex-fig-Stevens  -->
+<!-- #| button_latex: true -->
+<!-- #| code: !expr 'readLines("tex/Stevens.tex")' -->
+<!-- ``` -->
 
 ## Nominal Scales {#nominal}
 
@@ -187,13 +189,40 @@ In an [ordinal scale]{.defword title="An **ordinal scale** groups observations i
 #| fig-cap: "In a Likert scale, the distances between categories are undefined."
 #| fig-width: 4
 #| out-width: "60%"
-knitr::include_graphics("images/Likert.svg")
+myarrowhead <- arrow_head_latex()
+tibble(x = 0, 
+            y = 1:5, 
+            label = c("Strongly Disagree", 
+                      "Disagree", 
+                      "Neutral", 
+                      "Agree", 
+                      "Strongly Agree")) %>%
+  mutate(yhalf = y - .5 + lag(x)) %>%
+  ggplot() + 
+  ggarrow::geom_arrow_chain(aes(x,y), 
+                            arrow_head = myarrowhead, 
+                            arrow_fins = myarrowhead, 
+                            resect = 5, 
+                            color = "gray50") +
+  geom_text(aes(x,y, label = label), 
+            size = btxt_size * 1.3, 
+            color = myfills[1], fontface = "bold") +
+  geom_text(aes(x, 
+                yhalf, 
+                label = "Distance = ?"), 
+            hjust = -.1, 
+            data = . %>% dplyr::filter(!is.na(yhalf))) +
+  coord_equal() + 
+  theme_void() +
+  scale_x_continuous(limits = c(-1,1))
 ```
+
+
 
 Most measurement in psychological assessment involves ordinal scales, though in many cases ordinal scales might appear to be other types of scales. Questionnaires that use Likert scales are clearly ordinal (e.g., @fig-Likert). Even though true/false items on questionnaires might seem like nominal scales, they are usually ordinal because the answer indicates whether a person has either more or less of an attribute. That is, *more* and *less* are inherently ordinal concepts. Likewise, ability test items are ordinal, even though *correct* vs. *incorrect* might seem like nominal categories. Ability tests are designed such that a correct response indicates more ability than an incorrect response. The ordinal nature of ability test items is especially clear in cases that allow for partial credit.
 
-```{tikz codelatex-fig-Likert}
-#| code: !expr 'readLines("tex/Likert.tex")'
+```{r coder-fig-Likert}
+<<fig-Likert>>
 ```
 
 Some scales are only partially ordinal. For example, *educational attainment* is ordinal up to a certain point in most societies, but branches out as people acquire specialized training. For a career in psychology, the educational sequence is high school diploma, associate's degree, bachelor's degree, master's degree, and doctoral degree.[^variables-1] However, this is not the sequence for real estate agents, hair stylists, and pilots. If we wanted to compare educational degrees across professions, how would we rank them? For example, how would we compare a law degree with a doctorate in geology? Does one degree indicate higher educational attainment than the other? The answers depend on the criteria that we care about---and different people care about different things. Thus, it is difficult to say that we have an ordinal scale when we compare educational attainment across professions.
@@ -270,14 +299,32 @@ It is not always easy to distinguish between an interval scale and an ordinal sc
 
 ```{r fig-suds, opts.label="marginfigure"}
 #| fig-cap: "Subjective units of distress may not be of equal length"
-#| fig-height: 6
-#| out-height: "600"
-knitr::include_graphics("images/SUDS.svg")
-
+#| fig-height: 7
+tibble(
+  x = 0:10,
+  you = 0:10,
+       client = c(0,0.63,1.45,2.36,3.33,4.35,5.42,6.52,7.65,8.81,11)) |> 
+  pivot_longer(c(you,client)) |> 
+  mutate(name = factor(name) |> fct_rev()) %>%
+  ggplot(aes(name, value)) + 
+  geom_path(aes(color = name), linewidth = .25) +
+  geom_point(aes(color = name), size = 11) +
+  geom_text(aes(label = x), color = "white") +
+  geom_text(data = . %>% 
+              summarise(value = 5, 
+                        .by = name), 
+            aes(label = c("Scale you intend\nyour client to use\n(equal intervals)", "Scale your client\nis actually using\n(for now, at least)"), 
+                hjust = c(1,0)), nudge_x = c(-.5,.5)) +
+  coord_equal() +
+  scale_color_manual(values = myfills) + 
+  scale_x_discrete(expand = expansion(add = 3)) +
+  theme_void() +
+  theme(legend.position = "none")
+  
 ```
 
-```{tikz codelatex-fig-suds}
-#| code: !expr 'readLines("tex/SUDS.tex")'
+```{r coder-fig-suds}
+<<fig-suds>>>
 ```
 
 It is doubtful that any subjectively scaled measurement is a true interval scale. Even so, it is clear that some ordinal scales are more interval-like than others. Using item response theory [@embretsonItemResponseTheory2000], it is possible to sum many ordinal-level items and scale the total score such that it approximates an interval scale. It is important to note, however, that item response theory does not accomplish magic. The application of item response theory in this way is justified only if the ordinal items are measuring an underlying construct that is by nature at the interval (or ratio) level. No amount of statistical wizardry can alter the nature of the underlying construct. Sure, you can apply fancy math to the numbers, but a construct that is ordinal by nature will remain ordinal no matter what you do or convince yourself that you have done.
@@ -303,9 +350,23 @@ When a variable can assume any value within a specified interval, the variable i
 #| fig-align: center
 #| out-width: "100%"
 #| fig-cap-location: margin
-knitr::include_graphics("images/DiscreteContinuous.svg")
+#| fig-height: 2.5
+
+tibble(Scale = factor(c(rep("Discrete Scale", 11), 
+                 rep("Continuous Scale", 2))) |> fct_rev(),
+       value = c(0:10,0,10)) |> 
+  ggplot(aes(value, Scale)) + 
+  scale_x_continuous(NULL, breaks = 0:10, minor_breaks = NULL) + 
+  scale_y_discrete(NULL) +
+  geom_point(aes(color = Scale), size = 4) +
+  theme(legend.position = "none") +
+  scale_color_manual(values = myfills) + 
+  annotate("segment", xend = 10, x = 0, y = "Continuous Scale", yend = "Continuous Scale") + 
+  coord_equal()
+
+
 ```
 
-```{tikz codelatex-fig-DiscreteContinuous}
-#| code: !expr 'readLines("tex/DiscreteContinuous.tex")'
+```{r coder-fig-DiscreteContinuous}
+<<fig-DiscreteContinuous>>
 ```

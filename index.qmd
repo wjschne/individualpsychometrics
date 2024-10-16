@@ -52,7 +52,7 @@ walk(logfiles, file.remove)
 #   walk(pdf2svg)
 ```
 
-Most of the figures for this book were created in R (via [ggplot2](https://ggplot2.tidyverse.org/) and [base R](https://r-graph-gallery.com/base-R.html)), $\small\LaTeX$ (via [Ti*k*Z](https://tikz.dev/)), or [Observable](https://observablehq.com/). To make the content as accessible and transparent as possible, I have included buttons that will reveal the code used to make each figure or table. For example, the initial setup code used for this book can be seen by expanding the note below:
+Most of the figures for this book were created in R (via [ggplot2](https://ggplot2.tidyverse.org/), [rgl](https://dmurdoch.github.io/rgl/), or [base R](https://r-graph-gallery.com/base-R.html)), $\small\LaTeX$ (via [Ti*k*Z](https://tikz.dev/)), or [Observable](https://observablehq.com/). To make the content as accessible and transparent as possible, I have included buttons that will reveal the code used to make each figure or table. For example, the initial setup code used for this book can be seen by expanding the note below:
 
 ```{r coder-setup}
 #| code: !expr 'readLines("loader.R")'

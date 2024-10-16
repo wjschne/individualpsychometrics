@@ -4,7 +4,8 @@ conflicts_prefer(dplyr::select,
                  dplyr::filter, 
                  scales::alpha, 
                  dplyr::lag,
-                 tibble::add_case)
+                 tibble::add_case,
+                 ggdiagram::`+`)
 library(extrafont)
 loadfonts("win", quiet = TRUE)
 library(knitr)
@@ -39,12 +40,18 @@ library(rsvg)
 library(ggarrow)
 library(arrowheadr)
 library(rgl)
+library(ggdiagram)
 knitr::knit_hooks$set(webgl = hook_webgl)
 arrow_head_deltoid <- purrr::partial(arrowheadr::arrow_head_deltoid, d = 2.3)
 # Set options
 options(knitr.kable.digits = 2, knitr.kable.na = '')
-knitr::opts_template$set(marginfigure = list(fig.column = "margin", fig.cap.location = "top", out.width = "100%", fig.align = "left"),
-                         bodyfigure = list(fig.column = "body", fig.cap.location = "margin"))
+knitr::opts_template$set(
+  marginfigure = list(fig.column = "margin", 
+                      fig.cap.location = "top", 
+                      out.width = "100%", 
+                      fig.align = "left"),
+  bodyfigure = list(fig.column = "body", 
+                    fig.cap.location = "margin"))
 
 # Default fonts and colors
 bfont = "Equity Text A Tab"
@@ -236,7 +243,7 @@ knitr::opts_hooks$set(label = function(options) {
     options$echo = TRUE
     options$eval = FALSE
     codelanguages <- c(r = "R Code", 
-                       latex = "$\\small\\rm\\LaTeX$ Code",
+                       latex = "$\\rm\\LaTeX$ Code",
                        ojs = "Observable Code")
     mycode <- str_match(options$label, "^code(.*?)\\-")
     if (length(mycode) == 2) {

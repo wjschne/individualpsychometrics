@@ -15,9 +15,11 @@ Because we first learn about variables in an algebra class, we tend to think of 
 
 [Random variables]{.defword title="**Random variables** have values that are determined by a random process."} are not like algebraic variables. Random variables simply take on values because of some random process. If we say that the outcome of a throw of a six-sided die is a random variable, there is nothing to "solve for." There is no equation that determines the value of the die. Instead, it is determined by chance and the physical constraints of the die. That is, the outcome must be one of the numbers printed on the die, and the six numbers are equally likely to occur. This illustrates an important point. The word *random* here does not mean "anything can happen." On a six-sided die, you will never roll a 7, 3.5, $\sqrt{\pi}$, &minus;36,000, or any other number that does not appear on the six sides of the die. Random variables have outcomes that are subject to random processes, but those random processes *do*  have constraints on them such that some outcomes are more likely than others---and some outcomes never occur at all. 
 
-```{r fig-randomvariable, opts.label="marginfigure"}
+```{r fig-randomvariable}
 #| fig-cap: "Rolling a six-sided die is a process that creates a randomly ordered series of integers from 1 to 6."
 #| out-width: "100"
+#| fig-column: margin
+#| fig-align: left
 knitr::include_graphics("images/randomvariable.gif")
 ```
 
@@ -126,12 +128,13 @@ $$\{\ldots, -5, -3, -1, 1, 3, 5, \ldots\}$$
 
 With continuous variables, we can define sets in terms of [intervals]{.defword title="**Intervals** are a continous range of numbers."}. Whereas the discrete set $\{0,1\}$ refers just to the numbers 0 and 1, the interval set $(0,1)$ refers to all the numbers between 0 and 1. 
 
-```{r fig-intervalnotation, opts.label="marginfigure"}
+```{r fig-intervalnotation}
 #| fig-cap: "Interval Notation"
 #| fig-width: 5
 #| fig-height: 3.5
 #| out-width: "300"
-
+#| fig-column: margin
+#| fig-align: left
 
 # Interval notation
 tibble(lb = 1L,
@@ -201,11 +204,13 @@ The sample space of continuous variables is infinitely large for another reason.
 
 Each element of a random variable's sample space occurs with a particular probability. When we list the probabilities of each possible outcome, we have specified the variable's [probability distribution]{.defword title="In a **probability distribution**, there is an assignment of a probability to each possible element in a variable's sample space."}. In other words, if we know the probability distribution of a variable, we know how probable each outcome is. In the case of a throw of a single die, each outcome is equally likely (@fig-dicepmf).
 
-```{r fig-dicepmf, opts.label="marginfigure"}
+```{r fig-dicepmf}
 #| fig-cap: "The probability distribution of a throw of a single die"
 #| out-width: "275"
 #| fig-width: 6.72
 #| fig-height: 4
+#| fig-column: margin
+#| fig-align: left
 knitr::include_graphics("images/dice.svg")
 ```
 
@@ -739,14 +744,14 @@ tibble::tribble(
 
 The lower bound $a$ and the upper bound $b$ are the discrete uniform distribution's [parameters]{.defword title="A **parameter** is a defining feature of a random variable's probability distribution."}. The word *parameter* has many meanings, but here it refers to a characteristic of a distribution family that helps us identify precisely which member of the family we are talking about. Most distribution families have one, two, or three parameters. 
 
-If you have taken an algebra class, you have seen parameters before, though the word *parameter* many not have been used. Think about the formula of a line:
+If you have taken an algebra class, you have seen parameters before, though the word *parameter* may not have been used. Think about the formula of a line:
 
 $$
 y=mx+b
 $$
 
 
-Both $x$ and $y$ are variables, but what are $m$ and $b$? Well, you probably remember that $m$ is the slope of the line and that $b$ is the $y$-intercept. If we know the slope and the intercept of a line, we know exactly which line we are talking about. No additional information is needed to graph the line. Therefore, $m$ and $b$ are the line's *parameters*, because they uniquely identify the line.^[What about other mathematical functions? Do they have parameters? Yes! Most do! For example, in the equation for a parabola $(y=ax^2+bx+c)$, $a$, $b$, and $c$ determine its precise shape.] All lines have a lot in common but there is an infinite variety of lines because the parameters, the slope and the intercept, can take on the value of any real number. Each unique combination of parameter values (slope and intercept) will produce a unique line. So it is with probability distribution families. All family members are alike in many ways but they also differ because of different parameter values.
+Both $x$ and $y$ are variables, but what are $m$ and $b$? Well, you probably remember that $m$ is the slope of the line and that $b$ is the $y$-intercept. If we know the slope and the intercept of a line, we know exactly which line we are talking about. No additional information is needed to graph the line. Therefore, $m$ and $b$ are the line's *parameters*, because they uniquely identify the line.^[What about other mathematical functions? Do they have parameters? Yes! Most do! For example, in the equation for a parabola $(y=ax^2+bx+c)$, $a$, $b$, and $c$ determine its precise shape.] All lines have a lot in common but there is an infinite variety of lines because the parameters, the slope and the intercept, can take on the value of any real number. Each unique combination of parameter values (slope and intercept) will produce a unique line. So it is with probability distribution families. All family members are alike in many ways, but they also differ because their differing parameters alter the shape of the distributions.
 
 The discrete uniform distribution (i.e., the typical variety consisting of consecutive integers) is defined by the lower and upper bound. Once we know the lower bound and the upper bound, we know exactly which distribution we are talking about.^[If we allow the lower bound to be any real number and the spacing to be any positive real number, the discrete uniform distribution can be specified by three parameters: the lower bound $a$, the spacing between numbers $k$ $(k>0)$, and the number of points $n$ $(n>1)$. The upper bound $b$ of such a distribution would be $b=a+k(n-1)$] Not all distributions are defined by their lower and upper bounds. Indeed, many distribution families are unbounded on one or both sides. Therefore, other features are used to characterize the distributions, such as the population mean $(\mu)$.
 
@@ -811,10 +816,12 @@ F_X(x) = P(X \le x)=p
 $$
 
 
-```{r fig-cdfDie, opts.label="marginfigure"}
+```{r fig-cdfDie}
 #| fig-width: 6.72
 #| fig-cap: "The cumulative distribution function of the roll of a die is $F_X(x)=\\frac{x}{6}$"
 #| out-width: "90%"
+#| fig-column: margin
+#| fig-align: left
 knitr::include_graphics("images/cdfDie.svg")
 ```
 
@@ -1057,11 +1064,13 @@ X <- sample(sample_space,
 
 
 
-```{r fig-discreteplot, opts.label="marginfigure"}
+```{r fig-discreteplot}
 #| fig-asp: 1
 #| fig-cap: "Frequency distribution of a discrete uniform random variable from 1 to 6 (*n* = 6,000)"
 #| out-width: "400"
 #| warning: false
+#| fig-column: margin
+#| fig-align: left
 # Frequency distribution of a discrete uniform random variable from 1 to 6 
 
 tibble(X = factor(X)) %>% 
@@ -1120,16 +1129,20 @@ The toss of a single coin has the simplest probability distribution that I can t
 #| code: !expr 'readLines("tex/coin.tex")'
 ```
 
-```{r fig-coin, opts.label="marginfigure"}
+```{r fig-coin}
 #| out-width: "300"
 #| fig-cap: "The probability distribution of a coin toss"
+#| fig-column: margin
+#| fig-align: left
 knitr::include_graphics("images/coin.svg")
 ```
 
 
-```{r fig-bernoullipic, opts.label="marginfigure"}
+```{r fig-bernoullipic}
 #| fig-cap: "Jakob Bernoulli (1654--1705)<br>[Image Credits](https://en.wikipedia.org/wiki/File:Jakob_Bernoulli.jpg)"
 #| out-width: "200"
+#| fig-column: margin
+#| fig-align: left
 knitr::include_graphics("images/Jakob_Bernoulli2.jpg")
 ```
 
@@ -1137,17 +1150,19 @@ The Bernoulli distribution can describe any random variable that has two outcome
 
 
 
-In psychological assessment, many of the variables we encounter have a Bernoulli distribution. In ability test items in which there is no partial credit, examinees either succeed or fail. The probability of success on an item (in the whole population) is $p$. In other words, $p$ is the proportion of the entire population that correctly answers the question. Some ability test items are very easy and the probability of success is high. In such cases, $p$ is close to 1. When $p$ is close to 0, few people succeed and items are deemed hard. Thus, in the context of ability testing, $p$ is called the [difficulty parameter]{.defword title="The **difficulty parameter** is the proportion of people who succeed on an ability item or endorse a yes/no questionnaire item."}. This is confusing because when $p$ is high, the item is easy, not difficult. Many people have suggested that it would make more sense to call it the "easiness parameter" but the idea has never caught on.
+In psychological assessment, many of the variables we encounter have a Bernoulli distribution. In ability test items in which there is no partial credit, examinees either succeed or fail. The probability of success on an item (in the whole population) is $p$. In other words, $p$ is the proportion of the entire population that correctly answers the question. Some ability test items are very easy and the probability of success is high. In such cases, $p$ is close to 1. When $p$ is close to 0, few people succeed and items are deemed hard. Thus, in the context of ability testing, $p$ is called the [difficulty parameter]{.defword title="The **difficulty parameter** is the proportion of people who succeed on an ability item or endorse a yes/no questionnaire item."}. This is confusing because when $p$ is high, the item is easy, not difficult. Many people have suggested that it would make more sense to call it the *easiness parameter*, but the idea has never caught on.
 
 True/False and Yes/No items on questionnaires also have Bernoulli distributions. If an item is frequently endorsed as true ("I like ice cream."), $p$ is high. If an item is infrequently endorsed ("I like black licorice and mayonnaise in my ice cream."), $p$ is very low. Oddly, the language of ability tests prevails even here. Frequently endorsed questionnaire items are referred to as "easy" and infrequently endorsed items are referred to as "difficult," even though there is nothing particularly easy or difficult about answering them either way.
 
 #### Generating a Random Sample from the Bernoulli Distribution
 
-```{r fig-BernoulliSample, opts.label="marginfigure"}
+```{r fig-BernoulliSample}
 #| fig-cap: "Counts of a Random Variable with a Bernoulli Distribution $(p = 0.8, n = 1000)$"
 #| fig-height: 3.5
 #| fig-width: 3.5
 #| out-width: "300"
+#| fig-column: margin
+#| fig-align: left
 # Counts of a Random Variable with a Bernoulli Distribution
 set.seed(4)
 # n = sample size
@@ -1212,10 +1227,12 @@ tibble::tribble(
   knitr::kable() 
 ```
 
-```{r fig-twocoin, opts.label="marginfigure"}
+```{r fig-twocoin}
 #| fig-cap: "Probability distribution of the number of heads observed when two coins are tossed"
 #| fig-width: 4
 #| out-width: "75%"
+#| fig-column: margin
+#| fig-align: left
 knitr::include_graphics("images/twocoin.svg")
 ```
 
@@ -1247,11 +1264,12 @@ tibble::tribble(
   html_table_width(400)
 ```
 
-```{r fig-pmf6, opts.label="marginfigure"}
+```{r fig-pmf6}
 #| fig-cap: "The probability distribution of the number of sixes observed when a six-sided die is thrown 10 times."
 #| fig-height: 7
 #| out-width: "350"
-
+#| fig-column: margin
+#| fig-align: left
 # Probability of sixes
 
 tibble(sample_space = 0:10) %>% 
@@ -1449,9 +1467,11 @@ tibble::tribble(
   knitr::kable() 
 ```
 
-```{r fig-PoissonPortrait, opts.label="marginfigure"}
+```{r fig-PoissonPortrait}
 #| fig-cap: "Siméon Denis Poisson (1781--1840)<br>[Image Credits](https://en.wikipedia.org/wiki/File:Simeon_Poisson.jpg)"
 #| out-width: "250px"
+#| fig-column: margin
+#| fig-align: left
 knitr::include_graphics("images/Simeon_Poisson.jpg")
 ```
 
@@ -1832,11 +1852,12 @@ x <- runif(n, min = a, max = b)
 ```
 
 
-```{r fig-uniformdist, opts.label="marginfigure"}
+```{r fig-uniformdist}
 #| fig-cap: "Random sample (*n* = 1000) of a continuous uniform distribution between 10 and 30. Points are randomly jittered to show the distribution more clearly."
 #| fig-width: 6
 #| fig-height: 2
-
+#| fig-column: margin
+#| fig-align: left
 # Plot
 tibble(x) %>% 
 ggplot(aes(x, y = 0.5)) + 
@@ -1896,10 +1917,11 @@ tribble(
 
 
 
-```{r fig-GaussImage, opts.label="marginfigure"}
+```{r fig-GaussImage}
 #| fig-cap: "Carl Friedrich Gauss (1777--1855)<br>[Image Credits](https://en.wikipedia.org/wiki/File:Carl_Friedrich_Gauss_1840_by_Jensen.jpg)"
 #| out-width: "300"
-
+#| fig-column: margin
+#| fig-align: left
 knitr::include_graphics("images/Carl_Friedrich_Gauss2.jpg")
 ```
 
@@ -2626,8 +2648,10 @@ Worried about having its trade secrets divulged, Guinness did not allow its empl
 
 
 
-```{r fig-tnorm, opts.label="marginfigure"}
+```{r fig-tnorm}
 #| fig-cap: "The *t* distribution approaches the standard normal distribution as the degrees of freedom (*df*) parameter increases."
+#| fig-column: margin
+#| fig-align: left
 knitr::include_graphics("images/tdist_norm.gif")
 ```
 

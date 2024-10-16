@@ -1,5 +1,8 @@
 project:
   type: book
+  preview:
+    port: 4200
+    browser: true
 
 book:
   title: "Individual Psychometrics"
@@ -67,7 +70,7 @@ filters:
   - defword.lua
 format:
   html:
-    css: [equity.css]
+    css: [equity.css, individualpsychometrics.css]
     html-math-method: katex
     page-navigation: true
     citation-location: margin

@@ -31,10 +31,11 @@ d <- map2(X, reps, rep) %>% unlist %>%
 sixes <- reps[X == 6]
 sample_size = sum(reps)
 
+
 knitr::kable(
   d,
   col.names = c(
-    "*X*",
+    "Value",
     "Frequency",
     "Cumulative<br>Frequency" ,
     "Proportion",
@@ -98,12 +99,7 @@ d %>%
       str_remove("^0"))) %>% 
   rename_with(
     .fn = function(x) paste0("*",x,"*")) %>% 
-  mutate(` ` = "") %>% 
-  kable(
-    digits = 2,
-    align = "r"
-  ) %>%
-  html_table_width(c(30, rep(100, 4), 20))
+  mutate(` ` = "") 
 ```
 
 
@@ -114,10 +110,12 @@ d %>%
 
 ### Frequency Distribution Bar Plots
 
-```{r fig-freqbarplot, opts.label="marginfigure"}
+```{r fig-freqbarplot}
 #| fig-height: 7
 #| fig-cap: "Frequency Distribution Bar Plot"
 #| out-width: "350"
+#| fig-column: margin
+#| fig-align: left
 # Make frequency data
 d_freq <- d %>% 
   rename(Anger = anger) %>% 
@@ -144,11 +142,13 @@ d_freq %>%
 ```
 
 
-```{r fig-freqstackedbarplot, opts.label="marginfigure"}
+```{r fig-freqstackedbarplot}
 #| fig-width: 2.5
 #| fig-cap: "Cumulative Frequency Stacked Bar Plot"
 #| out-width: "250"
 #| warning: false
+#| fig-column: margin
+#| fig-align: left
 # Stacked Frequency Bar Plot
 
 d_freq %>% 
@@ -184,10 +184,12 @@ d_freq %>%
 
 
 
-```{r fig-freqstepplot, opts.label="marginfigure"}
+```{r fig-freqstepplot}
 #| fig-cap: Cumulative Frequency Step Plot
 #| fig-height: 7
 #| out-width: "350"
+#| fig-column: margin
+#| fig-align: left
 # Frequency Step Plot
 d_freq %>%
   ggplot(aes(Anger, cf)) +
@@ -303,9 +305,10 @@ In a bar plot, histogram, or probability density plot, the mode is the value tha
 
 If two values tie, both values are the mode and the distribution is [bimodal]{.defword title="A **bimodal** distribution has two modes."}. Sometimes a distribution has two distinct clusters, each with its own local mode. The greater of these two modes is the *major mode*, and the lesser is the *minor mode* (See @fig-bimodal).
 
-```{r fig-bimodal, opts.label="marginfigure"}
+```{r fig-bimodal}
 #| fig-cap: A Bimodal Distribution
-
+#| fig-column: margin
+#| fig-align: left
 # A bimodal distribution
 tibble(x = seq(-3, 3.5, .01),
        y = dnorm(x,-1, 0.5) / 0.8 + 
@@ -429,9 +432,10 @@ The arithmetic mean can only be calculated with interval or ratio variables. Why
 
 The arithmetic mean is usually the preferred measure of central tendency for interval and ration variables because it is usually more stable from sample to sample than the median and the mode. In @fig-centraltendency, it can be seen that the sampling distributions of the mean is narrower than that of the median and the mode. In other words, it has a smaller [standard error]{.defword title="The **standard error** is the standard deviation of a sampling distribution."}.
 
-```{r fig-centraltendency, opts.label="marginfigure"}
+```{r fig-centraltendency}
 #| fig-cap: "Sampling Distributions of Central Tendency Measures.<br>The standard normal distribution, $\\mathcal{N}(0,1),$ was used to generate 10,000 samples with a sample size of 100. The distribution of sample means is slightly narrower than the distribution of sample medians, meaning that the mean is slightly more stable than the median. The distribution of sample modes is very wide, meaning that the mode is much less stable than the mean and median."
-
+#| fig-column: margin
+#| fig-align: left
 
 # Central tendency function
 ct <- function(sample_size = 100) {
@@ -561,12 +565,13 @@ Fine. Easy. Except...hmm...random variables generate an infinite number of numbe
 
 The expected value of a random variable is a weighted mean. A mean of what? Everything in the sample space. How are the sample space elements weighted? Each element in the sample space is multiplied by its probability of occurring.
 
-```{r fig-pmfX, opts.label="marginfigure"}
+```{r fig-pmfX}
 #| fig-cap: Probability Distribution of a Hypothetical Random Variable
 #| fig-width: 4
 #| out-width: "350"
 #| warning: false
-
+#| fig-column: margin
+#| fig-align: left
 tibble(x = factor(c(2,4,8), levels = 1:8),
        p = c(0.3, 0.2, 0.5)) %>% 
   ggplot(aes(x,p)) + 
@@ -608,12 +613,13 @@ $$
 
 The term *expected value* might be a little confusing. In this case, 5.4 is the expected value of $X$ but $X$ never once generates a value of 5.4. So the expected value is not "expected" in the sense that we expect to see it often. It is expected to be close to the mean of any randomly selected sample of the variable that is sufficiently large:
 
-```{r fig-thinbins, opts.label="marginfigure"}
+```{r fig-thinbins}
 #| fig-width: 5
 #| fig-height: 7
 #| fig-cap: "Slicing the Standard Normal Distribution into Ever Thinner Bins"
 #| warning: false
-
+#| fig-column: margin
+#| fig-align: left
 # Slicing the standard normal distribution into ever thinner bins
 make_bins <- function(binPower,
                       binWidth,
@@ -706,10 +712,12 @@ $$
 
 The qualvar package [@R-qualvar] can compute the primary indices of qualitative variation presented by Wilcox.
 
-```{r fig-nominalvar, opts.label="marginfigure"}
+```{r fig-nominalvar}
 #| fig-cap: "The Variance Analog (VA) index of qualitative variation ranges from 0 to 1. It equals 0 when every data point is assigned to the same category and 1 when each category has the same frequency."
 #| fig-height: 7
 #| out-width: "400"
+#| fig-column: margin
+#| fig-align: left
 # The Variance Analog (VA) index of qualitative variation
 low_var <- c(A = 100, B = 0, C = 0, D = 0)
 mid_var =  c(A = 60, B = 10, C = 25, D = 5)
@@ -776,9 +784,10 @@ In all of these indices of qualitative variation, the lowest value is 0 when eve
 
 As with nominal variables, a bar plot or frequency distribution table can tell you most of what you want to know about the variability of an ordinal variable. If you need a quantitative measure of how much an ordinal variable varies, you have many options. The most important of these is the [interquartile range]{.defword title="The **interquartile range** (IQR) is the distance from the score at the 25th percentile to the score at the 75th percentile."}.
 
-```{r fig-normalIQR, opts.label="marginfigure"}
+```{r fig-normalIQR}
 #| fig-cap: "In a normal distribution with a mean of 100 and a standard deviation of 15, the interquartile range is about 20.2, the distance between 89.9 and 110.1."
-
+#| fig-column: margin
+#| fig-align: left
 IQR_bounds <- qnorm(c(.25, .75), mean = 100, sd = 15)
 l_height = .05
 ggplot(data = tibble(x = c(40, 160), y = pnorm(x, 100, 15)), aes(x)) +
@@ -840,10 +849,12 @@ When median is a good choice for our central tendency measure, the interquartile
 
 In ordinal data, there is no distance between categories, thus we cannot report the interquartile range *per se*. However, we can report the categories that contain the 25th and 75th percentiles. In @fig-ordinalIQR, the interquartile range has its lower bound at *Disagree* and its upper bound at *Slightly Agree*."
 
-```{r fig-ordinalIQR, opts.label="marginfigure"}
+```{r fig-ordinalIQR}
 #| fig-cap: "In this ordinal variable, the interquartile range has a lower bound at *Disagree* (which contains the 25th percentile) and an upper bound at *Slightly Agree* (which contains the 75th percentile)."
 #| fig-width: 3.5
 #| out-width: "300"
+#| fig-column: margin
+#| fig-align: left
 d <- tibble(
   Agreement = c(
     "Strongly Disagree",
@@ -1061,9 +1072,11 @@ $$
 s^2=\frac{\sum_i^n{\left(x_i-m\right)^2}}{n-1}
 $$
 
-```{r fig-besselpic, opts.label="marginfigure"}
+```{r fig-besselpic}
 #| fig-cap: "Friedrich Wilhelm Bessel (1784--1846)<br>[Image Credits](https://en.wikipedia.org/wiki/File:Friedrich_Wilhelm_Bessel_(1839_painting).jpg)"
 #| out-width: "250"
+#| fig-column: margin
+#| fig-align: left
 knitr::include_graphics("images/Friedrich_Wilhelm_Bessel_(1839_painting).jpg")
 
 ```

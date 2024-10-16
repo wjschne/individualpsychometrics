@@ -1,0 +1,444 @@
+---
+title: "Factor Loadings and Implied Correlations"
+knitr:
+  opts_chunk: 
+    dev: ragg_png
+    echo: false
+format:
+  html: default
+bibliography: references.bib
+---
+
+```{r}
+#| label: setup
+#| include: false
+options(tidyverse.quiet = TRUE)
+library(conflicted)
+library(tidyverse)
+conflicts_prefer(dplyr::filter, .quiet = TRUE)
+library(WJSmisc)
+library(psych)
+library(lavaan)
+library(simstandard)
+library(ggtext)
+font_opts <- list(dvisvgm.opts = "--font-format=woff")
+```
+
+This equation shows how factor loadings and error variances can be used to compute a correlation matrix:
+
+$$\Sigma=\Lambda\Phi\Lambda'+\Theta$$
+
+What does this mean?
+
+Suppose six observed variables are caused by 2 latent factors like so:
+
+```{r}
+m <- "
+A =~ .7 * A_1 + .8 * A_2 + .9 * A_3
+B =~ .6 * B_1 + .7 * B_2 + .8 * B_3
+A ~~ .4 * B
+"
+tikz_array <- function(x, ...) {
+  apply(x, 2, WJSmisc::prob_label, ...) %>%
+    apply(1, paste, collapse = ",") %>%
+    paste0("{", ., "}", collapse = ", ") %>%
+    paste0("{", ., "}")
+}
+
+latex_data <- function(x, prefix = "", suffix = "", ...) {
+  if (typeof(x) == "double" | typeof(x) == "integer") {
+    x <- apply(x, c(1,2), WJSmisc::prob_label, ...)
+  }
+  x %>% 
+    apply(c(1,2), \(d) paste0(prefix, d, suffix)) %>% 
+    apply(1, paste0, collapse = "&") %>%
+    paste0(collapse = "\\\\\n")
+}
+
+latex_array <- function(x,
+                        includenames = TRUE,
+                        env = "array",
+                        labelcolor = "gray",
+                        align = NULL,
+                        left = NULL,
+                        right = NULL,
+                        prefix = NULL,
+                        suffix = NULL,
+                        ...) {
+  if (is.null(align)) {
+    newalign <- paste0(rep("c", ncol(x)), collapse = "")
+  } else {
+    newalign = align
+  }
+  if (is.null(left)) {
+    left <- "\\left["
+  } else {
+    left <- paste0("\\left", left)
+  }
+  if (is.null(right)) {
+    right <- "\\right]"
+  } else {
+    right <- paste0("\\right", right)
+  }
+  
+  main_array <- paste0(left,"\\begin{", env, "}{", newalign, "}\n", latex_data(x, ...), "\n\\end{", env, "}", right)
+  
+  if (includenames) {
+    bigalign <- ifelse(is.null(rownames(x)), "c}\n", "cc}\n &")
+    output <- paste0("\\begin{array}{",bigalign)
+    
+    if (!is.null(colnames(x))) {
+      col_header <- latex_data(matrix(colnames(x), nrow = 1))
+      output <- paste0(output, " {\\color{",labelcolor,"}\\begin{array}{",newalign, "}",col_header, "\\end{array}}\\\\\n")
+    }
+    
+    if (!is.null(rownames(x))) {
+      row_header <- latex_data(matrix(rownames(x), ncol = 1), suffix = "\\hspace{-2ex}")
+      output <- paste0(output, " {\\color{",labelcolor,"} \\begin{array}{c}",row_header, "\n\\end{array}} & ", main_array, "\n\\end{array}")
+    }
+    
+    output
+    
+  } else {
+    main_array
+  }
+}
+
+
+
+ram <- sim_standardized_matrices(m)$RAM_matrices
+lambda <- ram$A[1:6,c("A","B")]
+phi <- ram$S[c("A","B"), c("A","B")]
+theta <- ram$S[1:6,1:6]
+R <- get_model_implied_correlations(m)
+
+tikzload <- lambda %>% 
+  as.data.frame() %>% 
+  rownames_to_column() %>% 
+  separate(rowname, c(NA, "id")) %>% 
+  pivot_longer(-id) %>% 
+  filter(value != 0) %>% 
+  pivot_wider() %>%
+  select(-id) %>% 
+  tikz_array(accuracy = .1)
+tikzvar <- ram$S[1:6,1:6] %>% 
+  as.data.frame() %>% 
+  rownames_to_column() %>% 
+  separate(rowname, c("construct", "id")) %>% 
+  pivot_longer(-c(id, construct)) %>% 
+  filter(value != 0) %>% 
+  select(-name) %>% 
+  pivot_wider(names_from = construct) %>% 
+  select(-id) %>% 
+  tikz_array(accuracy = .01)
+
+
+
+
+
+```
+
+```{tikz fig-pathdiagram, engine.opts=font_opts}
+#| echo: false
+#| fig-cap: "Factor Model"
+#| fig-align: center
+#| fig-ext: svg
+#| out-width: 100%
+#| cache: true
+#| eval: true
+
+\usetikzlibrary{arrows,shapes,backgrounds, shadows,fadings, intersections, positioning, calc}
+\usetikzlibrary{ext.shapes.superellipse}
+
+
+\definecolor{cA}{HTML}{6E9BB1}
+\definecolor{cB}{HTML}{79D09F}
+
+\definecolor{cdA}{HTML}{2E6F8E}
+\definecolor{cdB}{HTML}{3EBC74}
+
+\newcommand{\leadingzero}[2]{
+	\pgfmathtruncatemacro{\i}{round(#1 * pow(10, #2))}%
+	.\i
+}
+
+\def\loadings{{.7,.6}, {.8,.7}, {.9,.8}}
+\def\residuals{{.51,.64}, {.36,.51}, {.19,.36}}
+\def\rr{{{.51,.64}, {.36,.51}, {.19,.36}}}
+\def\myloadings{{{.7,.6}, {.8,.7}, {.9,.8}}}
+\def\mysep{3pt}
+
+\begin{tikzpicture}[
+	latent/.style={
+		circle,
+		fill= black!10,
+		minimum size=2.256758cm,
+		align=center,
+		text = black!2,
+		font=\fontsize{36pt}{34pt}\selectfont,
+		inner sep = 0mm},
+	error/.style={
+		circle,
+		text=black!90,
+		fill = black!2,
+		inner sep=0mm,
+		minimum size=1cm,
+		font=\large},
+	ob/.style={
+		superellipse, 
+		superellipse exponent = 15, 
+		superellipse step = 3,
+		fill=black!10,
+		minimum width=2cm,
+		align=center,
+		minimum height= 2cm,
+		font=\Huge,
+		text = black!2},
+	post/.style={
+		->,
+		draw,
+		shorten >=\mysep,
+		shorten <=\mysep,
+		>=latex',
+		very thick,
+		color = black!15,
+		text = black},
+	cov/.style={
+		<->,
+		shorten >=\mysep,
+		shorten <=\mysep,
+		>=latex',
+		very thick,
+		looseness=1,
+		bend left=45,
+		color = black!25,
+		text = black!40,draw},
+	variance/.style={
+		<->,
+		>=latex',
+		very thick,
+		bend left=245,
+		looseness=5,
+		shorten >=\mysep,
+		shorten <=\mysep,
+		font=\small,
+		color = black!50,
+		text = black,
+		draw},	
+	label/.style={
+		fill=white,
+		font=\normalsize,
+		circle,
+		%	fill = A,
+		inner sep = -.5pt,
+		pos=.50}]
+		
+\node[ob, fill = cA] (A_1) {};
+\node[ob, fill = cA, right=2mm of A_1] (A_2) {};
+\node[ob, fill = cA, right=2mm of A_2] (A_3) {};
+\node[ob, fill = cB, right=6mm of A_3] (B_1) {};
+\node[ob, fill = cB, right=2mm of B_1] (B_2) {};
+\node[ob, fill = cB, right=2mm of B_2] (B_3) {};
+
+
+
+
+\node[latent, fill = cA, above=25mm of A_2] (A) {\emph{A}};
+\node[latent, fill = cB, above=25mm of B_2] (B) {\emph{B}};
+
+\path[cov] (A) to node[label, font = \Large]{.4} (B);
+
+\coordinate (half) at ($(A.south)!.48!(A_2.north)$);
+\coordinate (l1) at (A_1|-half);
+\coordinate (l2) at (B_3|-half);
+
+
+\foreach \i [count = \xi] in {A,B}{
+	\path[variance, c\i, looseness = 3] (\i.65) to node[label, yshift = 1pt, text = c\i]{\phantom{.}1\phantom{.}} (\i.115);
+	\foreach \j in {1,2,3}{
+		\pgfmathsetmacro{\l}{\myloadings[\j-1][\xi-1]}	
+		\def\myloading{\leadingzero{\l}{1}}
+		
+		\pgfmathsetmacro{\residual}{\rr[\j-1][\xi-1]}			
+		\pgfmathsetmacro{\r}{2*\residual}
+		\pgfmathsetmacro{\myerrorsize}{2*sqrt(4*\residual/3.1415)}		
+		
+		\path[post, c\i] (\i) to (\i_\j);
+		\node[fill = white, inner sep=0pt, circle, font=\Large, text = cd\i] at (intersection of  l1--l2 and \i_\j--\i){\myloading\phantom{.}};
+		\node[error, fill = c\i!50, below = 6mm of \i_\j, minimum size=\myerrorsize cm] (e\i_\j) {};
+		
+		\path[variance, c\i!50, looseness = 5 - \r*1.5] (e\i_\j.245) to node[label, yshift=-1pt, text = c\i]{\residual\phantom{.}} (e\i_\j.295);
+		
+		\path[post, c\i!50] (e\i_\j) to (\i_\j);	
+			
+		\begin{scope}	
+			\coordinate (sw) at (\i_\j.south-|\i_\j.west);
+			\coordinate (se) at (\i_\j.south-|\i_\j.east);
+			\coordinate (nw) at ($ (sw)+(0,\r) $);
+			\coordinate (ne) at ($ (se)+(0,\r) $);
+			\path[clip] (sw) -- (se) -- (ne) -- (nw) -- cycle;	
+			\node[ob, fill = c\i!65] at (\i_\j) {};
+		\end{scope}
+		\node[font=\Huge, text = black!2] at (\i_\j) {$\i_\j$};
+		
+	}
+}
+
+
+\end{tikzpicture}
+```
+
+# Observed Correlations
+
+$\Sigma$ is the correlation matrix of the observed variables.[^1]
+
+# Factor Loadings
+
+$\Lambda$ is a loading matrix. If there are 6 observed variables and 2 factors, $\Lambda$ has 6 rows and 2 columns.
+
+$$
+\Lambda=`r latex_array(lambda, includenames = FALSE)`
+$$
+
+If the 2 factors are A and B, each with three subtests, we might label the matrix like so:
+
+$$
+\Lambda=`r latex_array(lambda)`
+$$
+
+The $\Lambda'$ matrix is just the $\Lambda$ matrix, but it has been transposed (i.e., the rows become columns and the columns become rows.). Therefore $\Lambda'$ is
+
+$$
+\Lambda'=`r latex_array(t(lambda))`
+$$
+
+# Latent Factor Correlations
+
+The $\Phi$ matrix is the correlation matrix of the factors.[^2] Let's say that A and B correlate at .4. This means:
+
+$$
+\Phi = `r latex_array(phi, digits = 1)`
+$$
+
+# Factor Uniquenesses and Residual Correlations
+
+The $\Theta$ matrix is the covariance matrix that contains any excess covariance or variance that is not accounted for by the loadings and factor correlations (i.e., $\Theta = \Sigma -\Lambda\Phi\Lambda'$).
+
+If the loadings and factor correlations perfectly account for the correlations, then $\Theta$ has zeroes everywhere except for the variances of the uniquenesses on the diagonal. With simple structure (i.e., each variable loads on factor only), the uniqueness variances are just one minus the loadings squared:
+
+$$
+\Theta=`r latex_array(theta)`
+$$
+
+If there is an additional correlation between observed variables, the excess correlation would appear in the off-diagonal values of $\Theta$.
+
+# Model-Implied Correlations Among Observed Variables
+
+$$
+\begin{aligned}
+\Sigma &=\Lambda\Phi\Lambda'+\Theta\\
+\Sigma &= \color{gray}\overbrace{\color{black}\begin{bmatrix}
+`r latex_data(lambda)`
+\end{bmatrix}}^{\Large\Lambda}
+\overbrace{\color{black}
+\begin{bmatrix}
+1&.4\\
+.4&1
+\end{bmatrix}}^{\Large\Phi}
+\overbrace{\color{black}
+\begin{bmatrix}
+`r latex_data(t(lambda))`
+\end{bmatrix}}^{\Large\Lambda'}{\color{black}+}
+\overbrace{\color{black}
+`r latex_array(theta, includenames = FALSE)`}^{\Large\Theta}\\
+\Sigma&\approx `r latex_array(R)`
+\end{aligned}
+$$
+
+```{r fig-corr, dev='ragg_png'}
+#| fig-height: 8
+#| fig-width: 8
+#| echo: false
+#| fig-cap: Model-Implied Correlations Between Observed Variables
+l <- matrix(0, nrow = 6, ncol = 2)
+l[1:3,1] <- c(.7,.8,.9)
+l[4:6,2] <- c(.7,.8,.9)
+
+phi <- matrix(.4, nrow = 2, ncol = 2)
+diag(phi) <- 1
+
+lphil <- l %*% phi %*% t(l)
+
+theta <- diag(6) - diag(diag(lphil))
+
+Sigma <- lphil + theta
+vnames <- WJSmisc::cross_vectors(LETTERS[1:2], 1:3)
+cornames(Sigma) <- vnames
+
+myfont <- "Open Sans"
+Sigma %>% 
+  corrr::as_cordf(1) %>% 
+  corrr::stretch() %>% 
+  mutate(x = str_replace(x, "_", "<sub>") %>%
+           paste0("</sub>"),
+         y = str_replace(y, "_", "<sub>") %>%
+           paste0("</sub>") %>% fct_inorder() %>% fct_rev()) %>% 
+  ggplot(aes(x,y)) + 
+  geom_tile(aes(fill = r)) + 
+  geom_text(aes(label = WJSmisc::prob_label(r)), 
+            size = 18 * .8, 
+            size.unit = "pt", 
+            family = myfont) + 
+  scale_fill_gradient(low = "white", 
+                      high = "royalblue", 
+                      limits = c(0,1), 
+                      labels = prob_label) + 
+  scale_x_discrete(NULL, expand = expansion(), position = "top") + 
+  scale_y_discrete(NULL, expand = expansion()) + 
+  theme_minimal(18, myfont) + 
+  theme(axis.text = element_markdown(), legend.text = element_text(hjust = .5)) + 
+  coord_equal()
+
+```
+
+# Correlations Among Observed, Latent, and Residual Variables
+
+
+```{r}
+A <- "
+v  	A   	B   	A1  	A2  	A3  	B1  	B2  	B3  	eA1 	eA2 	eA3 	eB1 	eB2 	eB3 
+A  	1.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00
+B  	0.00	1.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00
+A1 	0.70	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.714143	0.00	0.00	0.00	0.00	0.00
+A2 	0.80	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.60	0.00	0.00	0.00	0.00
+A3 	0.90	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.43589	0.00	0.00	0.00
+B1 	0.00	0.60	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.80	0.00	0.00
+B2 	0.00	0.70	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.714143	0.00
+B3 	0.00	0.90	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.43589
+eA1	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	1.00	0.00	0.00	0.00	0.00	0.00
+eA2	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	1.00	0.00	0.00	0.00	0.00
+eA3	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	1.00	0.00	0.00	0.00
+eB1	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	1.00	0.00	0.00
+eB2	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	1.00	0.00
+eB3	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	1.00" %>%
+	readr::read_tsv() %>%
+	tibble::column_to_rownames("v") %>%
+	as.matrix()
+
+fit <- sim_standardized_matrices(m)
+fit$v_names$v_observed
+fit$v_names$v_latent_exogenous
+fit$v_names$v_residual
+A <- ram$A
+S <- ram$S
+
+
+A
+```
+
+
+It is possible to estimate the correlation not just among observed variables, but all the variables in the model, including observed, latent, and residual variables. The Reticular Action Model [RAM\; @mcardleAlgebraicPropertiesReticular1984]
+
+[^1]: Actually it is the observed covariance matrix, but we will assume that all observed variables are standardized (mean = 0, sd = 1). In that case, $\Sigma$ is also standardized (i.e., a correlation matrix is a covariance matrix that consists of standardized variables).
+
+[^2]: Actually, the \Phi matrix could be a covariance matrix, but since we are thinking about latent variables, we might as well make them standardized.

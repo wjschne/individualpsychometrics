@@ -15,7 +15,7 @@ This book can be read and understood without using R at all. However, many of th
 
 ## Get Ready for a Challenge
 
-!["*Blooming, buzzing confusion*?" I see what you did there. ---WJ](https://upload.wikimedia.org/wikipedia/commons/9/9c/William_James_b1842c.jpg "William James"){#fig-williamjames .column-margin width=200}
+!["*Blooming, buzzing confusion*?" I see what you did there. ---WJ](https://upload.wikimedia.org/wikipedia/commons/9/9c/William_James_b1842c.jpg "William James"){#fig-williamjames .column-margin fig-align="left" width=200}
 
 
 
@@ -27,11 +27,11 @@ The challenge of learning R is indeed going to be challenging at times, but just
 
 
 
-![[John Chambers](https://www.wikiwand.com/en/John_Chambers_(statistician))](images/John_Chambers.png "John Chambers"){#fig-chambers .column-margin width=200 fig-alt="A headshot of statistician John Chambers"}
+![[John Chambers](https://www.wikiwand.com/en/John_Chambers_(statistician))](images/John_Chambers.png "John Chambers"){#fig-chambers .column-margin width=200 fig-alt="A headshot of statistician John Chambers" fig-align="left"}
 
-![[Robert Gentleman](https://www.wikiwand.com/en/Robert_Gentleman_(statistician))](images/r_gentleman.jpg "Robert Gentleman"){#fig-gentleman .column-margin width=200 fig-alt="A headshot of statistician Robert Gentleman"}
+![[Robert Gentleman](https://www.wikiwand.com/en/Robert_Gentleman_(statistician))](images/r_gentleman.jpg "Robert Gentleman"){#fig-gentleman .column-margin width=200 fig-alt="A headshot of statistician Robert Gentleman" fig-align="left"}
 
-![[Ross Ihaka](https://www.wikiwand.com/en/Ross_Ihaka)](images/RossIhaka.jpg "Ross Ihaka"){#fig-ihaka .column-margin width=200  fig-alt="A headshot of statistician Ross Ihaka"}
+![[Ross Ihaka](https://www.wikiwand.com/en/Ross_Ihaka)](images/RossIhaka.jpg "Ross Ihaka"){#fig-ihaka .column-margin width=200  fig-alt="A headshot of statistician Ross Ihaka" fig-align="left"}
 
 R is the eighteenth letter of the alphabet, of course, but for data analysts, it has several specialized meanings.
 
@@ -290,7 +290,12 @@ Future-you spends an inordinate amount of time recreating what present-you thoug
 -   Also Good: Within your file synchronization service, have a well-organized hierarchical structure to your folders.
 -   Even Better: Use version control software like [Git](https://git-scm.com/), and save the code in an online repository like [GitHub](https://github.com/).
 
-```{r, echo = F, fig.cap="The backtick (`) is not the single quote (').", dev="png", eval = F}
+```{r}
+#| label: fig-backtick
+#| fig-cap: "The backtick (`) and the single quote (') look alike but are not the same symbol."
+#| eval: false
+#| echo: false
+#| include: false
 x_scale = 1600 / 1163
 w <- 64 * x_scale
 x <- 10 * x_scale
@@ -298,10 +303,10 @@ h <- 70 * x_scale
 y <- 126 * x_scale
 
 
-keyboard <- image_read(path = "LenovoKeyboard.jpg") %>% 
-  image_crop("1163x521+0") %>% 
-  image_scale("1600")
-img <- image_draw(keyboard)
+keyboard <- magick::image_read(path = "images/LenovoKeyboard.jpg") %>% 
+  magick::image_crop("1163x521+0") %>% 
+  magick::image_scale("1600")
+img <- magick::image_draw(keyboard)
 
 rect(xleft = x, 
      xright = x + w,
