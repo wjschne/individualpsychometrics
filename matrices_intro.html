@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.27">
+<meta name="generator" content="quarto-1.6.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Individual Psychometrics – 5&nbsp; Matrices</title>
+<title>5&nbsp; Matrices – Individual Psychometrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -92,10 +92,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-03c13abfa5dcced92d75414116ffc56e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3227f9dd62aea528a587117725bad52b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -302,7 +302,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"options":{"fig-width":7,"dpi":72,"output":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","results":"markup","message":"true","fig-cap":"","classes":"","context":"interactive","autorun":"false","label":"ex-makeA","out-width":"700px","comment":""},"id":1,"code":"A <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)"},{"options":{"fig-width":7,"dpi":72,"output":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","results":"markup","message":"true","fig-cap":"","classes":"","context":"interactive","autorun":"false","label":"ex-rbinding","out-width":"700px","comment":""},"id":2,"code":"A <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)\nB <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)\n\n# Now bind A and B by rows\nrbind(_,_)"},{"options":{"fig-width":7,"dpi":72,"output":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","results":"markup","message":"true","fig-cap":"","classes":"","context":"interactive","autorun":"false","label":"ex-cbinding","out-width":"700px","comment":""},"id":3,"code":"# Now bind A and B by columns\ncbind(_,_)"},{"options":{"fig-width":7,"dpi":72,"output":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","results":"markup","message":"true","fig-cap":"","classes":"","context":"interactive","autorun":"false","label":"ex-select","out-width":"700px","comment":""},"id":4,"code":"A <- matrix(1:12, nrow = 3, byrow = TRUE)\nA[_,_]"},{"options":{"fig-width":7,"dpi":72,"output":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","results":"markup","message":"true","fig-cap":"","classes":"","context":"interactive","autorun":"false","label":"ex-selectA1","out-width":"700px","comment":""},"id":5,"code":"A"},{"options":{"fig-width":7,"dpi":72,"output":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","results":"markup","message":"true","fig-cap":"","classes":"","context":"interactive","autorun":"false","label":"ex-matrixcols","out-width":"700px","comment":""},"id":6,"code":"A"},{"options":{"fig-width":7,"dpi":72,"output":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","results":"markup","message":"true","fig-cap":"","classes":"","context":"interactive","autorun":"false","label":"ex-boolean","out-width":"700px","comment":""},"id":7,"code":"s <- A[] == _ \nA[,s] "},{"options":{"fig-width":7,"dpi":72,"output":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","results":"markup","message":"true","fig-cap":"","classes":"","context":"interactive","autorun":"false","label":"ex-uneven","out-width":"700px","comment":""},"id":8,"code":"A <- matrix(1:12, nrow = 3, byrow = TRUE)\nrownames(A) <- c(\"Gold\",\"Silver\",\"Bronze\")\ncolnames(A) <- c(\"Vault\",\"Uneven Bars\",\"Balance Beam\",\"Floor\")\n# select the Uneven Bars column\nA"},{"options":{"fig-width":7,"dpi":72,"output":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","results":"markup","message":"true","fig-cap":"","classes":"","context":"interactive","autorun":"false","label":"ex-silverfloor","out-width":"700px","comment":""},"id":9,"code":"A"},{"options":{"fig-width":7,"dpi":72,"output":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","results":"markup","message":"true","fig-cap":"","classes":"","context":"interactive","autorun":"false","label":"ex-replacevault","out-width":"700px","comment":""},"id":10,"code":"A"},{"options":{"fig-width":7,"dpi":72,"output":"true","fig-height":5,"out-height":"","warning":"true","read-only":"false","results":"markup","message":"true","fig-cap":"","classes":"","context":"interactive","autorun":"false","label":"ex-even20transpose","out-width":"700px","comment":""},"id":11,"code":"A <- matrix(seq(_,_,_), nrow = _)"}];
+globalThis.qwebrCellDetails = [{"id":1,"code":"A <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)","options":{"results":"markup","message":"true","label":"ex-makeA","context":"interactive","read-only":"false","fig-width":7,"autorun":"false","fig-cap":"","warning":"true","out-height":"","classes":"","dpi":72,"comment":"","fig-height":5,"output":"true","out-width":"700px"}},{"id":2,"code":"A <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)\nB <- matrix(c(_,_,\n              _,_), \n            nrow = _, \n            byrow = _)\n\n# Now bind A and B by rows\nrbind(_,_)","options":{"results":"markup","message":"true","label":"ex-rbinding","context":"interactive","read-only":"false","fig-width":7,"autorun":"false","fig-cap":"","warning":"true","out-height":"","classes":"","dpi":72,"comment":"","fig-height":5,"output":"true","out-width":"700px"}},{"id":3,"code":"# Now bind A and B by columns\ncbind(_,_)","options":{"results":"markup","message":"true","label":"ex-cbinding","context":"interactive","read-only":"false","fig-width":7,"autorun":"false","fig-cap":"","warning":"true","out-height":"","classes":"","dpi":72,"comment":"","fig-height":5,"output":"true","out-width":"700px"}},{"id":4,"code":"A <- matrix(1:12, nrow = 3, byrow = TRUE)\nA[_,_]","options":{"results":"markup","message":"true","label":"ex-select","context":"interactive","read-only":"false","fig-width":7,"autorun":"false","fig-cap":"","warning":"true","out-height":"","classes":"","dpi":72,"comment":"","fig-height":5,"output":"true","out-width":"700px"}},{"id":5,"code":"A","options":{"results":"markup","message":"true","label":"ex-selectA1","context":"interactive","read-only":"false","fig-width":7,"autorun":"false","fig-cap":"","warning":"true","out-height":"","classes":"","dpi":72,"comment":"","fig-height":5,"output":"true","out-width":"700px"}},{"id":6,"code":"A","options":{"results":"markup","message":"true","label":"ex-matrixcols","context":"interactive","read-only":"false","fig-width":7,"autorun":"false","fig-cap":"","warning":"true","out-height":"","classes":"","dpi":72,"comment":"","fig-height":5,"output":"true","out-width":"700px"}},{"id":7,"code":"s <- A[] == _ \nA[,s] ","options":{"results":"markup","message":"true","label":"ex-boolean","context":"interactive","read-only":"false","fig-width":7,"autorun":"false","fig-cap":"","warning":"true","out-height":"","classes":"","dpi":72,"comment":"","fig-height":5,"output":"true","out-width":"700px"}},{"id":8,"code":"A <- matrix(1:12, nrow = 3, byrow = TRUE)\nrownames(A) <- c(\"Gold\",\"Silver\",\"Bronze\")\ncolnames(A) <- c(\"Vault\",\"Uneven Bars\",\"Balance Beam\",\"Floor\")\n# select the Uneven Bars column\nA","options":{"results":"markup","message":"true","label":"ex-uneven","context":"interactive","read-only":"false","fig-width":7,"autorun":"false","fig-cap":"","warning":"true","out-height":"","classes":"","dpi":72,"comment":"","fig-height":5,"output":"true","out-width":"700px"}},{"id":9,"code":"A","options":{"results":"markup","message":"true","label":"ex-silverfloor","context":"interactive","read-only":"false","fig-width":7,"autorun":"false","fig-cap":"","warning":"true","out-height":"","classes":"","dpi":72,"comment":"","fig-height":5,"output":"true","out-width":"700px"}},{"id":10,"code":"A","options":{"results":"markup","message":"true","label":"ex-replacevault","context":"interactive","read-only":"false","fig-width":7,"autorun":"false","fig-cap":"","warning":"true","out-height":"","classes":"","dpi":72,"comment":"","fig-height":5,"output":"true","out-width":"700px"}},{"id":11,"code":"A <- matrix(seq(_,_,_), nrow = _)","options":{"results":"markup","message":"true","label":"ex-even20transpose","context":"interactive","read-only":"false","fig-width":7,"autorun":"false","fig-cap":"","warning":"true","out-height":"","classes":"","dpi":72,"comment":"","fig-height":5,"output":"true","out-width":"700px"}}];
 
 </script>
 <script type="module">
@@ -1020,7 +1020,7 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -1035,7 +1035,7 @@ globalThis.qwebrExecuteCode = async function (
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -1065,6 +1065,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="equity.css">
+<link rel="stylesheet" href="individualpsychometrics.css">
 </head>
 
 <body class="nav-sidebar docked slimcontent">
@@ -1073,13 +1074,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matrix_algebra.html">Matrix Algebra in R</a></li><li class="breadcrumb-item"><a href="./matrices_intro.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Matrices–Introduction</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -1109,9 +1110,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Getting Started</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -1134,7 +1135,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matrix Algebra in R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -1167,9 +1168,9 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Variables</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>

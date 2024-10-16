@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.27">
+<meta name="generator" content="quarto-1.6.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Individual Psychometrics – 8&nbsp; Distributions</title>
+<title>8&nbsp; Distributions – Individual Psychometrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -92,10 +92,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-03c13abfa5dcced92d75414116ffc56e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3227f9dd62aea528a587117725bad52b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -139,7 +139,7 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
 });
 </script>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -154,7 +154,7 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -184,6 +184,7 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="equity.css">
+<link rel="stylesheet" href="individualpsychometrics.css">
 </head>
 
 <body class="nav-sidebar docked slimcontent">
@@ -192,13 +193,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./variables.html">Variables</a></li><li class="breadcrumb-item"><a href="./distributions.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distributions</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -228,9 +229,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Getting Started</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -253,7 +254,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matrix Algebra in R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -286,9 +287,9 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Variables</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -411,10 +412,10 @@ window.Quarto = {
 <h2 data-number="8.1" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">8.1</span> Random Variables</h2>
 <p>Because we first learn about variables in an algebra class, we tend to think of variables as having values that can be solved for—if we have enough information about them. If I say that <span class="math inline">x</span> is a variable and that <span class="math inline">x+6=8</span>, we can use algebra to find that <span class="math inline">x</span> must equal 2.</p>
 <div class="page-columns page-full"><p><span class="defword" title="<strong>Random variables</strong> have values that are determined by a random process." data-bs-html="true" data-bs-toggle="tooltip">Random variables</span> are not like algebraic variables. Random variables simply take on values because of some random process. If we say that the outcome of a throw of a six-sided die is a random variable, there is nothing to “solve for.” There is no equation that determines the value of the die. Instead, it is determined by chance and the physical constraints of the die. That is, the outcome must be one of the numbers printed on the die, and the six numbers are equally likely to occur. This illustrates an important point. The word <em>random</em> here does not mean “anything can happen.” On a six-sided die, you will never roll a 7, 3.5, <span class="math inline">\sqrt{\pi}</span>, −36,000, or any other number that does not appear on the six sides of the die. Random variables have outcomes that are subject to random processes, but those random processes <em>do</em> have constraints on them such that some outcomes are more likely than others—and some outcomes never occur at all.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Random variables</strong> have values that are determined by a random process.</span></div></div>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-randomvariable" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-randomvariable" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-randomvariable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/randomvariable.gif" class="img-fluid quarto-figure quarto-figure-left figure-img" width="100">
@@ -535,10 +536,10 @@ R Code for <a href="#fig-randomvariable" class="quarto-xref">Figure&nbsp;<span>8
 <section id="interval-sets" class="level3 page-columns page-full" data-number="8.2.2">
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="interval-sets"><span class="header-section-number">8.2.2</span> Interval Sets</h3>
 <div class="page-columns page-full"><p>With continuous variables, we can define sets in terms of <span class="defword" title="<strong>Intervals</strong> are a continous range of numbers." data-bs-html="true" data-bs-toggle="tooltip">intervals</span>. Whereas the discrete set <span class="math inline">\{0,1\}</span> refers just to the numbers 0 and 1, the interval set <span class="math inline">(0,1)</span> refers to all the numbers between 0 and 1.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Intervals</strong> are a continous range of numbers.</span></div></div>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-intervalnotation" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-intervalnotation" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-intervalnotation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-intervalnotation-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="300">
@@ -622,10 +623,10 @@ R Code for <a href="#fig-intervalnotation" class="quarto-xref">Figure&nbsp;<span
 <section id="sec:ProbabilityDistribution" class="level2 page-columns page-full" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="sec:ProbabilityDistribution"><span class="header-section-number">8.4</span> Probability Distributions</h2>
 <div class="page-columns page-full"><p>Each element of a random variable’s sample space occurs with a particular probability. When we list the probabilities of each possible outcome, we have specified the variable’s <span class="defword" title="In a <strong>probability distribution</strong>, there is an assignment of a probability to each possible element in a variable’s sample space." data-bs-html="true" data-bs-toggle="tooltip">probability distribution</span>. In other words, if we know the probability distribution of a variable, we know how probable each outcome is. In the case of a throw of a single die, each outcome is equally likely (<a href="#fig-dicepmf" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">In a <strong>probability distribution</strong>, there is an assignment of a probability to each possible element in a variable’s sample space.</span></div></div>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-dicepmf" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-dicepmf" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dicepmf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/dice.svg" class="img-fluid quarto-figure quarto-figure-left figure-img" width="275">
@@ -636,14 +637,14 @@ Figure&nbsp;8.3: The probability distribution of a throw of a single die
 </figure>
 </div>
 </div></div></div>
-<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="$\small\rm\LaTeX$ Code">
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="$\rm\LaTeX$ Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="math inline">\small\rm\LaTeX</span> Code for <a href="#fig-dicepmf" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>
+<span class="math inline">\rm\LaTeX</span> Code for <a href="#fig-dicepmf" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -722,7 +723,7 @@ Figure&nbsp;8.3: The probability distribution of a throw of a single die
 <p>There is an infinite variety of probability distributions, but a small subset of them have been given names. Now, one can manage one’s affairs quite well without ever knowing what a Bernoulli distribution is, or what a <span class="math inline">\chi{^2}</span> distribution is, or even what a normal distribution is. However, sometimes life is a little easier if we have names for useful things that occur often. Most of the distributions with names are not really single distributions, but families of distributions. The various members of a family are unique but they are united by the fact that their probability distributions are generated by a particular mathematical function (more on that later). In such cases, the probability distribution is often represented by a graph in which the sample space is on the <span class="math inline">X</span>-axis and the associated probabilities are on the <span class="math inline">Y</span>-axis. In <a href="#fig-pdfIllustration" class="quarto-xref">Figure&nbsp;<span>8.4</span></a>, 16 probability distributions that might be interesting and useful to clinicians are illustrated. Keep in mind that what are pictured are only particular members of the families listed; some family members look quite different from what is shown in <a href="#fig-pdfIllustration" class="quarto-xref">Figure&nbsp;<span>8.4</span></a>.</p>
 <div class="cell fig-cap-location-top tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-pdfIllustration" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-pdfIllustration" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-pdfIllustration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 <img src="images/pdfIllustration.svg" class="img-fluid quarto-figure quarto-figure-center figure-img column-page-right" style="width:100.0%">
@@ -1239,11 +1240,11 @@ R Code for <a href="#fig-pdfIllustration" class="quarto-xref">Figure&nbsp;<span>
 <div class="page-columns page-full"><p>The throw of a single die is a member of a family of distributions called the <span class="defword" title="A <strong>discrete uniform distribution</strong> is a family of random variable distributions in which the sample space is an evenly spaced sequence of numbers, each of which is equally likely to occur." data-bs-html="true" data-bs-toggle="tooltip">discrete uniform distribution</span>. It is “discrete” because the elements in the sample space are countable, with evenly spaced gaps between them. For example, there might be a sequence of 8, 9, 10, and 11 in the sample space, but there are no numbers in between. It is “uniform” because all outcomes are equally likely. With dice, the numbers range from a lower bound of 1 to an upper bound of 6. In the family of discrete uniform distributions, the lower and upper bounds are typically integers, mostly likely starting with 1. However, any real number <span class="math inline">a</span> can be the lower bound and the spacing <span class="math inline">k</span> between numbers can be any positive real number. For the sake of simplicity and convenience, I will assume that the discrete uniform distribution refers to consecutive integers ranging from a lower bound of <span class="math inline">a</span> and an upper bound of <span class="math inline">b</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>discrete uniform distribution</strong> is a family of random variable distributions in which the sample space is an evenly spaced sequence of numbers, each of which is equally likely to occur.</span></div></div>
 <p>This kind of discrete uniform distribution has a number of characteristics listed in <a href="#tbl-uniformfeatures" class="quarto-xref">Table&nbsp;<span>8.1</span></a>. I will explain each of them in the sections that follow. As we go, I will also explain the mathematical notation. For example, <span class="math inline">a \in \{\ldots,-1,0,1,\ldots\}</span> means that <span class="math inline">a</span> is an integer because <span class="math inline">\in</span> means <em>is a member of</em> and <span class="math inline">\{\ldots,-1,0,1,\ldots\}</span> is the set of all integers.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math inline">x \in \{a,a+1,\ldots,b\}</span> means that the each member of the sample space <span class="math inline">x</span> is a member of the set of integers that include <span class="math inline">a</span>, <span class="math inline">b</span>, and all the integers between <span class="math inline">a</span> and <span class="math inline">b</span>. The notation for the <a href="#sec:pmf">probability mass function</a> and the <a href="#sec:CumDist">cumuluative distribution function</a> function will be explained later in this chapter.</p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<strong>Notation note</strong>: Sometimes the set of all integers is referred to with the symbol <span class="math inline">\mathbb{Z}.</span></p></div></div><div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-uniformfeatures" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-uniformfeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-uniformfeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="do-not-create-environment cell table table-sm table-striped small">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 46%">
 <col style="width: 53%">
@@ -1309,11 +1310,11 @@ Table&nbsp;8.1: Features of Discrete Uniform Distributions
 <section id="parameters-of-random-variables" class="level3 page-columns page-full" data-number="8.5.2">
 <h3 data-number="8.5.2" class="anchored" data-anchor-id="parameters-of-random-variables"><span class="header-section-number">8.5.2</span> Parameters of Random Variables</h3>
 <div class="page-columns page-full"><p>The lower bound <span class="math inline">a</span> and the upper bound <span class="math inline">b</span> are the discrete uniform distribution’s <span class="defword" title="A <strong>parameter</strong> is a defining feature of a random variable’s probability distribution." data-bs-html="true" data-bs-toggle="tooltip">parameters</span>. The word <em>parameter</em> has many meanings, but here it refers to a characteristic of a distribution family that helps us identify precisely which member of the family we are talking about. Most distribution families have one, two, or three parameters.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>parameter</strong> is a defining feature of a random variable’s probability distribution.</span></div></div>
-<p>If you have taken an algebra class, you have seen parameters before, though the word <em>parameter</em> many not have been used. Think about the formula of a line:</p>
+<p>If you have taken an algebra class, you have seen parameters before, though the word <em>parameter</em> may not have been used. Think about the formula of a line:</p>
 <p><span class="math display">
 y=mx+b
 </span></p>
-<p>Both <span class="math inline">x</span> and <span class="math inline">y</span> are variables, but what are <span class="math inline">m</span> and <span class="math inline">b</span>? Well, you probably remember that <span class="math inline">m</span> is the slope of the line and that <span class="math inline">b</span> is the <span class="math inline">y</span>-intercept. If we know the slope and the intercept of a line, we know exactly which line we are talking about. No additional information is needed to graph the line. Therefore, <span class="math inline">m</span> and <span class="math inline">b</span> are the line’s <em>parameters</em>, because they uniquely identify the line.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> All lines have a lot in common but there is an infinite variety of lines because the parameters, the slope and the intercept, can take on the value of any real number. Each unique combination of parameter values (slope and intercept) will produce a unique line. So it is with probability distribution families. All family members are alike in many ways but they also differ because of different parameter values.</p>
+<p>Both <span class="math inline">x</span> and <span class="math inline">y</span> are variables, but what are <span class="math inline">m</span> and <span class="math inline">b</span>? Well, you probably remember that <span class="math inline">m</span> is the slope of the line and that <span class="math inline">b</span> is the <span class="math inline">y</span>-intercept. If we know the slope and the intercept of a line, we know exactly which line we are talking about. No additional information is needed to graph the line. Therefore, <span class="math inline">m</span> and <span class="math inline">b</span> are the line’s <em>parameters</em>, because they uniquely identify the line.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> All lines have a lot in common but there is an infinite variety of lines because the parameters, the slope and the intercept, can take on the value of any real number. Each unique combination of parameter values (slope and intercept) will produce a unique line. So it is with probability distribution families. All family members are alike in many ways, but they also differ because their differing parameters alter the shape of the distributions.</p>
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;What about other mathematical functions? Do they have parameters? Yes! Most do! For example, in the equation for a parabola <span class="math inline">(y=ax^2+bx+c)</span>, <span class="math inline">a</span>, <span class="math inline">b</span>, and <span class="math inline">c</span> determine its precise shape.</p></div><div id="fn3"><p><sup>3</sup>&nbsp;If we allow the lower bound to be any real number and the spacing to be any positive real number, the discrete uniform distribution can be specified by three parameters: the lower bound <span class="math inline">a</span>, the spacing between numbers <span class="math inline">k</span> <span class="math inline">(k&gt;0)</span>, and the number of points <span class="math inline">n</span> <span class="math inline">(n&gt;1)</span>. The upper bound <span class="math inline">b</span> of such a distribution would be <span class="math inline">b=a+k(n-1)</span></p></div></div><p>The discrete uniform distribution (i.e., the typical variety consisting of consecutive integers) is defined by the lower and upper bound. Once we know the lower bound and the upper bound, we know exactly which distribution we are talking about.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Not all distributions are defined by their lower and upper bounds. Indeed, many distribution families are unbounded on one or both sides. Therefore, other features are used to characterize the distributions, such as the population mean <span class="math inline">(\mu)</span>.</p>
 </section>
 <section id="sec:pmf" class="level3 page-columns page-full" data-number="8.5.3">
@@ -1322,7 +1323,7 @@ y=mx+b
 <p>A probability mass function transforms a random variable’s sample space elements into probabilities. In <a href="#fig-dicepmf" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>, the probability mass function can be thought of as the arrows between the sample space and the probabilities. That is, the probability mass function is the thing that was done to the sample space elements to calculate the probabilities. In <a href="#fig-dicepmf" class="quarto-xref">Figure&nbsp;<span>8.3</span></a>, each outcome of a throw of the the die was mapped onto a probability of ⅙. Why ⅙, and not some other number? The probability mass function of the discrete uniform distribution tells us the answer.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-pmf" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-pmf" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-pmf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/pmf.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -1334,14 +1335,14 @@ Figure&nbsp;8.5: Probability mass functions tell us how probable each sample spa
 </div>
 </div>
 </div>
-<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="$\small\rm\LaTeX$ Code">
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="$\rm\LaTeX$ Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="math inline">\small\rm\LaTeX</span> Code for <a href="#fig-pmf" class="quarto-xref">Figure&nbsp;<span>8.5</span></a>
+<span class="math inline">\rm\LaTeX</span> Code for <a href="#fig-pmf" class="quarto-xref">Figure&nbsp;<span>8.5</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1428,7 +1429,7 @@ f_X\left(x;a,b\right)&amp;=\frac{1}{b-a+1}\\[2ex]
 </span></p>
 <div class="cell fig-cap-location-margin" data-layout-align="center">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Symbol</th>
@@ -1472,10 +1473,10 @@ f_X\left(x;a,b\right)&amp;=\frac{1}{b-a+1}\\[2ex]
 <p><span class="math display">
 F_X(x) = P(X \le x)=p
 </span></p>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-cdfDie" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-cdfDie" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cdfDie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/cdfDie.svg" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:90.0%">
@@ -1487,14 +1488,14 @@ Figure&nbsp;8.6: The cumulative distribution function of the roll of a die is <s
 </div>
 </div></div></div>
 <p>The cumulative distribution function of the roll of a die (<a href="#fig-cdfDie" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>) tells us that the probability of rolling at least a 4 is 4⁄6 (i.e., ⅔).</p>
-<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="$\small\rm\LaTeX$ Code">
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="$\rm\LaTeX$ Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="math inline">\small\rm\LaTeX</span> Code for <a href="#fig-cdfDie" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>
+<span class="math inline">\rm\LaTeX</span> Code for <a href="#fig-cdfDie" class="quarto-xref">Figure&nbsp;<span>8.6</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1595,7 +1596,7 @@ F_X(x;a,b)=\frac{x-a+1}{b-a+1}\\[2ex]
 </span></p>
 <div class="cell fig-cap-location-margin" data-layout-align="center">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Symbol</th>
@@ -1642,7 +1643,7 @@ F_X(x;a=1,b=6)&amp;=\frac{x-a+1}{b-a+1}\\[2ex]
 <p>The cumulative distribution function is so-named because it adds all the probabilities in the probability mass function up to and including a particular member of the sample space. <a href="#fig-pmf2cdf" class="quarto-xref">Figure&nbsp;<span>8.7</span></a> shows how the each probability in the cumulative distribution function of the roll of a six-sided die is the sum of the current and all previous probabilities in the probability mass function.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-pmf2cdf" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-pmf2cdf" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-pmf2cdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/pmf2cdf.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -1748,7 +1749,7 @@ R Code for <a href="#fig-pmf2cdf" class="quarto-xref">Figure&nbsp;<span>8.7</spa
 <div class="page-columns page-full"><p>The inverse of the cumulative distribution function is the <span class="defword" title="A <strong>quantile function</strong> tells us which value in the sample space of a random variable is greater than a particular proportion of the values the random variable generates." data-bs-html="true" data-bs-toggle="tooltip">quantile function</span>. The cumulative distribution starts with a value <span class="math inline">x</span> in the sample space and tells us <span class="math inline">p</span>, the proportion of values in that distribution that are less than or equal to <span class="math inline">x</span>. A quantile function starts with a proportion <span class="math inline">p</span> and tells us the value <span class="math inline">x</span> that splits the distribution such that the proportion <span class="math inline">p</span> of the distribution is less than or equal to <span class="math inline">x</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>quantile function</strong> tells us which value in the sample space of a random variable is greater than a particular proportion of the values the random variable generates.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-cdfvquantile" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-cdfvquantile" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-cdfvquantile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-cdfvquantile-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -1865,10 +1866,10 @@ R Code for <a href="#fig-cdfvquantile" class="quarto-xref">Figure&nbsp;<span>8.8
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> n, </span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-discreteplot" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-discreteplot" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-discreteplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-discreteplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="400">
@@ -1924,11 +1925,11 @@ R Code for <a href="#fig-discreteplot" class="quarto-xref">Figure&nbsp;<span>8.9
 <section id="sec:BernoulliDist" class="level3 page-columns page-full" data-number="8.5.7">
 <h3 data-number="8.5.7" class="anchored" data-anchor-id="sec:BernoulliDist"><span class="header-section-number">8.5.7</span> Bernoulli Distributions</h3>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[50,50]" data-tbl-cap-location="margin">
-<div id="tbl-bernoullifeatures" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-bernoullifeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[50,50]">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-bernoullifeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="cell table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -1987,14 +1988,14 @@ Table&nbsp;8.2: Features of Bernoulli Distributions<br><strong>Notation note:</s
 </div>
 </div>
 <div class="page-columns page-full"><p>The toss of a single coin has the simplest probability distribution that I can think of—there are only two outcomes and each outcome is equally probable (<a href="#fig-coin" class="quarto-xref">Figure&nbsp;<span>8.10</span></a>). This is a special case of the <span class="defword" title="In the <strong>Bernoulli distribution</strong>, there are only two outcomes: a “success” (1) and a “failure” (0). If a success has a probability p then a failure has a probability of q = 1 - p." data-bs-html="true" data-bs-toggle="tooltip">Bernoulli distribution</span>. Jakob Bernoulli (<a href="#fig-bernoullipic" class="quarto-xref">Figure&nbsp;<span>8.11</span></a>) was a famous mathematician from a famous family of mathematicians. The Bernoulli distribution is just one of the ideas that made Jakob and the other Bernoullis famous.</p><div class="no-row-height column-margin column-container"><span class="defword">In the <strong>Bernoulli distribution</strong>, there are only two outcomes: a “success” (1) and a “failure” (0). If a success has a probability <span class="math inline">p</span> then a failure has a probability of <span class="math inline">q = 1 - p</span>.</span></div></div>
-<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="$\small\rm\LaTeX$ Code">
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="$\rm\LaTeX$ Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="math inline">\small\rm\LaTeX</span> Code for <a href="#fig-coin" class="quarto-xref">Figure&nbsp;<span>8.10</span></a>
+<span class="math inline">\rm\LaTeX</span> Code for <a href="#fig-coin" class="quarto-xref">Figure&nbsp;<span>8.10</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2047,10 +2048,10 @@ Table&nbsp;8.2: Features of Bernoulli Distributions<br><strong>Notation note:</s
 </div>
 </div>
 </div>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-coin" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-coin" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-coin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/coin.svg" class="img-fluid quarto-figure quarto-figure-left figure-img" width="300">
@@ -2061,10 +2062,10 @@ Figure&nbsp;8.10: The probability distribution of a coin toss
 </figure>
 </div>
 </div></div></div>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-bernoullipic" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-bernoullipic" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bernoullipic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Jakob_Bernoulli2.jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" width="200">
@@ -2076,14 +2077,14 @@ Figure&nbsp;8.11: Jakob Bernoulli (1654–1705)<br><a href="https://en.wikipedia
 </div>
 </div></div></div>
 <p>The Bernoulli distribution can describe any random variable that has two outcomes, one of which has a probability <span class="math inline">p</span> and the other has a probability <span class="math inline">q=1-p</span>. In the case of a coin flip, <span class="math inline">p=0.5</span>. For other variables with a Bernoulli distribution, <span class="math inline">p</span> can range from 0 to 1.</p>
-<div class="page-columns page-full"><p>In psychological assessment, many of the variables we encounter have a Bernoulli distribution. In ability test items in which there is no partial credit, examinees either succeed or fail. The probability of success on an item (in the whole population) is <span class="math inline">p</span>. In other words, <span class="math inline">p</span> is the proportion of the entire population that correctly answers the question. Some ability test items are very easy and the probability of success is high. In such cases, <span class="math inline">p</span> is close to 1. When <span class="math inline">p</span> is close to 0, few people succeed and items are deemed hard. Thus, in the context of ability testing, <span class="math inline">p</span> is called the <span class="defword" title="The <strong>difficulty parameter</strong> is the proportion of people who succeed on an ability item or endorse a yes/no questionnaire item." data-bs-html="true" data-bs-toggle="tooltip">difficulty parameter</span>. This is confusing because when <span class="math inline">p</span> is high, the item is easy, not difficult. Many people have suggested that it would make more sense to call it the “easiness parameter” but the idea has never caught on.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>difficulty parameter</strong> is the proportion of people who succeed on an ability item or endorse a yes/no questionnaire item.</span></div></div>
+<div class="page-columns page-full"><p>In psychological assessment, many of the variables we encounter have a Bernoulli distribution. In ability test items in which there is no partial credit, examinees either succeed or fail. The probability of success on an item (in the whole population) is <span class="math inline">p</span>. In other words, <span class="math inline">p</span> is the proportion of the entire population that correctly answers the question. Some ability test items are very easy and the probability of success is high. In such cases, <span class="math inline">p</span> is close to 1. When <span class="math inline">p</span> is close to 0, few people succeed and items are deemed hard. Thus, in the context of ability testing, <span class="math inline">p</span> is called the <span class="defword" title="The <strong>difficulty parameter</strong> is the proportion of people who succeed on an ability item or endorse a yes/no questionnaire item." data-bs-html="true" data-bs-toggle="tooltip">difficulty parameter</span>. This is confusing because when <span class="math inline">p</span> is high, the item is easy, not difficult. Many people have suggested that it would make more sense to call it the <em>easiness parameter</em>, but the idea has never caught on.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>difficulty parameter</strong> is the proportion of people who succeed on an ability item or endorse a yes/no questionnaire item.</span></div></div>
 <p>True/False and Yes/No items on questionnaires also have Bernoulli distributions. If an item is frequently endorsed as true (“I like ice cream.”), <span class="math inline">p</span> is high. If an item is infrequently endorsed (“I like black licorice and mayonnaise in my ice cream.”), <span class="math inline">p</span> is very low. Oddly, the language of ability tests prevails even here. Frequently endorsed questionnaire items are referred to as “easy” and infrequently endorsed items are referred to as “difficult,” even though there is nothing particularly easy or difficult about answering them either way.</p>
 <section id="generating-a-random-sample-from-the-bernoulli-distribution" class="level4 page-columns page-full" data-number="8.5.7.1">
 <h4 data-number="8.5.7.1" class="anchored" data-anchor-id="generating-a-random-sample-from-the-bernoulli-distribution"><span class="header-section-number">8.5.7.1</span> Generating a Random Sample from the Bernoulli Distribution</h4>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-BernoulliSample" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-BernoulliSample" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-BernoulliSample-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-BernoulliSample-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="300">
@@ -2149,11 +2150,11 @@ R Code for <a href="#fig-BernoulliSample" class="quarto-xref">Figure&nbsp;<span>
 <section id="sec:binomial" class="level3 page-columns page-full" data-number="8.5.8">
 <h3 data-number="8.5.8" class="anchored" data-anchor-id="sec:binomial"><span class="header-section-number">8.5.8</span> Binomial Distributions</h3>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[50,50]" data-tbl-cap-location="margin">
-<div id="tbl-binomialfeatures" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-binomialfeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[50,50]">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-binomialfeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="cell table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -2215,10 +2216,10 @@ Table&nbsp;8.3: Features of Binomial Distributions
 </figure>
 </div>
 </div>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-twocoin" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-twocoin" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-twocoin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/twocoin.svg" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:75.0%">
@@ -2230,14 +2231,14 @@ Figure&nbsp;8.13: Probability distribution of the number of heads observed when 
 </div>
 </div></div></div>
 <p>Let’s extend the idea of coin tosses and see where it leads. Imagine that two coins are tossed at the same time and we count how many heads there are. The outcome we might observe will be zero, one, or two heads. Thus, the sample space for the outcome of the tossing of two coins is the set <span class="math inline">\{0,1,2\}</span> heads. There is only one way that we will observe no heads (both coins tails) and only one way that we will observe two heads (both coins heads). In contrast, as seen in <a href="#fig-twocoin" class="quarto-xref">Figure&nbsp;<span>8.13</span></a>, there are two ways that we can observe one head (heads-tails &amp; tails-heads).</p>
-<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="$\small\rm\LaTeX$ Code">
+<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="$\rm\LaTeX$ Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="math inline">\small\rm\LaTeX</span> Code for <a href="#fig-twocoin" class="quarto-xref">Figure&nbsp;<span>8.13</span></a>
+<span class="math inline">\rm\LaTeX</span> Code for <a href="#fig-twocoin" class="quarto-xref">Figure&nbsp;<span>8.13</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2319,7 +2320,7 @@ f_X(x;n,p)=\frac{n!}{x!\left(n-x\right)!}p^x\left(1-p\right)^{n-x}
 </span></p>
 <div class="cell fig-cap-location-margin" data-layout-align="center">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 7%">
 <col style="width: 92%">
@@ -2351,10 +2352,10 @@ f_X(x;n,p)=\frac{n!}{x!\left(n-x\right)!}p^x\left(1-p\right)^{n-x}
 </table>
 </div>
 </div>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-pmf6" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-pmf6" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pmf6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-pmf6-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
@@ -2451,7 +2452,7 @@ R Code
 <span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>                      <span class="at">size =</span> <span class="dv">10</span>, </span>
 <span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>                      <span class="at">prob =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-binomGraphSimple" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-binomGraphSimple" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-binomGraphSimple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-binomGraphSimple-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2474,7 +2475,7 @@ Figure&nbsp;8.15: Basic plot of a binomial probability mass function
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cdfBinomial <span class="sc">~</span> SampleSpace, </span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"b"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-binomGraphSimplecdf" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-binomGraphSimplecdf" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-binomGraphSimplecdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-binomGraphSimplecdf-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2489,7 +2490,7 @@ Figure&nbsp;8.16: Basic plot of a binomial cumulative distribution function
 <p>However, making the graph look professional involves quite a bit of code that can look daunting at first. However, the results are often worth the effort. Try running the code below to see the difference. For presentation-worthy graphics, export the graph to the .pdf or .svg format. An .svg file can be imported directly into MS Word or MS PowerPoint.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-BinomialDistribution" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-BinomialDistribution" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-BinomialDistribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-BinomialDistribution-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2573,11 +2574,11 @@ R Code for <a href="#fig-BinomialDistribution" class="quarto-xref">Figure&nbsp;<
 <section id="poisson-distributions" class="level3 page-columns page-full" data-number="8.5.9">
 <h3 data-number="8.5.9" class="anchored" data-anchor-id="poisson-distributions"><span class="header-section-number">8.5.9</span> Poisson Distributions</h3>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[50,50]" data-tbl-cap-location="margin">
-<div id="tbl-PoissonFeatures" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-PoissonFeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[50,50]">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-PoissonFeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="cell table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -2631,10 +2632,10 @@ Table&nbsp;8.4: Features of Poisson Distributions<br><strong>Notation note</stro
 </figure>
 </div>
 </div>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-PoissonPortrait" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-PoissonPortrait" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-PoissonPortrait-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Simeon_Poisson.jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" width="250">
@@ -2649,7 +2650,7 @@ Figure&nbsp;8.18: Siméon Denis Poisson (1781–1840)<br><a href="https://en.wik
 <p>The Poisson distribution has a single parameter <span class="math inline">\lambda</span>, the average number of events per time interval. Interestingly, <span class="math inline">\lambda</span> is both the mean and the variance of this distribution. The distribution shape will differ depending on how long our interval is. If an event occurs on average 30 times per hour, <span class="math inline">\lambda</span> = 30. If we count how often the event occurs in 10-minute intervals, the same event will occur about 5 times per interval, on average (i.e., <span class="math inline">\lambda</span> = 1). If we choose to count how often the same event occurs every minute, then <span class="math inline">\lambda</span> = 0.5.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-samelambda" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-samelambda" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-samelambda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-samelambda-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2705,7 +2706,7 @@ R Code for <a href="#fig-samelambda" class="quarto-xref">Figure&nbsp;<span>8.19<
 <p>You plot the frequency of how often he had 0 panic attacks in a week, 1 panic attack in a week, 2 panic attacks in a week, and so forth, as shown in red in <a href="#fig-PanicFrequency" class="quarto-xref">Figure&nbsp;<span>8.20</span></a>. Because you have read this book, you immediately recognize that this is a Poisson distribution with <span class="math inline">\lambda</span> = 2. When you graph an actual Poison distribution and compare it with your client’s data, you see that it is almost a perfect match.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> Then you explain that although the goal is permanent cessation of the panic attacks, sometimes an intervention can be considered successful if the frequency of panic attacks is merely reduced. For example, suppose that in the early stages of treatment the frequency of panic attacks were reduced from twice per week to once every other week (<span class="math inline">\lambda</span> = 0.5), on average. If such a reduction were achieved, there would still be weeks in which two or more panic attacks occur. According to <a href="#fig-PanicCumulativeFrequency" class="quarto-xref">Figure&nbsp;<span>8.23</span></a>, this will occur about 9% of the time.</p>
 <div class="no-row-height column-margin column-container"><div id="fn5"><p><sup>5</sup>&nbsp;Note that I am <strong>not</strong> claiming that all clients’ panic attack frequencies have this kind of distribution. It just so happens to apply in this instance.</p></div></div><div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-PanicFrequency" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-PanicFrequency" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-PanicFrequency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-PanicFrequency-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2788,7 +2789,7 @@ R Code for <a href="#fig-PanicFrequency" class="quarto-xref">Figure&nbsp;<span>8
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># distribution's probability mass function</span></span>
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Probability <span class="sc">~</span> PanicAttacks, <span class="at">type =</span> <span class="st">"b"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-Panicpmf" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-Panicpmf" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-Panicpmf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-Panicpmf-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2809,7 +2810,7 @@ Figure&nbsp;8.21: Poisson Probability Mass Function <span class="math inline">(\
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># cumulative distribution function</span></span>
 <span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(CumulativeProbability <span class="sc">~</span> PanicAttacks, <span class="at">type =</span> <span class="st">"b"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-PanicCDF" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-PanicCDF" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-PanicCDF-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-PanicCDF-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2824,7 +2825,7 @@ Figure&nbsp;8.22: Poisson Cumulative Distribution Function <span class="math inl
 <p>With an additional series with <span class="math inline">\lambda = 0.5</span>, the plot can look like <a href="#fig-PanicCumulativeFrequency" class="quarto-xref">Figure&nbsp;<span>8.23</span></a>.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-PanicCumulativeFrequency" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-PanicCumulativeFrequency" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-PanicCumulativeFrequency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-PanicCumulativeFrequency-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2898,11 +2899,11 @@ R Code for <a href="#fig-PanicCumulativeFrequency" class="quarto-xref">Figure&nb
 <section id="geometric-distributions" class="level3 page-columns page-full" data-number="8.5.10">
 <h3 data-number="8.5.10" class="anchored" data-anchor-id="geometric-distributions"><span class="header-section-number">8.5.10</span> Geometric Distributions</h3>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[50,50]" data-tbl-cap-location="margin">
-<div id="tbl-GeometricFeatures" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-GeometricFeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[50,50]">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-GeometricFeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="cell table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -2962,7 +2963,7 @@ Gawande, A. (2007). <em>Better: <span>A</span> surgeon’s notes on performance<
 </div></div><p>According to the story, if a patient fails to take medication, the probability that a person with cystic fibrosis will develop a bad lung illness on any particular day is .005. If medication is taken, the risk is .0005. Although these probabilities are both close to zero, over the the course of a year, they result in very different levels of risk. Off medication, the patient has about an 84% chance of getting sick within a year’s time. On medication, the patient’s risk falls to 17%. As seen in <a href="#fig-WithMedicationCDF" class="quarto-xref">Figure&nbsp;<span>8.24</span></a>, the cumulative risk over the course of 10 years is quite different. Without medication, the probability of becoming seriously ill within 10 years at least once is almost certain. With medication, however, a small but substantial percentage (~16%) of patients will go at least 10 years without becoming ill.&nbsp;</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-WithMedicationCDF" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-WithMedicationCDF" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-WithMedicationCDF-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-WithMedicationCDF-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -3034,7 +3035,7 @@ f_X(x;p)=(1-p)^{x-1}p^x
 </span></p>
 <div id="tbl-geometric" class="cell fig-cap-location-margin anchored" data-layout-align="center">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 9%">
 <col style="width: 90%">
@@ -3079,7 +3080,7 @@ f_X(x;p)=(1-p)^{x-1}p^x
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co"># distribution's probability mass function</span></span>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Probability <span class="sc">~</span> x, <span class="at">type =</span> <span class="st">"b"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-GeometricPMF" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-GeometricPMF" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-GeometricPMF-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-GeometricPMF-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -3105,7 +3106,7 @@ F_X(x;p)=1-(1-p)^x
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co"># distribution's cumulative distribution function</span></span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(CumulativeProbability <span class="sc">~</span> x, <span class="at">type =</span> <span class="st">"b"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-GeometricCDF" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-GeometricCDF" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-GeometricCDF-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-GeometricCDF-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -3131,11 +3132,11 @@ Figure&nbsp;8.26: Geometric Cumulative Distribution Function <span class="math i
 <section id="sec:Uniform" class="level3 page-columns page-full" data-number="8.6.2">
 <h3 data-number="8.6.2" class="anchored" data-anchor-id="sec:Uniform"><span class="header-section-number">8.6.2</span> Continuous Uniform Distributions</h3>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-continuousuniformfeatures" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-continuousuniformfeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-continuousuniformfeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="do-not-create-environment cell table table-sm table-striped small">
+<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Feature</th>
@@ -3202,10 +3203,10 @@ Table&nbsp;8.6: Features of Continuous Discrete Distributions
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample</span></span>
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(n, <span class="at">min =</span> a, <span class="at">max =</span> b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-uniformdist" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-uniformdist" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-uniformdist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-uniformdist-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -3259,11 +3260,11 @@ R Code for <a href="#fig-uniformdist" class="quarto-xref">Figure&nbsp;<span>8.27
 <h3 data-number="8.6.3" class="anchored" data-anchor-id="sec:normal"><span class="header-section-number">8.6.3</span> Normal Distributions</h3>
 <p>(Unfinished)</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[30,70]" data-tbl-cap-location="margin">
-<div id="tbl-normalfeatures" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-normalfeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[30,70]">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-normalfeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="cell table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 30%">
 <col style="width: 70%">
@@ -3313,10 +3314,10 @@ Table&nbsp;8.7: Features of Normal Distributions
 </figure>
 </div>
 </div>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-GaussImage" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-GaussImage" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-GaussImage-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Carl_Friedrich_Gauss2.jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" width="300">
@@ -3332,7 +3333,7 @@ Figure&nbsp;8.28: Carl Friedrich Gauss (1777–1855)<br><a href="https://en.wiki
 <p>To get a sense of the answer to this question, consider what happens to the binomial distribution as the number of events (<span class="math inline">n</span>) increases. To make the example more concrete, let’s assume that we are tossing coins and counting the number of heads <span class="math inline">(p=0.5)</span>. In <a href="#fig-ManyCoins" class="quarto-xref">Figure&nbsp;<span>8.29</span></a>, the first plot shows the probability mass function for the number of heads when there is a single coin <span class="math inline">(n=1)</span>). In the second plot, <span class="math inline">n=2</span> coins. That is, if we flip 2 coins, there will be 0, 1, or 2 heads. In each subsequent plot, we double the number of coins that we flip simultaneously. Even with as few as 4 coins, the distribution begins to resemble the normal distribution, although the resemblance is very rough. With 128 coins, however, the resemblance is very close.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-ManyCoins" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-ManyCoins" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-ManyCoins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-ManyCoins-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -3348,7 +3349,7 @@ Figure&nbsp;8.29: The binomial distribution begins to resemble the normal distri
 <p>Many other distributions, such as the Poisson, Student’s T, F, and <span class="math inline">\chi^2</span> distributions, have distinctive shapes under some conditions but approximate the normal distribution in others (See <a href="#fig-nearlynormal" class="quarto-xref">Figure&nbsp;<span>8.30</span></a>). Why? In the conditions in which non-normal distributions approximate the normal distribution, it is because, like in <a href="#fig-ManyCoins" class="quarto-xref">Figure&nbsp;<span>8.29</span></a>, many independent events are summed.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-nearlynormal" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-nearlynormal" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-nearlynormal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-nearlynormal-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -3365,11 +3366,11 @@ Figure&nbsp;8.30: Many distributions become nearly normal when their parameters 
 <p>Statisticians write about variables with normal distributions so often that a compact notation for specifying a normal variable’s parameters was useful to develop. If I want to specify that <span class="math inline">X</span> is a normally variable with a mean of <span class="math inline">\mu</span> and a variance of <span class="math inline">\sigma^2</span>, I will use this notation:</p>
 <p><span class="math display">X \sim \mathcal{N}(\mu, \sigma^2)</span></p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[40,60]" data-tbl-cap-location="margin">
-<div id="tbl-normal_notation" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-normal_notation" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[40,60]">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-normal_notation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="cell table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 40%">
 <col style="width: 60%">
@@ -3414,7 +3415,7 @@ Table&nbsp;8.8: Features of Half-Normal Distributions
 <p>Many authors list the standard deviation <span class="math inline">\sigma</span> instead of the variance <span class="math inline">\sigma^2</span>. When I specify normal distributions with specific means and variances, I will avoid ambiguity by always showing the variance as the standard deviation squared. For example, a normal variate with a mean of 10 and a standard deviation of 3 will be written as <span class="math inline">X \sim \mathcal{N}(10,3^2)</span>.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-PercentileContinuous" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-PercentileContinuous" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-PercentileContinuous-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-PercentileContinuous-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -3428,7 +3429,7 @@ Figure&nbsp;8.31: Percentiles convert a distribution into a uniform distribution
 </div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-percentileuneven" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-percentileuneven" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-percentileuneven-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-percentileuneven-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -3442,7 +3443,7 @@ Figure&nbsp;8.32: Evenly spaced percentile ranks are associated with unevenly sp
 </div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-scoreuneven" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-scoreuneven" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-scoreuneven-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-scoreuneven-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -3459,11 +3460,11 @@ Figure&nbsp;8.33: Evenly spaced scores are associated with unevenly spaced perce
 <h4 data-number="8.6.3.2" class="anchored" data-anchor-id="half-normal-distribution"><span class="header-section-number">8.6.3.2</span> Half-Normal Distribution</h4>
 <p>(Unfinished)</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[40,60]" data-tbl-cap-location="margin">
-<div id="tbl-halfnormalfeatures" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-halfnormalfeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[40,60]">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-halfnormalfeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="cell table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 40%">
 <col style="width: 60%">
@@ -3523,7 +3524,7 @@ Table&nbsp;8.9: Features of Half-Normal Distributions
 </div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-halfnormal" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-halfnormal" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-halfnormal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-halfnormal-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -3650,11 +3651,11 @@ R Code for <a href="#fig-halfnormal" class="quarto-xref">Figure&nbsp;<span>8.34<
 <h3 data-number="8.6.4" class="anchored" data-anchor-id="chi-square-distributions"><span class="header-section-number">8.6.4</span> Chi Square Distributions</h3>
 <p>(Unfinished)</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[50,50]" data-tbl-cap-location="margin">
-<div id="tbl-chisquarefeatures" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-chisquarefeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[50,50]">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-chisquarefeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="cell table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -3756,8 +3757,7 @@ X-squared = 5.0704, df = 1, p-value = 0.02434</code></pre>
 </div>
 <div class="cell fig-cap-location-margin" data-layout-align="center">
 <div class="cell-output-display">
-<div>
-<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="table caption-top table-sm table-striped small" data-quarto-postprocess="true">
 <colgroup>
 <col style="width: 33%">
 <col style="width: 33%">
@@ -3770,7 +3770,7 @@ X-squared = 5.0704, df = 1, p-value = 0.02434</code></pre>
 A
 </div></th>
 </tr>
-<tr class="odd">
+<tr class="even">
 <th style="text-align: left;" data-quarto-table-cell-role="th">B</th>
 <th style="text-align: center;" data-quarto-table-cell-role="th">0</th>
 <th style="text-align: center;" data-quarto-table-cell-role="th">1</th>
@@ -3792,7 +3792,6 @@ A
 
 
 </div>
-</div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code># A tibble: 4 × 9
   A     B     .observed .prop .row.prop .col.prop .expected .resid .std.resid
@@ -3808,11 +3807,11 @@ A
 <section id="students-t-distributions" class="level3 page-columns page-full" data-number="8.6.5">
 <h3 data-number="8.6.5" class="anchored" data-anchor-id="students-t-distributions"><span class="header-section-number">8.6.5</span> Student’s <em>t</em> Distributions</h3>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[50,50]" data-tbl-cap-location="margin">
-<div id="tbl-tfeatures" class="cell quarto-float anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-tfeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[50,50]">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-tfeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="cell table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -3891,7 +3890,7 @@ Table&nbsp;8.11: Features of <em>t</em> Distributions<br><strong>Notation note</
 <div class="cell fig-cap-location-top tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-gosset" class="quarto-figure quarto-figure-center quarto-float anchored" data-fig-align="center" data-cap-location="margin">
+<div id="fig-gosset" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gosset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/william_sealy_gosset.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
@@ -3906,10 +3905,10 @@ Figure&nbsp;8.35: “Student” statistician, William Sealy Gosset (1876–1937)
 <p>Guinness Beer gets free advertisement every time the origin story of the Student <em>t</em> distribution is retold, and statisticians retell the story often. The fact that the original purpose of the <em>t</em> distribution was to brew better beer seems too good to be true.</p>
 <p>William Sealy Gosset (1876–1937), self-trained statistician and head brewer at Guinness Brewery in Dublin, continually experimented on small batches to improve and standardize the brewing process. With some help from statistician Karl Pearson, Gosset used then-current statistical methods to analyze his experimental results. Gosset found that Pearson’s methods required small adjustments when applied to small samples. With Pearson’s help and encouragement (and later from Ronald Fisher), Gosset published a series of innovative papers about a wide range of statistical methods, including the <em>t</em> distribution, which can be used to describe the distribution of sample means.</p>
 <p>Worried about having its trade secrets divulged, Guinness did not allow its employees to publish scientific papers related to their work at Guinness. Thus, Gosset published his papers under the pseudonym, “A Student.” The straightforward names of most statistical concepts need no historical treatment. Few of us who regularly use the Bernoulli, Pareto, Cauchy, and Gumbell distributions could tell you anything about the people who discovered them. But the oddly named “Student’s <em>t</em> distribution” cries out for explanation. Thus, in the long run, it was Gosset’s anonymity that made him famous.</p>
-<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left" data-fig.cap.location="top">
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-tnorm" class="quarto-figure quarto-figure-left quarto-float anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-tnorm" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tnorm-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/tdist_norm.gif" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">

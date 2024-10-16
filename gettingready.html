@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.27">
+<meta name="generator" content="quarto-1.6.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Individual Psychometrics – 2&nbsp; Getting Ready to Use R via RStudio</title>
+<title>2&nbsp; Getting Ready to Use R via RStudio – Individual Psychometrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -92,10 +92,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-03c13abfa5dcced92d75414116ffc56e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-3227f9dd62aea528a587117725bad52b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -139,6 +139,7 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
 
 
 <link rel="stylesheet" href="equity.css">
+<link rel="stylesheet" href="individualpsychometrics.css">
 </head>
 
 <body class="nav-sidebar docked slimcontent">
@@ -147,13 +148,13 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./gettingready.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Ready to Use R via RStudio</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -183,9 +184,9 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Getting Started</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -208,7 +209,7 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
       <div class="sidebar-item-container"> 
             <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matrix Algebra in R</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -241,9 +242,9 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Variables</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -367,10 +368,10 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
 <section id="get-ready-for-a-challenge" class="level2 page-columns page-full" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="get-ready-for-a-challenge"><span class="header-section-number">2.1</span> Get Ready for a Challenge</h2>
 
-<div class="no-row-height column-margin column-container"><div id="fig-williamjames" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div class="no-row-height column-margin column-container"><div id="fig-williamjames" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-williamjames-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/William_James_b1842c.jpg" title="William James" class="img-fluid figure-img" width="200">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/William_James_b1842c.jpg" title="William James" class="img-fluid quarto-figure quarto-figure-left figure-img" width="200">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-williamjames-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.1: “<em>Blooming, buzzing confusion</em>?” I see what you did there. —WJ
@@ -382,28 +383,28 @@ Figure&nbsp;2.1: “<em>Blooming, buzzing confusion</em>?” I see what you did 
 <section id="what-is-r" class="level2 page-columns page-full" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="what-is-r"><span class="header-section-number">2.2</span> What is R?</h2>
 
-<div class="no-row-height column-margin column-container"><div id="fig-chambers" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A headshot of statistician John Chambers">
+<div class="no-row-height column-margin column-container"><div id="fig-chambers" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" alt="A headshot of statistician John Chambers">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-chambers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/John_Chambers.png" title="John Chambers" class="img-fluid figure-img" alt="A headshot of statistician John Chambers" width="200">
+<img src="images/John_Chambers.png" title="John Chambers" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="A headshot of statistician John Chambers" width="200">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chambers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.2: <a href="https://www.wikiwand.com/en/John_Chambers_(statistician)">John Chambers</a>
 </figcaption>
 </figure>
-</div><div id="fig-gentleman" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A headshot of statistician Robert Gentleman">
+</div><div id="fig-gentleman" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" alt="A headshot of statistician Robert Gentleman">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gentleman-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/r_gentleman.jpg" title="Robert Gentleman" class="img-fluid figure-img" alt="A headshot of statistician Robert Gentleman" width="200">
+<img src="images/r_gentleman.jpg" title="Robert Gentleman" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="A headshot of statistician Robert Gentleman" width="200">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gentleman-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.3: <a href="https://www.wikiwand.com/en/Robert_Gentleman_(statistician)">Robert Gentleman</a>
 </figcaption>
 </figure>
-</div><div id="fig-ihaka" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A headshot of statistician Ross Ihaka">
+</div><div id="fig-ihaka" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" alt="A headshot of statistician Ross Ihaka">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ihaka-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/RossIhaka.jpg" title="Ross Ihaka" class="img-fluid figure-img" alt="A headshot of statistician Ross Ihaka" width="200">
+<img src="images/RossIhaka.jpg" title="Ross Ihaka" class="img-fluid quarto-figure quarto-figure-left figure-img" alt="A headshot of statistician Ross Ihaka" width="200">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ihaka-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2.4: <a href="https://www.wikiwand.com/en/Ross_Ihaka">Ross Ihaka</a>
@@ -443,7 +444,7 @@ Ihaka, R. (1998). <em>R: <span>Past</span> and future history</em>. Interface 98
 <section id="code-clicks" class="level2 page-columns page-full" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="code-clicks"><span class="header-section-number">2.5</span> Code &gt; Clicks</h2>
 
-<div class="no-row-height column-margin column-container"><div id="fig-rfirst" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div class="no-row-height column-margin column-container"><div id="fig-rfirst" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-rfirst-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
@@ -468,7 +469,7 @@ Figure&nbsp;2.5: Frustrations with R are normal. Working through them pays off.
 <p>The ease of use of a point-and-click interface has a trade-off. If you never learn to code, you will be stuck with a limited set of skills, and many tasks will be prohibitively complicated or dauntingly tedious. In <a href="#fig-learningcurve" class="quarto-xref">Figure&nbsp;<span>2.6</span></a> I recreate a plot made by many others before me.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-learningcurve" class="quarto-figure quarto-figure-center quarto-float anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-learningcurve" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-learningcurve-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="gettingready_files/figure-html/fig-learningcurve-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -698,9 +699,6 @@ Steps to create a project
 <li>Also Good: Within your file synchronization service, have a well-organized hierarchical structure to your folders.</li>
 <li>Even Better: Use version control software like <a href="https://git-scm.com/">Git</a>, and save the code in an online repository like <a href="https://github.com/">GitHub</a>.</li>
 </ul>
-<div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-
-</div>
 </section>
 <section id="file-name-guidance" class="level2 page-columns page-full" data-number="2.15">
 <h2 data-number="2.15" class="anchored" data-anchor-id="file-name-guidance"><span class="header-section-number">2.15</span> File Name Guidance</h2>
@@ -727,7 +725,7 @@ Steps to create a project
 <section id="separate-dates-with-hyphens-using-iso-format" class="level3 page-columns page-full" data-number="2.15.4">
 <h3 data-number="2.15.4" class="anchored" data-anchor-id="separate-dates-with-hyphens-using-iso-format"><span class="header-section-number">2.15.4</span> Separate dates with hyphens using ISO format</h3>
 
-<div class="no-row-height column-margin column-container"><div id="fig-xkcd" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div class="no-row-height column-margin column-container"><div id="fig-xkcd" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-xkcd-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-figure quarto-figure-center">
@@ -747,7 +745,7 @@ Figure&nbsp;2.7: Date formats are fun!
 <p>One of the benefits of using dates in the ISO format is that they sort chronologically. Which file names would you prefer to deal with?</p>
 <div class="cell fig-cap-location-margin" data-layout-align="center">
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Sorted Traditional Dates</th>
@@ -756,36 +754,36 @@ Figure&nbsp;2.7: Date formats are fun!
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">August 02, 2008_District_E.csv</td>
-<td style="text-align: left;">2008-08-02_District_E.csv</td>
+<td style="text-align: left;">July 24, 2010_District_I.csv</td>
+<td style="text-align: left;">2008-10-03_District_P.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">August 08, 2013_District_N.csv</td>
-<td style="text-align: left;">2009-02-14_District_E.csv</td>
+<td style="text-align: left;">June 03, 2011_District_I.csv</td>
+<td style="text-align: left;">2010-07-24_District_I.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">February 08, 2011_District_J.csv</td>
-<td style="text-align: left;">2009-03-25_District_O.csv</td>
+<td style="text-align: left;">June 07, 2011_District_L.csv</td>
+<td style="text-align: left;">2011-06-03_District_I.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">February 14, 2009_District_E.csv</td>
-<td style="text-align: left;">2009-09-01_District_L.csv</td>
+<td style="text-align: left;">March 10, 2013_District_F.csv</td>
+<td style="text-align: left;">2011-06-07_District_L.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">January 21, 2010_District_U.csv</td>
-<td style="text-align: left;">2010-01-21_District_U.csv</td>
+<td style="text-align: left;">October 03, 2008_District_P.csv</td>
+<td style="text-align: left;">2013-03-10_District_F.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">March 25, 2009_District_O.csv</td>
-<td style="text-align: left;">2011-02-08_District_J.csv</td>
+<td style="text-align: left;">October 03, 2013_District_J.csv</td>
+<td style="text-align: left;">2013-10-03_District_J.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">October 09, 2013_District_D.csv</td>
-<td style="text-align: left;">2013-08-08_District_N.csv</td>
+<td style="text-align: left;">October 16, 2013_District_Z.csv</td>
+<td style="text-align: left;">2013-10-16_District_Z.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">September 01, 2009_District_L.csv</td>
-<td style="text-align: left;">2013-10-09_District_D.csv</td>
+<td style="text-align: left;">October 24, 2013_District_V.csv</td>
+<td style="text-align: left;">2013-10-24_District_V.csv</td>
 </tr>
 </tbody>
 </table>
