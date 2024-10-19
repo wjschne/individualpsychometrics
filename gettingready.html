@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.26">
+<meta name="generator" content="quarto-1.6.28">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -92,10 +92,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-03c13abfa5dcced92d75414116ffc56e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-5b317a03721e798449d9148bbd286de6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3227f9dd62aea528a587117725bad52b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ba0d75acee48a101f1aadb176c085426.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -503,7 +503,7 @@ R Code for <a href="#fig-learningcurve" class="quarto-xref">Figure&nbsp;<span>2.
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">rotation =</span>  <span class="dv">180</span> <span class="sc">*</span> <span class="fu">atan</span>((Difficulty <span class="sc">-</span> <span class="fu">lag</span>(Difficulty)) <span class="sc">/</span> <span class="fl">0.01</span>) <span class="sc">/</span> pi) <span class="sc">%&gt;%</span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Difficulty <span class="sc">&lt;=</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Complexity, Difficulty, <span class="at">color =</span> Approach)) <span class="sc">+</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(<span class="at">arrow_head =</span> <span class="fu">arrow_head_deltoid</span>()) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(<span class="at">arrow_head =</span> my_arrowhead) <span class="sc">+</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  ggtext<span class="sc">::</span><span class="fu">geom_richtext</span>(</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> . <span class="sc">%&gt;%</span> <span class="fu">filter</span>((Complexity <span class="sc">==</span> <span class="fl">62.5</span> <span class="sc">&amp;</span> Approach <span class="sc">==</span> <span class="st">"Point-and-Click"</span>) <span class="sc">|</span> (Complexity <span class="sc">==</span> <span class="dv">75</span> <span class="sc">&amp;</span> Approach <span class="sc">==</span> <span class="st">"Code"</span>)),</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> Approach, <span class="at">angle =</span> rotation),</span>
@@ -754,36 +754,36 @@ Figure&nbsp;2.7: Date formats are fun!
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">July 24, 2010_District_I.csv</td>
-<td style="text-align: left;">2008-10-03_District_P.csv</td>
+<td style="text-align: left;">April 11, 2007_District_F.csv</td>
+<td style="text-align: left;">2007-04-11_District_F.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">June 03, 2011_District_I.csv</td>
-<td style="text-align: left;">2010-07-24_District_I.csv</td>
+<td style="text-align: left;">April 18, 2011_District_N.csv</td>
+<td style="text-align: left;">2008-01-21_District_T.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">June 07, 2011_District_L.csv</td>
-<td style="text-align: left;">2011-06-03_District_I.csv</td>
+<td style="text-align: left;">August 15, 2009_District_K.csv</td>
+<td style="text-align: left;">2008-03-08_District_G.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">March 10, 2013_District_F.csv</td>
-<td style="text-align: left;">2011-06-07_District_L.csv</td>
+<td style="text-align: left;">January 21, 2008_District_T.csv</td>
+<td style="text-align: left;">2009-08-15_District_K.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">October 03, 2008_District_P.csv</td>
-<td style="text-align: left;">2013-03-10_District_F.csv</td>
+<td style="text-align: left;">March 08, 2008_District_G.csv</td>
+<td style="text-align: left;">2010-09-18_District_G.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">October 03, 2013_District_J.csv</td>
-<td style="text-align: left;">2013-10-03_District_J.csv</td>
+<td style="text-align: left;">March 28, 2013_District_R.csv</td>
+<td style="text-align: left;">2011-04-18_District_N.csv</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">October 16, 2013_District_Z.csv</td>
-<td style="text-align: left;">2013-10-16_District_Z.csv</td>
+<td style="text-align: left;">November 24, 2014_District_Q.csv</td>
+<td style="text-align: left;">2013-03-28_District_R.csv</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">October 24, 2013_District_V.csv</td>
-<td style="text-align: left;">2013-10-24_District_V.csv</td>
+<td style="text-align: left;">September 18, 2010_District_G.csv</td>
+<td style="text-align: left;">2014-11-24_District_Q.csv</td>
 </tr>
 </tbody>
 </table>

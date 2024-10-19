@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.26">
+<meta name="generator" content="quarto-1.6.28">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -92,10 +92,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-03c13abfa5dcced92d75414116ffc56e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-5b317a03721e798449d9148bbd286de6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3227f9dd62aea528a587117725bad52b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ba0d75acee48a101f1aadb176c085426.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -1537,8 +1537,8 @@ R Code for <a href="#fig-normalIQR" class="quarto-xref">Figure&nbsp;<span>9.9</s
 <span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">xend =</span> IQR_bounds[<span class="dv">2</span>], </span>
 <span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>      <span class="at">yend =</span> <span class="dv">0</span>),</span>
 <span id="cb29-38"><a href="#cb29-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">xend =</span> xend, <span class="at">yend =</span> yend),</span>
-<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span> <span class="fu">arrow_head_deltoid</span>(),</span>
-<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_fins =</span> <span class="fu">arrow_head_deltoid</span>()</span>
+<span id="cb29-39"><a href="#cb29-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span> my_arrowhead,</span>
+<span id="cb29-40"><a href="#cb29-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_fins =</span> my_arrowhead</span>
 <span id="cb29-41"><a href="#cb29-41" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
 <span id="cb29-42"><a href="#cb29-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="at">x =</span> <span class="dv">100</span>, </span>
 <span id="cb29-43"><a href="#cb29-43" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="dv">0</span>,</span>
@@ -1738,8 +1738,8 @@ R Code for <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>9.11<
 <span id="cb31-64"><a href="#cb31-64" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="fu">as.numeric</span>(grp) <span class="sc">-</span> width <span class="sc">-</span> <span class="fl">0.05</span>,</span>
 <span id="cb31-65"><a href="#cb31-65" aria-hidden="true" tabindex="-1"></a>      <span class="at">xend =</span> <span class="fu">as.numeric</span>(grp) <span class="sc">-</span> width <span class="sc">-</span> <span class="fl">0.05</span></span>
 <span id="cb31-66"><a href="#cb31-66" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb31-67"><a href="#cb31-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span> <span class="fu">arrow_head_deltoid</span>(),</span>
-<span id="cb31-68"><a href="#cb31-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_fins =</span> <span class="fu">arrow_head_deltoid</span>(),</span>
+<span id="cb31-67"><a href="#cb31-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span> my_arrowhead,</span>
+<span id="cb31-68"><a href="#cb31-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_fins =</span> my_arrowhead,</span>
 <span id="cb31-69"><a href="#cb31-69" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb31-70"><a href="#cb31-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(</span>
 <span id="cb31-71"><a href="#cb31-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">select</span>(d, grp, q25, q75, IQR) <span class="sc">%&gt;%</span> </span>
@@ -2269,13 +2269,13 @@ R Code for <a href="#fig-skewnessinterpretation" class="quarto-xref">Figure&nbsp
 <span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(</span>
 <span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">0</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>)),</span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span>  <span class="fu">arrow_head_deltoid</span>(),</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span>  my_arrowhead,</span>
 <span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
 <span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">resect =</span> <span class="dv">1</span></span>
 <span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(</span>
 <span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">8</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>)),</span>
-<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span>  <span class="fu">arrow_head_deltoid</span>(),</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span>  my_arrowhead,</span>
 <span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
 <span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">resect =</span> <span class="dv">1</span></span>
 <span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
