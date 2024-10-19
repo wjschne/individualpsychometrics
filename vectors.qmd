@@ -329,7 +329,11 @@ x[c("b", "a")]
 
 ## Scalar--Vector Operations
 
-When a scalar and a vector appear together in an operation, the operation is applied to the scalar and to every element in the vector. For example, to multiply a scalar by a vector, multiply every element in the vector by the scalar. If *a* is a scalar,
+When a scalar and a vector appear together in an operation, the operation is applied to the scalar and to every element in the vector. 
+
+### Scalar--Vector Multiplication
+
+To multiply a scalar by a vector, multiply every element in the vector by the scalar. If *a* is a scalar,
 
 
 $$a\vec{x}=\left(ax_1, ax_2,\ldots, ax_n\right)$$
@@ -341,7 +345,7 @@ $$\left\|a\vec{x}\right\|=a\left\|\vec{x}\right\|$$
 
 You can play with scalar multiplication with the web app in @fig-scalar. Set the *x* and *y* coordinates for the blue vector, and alter the scalar *a* to see how the red vector's magnitude changes. When *a* is negative, the red vector reverses direction.
 
-
+### Scalar--Vector Division
 
 Scalar-vector division looks just like it does in regular algebra and can take on a variety of forms:
 
@@ -349,24 +353,36 @@ $$
 \vec{x}/a=\frac{\vec{x}}{a}=\frac{1}{a}\vec{x}=a^{-1}\vec{x}=\vec{x}\div a
 $$
 
-Scalar--vector addition and subtraction work in similar fashion. To add scalar to a vector:
+### Scalar-Vector Addition
+
+Scalar--vector addition works in similar fashion. To add scalar to a vector:
 
 $$\vec{x}-a=\left(x_1+a,x_2+a,\ldots,x_n+a\right)$$
+
+That is, the scalar is added to every value of the vector.
+
+### Scalar-Vector Subtraction
 
 To subtract:
 
 $$\vec{x}-a=\left(x_1-a, x_2-a,\ldots,x_n-a\right)$$
 
-In R, 
+### Scalar-Vector Operations in R
+
+[In R, almost everything---even things that look like scalars---are really vectors. When a scalar (i.e., a vector of length 1) and a longer vector are added, subtracted, multiplied, or divided, the scalar is "recycled" across all the values of longer vector. This is also true when a short vector (e.g., of length 2) is added to a longer vector (e.g., of length 4): the shorter vector is recycled across the longer vector. For example, `c(1,2) + c(1,2,3,4)` will return `2 4 4 6`]{.column-margin}
+
+Scalar-vector operations look just alike scalar-scalar operations:
 
 ```{r demo-scalarvectoradd}
 x <- c(1,2)
 x + 5
 x - 1
+x * 4
+x / 2
 ```
 
 
-### Vector Addition 
+## Vector Addition and Subtraction
 
 To add two vectors, add each element at the same position:
 
@@ -430,8 +446,6 @@ a + b
 :::
 
 
-In @fig-vector-addition, you visualize adding vectors.
-
 
 
 ```{r fig-vector}
@@ -441,29 +455,15 @@ In @fig-vector-addition, you visualize adding vectors.
 #| echo: false
 #| fig-column: margin
 
-tibble(x = c(0, x_plot), y = c(0, y_plot)) |>
-  ggplot(aes(x, y)) +
-  geom_point(color = myfills[1], size = .75) +
-  geom_arrow(arrow_head = arrow_head_deltoid(),
-    linewidth = 1,
-    color = myfills[1],
-        resect_head = 1,
-  ) +
-  geom_arrow_segment(arrow_head = arrow_head_deltoid(), 
-             arrow_fins = arrow_head_deltoid(),
-             data = tibble(x = c(-5.5, 0),
-                           y = c(0, -5.5),
-                           xend = c(5.5, 0),
-                           yend = c(0, 5.5)),
-             aes(xend = xend, yend = yend),
-    linewidth = .75,
-    linemitre = 2,
-    linejoin = "mitre",
-    color = "gray"
-  ) +
-  theme_classic(
+
+
+middle_axes <- function(limits = c(0, 5)) {
+  breaks <- seq(limits[1], limits[2])
+  breaks <- breaks[breaks != 0]
+  ggplot() +
+    theme_classic(
     base_family = bfont,
-    base_size = 20,
+    base_size = 18,
     base_line_size = .5
   ) +
   theme(
@@ -484,49 +484,48 @@ tibble(x = c(0, x_plot), y = c(0, y_plot)) |>
     )
   ) +
   scale_x_continuous(name = "y", 
-                     breaks = c(-5:-1, 1:5), 
+                     breaks = breaks, 
                      labels = WJSmisc::signs_centered) +
   scale_y_continuous(name = "x", 
-                     breaks = c(-5:-1, 1:5), 
+                     breaks = breaks, 
                      labels = signs) +
   ggh4x::coord_axes_inside(
-    xlim = c(-5, 5),
-    ylim = c(-5, 5),
+    xlim = limits,
+    ylim = limits,
     labels_inside = T,
     ratio = 1
   ) +
-  annotate(
-    "richtext",
-    x_plot,
-    y_plot,
-    label = paste0("**v** = (", 
-                   x_plot, 
-                   ", ", 
-                   y_plot, 
-                   ")"),
-    label.color = NA,
-    vjust = -.2,
-    hjust = 0.5,
-    fill = NA,
-    size = WJSmisc::ggtext_size(18),
-    label.r = unit(5, "mm"),
-    color = myfills[1]
-  ) +
-  annotate(
-    "richtext",
-    x_plot / 2,
-    y_plot / 2,
-    label = paste0("Magnitude of **v**: \u2016**v**\u2016 = ", 
-                   round(sqrt(x_plot ^ 2 + y_plot ^ 2),2)),
-    label.color = NA,
-    angle = atan2(y_plot,x_plot) * 180 / pi,
-    vjust = 0,
-    hjust = 0.5,
-    fill = NA,
-    size = WJSmisc::ggtext_size(18),
-    label.r = unit(5, "mm"),
-    color = myfills[1]
-  )
+  ob_segment(x = c(0, limits[1] - abs(max(limits) - min(limits)) / 20), 
+             xend = c(0, limits[2] + abs(max(limits) - min(limits)) / 20), 
+             y = c(limits[1] - abs(max(limits) - min(limits)) / 20, 0), 
+             yend = c(limits[2] + abs(max(limits) - min(limits)) / 20, 0), 
+             linewidth = .75, 
+             arrow_head = my_arrowhead, 
+             arrow_fins = my_arrowhead, 
+             color = "gray")
+}
+
+o <- ob_point(0,0, color = myfills[1])
+p <- ob_point(x_plot, y_plot, color = myfills[1])
+
+middle_axes() +
+  p  + 
+  p@label(paste0("**v** = ", p@auto_label), 
+          size = 18,
+          vjust = -.1, 
+          hjust = .5) +
+  ob_segment(o, p, 
+             resect_head = 1.5, 
+             arrow_head = my_arrowhead, 
+             color = myfills[1], 
+             vjust = 0, 
+             label = ob_label(
+               paste0("Magnitude of **v**: \u2016**v**\u2016 = ", 
+                      round(p@r,2)),
+               size = 18)) 
+  
+
+
 
 ```
 
@@ -536,6 +535,46 @@ A vector with two scalar elements can be thought of as an arrow in a coordinate 
 <<fig-vector>>
 ```
 
+```{r}
+
+middle_axes(limits = c(0,5)) +
+  {p1 <- ob_point(1,3, color = myfills[1])} +
+  {p2 <- ob_point(3,1, color = myfills[2])} +
+  {p3 <- (p1 + p2) |> set_props(color = myfills[3])} +
+  ob_latex("\\vec{v}_1",
+           height = .25,
+           p1 + ob_polar(degree(135), .3),
+           color = myfills[1]) +
+  ob_latex("\\vec{v}_2",
+           height = .25,
+           p2 + ob_polar(degree(-45), .3),
+           color = myfills[2]) +
+  ob_latex(
+    "{\\color[HTML]{51315E}\\vec{v}_3}={\\color[HTML]{27408B}\\vec{v}_1}+{\\color[HTML]{8B1A1A}\\vec{v}_2}",
+    height = .25,
+    p1 + p2 + ob_polar(degree(60), .3),
+    color = myfills[3]
+  ) +
+  ob_segment(o, p1, arrow_head = my_arrowhead, resect_head = 2) +
+  ob_segment(o, p2, arrow_head = my_arrowhead, resect_head = 2) +
+  ob_segment(p1,
+             p1 + p2,
+             arrow_head = my_arrowhead,
+             resect = 2,
+             linetype = "dashed") +
+  ob_segment(p2,
+             p2 + p1,
+             arrow_head = my_arrowhead,
+             resect = 2,
+             linetype = "dashed") +
+  ob_segment(o, p3, arrow_head = my_arrowhead, resect_head = 2)
+
+
+```
+
+
+
+In @fig-vector-addition, you can play with vector addition.
 
 ### Vector Norms
 

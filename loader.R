@@ -42,7 +42,6 @@ library(arrowheadr)
 library(rgl)
 library(ggdiagram)
 knitr::knit_hooks$set(webgl = hook_webgl)
-arrow_head_deltoid <- purrr::partial(arrowheadr::arrow_head_deltoid, d = 2.3)
 # Set options
 options(knitr.kable.digits = 2, knitr.kable.na = '')
 knitr::opts_template$set(
@@ -58,8 +57,8 @@ bfont = "Equity Text A Tab"
 bsize = 16
 myfills <- c("royalblue4", "firebrick4", "#51315E")
 txt_color <- "gray20"
-
 btxt_size = ggtext_size(bsize)
+my_arrowhead <- arrow_head_deltoid(2.3)
 
 # Default geoms and themes
 ggplot2::update_geom_defaults(

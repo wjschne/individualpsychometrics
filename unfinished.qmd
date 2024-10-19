@@ -28,7 +28,7 @@ tibble(p = seq(0, .91, .01),
        odds = p / (1 - p)) %>%
   ggplot(aes(p, odds)) +
   geom_arrow(color = myfills[1],
-             arrow_head = arrow_head_deltoid()) +
+             arrow_head = my_arrowhead) +
   scale_x_continuous("Probability",
                      breaks = seq(0, 1, .2),
                      labels = prob_label,
@@ -105,8 +105,8 @@ tibble(p = seq(0, 1, .001),
        logits = qlogis(p)) %>%
   ggplot(aes(p, logits)) +
   geom_arrow(color = myfills[1],
-             arrow_head = arrow_head_deltoid(), 
-             arrow_fins = arrow_head_deltoid()) +
+             arrow_head = my_arrowhead, 
+             arrow_fins = my_arrowhead) +
   scale_x_continuous("Probability",
                      breaks = seq(0, 1, .2),
                      labels = prob_label) +
@@ -167,8 +167,8 @@ tibble(
   theta = atan(slope * 100) + ifelse(p <= .5, pi, -pi) / 2
 ) %>%
   ggplot(aes(w, p)) +
-  geom_arrow(arrow_head = arrow_head_deltoid(),
-             arrow_fins = arrow_head_deltoid(), 
+  geom_arrow(arrow_head = my_arrowhead,
+             arrow_fins = my_arrowhead, 
              color = myfills[1]) +
   geom_point(data = . %>% filter(w %in% seq(450, 550, 10)),
              color = myfills[1]) +

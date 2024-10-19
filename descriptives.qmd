@@ -826,8 +826,8 @@ ggplot(data = tibble(x = c(40, 160), y = pnorm(x, 100, 15)), aes(x)) +
       xend = IQR_bounds[2], 
       yend = 0),
     aes(x = x, y = y, xend = xend, yend = yend),
-    arrow_head = arrow_head_deltoid(),
-    arrow_fins = arrow_head_deltoid()
+    arrow_head = my_arrowhead,
+    arrow_fins = my_arrowhead
     ) +
   annotate(x = 100, 
            y = 0,
@@ -995,8 +995,8 @@ d %>%
       x = as.numeric(grp) - width - 0.05,
       xend = as.numeric(grp) - width - 0.05
     ),
-    arrow_head = arrow_head_deltoid(),
-    arrow_fins = arrow_head_deltoid(),
+    arrow_head = my_arrowhead,
+    arrow_fins = my_arrowhead,
   ) +
   geom_richtext(
     data = select(d, grp, q25, q75, IQR) %>% 
@@ -1520,13 +1520,13 @@ tibble(x = seq(0, 15, .01), y = dchisq(x, 3)) %>%
   ) +
   geom_arrow(
     data = tibble(x = c(3, 0), y = c(0.01, 0.01)),
-    arrow_head =  arrow_head_deltoid(),
+    arrow_head =  my_arrowhead,
     color = "white",
     resect = 1
   ) +
   geom_arrow(
     data = tibble(x = c(3, 8), y = c(0.01, 0.01)),
-    arrow_head =  arrow_head_deltoid(),
+    arrow_head =  my_arrowhead,
     color = "white",
     resect = 1
   ) +

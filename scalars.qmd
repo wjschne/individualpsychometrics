@@ -41,7 +41,7 @@ x=1
 
 :::
 
-The `<-` is called the *assignment operator*. Instead of typing both characters, I use the {{< kbd Alt+- >}} keyboard shortcut (i.e., press and hold {{< kbd Alt >}} while pressing `-`), which puts spaces around the assignment operator.
+The `<-` is called the *assignment operator*. Instead of typing both characters, I use the {{< kbd Alt+- >}} keyboard shortcut (i.e., press and hold {{< kbd Alt >}} while pressing `-`), which puts spaces around the assignment operator. Unfortunately, keyboard shortcuts work in RStudio only. They do not yet work inside the in-browser exercises of this book.
 
 
 

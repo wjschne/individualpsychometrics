@@ -65,7 +65,7 @@ matrix(c(3, 5,
        byrow = TRUE)
 ```
 
-To achieve the same matrix without the `byrow` option set to `TRUE` is possible, but the code will be the same order as the matrix:
+To achieve the same matrix without the `byrow` option set to `TRUE` is possible, but the code will not be in the same order as the matrix:
 
 ```{r demo-bycolnotsimilar}
 matrix(c(3, 2, 
@@ -157,7 +157,7 @@ C
 
 ::: {.callout-note title="You Try"}
 
-Make a 2 by 2 matrix **A**:
+Make a 2 by 2 matrix `A`:
 
 $$
 A=\begin{bmatrix}
@@ -235,7 +235,7 @@ cbind(A, B)
 
 ## Selecting parts of a matrix 
 
-Let's make this matrix:
+Often we need to select smaller portions of a larger matrix. For example, suppose we have a 3 by 4 matrix **A**:
 
 $$
 \mathbf{A} =
@@ -306,7 +306,7 @@ Select column 1 of A.
 
 ```{webr-r}
 #| label: ex-selectA1
-A
+A[, _]
 ```
 
 ```{r solution-matrixrow}
@@ -353,11 +353,15 @@ Here is the first two rows of $\mathbf{A}$:
 A[c(TRUE,TRUE,FALSE),]
 ```
 
-This seems like a strange way to do this but it is actually quite powerful. Any vector of `TRUE` and `FALSE` values can be used to select things. For example, select a column only if its first value is greater than 2:
+This seems like a strange way to do this, but it is actually quite powerful. Any vector of `TRUE` and `FALSE` values can be used to select things. For example, select a column only if its first value is greater than 2:
 
 ```{r demo-selectgreaterthan2}
-s <- A[1,] > 2 # Creates a vector that tests whether the first row elements are greater than 2
-A[,s] # Select only the columns whose first value is greater than 2
+# Create a vector that tests whether the 
+# first row elements are greater than 2
+s <- A[1, ] > 2 
+# Select only the columns whose 
+# first value is greater than 2
+A[, s] 
 ```
 
 
@@ -383,7 +387,7 @@ A[,s, drop = FALSE]
 
 ### Selecting with name vectors
 
-We can give row and column names to a matrix like so:
+Suppose matrix **A** represents the number of Olympic medals a country has won in different gymnastics events. We can give row and column names to a matrix like so:
 
 ```{r demo-selectnamevector}
 rownames(A) <- c("Gold","Silver","Bronze")
@@ -391,7 +395,7 @@ colnames(A) <- c("Vault","Uneven Bars","Balance Beam","Floor")
 A
 ```
 
-Now we can select rows and columns by names:
+Now we can select rows and columns by names. To select only the gold and bronze meal rows:
 
 ```{r demo-selectgoldbronze}
 A[c("Gold","Bronze"),]
@@ -407,12 +411,12 @@ A <- matrix(1:12, nrow = 3, byrow = TRUE)
 rownames(A) <- c("Gold","Silver","Bronze")
 colnames(A) <- c("Vault","Uneven Bars","Balance Beam","Floor")
 # select the Uneven Bars column
-A
+A[,_]
 ```
 
 ```{r solution-uneven}
 A[,"Uneven Bars"]
-# or to force returning a matrix
+# or to force R to return a matrix
 A[,"Uneven Bars", drop = FALSE]
 ```
 
@@ -491,15 +495,15 @@ In R the `t` function transposes matrices.
 ```{r demo-transpose}
 A <- matrix(1:6, nrow = 2, byrow = TRUE)
 A
-Aprime <- t(A)
-Aprime
+A_prime <- t(A)
+A_prime
 ```
 
 ::: {#callout-note title="You Try"}
 
 1. Make a 2 $\times$ 5 matrix `A` of even numbers up to 20. 
-2. Transpose `A`, assigning it to a variable called `Aprime`.
-3. Replace the last row (row 5) of `Aprime` with zeroes.
+2. Transpose `A`, assigning it to a variable called `A_prime`.
+3. Replace the last row (row 5) of `A_prime` with zeroes.
 
 ```{webr-r}
 #| label: ex-even20transpose
@@ -510,10 +514,10 @@ A <- matrix(seq(_,_,_), nrow = _)
 ```{r solution-even20transpose}
 A <- matrix(seq(2, 20, 2), nrow = 2)
 A
-Aprime <- t(A)
-Aprime
-Aprime[5, ] <- c(0, 0)
-Aprime
+A_prime <- t(A)
+A_prime
+A_prime[5, ] <- c(0, 0)
+A_prime
 ```
 :::
 
@@ -521,11 +525,17 @@ Aprime
 
 ## Square matrices
 
-In a **square matrix**, the number of rows is equal to the number of columns.
+In a [square matrix]{.defword title="A **square matrix** has an equal number of rows and columns."}, the number of rows is equal to the number of columns. Some operations in matrix algebra require square matrices. To test whether a matrix is square, test whether the rows and columns of a matrix are equal:
+
+```{r demo-square}
+# A is a 3 by 4 matrix, so it is not square
+nrow(A) == ncol(A)
+```
+
 
 ## Symmetric matrices
 
-A **symmetric matrix** is a square matrix that is equal to its transpose.
+A [symmetric matrix]{.defword title="A **symmetrix matrix** is equal to its transpose. Only square matrices can be symmetric."} is a square matrix that is equal to its transpose.
 
 $$\mathbf{A}=\mathbf{A}'$$
 
@@ -539,12 +549,9 @@ $$\begin{bmatrix}
 \color{RoyalBlue}c & \color{DarkOrchid}e & \color{orange}f
 \end{bmatrix}$$
 
-To verify that a matrix is symmetric in R:
+To test whether a matrix is symmetric:
 
 ```{r demo-symmetrictest}
-#| eval: false
-all(A == t(A))
-# Or use a dedicated function
 isSymmetric(A)
 ```
 
@@ -552,7 +559,7 @@ Correlation matrices and covariance matrices are always symmetric.
 
 ## Diagonal matrices
 
-A **diagonal matrix** is a square matrix consisting of zeroes everywhere except the diagonal. For example,
+A [diagonal matrix]{.defword title="A **diagonal matrix** has non-zero elements only on the diagonal vector."} is a square matrix consisting of zeroes everywhere except the diagonal. For example,
 
 $$
 \mathbf{A} = \begin{bmatrix}
@@ -562,22 +569,33 @@ a & 0 & 0\\
 \end{bmatrix}
 $$
 
-To create a diagonal matrix, specify the diagonal vector and then insert it into the `diag` function like so:
+### Creating diagonal matrices
+
+As will be seen, the `diag` function does different things depending on the type of input it receives. If its input is a vector, it will create a diagonal matrix. That is, the `diag` function creates a diagonal matrix $\mathbf{A}$ from a vector $\vec{a}$ like so:
 
 ```{r demo-MakeDiagonal}
+# Make a vector
 a <- 1:4
+# Make a diagonal matrix
 A <- diag(a)
 A
 ```
 
-As we will see later, the `diag` function actually has several different purposes:
+### Extracting the diagonal vector from a matrix
 
-1. It creates a diagonal matrix $\mathbf{A}$ from a vector $\vec{a}$.  
-    `A <- diag(a)` 
-2. It extracts a diagonal vector $\vec{a}$ from a matrix $\mathbf{A}$.  
-    `a <- diag(A)`
-3. It creates an identity matrix $\mathbf{I}$ from a positive integer $n$.  
-    `I <- diag(n)`
-4. It replaces the diagonal of matrix $\mathbf{A}$ with a new vector $\vec{b}$.  
-    `diag(A) <- b`
+The `diag` function extracts a diagonal vector $\vec{a}$ from a matrix $\mathbf{A}$.  
+
+```{r demo-ExtractDiagonal}
+diag(A)
+```
+
+
+### Replacing the diagonal of a matrix
+
+The `diag` function can also be used to replace a diagonal of a matrix:
+
+```{r demo-ReplaceDiagonal}
+diag(A) <- 5:8
+A
+```
 

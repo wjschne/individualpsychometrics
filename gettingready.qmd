@@ -96,7 +96,7 @@ tibble(
     rotation =  180 * atan((Difficulty - lag(Difficulty)) / 0.01) / pi) %>%
   filter(Difficulty <= 100) %>%
   ggplot(aes(Complexity, Difficulty, color = Approach)) +
-  geom_arrow(arrow_head = arrow_head_deltoid()) +
+  geom_arrow(arrow_head = my_arrowhead) +
   ggtext::geom_richtext(
     data = . %>% filter((Complexity == 62.5 & Approach == "Point-and-Click") | (Complexity == 75 & Approach == "Code")),
     aes(label = Approach, angle = rotation),
