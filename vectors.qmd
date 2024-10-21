@@ -510,10 +510,9 @@ p <- ob_point(x_plot, y_plot, color = myfills[1])
 
 middle_axes() +
   p  + 
-  p@label(paste0("**v** = ", p@auto_label), 
-          size = 18,
-          vjust = -.1, 
-          hjust = .5) +
+  ob_latex(tex = paste0("\\vec{v}=", p@auto_label),
+           center = p + ob_point(.1,.14),
+           color = myfills[1],height = .2) +
   ob_segment(o, p, 
              resect_head = 1.5, 
              arrow_head = my_arrowhead, 
@@ -536,23 +535,33 @@ A vector with two scalar elements can be thought of as an arrow in a coordinate 
 ```
 
 ```{r}
+#| label: fig-vector_addition
+#| fig-cap: Vector addition
+#| fig-height: 6
+#| fig-width: 6
+#| echo: false
+#| fig-column: margin
 
+label_height <- .3
 middle_axes(limits = c(0,5)) +
   {p1 <- ob_point(1,3, color = myfills[1])} +
   {p2 <- ob_point(3,1, color = myfills[2])} +
   {p3 <- (p1 + p2) |> set_props(color = myfills[3])} +
   ob_latex("\\vec{v}_1",
-           height = .25,
-           p1 + ob_polar(degree(135), .3),
+           density = 600,
+           height = label_height,
+           center = p1 + ob_polar(degree(135), .3),
            color = myfills[1]) +
   ob_latex("\\vec{v}_2",
-           height = .25,
-           p2 + ob_polar(degree(-45), .3),
+           density = 600,
+           height = label_height,
+           center = p2 + ob_polar(degree(-45), .3),
            color = myfills[2]) +
   ob_latex(
     "{\\color[HTML]{51315E}\\vec{v}_3}={\\color[HTML]{27408B}\\vec{v}_1}+{\\color[HTML]{8B1A1A}\\vec{v}_2}",
-    height = .25,
-    p1 + p2 + ob_polar(degree(60), .3),
+    height = label_height,
+    density = 600,
+    center = p1 + p2 + ob_polar(degree(60), .3),
     color = myfills[3]
   ) +
   ob_segment(o, p1, arrow_head = my_arrowhead, resect_head = 2) +
@@ -600,7 +609,8 @@ I tend to be fastidious about distinguishing between *vector length* (the number
 :::
 
 
-$$\left\|\vec{x}\right\|=\sqrt{x_1^2+x_2^2+\ldots+x_n^2}$$
+$$
+\left\|\vec{x}\right\|=\sqrt{x_1^2+x_2^2+\ldots+x_n^2}$$
 
 To calculate a vector norm in R by hand is straightforward:
 

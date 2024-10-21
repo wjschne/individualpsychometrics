@@ -83,7 +83,8 @@ A - B
 
 To multiply a [scalar]{.defword title="A **scalar** is a single number, not in a matrix."} by a matrix, multiply the scalar by every element in the matrix:
 
-$$k\mathbf{A}=
+$$
+k\mathbf{A}=
 k\begin{bmatrix}
 a_{11} & a_{12} & a_{13}\\
 a_{21} & a_{22} & a_{23}
@@ -91,7 +92,8 @@ a_{21} & a_{22} & a_{23}
 \begin{bmatrix}
 ka_{11} & ka_{12} & ka_{13}\\
 ka_{21} & ka_{22} & ka_{23}
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 ### Scalar-Matrix Multiplication in R
 
@@ -150,88 +152,214 @@ $$
 
 Element $c_{ij}$ of $\mathbf{C}$ is the dot-product of row $i$ of $\mathbf{A}$ and column $j$ of $\mathbf{B}$. That is,
 
-$$c_{ij}=\mathbf{A}_{i\bullet}\mathbf{B}_{\bullet j}$$
+$$
+c_{ij}=\vec{a}_{i\bullet}\cdot\vec{b}_{\bullet j}
+$$
 
-[This schematic](http://commons.wikimedia.org/wiki/File:Matrix_multiplication_diagram.svg) gives a nice visual summary:
+@fig-mm gives a visual example of matrix multiplication. Every row vector of **A** is multiplied by every column vector of **B**.
 
-![Matrix Multiplication](http://upload.wikimedia.org/wikipedia/commons/1/11/Matrix_multiplication_diagram.svg){}
+```{r make-mm}
+#| fig-width: 6
+#| fig-height: 7
+#| fig-cap: In the matrix multiplication of A times B, every row of A is multiplied by every column of B.
+#| eval: false
+A_n <- list(nrow = 4,
+             ncol = 2)
 
-```{r fig-mm, eval=FALSE, echo=FALSE}
-theta <- degree(30)
-w <- .7
+B_n <- list(nrow = 2,
+             ncol = 3)
 
-A_cr <- c(2, 4)
-B_cr <- c(3, 2)
-A_script <- crossing(x = seq(A_cr[1]), y = seq(A_cr[2]))
-B_script <- crossing(x = seq(B_cr[1]), y = seq(B_cr[2]))
+AB_n <- list(nrow = A_n$nrow,
+              ncol = B_n$ncol)
+
+make_script <- function(n,
+                        name = "A",
+                        x_shift = 0,
+                        y_shift = 0) {
+  crossing(x = seq(n$ncol), 
+           y = seq(n$nrow)) %>%
+    dplyr::mutate(
+      row = 1 + n$nrow - y,
+      column = x,
+      label = paste0("*", tolower(name), "*~", row, column, "~")
+    ) %>%
+    mutate(x = x + x_shift, 
+           y = y + y_shift)
+}
+
+A_script <- make_script(A_n, x_shift = -1 * A_n$ncol - .5)
+B_script <- make_script(B_n, "B", y_shift = A_n$nrow + .5)
+AB_script <- make_script(AB_n, "C") %>% 
+  mutate(
+    label = paste0(
+      "*a*<sub>",
+      row,
+      "*j*</sub>",
+      "<span>\u2022</span>",
+      "*b*<sub>*i*",
+      column,
+      "</sub>"))
+
+subscripter <- function(d, 
+                        row = NULL, 
+                        column = NULL, ...) {
+  if (!is.null(row)) {
+    d <- dplyr::filter(d, row == {{row}})
+    }
+  if (!is.null(column)) {
+    d <- dplyr::filter(d, column == {{column}})
+    }
+  d %>% 
+    select(x,y) %>% 
+    ob_point() %>% 
+    ob_rectangle(...) 
+}
 
 
-AB_center <- ob_point(crossing(x = 1:3, y = 1:4))
-A_center <- ob_point(A_script) + ob_point(-2 - A_cr[1],0)
-B_center <- ob_point(B_script) + ob_point(0,6)
-A <- ob_rectangle(A_center)
-B <- ob_rectangle(B_center)
-AB <- ob_rectangle(AB_center)
-p1 <- AB[1]@normal_at(degree("south") - theta, .5)
-p4 <- AB[4]@normal_at(degree("north") + theta, .5)
-p2 <- p1 + ob_point(-w,0)
-p3 <- p4 + ob_point(-w,0)
-p_AB <- bind(c(p1,p2,p3,p4))
-p_ABr <- rotate(p_AB, 180, origin = ob_point(2, 2.5))
-p1 <- B[1]@normal_at(degree("south") - theta, .5)
-p4 <- B[2]@normal_at(degree("north") + theta, .5)
-p2 <- p1 + ob_point(-w,0)
-p3 <- p4 + ob_point(-w,0)
+AB_center <- ob_point(AB_script %>% dplyr::select(x,y))
+A_center <- ob_point(A_script %>% dplyr::select(x,y)) 
+B_center <- ob_point(B_script %>% dplyr::select(x,y)) 
+A <- ob_rectangle(A_center, label = A_script$label)
+B <- ob_rectangle(B_center, label = B_script$label)
+AB <- ob_rectangle(AB_center, label = AB_script$label)
 
+out <- crossing(i = seq(AB_n$nrow),
+                j = seq(AB_n$ncol)) %>% 
+  purrr::pmap(\(i, j) {
+    A_io <- subscripter(A_script, row = i)
+    A_oj <- subscripter(A_script, column = j)
+    B_io <- subscripter(B_script, row =  i)
+    B_oj <- subscripter(B_script, column = j)
 
-p_B <- bind(c(p1,p2,p3,p4))
-p_Br <- rotate(p_B, 180, origin = midpoint(B[3]@center,B[4]@center))
+    AB_ij <- subscripter(
+      AB_script,
+      row = i,
+      column = j,
+      color = myfills[2],
+      linewidth = 2
+    ) 
 
+    p <- ggdiagram(font_family = bfont) +
+      AB +
+      A +
+      B +
+      ob_label(
+        "**A**",
+        A@bounding_box@south,
+        nudge_y = -.15,
+        size = 50,
+        vjust = 1
+      ) +
+      ob_label(
+        "**B**",
+        B@bounding_box@north,
+        nudge_y = .15,
+        vjust = -.3,
+        size = 50
+      ) +
+      ob_label(
+        "**AB**",
+        AB@bounding_box@south,
+        nudge_y = -.15,
+        vjust = 1,
+        size = 50
+      ) +
+      A_io@bounding_box %>% 
+      set_props(color = myfills[2], 
+                linewidth = 2) +
+      B_oj@bounding_box %>% 
+      set_props(color = myfills[2], 
+                linewidth = 2) +
+      AB_ij +
+      connect(A_io@bounding_box, AB_ij, resect = 2) +
+      connect(B_oj@bounding_box, AB_ij, resect = 2) +
+      subscripter(A_script, column = 1)@west@label(
+        paste0("*a*<sub>", 
+               seq(A_n$nrow, 1), 
+               "*j*</sub>"),
+        hjust = 1,
+        label.margin = ggplot2::margin(r = 5),
+        size = 20
+      ) +
+      subscripter(B_script, row = 1)@north@label(
+        paste0("*b*<sub>*i*", 
+               seq(1, B_n$ncol), 
+               "</sub>"),
+        vjust = 0,
+        color = "black",
+        label.margin = ggplot2::margin(b = 5),
+        size = 20
+      ) +
+      scale_x_continuous(NULL, 
+                         expand = expansion(
+                           add = c(1, .05))) +
+      scale_y_continuous(NULL, 
+                         expand = expansion(
+                           add = c(1, 1.5)))
 
-ggdiagram() +
-  AB +
-  A +
-  B +
-  ob_path(c(p_AB, p_AB + ob_point(-4,0), 
-            p_ABr, p_ABr + ob_point(-5,0),
-            p_B, p_Br))
-  
+ggsave(paste0("images/mm_", i, "_", j, ".png"), 
+       width = 6, 
+       height = 7, 
+       device = ragg::agg_png, 
+       dpi = "retina", 
+       bg = "white")
+  })
 
-  
+fn <- paste0("images/", dir("images/", pattern = "mm_"))
+mm_animate <- magick::image_read(fn) %>% 
+  magick::image_animate(fps = .5, optimize = TRUE)
+magick::image_write(mm_animate, "images/matrix_multiplication.gif")
+fnr <- file.remove(fn)
 ```
 
 
+![In the matrix multiplication of **A** times **B**, every row of **A** is multiplied by every column of **B**.](images/matrix_multiplication.gif){#fig-mm fig-cap-location="margin"}
+
+```{r coder-fig-mm}
+<<make-mm>>
+```
+
 ### Matrix Multiplication Example
 
-$$\mathbf{A}=\begin{bmatrix}
+$$
+\mathbf{A}=\begin{bmatrix}
 \color{FireBrick}a&\color{FireBrick}b&\color{FireBrick}c\\
 \color{RoyalBlue}e&\color{RoyalBlue}d&\color{RoyalBlue}f
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
-$$\mathbf{B}=\begin{bmatrix}
+$$
+\mathbf{B}=\begin{bmatrix}
 \color{green}g&\color{DarkOrchid}h\\
 \color{green}i&\color{DarkOrchid}j\\
 \color{green}k&\color{DarkOrchid}l
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
-$$\mathbf{AB}=\begin{bmatrix}
+$$
+\mathbf{AB}=\begin{bmatrix}
 \color{FireBrick}a\color{Green}g+\color{FireBrick}b\color{green}i+\color{FireBrick}c\color{green}k&\color{FireBrick}a\color{DarkOrchid}h+\color{FireBrick}b\color{DarkOrchid}j+\color{FireBrick}c\color{DarkOrchid}l\\
 \color{RoyalBlue}e\color{green}g+\color{RoyalBlue}d\color{green}i+\color{RoyalBlue}f\color{green}k&\color{RoyalBlue}e\color{DarkOrchid}h+\color{RoyalBlue}d\color{DarkOrchid}j+\color{RoyalBlue}f\color{DarkOrchid}l
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 
 Using specific numbers:
 
-$$\mathbf{A}=\begin{bmatrix}
+$$
+\mathbf{A}=\begin{bmatrix}
 \color{FireBrick}1&\color{FireBrick}2&\color{FireBrick}3\\
 \color{RoyalBlue}4&\color{RoyalBlue}5&\color{RoyalBlue}6
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
-$$\mathbf{B}=\begin{bmatrix}
+$$
+\mathbf{B}=\begin{bmatrix}
 \color{green}{10}&\color{DarkOrchid}{40}\\
 \color{green}{20}&\color{DarkOrchid}{50}\\
 \color{green}{30}&\color{DarkOrchid}{60}
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 $$
 \begin{align}
@@ -266,7 +394,8 @@ C
 
 Elementwise matrix multiplication is when we simply multiply corresponding elements of identically-sized matrices. This is sometimes called the *Hadamard product*.
 
-$$\begin{aligned}A\circ B&=\begin{bmatrix} a_{11} & a_{12} & a_{13}\\ 
+$$
+\begin{aligned}A\circ B&=\begin{bmatrix} a_{11} & a_{12} & a_{13}\\ 
 a_{21} & a_{22} & a_{23} 
 \end{bmatrix} \circ 
 \begin{bmatrix} 
@@ -276,7 +405,8 @@ b_{21} & b_{22} & b_{23}
 &= \begin{bmatrix} 
 a_{11}\, b_{11} & a_{12}\, b_{12} & a_{13}\, b_{13}\\ 
 a_{21}\, b_{21} & a_{22}\, b_{22} & a_{23}\, b_{23}
-\end{bmatrix}\end{aligned}$$
+\end{bmatrix}\end{aligned}
+$$
 
 In R, elementwise multiplication is quite easy.
 
@@ -332,11 +462,13 @@ A <- matrix(c(
 	20,11,20,18, 
 	15,3,8,5), 
   nrow = 3, byrow = TRUE)
+
 B <- matrix(c(
   17,14,1,19, 
 	11,2,12,14, 
 	5,16,1,20), 
   nrow = 3, byrow = TRUE)
+
 C <- matrix(c(
   5,16,20, 
 	9,9,12, 
@@ -378,7 +510,7 @@ A * B
 
 ```{webr-r}
 #| label: ex-matrixmultAB
-A _ B
+A _ C
 ```
 
 ```{r solution-matrixmultAB}
@@ -391,42 +523,58 @@ A %*% C
 
 The *identity element* for a binary operation is the value that when combined with something leaves it unchanged. For example, the additive identity is 0.
 
-$$X+0=X$$
+$$
+X+0=X
+$$
 
 The number 0 is also the identity element for subtraction.
 
-$$X-0=X$$
+$$
+X-0=X
+$$
 
 The multiplicative identity is 1.
 
-$$X \times 1 = X$$
+$$
+X \times 1 = X
+$$
 
 The number 1 is also the identity element for division and exponentiation.
 
-$$X \div 1=X$$
+$$
+X \div 1=X
+$$
 
-$$X^1=X$$
+$$
+X^1=X
+$$
 
 ### Identity Matrix
 
 For matrix multiplication with square matrices, the identity element is called the *identity matrix*, $\mathbf{I}$. 
 
-$$\mathbf{AI}=\mathbf{A}$$
+$$
+\mathbf{AI}=\mathbf{A}
+$$
 
 The identity matrix is a diagonal matrix with ones on the diagonal. For example, a $2 \times 2$ identity matrix looks like this:
 
-$$\mathbf{I}_2=\begin{bmatrix}
+$$
+\mathbf{I}_2=\begin{bmatrix}
 1 & 0\\
 0 & 1 
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 A size-3 identity matrix looks like this:
 
-$$\mathbf{I}_3=\begin{bmatrix}
+$$
+\mathbf{I}_3=\begin{bmatrix}
 1 & 0 & 0\\
 0 & 1 & 0\\
 0 & 0 & 1 
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 It is usually not necessary to use a subscript because the size of the identity matrix is usually assumed to be the same as that of the matrix it is multiplied by.
 
@@ -447,21 +595,29 @@ diag(6)
 
 $X$ multiplied by its *multiplicative inverse* yields the multiplicative identity, 1. The multiplicative inverse is also known as the *reciprocal*.
 
-$$X\times \frac{1}{X}=1$$
+$$
+X\times \frac{1}{X}=1
+$$
 
 Another way to write the reciprocal is to give it an exponent of $-1$.
 
-$$X^{-1}=\frac{1}{X}$$
+$$
+X^{-1}=\frac{1}{X}
+$$
 
 ## Matrix Inverse
 
 Only square matrices have multiplicative inverses. Multiplying square matrix $\mathbf{A}$ by its inverse $(\mathbf{A}^{-1})$ produces the identity matrix. 
 
-$$\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}$$
+$$
+\mathbf{A}\mathbf{A}^{-1}=\mathbf{I}
+$$
 
 The inverse matrix produces the identity matrix whether it is pre-multiplied or post-multiplied.
 
-$$\mathbf{A}\mathbf{A}^{-1}=\mathbf{A}^{-1}\mathbf{A}=\mathbf{I}$$
+$$
+\mathbf{A}\mathbf{A}^{-1}=\mathbf{A}^{-1}\mathbf{A}=\mathbf{I}
+$$
 
 The calculation of an inverse is [quite complex](http://en.wikipedia.org/wiki/Invertible_matrix#Methods_of_matrix_inversion) and is best left to computers.
 
@@ -494,10 +650,12 @@ $$
 
 We can pre-multiply both sides of the equation by the inverse of $\mathbf{A}$. 
 
-$$\begin{aligned}\mathbf{AX}&=\mathbf{B}\\
+$$
+\begin{aligned}\mathbf{AX}&=\mathbf{B}\\
 \mathbf{A}^{-1}\mathbf{AX}&=\mathbf{A}^{-1}\mathbf{B}\\
 \mathbf{IX}&=\mathbf{A}^{-1}\mathbf{B}\\
-\mathbf{X}&=\mathbf{A}^{-1}\mathbf{B}\end{aligned}$$
+\mathbf{X}&=\mathbf{A}^{-1}\mathbf{B}\end{aligned}
+$$
 
 You may have encountered this kind of problem in an algebra class when you used matrices to solve systems of linear equations. For example, these equations:
 
@@ -773,13 +931,17 @@ sum(A)
 
 Consider this equation showing the relationship between a square matrix $\mathbf{A}$, a column vector $\vec{x}$, and a column vector $\vec{b}$:
 
-$$\mathbf{A}\vec{x}=\vec{b}$$
+$$
+\mathbf{A}\vec{x}=\vec{b}
+$$
 
 As explained in 3Blue1Brown's wonderful [*Essence of Linear Algebra*](https://youtu.be/PFDu9oVAE-g?si=PteIZU-T4KCGSCV1) series, we can think of the square matrix $\mathbf{A}$ as a mechanism for scaling and rotating vector $\vec{x}$ to become vector $\vec{b}$.
 
 Is there a non-zero vector $\vec{v}$ that $\mathbf{A}$ will scale but not rotate? If so, $\vec{v}$ is an [eigenvector]{.defword title="An **eigenvector**" of a matrix is a vector that the matrix does not rotate.}. The value $\lambda$ by which $\vec{v}$ is scaled is the [eigenvalue]{.defword title="The **eigenvalue** is the magnitude by which a matrix scales a unit eigenvector."}.
 
-$$\mathbf{A}\vec{v}=\lambda\vec{v}$$
+$$
+\mathbf{A}\vec{v}=\lambda\vec{v}
+$$
 
 Every eigenvector that exists for matrix $\mathbf{A}$, is accompanied by an infinite number of parallel vectors of varying lengths that are also eigenvectors. Thus, we focus on the unit eigenvectors and their accompanying eigenvalues.
 
@@ -796,7 +958,9 @@ A <- matrix(c(1.0, 0.8, 0.5,
             nrow = 3)
 ```
 
-$$\mathbf{A}=`r bmatrix(A)`$$
+$$
+\mathbf{A}=`r bmatrix(A)`
+$$
 
 Because $\mathbf{A}$ is a 3 &times; 3 matrix, there are three [orthogonal]{.defword title="The word, **orthogonal** derives from the Greek word for "right-angled." Orthogonal vectors are mutually perpendicular."} unit vectors that are eigenvectors, $\vec{v}_1$, $\vec{v}_2$, and $\vec{v}_3$. We will collect the three eigenvectors as columns of matrix $\mathbf{V}$:
 
@@ -837,6 +1001,7 @@ Suppose we generate multivariate normal data with population correlations equal 
 <<correlationA>>
 <<eigenA>>
 library(rgl)
+set.seed(1)
 # Plot the data
 plot3d(
   mvtnorm::rmvnorm(5000, sigma = A),
@@ -948,6 +1113,7 @@ d_scaledeigenvectors <- eigenrho$values %>%
   `colnames<-`(c("x", "y")) %>% 
   as_tibble()
 
+set.seed(1)
 d_points <- mvtnorm::rmvnorm(
   n = 1000, 
   mean = c(x = 0, y = 0), 
