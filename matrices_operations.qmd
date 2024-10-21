@@ -194,9 +194,9 @@ AB_script <- make_script(AB_n, "C") %>%
     label = paste0(
       "*a*<sub>",
       row,
-      "*j*</sub>",
+      "<span>\u2022</span></sub>",
       "<span>\u2022</span>",
-      "*b*<sub>*i*",
+      "*b*<sub><span>\u2022</span>",
       column,
       "</sub>"))
 
@@ -223,6 +223,29 @@ A <- ob_rectangle(A_center, label = A_script$label)
 B <- ob_rectangle(B_center, label = B_script$label)
 AB <- ob_rectangle(AB_center, label = AB_script$label)
 
+r_ab <- bind(c(A,B, AB))
+r_ab_label <- bind(c(ob_label(
+        "**A**",
+        A@bounding_box@south,
+        nudge_y = -.15,
+        size = 50,
+        vjust = 1
+      ),
+      ob_label(
+        "**B**",
+        B@bounding_box@north,
+        nudge_y = .15,
+        vjust = -.3,
+        size = 50
+      ),
+      ob_label(
+        "**AB**",
+        AB@bounding_box@south,
+        nudge_y = -.15,
+        vjust = 1,
+        size = 50
+      )))
+
 out <- crossing(i = seq(AB_n$nrow),
                 j = seq(AB_n$ncol)) %>% 
   purrr::pmap(\(i, j) {
@@ -238,58 +261,43 @@ out <- crossing(i = seq(AB_n$nrow),
       color = myfills[2],
       linewidth = 2
     ) 
-
-    p <- ggdiagram(font_family = bfont) +
-      AB +
-      A +
-      B +
-      ob_label(
-        "**A**",
-        A@bounding_box@south,
-        nudge_y = -.15,
-        size = 50,
-        vjust = 1
-      ) +
-      ob_label(
-        "**B**",
-        B@bounding_box@north,
-        nudge_y = .15,
-        vjust = -.3,
-        size = 50
-      ) +
-      ob_label(
-        "**AB**",
-        AB@bounding_box@south,
-        nudge_y = -.15,
-        vjust = 1,
-        size = 50
-      ) +
-      A_io@bounding_box %>% 
+    
+    red_boxes <- bind(c(A_io@bounding_box %>% 
       set_props(color = myfills[2], 
-                linewidth = 2) +
+                linewidth = 2),
       B_oj@bounding_box %>% 
       set_props(color = myfills[2], 
-                linewidth = 2) +
-      AB_ij +
-      connect(A_io@bounding_box, AB_ij, resect = 2) +
-      connect(B_oj@bounding_box, AB_ij, resect = 2) +
-      subscripter(A_script, column = 1)@west@label(
+                linewidth = 2),
+      AB_ij))
+    
+    red_connect <- connect(bind(c(A_io@bounding_box,
+                     B_oj@bounding_box)),
+              AB_ij, resect = 2)
+    
+    rc_labels <- bind(c(subscripter(A_script, column = 1)@west@label(
         paste0("*a*<sub>", 
                seq(A_n$nrow, 1), 
-               "*j*</sub>"),
+               "<span>\u2022</span></sub>"),
         hjust = 1,
         label.margin = ggplot2::margin(r = 5),
         size = 20
-      ) +
+      ), 
       subscripter(B_script, row = 1)@north@label(
-        paste0("*b*<sub>*i*", 
+        paste0("*b*<sub><span>\u2022</span>", 
                seq(1, B_n$ncol), 
                "</sub>"),
         vjust = 0,
         color = "black",
         label.margin = ggplot2::margin(b = 5),
         size = 20
-      ) +
+      )))
+
+    p <- ggdiagram(font_family = bfont) +
+      r_ab +
+      r_ab_label +
+      red_boxes +
+      red_connect +
+      rc_labels +
       scale_x_continuous(NULL, 
                          expand = expansion(
                            add = c(1, .05))) +
