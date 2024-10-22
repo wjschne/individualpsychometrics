@@ -1,5 +1,7 @@
 ---
-title: "Distributions"
+title: Distributions
+subtitle: Discrete
+toc-title: "Distributions--Discrete"
 ---
 
 ```{r loadpacksdist3}
@@ -20,14 +22,10 @@ Because we first learn about variables in an algebra class, we tend to think of 
 #| out-width: "100"
 #| fig-column: margin
 #| fig-align: left
-knitr::include_graphics("images/randomvariable.gif")
-```
-
-When we say that the throw of a six-sided die is a random variable, we are not talking about any particular throw of a particular die but, in a sense, *every* throw (that has ever happened or ever could happen) of *every* die (that has ever existed or could exist). Imagine an immense, roaring, neverending, cascading flow of dice falling from the sky. As each die lands and disappears, a giant scoreboard nearby records the relative frequencies of ones, twos, threes, fours, fives, and sixes. That's a random variable.
-
-```{r coder-fig-randomvariable}
+#| warning: false
+#| message: false
 # Function to make dice
-makedice <- function(i, id) {
+makedice <- function(i, id, add_blank = TRUE) {
   x = switch(
            i,
            `1` = 0,
@@ -46,32 +44,21 @@ makedice <- function(i, id) {
            `5` = c(1,-1,-1, 1, 0),
            `6` = c(1,-1,-1, 1, 0, 0))
   
-  tibble(id = id * 1,
-         i = i,
-         x = x,
-         y = y) %>% 
-    add_case(id = id + 0.5,
-             i = 0,
-             x = NA,
-             y = NA)
+  d <- tibble(id = id * 1,
+              i = i,
+              x = x,
+              y = y)
+  
+  if (add_blank) {
+    d <- d %>%
+      add_case(id = id + 0.5,
+               i = 0,
+               x = NA,
+               y = NA)
+  }
+  d
 }
 
-# Die radius
-r <- 0.35
-dpos <- 1.5
-
-# Die round arcs
-dround <- tibble(x0 = c(-dpos, dpos, -dpos, dpos), 
-                 y0 = c(dpos,dpos,-dpos,-dpos), 
-                 r = r, 
-                 start = c(-pi / 2, pi / 2, -pi, pi / 2) , 
-                 end = c(0,0, -pi / 2,pi) )
-
-# Line segments
-dsegments <- tibble(x = c(-dpos, dpos + r, dpos, -dpos - r), 
-                    y = c(dpos + r,dpos,-dpos - r,-dpos),
-                    xend = c(dpos, dpos + r, -dpos,-dpos - r), 
-                    yend = c(dpos + r,-dpos,-dpos - r, dpos))
 # Number of throws
 k <- 50
 
@@ -79,31 +66,35 @@ k <- 50
 d <- map2_df(sample(1:6,k, replace = T), 1:k, makedice)  
 
 # Plot
-p <- ggplot(d) + 
-  geom_point(pch = 16, size = 50, aes(x,y))  + 
-  geom_arc(aes(x0 = x0,
-               y0 = y0,
-               r = r,
-               start = start,
-               end = end,
-               linetype = factor(r)),
-           data = dround,
-           linewidth = 2) + 
-  geom_segment(data = dsegments,
-               aes(x = x, y = y, xend = xend, yend = yend),
-               linewidth = 2) +
-  coord_equal() + 
-  theme_void() + 
-  theme(legend.position = "none") + 
+p <- ggplot(d) +
+  geom_point(pch = 16, size = 50, aes(x, y))  +
+  ob_ellipse(
+    a = 1.85,
+    b = 1.85,
+    m1 = 12,
+    linewidth = 4
+  ) +
+  coord_equal() +
+  theme_void() +
+  theme(legend.position = "none") +
   transition_manual(id) 
 
 # Render animation
-animate(p, 
-        fps = 1,
-        device = "svg",
-        renderer = magick_renderer(), 
-        width = 8,
-        height = 8)
+p_gif <- animate(
+  p,
+  fps = 1,
+  device = "svg",
+  renderer = magick_renderer(),
+  width = 8,
+  height = 8
+)
+p_gif
+```
+
+When we say that the throw of a six-sided die is a random variable, we are not talking about any particular throw of a particular die but, in a sense, *every* throw (that has ever happened or ever could happen) of *every* die (that has ever existed or could exist). Imagine an immense, roaring, neverending, cascading flow of dice falling from the sky. As each die lands and disappears, a giant scoreboard nearby records the relative frequencies of ones, twos, threes, fours, fives, and sixes. That's a random variable.
+
+```{r coder-fig-randomvariable}
+<<fig-randomvariable>>
 ```
 
 
@@ -206,16 +197,83 @@ Each element of a random variable's sample space occurs with a particular probab
 
 ```{r fig-dicepmf}
 #| fig-cap: "The probability distribution of a throw of a single die"
-#| out-width: "275"
-#| fig-width: 6.72
-#| fig-height: 4
+#| out-width: "250"
+#| fig-width: 4.5
+#| fig-height: 6
 #| fig-column: margin
 #| fig-align: left
-knitr::include_graphics("images/dice.svg")
+position_dice <- function(i, r = 1.85, space = 1) {
+  # Height of dice center
+  y0 <- (6 - i) * (2 * r + space)
+  
+  # Dice dots
+  p <- makedice(i, i, add_blank = F) %>%
+    mutate(y = y + y0) %>%
+    ob_point() %>%
+    ob_circle(radius = .4,
+              fill = "black",
+              color = NA)
+  
+  # Dice outlines
+  e <- ob_ellipse(
+    ob_point(0, y0),
+    a = r,
+    b = r,
+    m1  = 12,
+    linewidth = .75
+  )
+  
+  # Probability point
+  p_pr <- e@center + ob_point(13, 0)
+  
+  # Probability label
+  pr <- ob_label(
+    label = "&frac16;", 
+    p = p_pr, 
+    size = 32, 
+    family = "serif")
+  
+  # Arrow connectors
+  a <- connect(
+    e,
+    p_pr,
+    linewidth = 2,
+    resect_fins = 3,
+    resect_head = 6,
+    length_head = 4,
+    color = "gray70"
+  )
+  
+  # bind list
+  c(p, e, pr, a)
+}
+
+# shape list
+sl <- map_ob(1:6, position_dice)
+
+# Sample space label
+ss_label <- ob_label(
+  label = "Sample Space", 
+  p = sl[["ob_ellipse"]]@bounding_box@north + 
+           ob_point(0, 2),
+  size = 24)
+
+# Probability label
+pr_label <- ob_label(
+    label = "Probability", 
+    ss_label@p %-|% sl[["ob_label"]]@p@bounding_box@north, 
+    size = 24
+    )
+
+# Plot
+ggdiagram(bfont) +
+  sl +
+  ss_label + 
+  pr_label
 ```
 
-```{tikz codelatex-fig-dicepmf}
-#| code: !expr 'readLines("tex/dice.tex")'
+```{r coder-fig-dicepmf}
+<<fig-dicepmf>>
 ```
 
 There is an infinite variety of probability distributions, but a small subset of them have been given names. Now, one can manage one's affairs quite well without ever knowing what a Bernoulli distribution is, or what a $\chi{^2}$ distribution is, or even what a normal distribution is. However, sometimes life is a little easier if we have names for useful things that occur often. Most of the distributions with names are not really single distributions, but families of distributions. The various members of a family are unique but they are united by the fact that their probability distributions are generated by a particular mathematical function (more on that later). In such cases, the probability distribution is often represented by a graph in which the sample space is on the $X$-axis and the associated probabilities are on the $Y$-axis. In @fig-pdfIllustration, 16 probability distributions that might be interesting and useful to clinicians are illustrated. Keep in mind that what are pictured are only particular members of the families listed; some family members look quite different from what is shown in @fig-pdfIllustration.
@@ -761,21 +819,158 @@ Many distribution families are united by the fact that their probability distrib
 
 A probability mass function transforms a random variable's sample space elements into probabilities. In @fig-dicepmf, the probability mass function can be thought of as the arrows between the sample space and the probabilities. That is, the probability mass function is the thing that was done to the sample space elements to calculate the probabilities. In @fig-dicepmf, each outcome of a throw of the the die was mapped onto a probability of &frac16;. Why &frac16;, and not some other number? The probability mass function of the discrete uniform distribution tells us the answer. 
 
+The probability mass function of the discrete uniform distribution is fairly simple but the notation can be intimidating at first (@fig-pmf). By convention, a single random variable is denoted by a capital letter $X$. Any particular value of $X$ in its sample space is represented by a lowercase $x$. In other words, $X$ represents the variable in its totality whereas $x$ is merely one value that $X$ can take on. Confusing? Yes, statisticians work very hard to confuse us---and most of the time they succeed! 
+
 ```{r fig-pmf}
 #| fig-cap: "Probability mass functions tell us how probable each sample space element is. That is, they are functions that convert samples spaces $(\\boldsymbol{x})$ into probabilities $(\\boldsymbol{p})$ according to specific parameters $(\\boldsymbol{\\theta}).$"
-#| fig-width: 6.72
+#| fig-width: 8
+#| fig-height: 4
 #| fig-align: center
 #| out-width: "100%"
 #| fig-cap-location: margin
 
-knitr::include_graphics("images/pmf.svg")
+whitespace <- function(
+    size = 10, 
+    text = ".", 
+    color = "white") {
+  paste0("<span style='color:",
+         color,
+         "; font-size:",
+         size, 
+         "pt;'>",
+         text,
+         "</span>")
+}
+
+xr <- ob_rectangle(
+  center = ob_point(0, 0), 
+  width = 1, 
+  height = 1/4, 
+  label = ob_label(
+    label = "***x*** = *x*~1~, *x*~2~, *x*~3~, …, *x*~*n*~", 
+    size = 20),
+  corner_radius = unit(5, "pt"))
+
+ss_label <- ob_label("**Sample Space**", 
+                     xr@north, vjust = -.2, 
+                     size = 24)
+
+pr <- ob_rectangle(
+  center = ob_point(2, 0), 
+  width = 1, 
+  height = 1/4, 
+  family = "serif",
+  label = ob_label(
+    "***p*** = *p*~1~, *p*~2~, *p*~3~, …, *p*~*n*~", 
+    size = 20),
+  corner_radius = unit(5, "pt"))
+
+p_label <- ob_label(
+  label = "**Probabilities**", 
+  p = pr@north, 
+  vjust = -.2, 
+  size = 24)
+
+pmf_label <- ob_label(
+  label = "**Mass Function**", 
+  p = midpoint(ss_label@p, p_label@p), 
+  vjust = -.2, 
+  size = 24,
+  color = myfills[1])
+
+th <- "<span style='font-family: serif'>&theta;<span>"
+
+thetar <- ob_rectangle(
+  pmf_label@p + ob_point(0,-.8),  
+  width = 1, 
+  height = 1/4, 
+  label = ob_label(
+    paste0(
+      "***",
+      th,
+      "*** = ",
+      paste0(
+        "*", 
+        th, 
+        "*~", 
+        1:3, 
+        "~, ", 
+        collapse = ""),
+      " …, *",
+      th,
+      "*~*n*~"), 
+    size = 20,
+    vjust = .55),
+  corner_radius = unit(5, "pt"))
+
+th_label <- ob_label(
+  label = "**Parameters**", 
+  p = thetar@north, 
+  vjust = -.2, 
+  size = 24)
+
+fx_label <-  ob_label(
+    "***f***~*X*~",
+    midpoint(xr@center, pr@center),
+    color = "white",
+    fill = NA,
+    size = 18,
+    vjust = .55
+  ) 
+
+ggdiagram(font_family = bfont) +
+  xr +
+  ss_label +
+  pr +
+  p_label +
+  pmf_label +
+  ob_label(
+    "**Probability**",
+    pmf_label@p,
+    vjust = -1.15,
+    size = 24,
+    color = myfills[1]
+  ) +
+  connect(
+    xr,
+    pr,
+    resect = 7.5,
+    linewidth = 15,
+    length_head = .85,
+    arrow_head = ggarrow::arrow_head_wings(
+      offset = 45, 
+      inset = 45),
+    color = myfills[1]
+  ) +
+  fx_label + 
+  thetar + 
+  th_label +
+  connect(th_label@p, 
+          fx_label@p, 
+          resect_head = 9, 
+          resect_fins = 14, 
+          linewidth = 1.25, 
+          length_head = 4) +
+  ob_label(
+    paste0(
+      "*f<sub>X",
+      whitespace(),
+      "</sub>*(",
+      whitespace(1),
+      "***x***; ***", 
+      th, 
+      "***",
+      whitespace(2),
+      ") = ***p***"),
+    p = pmf_label@p + ob_point(0,.5), 
+    size = 20)
 ```
 
-```{tikz codelatex-fig-pmf}
-#| code: !expr 'readLines("tex/pmf.tex")'
+```{r coder-fig-pmf}
+<<fig-pmf>>
 ```
 
-The probability mass function of the discrete uniform distribution is fairly simple but the notation can be intimidating at first (@fig-pmf). By convention, a single random variable is denoted by a capital letter $X$. Any particular value of $X$ in its sample space is represented by a lowercase $x$. In other words, $X$ represents the variable in its totality whereas $x$ is merely one value that $X$ can take on. Confusing? Yes, statisticians work very hard to confuse us---and most of the time they succeed! 
+
 
 The probability mass function of random variable $X$ is denoted by $f_X(x)$. This looks strange at first. It means, "When random variable $X$ generates a number, what is the probability that the outcome will be a particular value $x$?" That is, $f_X(x)=P(X=x)$, where $P$ means "What is the probability that...?" Thus, $P(X=x)$ reads, "What is the probability that random variable $X$ will generate a number equal to a particular value $x$?" So, $f_X(7)$ reads, "When random variable $X$ generates a number, what is the probability that the outcome will be 7?"
 
@@ -817,18 +1012,138 @@ $$
 
 
 ```{r fig-cdfDie}
-#| fig-width: 6.72
 #| fig-cap: "The cumulative distribution function of the roll of a die is $F_X(x)=\\frac{x}{6}$"
+#| fig-width: 7
+#| fig-height: 7
 #| out-width: "90%"
 #| fig-column: margin
 #| fig-align: left
-knitr::include_graphics("images/cdfDie.svg")
+
+r <- 1.85
+space <- 1.4
+
+make_e_center <- \(x0,y0, r, space) {
+    cc <- "black"
+    if (y0 <= x0) cc <- cc <- "#4169e1"
+    x0 <- x0 * (2 * r + space)
+    y0 <- y0 * (2 * r + space)
+p <- tibble(x = x0, y = y0) %>% 
+  select(x,y) %>% 
+  ob_point()
+p %>% set_props(color = cc)
+  }
+
+e_center <- crossing(x0 = 1:6, y0 = 1:6, r = r, space = space) %>% 
+  pmap(make_e_center) %>% 
+  bind()
+
+
+
+p_center <- crossing(x0 = 1:6, y0 = 1:6, r = r, space = space) %>% 
+  pmap(\(x0,y0, r, space) {
+    cc <- "black"
+    if (y0 <= x0) cc <- "#4169e1"
+    i = y0
+    x0 <- x0 * (2 * r + space)
+    y0 <- y0 * (2 * r + space)
+    p <- makedice(i,i, F) %>% 
+      mutate(y = y + y0 ,
+             x = x + x0) %>% 
+      select(x,y) %>% 
+      ob_point()
+    p %>% set_props(color = cc)
+  }) %>% 
+  bind()
+
+# shape list
+ggdiagram(bfont) +
+  ob_circle(p_center,
+            radius = .35,
+            fill = p_center@color,
+            color = NA) +
+  ob_ellipse(e_center, a = r, b = r, m1 = 12) +
+  geom_path(
+    mapping = aes(x, y),
+    data = tibble(
+      x0 = c(rep(1:6, each = 2)[-12], 6, 6, 1),
+      y0 = c(rep(1:6, each = 2)[-1], 6, 1, 1),
+      r = r,
+      space = space,
+      corner = c(rep(c(
+        "northwest", "southeast"
+      ), 5), "northwest", "northeast", "southeast", "southwest"),
+      revsort = c(rep(c(-1, 1), 5), -1, -1, -1, -1)
+    ) %>%
+      pmap_df(\(x0, y0, r, space, corner, revsort) {
+        p <- make_e_center(x0, y0, r, space)
+        l <- c(
+          northeast = 0,
+          northwest = 90,
+          southwest = 180,
+          southeast = 270
+        )
+        h <- c(
+          northeast = 90,
+          northwest = 180,
+          southwest = 270,
+          southeast = 360
+        )
+        e <- ob_ellipse(p,
+                        a = r + space / 2,
+                        b = r + space / 2,
+                        m1 = 12)
+        e@polygon %>%
+          dplyr::mutate(diagonal = x0 == y0) %>%
+          dplyr::filter((diagonal &
+                           dplyr::between(degree, l[corner], h[corner])) |
+                          (!diagonal & dplyr::between(degree, 270, 360))) %>%
+          dplyr::mutate(new_degree = revsort * degree) %>%
+          dplyr::arrange(new_degree)
+      }),
+    color = myfills[2],
+    linewidth = 1
+  ) + 
+  {x_label <- ob_label(
+    1:6,
+    p = purrr::pmap(tibble(
+      x0 = 1:6,
+      y0 = 1,
+      r = r,
+      space = space
+    ), make_e_center) %>% bind() + ob_point(0, -4),
+    color = "black",
+    size = 20
+  )} + 
+  {y_label <- ob_label(
+    paste0(1:6, "&frasl;6"),
+    p = purrr::pmap(tibble(
+      y0 = 1:6,
+      x0 = 1,
+      r = r,
+      space = space
+    ), make_e_center) %>% bind() + ob_point(-4, 0),
+    color = "black",
+    size = 24
+  )} +
+  (x_label@p@bounding_box@south + ob_point(0, -2))@label(
+    "Die roll is this value or less", 
+    size = 24) +
+  (y_label@p@bounding_box@west + ob_point(-2,0))@label(
+    "Probability", 
+    size = 24, 
+    angle = 90)
+
+
+
+
 ```
+
+
 
 The cumulative distribution function of the roll of a die (@fig-cdfDie) tells us that the probability of rolling at least a 4 is 4&frasl;6 (i.e., &frac23;).
 
-```{tikz codelatex-fig-cdfDie}
-#| code: !expr 'readLines("tex/cdfDie.tex")'
+```{r coder-fig-cdfDie}
+<<fig-cdfDie>>
 ```
 
 The cumulative distribution function is often distinguished from the probability mass function with a capital $F$ instead of a lowercase $f$. In the case of a discrete uniform distribution consisting of $n$ consecutive integers from $a$ to $b$, the cumulative distribution function is:
@@ -977,7 +1292,7 @@ p1 <- ggplot(d, aes(x, p)) +
     lwd = 1
   ) +
   scale_x_continuous("Sample Space (*x*)", labels = \(x) signs::signs(x, accuracy = 1)) +
-  scale_y_continuous("Proportion (*p*)", labels = prob_label) +
+  scale_y_continuous(paste0("Proportion (",whitespace(10),"*p*",whitespace(6),")"), labels = prob_label) +
   theme_minimal(base_size = 26, base_family = bfont) +
   coord_fixed(8) +
   annotate(
@@ -986,13 +1301,14 @@ p1 <- ggplot(d, aes(x, p)) +
     y = .5 + .25 / 4,
     label = paste0("*X* ~ ",
                    span_style("N", style = "font-family:'Lucida Calligraphy'"),
-                   "(0, 1<sup>2</sup>)"),
+                   whitespace(12),
+                   "(0, 1<sup>2</sup>",whitespace(8),")"),
     family = bfont,
     label.size = 0,
     label.padding = unit(0, "mm"),
     size = ggtext_size(26)
   ) +
-  ggtitle("Cumulative Distribution Function *F<sub>X</sub>*(*x*) = *p*") +
+  ggtitle(paste0("Cumulative Distribution Function *F<sub>X",whitespace(8),"</sub>*(*x*) = *p*")) +
   theme(
     plot.title = ggtext::element_markdown(size = 26 * 0.8), 
     plot.title.position = "plot",
@@ -1009,7 +1325,7 @@ p2 <- ggplot(d, aes(p, x)) +
     lwd = 1
   ) +
   scale_y_continuous("Sample Space (*x*)", labels = \(x) signs::signs(x, accuracy = 1)) +
-  scale_x_continuous("Proportion (*p*)", labels = prob_label) +
+  scale_x_continuous(paste0("Proportion (",whitespace(16),"*p*",whitespace(4),")"), labels = prob_label) +
   theme_minimal(base_size = 26, base_family = bfont) +
   coord_fixed(1 / 8) +
   annotate(
@@ -1018,13 +1334,14 @@ p2 <- ggplot(d, aes(p, x)) +
     x = .25,
     label = paste0("*X* ~ ",
                    span_style("N", style = "font-family:'Lucida Calligraphy'"),
-                   "(0, 1<sup>2</sup>)"),
+                   whitespace(12),
+                   "(0, 1<sup>2</sup>",whitespace(8),")"),
     family = bfont,
     label.size = 0,
     label.padding = unit(0, "mm"),
     size = ggtext_size(26)
   ) +
-  ggtitle("Quantile Function *Q*<sub>*X*</sub>(*p*) = *x*") +
+  ggtitle(paste0("Quantile Function *Q*",whitespace(2),"<sub>*X*",whitespace(8),"</sub>(",whitespace(12),"*p*",whitespace(8),") = *x*")) +
   theme(plot.title = ggtext::element_markdown(size = 26 * 0.8), 
         plot.title.position = "plot",
         axis.title.x = ggtext::element_markdown(),
@@ -1045,7 +1362,8 @@ As seen in @fig-cdfvquantile, if you see a graph of a continuous distribution fu
 
 In R, the `sample` function generates numbers from the discrete uniform distribution. 
 
-```{r demo-DiscreteUniformSample}
+```{r demo-DiscreteUniformSample, echo=-1}
+set.seed(1)
 # n = the sample size
 n <- 6000
 # a = the lower bound
@@ -1071,8 +1389,8 @@ X <- sample(sample_space,
 #| warning: false
 #| fig-column: margin
 #| fig-align: left
-# Frequency distribution of a discrete uniform random variable from 1 to 6 
 
+# Frequency distribution of a discrete uniform random variable from 1 to 6 
 tibble(X = factor(X)) %>% 
   group_by(X) %>% 
   summarise(Frequency = n()) %>% 
@@ -1125,18 +1443,54 @@ tibble::tribble(
 
 The toss of a single coin has the simplest probability distribution that I can think of---there are only two outcomes and each outcome is equally probable (@fig-coin). This is a special case of the [Bernoulli distribution]{.defword title="In the **Bernoulli distribution**, there are only two outcomes: a &ldquo;success&rdquo; (1) and a &ldquo;failure&rdquo; (0). If a success has a probability $p$ then a failure has a probability of $q = 1 - p$."}. Jakob Bernoulli (@fig-bernoullipic) was a famous mathematician from a famous family of mathematicians. The Bernoulli distribution is just one of the ideas that made Jakob and the other Bernoullis famous. 
 
-```{tikz codelatex-fig-coin}
-#| code: !expr 'readLines("tex/coin.tex")'
-```
 
 ```{r fig-coin}
 #| out-width: "300"
 #| fig-cap: "The probability distribution of a coin toss"
 #| fig-column: margin
 #| fig-align: left
-knitr::include_graphics("images/coin.svg")
+#| fig-width: 4
+#| fig-height: 3.5
+
+ggdiagram(bfont) +
+  ggimage::geom_image(data = tibble(
+    image = paste0("images/Quarter", 
+                   c("Heads", "Tails"), 
+                   ".png"), 
+    x = 0, 
+    y = c(2,1)),
+    aes(x,y, image = image), 
+    size = .35) +
+  ob_label(c("Sample Space", "Probability"), 
+           ob_point(c(0,1.35),2.5), 
+           size = 24, 
+           vjust = 0) +
+  {c1 <- ob_circle(ob_point(x = 0, 
+                            y = c(2,1)), 
+                   radius = .35, 
+                   color = NA, 
+                   fill = NA)} +
+  {l1 <- ob_label(
+    "&frac12;",
+    ob_point(x = 1.35, 
+             y = c(2,1)), 
+    size = 36)} +
+  connect(
+    c1,
+    l1@p ,
+    linewidth = 2,
+    resect_fins = 5,
+    resect_head = 10,
+    length_head = 4,
+    color = "gray70"
+  ) +
+  scale_x_continuous(NULL, expand = expansion(add = c(.3, .5))) +
+  scale_y_continuous(NULL, expand = expansion(add = c(-.1, .1))) 
 ```
 
+```{r coder-fig-coin}
+<<fig-coin>>
+```
 
 ```{r fig-bernoullipic}
 #| fig-cap: "Jakob Bernoulli (1654--1705)<br>[Image Credits](https://en.wikipedia.org/wiki/File:Jakob_Bernoulli.jpg)"
@@ -1229,17 +1583,42 @@ tibble::tribble(
 
 ```{r fig-twocoin}
 #| fig-cap: "Probability distribution of the number of heads observed when two coins are tossed"
-#| fig-width: 4
+#| fig-width: 8
+#| fig-height: 8
 #| out-width: "75%"
 #| fig-column: margin
 #| fig-align: left
-knitr::include_graphics("images/twocoin.svg")
+
+h <- dbinom(c(0,1,2), 2, .5)
+nudged <- c(.7, .3)
+tibble(x = c(0,1,2),
+       y = dbinom(x, 2, .5)) %>%
+  # mutate(x = factor(x)) %>% 
+ggplot(aes(x,y)) +
+  ob_rectangle(ob_point(c(0,1,2) , h / 2), 
+               height = h, 
+               width = .96, 
+               corner_radius = unit(5,"pt"), 
+               fill = myfills[1], 
+               color = NA) +
+  ggimage::geom_image(aes(x,y, image = i), 
+                      data = tibble(x = c(0,0,1,1,1,1,2,2),
+                                    y = c(.25 * nudged, .25 * nudged, .25 + .25 * nudged, .25 * nudged),
+                                    i = paste0("images/Quarter",
+                                               c("Heads", "Tails"), 
+                                               ".png")[c(2,2,2,1,1,2,1,1)]),
+                      size = .25) +
+  theme_minimal(base_size = 32, base_family = bfont) +
+  theme(panel.grid = element_blank(), axis.line.y = element_line("gray40", linewidth = .5), axis.ticks = element_line("gray40", linewidth = .5)) + 
+  scale_x_continuous("Number of Heads") +
+  scale_y_continuous(NULL, breaks = c(0,.25, .5), labels = WJSmisc::prob_label, expand = expansion(mult = c(0,.01)))
+
 ```
 
 Let's extend the idea of coin tosses and see where it leads. Imagine that two coins are tossed at the same time and we count how many heads there are. The outcome we might observe will be zero, one, or two heads. Thus, the sample space for the outcome of the tossing of two coins is the set $\{0,1,2\}$ heads. There is only one way that we will observe no heads (both coins tails) and only one way that we will observe two heads (both coins heads). In contrast, as seen in @fig-twocoin, there are two ways that we can observe one head (heads-tails \& tails-heads).
 
-```{tikz codelatex-fig-twocoin}
-#| code: !expr 'readLines("tex/twocoin.tex")'
+```{r coder-fig-twocoin}
+<<fig-twocoin>>
 ```
 
 
@@ -1803,981 +2182,3 @@ CumulativeProbability <- pgeom(x, prob = 0.6)
 plot(CumulativeProbability ~ x, type = "b") 
 ```
 
-## Continuous Distributions
-
-### Probability Density Functions {#sec:pdf}
-
-Although there are many more discrete distribution families, we will now consider some continuous distribution families. Most of what we have learned about discrete distributions applies to continuous distributions. However, there is a need of a name change for the probability mass function. In a discrete distribution, we can calculate an actual probability for a particular value in the sample space. In continuous distributions, doing so can be tricky. We can always calculate the probability that a score in a particular interval will occur. However, in continuous distributions, the intervals can become very small, approaching a width of 0. When that happens, the probability associated with that interval also approaches 0. Yet, some parts of the distribution are more probable than others. Therefore, we need a measure of probability that tells us the probability of a value *relative* to other values: the [probability density function]{.defword title="The **probability density function** is function that can show relative likelihoods of sample space elements of a continuous random variable."} 
-
-Considering the entire sample space of a discrete distribution, all of the associated probabilities from the probability mass function sum to 1. In a probability density function, it is the area under the curve that must sum to 1. That is, there is a 100\% probability that a value generated by the random variable will be somewhere under the curve. There is nowhere else for it to go!
-
-However, unlike probability mass functions, probability density functions do not generate probabilities. Remember, the probability of any value in the sample space of a continuous variable is infinitesimal. We can only compare the probabilities to each other. To see this, compare the discrete uniform distribution and continuous uniform distribution in @fig-pdfIllustration. Both distributions range from 1 to 4. In the discrete distribution, there are 4 points, each with a probability of &frac14;. It is easy to see that these 4 probabilities of &frac14; sum to 1. Because of the scale of the figure, it is not easy to see exactly how high the probability density function is in the continuous distribution. It happens to be &frac13;. Why? First, it does not mean that each value has a &frac13; probability. There are an infinite number of points between 1 and 4 and it would be absurd if each of them had a &frac13; probability. The distance between 1 and 4 is 3. In order for the rectangle to have an area of 1, its height must be &frac13;. What does that &frac13; mean, then? In the case of a single value in the sample space, it does not mean much at all. It is simply a value that we can compare to other values in the sample space. It could be scaled to any value, but for the sake of convenience it is scaled such that the area under the curve is 1. 
-
-Note that some probability density functions can produce values greater than 1. If the range of a continuous uniform distribution is less than 1, at least some portions of the curve must be greater than 1 to make the area under the curve equal 1. For example, if the bounds of a continuous distribution are 0 and &frac13;, the average height of the probability density function would need to be 3 so that the total area is equal to 1.
-
-### Continuous Uniform Distributions {#sec:Uniform}
-
-```{r tbl-continuousuniformfeatures}
-#| tbl-cap: "Features of Continuous Discrete Distributions"
-tribble(
-    ~Feature, ~Symbol,
-    "Lower Bound", r"($a  \in (-\infty,\infty)$)",
-    "Upper Bound", r"($b \in (a,\infty)$)",
-    "Sample Space", r"($x \in \lbrack a,b\rbrack$)",
-    "Mean", r"($\mu = \frac{a+b}{2}$)",
-    "Variance", r"($\sigma^2 = \frac{(b-a)^2-1}{12}$)" ,
-    "Skewness", r"($\gamma_1 = 0$)",
-    "Kurtosis", r"($\gamma_2 = -\frac{6}{5}$)",
-    "Probability Density Function", r"($f_X(x;a,b) = \frac{1}{b-a}$)",
-    "Cumulative Distribution Function", r"($F_X(x;a,b) = \frac{x-a}{b-a}$)") %>% 
-  knitr::kable()
-```
-
-
-Unlike the [discrete uniform distribution](#sec:DiscreteUniform), the uniform distribution is [continuous](#sec:DiscreteVsContinuous).^[For the sake of clarity, the uniform distribution is often referred to as the *continuous uniform distribution*.] In both distributions, there is an upper and lower bound and all members of the sample space are equally probable.
-
-#### Generating random samples from the continuous uniform distribution
-
-To generate a sample of $n$ numbers with a continuous uniform distribution between $a$ and $b$, use the `runif` function like so:
-
-```{r uniformdistgenerate}
-#| echo: true
-# Sample size
-n <- 1000
-# Lower and upper bounds
-a <- 10
-b <- 30
-# Sample
-x <- runif(n, min = a, max = b)
-```
-
-
-```{r fig-uniformdist}
-#| fig-cap: "Random sample (*n* = 1000) of a continuous uniform distribution between 10 and 30. Points are randomly jittered to show the distribution more clearly."
-#| fig-width: 6
-#| fig-height: 2
-#| fig-column: margin
-#| fig-align: left
-# Plot
-tibble(x) %>% 
-ggplot(aes(x, y = 0.5)) + 
-  geom_jitter(size = 0.5, 
-              pch = 16,
-              color = myfills[1], 
-              height = 0.45) +
-  scale_x_continuous(NULL) +
-  scale_y_continuous(NULL, 
-                     breaks = NULL, 
-                     limits = c(0,1), expand = expansion()) + 
-  theme_minimal(base_family = bfont, base_size = bsize)
-
-```
-
-```{r coder-fig-uniformdist}
-<<fig-uniformdist>>
-```
-
-
-#### Using the continuous uniform distribution to generate random samples from other distributions
-
-Uniform distributions can begin and end at any real number but one member of the uniform distribution family is particularly important---the uniform distribution between 0 and 1. If you need to use Excel instead of a statistical package, you can use this distribution to generate random numbers from many other distributions. 
-
-The cumulative distribution function of any continuous distribution converts into a continuous uniform distribution. A distribution's [quantile function](#sec:Quantile) converts a continuous uniform distribution into that distribution. Most of the time, this process also works for discrete distributions. This process is particularly useful for generating random numbers with an unusual distribution. If the distribution's quantile function is known, a sample with a continuous uniform distribution can easily be generated and converted.
-
-For example, the `RAND` function in Excel generates random numbers between 0 and 1 with a continuous uniform distribution. The `BINOM.INV` function is the binomial distribution's quantile function. Suppose that $n$ (number of Bernoulli trials) is 5 and $p$ (probability of success on each Bernoulli trial) is 0.6. A randomly generated number from the binomial distribution with $n=5$ and $p=0.6$ is generated like so:
-
-`=BINOM.INV(5,0.6,RAND())`
-
-Excel has quantile functions for many distributions (e.g., `BETA.INV, BINOM.INV, CHISQ.INV, F.INV, GAMMA.INV, LOGNORM.INV, NORM.INV, T.INV`). This method of combining `RAND` and a quantile function works reasonably well in Excel for quick-and-dirty projects, but when high levels of accuracy are needed, random samples should be generated in a dedicated statistical program like R, Python (via the numpy package), Julia, STATA, SAS, or SPSS.
-
-
-
-### Normal Distributions {#sec:normal}
-
-(Unfinished)
-
-
-
-
-```{r tbl-normalfeatures}
-#| tbl-colwidths: [30,70]
-#| tbl-cap: "Features of Normal Distributions"
-#| tbl-cap-location: margin
-tribble(
-  ~Feature, ~Symbol,
-  "Sample Space", r"($x \in (-\infty,\infty)$)",
-  "Mean", r"($\mu = \mathcal{E}\left(X\right)$)",
-  "Variance", r"($\sigma^2 = \mathcal{E}\left(\left(X - \mu\right)^2\right)$)",
-  "Skewness", r"($\gamma_1 = 0$)",
-  "Kurtosis", r"($\gamma_2 = 0$)",
-  "Probability Density Function", r"($f_X(x;\mu,\sigma^2) = \frac{1}{\sqrt{2 \pi \sigma ^ 2}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$)",
-  "Cumulative Distribution Function", r"($F_X(x;\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} {\displaystyle \int_{-\infty}^{x} e ^ {-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}dx}$)") %>% 
-  knitr::kable()
-```
-
-
-
-```{r fig-GaussImage}
-#| fig-cap: "Carl Friedrich Gauss (1777--1855)<br>[Image Credits](https://en.wikipedia.org/wiki/File:Carl_Friedrich_Gauss_1840_by_Jensen.jpg)"
-#| out-width: "300"
-#| fig-column: margin
-#| fig-align: left
-knitr::include_graphics("images/Carl_Friedrich_Gauss2.jpg")
-```
-
-The normal distribution is sometimes called the *Gaussian* distribution after its discoverer, Carl Friedrich Gauss [@fig-GaussImage]. It is a small injustice that most people do not use Gauss's name to refer to the normal distribution. Thankfully, Gauss is not exactly languishing in obscurity. He made so many discoveries that his name is all over mathematics and statistics.
-
-
-The normal distribution is probably the most important distribution in statistics and in psychological assessment. In the absence of other information, assuming that an individual difference variable is normally distributed is a good bet. Not a sure bet, of course, but a good bet. Why? What is so special about the normal distribution? 
-
-To get a sense of the answer to this question, consider what happens to the binomial distribution as the number of events ($n$) increases. To make the example more concrete, let's assume that we are tossing coins and counting the number of heads $(p=0.5)$. In @fig-ManyCoins, the first plot shows the probability mass function for the number of heads when there is a single coin $(n=1)$). In the second plot, $n=2$ coins. That is, if we flip 2 coins, there will be 0, 1, or 2 heads. In each subsequent plot, we double the number of coins that we flip simultaneously. Even with as few as 4 coins, the distribution begins to resemble the normal distribution, although the resemblance is very rough. With 128 coins, however, the resemblance is very close.
-
-```{r fig-ManyCoins}
-#| fig-cap: "The binomial distribution begins to resemble the normal distribution when the number of events is large."
-#| fig-cap-location: margin
-x_breaks <- function(x) { 
-  if (max(x) < 10) {
-    seq(0, 10)
-  } else {
-    m <- mean(x)
-    d <- ifelse(max(x) < 32, 4, 8)
-    
-      seq(m - d * 5, m + d * 5, d) }
-}
-
-
-y_breaks <- function(x) {
-  if (max(x) == 0.5) {
-    seq(0,.5, 0.1)
-    } else {
-    if (max(x) == 0.2) seq(0, .2, 0.05)
-  }
-}
-
-
-tibble(coins = as.integer(2 ^ seq(0, 7))) %>% 
-  mutate(Heads = map(coins, seq, from = 0)) %>% 
-  unnest(Heads) %>% 
-  mutate(p = dbinom(x = Heads, size = coins, prob = 0.5),
-         coin_label = paste0(coins, 
-                             " Coin", 
-                             ifelse(coins > 1, "s", "")) %>% 
-           fct_inorder(),
-         highest = case_when(coins == 1 ~ 0.5,
-                             coins == 16 ~ 0.2,
-                             coins > 16 ~ 0.19999999999,
-                             TRUE ~ .49999999999999)) %>% 
-  dplyr::filter(p > 0.0001) %>% 
-  ggplot(aes(Heads, p)) + 
-  geom_col(fill = myfills[1], 
-           width = 1, 
-           color = "white", 
-           linewidth = 0.1) +
-  facet_wrap(~coin_label, scales = "free", nrow = 2) + 
-  scale_y_continuous("Probability", 
-                     breaks = y_breaks, 
-                     expand = expansion(c(0,NA)), 
-                     labels = prob_label) +
-  scale_x_continuous("Number of Heads", 
-                     breaks = x_breaks, 
-                     minor_breaks = NULL) + 
-  theme_minimal(base_size = bsize, 
-                base_family = bfont) +
-  theme(panel.grid = element_blank()) + 
-  geom_blank(aes(y = highest))
-```
-
-
-
-This resemblance to the normal distribution in the example is not coincidental to the fact that $p=0.5$, making the binomial distribution symmetric. If $p$ is extreme (close to 0 or 1), the binomial distribution is asymmetric. However, if $n$ is large enough, the binomial distribution eventually becomes very close to normal.
-
-Many other distributions, such as the Poisson, Student's T, F, and $\chi^2$ distributions, have distinctive shapes under some conditions but approximate the normal distribution in others (See @fig-nearlynormal). Why? In the conditions in which non-normal distributions approximate the normal distribution, it is because, like in @fig-ManyCoins, many independent events are summed.
-
-```{r fig-nearlynormal}
-#| fig-cap: "Many distributions become nearly normal when their parameters are high."
-#| fig-height: 8
-#| fig-width: 7
-#| fig-cap-location: margin
-textsize = 5
-
-chi8 <- tibble(x = seq(0,30,0.01), 
-       y = dchisq(x,df = 8), 
-       distribution = "chi^2",
-       NN = "Not~Normal") %>% 
-  mutate(y = y / max(y)) %>% 
-  ggplot(aes(x,y)) + 
-  geom_area(fill = myfills[1]) + 
-  theme_void(base_family = bfont, 
-             base_size = 20) + 
-  ggtitle("Not Normal") +
-  theme(
-    plot.title = element_text(hjust = 0.5, 
-                              margin = margin(b = 10),
-                              family = bfont)) +
-  annotate(geom = "text", x = 8, 
-           y = 0.10, 
-           label = "chi^2 * (italic(df) == 4)", 
-           parse = T, 
-           size = textsize, 
-           family = bfont, 
-           color = "white")
-
-chi80 <- tibble(x = seq(100,220,0.01), 
-       y = dchisq(x,df = 160), 
-       distribution = "chi^2",
-       NN = "Not~Normal") %>% 
-  mutate(y = y / max(y)) %>% 
-  ggplot(aes(x,y)) + 
-  geom_area(fill = myfills[1]) + 
-  theme_void(base_family = bfont, 
-             base_size = 20) + 
-  theme(
-    plot.title = element_text(hjust = 0.5, 
-                              margin = margin(b = 10), 
-                              family = bfont)) +
-  ggtitle("Nearly Normal") +
-  annotate(geom = "text", 
-           x = 160, 
-           y = 0.10, 
-           label = "chi^2 * (italic(df) == 160)", 
-           parse = T, 
-           size = textsize, 
-           family = bfont, 
-           color = "white")
-
-pois3 <- tibble(x = seq(0,8), 
-       y = dpois(x,lambda = 3), 
-       distribution = "poisson",
-       NN = "Not~Normal") %>% 
-  mutate(y = y / max(y)) %>% 
-  ggplot(aes(x,y)) + 
-  geom_line(linetype = "dotted") +
-  geom_point(color = myfills[1], 
-             pch = 16, 
-             size = 3) + 
-  theme_void() + 
-  scale_y_continuous(limits = c(0,1)) +
-  annotate(geom = "text", 
-           x = 3.5, 
-           y = 0.1, 
-           label = "Poisson~ (lambda == 3)", 
-           parse = T, 
-           size = textsize, 
-           family = bfont)
-
-
-pois30 <- tibble(x = seq(10,50), 
-       y = dpois(x,lambda = 30), 
-       distribution = "poisson",
-       NN = "Not~Normal") %>% 
-  mutate(y = y / max(y)) %>% 
-  ggplot(aes(x,y)) + 
-  geom_line(linetype = "dotted") +
-  geom_point(color = myfills[1], 
-             pch = 16, 
-             size = 3) + 
-  theme_void() + 
-  scale_y_continuous(limits = c(0,1)) +
-  annotate(geom = "text", 
-           x = 30.1, 
-           y = 0.1, 
-           label = "Poisson~ (lambda == 30)", 
-           parse = T, 
-           size = textsize, 
-           family = bfont)
-
-t2 <- tibble(x = seq(-6,6,0.01), 
-       y = dt(x,df = 2), 
-       distribution = "t",
-       NN = "Not~Normal") %>% 
-  mutate(y = y / max(y)) %>% 
-  ggplot(aes(x,y)) + 
-  geom_area(fill = myfills[1]) + 
-  theme_void() + 
-  scale_y_continuous(limits = c(0,1)) +
-  annotate(geom = "text", 
-           x = 0, 
-           y = 0.1, 
-           label = "italic(t)~ (italic(df) == 2)", 
-           parse = T, 
-           size = textsize, 
-           family = bfont, 
-           color = "white")
-
-t30 <- tibble(x = seq(-5,5,0.01), 
-       y = dt(x,df = 30), 
-       distribution = "t",
-       NN = "Not~Normal") %>% 
-  mutate(y = y / max(y)) %>% 
-  ggplot(aes(x,y)) + 
-  geom_area(fill = myfills[1]) + 
-  theme_void() + 
-  scale_y_continuous(limits = c(0,1)) +
-  annotate(geom = "text", 
-           x = 0, 
-           y = 0.1, 
-           label = "italic(t)~ (italic(df) == 30)", 
-           parse = T, 
-           size = textsize, 
-           family = bfont, 
-           color = "white")
-
-
-(chi8 + chi80) /
-  (pois3 + pois30) /
-  (t2 + t30)
-```
-
-#### Notation for Normal Variates
-
-Statisticians write about variables with normal distributions so often that a compact notation for specifying a normal variable's parameters was useful to develop. If I want to specify that $X$ is a normally  variable with a mean of $\mu$ and a variance of $\sigma^2$, I will use this notation: 
-
-$$X \sim \mathcal{N}(\mu, \sigma^2)$$ 
-
-```{r tbl-normal_notation}
-#| tbl-cap: "Features of Half-Normal Distributions"
-#| tbl-colwidths: [40,60]
-tibble::tribble(
-  ~Symbol,                                                                           ~Meaning,
-  "$X$",                             "A random variable.",
-  "$\\sim$",         "Is distributed as",
-  "$\\mathcal{N}$", "Has a normal distribution",
-  "$\\mu$", "The population mean",
-  "$\\sigma^2$", "The population variance") %>% 
-  knitr::kable() %>% 
-  html_table_width(150)
-```
-
-
-Many authors list the standard deviation $\sigma$ instead of the variance $\sigma^2$. When I specify normal distributions with specific means and variances, I will avoid ambiguity by always showing the variance as the standard deviation squared. For example, a normal variate with a mean of 10 and a standard deviation of 3 will be written as $X \sim \mathcal{N}(10,3^2)$.
-
-```{r fig-PercentileContinuous}
-#| fig-width: 10.5
-#| fig-height: 7
-#| fig-cap: "Percentiles convert a distribution into a uniform distribution"
-#| fig-cap-location: margin
-
-par(mar = c(4, 0, 4, 0), family = bfont)
-p <- seq(5, 95, 5) / 100
-z <- qnorm(p)
-
-x <- seq(-4, 4, 0.01)
-y <- dnorm(x)
-plot(
-  y ~ x,
-  type = "n",
-  axes = FALSE,
-  ylim = c(0, .5),
-  xlab = NA,
-  ylab = NA
-)
-polygon(
-  c(min(x), x, max(x)),
-  c(0, y, 0),
-  col = myfills[1],
-  lwd = 1,
-  xpd = FALSE,
-  border = NA
-)
-
-p1 <- seq(1, 99, 1) / 100
-z1 <- qnorm(p1)
-for (zi in z1) {
-  lines(c(zi, zi), c(0, dnorm(zi)), lwd = 1, col = "gray80")
-}
-for (zi in z) {
-  lines(c(zi, zi), c(0, dnorm(zi)), lwd = 1)
-}
-
-
-ps1 <- seq(-4 * 49 / 50, 4 * 49 / 50, 0.08)
-for (i in 1:99) {
-  lines(c(ps1[i], z1[i]), c(.52, dnorm(z1[i])), xpd = TRUE, col = "gray80")
-}
-ps <- seq(-3.6, 3.6, 0.4)
-for (i in 1:19) {
-  lines(c(ps[i], z[i]), c(.52, dnorm(z[i])), xpd = TRUE, lwd = 1)
-}
-axis(
-  1, 
-  at = seq(-4, 4), 
-  line = -0.5, 
-  labels = signs::signs(seq(-4,4), accuracy = 1),
-  cex.axis = 1.8)
-axis(
-  3,
-  line = -0.3, 
-  at = seq(-4, 4, 0.8),
-  labels = seq(0, 100, 10),
-  tick = FALSE, 
-  cex.axis = 1.8
-)
-axis(
-  3,
-  at = seq(-4, 4, 0.08),
-  labels = NA,
-  lwd = 1,
-  col = "gray80"
-)
-axis(3,
-     at = seq(-4, 4, 0.4),
-     labels = NA,
-     lwd = 1)
-#axis(3,at=z,labels=p*100)
-mtext("Percentiles", side = 3, line = 2.2, 
-      cex = 2)
-mtext("z-scores", side = 1, line = 1.8, 
-      cex = 2)
-```
-
-
-
-
-```{r fig-percentileuneven}
-#| fig-width: 8
-#| fig-height: 8
-#| fig-cap: "Evenly spaced percentile ranks are associated with unevenly spaced scores."
-#| fig-cap-location: margin
-
-
-tibble(y = seq(0.01,.99, 0.01),
-       x = qnorm(y, 100, 15)) %>% 
-ggplot(aes(x, y)) + 
-  geom_segment(aes(xend = 60, yend = y), color = myfills[1], linewidth = 0.2) +
-  geom_segment(aes(xend = x, yend = 0), color = myfills[2], linewidth = 0.2) + 
-  stat_function(xlim = c(60,140), fun = function(x) pnorm(x, 100, 15)) + 
-  scale_x_continuous("Standard Score", breaks = seq(60, 140, 10), 
-                     expand = expansion(c(0.01,NA))) + 
-  scale_y_continuous("Percentile Rank", 
-                     breaks = seq(0,1, 0.1), 
-                     expand = expansion(c(0.01,NA)),
-                     limits = c(0,1),
-                     labels = function(x) scales::percent(x, suffix = "", 
-                                                          accuracy = 1)) + 
-  coord_flip(ylim = c(0,1.01)) +
-  theme(panel.grid = element_blank(), axis.ticks = element_line(linewidth = 0.25)) +
-  ggfx::with_outer_glow(
-    colour = "white",
-    expand = 3,
-    annotate(x = 100, 
-             y = .02, 
-             color = myfills[2],
-             hjust = 0,
-             lineheight = 0.9, 
-             size = ggtext_size(20),
-             label = "Standard scores tightly\nbunched near the mean", 
-             geom = "text")) +
-  annotate(x = mean(c(qnorm(.99, 100, 15), qnorm(0.98, 100, 15))), 
-           y = .01, 
-           color = myfills[2],
-           hjust = 0,
-           lineheight = 0.9, 
-           size = ggtext_size(20),
-           label = "Standard scores spread out at the extremes", geom = "text") +
-  ggfx::with_outer_glow(
-    colour = "white",
-    expand = 4,
-    annotate(x = 80, 
-             y = .5,
-             color = myfills[1],
-             lineheight = 0.9, 
-             size = ggtext_size(20), 
-             label = "Evenly spaced percentile ranks", 
-             geom = "text"))
-```
-
-
-```{r fig-scoreuneven}
-#| fig-width: 8
-#| fig-height: 8
-#| fig-cap: "Evenly spaced scores are associated with unevenly spaced percentiles"
-#| fig-cap-location: margin
-
-tibble(x = seq(60,140, 1),
-       y = pnorm(x, 100, 15)) %>% 
-ggplot(aes(x, y)) + 
-  geom_segment(aes(xend = 60, yend = y), color = myfills[1], linewidth = 0.2) +
-  geom_segment(aes(xend = x, yend = 0), color = myfills[2], linewidth = 0.2) +
-  stat_function(xlim = c(60,140), fun = function(x) pnorm(x, 100, 15)) + 
-  scale_x_continuous("Standard Score", 
-                     breaks = seq(60, 140, 10),
-                     expand = expansion(c(0.01,0.02))) +
-  scale_y_continuous("Percentile Rank", 
-                     breaks = seq(0,1, 0.1), 
-                     expand = expansion(c(0.01,NA)),
-                     limits = c(0,1),
-                     labels = function(x) scales::percent(x, suffix = "", 
-                                                          accuracy = 1)) +
-  theme(panel.grid = element_blank(), axis.ticks = element_line(linewidth = 0.25)) +
-  ggfx::with_outer_glow(
-    colour = "white",
-    expand = 4,
-    annotate(x = 61, 
-             y = .5, 
-             color = myfills[1],
-             hjust = 0,
-             lineheight = 0.9, 
-             size = ggtext_size(20),
-             label = "Percentile ranks spread\nthin near the mean", 
-             geom = "text")) +
-  ggfx::with_outer_glow(
-    colour = "white",
-    expand = 2,
-    annotate(x = 61, 
-             y = .95,
-             hjust = 0,
-             color = myfills[1],
-             size = ggtext_size(20),
-             lineheight = 0.9, 
-             label = "Percentile ranks densely packed at the extremes", 
-             geom = "text")) +
-  ggfx::with_outer_glow(
-    colour = "white",
-    expand = 4,
-    annotate(x = 120, 
-             y = .5, 
-             color = myfills[2],
-             size = ggtext_size(20),
-             lineheight = 0.9, 
-             label = "Evenly spaced\nstandard scores", 
-             geom = "text"))
-
-```
-
-
-#### Half-Normal Distribution
-
-(Unfinished)
-
-
-
-
-```{r tbl-halfnormalfeatures}
-#| tbl-cap: "Features of Half-Normal Distributions"
-#| tbl-colwidths: [40,60]
-tribble(
-  ~Feature, ~Symbol,
-  "Sample Space", r"($x \in [\mu,\infty)$)",
-  "Mu", r"($\mu \in (-\infty,\infty)$)",
-  "Sigma", r"($\sigma \in [0,\infty)$)",
-  "Mean", r"($\mu + \sigma\sqrt{\frac{2}{\pi}}$)",
-  "Variance", r"($\sigma^2\left(1-\frac{2}{\pi}\right)$)",
-  "Skewness", r"($\sqrt{2}(4-\pi)(\pi-2)^{-\frac{3}{2}}$)",
-  "Kurtosis", r"($8(\pi-3)(\pi-2)^{-2}$)",
-  "Probability Density Function", r"($f_X(x;\mu,\sigma) = \sqrt{\frac{2}{\pi \sigma ^ 2}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$)",
-  "Cumulative Distribution Function", r"($F_X(x;\mu,\sigma) = \sqrt{\frac{2}{\pi\sigma}} {\displaystyle \int_{\mu}^{x} e ^ {-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}dx}$)") %>% 
-  knitr::kable()
-
-```
-
-```{r fig-halfnormal}
-#| fig-height: 8
-#| fig-cap: "The half-normal distribution is the normal distribution with the left half of the distribution stacked on top of the right half of the distribution."
-
-# Half normal distribution
-xlim <- 4
-n <- length(seq(-xlim, 0, 0.01))
-t1 <- tibble(
-  x = c(0,-xlim,
-        seq(-xlim, 0, 0.01),
-        0,
-        0,
-        seq(0, xlim, 0.01),
-        xlim,
-        0),
-  y = c(0,
-        0,
-        dnorm(seq(-xlim, 0, 0.01)),
-        0,
-        0,
-        dnorm(seq(0, xlim, 0.01)),
-        0,
-        0),
-  side = c(rep(F, n + 3), rep(T, n + 3)),
-  Type = 1
-)
-t2 <- t1 %>%
-  mutate(y = if_else(side, y, 2 * y)) %>%
-  mutate(x = abs(x),
-         Type = 2)
-
-bind_rows(t1, t2) %>%
-  mutate(Type = factor(Type)) %>%
-  ggplot(aes(x, y, fill = side)) +
-  geom_polygon() +
-  geom_text(
-    data = tibble(
-      x = 0,
-      y = dnorm(0) * c(1, 2) + 0.14,
-      Type = factor(c(1,2)),
-      label = c(
-        "Normal",
-        "Half-Normal"),
-      side = T),
-    aes(label = label),
-    family = bfont, fontface = "bold",
-    size = ggtext_size(30), 
-    vjust = 1
-  ) +
-  geom_richtext(
-    data = tibble(
-      x = 0,
-      y = dnorm(0) * c(1, 2) + 0,
-      Type = factor(c(1,2)),
-      label = c(
-        paste0("*X* ~ ",
-               span_style("N", style = "font-family:'Lucida Calligraphy'"),
-               "(*",
-               span_style("&mu;"),
-               "*, *",
-               span_style("&sigma;"),
-               "*<sup>2</sup>)"),
-        paste0("*X* ~ |",
-               span_style("N", style = "font-family:'Lucida Calligraphy'"),
-               "(0, *",
-               span_style("&sigma;"),
-               "*<sup>2</sup>)| + *",
-               span_style("&mu;"),
-               "*")),
-      side = T),
-    aes(label = label),
-    family = c("Equity Text A"),
-    size = ggtext_size(30), 
-    vjust = 0, 
-    label.padding = unit(0,"lines"), 
-    label.color = NA,
-    fill = NA) +
-  theme_void(base_size = 30,
-                base_family = bfont) +
-  theme(
-    legend.position = "none",
-    strip.text = element_blank()
-  ) +
-  scale_fill_manual(values = myfills) +
-  facet_grid(rows = vars(Type), space = "free_y", scales = "free_y") 
-  
-
-
-
-
-```
-
-```{r coder-fig-halfnormal}
-<<fig-halfnormal>>
-```
-
-Suppose that $X$ is a normally distributed variable such that 
-
-$$X \sim \mathcal{N}(\mu, \sigma^2)$$
-
-Variable $Y$ then has a half-normal distribution such that $Y = |X-\mu|+\mu$. In other words, imagine that a normal distribution is folded at the mean with the left half of the distribution now stacked on top of the right half of the distribution (See @fig-halfnormal).
-
-
-
-
-#### Truncated Normal Distributions
-
-(Unfinished)
-
-#### Multivariate Normal Distributions
-
-(Unfinished)
-
-
-### Chi Square Distributions
-
-(Unfinished)
-
-```{r tbl-chisquarefeatures}
-#| tbl-cap: "Features of Chi-Square Distributions"
-#| tbl-cap-location: margin
-#| tbl-colwidths: [50,50]
-tribble(
-  ~Feature, ~Symbol,
-  "Sample Space", r"($x \in [0,\infty)$)",
-  "Degrees of freedom", r"($\nu \in [0,\infty)$)",
-  "Mean", r"($\nu$)",
-  "Variance", r"($2\nu$)",
-  "Skewness", r"($\sqrt{8/\nu}$)",
-  "Kurtosis", r"($12/\nu$)",
-  "Probability Density Function", r"($f_X(x;\nu) = \frac{x^{\nu/2-1}}{2^{\nu/2}\;\Gamma(\nu/2)\,\sqrt{e^x}}$)",
-  "Cumulative Distribution Function", r"($F_X(x;\nu) = \frac{\gamma\left(\frac{\nu}{2},\frac{x}{2}\right)}{\Gamma(\nu/2 )}$)") %>% 
-  knitr::kable() 
-
-```
-
-I have always thought that the $\chi^2$ distribution has an unusual name. The *chi* part is fine, but why *square*? Why not call it the $\chi$ distribution?^[Actually, there *is* a $\chi$ distribution. It is simply the square root of the $\chi^2$ distribution. The half-normal distribution happens to be a $\chi$ distribution with 1 degree of freedom.] As it turns out, the $\chi^2$ distribution is formed from squared quantities.
-
-
-[**Notation note**: A $\chi^2$ distribution with $\nu$ degrees of freedom can be written as $\chi^2_\nu$ or $\chi^2(\nu)$.]{.column-margin}
-
-
-The $\chi^2$ distribution has a straightforward relationship with the normal distribution. It is the sum of multiple independent squared normal variates. That is, if $z$ is a standard normal variate--- $z\sim\mathcal{N}(0,1^2)$---then $z^2$ has a $\chi^2$ distribution with 1 degree of freedom $(\nu)$:
-
-
-$$z^2\sim \chi^2_1$$
-
-
-If $z_1$ and $z_2$ are independent standard normal variates, the sum of their squares has a $\chi^2$ distribution with 2 degrees of freedom:
-
-$$z_1^2+z_2^2 \sim \chi^2_2$$
-If $\{z_1,z_2,\ldots,z_{\nu} \}$ is a series of $\nu$ independent standard normal variates, the sum of their squares has a $\chi^2$ distribution with $\nu$ degrees of freedom: 
-
-$$\sum^\nu_{i=1}{z_i^2} \sim \chi^2_\nu$$
-
-#### Clinical Uses of the $\chi^2$ distribution
-
-The $\chi^2$ distribution has many applications, but the mostly likely of these to be used in psychological assessment is the $\chi^2$ Test of Goodness of Fit and the $\chi^2$ Test of Independence. 
-
-Suppose we suspect that a child's temper tantrums are more likely to occur on weekdays than on weekends. The child's mother has kept a record of each tantrum for the past year and was able to count the frequency of tantrums. If tantrums were equally likely to occur on any day, 5 of 7 tantrums should occur on weekdays, and 2 of 7 tantrums should occur on weekends. The observed frequencies are compared with the expected frequencies below.
-
-$$\begin{array}{r|c|c|c}
-& \text{Weekday} & \text{Weekend} & \text{Total} \\
-\hline
-\text{Observed Frequency}\, (o) & 14 & 13 & n=27\\
-\text{Expected Proportion}\,(p) & \frac{5}{7} & \frac{2}{7} & 1\\
-\text{Expected Frequency}\, (e = np)& 27\times \frac{5}{7}= 19.2857& 27\times \frac{2}{7}= 7.7143& 27\\
-\text{Difference}\,(o-e) & -5.2857 & 5.2857&0\\
-\frac{(o-e)^2}{e} & 1.4487 & 3.6217 & \chi^2 = 5.07
-\end{array}$$
-
-In the table above, if the observed frequencies $(o_i)$ are compared to their respective expected frequencies $(e_i)$, then:
-
-$$\chi^2_{k-1}=\sum_{i=1}^k{\frac{(o_i-e_i)^2}{e_i}}=5.07$$
-
-Using the $\chi^2$ cumulative distribution function, we find that the probability of observing the frequencies listed is low under the assumption that tantrums are equally likely each day. 
-
-
-```{r demo-expectedfrequencies}
-observed_frequencies <- c(14, 13)
-expected_probabilities <- c(5,2) / 7
-
-fit <- chisq.test(observed_frequencies, p = expected_probabilities)
-fit
-
-# View expected frequencies and residuals
-broom::augment(fit)
-```
-
-
-```{r}
-d_table <- tibble(A = rbinom(100, 1, 0.5)) |> 
-  mutate(B = rbinom(100, 1, (A + 0.5) / 3)) |>
-  table() 
-
-d_table |> 
-  as_tibble() |> 
-  pivot_wider(names_from = A,
-              values_from = n) |> 
-knitr::kable(align = "lcc") |>
-  kableExtra::kable_styling(bootstrap_options = "basic") |>
-  kableExtra::collapse_rows() |> 
-  kableExtra::add_header_above(header = c(` ` = 1, A = 2)) |> 
-  html_table_width(400)
-
-fit <- chisq.test(d_table)
-
-broom::augment(fit)
-```
-
-
-
-### Student's *t* Distributions
-
-```{r tbl-tfeatures}
-#| tbl-cap: "Features of *t* Distributions<br>**Notation note**: $\\Gamma$ is the gamma function. $_2F_1$ is the hypergeometric function."
-#| tbl-cap-location: margin
-#| tbl-colwidths: [50,50]
-
-
-
-tribble(
-  ~Feature, ~Symbol,
- "Sample Space", r"($x \in (-\infty,\infty)$)",
-  "Degrees of Freedom", r"($\nu \in (0,\infty)$)",
-  "Mean", r"($\left\{
-\begin{array}{ll}
-      0 & \nu \gt  1 \\
-      \text{Undefined} & \nu \le 1 \\
-\end{array} 
-\right.$)",
-  "Variance", r"($\left\{
-\begin{array}{ll}
-      \frac{\nu}{\nu-2} & \nu\gt 2 \\
-      \infty & 1 \lt \nu \le 2\\
-      \text{Undefined} & \nu \le 1 \\
-\end{array} 
-\right.$)",
-  "Skewness", r"($\left\{
-\begin{array}{ll}
-      0 & \nu \gt  3 \\
-      \text{Undefined} & \nu \le 3 \\
-\end{array} 
-\right.$)",
-  "Kurtosis", r"($\left\{
-\begin{array}{ll}
-      \frac{6}{\nu-4} & \nu \gt 4 \\
-      \infty & 2 \lt \nu \le 4\\
-      \text{Undefined} & \nu \le 2 \\
-\end{array} 
-\right.$)",
-  "Probability Density Function", r"($f_X(x; \nu) = \frac{\Gamma(\frac{\nu+1}{2})} {\sqrt{\nu\pi}\,\Gamma(\frac{\nu}{2})} \left(1+\frac{x^2}{\nu} \right)^{-\frac{\nu+1}{2}}$)",
-  "Cumulative Distribution Function", r"($F_X(x; \nu)=\frac{1}{2} + x \Gamma \left( \frac{\nu+1}{2} \right)  \frac{\phantom{\,}_{2}F_1 \left(\frac{1}{2},\frac{\nu+1}{2};\frac{3}{2};-\frac{x^2}{\nu} \right)} {\sqrt{\pi\nu}\,\Gamma \left(\frac{\nu}{2}\right)}$)") %>% 
-  kable() 
-```
-
-
-```{r fig-gosset}
-#| fig-cap-location: top
-#| fig-cap: '"Student" statistician, William Sealy Gosset (1876--1937)<br>[Image Credit](https://en.wikipedia.org/wiki/File:William_Sealy_Gosset.jpg)'
-#| out-width: "60%"
-#| fig-column: margin
-knitr::include_graphics("images/william_sealy_gosset.jpg")
-```
-
-(Unfinished)
-
-Guinness Beer gets free advertisement every time the origin story of the Student *t* distribution is retold, and statisticians retell the story often. The fact that the original purpose of the *t* distribution was to brew better beer seems too good to be true. 
-
-William Sealy Gosset (1876--1937), self-trained statistician and head brewer at Guinness Brewery in Dublin, continually experimented on small batches to improve and standardize the brewing process. With some help from statistician Karl Pearson, Gosset used then-current statistical methods to analyze his experimental results. Gosset found that Pearson's methods required small adjustments when applied to small samples. With Pearson's help and encouragement (and later from Ronald Fisher), Gosset published a series of innovative papers about a wide range of statistical methods, including the *t* distribution, which can be used to describe the distribution of sample means.
-
-Worried about having its trade secrets divulged, Guinness did not allow its employees to publish scientific papers related to their work at Guinness. Thus, Gosset published his papers under the pseudonym, "A Student." The straightforward names of most statistical concepts need no historical treatment. Few of us who regularly use the Bernoulli, Pareto, Cauchy, and Gumbell distributions could tell you anything about the people who discovered them. But the oddly named "Student's *t* distribution" cries out for explanation. Thus, in the long run, it was Gosset's anonymity that made him famous. 
-
-
-
-
-
-
-```{r fig-tnorm}
-#| fig-cap: "The *t* distribution approaches the standard normal distribution as the degrees of freedom (*df*) parameter increases."
-#| fig-column: margin
-#| fig-align: left
-knitr::include_graphics("images/tdist_norm.gif")
-```
-
-```{r coder-fig-tnorm}
-# The t distribution approaches the normal distribution
-d <- crossing(x = seq(-6,6,0.02), 
-         df = c(seq(1,15,1),
-                seq(20,45,5),
-                seq(50,100,10),
-                seq(200,700,100))) %>%
-  mutate(y = dt(x,df),
-         Normal = dnorm(x)) 
-
-t_size <- 40
-
-d_label <- d %>% 
-  select(df) %>% 
-  unique() %>% 
-  mutate(lb = qt(.025, df),
-         ub = qt(0.975, df)) %>% 
-  pivot_longer(c(lb, ub), values_to = "x", names_to = "bounds") %>% 
-  mutate(label_x = signs::signs(x, accuracy = .01),
-         y = 0,
-         yend = dt(x, df))
-
-p <- ggplot(d, aes(x, y)) + 
-  geom_area(aes(y = Normal), alpha = 0.25, fill = myfills[1]) +
-  geom_line() +
-  geom_area(data = . %>% filter(x >= 1.96), 
-            alpha = 0.25, 
-            fill = myfills[1],
-            aes(y = Normal)) +
-  geom_area(data = . %>% filter(x <= -1.96), 
-            alpha = 0.25, 
-            fill = myfills[1],
-            aes(y = Normal)) +
-  geom_text(data = d_label, 
-            aes(label = label_x), 
-            family = bfont, 
-            vjust = 1.25,
-            size = ggtext_size(t_size)) + 
-  geom_text(data = d_label %>% select(df) %>% unique,
-            aes(x = 0, y = 0, label = paste0("df = ", df)), 
-            vjust = 1.25, 
-            family = bfont,
-            size = ggtext_size(t_size)) + 
-  geom_segment(data = d_label, aes(xend = x, yend = yend)) +
-  transition_states(states = df, 
-                    transition_length =  1, 
-                    state_length = 2) +
-  theme_void(base_size = t_size, base_family = bfont) +
-  # labs(title = "df = {closest_state}") +
-  annotate(x = qnorm(c(0.025, 0.975)), 
-           y = 0, 
-           label = signs::signs(qnorm(c(0.025, 0.975)), accuracy = .01), 
-           geom = "text", 
-           size = ggtext_size(t_size),
-           color = myfills[1],
-           vjust = 2.6, 
-           family = bfont) + 
-  coord_cartesian(xlim = c(-6,6), ylim = c(-.045, NA)) 
-
-animate(p, 
-        renderer = magick_renderer(), 
-        device = "svglite", 
-        fps = 2, 
-        height = 6, 
-        width = 10)
-gganimate::anim_save("tdist_norm.gif")
-```
-
-#### The *t* distribution's relationship Relationship to the normal distribution.
-
-Suppose we have two independent standard normal variates $Z_0 \sim \mathcal{N}(0, 1^2)$ and $Z_1 \sim \mathcal{N}(0, 1^2)$. 
-
-A *t* distribution with one degree of freedom is created like so:
-
-$$
-T_1 = z_0\sqrt{\frac{1}{z_1^2}}
-$$
-
-A *t* distribution with two degrees of freedom is created like so:
-
-$$
-T_2 = z_0\sqrt{\frac{2}{z_1^2 + z_2^2}}
-$$
-
-Where $z_0$, $z_1$ and $z_2$ are independent standard normal variates.
-
-A *t* distribution with $\nu$ degrees of freedom is created like so:
-
-$$
-T_v = z_0\sqrt{\frac{\nu}{\sum_{i=1}^\nu z_i^2}}
-$$
-
-The sum of $\nu$ squared standard normal variates $\left(\sum_{i=1}^\nu z_i^2\right)$ has a $\chi^2$ distribution with $\nu$ degrees of freedom, which has a mean of $\nu$. Therefore, $\sqrt{\frac{\nu}{\sum_{i=1}^\nu z_i^2}}$, on average, equals one. However, the expression $\sqrt{\frac{\nu}{\sum_{i=1}^\nu z_i^2}}$ has a variability approaches 0 as $\nu$ increases. When $\nu$ is high, $z_0$ is being multiplied by a value very close to 1. Thus, $T_\nu$ is nearly normal at high levels of $nu$. 
-
-
-
-## Additional Distributions
-
-### F Distributions
-
-Suppose that $X$ is the ratio of two independent $\chi^2$ variates $U_1$ and $U_2$ scaled by their degrees of freedom $\nu_1$ and $\nu_2$, respectively:
-
-$$X=\frac{\frac{U_1}{\nu_1}}{\frac{U_2}{\nu_2}}$$
-
-The random variate $X$ will have an $F$ distribution with parameters, $\nu_1$ and $\nu_2$.
-
-The primary application of the $F$ distribution is to test the equality of variances in ANOVA. I am unaware of any direct applications of the *F* distribution in psychological assessment.
-
-
-### Weibull Distributions
-
-How long do we have to wait before an event occurs? With Weibull distributions, we model wait times in which the probability of the event changes depending on how long we have waited. Some machines are designed to last a long time, but defects in a part might cause it fail quickly. If the machine is going to fail, it is likely to fail early. If the machine works flawlessly in the early period, we worry about it less. Of course, all physical objects wear out eventually, but a good design and regular maintenance might allow a machine to operate for decades. The longer machine has been working well, the less risk that it will irreparably fail on any particular day.
-
-For some things, the risk of failure on any particular day becomes increasingly likely the longer it has been used. Biological aging causes increasing risk of death over time such that the historical records have no instances of anyone living beyond 
-
-For some events, there is a constant probability that the event will occur. For others, the probability is higher at first but becomes steadily less likely over time
-
-
-the longer we wait the greater the probability will occur. For example, as animals age the probability of death accelerates such that beyond a certain age no individual as been observed to survive. 
-
-### Unfinished
-
-* Gumbel Distributions
-* Beta Distributions
-* Exponential Distributions
-* Pareto Distributions

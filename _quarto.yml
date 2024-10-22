@@ -38,7 +38,10 @@ book:
     - part: "Variables"
       chapters:
         - variables.qmd
-        - distributions.qmd
+        - file: distributions.qmd
+          text: Distributions--Discrete
+        - file: continuousdistributions.qmd
+          text: Distributions--Continuous
         - descriptives.qmd
         - compositescores.qmd
         - ojs.qmd

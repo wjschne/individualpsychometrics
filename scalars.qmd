@@ -14,7 +14,7 @@ source("loader.R")
 
 $$x = 9$$
 
-Technically, there are no scalars in R. Pretty much everything in R is a vector of one kind of another. This feature of R makes a lot of things nice and easy for data analysis, though it slows down certain kinds of computations. However, a vector with just one element in it is often treated like a scalar. 
+Technically, there are no scalars in R. Pretty much everything in R is a vector of one kind of another, meaning that most variables can have multiple elements instead of being restricted to a single element. However, a vector with just one element is often treated like a scalar. This everything-is-a-vector feature of R makes a lot of things nice and easy for data analysis, though certain kinds of computations can be slower because of it. 
 
 ## Variable Assignment
 

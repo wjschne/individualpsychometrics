@@ -163,6 +163,8 @@ $$
 #| fig-height: 7
 #| fig-cap: In the matrix multiplication of A times B, every row of A is multiplied by every column of B.
 #| eval: false
+
+# Row and column sizes
 A_n <- list(nrow = 4,
              ncol = 2)
 
@@ -172,6 +174,7 @@ B_n <- list(nrow = 2,
 AB_n <- list(nrow = A_n$nrow,
               ncol = B_n$ncol)
 
+# Make tibble with x, y, row, column, and label info
 make_script <- function(n,
                         name = "A",
                         x_shift = 0,
@@ -187,6 +190,7 @@ make_script <- function(n,
            y = y + y_shift)
 }
 
+# Make tibbles with script information
 A_script <- make_script(A_n, x_shift = -1 * A_n$ncol - .5)
 B_script <- make_script(B_n, "B", y_shift = A_n$nrow + .5)
 AB_script <- make_script(AB_n, "C") %>% 
@@ -200,7 +204,8 @@ AB_script <- make_script(AB_n, "C") %>%
       column,
       "</sub>"))
 
-subscripter <- function(d, 
+# convert script tibble to rectangle, select rows and columns
+script2rect <- function(d, 
                         row = NULL, 
                         column = NULL, ...) {
   if (!is.null(row)) {
@@ -215,14 +220,12 @@ subscripter <- function(d,
     ob_rectangle(...) 
 }
 
+# Make matrix grids
+A <- script2rect(A_script, label = A_script$label)
+B <- script2rect(B_script, label = B_script$label)
+AB <- script2rect(AB_script, label = AB_script$label)
 
-AB_center <- ob_point(AB_script %>% dplyr::select(x,y))
-A_center <- ob_point(A_script %>% dplyr::select(x,y)) 
-B_center <- ob_point(B_script %>% dplyr::select(x,y)) 
-A <- ob_rectangle(A_center, label = A_script$label)
-B <- ob_rectangle(B_center, label = B_script$label)
-AB <- ob_rectangle(AB_center, label = AB_script$label)
-
+# bind similar objects for faster rendering
 r_ab <- bind(c(A,B, AB))
 r_ab_label <- bind(c(ob_label(
         "**A**",
@@ -249,12 +252,12 @@ r_ab_label <- bind(c(ob_label(
 out <- crossing(i = seq(AB_n$nrow),
                 j = seq(AB_n$ncol)) %>% 
   purrr::pmap(\(i, j) {
-    A_io <- subscripter(A_script, row = i)
-    A_oj <- subscripter(A_script, column = j)
-    B_io <- subscripter(B_script, row =  i)
-    B_oj <- subscripter(B_script, column = j)
+    A_io <- script2rect(A_script, row = i)
+    A_oj <- script2rect(A_script, column = j)
+    B_io <- script2rect(B_script, row =  i)
+    B_oj <- script2rect(B_script, column = j)
 
-    AB_ij <- subscripter(
+    AB_ij <- script2rect(
       AB_script,
       row = i,
       column = j,
@@ -262,19 +265,23 @@ out <- crossing(i = seq(AB_n$nrow),
       linewidth = 2
     ) 
     
-    red_boxes <- bind(c(A_io@bounding_box %>% 
-      set_props(color = myfills[2], 
-                linewidth = 2),
-      B_oj@bounding_box %>% 
-      set_props(color = myfills[2], 
-                linewidth = 2),
-      AB_ij))
+    red_boxes <- bind(
+      c(A_io@bounding_box %>% 
+          set_props(color = myfills[2], 
+                    linewidth = 2),
+        B_oj@bounding_box %>% 
+          set_props(color = myfills[2], 
+                    linewidth = 2),
+        AB_ij))
     
-    red_connect <- connect(bind(c(A_io@bounding_box,
-                     B_oj@bounding_box)),
-              AB_ij, resect = 2)
+    red_connect <- connect(
+      x = bind(c(A_io@bounding_box,
+                 B_oj@bounding_box)),
+      y = AB_ij, 
+      resect = 2)
     
-    rc_labels <- bind(c(subscripter(A_script, column = 1)@west@label(
+    rc_labels <- bind(c(
+      script2rect(A_script, column = 1)@west@label(
         paste0("*a*<sub>", 
                seq(A_n$nrow, 1), 
                "<span>\u2022</span></sub>"),
@@ -282,7 +289,7 @@ out <- crossing(i = seq(AB_n$nrow),
         label.margin = ggplot2::margin(r = 5),
         size = 20
       ), 
-      subscripter(B_script, row = 1)@north@label(
+      script2rect(B_script, row = 1)@north@label(
         paste0("*b*<sub><span>\u2022</span>", 
                seq(1, B_n$ncol), 
                "</sub>"),
