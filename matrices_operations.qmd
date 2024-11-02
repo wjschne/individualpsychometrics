@@ -30,7 +30,8 @@ a_{31} & a_{32}
 b_{11} & b_{12}\\
 b_{21} & b_{22}\\
 b_{31} & b_{32}
-\end{bmatrix}\\ &=
+\end{bmatrix}\\[2ex]
+&=
 \begin{bmatrix}
 a_{11}+b_{11} & a_{12}+b_{12}\\
 a_{21}+b_{21} & a_{22}+b_{22}\\
@@ -56,7 +57,8 @@ a_{31} & a_{32}
 b_{11} & b_{12}\\
 b_{21} & b_{22}\\
 b_{31} & b_{32}
-\end{bmatrix}\\ &=
+\end{bmatrix}\\[2ex]
+&=
 \begin{bmatrix}
 a_{11}-b_{11} & a_{12}-b_{12}\\
 a_{21}-b_{21} & a_{22}-b_{22}\\
@@ -76,7 +78,6 @@ B <- matrix(seq(10,60,10),nrow = 2)
 B
 A + B
 A - B
-
 ```
 
 ## Scalar-Matrix Multiplication
@@ -84,15 +85,18 @@ A - B
 To multiply a [scalar]{.defword title="A **scalar** is a single number, not in a matrix."} by a matrix, multiply the scalar by every element in the matrix:
 
 $$
-k\mathbf{A}=
+\begin{aligned}
+k\mathbf{A}&=
 k\begin{bmatrix}
 a_{11} & a_{12} & a_{13}\\
 a_{21} & a_{22} & a_{23}
-\end{bmatrix}=
+\end{bmatrix}\\[2ex]
+&=
 \begin{bmatrix}
 ka_{11} & ka_{12} & ka_{13}\\
 ka_{21} & ka_{22} & ka_{23}
 \end{bmatrix}
+\end{aligned}
 $$
 
 ### Scalar-Matrix Multiplication in R
@@ -382,7 +386,7 @@ $$
 \begin{bmatrix}
 \color{FireBrick}1\cdot\color{green}{10}+\color{FireBrick}2\cdot\color{green}{20}+\color{FireBrick}3\cdot\color{green}{30}&\color{FireBrick}1\cdot\color{DarkOrchid}{40}+\color{FireBrick}2\cdot\color{DarkOrchid}{50}+\color{FireBrick}3\cdot\color{DarkOrchid}{60}\\
 \color{RoyalBlue}4\cdot\color{green}{10}+\color{RoyalBlue}5\cdot\color{green}{20}+\color{RoyalBlue}6\cdot\color{green}{30}&\color{RoyalBlue}4\cdot\color{DarkOrchid}{40}+\color{RoyalBlue}5\cdot\color{DarkOrchid}{50}+\color{RoyalBlue}6\cdot\color{DarkOrchid}{60}
-\end{bmatrix}\\[1ex]
+\end{bmatrix}\\[2ex]
 &=\begin{bmatrix}
 140&320\\
 320&770
@@ -405,7 +409,7 @@ C
 ```
 
 
-# Elementwise Matrix Multiplication
+## Elementwise Matrix Multiplication
 
 Elementwise matrix multiplication is when we simply multiply corresponding elements of identically-sized matrices. This is sometimes called the *Hadamard product*.
 
@@ -416,11 +420,12 @@ a_{21} & a_{22} & a_{23}
 \begin{bmatrix} 
 b_{11} & b_{12} & b_{13}\\ 
 b_{21} & b_{22} & b_{23}
-\end{bmatrix}\\ 
+\end{bmatrix}\\[2ex] 
 &= \begin{bmatrix} 
 a_{11}\, b_{11} & a_{12}\, b_{12} & a_{13}\, b_{13}\\ 
 a_{21}\, b_{21} & a_{22}\, b_{22} & a_{23}\, b_{23}
-\end{bmatrix}\end{aligned}
+\end{bmatrix}
+\end{aligned}
 $$
 
 In R, elementwise multiplication is quite easy.
@@ -462,8 +467,8 @@ C <- matrix(c(
 
 $$
 \begin{aligned}
-\mathbf{A} &=`r bmatrix(A)`\\
-\mathbf{B} &=`r bmatrix(B)`\\
+\mathbf{A} &=`r bmatrix(A)`\\[2ex]
+\mathbf{B} &=`r bmatrix(B)`\\[2ex]
 \mathbf{C} &=`r bmatrix(C)`
 \end{aligned}
 $$
@@ -622,7 +627,7 @@ $$
 
 ## Matrix Inverse
 
-Only square matrices have multiplicative inverses. Multiplying square matrix $\mathbf{A}$ by its inverse $(\mathbf{A}^{-1})$ produces the identity matrix. 
+Multiplying square matrix $\mathbf{A}$ by its inverse $(\mathbf{A}^{-1})$ produces the identity matrix. [Only square matrices have multiplicative inverses.]{.column-margin}
 
 $$
 \mathbf{A}\mathbf{A}^{-1}=\mathbf{I}
@@ -634,7 +639,7 @@ $$
 \mathbf{A}\mathbf{A}^{-1}=\mathbf{A}^{-1}\mathbf{A}=\mathbf{I}
 $$
 
-The calculation of an inverse is [quite complex](http://en.wikipedia.org/wiki/Invertible_matrix#Methods_of_matrix_inversion) and is best left to computers.
+The calculation of an inverse is [quite complex](http://en.wikipedia.org/wiki/Invertible_matrix#Methods_of_matrix_inversion),computationally intensive, and best left to computers.
 
 Although only square matrices can have inverses, not all square matrices have inverses. The procedures for calculating the inverse of a matrix sometimes attempt to divide by 0, which is not possible. Because zero cannot be inverted (i.e., $\frac{1}{0}$ is undefined), any matrix that attempts division by 0 during the inversion process cannot be inverted.
 
@@ -647,7 +652,7 @@ $$
 \end{bmatrix}
 $$
 
-There is no matrix we can multiply it by to produce the identity matrix. In the algorithm for calculating the inverse, division by 0 occurs, and the whole process comes to a halt. A matrix that cannot be inverted is called a *singular matrix*. 
+There is no matrix we can multiply it by to produce the identity matrix. In the algorithm for calculating the inverse, division by 0 occurs, and the whole process comes to a halt. A matrix that cannot be inverted is called a [singular matrix]{.defword title="A *singular matrix* has a determinant of 0 and cannot be inverted. At least one of its columns (or rows) is a linear combination of the other columns (or rows)."}. 
 
 The covariance matrix of [collinear]{.defword title="**Collinear** means that at least one of the variables can be perfectly predicted from the other variables."} variables is singular. In multiple regression, we use the inverse of the covariance matrix of the predictor variables to calculate the regression matrix. If the predictor variables are collinear, the regression coefficients cannot be calculated. For example, if $Z=X+Y$, we cannot use $X$, $Y$, and $Z$ together as predictors in a multiple regression equation. $Z$ is perfectly predicted from $X$ and $Y$. In the calculation of the regression coefficients, division by 0 will be attempted, and the calculation can proceed no further. 
 
@@ -685,7 +690,7 @@ $$
 can be rewritten as matrices
 
 $$
-\begin{aligned}\mathbf{AX}&=\mathbf{B}\\
+\begin{aligned}\mathbf{AX}&=\mathbf{B}\\[2ex]
 \begin{bmatrix}
 \phantom{-}2 & -9 & -2\\
 -2 & \phantom{-}5 & \phantom{-}3\\
@@ -827,14 +832,14 @@ A bolded $\mathbf{1}$ is a column vector of ones. For example,
 $$
 \mathbf{1}_1=\begin{bmatrix}
 1
-\end{bmatrix}\\
+\end{bmatrix}\\[2ex]
 \mathbf{1}_2=\begin{bmatrix}
 1\\ 1
-\end{bmatrix}\\
+\end{bmatrix}\\[2ex]
 \mathbf{1}_3=\begin{bmatrix}
 1\\ 1\\ 1
-\end{bmatrix}\\
-\vdots\\
+\end{bmatrix}\\[2ex]
+\vdots\\[2ex]
 \mathbf{1}_n=\begin{bmatrix}
 1\\ 1\\ 1\\ \vdots \\ 1
 \end{bmatrix}
@@ -856,39 +861,44 @@ $$
 
 
 $$
-\mathbf{X1}=\begin{bmatrix}
+\begin{aligned}
+\mathbf{X1}&=\begin{bmatrix}
 1 & 2\\
 3 & 4
 \end{bmatrix}
 \begin{bmatrix}
 1\\ 1
-\end{bmatrix}
-=\begin{bmatrix}
+\end{bmatrix}\\[2ex]
+&=\begin{bmatrix}
 3\\ 
 7
 \end{bmatrix}
+\end{aligned}
 $$
 
 Pre-multiplying by a transposed one matrix creates a row vector of column totals.
 
 $$
-\mathbf{1'X}=
+\begin{aligned}
+\mathbf{1'X}&=
 \begin{bmatrix}
 1& 1
 \end{bmatrix}
 \begin{bmatrix}
 1 & 2\\
 3 & 4
-\end{bmatrix}
-=\begin{bmatrix}
+\end{bmatrix}\\[2ex]
+&=\begin{bmatrix}
 4&6
 \end{bmatrix}
+\end{aligned}
 $$
 
 Making a "one sandwich" creates the sum of the entire matrix.
 
 $$
-\mathbf{1'X1}=
+\begin{aligned}
+\mathbf{1'X1}&=
 \begin{bmatrix}
 1& 1
 \end{bmatrix}
@@ -898,10 +908,11 @@ $$
 \end{bmatrix}
 \begin{bmatrix}
 1\\ 1
-\end{bmatrix}
-=\begin{bmatrix}
+\end{bmatrix}\\[2ex]
+&=\begin{bmatrix}
 10
 \end{bmatrix}
+\end{aligned}
 $$
 
 To create a $\mathbf{1}$ vector that is compatible with the matrix it post-multiplies, use the `ncol` function inside the `rep` function:
@@ -940,6 +951,135 @@ colSums(A)
 sum(A)
 ```
 
+
+## Determinant
+
+If a matrix is square, one can calculate its determinant. The determinant is a property of a square matrix indicates important information about the matrix. In a *k*&nbsp;&times;&nbsp;*k* matrix, it is equal to the volume of the *k*-dimensional parallelpiped spanned by its column (or row) vectors. 
+
+Consider the the matrix **A**:
+
+$$
+\mathbf{A}=\begin{bmatrix}
+3 & 1\\
+1 & 4
+\end{bmatrix}
+$$
+
+In @fig-determinant, the 2 column vectors of **A** and their sum form a parallelogram. The area of this parallelogram is equal to the determinant of **A**.
+
+
+
+```{r}
+#| label: fig-determinant
+#| fig-cap: "The determinant as parallelpiped area"
+A <- matrix(c(3,1,
+              1,4),
+            nrow = 2,
+            byrow = TRUE)
+v1 <- ob_point(A[1, 1], A[1, 2], color = myfills[1])
+v2 <- ob_point(A[2, 1], A[2, 2], color = myfills[2])
+v12 <- (v1 + v2) %>% set_props(color = myfills[3])
+o <- ob_point(0, 0)
+
+
+
+middle_axes(limits = c(0,5.1)) +
+  v1 +
+  v2 +
+  v12 + 
+  connect(o, v1, resect_head = 2) +
+  connect(o, v2, resect_head = 2) +
+  connect(v1, v12, 
+          linetype = "dashed", 
+          color = myfills[2], 
+          resect = 2) +
+  connect(v2, v12, 
+          color = myfills[1], 
+          linetype = "dashed", 
+          resect = 2) +
+  ob_label(paste0("Area = |**A**| = ", det(A)), v12 / 2, size = 24) +
+  v1@label(
+    paste0("**A**<sub>\u20221</sub> = ", v1@auto_label),
+    polar_just = ob_polar(v1@theta - degree(90), r = 2),
+    size = 18
+  ) +
+  v2@label(
+    paste0("**A**<sub>\u20222</sub> = ", v2@auto_label),
+    polar_just = ob_polar(v2@theta + degree(45), r = 1.5),
+    size = 18
+  ) +
+  v12@label(
+    paste0(
+      "<span style='color:",
+      myfills[2],
+      "'>**A**<sub>\u20221</sub></span> + <span style='color:",
+      myfills[1],
+      "'>**A**<sub>\u20222</sub></span> = ",
+      v12@auto_label
+    ),
+    polar_just = ob_polar(v12@theta + degree(30), r = 1.5),
+    size = 18,
+    color = myfills[3]
+  ) +
+  ob_latex(paste0(
+    "\\text{\\strong{A}}=\\begin{bmatrix}\\text{",
+    latex_color(A[1,1], myfills[1]),
+    "} & \\text{",
+    latex_color(A[1,2], myfills[2]),
+    "}\\\\\n\\text{",
+    latex_color(A[2,1], myfills[1]),
+    "} & \\text{",
+    latex_color(A[2,2], myfills[2]),
+    "}\n\\end{bmatrix}"), 
+    center = v12 / 2 + ob_point(2.5,0), 
+    family = bfont, 
+    height = .7, 
+    color = myfills[3])
+
+```
+
+
+To calculate a determinant, it is useful to introduce some vocabulary. The [minor]{.defword title="The **minor** of a matrix is the determinant of the matrix after deleting a row and a column."} of a matrix **A** at element (*i*, *j*) is the determinant of the submatrix of **A** after row *i* and column *j* have been deleted.
+
+The determinant of matrix can be calculated like so:
+
+1. Take the first column vector of **A**. Each element can be called *a~i1~*. 
+2. Multiply each element in *a~i1~*,  by its minor and by &minus;1^i^
+3. Add the resulting products.
+
+Note that this method of calculating the determinant is *recursive*, meaning that the method calls on itself. In this case, calculating a determinant of a matrix requires calculating the determinant of a smaller submatrix. Thus, the determinant of a  *k* by *k* matrix requires the calculation of a *k*&nbsp;&minus;&nbsp;1 by *k*&nbsp;&minus;&nbsp;1 matrix, which requires the calculation of a *k*&nbsp;&minus;&nbsp;2 by *k*&nbsp;&minus;&nbsp;2 matrix, and so on, and so on. For this method to find a stopping point, we have to assume that the determinant of a 1 by 1 matrix is the 1 by 1 matrix itself. 
+
+For the purpose of illustration only, here is a recursive function for calculating a determinant. 
+
+```{r demo-determinant}
+my_determinant <- function(A) {
+  # If A is a 1 by 1 matrix, return A
+  if (nrow(A) == 1 && ncol(A) == 1) {
+    return(A[1, 1, drop = TRUE])
+  }
+  
+  # Get first column of A
+  A_o1 <- A[, 1]
+  # Row Index
+  i <- seq_along(A_o1)
+  
+  map2_dbl(A_o1, i, \(a, i) {
+    # subtract even rows
+    pm <- ifelse(i %% 2 == 0, -1, 1) 
+    a * pm * my_determinant(A[-i, -1, drop = FALSE])
+  }) %>% 
+  sum()
+}
+
+my_determinant(A)
+```
+
+Compared to `det`, the actual R function to calculate the determinant of a matrix, my recursive function is very slow. The `det` function hands that task over to a much faster algorithm that runs in the `C` programming language, which is generally faster than R. For a small matrix like **A**, the speed difference hardly matters. For repeated calculations with large matrices (e.g., in 3D graphics), it makes a huge difference.
+
+
+```{r demo-det}
+det(A)
+```
 
 
 ## Eigenvectors and Eigenvalues

@@ -1,5 +1,5 @@
 ---
-title: "Variables"
+title: "Variable Scale Types"
 ---
 
 ```{r loadpacksdist2, include = F, cache=FALSE}

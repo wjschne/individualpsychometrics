@@ -475,18 +475,22 @@ $\mathbf{A}'$ is matrix $\mathbf{A}$ transposed.
 
 If
 
-$$\mathbf{A}=\begin{bmatrix}
+$$
+\mathbf{A}=\begin{bmatrix}
 1&2&3\\
 4&5&6
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 Then 
 
-$$\mathbf{A}'=\begin{bmatrix}
+$$
+\mathbf{A}'=\begin{bmatrix}
 1&4\\
 2&5\\
 3&6
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 ### Transposing in R
 
@@ -537,17 +541,21 @@ nrow(A) == ncol(A)
 
 A [symmetric matrix]{.defword title="A **symmetrix matrix** is equal to its transpose. Only square matrices can be symmetric."} is a square matrix that is equal to its transpose.
 
-$$\mathbf{A}=\mathbf{A}'$$
+$$
+\mathbf{A}=\mathbf{A}'
+$$
 
 This means that for all elements, $a_{ij}=a_{ji}$.
 
 Here is an example of a symmetric matrix:
 
-$$\begin{bmatrix}
+$$
+\begin{bmatrix}
 \color{green}a & \color{Firebrick}b & \color{RoyalBlue}c\\
 \color{Firebrick}b & \color{gold}d & \color{DarkOrchid}e\\
 \color{RoyalBlue}c & \color{DarkOrchid}e & \color{orange}f
-\end{bmatrix}$$
+\end{bmatrix}
+$$
 
 To test whether a matrix is symmetric:
 

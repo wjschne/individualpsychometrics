@@ -635,16 +635,16 @@ bind_rows(t1, t2) %>%
         paste0("*X* ~ ",
                span_style("N", style = "font-family:'Lucida Calligraphy'"),
                "(*",
-               span_style("&mu;"),
+               span_style("&mu;", "font-family:serif;"),
                "*, *",
-               span_style("&sigma;"),
+               span_style("&sigma;","font-family:serif;"),
                "*<sup>2</sup>)"),
         paste0("*X* ~ |",
                span_style("N", style = "font-family:'Lucida Calligraphy'"),
                "(0, *",
-               span_style("&sigma;"),
+               span_style("&sigma;","font-family:serif;"),
                "*<sup>2</sup>)| + *",
-               span_style("&mu;"),
+               span_style("&mu;","font-family:serif;"),
                "*")),
       side = T),
     aes(label = label),
@@ -675,7 +675,9 @@ bind_rows(t1, t2) %>%
 
 Suppose that $X$ is a normally distributed variable such that 
 
-$$X \sim \mathcal{N}(\mu, \sigma^2)$$
+$$
+X \sim \mathcal{N}(\mu, \sigma^2)
+$$
 
 Variable $Y$ then has a half-normal distribution such that $Y = |X-\mu|+\mu$. In other words, imagine that a normal distribution is folded at the mean with the left half of the distribution now stacked on top of the right half of the distribution (See @fig-halfnormal).
 
@@ -719,47 +721,61 @@ I have always thought that the $\chi^2$ distribution has an unusual name. The *c
 [**Notation note**: A $\chi^2$ distribution with $\nu$ degrees of freedom can be written as $\chi^2_\nu$ or $\chi^2(\nu)$.]{.column-margin}
 
 
-The $\chi^2$ distribution has a straightforward relationship with the normal distribution. It is the sum of multiple independent squared normal variates. That is, if $z$ is a standard normal variate--- $z\sim\mathcal{N}(0,1^2)$---then $z^2$ has a $\chi^2$ distribution with 1 degree of freedom $(\nu)$:
+The $\chi^2$ distribution has a straightforward relationship with the normal distribution. It is the sum of multiple independent squared normal variates. That is, suppose $z$ is a standard normal variate:
+
+$$z\sim\mathcal{N}(0,1^2)$$
+
+In this case, $z^2$ has a $\chi^2$ distribution with 1 degree of freedom $(\nu)$:
 
 
-$$z^2\sim \chi^2_1$$
+$$
+z^2\sim \chi^2_1
+$$
 
 
 If $z_1$ and $z_2$ are independent standard normal variates, the sum of their squares has a $\chi^2$ distribution with 2 degrees of freedom:
 
-$$z_1^2+z_2^2 \sim \chi^2_2$$
+$$
+z_1^2+z_2^2 \sim \chi^2_2
+$$
+
 If $\{z_1,z_2,\ldots,z_{\nu} \}$ is a series of $\nu$ independent standard normal variates, the sum of their squares has a $\chi^2$ distribution with $\nu$ degrees of freedom: 
 
-$$\sum^\nu_{i=1}{z_i^2} \sim \chi^2_\nu$$
+$$
+\sum^\nu_{i=1}{z_i^2} \sim \chi^2_\nu
+$$
 
 ### Clinical Uses of the $\chi^2$ distribution
 
 The $\chi^2$ distribution has many applications, but the mostly likely of these to be used in psychological assessment is the $\chi^2$ Test of Goodness of Fit and the $\chi^2$ Test of Independence. 
 
-Suppose we suspect that a child's temper tantrums are more likely to occur on weekdays than on weekends. The child's mother has kept a record of each tantrum for the past year and was able to count the frequency of tantrums. If tantrums were equally likely to occur on any day, 5 of 7 tantrums should occur on weekdays, and 2 of 7 tantrums should occur on weekends. The observed frequencies are compared with the expected frequencies below.
+The $\chi^2$ Test of Goodness of Fit tells us if observed frequencies of events differ from expected frequencies. Suppose we suspect that a child's temper tantrums are more likely to occur on weekdays than on weekends. The child's mother has kept a record of each tantrum for the past year and was able to count the frequency of tantrums. If tantrums were equally likely to occur on any day, 5 of 7 tantrums should occur on weekdays, and 2 of 7 tantrums should occur on weekends. The observed frequencies are compared with the expected frequencies below.
 
-$$\begin{array}{r|c|c|c}
+$$
+\begin{array}{r|c|c|c}
 & \text{Weekday} & \text{Weekend} & \text{Total} \\
 \hline
-\text{Observed Frequency}\, (o) & 14 & 13 & n=27\\
+\text{Observed Frequency}\, (o) & 14 & 14 & n=28\\
 \text{Expected Proportion}\,(p) & \frac{5}{7} & \frac{2}{7} & 1\\
-\text{Expected Frequency}\, (e = np)& 27\times \frac{5}{7}= 19.2857& 27\times \frac{2}{7}= 7.7143& 27\\
-\text{Difference}\,(o-e) & -5.2857 & 5.2857&0\\
-\frac{(o-e)^2}{e} & 1.4487 & 3.6217 & \chi^2 = 5.07
-\end{array}$$
+\text{Expected Frequency}\, (e = np)& 28\times \frac{5}{7}= 20& 28\times \frac{2}{7}= 8& 28\\
+\text{Difference}\,(o-e) & -6 & 6\\
+\frac{(o-e)^2}{e} & 1.8 & 4.5 & \chi^2 = 6.3
+\end{array}
+$$
 
 In the table above, if the observed frequencies $(o_i)$ are compared to their respective expected frequencies $(e_i)$, then:
 
-$$\chi^2_{k-1}=\sum_{i=1}^k{\frac{(o_i-e_i)^2}{e_i}}=5.07$$
+$$\chi^2_{k-1}=\sum_{i=1}^k{\frac{(o_i-e_i)^2}{e_i}}=6.3$$
 
 Using the $\chi^2$ cumulative distribution function, we find that the probability of observing the frequencies listed is low under the assumption that tantrums are equally likely each day. 
 
 
 ```{r demo-expectedfrequencies}
-observed_frequencies <- c(14, 13)
-expected_probabilities <- c(5,2) / 7
+observed_frequencies <- c(Weekday = 14, Weekend = 14)
+expected_probabilities <- c(Weekday = 5, Weekend = 2) / 7
 
-fit <- chisq.test(observed_frequencies, p = expected_probabilities)
+fit <- chisq.test(x = observed_frequencies, 
+                  p = expected_probabilities)
 fit
 
 # View expected frequencies and residuals

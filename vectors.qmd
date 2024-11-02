@@ -357,7 +357,7 @@ $$
 
 Scalar--vector addition works in similar fashion. To add scalar to a vector:
 
-$$\vec{x}-a=\left(x_1+a,x_2+a,\ldots,x_n+a\right)$$
+$$\vec{x}+a=\left(x_1+a,x_2+a,\ldots,x_n+a\right)$$
 
 That is, the scalar is added to every value of the vector.
 
@@ -382,7 +382,11 @@ x / 2
 ```
 
 
-## Vector Addition and Subtraction
+## Vector--Vector Operations
+
+A vector--vector operation is when one vector operates on another vector.
+
+### Vector Addition and Subtraction
 
 To add two vectors, add each element at the same position:
 
@@ -415,7 +419,7 @@ $$
 Adding and subtracting two vectors is only defined when the vectors have the same number of elements. Thus, if $\vec{x}= \left(1,2\right)$ and $\vec{y}= \left(3,2,1\right)$, there is no defined way to add $\vec{x}$ and $\vec{y}$.
 
 
-In R, adding and subtracting vectors is beautifully easy. Unlike many programming language, we do not need to create looping structures to add each element pair one at a time. We just define the vectors and add them:
+In R, adding and subtracting vectors is beautifully easy. Most operations in R are *vectorized*, meaning that functions automatically operate on all elements of the vector. Unlike many programming languages, R does not require looping structures to add each element pair one at a time. This feature of R simplifies calculations greatly. For addition, we just define the vectors and add them:
 
 
 ```{r demo-vectoraddition}
@@ -424,7 +428,24 @@ y <- c(3, 4)
 x + y
 ```
 
+:::{.column-margin}
+In many programming languages, adding vectors would require looping. R has looping structures, too. They are useful for complex operations, but they are overkill for simple operations. For example, instead of just typing `x + y`, looping through each element of `x` and `y` would look like this:
 
+```{r demo-vectoradditionloop}
+# Define empty variable to contain the result
+x_plus_y <- numeric(length(x))
+
+for (i in seq_along(x)) {
+  x_plus_y[i] <- x[i] + y[i]
+}
+
+x_plus_y 
+
+```
+
+Truth be told, if the language requires this kind of extra verbiage, there are usually shortcut functions to avoid the hassle. Thankfully R does not need any shortcuts. The natural way of performing operations is already short enough.  
+
+:::
 
 ::: {.callout-note title="You Try"}
 
@@ -457,75 +478,33 @@ a + b
 
 
 
-middle_axes <- function(limits = c(0, 5)) {
-  breaks <- seq(limits[1], limits[2])
-  breaks <- breaks[breaks != 0]
-  ggplot() +
-    theme_classic(
-    base_family = bfont,
-    base_size = 18,
-    base_line_size = .5
-  ) +
-  theme(
-    axis.text = element_text(color = "gray40"),
-    axis.line = element_blank(),
-    axis.ticks = element_line(color = "gray"),
-    axis.title.x = element_text(
-      angle = 0,
-      vjust = .5,
-      face = "italic",
-      color = "gray40"
-    ),
-    axis.title.y = element_text(
-      angle = 0,
-      vjust = .5,
-      face = "italic",
-      color = "gray40"
-    )
-  ) +
-  scale_x_continuous(name = "y", 
-                     breaks = breaks, 
-                     labels = WJSmisc::signs_centered) +
-  scale_y_continuous(name = "x", 
-                     breaks = breaks, 
-                     labels = signs) +
-  ggh4x::coord_axes_inside(
-    xlim = limits,
-    ylim = limits,
-    labels_inside = T,
-    ratio = 1
-  ) +
-  ob_segment(x = c(0, limits[1] - abs(max(limits) - min(limits)) / 20), 
-             xend = c(0, limits[2] + abs(max(limits) - min(limits)) / 20), 
-             y = c(limits[1] - abs(max(limits) - min(limits)) / 20, 0), 
-             yend = c(limits[2] + abs(max(limits) - min(limits)) / 20, 0), 
-             linewidth = .75, 
-             arrow_head = my_arrowhead, 
-             arrow_fins = my_arrowhead, 
-             color = "gray")
-}
+
 
 o <- ob_point(0,0, color = myfills[1])
 p <- ob_point(x_plot, y_plot, color = myfills[1])
-
-middle_axes() +
-  p  + 
-  ob_latex(tex = paste0("\\vec{v}=", p@auto_label),
-           center = p + ob_point(.1,.14),
-           color = myfills[1],height = .2) +
-  ob_segment(o, p, 
+v <- ob_segment(o, p, 
              resect_head = 1.5, 
              arrow_head = my_arrowhead, 
              color = myfills[1], 
-             vjust = 0, 
-             label = ob_label(
-               paste0("Magnitude of **v**: \u2016**v**\u2016 = ", 
-                      round(p@r,2)),
-               size = 18)) 
-  
-
-
-
+             size = 18) 
+middle_axes() +
+  p  + 
+  ob_latex(tex = paste0("\\vec{v}=", p@auto_label),
+           center = p,
+           vjust = -.1,
+           hjust = .4,
+           color = myfills[1],
+           height = .3,
+           density = 900) +
+  v +
+  ob_latex(tex = paste0("\\left\\|\\vec{v}\\right\\|=", 
+                      round(p@r,2)), 
+           center = v@midpoint(), 
+           height = .35, 
+           color = myfills[1], 
+           vjust = -.1, 
+           angle = v@line@angle, 
+           density = 900)
 ```
 
 A vector with two scalar elements can be thought of as an arrow in a coordinate plane, as in @fig-vector. The vector $\left(`r x_plot`, `r y_plot`\right)$ is an arrow that displaces any point it is added to by `r x_plot` units to the right and `r y_plot` units up. 
@@ -564,8 +543,14 @@ middle_axes(limits = c(0,5)) +
     center = p1 + p2 + ob_polar(degree(60), .3),
     color = myfills[3]
   ) +
-  ob_segment(o, p1, arrow_head = my_arrowhead, resect_head = 2) +
-  ob_segment(o, p2, arrow_head = my_arrowhead, resect_head = 2) +
+  ob_segment(p1 = o, 
+             p2 = p1, 
+             arrow_head = my_arrowhead, 
+             resect_head = 2) +
+  ob_segment(o, 
+             p2, 
+             arrow_head = my_arrowhead, 
+             resect_head = 2) +
   ob_segment(p1,
              p1 + p2,
              arrow_head = my_arrowhead,
@@ -576,7 +561,10 @@ middle_axes(limits = c(0,5)) +
              arrow_head = my_arrowhead,
              resect = 2,
              linetype = "dashed") +
-  ob_segment(o, p3, arrow_head = my_arrowhead, resect_head = 2)
+  ob_segment(o, 
+             p3, 
+             arrow_head = my_arrowhead, 
+             resect_head = 2)
 
 
 ```

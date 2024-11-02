@@ -37,7 +37,10 @@ book:
           text: Matrices--Operations
     - part: "Variables"
       chapters:
-        - variables.qmd
+        - file: variables.qmd
+          text: Variable Scale Types
+        - file: randomvariables.qmd
+          text: Distributions--Random Variables        
         - file: distributions.qmd
           text: Distributions--Discrete
         - file: continuousdistributions.qmd

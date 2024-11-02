@@ -1,6 +1,5 @@
 ---
-title: Distributions
-subtitle: Discrete
+title: Discrete Probability Distributions
 toc-title: "Distributions--Discrete"
 ---
 
@@ -10,188 +9,6 @@ toc-title: "Distributions--Discrete"
 #| cache: false
 source("loader.R")
 ```
-
-## Random Variables
-
-Because we first learn about variables in an algebra class, we tend to think of variables as having values that can be solved for---if we have enough information about them. If I say that $x$ is a variable and that $x+6=8$, we can use algebra to find that $x$ must equal 2.
-
-[Random variables]{.defword title="**Random variables** have values that are determined by a random process."} are not like algebraic variables. Random variables simply take on values because of some random process. If we say that the outcome of a throw of a six-sided die is a random variable, there is nothing to "solve for." There is no equation that determines the value of the die. Instead, it is determined by chance and the physical constraints of the die. That is, the outcome must be one of the numbers printed on the die, and the six numbers are equally likely to occur. This illustrates an important point. The word *random* here does not mean "anything can happen." On a six-sided die, you will never roll a 7, 3.5, $\sqrt{\pi}$, &minus;36,000, or any other number that does not appear on the six sides of the die. Random variables have outcomes that are subject to random processes, but those random processes *do*  have constraints on them such that some outcomes are more likely than others---and some outcomes never occur at all. 
-
-```{r fig-randomvariable}
-#| fig-cap: "Rolling a six-sided die is a process that creates a randomly ordered series of integers from 1 to 6."
-#| out-width: "100"
-#| fig-column: margin
-#| fig-align: left
-#| warning: false
-#| message: false
-# Function to make dice
-makedice <- function(i, id, add_blank = TRUE) {
-  x = switch(
-           i,
-           `1` = 0,
-           `2` = c(-1, 1),
-           `3` = c(-1, 1, 0),
-           `4` = c(-1, 1, -1, 1),
-           `5` = c(-1, 1, -1, 1, 0),
-           `6` = c(-1, 1, -1, 1, -1, 1)
-         )
-  y = switch(
-           i,
-           `1` = 0,
-           `2` = c(1,-1),
-           `3` = c(1,-1, 0),
-           `4` = c(1,-1,-1, 1),
-           `5` = c(1,-1,-1, 1, 0),
-           `6` = c(1,-1,-1, 1, 0, 0))
-  
-  d <- tibble(id = id * 1,
-              i = i,
-              x = x,
-              y = y)
-  
-  if (add_blank) {
-    d <- d %>%
-      add_case(id = id + 0.5,
-               i = 0,
-               x = NA,
-               y = NA)
-  }
-  d
-}
-
-# Number of throws
-k <- 50
-
-# Dot positions
-d <- map2_df(sample(1:6,k, replace = T), 1:k, makedice)  
-
-# Plot
-p <- ggplot(d) +
-  geom_point(pch = 16, size = 50, aes(x, y))  +
-  ob_ellipse(
-    a = 1.85,
-    b = 1.85,
-    m1 = 12,
-    linewidth = 4
-  ) +
-  coord_equal() +
-  theme_void() +
-  theme(legend.position = "none") +
-  transition_manual(id) 
-
-# Render animation
-p_gif <- animate(
-  p,
-  fps = 1,
-  device = "svg",
-  renderer = magick_renderer(),
-  width = 8,
-  height = 8
-)
-p_gif
-```
-
-When we say that the throw of a six-sided die is a random variable, we are not talking about any particular throw of a particular die but, in a sense, *every* throw (that has ever happened or ever could happen) of *every* die (that has ever existed or could exist). Imagine an immense, roaring, neverending, cascading flow of dice falling from the sky. As each die lands and disappears, a giant scoreboard nearby records the relative frequencies of ones, twos, threes, fours, fives, and sixes. That's a random variable.
-
-```{r coder-fig-randomvariable}
-<<fig-randomvariable>>
-```
-
-
-
-
-## Sets
-
-A [set]{.defword title="A **set** is a collection of distinct objects."} refers to a collection of objects. Each distinct object in a set is an [element]{.defword title="An **element** is a distinct member of a set."}. 
-
-### Discrete Sets
-
-To show that a list of discrete elements is a [discrete set]{.defword title="A **discrete set** has numbers that are isolated, meaning that each number has a range in which it is the only number in the overall set."}, we can use curly braces. For example, the set of positive single-digit even numbers is $\{2, 4, 6, 8\}$. With large sets with repeating patterns, it is convenient to use an ellipsis ("..."), the punctuation mark signifying an omission or pause. For example, rather than listing every two-digit positive even number, we can show the pattern like so: 
-
-$$\{10, 12, 14,\ldots, 98\}$$
-
-If we want the pattern to repeat forever, we can set an ellipsis on the left, right, or both sides. The set of odd integers extends to infinity in both directions:
-
-$$\{\ldots, -5, -3, -1, 1, 3, 5, \ldots\}$$
-
-
-### Interval Sets
-
-With continuous variables, we can define sets in terms of [intervals]{.defword title="**Intervals** are a continous range of numbers."}. Whereas the discrete set $\{0,1\}$ refers just to the numbers 0 and 1, the interval set $(0,1)$ refers to all the numbers between 0 and 1. 
-
-```{r fig-intervalnotation}
-#| fig-cap: "Interval Notation"
-#| fig-width: 5
-#| fig-height: 3.5
-#| out-width: "300"
-#| fig-column: margin
-#| fig-align: left
-
-# Interval notation
-tibble(lb = 1L,
-       ub = 5L,
-       y = 1:4,
-       meaning = c("includes 1 and 5",
-                   "excludes 1 and 5",
-                   "includes 1 but not 5",
-                   "includes 5 but not 1"),
-       l_bracket = c("[", "(", "[", "("),
-       u_bracket = c("]", ")", ")", "]")) %>% 
-  mutate(Interval = paste0(l_bracket, lb, ",", ub, u_bracket) %>% 
-           fct_inorder() %>% 
-           fct_rev,
-         l_fill = ifelse(l_bracket == "[", myfills[1], "white"),
-         u_fill = ifelse(u_bracket == "]", myfills[1], "white")) %>% 
-  ggplot(aes(lb, Interval)) + 
-  geom_segment(aes(xend = ub, yend = Interval), 
-               linewidth = 2, 
-               color = myfills[1]) +
-  geom_point(aes(fill = l_fill), 
-             size = 5, 
-             pch = 21, 
-             stroke = 2, color = myfills[1]) + 
-  geom_point(aes(fill = u_fill, x = ub), 
-             size = 5, 
-             pch = 21, 
-             stroke = 2, 
-             color = myfills[1]) +
-  geom_label(aes(label = paste(Interval, meaning), x = 3), 
-             vjust = -.75, 
-             label.padding = unit(0,"lines"), 
-             label.size = 0, 
-             family = bfont, 
-             size = ggtext_size(27)) +
-  scale_fill_identity() +
-  scale_y_discrete(NULL, expand = expansion(c(0.08, 0.25))) +
-  scale_x_continuous(NULL, minor_breaks = NULL) +
-  theme_minimal(base_size = 27, 
-                base_family = bfont) + 
-  theme(axis.text.y = element_blank(), 
-        panel.grid.major = element_blank(),
-        axis.line.x = element_line(linewidth = .5),
-        axis.ticks.x = element_line(linewidth = .25), 
-        plot.margin = margin())
-```
-
-
-As shown in @fig-intervalnotation, some intervals include their endpoints and others do not. Intervals noted with square brackets include their endpoints and intervals written with parentheses exclude them. Some intervals extend to positive or negative infinity: $(-\infty,5]$ and $(-8,+\infty)$. Use a parenthesis with infinity instead of a square bracket because infinity is not a specific number that can be included in an interval.
-
-```{r coder-fig-intervalnotation}
-<<fig-intervalnotation>>
-```
-
-
-## Sample Spaces {#sec:SampleSpace}
-
-The set of all possible outcomes of a random variable is the [sample space]{.defword title="A **sample space** is the set of all possible values that a random variable can assume."}. Continuing with our example, the sample space of a single throw of a six-sided die is the set $\{1,2,3,4,5,6\}$. *Sample space* is a curious term. Why *sample* and why *space*? With random variables, [populations]{.defword title="A **population** consists of all entities under consideration."} are infinitely large, at least theoretically. Random variables just keep spitting out numbers forever! So any time we actually observe numbers generated by a random variable, we are always observing a [sample]{.defword title="A **sample** is a subset of a population."}; actual infinities cannot be observed in their entirety. A *space* is a set that has mathematical structure. Most random variables generate either integers or real numbers, both of which are structured in many ways (e.g., order).
-
-Unlike distributions having to do with dice, many distributions have a sample space with an infinite number of elements. Interestingly, there are two kinds of infinity we can consider. A distribution's sample space might be the set of whole numbers: $\{0,1,2,...\}$, which extends to positive infinity. The sample space of all integers extends to infinity in both directions: $\{...-2,-1,0,1,2,...\}$.
-
-The sample space of continuous variables is infinitely large for another reason. Between any two points in a continuous distribution, there is an infinite number of other points. For example, in the beta distribution, the sample space consists of all real numbers between 0 and 1: $(0,1)$. Many continuous distributions have sample spaces that involve both kinds of infinity. For example, the sample space of the [normal distribution](#sec-normal) consists of all real numbers from negative infinity to positive infinity: $(-\infty, +\infty)$.
-
-## Probability Distributions {#sec:ProbabilityDistribution}
-
-
 
 Each element of a random variable's sample space occurs with a particular probability. When we list the probabilities of each possible outcome, we have specified the variable's [probability distribution]{.defword title="In a **probability distribution**, there is an assignment of a probability to each possible element in a variable's sample space."}. In other words, if we know the probability distribution of a variable, we know how probable each outcome is. In the case of a throw of a single die, each outcome is equally likely (@fig-dicepmf).
 
@@ -467,20 +284,7 @@ text(
 )
 
 
-center_neg <- function(x) {
-  signs <- sign(x)
-  paste0(ifelse(signs < 0,"$",""), x, ifelse(signs < 0,"\\phantom{-}$",""))
-}
 
-all_tick_labels <- function(side = 1, at, labels = at) {
-  axis(side, labels = rep("",length(at)), at = at)
-for (i in 1:length(at)) {
-  axis(side, 
-       at = at[i], 
-       labels = labels[i],
-       tick = F)
-  }
-}
 axis_ticks <- seq(-4,4,2)
 axis_labs <- center_neg(axis_ticks)
 all_tick_labels(1, at = axis_ticks, labels = axis_labs)
@@ -829,18 +633,7 @@ The probability mass function of the discrete uniform distribution is fairly sim
 #| out-width: "100%"
 #| fig-cap-location: margin
 
-whitespace <- function(
-    size = 10, 
-    text = ".", 
-    color = "white") {
-  paste0("<span style='color:",
-         color,
-         "; font-size:",
-         size, 
-         "pt;'>",
-         text,
-         "</span>")
-}
+
 
 xr <- ob_rectangle(
   center = ob_point(0, 0), 
@@ -859,10 +652,10 @@ pr <- ob_rectangle(
   center = ob_point(2, 0), 
   width = 1, 
   height = 1/4, 
-  family = "serif",
   label = ob_label(
     "***p*** = *p*~1~, *p*~2~, *p*~3~, …, *p*~*n*~", 
-    size = 20),
+    size = 20,
+    family = bfont),
   corner_radius = unit(5, "pt"))
 
 p_label <- ob_label(
@@ -1291,8 +1084,20 @@ p1 <- ggplot(d, aes(x, p)) +
     color = myfills[1],
     lwd = 1
   ) +
-  scale_x_continuous("Sample Space (*x*)", labels = \(x) signs::signs(x, accuracy = 1)) +
-  scale_y_continuous(paste0("Proportion (",whitespace(10),"*p*",whitespace(6),")"), labels = prob_label) +
+  scale_x_continuous(paste0(
+    "Sample Space (",
+    whitespace(6),
+    "*x*",
+    whitespace(6),
+    ")"), 
+    labels = \(x) signs::signs(x, accuracy = 1)) +
+  scale_y_continuous(paste0(
+    "Proportion (",
+    whitespace(14),
+    "*p*",
+    whitespace(10),
+    ")"), 
+    labels = prob_label) +
   theme_minimal(base_size = 26, base_family = bfont) +
   coord_fixed(8) +
   annotate(
@@ -1308,7 +1113,14 @@ p1 <- ggplot(d, aes(x, p)) +
     label.padding = unit(0, "mm"),
     size = ggtext_size(26)
   ) +
-  ggtitle(paste0("Cumulative Distribution Function *F<sub>X",whitespace(8),"</sub>*(*x*) = *p*")) +
+  ggtitle(paste0(
+    "Cumulative Distribution Function *F*<sub>*X*",
+    whitespace(12),
+    "</sub>(",
+    whitespace(6),
+    "*x*",
+    whitespace(6),
+    ") = *p*")) +
   theme(
     plot.title = ggtext::element_markdown(size = 26 * 0.8), 
     plot.title.position = "plot",
@@ -1324,9 +1136,23 @@ p2 <- ggplot(d, aes(p, x)) +
     color = myfills[1],
     lwd = 1
   ) +
-  scale_y_continuous("Sample Space (*x*)", labels = \(x) signs::signs(x, accuracy = 1)) +
-  scale_x_continuous(paste0("Proportion (",whitespace(16),"*p*",whitespace(4),")"), labels = prob_label) +
-  theme_minimal(base_size = 26, base_family = bfont) +
+  scale_y_continuous(paste0(
+    "Sample Space (",
+    whitespace(6),
+    "*x*",
+    whitespace(6),
+    ")"), 
+    labels = \(x) signs::signs(x, accuracy = 1)) +
+  scale_x_continuous(
+    paste0(
+      "Proportion (",
+      whitespace(16),
+      "*p*",
+      whitespace(8),")"), 
+    labels = prob_label) +
+  theme_minimal(
+    base_size = 26, 
+    base_family = bfont) +
   coord_fixed(1 / 8) +
   annotate(
     "richtext",
@@ -1362,7 +1188,7 @@ As seen in @fig-cdfvquantile, if you see a graph of a continuous distribution fu
 
 In R, the `sample` function generates numbers from the discrete uniform distribution. 
 
-```{r demo-DiscreteUniformSample, echo=-1}
+```{r demo-DiscreteUniformSample}
 set.seed(1)
 # n = the sample size
 n <- 6000
@@ -1783,7 +1609,7 @@ tibble(SampleSpace = 0:10,
              color = Function)) +
   geom_pointline(lty = "dotted", distance = unit(3, "mm")) +
   geom_point(aes(size = Function)) +
-  theme_minimal(base_family = "serif",
+  theme_minimal(base_family = bfont,
                 base_size = 18) +
   scale_color_manual(values = myfills) +
   scale_x_continuous("Sample Space",
@@ -1802,7 +1628,7 @@ tibble(SampleSpace = 0:10,
     size = 4.75,
     color = myfills[1],
     label.size = 0,
-    family = "serif",
+    family = bfont,
     label.padding = unit(0, "mm")
   ) +
   annotate(
@@ -1814,7 +1640,7 @@ tibble(SampleSpace = 0:10,
     size = 4.75,
     color = myfills[2],
     label.size = 0,
-    family = "serif",
+    family = bfont,
     label.padding = unit(0, "mm")
   )
 
@@ -1853,8 +1679,6 @@ tibble::tribble(
 #| fig-align: left
 knitr::include_graphics("images/Simeon_Poisson.jpg")
 ```
-
-
 
 Imagine that an event happens sporadically at random and we measure how often it occurs in regular time intervals (e.g., events per hour). Sometimes the event does not occur in the interval, sometimes just once, and sometimes more than once. However, we notice that over many intervals, the average number of events is constant. The distribution of the number of events in each interval will follow a [Poisson distribution]{.defword title="The **Poisson distribution** is a discrete distribution used to model how often an event will occur during a particular interval of time."}. Although "Poisson" means "fish" in French, fish have nothing to do with it. This distribution was named after Siméon Denis Poisson, whose work on the distribution made it famous.
 

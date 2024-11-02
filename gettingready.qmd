@@ -357,7 +357,10 @@ Here is a data file name that begins with a date, followed by the school distric
 
 One of the benefits of using dates in the ISO format is that they sort chronologically. Which file names would you prefer to deal with?
 
-```{r, echo = F}
+```{r}
+#| label: tbl-sorting
+#| tbl-cap: Date Sorting
+#| echo: FALSE
 k <- 8
 iso <- (ymd(20060201) + days(sample(1:360, k, replace = T)) + years(sample(1:k, replace = T))) 
 

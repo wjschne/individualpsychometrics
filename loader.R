@@ -1,46 +1,77 @@
 # Load packages
 library(conflicted)
+
+library(xfun)
+xfun::pkg_attach2(
+  c(
+    "extrafont",
+    "knitr",
+    "fMultivar",
+    "IDPmisc",
+    "mvtnorm",
+    "Matrix",
+    "psych",
+    "tidyverse",
+    "scales",
+    "gganimate",
+    "ggforce",
+    "sjmisc",
+    "WJSmisc",
+    "tikzDevice",
+    "patchwork",
+    "qualvar",
+    "modeest",
+    "tinter",
+    "ggfx",
+    "ggtext",
+    "lemon",
+    "signs",
+    "psycheval",
+    "bezier",
+    "DescTools",
+    "ggh4x",
+    "ggthemes",
+    "rsvg",
+    "ggarrow",
+    "arrowheadr",
+    "rgl",
+    "ggdiagram",
+    "ggbeeswarm",
+    "tmvtnorm"
+  )
+)
+
 conflicts_prefer(dplyr::select, 
                  dplyr::filter, 
                  scales::alpha, 
                  dplyr::lag,
                  tibble::add_case,
-                 ggdiagram::`+`)
-library(extrafont)
-loadfonts("win", quiet = TRUE)
-library(knitr)
-library(sn)
-library(fMultivar)
-library(IDPmisc)
-library(psych)
-library(tidyverse)
-library(scales)
-library(rmarkdown)
-library(gganimate)
-library(ggforce)
-library(sjmisc)
-library(WJSmisc)
-# library(tippy)
-library(tikzDevice)
-library(patchwork)
-library(qualvar)
-library(modeest)
-library(tinter)
-library(ggfx)
-library(ggtext)
-library(lemon)
-library(signs)
+                 ggdiagram::`+`,
+                 purrr::discard,
+                 readr::col_factor,
+                 scales::alpha,
+                 scales::rescale,
+                 purrr::is_empty,
+                 tidyr::replace_na,
+                 tidyr::expand,
+                 tidyr::pack,
+                 tidyr::unpack,
+                 tibble::add_case,
+                 psycheval::multivariate_ci,
+                 sjmisc::`%nin%`,
+                 psych::AUC,
+                 psych::ICC,
+                 psych::SD,
+                 ggh4x::geom_pointpath,
+                 ggh4x::GeomPointPath,
+                 ggdiagram::signs_centered,
+                 ggdiagram::distance
+)
 
-library(psycheval)
-library(bezier)
-library(DescTools)
-library(ggh4x)
-library(ggthemes)
-library(rsvg)
-library(ggarrow)
-library(arrowheadr)
-library(rgl)
-library(ggdiagram)
+loadfonts("win", quiet = TRUE)
+
+
+
 knitr::knit_hooks$set(webgl = hook_webgl)
 # Set options
 options(knitr.kable.digits = 2, knitr.kable.na = '')
@@ -55,7 +86,16 @@ knitr::opts_template$set(
 # Default fonts and colors
 bfont = "Equity Text A Tab"
 bsize = 16
-myfills <- c("royalblue4", "firebrick4", "#51315E")
+# myfills <- class_color(c("royalblue4", "firebrick4", "#51315E"))@color
+# myfills <- viridis::viridis(3, begin = .4, end = .65)
+# myfills <- pal_brewer(type = "div", 3)(4)
+# myfills <-  hsv(h = degree(c(150,210, 250))@turn, 
+#     s = .7, 
+#     v = c(.45,.45,.45))[c(2,1,3)]
+
+myfills <- class_color(c("#27408B", "#22734B", "#51315E"))@color
+# myfills %>% show_col()
+
 txt_color <- "gray20"
 btxt_size = ggtext_size(bsize)
 my_arrowhead <- arrow_head_deltoid(2.3)
@@ -87,7 +127,8 @@ theme_set(theme_minimal(base_size = bsize, base_family = bfont))
 
 
 # font family
-span_style <- function(x, style = "font-family:serif") {
+span_style <- function(x, style = "font-family:serif;"
+                       ) {
   paste0('<span style=\"',
          style,
          '\">',
@@ -128,6 +169,117 @@ bmatrix <- function(M, brace = "bmatrix", includenames=TRUE) {
     M <- paste0("\\begin{",brace,"}\n", M, "\n\\end{", brace , "}")
     }
   M
+}
+
+# Function to make dice
+makedice <- function(i, id, add_blank = TRUE) {
+  x = switch(
+    i,
+    `1` = 0,
+    `2` = c(-1, 1),
+    `3` = c(-1, 1, 0),
+    `4` = c(-1, 1, -1, 1),
+    `5` = c(-1, 1, -1, 1, 0),
+    `6` = c(-1, 1, -1, 1, -1, 1)
+  )
+  y = switch(
+    i,
+    `1` = 0,
+    `2` = c(1,-1),
+    `3` = c(1,-1, 0),
+    `4` = c(1,-1,-1, 1),
+    `5` = c(1,-1,-1, 1, 0),
+    `6` = c(1,-1,-1, 1, 0, 0))
+  
+  d <- tibble(id = id * 1,
+              i = i,
+              x = x,
+              y = y)
+  
+  if (add_blank) {
+    d <- d %>%
+      add_case(id = id + 0.5,
+               i = 0,
+               x = NA,
+               y = NA)
+  }
+  d
+}
+
+center_neg <- function(x) {
+  signs <- sign(x)
+  paste0(ifelse(signs < 0,"$",""), x, ifelse(signs < 0,"\\phantom{-}$",""))
+}
+
+all_tick_labels <- function(side = 1, at, labels = at) {
+  axis(side, labels = rep("",length(at)), at = at)
+  for (i in 1:length(at)) {
+    axis(side, 
+         at = at[i], 
+         labels = labels[i],
+         tick = F)
+  }
+}
+
+whitespace <- function(
+    size = 10, 
+    text = ".", 
+    color = "white") {
+  paste0("<span style='color:",
+         color,
+         "; font-size:",
+         size, 
+         "pt;'>",
+         text,
+         "</span>")
+}
+
+middle_axes <- function(limits = c(0, 5)) {
+  breaks <- seq(limits[1], limits[2])
+  breaks <- breaks[breaks != 0]
+  ggplot() +
+    theme_classic(
+      base_family = bfont,
+      base_size = 18,
+      base_line_size = .5
+    ) +
+    theme(
+      axis.text = element_text(color = "gray40"),
+      axis.line = element_blank(),
+      axis.ticks = element_line(color = "gray"),
+      axis.title.x = element_text(
+        angle = 0,
+        vjust = .5,
+        face = "italic",
+        color = "gray40"
+      ),
+      axis.title.y = element_text(
+        angle = 0,
+        vjust = .5,
+        face = "italic",
+        color = "gray40"
+      )
+    ) +
+    scale_x_continuous(name = "y", 
+                       breaks = breaks, 
+                       labels = WJSmisc::signs_centered) +
+    scale_y_continuous(name = "x", 
+                       breaks = breaks, 
+                       labels = signs) +
+    ggh4x::coord_axes_inside(
+      xlim = limits,
+      ylim = limits,
+      labels_inside = T,
+      ratio = 1
+    ) +
+    ob_segment(x = c(0, limits[1] - abs(max(limits) - min(limits)) / 20), 
+               xend = c(0, limits[2] + abs(max(limits) - min(limits)) / 20), 
+               y = c(limits[1] - abs(max(limits) - min(limits)) / 20, 0), 
+               yend = c(limits[2] + abs(max(limits) - min(limits)) / 20, 0), 
+               linewidth = .75, 
+               arrow_head = my_arrowhead, 
+               arrow_fins = my_arrowhead, 
+               color = "gray")
 }
 
 # Hooks -------
