@@ -23,6 +23,11 @@ jobs:
         uses: quarto-dev/quarto-actions/render@v2
         with:
           to: html
+          packages:
+            any::knitr
+            any::rmarkdown
+            any::downlit
+            any::xml2
 
       - name: Publish HTML book
         uses: quarto-dev/quarto-actions/publish@v2
