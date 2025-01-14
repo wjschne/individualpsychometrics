@@ -855,7 +855,8 @@ tribble(
 #| fig-cap: '"Student" statistician, William Sealy Gosset (1876--1937)<br>[Image Credit](https://en.wikipedia.org/wiki/File:William_Sealy_Gosset.jpg)'
 #| out-width: "60%"
 #| fig-column: margin
-knitr::include_graphics("images/william_sealy_gosset.jpg")
+#| fig-align: left
+knitr::include_graphics("images/William_Sealy_Gosset.jpg")
 ```
 
 (Unfinished)

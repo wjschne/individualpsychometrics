@@ -46,7 +46,7 @@ position_dice <- function(i, r = 1.85, space = 1) {
   # Probability label
   pr <- ob_label(
     label = "&frac16;", 
-    p = p_pr, 
+    center = p_pr, 
     size = 32, 
     family = "serif")
   
@@ -71,14 +71,14 @@ sl <- map_ob(1:6, position_dice)
 # Sample space label
 ss_label <- ob_label(
   label = "Sample Space", 
-  p = sl[["ob_ellipse"]]@bounding_box@north + 
+  center = sl[["ob_ellipse"]]@bounding_box@north + 
            ob_point(0, 2),
   size = 24)
 
 # Probability label
 pr_label <- ob_label(
     label = "Probability", 
-    ss_label@p %-|% sl[["ob_label"]]@p@bounding_box@north, 
+    ss_label@center %-|% sl[["ob_label"]]@center@bounding_box@north, 
     size = 24
     )
 
@@ -660,13 +660,13 @@ pr <- ob_rectangle(
 
 p_label <- ob_label(
   label = "**Probabilities**", 
-  p = pr@north, 
+  center = pr@north, 
   vjust = -.2, 
   size = 24)
 
 pmf_label <- ob_label(
   label = "**Mass Function**", 
-  p = midpoint(ss_label@p, p_label@p), 
+  center = midpoint(ss_label@center, p_label@center), 
   vjust = -.2, 
   size = 24,
   color = myfills[1])
@@ -674,7 +674,7 @@ pmf_label <- ob_label(
 th <- "<span style='font-family: serif'>&theta;<span>"
 
 thetar <- ob_rectangle(
-  pmf_label@p + ob_point(0,-.8),  
+  pmf_label@center + ob_point(0,-.8),  
   width = 1, 
   height = 1/4, 
   label = ob_label(
@@ -698,7 +698,7 @@ thetar <- ob_rectangle(
 
 th_label <- ob_label(
   label = "**Parameters**", 
-  p = thetar@north, 
+  center = thetar@north, 
   vjust = -.2, 
   size = 24)
 
@@ -719,7 +719,7 @@ ggdiagram(font_family = bfont) +
   pmf_label +
   ob_label(
     "**Probability**",
-    pmf_label@p,
+    pmf_label@center,
     vjust = -1.15,
     size = 24,
     color = myfills[1]
@@ -738,8 +738,8 @@ ggdiagram(font_family = bfont) +
   fx_label + 
   thetar + 
   th_label +
-  connect(th_label@p, 
-          fx_label@p, 
+  connect(th_label@center, 
+          fx_label@center, 
           resect_head = 9, 
           resect_fins = 14, 
           linewidth = 1.25, 
@@ -755,7 +755,7 @@ ggdiagram(font_family = bfont) +
       "***",
       whitespace(2),
       ") = ***p***"),
-    p = pmf_label@p + ob_point(0,.5), 
+    center = pmf_label@center + ob_point(0,.5), 
     size = 20)
 ```
 
@@ -898,7 +898,7 @@ ggdiagram(bfont) +
   ) + 
   {x_label <- ob_label(
     1:6,
-    p = purrr::pmap(tibble(
+    center = purrr::pmap(tibble(
       x0 = 1:6,
       y0 = 1,
       r = r,
@@ -909,7 +909,7 @@ ggdiagram(bfont) +
   )} + 
   {y_label <- ob_label(
     paste0(1:6, "&frasl;6"),
-    p = purrr::pmap(tibble(
+    center = purrr::pmap(tibble(
       y0 = 1:6,
       x0 = 1,
       r = r,
@@ -918,10 +918,10 @@ ggdiagram(bfont) +
     color = "black",
     size = 24
   )} +
-  (x_label@p@bounding_box@south + ob_point(0, -2))@label(
+  (x_label@center@bounding_box@south + ob_point(0, -2))@label(
     "Die roll is this value or less", 
     size = 24) +
-  (y_label@p@bounding_box@west + ob_point(-2,0))@label(
+  (y_label@center@bounding_box@west + ob_point(-2,0))@label(
     "Probability", 
     size = 24, 
     angle = 90)
@@ -1303,7 +1303,7 @@ ggdiagram(bfont) +
     size = 36)} +
   connect(
     c1,
-    l1@p ,
+    l1@center ,
     linewidth = 2,
     resect_fins = 5,
     resect_head = 10,
