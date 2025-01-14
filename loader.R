@@ -37,7 +37,10 @@ xfun::pkg_attach2(
     "rgl",
     "ggdiagram",
     "ggbeeswarm",
-    "tmvtnorm"
+    "tmvtnorm",
+    "rmarkdown",
+    "downlit",
+    "xml2")
   )
 )
 
