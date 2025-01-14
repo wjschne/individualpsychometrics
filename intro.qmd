@@ -16,7 +16,12 @@ Most introductory psychometrics textbooks are designed to help researchers creat
 
 That my emphasis is on the practical in no way implies that this book is dumbed down. My aim is to make psychometrics *useful* to clinicians. If some useful ideas are complex, I hope to make them accessible---but without resorting to superficial glossing. Some background knowledge of psychometrics is necessary to understand how these tools work and, more importantly, when their underlying assumptions have been violated. 
 
-![Philip Ley (1933--2015)<br>[Image Credit](https://www.sydney.edu.au/arms/archives/media/me_objects/7583)](images/Philip_Ley2.jpg){#fig-philipleysolvents .column-margin width=250 .fig-align="left"}
+:::{#fig-philipleysolvents .column-margin}
+
+![](images/Philip_Ley2.jpg)
+
+Philip Ley (1933--2015)<br>[Image Credit](https://www.sydney.edu.au/arms/archives/media/me_objects/7583)
+:::
 
 ## Inspiration
 
