@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>1&nbsp; Introduction – Individual Psychometrics</title>
+<title>14&nbsp; Notation – Individual Psychometrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,8 +50,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./gettingready.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./unfinished.html" rel="next">
+<link href="./ojs.html" rel="prev">
 <link href="./images/Logo.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -104,12 +104,55 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
 });
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="equity.css">
 <link rel="stylesheet" href="individualpsychometrics.css">
 </head>
 
-<body class="nav-sidebar docked slimcontent">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -118,7 +161,7 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./variables.html">Variables</a></li><li class="breadcrumb-item"><a href="./notation.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Notation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -160,7 +203,7 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
   </div>
 </li>
@@ -260,7 +303,7 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notation.html" class="sidebar-item-text sidebar-link">
+  <a href="./notation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Notation</span></span></a>
   </div>
 </li>
@@ -284,8 +327,11 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
     <h2 id="toc-title">Page Contents</h2>
    
   <ul>
-  <li><a href="#purpose-of-this-book" id="toc-purpose-of-this-book" class="nav-link active" data-scroll-target="#purpose-of-this-book"><span class="header-section-number">1.1</span> Purpose of this book</a></li>
-  <li><a href="#inspiration" id="toc-inspiration" class="nav-link" data-scroll-target="#inspiration"><span class="header-section-number">1.2</span> Inspiration</a></li>
+  <li><a href="#random-variables-vectors-and-matrices" id="toc-random-variables-vectors-and-matrices" class="nav-link active" data-scroll-target="#random-variables-vectors-and-matrices"><span class="header-section-number">14.1</span> Random variables, vectors, and matrices</a></li>
+  <li><a href="#sets-and-intervals" id="toc-sets-and-intervals" class="nav-link" data-scroll-target="#sets-and-intervals"><span class="header-section-number">14.2</span> Sets and intervals</a></li>
+  <li><a href="#summation" id="toc-summation" class="nav-link" data-scroll-target="#summation"><span class="header-section-number">14.3</span> Summation</a></li>
+  <li><a href="#statistics" id="toc-statistics" class="nav-link" data-scroll-target="#statistics"><span class="header-section-number">14.4</span> Statistics</a></li>
+  <li><a href="#other" id="toc-other" class="nav-link" data-scroll-target="#other"><span class="header-section-number">14.5</span> Other</a></li>
   </ul>
 </nav>
 </nav>
@@ -294,11 +340,11 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./intro.html">Getting Started</a></li><li class="breadcrumb-item"><a href="./intro.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./variables.html">Variables</a></li><li class="breadcrumb-item"><a href="./notation.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Notation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span id="intro" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Notation</span></h1>
 </div>
 
 
@@ -315,37 +361,179 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
 </header>
 
 
-<p>Although great painters can make good art with cheap brushes, they need high quality tools to work at the upper limits of their craft. On the other hand, giving an untrained person an expensive set of brushes is unlikely to result in noticeably better art. So it is with these tools. They are of little use to unprepared hands—and in foolish hands, they become dangerously foolish. But in hands caring and competent, they make reasoning more rigorous, results more robust, and recommendations more relevant.</p>
-<p>A comprehensive psychological assessment cannot be rushed. Even if we work hard to be efficient, there are limits to how much time can be cut from interviews, testing, and behavioral observations before they become superficial, unreliable, and ungeneralizable. Accurate scoring and thoughtful interpretation take even more time. Then there is the considerable task of actually writing the report, which typically requires many hours. Finally, the results of the report are presented to the client and other decision-makers. If we invest this much time and effort in the process, we should make the most of it. On the other hand, while making the most of it, it is lamentably easy to go too far—making reckless recommendations from iffy inferences and flights of fancy.</p>
-<p>Humans are quite good at some things that are extraordinarily complex, such as pattern recognition. Humans are not so great at combining numeric data in their heads to come to valid conclusions. When Andy <span class="citation" data-cites="clarkNaturalbornCyborgsMinds2004">Clark (<a href="references.html#ref-clarkNaturalbornCyborgsMinds2004" role="doc-biblioref">2004, p. 5</a>)</span> said that biological brains are “to put it bluntly, bad at logic, good at Frisbee,” it was no insult to Frisbee aficionados—robots are no match for humans at the sport. Furthermore, certain kinds of formal logic, though once considered to be the pinnacle of human intellect, are actually fairly simple for computers. Thus, we should let computers do what they do best: calculate. We humans have the job of deciding which calculations the computers should perform, interpreting what the results mean, and deciding how the new information should be used.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-clarkNaturalbornCyborgsMinds2004" class="csl-entry" role="listitem">
-Clark, A. (2004). <em>Natural-born cyborgs: <span>Minds</span>, technologies, and the future of human intelligence</em>. Oxford University Press, USA.
-</div></div><section id="purpose-of-this-book" class="level2 page-columns page-full" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="purpose-of-this-book"><span class="header-section-number">1.1</span> Purpose of this book</h2>
-<p>Most introductory psychometrics textbooks are designed to help researchers create well constructed tests and therefore cover many details that are not useful to clinicians and fail to cover many practical issues that clinicians should know about. This book is intended to help you extract useful information from the data you already have in ways that you may not have known were possible.</p>
-<p>That my emphasis is on the practical in no way implies that this book is dumbed down. My aim is to make psychometrics <em>useful</em> to clinicians. If some useful ideas are complex, I hope to make them accessible—but without resorting to superficial glossing. Some background knowledge of psychometrics is necessary to understand how these tools work and, more importantly, when their underlying assumptions have been violated.</p>
-
-<div class="no-row-height column-margin column-container"><div id="fig-philipleysolvents" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-philipleysolvents-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/Philip_Ley2.jpg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-philipleysolvents-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.1: Philip Ley (1933–2015)<br><a href="https://www.sydney.edu.au/arms/archives/media/me_objects/7583">Image Credit</a>
-</figcaption>
-</figure>
-</div></div></section>
-<section id="inspiration" class="level2 page-columns page-full" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="inspiration"><span class="header-section-number">1.2</span> Inspiration</h2>
-<p>Whenever I go to a library, I find the book I need and then run my fingers over the books nearby that might also be interesting. Sometimes I see what I expect to find, but sometimes I go places I never expected. I like the idea of “wasting time” productively. I like learning things that seem to be the product of a disciplined mind even if they have no apparent value to me at the time. Casting a wide net can pull in some big surprises.</p>
-<p>This book would never have been written had I not in graduate school stumbled across Ley’s <span class="citation" data-cites="leyQuantitativeAspectsPsychological1972">(<a href="references.html#ref-leyQuantitativeAspectsPsychological1972" role="doc-biblioref">1972</a>)</span> <a href="http://www.psychassessment.net.au/(S(uunzayw10i22lwegjltnpjh3))/PDF/qapa.pdf"><em>Quantitative aspects of psychological assessment</em></a> while wandering the stacks at Evans library at Texas A&amp;M University. The book was a little quirky, but I like quirky. I especially admire the book’s blend of clarity, practicality, and depth. Why did I write my own book instead of recommending that clinicians <a href="http://www.psychassessment.net.au/(S(uunzayw10i22lwegjltnpjh3))/PDF/qapa.pdf">download</a> and use Ley’s now freely available book? Well, I do recommend reading Ley’s book. In contrast to my approach, Ley often takes time to gently lay out mathematical proofs of many ideas. Thus Ley’s book is a wonderful and beginner-friendly introduction to the not-famous-for-being-accessible corpus of academic writings on psychometrics.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-leyQuantitativeAspectsPsychological1972" class="csl-entry" role="listitem">
-Ley, P. (1972). <em>Quantitative aspects of psychological assessment: <span>An</span> introduction</em>. Duckworth.
-</div><div id="ref-R-base" class="csl-entry" role="listitem">
-R Core Team. (2024). <em>R: A language and environment for statistical computing</em>. R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>
-</div><div id="ref-R-psycheval" class="csl-entry" role="listitem">
-Schneider, W. J. (2024). <em>Psycheval: A psychological evaluation toolkit</em>. <a href="https://github.com/wjschne/psycheval">https://github.com/wjschne/psycheval</a>
-</div></div><p>I wanted to present much of the same material as Ley does but with more of an eye to application. I also wanted to present many ideas not included in Ley’s book. In addition, I chose to write this book because I believe that Ley had the right idea but that in an era in which no one had a home computer, few clinicians would have the knowledge, motivation, and stamina to use his equations on a regular basis. Now that computers are used by all clinicians, equations like those presented by Ley can be be made easy to use. All of the “tools” in this toolkit are freely available in various packages programming environment <span class="citation" data-cites="R-base">(<a href="references.html#ref-R-base" role="doc-biblioref">R Core Team, 2024</a>)</span>. Any tools not elsewhere available have been collected in <a href="https://wjschne.github.io/psycheval/">psycheval</a> <span class="citation" data-cites="R-psycheval">(<a href="references.html#ref-R-psycheval" role="doc-biblioref">Schneider, 2024</a>)</span>, a package specifically developed for users of this book.</p>
+<section id="random-variables-vectors-and-matrices" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="random-variables-vectors-and-matrices"><span class="header-section-number">14.1</span> Random variables, vectors, and matrices</h2>
+<ul>
+<li>Random variables are capital letters such as <span class="math inline">X</span> and <span class="math inline">Y</span>.</li>
+<li>A particular value of <span class="math inline">X</span> is <span class="math inline">x</span>.</li>
+<li>Vectors are bold lowercase symbols (e.g., <span class="math inline">\boldsymbol{a}</span>, <span class="math inline">\boldsymbol{\theta}</span>) or italic lowercase with arrows (e.g., <span class="math inline">\vec{a}</span>, <span class="math inline">\vec{\theta}</span>).</li>
+<li>Matrices are bold uppercase symbols (e.g., <span class="math inline">\boldsymbol{A}</span>, <span class="math inline">\boldsymbol{\Theta}</span>).</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Expression</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\boldsymbol{A'}</span></td>
+<td style="text-align: left;">The transpose of matrix <span class="math inline">\boldsymbol{A}</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\boldsymbol{A}^{-1}</span></td>
+<td style="text-align: left;">The inverse of matrix <span class="math inline">\boldsymbol{A}</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\mathtt{diag}(\boldsymbol{A})</span></td>
+<td style="text-align: left;">The vector formed from the diagonal of matrix <span class="math inline">\boldsymbol{A}</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\mathtt{diag}(\boldsymbol{a})</span></td>
+<td style="text-align: left;">The diagonal matrix formed from vector <span class="math inline">\boldsymbol{a}</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\boldsymbol{1}_k</span></td>
+<td style="text-align: left;">A column vector of <span class="math inline">k</span> ones. If <span class="math inline">k</span> is absent, the length of <span class="math inline">\boldsymbol{1}</span> can be inferred by context.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\boldsymbol{I}_k</span></td>
+<td style="text-align: left;">A <span class="math inline">k \times k</span> identity matrix. If <span class="math inline">k</span> is absent, the dimensions of <span class="math inline">\boldsymbol{I}</span> can be inferred by context.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sets-and-intervals" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="sets-and-intervals"><span class="header-section-number">14.2</span> Sets and intervals</h2>
+<p>A <em>set</em> is a collection of distinct objects.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Expression</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\{a,b\}</span></td>
+<td style="text-align: left;">A set consisting of two numbers, <span class="math inline">a</span> and <span class="math inline">b</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\lbrack a,b\rbrack</span></td>
+<td style="text-align: left;">The set of real numbers in the interval between <span class="math inline">a</span> and <span class="math inline">b</span>, inclusive</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">(a,b)</span></td>
+<td style="text-align: left;">The set of real numbers in the interval between <span class="math inline">a</span> and <span class="math inline">b</span>, exclusive</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">(a,b\rbrack</span></td>
+<td style="text-align: left;">The set of real numbers in the interval between <span class="math inline">a</span> and <span class="math inline">b</span>, excluding <span class="math inline">a</span> but including <span class="math inline">b</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\mathbb{R}</span></td>
+<td style="text-align: left;">The set of all real numbers <span class="math inline">[-\infty,\infty]</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\mathbb{Z}</span></td>
+<td style="text-align: left;">The set of all integers <span class="math inline">\{\ldots,-2,-1,0,1,2,\ldots\}</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\mathbb{N}_0</span></td>
+<td style="text-align: left;">The set of all non-negative integers: <span class="math inline">\{ 0,1,2,...\}</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\mathbb{N}_1</span></td>
+<td style="text-align: left;">The set of all positive integers: <span class="math inline">\{ 1,2,3,...\}</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\in</span></td>
+<td style="text-align: left;">Is a member of (i.e., <span class="math inline">X \in (a,b)</span> means that <span class="math inline">X</span> is a member of the set of numbers between <span class="math inline">a</span> and <span class="math inline">b</span>)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="summation" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="summation"><span class="header-section-number">14.3</span> Summation</h2>
+<p>There are several ways to show that a variable is to be summed. The summation sign looks like a really big Σ, the capital Greek letter sigma. If <span class="math inline">\boldsymbol{x}</span> is a vector with <span class="math inline">k</span> elements, the sum of all <span class="math inline">k</span> in <span class="math inline">\boldsymbol{x}</span> is:</p>
+<p><span class="math display">\sum_{i = 1}^k x_i</span></p>
+<p>With matrix algebra,</p>
+<p><span class="math display">\sum_{i = 1}^k x_i=\boldsymbol{1}'\boldsymbol{x}</span></p>
+</section>
+<section id="statistics" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="statistics"><span class="header-section-number">14.4</span> Statistics</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Expression</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\mu_X, m_X</span></td>
+<td style="text-align: left;">The population and sample mean of <span class="math inline">X</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\sigma_X, s_X</span></td>
+<td style="text-align: left;">The population and sample standard deviation of <span class="math inline">X</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\sigma_X^2, s_X^2</span></td>
+<td style="text-align: left;">The population and sample variance of <span class="math inline">X</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\gamma_1, g_1</span></td>
+<td style="text-align: left;">The population and sample skewness</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\gamma_2, g_2</span></td>
+<td style="text-align: left;">The population and sample kurtosis</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="other" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="other"><span class="header-section-number">14.5</span> Other</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 78%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Expression</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\binom{n}{k}</span></td>
+<td style="text-align: left;">The <em>binomial coefficient</em>. It is just a shortcut notation for <span class="math inline">\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}</span>. Read aloud, <span class="math inline">\binom{n}{k}</span> is ``<span class="math inline">n</span> choose <span class="math inline">k</span>’’ or the number of combinations that <span class="math inline">n</span> things have when taken <span class="math inline">k</span> at a time.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">f_X(x;\boldsymbol{\theta})</span></td>
+<td style="text-align: left;">The probability density function or probability mass function of <span class="math inline">X</span> with parameters <span class="math inline">\boldsymbol{\theta}</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">F_X(x;\boldsymbol{\theta})</span></td>
+<td style="text-align: left;">The cumulative distribution function of <span class="math inline">X</span> with parameters <span class="math inline">\boldsymbol{\theta}</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\mathcal{E}\left(X\right)</span></td>
+<td style="text-align: left;">The expected value of <span class="math inline">X</span></td>
+</tr>
+</tbody>
+</table>
 
 
 
@@ -771,13 +959,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./ojs.html" class="pagination-link" aria-label="OJS figures">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">OJS figures</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./gettingready.html" class="pagination-link" aria-label="Getting Ready to Use R via RStudio">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Getting Ready to Use R via RStudio</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./unfinished.html" class="pagination-link" aria-label="Unfinished Odds and Ends">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Unfinished Odds and Ends</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
