@@ -47,6 +47,7 @@ book:
           text: Distributions--Continuous
         - descriptives.qmd
         - compositescores.qmd
+        - relativeproficiency.qmd
         - ojs.qmd
         - notation.qmd
         - unfinished.qmd
