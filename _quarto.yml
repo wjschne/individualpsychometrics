@@ -47,7 +47,8 @@ book:
           text: Distributions--Continuous
         - descriptives.qmd
         - compositescores.qmd
-        - relativeproficiency.qmd
+        - file: relativeproficiency.qmd
+          text: Relative Proficiency
         - ojs.qmd
         - notation.qmd
         - unfinished.qmd
