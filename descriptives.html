@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.13">
+<meta name="generator" content="quarto-1.8.13">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,8 +21,9 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 /* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -89,14 +90,15 @@ div.csl-indent {
 <link href="./images/Logo.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b99edf030ae6eb7c7c8e2c2cc265d13b.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf1f3dd6b4b4c48e455677fe0d53bc37.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ec82d0a94f0b9705a2efa39716220b32.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-a226d0442b5abbcb23d3268b475fdcb9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -166,7 +168,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -186,7 +188,7 @@ window.Quarto = {
 <link rel="stylesheet" href="individualpsychometrics.css">
 </head>
 
-<body class="nav-sidebar docked slimcontent">
+<body class="nav-sidebar docked slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -494,12 +496,12 @@ Table&nbsp;11.1: Frequency Distribution Table<br>The median is 5, halfway betwee
 </div>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>11.1</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>11.1</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -597,12 +599,12 @@ Table&nbsp;11.2: Frequency Distribution Table for Anger<br><em>f</em>&nbsp;=&nbs
 </div>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>11.2</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>11.2</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -632,7 +634,7 @@ R Code for <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>11.2
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-freqbarplot" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-freqbarplot" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-freqbarplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-freqbarplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
@@ -646,7 +648,7 @@ Figure&nbsp;11.1: Frequency Distribution Bar Plot
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-freqstackedbarplot" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-freqstackedbarplot" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-freqstackedbarplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-freqstackedbarplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="250">
@@ -660,7 +662,7 @@ Figure&nbsp;11.2: Cumulative Frequency Stacked Bar Plot
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-freqstepplot" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-freqstepplot" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-freqstepplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-freqstepplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
@@ -674,12 +676,12 @@ Figure&nbsp;11.3: Cumulative Frequency Step Plot
 <p>In <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>, the frequency distribution from <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>11.2</span></a> is translated into a standard bar plot in which each bar is proportional to the frequency of each response. A column bar plot allows for easy comparison of the frequency of each category. For example, in <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>, the most frequent response to the Anger question—1 (low)—draws your attention immediately. In contrast to the mental effort needed to scan frequencies listed in a table, the relative height of each frequency in the bar plot is perceived, compared, and interpreted almost effortlessly. With a single glance at <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>, no calculation is required to know that none of the other responses is even half as frequent as 1.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -718,12 +720,12 @@ R Code for <a href="#fig-freqbarplot" class="quarto-xref">Figure&nbsp;<span>11.1
 <p>In a standard bar plot, one may easily compare frequencies to each other, but that may not be what you wish the reader to notice first. A stacked bar plot emphasizes the proportions of each category as it relates to the whole. It also allows for the visual display of the cumulative frequencies and proportions. For example, in <a href="#fig-freqstackedbarplot" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>, it is easy to see that more than half of participants have an anger level of 1, and three quarters have an anger level of 2 or less.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-freqstackedbarplot" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-freqstackedbarplot" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -770,12 +772,12 @@ R Code for <a href="#fig-freqstackedbarplot" class="quarto-xref">Figure&nbsp;<sp
 <p>A step line plot can show the cumulative frequency’s relationship with the variable. For example, in <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>, it appears that the cumulative frequency rises quickly at first but then rises slowly and steadily thereafter.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -864,7 +866,7 @@ R Code for <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>11.
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-bimodal" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-bimodal" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bimodal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-bimodal-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -877,12 +879,12 @@ Figure&nbsp;11.4: A Bimodal Distribution
 </div></div></div>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>11.4</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-bimodal" class="quarto-xref">Figure&nbsp;<span>11.4</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1037,7 +1039,7 @@ Table&nbsp;11.3: Finding the Median in a Frequency Distribution Table.<br>In thi
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-centraltendency" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-centraltendency" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-centraltendency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-centraltendency-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -1050,12 +1052,12 @@ Figure&nbsp;11.5: Sampling Distributions of Central Tendency Measures.<br>The st
 </div></div></div>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-centraltendency" class="quarto-xref">Figure&nbsp;<span>11.5</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-centraltendency" class="quarto-xref">Figure&nbsp;<span>11.5</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1241,7 +1243,7 @@ m_X=\frac{\sum_{i=1}^{n} {x_i}}{n}
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-pmfX" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-pmfX" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pmfX-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-pmfX-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
@@ -1255,12 +1257,12 @@ Figure&nbsp;11.6: Probability Distribution of a Hypothetical Random Variable
 <p>Suppose that the sample space of a random variable <em>X</em> is {2, 4, 8} with respective probabilities of {0.3, 0.2, 0.5}, as shown in <a href="#fig-pmfX" class="quarto-xref">Figure&nbsp;<span>11.6</span></a>.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-pmfX" class="quarto-xref">Figure&nbsp;<span>11.6</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-pmfX" class="quarto-xref">Figure&nbsp;<span>11.6</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1300,7 +1302,7 @@ R Code for <a href="#fig-pmfX" class="quarto-xref">Figure&nbsp;<span>11.6</span>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-thinbins" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-thinbins" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-thinbins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-thinbins-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -1325,12 +1327,12 @@ Figure&nbsp;11.7: Slicing the Standard Normal Distribution into Ever Thinner Bin
 <p>If we multiply each value of <span class="math inline">X</span> by the height of its bin (<span class="math inline">p</span>), we get the mean of the binned distribution. If the bins become ever thinner, as in <a href="#fig-thinbins" class="quarto-xref">Figure&nbsp;<span>11.7</span></a>, the product of <span class="math inline">X</span> and <span class="math inline">p</span> approximates the expected value of the smooth continuous distribution.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-thinbins" class="quarto-xref">Figure&nbsp;<span>11.7</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-thinbins" class="quarto-xref">Figure&nbsp;<span>11.7</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1409,7 +1411,7 @@ Gombin, J. (2018). <em>Qualvar: Implements indices of qualitative variation prop
 </div></div><div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-nominalvar" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-nominalvar" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nominalvar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-nominalvar-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="400">
@@ -1435,12 +1437,12 @@ Figure&nbsp;11.8: The Variance Analog (VA) index of qualitative variation ranges
 <p>In all of these indices of qualitative variation, the lowest value is 0 when every data point belongs to the same category (See <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>11.8</span></a>, left panel). Also, the maximum value is 1 when the data points are equally distributed across categories (See <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>11.8</span></a>, right panel).</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>11.8</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>11.8</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1499,7 +1501,7 @@ R Code for <a href="#fig-nominalvar" class="quarto-xref">Figure&nbsp;<span>11.8<
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-normalIQR" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-normalIQR" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normalIQR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-normalIQR-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -1513,12 +1515,12 @@ Figure&nbsp;11.9: In a normal distribution with a mean of 100 and a standard dev
 <p>When median is a good choice for our central tendency measure, the interquartile range is usually a good choice for our variability measure. Whereas the median is the category that contains the 50th percentile in a distribution, the interquartile range is the distance between the categories that contain the 25th and 75th percentile. That is, it is the range of the 50 percent of data in the middle of the distribution. For example, in <a href="#fig-normalIQR" class="quarto-xref">Figure&nbsp;<span>11.9</span></a>, the shaded region is the space between the 25th and 75th percentiles in a normal distribution. The IQR is the width of the shaded region, about 20.2.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-normalIQR" class="quarto-xref">Figure&nbsp;<span>11.9</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-normalIQR" class="quarto-xref">Figure&nbsp;<span>11.9</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1580,7 +1582,7 @@ R Code for <a href="#fig-normalIQR" class="quarto-xref">Figure&nbsp;<span>11.9</
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-ordinalIQR" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-ordinalIQR" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ordinalIQR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-ordinalIQR-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="300">
@@ -1593,12 +1595,12 @@ Figure&nbsp;11.10: In this ordinal variable, the interquartile range has a lower
 </div></div></div>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-ordinalIQR" class="quarto-xref">Figure&nbsp;<span>11.10</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-ordinalIQR" class="quarto-xref">Figure&nbsp;<span>11.10</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1672,7 +1674,7 @@ R Code for <a href="#fig-ordinalIQR" class="quarto-xref">Figure&nbsp;<span>11.10
 <p>The median and the interquartile range are displayed in box and whiskers plots like <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>11.11</span></a>. The height of the box is the interquartile range, and the horizontal line is the median. The top “whisker” extends no higher than 1.5 × <em>IQR</em> above the 75th percentile. The bottom “whisker” extends no lower than 1.5 × <em>IQR</em> below the 25th percentile. Any data points outside the whiskers can be considered outliers.</p>
 <div class="cell fig-cap-location-top tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-IQRboxplot" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-IQRboxplot" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-IQRboxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-IQRboxplot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -1686,12 +1688,12 @@ Figure&nbsp;11.11: A Tukey-style Box and Whiskers Plot with Medians and Interqua
 </div>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>11.11</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>11.11</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1830,7 +1832,7 @@ s^2=\frac{\sum_i^n{\left(x_i-m\right)^2}}{n-1}
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-besselpic" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left" data-cap-location="margin">
+<div id="fig-besselpic" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-besselpic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Friedrich_Wilhelm_Bessel_(1839_painting).jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" width="250">
@@ -1845,7 +1847,7 @@ Figure&nbsp;11.12: Friedrich Wilhelm Bessel (1784–1846)<br><a href="https://en
 <p>Variance is rarely used for descriptive purposes because it is a squared quantity with no direct connection to the width of the distribution it describes. We mainly use variance as a stepping stone to compute other descriptive statistics (e.g., standard deviations and correlation coefficients) and as an essential ingredient in inferential statistics (e.g., analysis of variance, multiple regression, and structural equation modeling). However, <a href="#fig-variancevisualization" class="quarto-xref">Figure&nbsp;<span>11.13</span></a> attempts a visualization of what variance represents. Along the <span class="math inline">X</span>-axis, the values of a normally distributed variable <span class="math inline">X</span> are plotted as points. The <span class="math inline">Y</span>-axis represents the deviations of variable <span class="math inline">X</span> from <span class="math inline">\mu</span>, the mean of <span class="math inline">X</span>. For each value of <span class="math inline">X</span>, we can create a square with sides as long as the deviations from <span class="math inline">\mu</span>. The red squares have a positive deviation and the blue squares have a negative deviation. The darkness of the color represents the magnitude of the deviation. The black square has an area equal to the average area of all the squares. Its sides have a length equal to the standard deviation, the square root of variance.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-variancevisualization" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-variancevisualization" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-variancevisualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-variancevisualization-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -1859,12 +1861,12 @@ Figure&nbsp;11.13: Visualizing Variance.<br>The values of variable <em>X</em> ar
 </div>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-variancevisualization" class="quarto-xref">Figure&nbsp;<span>11.13</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-variancevisualization" class="quarto-xref">Figure&nbsp;<span>11.13</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2092,7 +2094,7 @@ s&amp;=\sqrt{s^2}=\sqrt{\frac{\sum_i^n{\left(x_i-m\right)^2}}{n-1}}
 <div class="page-columns page-full"><p>In a normal distribution, the standard deviation is the distance from the mean to the two <span class="defword" title="An <strong>inflection point</strong> in a curve is the point at which the curvature changes from upward to downward or vice versa." data-bs-html="true" data-bs-toggle="tooltip">inflection points</span> in the probability density curve (see <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span>11.14</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">An <strong>inflection point</strong> in a curve is the point at which the curvature changes from upward to downward or vice versa.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-normalinflection" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-normalinflection" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-normalinflection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-normalinflection-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2106,12 +2108,12 @@ Figure&nbsp;11.14: The inflection points in the normal curve are 1 standard devi
 </div>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span>11.14</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span>11.14</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2241,20 +2243,20 @@ z=\frac{X-\mu_X}{\sigma_X}
 </span></p>
 <p>The first two standardized moments have little use because they are always the same for every variable. The first standardized moment is the expected value of a z-score, which is always 0.</p>
 <p><span class="math display">
-\mathcal{E}\left(\left(\frac{X-\mu_X}{\sigma_X}\right)^1\right)=\mathcal{E}\left(z\right) = 0
+\mathcal{E}\left(\left(\frac{X-\mu_X}{\sigma_X}\right)^1\right)=\mathcal{E}\left(\frac{X}{\sigma_X}\right)-\mathcal{E}\left(\frac{\mu_X}{\sigma_X}\right)=\frac{\mu_X}{\sigma_X}-\frac{\mu_X}{\sigma_X} = 0
 </span> The second standardized moment is the expected value of a z-score squared, which is always 1.</p>
 <p><span class="math display">
 \mathcal{E}\left(\left(\frac{X-\mu_X}{\sigma_X}\right)^2\right)=\frac{\mathcal{E}\left(\left(X-\mu_X\right)^2\right)}{\sigma_X^2} =\frac{\sigma_X^2}{\sigma_X^2}= 1
 </span></p>
-<p>The third standardized moment is the expected value of a z-score cubed, which is one an important measure of skewness.</p>
-<p>The idea that skewness is the third standardized moment (i.e., the expected value of the z-score cubed) allows for an interesting intrepretation of skewness. To begin, the z-score by itself is a measure of the overall level of the score. The z-score squared is a measure of variability. Thus, skewness can be seen as the relationship between deviation and variability.</p>
+<p>The third standardized moment is the expected value of a z-score cubed, which is one of several ways to define skewness.</p>
+<p>The idea that skewness is the third standardized moment (i.e., the expected value of the z-score cubed) allows for an interesting interpretation of skewness. To begin, the z-score by itself is a measure of the overall level of the score. The z-score squared is a measure of variability. Thus, skewness can be seen as the relationship between deviation and variability.</p>
 <p><span class="math display">
-\mathcal{E}\left(z^3\right) = \mathcal{E}\left(\underbrace{z}_{\text{Level}}\cdot \underbrace{z^2}_{\text{Variability}}\right)
+\text{Skewness}=\mathcal{E}\left(z^3\right) = \mathcal{E}\left(\underbrace{z}_{\text{Level}}\cdot \underbrace{z^2}_{\text{Variability}}\right)
 </span></p>
 <p>Thus a positively skewed variable can be described having a tendency to be become more variable (more sparse) as its value increases.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-skewnessinterpretation" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center" data-cap-location="margin">
+<div id="fig-skewnessinterpretation" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-skewnessinterpretation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-skewnessinterpretation-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2268,12 +2270,12 @@ Figure&nbsp;12.1: Positive skewness can be interpeted as a tendency for the data
 </div>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-R Code for <a href="#fig-skewnessinterpretation" class="quarto-xref">Figure&nbsp;<span>12.1</span></a>
+<span class="screen-reader-only">Note</span>R Code for <a href="#fig-skewnessinterpretation" class="quarto-xref">Figure&nbsp;<span>12.1</span></a>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2332,6 +2334,11 @@ R Code for <a href="#fig-skewnessinterpretation" class="quarto-xref">Figure&nbsp
 </div>
 </div>
 </div>
+<p>The fourth standardized moment is the expected value of the z-score raised to the fourth power. Conceptually this quantity represents the relationship between the extremity of the score and the variability of the score. When the fourth standardized moment is large, it means that scores become more variable as they become extreme at both ends of the distribution. That is, both tails of the distribution are thick, meaning that when there are outliers, they will be more extreme. When the fourth standardized moment is small, it means that scores become less variable at the extremes. In this case, the tails of the distribution will be thin such that outliers will be less extreme.</p>
+<p><span class="math display">\mathcal{E}\left(\left(\frac{X-\mu}{\sigma}\right)^4\right)=\mathcal{E}\left(z^4\right)=\mathcal{E}\left(\underbrace{z^2}_{\text{Extremity}}\cdot \underbrace{z^2}_{\text{Variability}}\right)</span></p>
+<div class="page-columns page-full"><p>The <span class="defword" title="<strong>Kurotosis</strong> measures the extremity of outliers at the tails of a distribution." data-bs-html="true" data-bs-toggle="tooltip">kurtosis</span> statistic is the fourth standardized moment minus three. Like the fourth standardizd moment, it is a measure of the thickness of a distributions tails.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Kurotosis</strong> measures the extremity of outliers at the tails of a distribution.</span></div></div>
+<p><span class="math display">\text{Kurtosis}=\mathcal{E}\left(\left(\frac{X-\mu}{\sigma}\right)^4\right)-3</span></p>
+<p>Because the normal distribution has a fourth standardized moment of 3, its kurtosis is 0. Thus, kurtosis can be seen as a measure of how thick the tails of the distribution are compared to the tail thickness of the normal distribution. Kurtosis has no upper bound, but it does have a lower bound. The Bernoulli distribution with probability of .5 is either 0 or 1 with equal probability. This distribution has, essentially, no tails at all. The variability at its extremes is none whatsoever. The kurtosis of this distribution is −2, which is the lowest possible value this statistic can take.</p>
 
 
 
@@ -2341,236 +2348,242 @@ R Code for <a href="#fig-skewnessinterpretation" class="quarto-xref">Figure&nbsp
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/wjschne\.github\.io\/individualpsychometrics\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/wjschne\.github\.io\/individualpsychometrics\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
         }
-        return container.innerHTML
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -2578,185 +2591,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./continuousdistributions.html" class="pagination-link" aria-label="Distributions--Continuous">
