@@ -1441,8 +1441,6 @@ $$
 \text{The }n\text{th moment of }X\text{ about }c=\mathcal{E}\left(\left(X-c\right)^n\right)
 $$
 
-
-
 A [central moment]{.defword title="A **central moment** is a raw moment after the variable's mean has been subracted."} $\mu_n$ is a moment about the mean (i.e., the first raw moment):
 
 $$
@@ -1484,7 +1482,7 @@ $$
 The first two standardized moments have little use because they are always the same for every variable. The first standardized moment is the expected value of a z-score, which is always 0.
 
 $$
-\mathcal{E}\left(\left(\frac{X-\mu_X}{\sigma_X}\right)^1\right)=\mathcal{E}\left(z\right) = 0
+\mathcal{E}\left(\left(\frac{X-\mu_X}{\sigma_X}\right)^1\right)=\mathcal{E}\left(\frac{X}{\sigma_X}\right)-\mathcal{E}\left(\frac{\mu_X}{\sigma_X}\right)=\frac{\mu_X}{\sigma_X}-\frac{\mu_X}{\sigma_X} = 0
 $$
 The second standardized moment is the expected value of a z-score squared, which is always 1.
 
@@ -1492,12 +1490,12 @@ $$
 \mathcal{E}\left(\left(\frac{X-\mu_X}{\sigma_X}\right)^2\right)=\frac{\mathcal{E}\left(\left(X-\mu_X\right)^2\right)}{\sigma_X^2} =\frac{\sigma_X^2}{\sigma_X^2}= 1
 $$
 
-The third standardized moment is the expected value of a z-score cubed, which is one an important measure of skewness.
+The third standardized moment is the expected value of a z-score cubed, which is one of several ways to define skewness.
 
-The idea that skewness is the third standardized moment (i.e., the expected value of the z-score cubed) allows for an interesting intrepretation of skewness. To begin, the z-score by itself is a measure of the overall level of the score. The z-score squared is a measure of variability. Thus, skewness can be seen as the relationship between deviation and variability.
+The idea that skewness is the third standardized moment (i.e., the expected value of the z-score cubed) allows for an interesting interpretation of skewness. To begin, the z-score by itself is a measure of the overall level of the score. The z-score squared is a measure of variability. Thus, skewness can be seen as the relationship between deviation and variability.
 
 $$
-\mathcal{E}\left(z^3\right) = \mathcal{E}\left(\underbrace{z}_{\text{Level}}\cdot \underbrace{z^2}_{\text{Variability}}\right)
+\text{Skewness}=\mathcal{E}\left(z^3\right) = \mathcal{E}\left(\underbrace{z}_{\text{Level}}\cdot \underbrace{z^2}_{\text{Variability}}\right)
 $$
 
 Thus a positively skewed variable can be described having a tendency to be become more variable (more sparse) as its value increases.
@@ -1561,3 +1559,12 @@ tibble(x = seq(0, 15, .01), y = dchisq(x, 3)) %>%
 <<fig-skewnessinterpretation>>
 ```
 
+The fourth standardized moment is the expected value of the z-score raised to the fourth power. Conceptually this quantity represents the relationship between the extremity of the score and the variability of the score. When the fourth standardized moment is large, it means that scores become more variable as they become extreme at both ends of the distribution. That is, both tails of the distribution are thick, meaning that when there are outliers, they will be more extreme. When the fourth standardized moment is small, it means that scores become less variable at the extremes. In this case, the tails of the distribution will be thin such that outliers will be less extreme.
+
+$$\mathcal{E}\left(\left(\frac{X-\mu}{\sigma}\right)^4\right)=\mathcal{E}\left(z^4\right)=\mathcal{E}\left(\underbrace{z^2}_{\text{Extremity}}\cdot \underbrace{z^2}_{\text{Variability}}\right)$$
+
+The [kurtosis]{.defword title="**Kurotosis** measures the extremity of outliers at the tails of a distribution."} statistic is the fourth standardized moment minus three. Like the fourth standardizd moment, it is a measure of the thickness of a distributions tails.
+
+$$\text{Kurtosis}=\mathcal{E}\left(\left(\frac{X-\mu}{\sigma}\right)^4\right)-3$$
+
+Because the normal distribution has a fourth standardized moment of 3, its kurtosis is 0. Thus, kurtosis can be seen as a measure of how thick the tails of the distribution are compared to the tail thickness of the normal distribution. Kurtosis has no upper bound, but it does have a lower bound. The Bernoulli distribution with probability of .5 is either 0 or 1 with equal probability. This distribution has, essentially, no tails at all. The variability at its extremes is none whatsoever. The kurtosis of this distribution is &minus;2, which is the lowest possible value this statistic can take.

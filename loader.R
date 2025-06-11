@@ -406,3 +406,32 @@ knitr::opts_hooks$set(label = function(options) {
   }
   return(options)
 })
+
+# knitr hooks for quartolive extension
+knitr::opts_hooks$set(include = function(options) {
+  if (options$engine == "webr" || options$engine == "pyodide") {
+    options$include <- TRUE
+  }
+  options
+})
+
+# Passthrough engine for webr
+knitr::knit_engines$set(webr = function(options) {
+  knitr:::one_string(c(
+    "```{webr}",
+    options$yaml.code,
+    options$code,
+    "```"
+  ))
+})
+
+# Passthrough engine for pyodide
+knitr::knit_engines$set(pyodide = function(options) {
+  knitr:::one_string(c(
+    "```{pyodide}",
+    options$yaml.code,
+    options$code,
+    "```"
+  ))
+})
+

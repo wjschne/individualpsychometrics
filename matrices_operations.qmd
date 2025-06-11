@@ -972,6 +972,7 @@ In @fig-determinant, the 2 column vectors of **A** and their sum form a parallel
 ```{r}
 #| label: fig-determinant
 #| fig-cap: "The determinant as parallelpiped area"
+#| fig-height: 8
 A <- matrix(c(3,1,
               1,4),
             nrow = 2,
@@ -987,16 +988,18 @@ middle_axes(limits = c(0,5.1)) +
   v1 +
   v2 +
   v12 + 
-  connect(o, v1, resect_head = 2) +
-  connect(o, v2, resect_head = 2) +
+  connect(o, v1, resect_head = 2, length_head = 5) +
+  connect(o, v2, resect_head = 2, length_head = 5) +
   connect(v1, v12, 
           linetype = "dashed", 
           color = myfills[2], 
-          resect = 2) +
+          resect = 2, 
+          length_head = 5) +
   connect(v2, v12, 
           color = myfills[1], 
           linetype = "dashed", 
-          resect = 2) +
+          resect = 2, 
+          length_head = 5) +
   ob_label(paste0("Area = |**A**| = ", det(A)), v12 / 2, size = 24) +
   v1@label(
     paste0("**A**<sub>\u20221</sub> = ", v1@auto_label),
@@ -1038,6 +1041,9 @@ middle_axes(limits = c(0,5.1)) +
 
 ```
 
+```{r coder-fig-determinant}
+<<fig-determinant>>
+```
 
 To calculate a determinant, it is useful to introduce some vocabulary. The [minor]{.defword title="The **minor** of a matrix is the determinant of the matrix after deleting a row and a column."} of a matrix **A** at element (*i*, *j*) is the determinant of the submatrix of **A** after row *i* and column *j* have been deleted.
 
@@ -1245,9 +1251,9 @@ eigenrho
 
 Eigenvalues and eigenvectors are essential ingredients in principal component analysis, a useful data-reduction technique. Principal component analysis allow us to summarize many variables in a way that minimizes information loss. To take a simple example, if we measure the size of people's right and left feet, we would have two scores per person. The two scores are highly correlated because the left foot and right foot are nearly the same size in most people. However, for some people the size difference is notable. 
 
-Principal components transform the two correlated variables into two uncorrelated variables, one for the overall size of the foot and one for the difference between the two feet. The eigenvalues sum to the 2 (then number of variables being summarized) and are proportional to the variances of the principal components.
+Principal components transform the two correlated variables into two uncorrelated variables, one for the overall size of the foot and one for the difference between the two feet. The eigenvalues sum to the 2 (then number of variables being summarized) and are proportional to the variance explained by their respective principal components.
 
-Eigenvectors have a magnitude of 1, but if they are scaled by the square root of the eigenvalues (and by the appropriate ), they become the principal axes of the ellipse that contains the 95% of the data:
+Eigenvectors have a magnitude of 1, but if they are scaled by the square root of the eigenvalues (and by the appropriate *z*-score), they become the principal axes of the ellipse that contains the 95% of the data (See @fig-eigenellipse). Why the square root of the eigenvalues? Because eigenvalues are variances of the (unstandardized) principal components. The square root of eigenvalues are principal components' standard deviations.
 
 ```{r fig-eigenellipse}
 #| fig-cap: "The eigenvectors of rho scaled by the square roots of the eigenvectors are proportional to the principal axes of the ellipse that contains 95% of the data."
@@ -1266,7 +1272,12 @@ d_scaledeigenvectors <- eigenrho$values %>%
   diag() %>% 
   `%*%`(t(eigenrho$vectors)) %>% 
   `colnames<-`(c("x", "y")) %>% 
-  as_tibble()
+  as_tibble() %>% 
+  mutate(l = c("First Eigenvector", "Second<br>Eigenvector"),
+         angle = c(45, -45))
+
+
+  
 
 set.seed(1)
 d_points <- mvtnorm::rmvnorm(
@@ -1299,6 +1310,7 @@ tibble(t = z,
         y = 0),
     color = "white",
     arrow_head = my_arrowhead) +
+  geom_richlabel(data = d_scaledeigenvectors, aes(x = x / 2, y = y / 2, label = l, angle = angle), text_size = bsize, fill = myfills[1] %>% tinter::lighten(.4), vjust = 1, color = "white") +
   coord_equal(xlim = c(-3, 3),
               ylim = c(-3, 3)) +
   scale_x_continuous(labels = \(x) WJSmisc::prob_label(x, 1),
