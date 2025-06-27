@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.13">
+<meta name="generator" content="quarto-1.8.14">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -95,10 +95,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf1f3dd6b4b4c48e455677fe0d53bc37.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-497b9bc44165e1c7adfd168a7e56aadd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a226d0442b5abbcb23d3268b475fdcb9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-10ea860d77d54c91d8a2b8ca3741f0bd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -735,6 +735,77 @@ x_S=\sum_{i=1}^{k}{x_i w_i}=\mathbf{x'w}
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>The symbol for a sample correlation is the Roman lowercase <span class="math inline">r</span>, and a matrix of such correlations is an uppercase <span class="math inline">\mathbf{R}.</span> Therefore, the population correlation coefficient is a Greek lowercase rho: <span class="math inline">\rho.</span> This, unfortunately means that a matrix of correlations should be an uppercase rho: <span class="math inline">\mathbf{P}.</span> Somehow, statisticians are okay with <span class="math inline">\rho</span> looking a lot like an italicized Roman letter <em>p</em>. However, using an uppercase rho <span class="math inline">(\mathbf{P})</span> for a correlation matrix is too weird even for statisticians! You know, hobgoblins of little minds and all…</p>
+</div><div id="fig-bienayme" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-bienayme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Bienayme.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-bienayme-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.1: Irénée-Jules Bienaymé (1796–1878)<br><a href="https://commons.wikimedia.org/wiki/File:Ir%C3%A9n%C3%A9e-Jules_Bienaym%C3%A9.jpeg">Image Credit</a>
+</figcaption>
+</figure>
+</div></div>
+<p>Irénée-Jules Bienaymé is credited with the derivation of <a href="#eq-variancesum" class="quarto-xref">Equation&nbsp;<span>12.1</span></a>. The 2-test version of the equation, <a href="#eq-bienayme" class="quarto-xref">Equation&nbsp;<span>12.2</span></a>, is called <a href="https://en.wikipedia.org/wiki/Bienaym%C3%A9's_identity">Bienayme’s Identity</a>.</p>
+<p><span id="eq-bienayme"><span class="math display">
+\sigma_{X+Y}^2 = \sigma_X^2 + 2\sigma_{XY} +\sigma_Y^2
+\tag{12.2}</span></span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Proof of @eq-bienayme">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Proof of <a href="#eq-bienayme" class="quarto-xref">Equation&nbsp;<span>12.2</span></a>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>To prove <a href="#eq-bienayme" class="quarto-xref">Equation&nbsp;<span>12.2</span></a>, recall that variance in general is defined as</p>
+<p><span id="eq-variancedef"><span class="math display">
+\begin{aligned}
+\mathrm{Var}(X)&amp;=\mathcal{E}\left(\left(X-
+\mathcal{E}\left(X\right)\right)^2\right)\\
+&amp;=\mathcal{E}\left(\left(X-
+\mu_X\right)^2\right)\\
+&amp;=\sigma_X^2
+\end{aligned}
+\tag{12.3}</span></span></p>
+<p>and that covariance is defined as</p>
+<p><span id="eq-covariancedef"><span class="math display">
+\begin{aligned}
+\mathrm{Cov}(XY)&amp;=\mathcal{E}\left(\left(X-
+\mathcal{E}\left(X\right)\right)\left(Y-
+\mathcal{E}\left(Y\right)\right)\right)\\
+&amp;=\mathcal{E}\left(\left(X-
+\mu_X\right)\left(Y-
+\mu_Y\right)\right)\\
+&amp;=\sigma_{XY}
+\end{aligned}
+\tag{12.4}</span></span></p>
+<p>Applying <a href="#eq-variancedef" class="quarto-xref">Equation&nbsp;<span>12.3</span></a> to <span class="math inline">X+Y</span> and making substitutions from <a href="#eq-covariancedef" class="quarto-xref">Equation&nbsp;<span>12.4</span></a>:</p>
+<p><span class="math display">
+\begin{aligned}
+\rm{Var}(X+Y)&amp;=\mathcal{E}\left(\left(\left(X+Y\right)-
+\mathcal{E}\left(X+Y\right)\right)^2\right)\\
+&amp;=\mathcal{E}\left(\left(X+Y-
+\mathcal{E}\left(X\right)-\mathcal{E}\left(Y\right)\right)^2\right)\\
+&amp;=\mathcal{E}\left(\left(X+Y-
+\mu_X-\mu_Y\right)^2\right)\\
+&amp;=\mathcal{E}\left(\left(\left(X-
+\mu_X\right)+\left(Y-\mu_Y\right)\right)^2\right)\\
+&amp;=\mathcal{E}\left(\left(X-
+\mu_X\right)^2+2\left(X-\mu_X\right)\left(Y-\mu_Y\right)+\left(Y-\mu_Y\right)^2\right)\\
+&amp;=\mathcal{E}\left(\left(X-
+\mu_X\right)^2\right)+2\mathcal{E}\left(\left(X-\mu_X\right)\left(Y-\mu_Y\right)\right)+\mathcal{E}\left(\left(Y-\mu_Y\right)^2\right)\\
+&amp;=\sigma_X^2+2\sigma_{XY}+\sigma_Y^2
+\end{aligned}
+</span> Proof adapted from <span class="citation" data-cites="sochProofVarianceSum2020">Soch (<a href="references.html#ref-sochProofVarianceSum2020" role="doc-biblioref">2020</a>)</span>.</p>
+</div>
+</div>
+</div>
+<div class="no-row-height column-margin column-container"><div id="ref-sochProofVarianceSum2020" class="csl-entry" role="listitem">
+Soch, J. (2020). Proof: <span>Variance</span> of a <span>Sum</span>. In <em>The <span>Book</span> of <span>Statistical Proofs</span></em>. Zenodo. <a href="https://statproofbook.github.io/P/var-sum">https://statproofbook.github.io/P/var-sum</a>
 </div></div><p>Suppose that the standard deviations of <span class="math inline">X_1</span>, <span class="math inline">X_2</span>, and <span class="math inline">X_3</span> are all 15. Thus, <span class="math inline">\sigma=\{15,15,15\}.</span> The correlations among the three variables are shown in matrix <span class="math inline">\mathbf{R}</span>:</p>
 <p><span class="math display">
 \mathbf{R} = \begin{bmatrix}
@@ -944,7 +1015,7 @@ A_{kk} =
 <p>If <span class="math inline">X_S</span> is a weighted sum, its variance is the weighted sum of the covariance matrix.</p>
 <p><span id="eq-varianceweightedsum"><span class="math display">
 \sigma_S^2=\sum_{i=1}^{k}{\sum_{j=1}^{k}{w_i w_j \sigma_{ij}}}=\mathbf{w'\Sigma w}
-\tag{12.2}</span></span></p>
+\tag{12.5}</span></span></p>
 <p>Continuing with the same variables in our example, we see that things are starting to become clumsy and ugly without matrix algebra:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First we initialize var_S as 0</span></span>

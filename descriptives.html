@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.13">
+<meta name="generator" content="quarto-1.8.14">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -95,10 +95,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf1f3dd6b4b4c48e455677fe0d53bc37.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-497b9bc44165e1c7adfd168a7e56aadd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a226d0442b5abbcb23d3268b475fdcb9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-10ea860d77d54c91d8a2b8ca3741f0bd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -383,7 +383,10 @@ window.Quarto = {
   <li><a href="#mean" id="toc-mean" class="nav-link" data-scroll-target="#mean"><span class="header-section-number">11.2.3</span> Mean</a></li>
   <li><a href="#comparing-central-tendency-measures" id="toc-comparing-central-tendency-measures" class="nav-link" data-scroll-target="#comparing-central-tendency-measures"><span class="header-section-number">11.2.4</span> Comparing Central Tendency Measures</a></li>
   </ul></li>
-  <li><a href="#expected-values" id="toc-expected-values" class="nav-link" data-scroll-target="#expected-values"><span class="header-section-number">11.3</span> Expected Values</a></li>
+  <li><a href="#expected-values" id="toc-expected-values" class="nav-link" data-scroll-target="#expected-values"><span class="header-section-number">11.3</span> Expected Values</a>
+  <ul class="collapse">
+  <li><a href="#algebra-of-expected-values" id="toc-algebra-of-expected-values" class="nav-link" data-scroll-target="#algebra-of-expected-values"><span class="header-section-number">11.3.1</span> Algebra of Expected Values</a></li>
+  </ul></li>
   <li><a href="#measures-of-variability" id="toc-measures-of-variability" class="nav-link" data-scroll-target="#measures-of-variability"><span class="header-section-number">11.4</span> Measures of Variability</a>
   <ul class="collapse">
   <li><a href="#variability-of-nominal-variables" id="toc-variability-of-nominal-variables" class="nav-link" data-scroll-target="#variability-of-nominal-variables"><span class="header-section-number">11.4.1</span> Variability of Nominal Variables</a></li>
@@ -434,7 +437,7 @@ window.Quarto = {
 <h2 data-number="11.1" class="anchored" data-anchor-id="frequency-distribution-tables"><span class="header-section-number">11.1</span> Frequency Distribution Tables</h2>
 <div class="page-columns page-full"><p>A simple way to describe a distribution is to list how many times each value in the distribution occurs. For example, in this distribution: <span class="math inline">\{10, 3, 4, 10, 6, 4, 6, 4\}</span>, there is 1 three, 3 fours, 2 sixes, and 2 tens. The value that occurs most often is four. A <span class="defword" title="A <strong>frequency distribution table</strong> summarises a sample by showing the frequency counts of each member of the sample space." data-bs-html="true" data-bs-toggle="tooltip">frequency distribution table</span> displays the number of times each value occurs, as in <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>11.1</span></a>.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>frequency distribution table</strong> summarises a sample by showing the frequency counts of each member of the sample space.</span></div></div>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="bottom">
-<div id="tbl-frequencydistributiontable" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-tbl-cap-location="bottom" data-layout-align="center">
+<div id="tbl-frequencydistributiontable" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="bottom">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-frequencydistributiontable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 
@@ -578,7 +581,7 @@ Value |  N | Raw % | Valid % | Cum. %
 </div>
 </div>
 <p>Typically we use frequency distribution tables to check whether the values of a variable are correct and that the distribution makes sense to us. Thus the <code>frq</code> function is all we need most of the time. However, if you need a publication-ready frequency distribution table, you will probably have to make it from scratch (See <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>11.2</span></a>).</p>
-<div id="tbl-freqtablepub" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-freqtablepub" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-freqtablepub-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-stdout">
@@ -954,7 +957,7 @@ Poncet, P. (2019). <em>Modeest: Mode estimation</em>. <a href="https://github.co
 <div class="page-columns page-full"><p>The <span class="defword" title="The <strong>median</strong> is the point that divides the lower 50 percent of a distribution from the upper 50 percent." data-bs-html="true" data-bs-toggle="tooltip">median</span> is midpoint of a distribution, the point that divides the lower half of the distribution from the upper half. To calculate the median, you first need to sort the scores. If there is an odd number of scores, the median is the middle score. If there an even number of scores, it is the mean of the two middle scores. There are other definitions of the median that are a little more complex, but rarely is precision needed for calculating the median.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>median</strong> is the point that divides the lower 50 percent of a distribution from the upper 50 percent.</span></div></div>
 <p>To find the median using a frequency distribution table, find the first sample space element with a cumulative proportion greater than 0.5. For example, in the distribution shown in <a href="#tbl-mediantable" class="quarto-xref">Table&nbsp;<span>11.3</span></a>, the first cumulative proportion greater than 0.5 occurs at 5, which is therefore the median.</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-mediantable" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-mediantable" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-mediantable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -1156,7 +1159,7 @@ Figure&nbsp;11.5: Sampling Distributions of Central Tendency Measures.<br>The st
 <h3 data-number="11.2.4" class="anchored" data-anchor-id="comparing-central-tendency-measures"><span class="header-section-number">11.2.4</span> Comparing Central Tendency Measures</h3>
 <p>Which measure of central tendency is best depends on what kind of variable is needed and also what purpuse it serves. <a href="#tbl-proconCT" class="quarto-xref">Table&nbsp;<span>11.4</span></a> has a list of comparative features of each of the three major central tendency measures.</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-proconCT" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
+<div id="tbl-proconCT" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-proconCT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -1232,7 +1235,6 @@ Table&nbsp;11.4: Comparing Central Tendency Measures
 </section>
 <section id="expected-values" class="level2 page-columns page-full" data-number="11.3">
 <h2 data-number="11.3" class="anchored" data-anchor-id="expected-values"><span class="header-section-number">11.3</span> Expected Values</h2>
-<p>(Unfinished)</p>
 <div class="page-columns page-full"><p>At one level, the concept of the <span class="defword" title="The <strong>expected value</strong> of a random variable is the population mean of the values that the random variable generates." data-bs-html="true" data-bs-toggle="tooltip">expected value</span> of a random variable is really simple; it is just the population mean of the variable. So why don’t we just talk about population means and be done with this “expected value” business? It just complicates things! True. In this case, however, there is value in letting some simple things appear to become complicated for a while so that later we can show that some apparently complicated things are actually simple.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>expected value</strong> of a random variable is the population mean of the values that the random variable generates.</span></div></div>
 <p>Why can’t we just say that the expected value of a random variable is the population mean? You are familiar, of course, with the formula for a mean. You just add up the numbers and divide by the number of numbers <span class="math inline">n</span>:</p>
 <p><span class="math display">
@@ -1298,7 +1300,7 @@ Figure&nbsp;11.6: Probability Distribution of a Hypothetical Random Variable
 &amp;=5.4
 \end{align*}
 </span></p>
-<p>The term <em>expected value</em> might be a little confusing. In this case, 5.4 is the expected value of <span class="math inline">X</span> but <span class="math inline">X</span> never once generates a value of 5.4. So the expected value is not “expected” in the sense that we expect to see it often. It is expected to be close to the mean of any randomly selected sample of the variable that is sufficiently large:</p>
+<p>The term <em>expected value</em> might be a little confusing. In this case, 5.4 is the expected value of <span class="math inline">X</span> but <span class="math inline">X</span> never once generates a value of 5.4. So the expected value is not “expected” in the sense that we expect to see it often. It is expected to be close to the mean of any randomly selected sample of the variable that is sufficiently large.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
@@ -1394,6 +1396,13 @@ Figure&nbsp;11.7: Slicing the Standard Normal Distribution into Ever Thinner Bin
 </div>
 </div>
 </div>
+<section id="algebra-of-expected-values" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="algebra-of-expected-values"><span class="header-section-number">11.3.1</span> Algebra of Expected Values</h3>
+<p>If <span class="math inline">k</span> is a constant, its expected value is itself.</p>
+<p><span class="math display">\mathcal{E}(k)=k</span> A constant can be factored out of an expected value operator.</p>
+<p><span class="math display">\mathcal{E}(kX)=k\mathcal{E}(X)</span> The expected value of the sum of two random variables is the sum of their respective expected values:</p>
+<p><span class="math display">\mathcal{E}(X+Y)=\mathcal{E}(X)+\mathcal{E}(Y)</span></p>
+</section>
 </section>
 <section id="measures-of-variability" class="level2 page-columns page-full" data-number="11.4">
 <h2 data-number="11.4" class="anchored" data-anchor-id="measures-of-variability"><span class="header-section-number">11.4</span> Measures of Variability</h2>
@@ -1810,7 +1819,7 @@ Figure&nbsp;11.11: A Tukey-style Box and Whiskers Plot with Medians and Interqua
 </span></p>
 <p>Because the average deviation is always 0, it has no utility as a measure of variability. It would be reasonable to take the average absolute value of the deviations, but absolute values often cause algebraic difficulties later when we want to use them to derive other statistics. A more mathematically tractable solution is to make each deviation positive by squaring them.</p>
 <div class="page-columns page-full"><p><span class="defword" title="<strong>Variance</strong> is a measure of variability that gives the size of the average squared deviation from the mean." data-bs-html="true" data-bs-toggle="tooltip">Variance</span> <span class="math inline">\left(\sigma^2\right)</span> is the expected value of squared deviations from the mean <span class="math inline">\left(\mu\right)</span>:</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Variance</strong> is a measure of variability that gives the size of the average squared deviation from the mean.</span></div></div>
-<p><span class="math display">
+<p><span id="eq-variancedef"><span class="math display">
 \begin{aligned}
 \sigma^2&amp;=\mathcal{E}\!\left(\left(X-\mu\right)^2\right)\\
 &amp;=\mathcal{E}\!\left(X^2-2X\mu+\mu^2\right)\\
@@ -1820,7 +1829,7 @@ Figure&nbsp;11.11: A Tukey-style Box and Whiskers Plot with Medians and Interqua
 &amp;=\mathcal{E}\!\left(X^2\right)-2\mu^2+\mu^2\\
 &amp;=\mathcal{E}\!\left(X^2\right)-\mu^2\\
 \end{aligned}
-</span></p>
+\tag{11.1}</span></span></p>
 <p>If all elements of a population with mean <span class="math inline">\mu</span> are known, the population variance is calculated like so:</p>
 <p><span class="math display">
 \sigma^2=\frac{\sum_i^n{\left(x_i-\mu\right)^2}}{n}
@@ -2185,9 +2194,28 @@ Figure&nbsp;11.14: The inflection points in the normal curve are 1 standard devi
 </section>
 </section>
 </section>
-<section id="skewness" class="level2" data-number="11.5">
+<section id="skewness" class="level2 page-columns page-full" data-number="11.5">
 <h2 data-number="11.5" class="anchored" data-anchor-id="skewness"><span class="header-section-number">11.5</span> Skewness</h2>
 <p>(Unfinished)</p>
+<p>Skewness refers to how lopsided the a distribution is. Skewness can range from negative to positive infinity. When a distribution has more extreme values on the upper end of its distribution (i.e., has a long right tail), it is positively skewed. When a distribution has more extreme values on the lower end of its distribution (i.e., has a long left tail), it is negatively skewed. A perfectly symmetrical distribution has a skewness of 0.</p>
+<div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre data-cap-location="margin"><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output-display page-columns page-full">
+<div id="fig-skewness" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-skewness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="descriptives_files/figure-html/fig-skewness-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-skewness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.15: Three distributions with different degrees of skewness
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="kurtosis" class="level2" data-number="11.6">
 <h2 data-number="11.6" class="anchored" data-anchor-id="kurtosis"><span class="header-section-number">11.6</span> Kurtosis</h2>
@@ -2281,55 +2309,55 @@ Figure&nbsp;12.1: Positive skewness can be interpeted as a tendency for the data
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb34" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">15</span>, .<span class="dv">01</span>), <span class="at">y =</span> <span class="fu">dchisq</span>(x, <span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">fill =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="dv">30</span>) <span class="sc">+</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"segment"</span>,</span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">3</span>,</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="dv">0</span>,</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="dv">3</span>,</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fu">dchisq</span>(<span class="dv">3</span>, <span class="dv">3</span>) <span class="sc">+</span> .<span class="dv">01</span>,</span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(</span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">0</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>)),</span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span>  my_arrowhead,</span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">resect =</span> <span class="dv">1</span></span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(</span>
-<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">8</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>)),</span>
-<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span>  my_arrowhead,</span>
-<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
-<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">resect =</span> <span class="dv">1</span></span>
-<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(</span>
-<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(</span>
-<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="dv">3</span>,</span>
-<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> .<span class="dv">01</span>,</span>
-<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">l =</span> <span class="fu">c</span>(<span class="st">"Lower Values&lt;br&gt;Less Sparse"</span>, <span class="st">"Higher Values&lt;br&gt;More Sparse"</span>),</span>
-<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">hj =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>)</span>
-<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> l, <span class="at">hjust =</span> hj),</span>
-<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">0</span>,</span>
-<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="cn">NA</span>,</span>
-<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
-<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
-<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">16</span>),</span>
-<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.padding =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">6</span>, <span class="at">l =</span> <span class="dv">6</span>, <span class="at">b =</span> <span class="fl">3.5</span>)</span>
-<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(</span>
-<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">l =</span> <span class="fu">c</span>(<span class="st">"Mean"</span>)),</span>
-<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> l),</span>
-<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">1</span>,</span>
-<span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
-<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">16</span>),</span>
-<span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>]</span>
-<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_blank</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="sc">-</span>.<span class="dv">02</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">15</span>, .<span class="dv">01</span>), <span class="at">y =</span> <span class="fu">dchisq</span>(x, <span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">fill =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"segment"</span>,</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">3</span>,</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="dv">0</span>,</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="dv">3</span>,</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fu">dchisq</span>(<span class="dv">3</span>, <span class="dv">3</span>) <span class="sc">+</span> .<span class="dv">01</span>,</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">0</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>)),</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span>  my_arrowhead,</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">resect =</span> <span class="dv">1</span></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">8</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>)),</span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span>  my_arrowhead,</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">resect =</span> <span class="dv">1</span></span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(</span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(</span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="dv">3</span>,</span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> .<span class="dv">01</span>,</span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">l =</span> <span class="fu">c</span>(<span class="st">"Lower Values&lt;br&gt;Less Sparse"</span>, <span class="st">"Higher Values&lt;br&gt;More Sparse"</span>),</span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">hj =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> l, <span class="at">hjust =</span> hj),</span>
+<span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">0</span>,</span>
+<span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="cn">NA</span>,</span>
+<span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
+<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">16</span>),</span>
+<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.padding =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">6</span>, <span class="at">l =</span> <span class="dv">6</span>, <span class="at">b =</span> <span class="fl">3.5</span>)</span>
+<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(</span>
+<span id="cb35-42"><a href="#cb35-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">l =</span> <span class="fu">c</span>(<span class="st">"Mean"</span>)),</span>
+<span id="cb35-43"><a href="#cb35-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> l),</span>
+<span id="cb35-44"><a href="#cb35-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">1</span>,</span>
+<span id="cb35-45"><a href="#cb35-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
+<span id="cb35-46"><a href="#cb35-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">16</span>),</span>
+<span id="cb35-47"><a href="#cb35-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>]</span>
+<span id="cb35-48"><a href="#cb35-48" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb35-49"><a href="#cb35-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_blank</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="sc">-</span>.<span class="dv">02</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
