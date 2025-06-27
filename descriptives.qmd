@@ -551,8 +551,6 @@ tibble::tribble(
 
 ## Expected Values
 
-(Unfinished)
-
 At one level, the concept of the [expected value]{.defword title="The **expected value** of a random variable is the population mean of the values that the random variable generates."} of a random variable is really simple; it is just the population mean of the variable. So why don't we just talk about population means and be done with this "expected value" business? It just complicates things! True. In this case, however, there is value in letting some simple things appear to become complicated for a while so that later we can show that some apparently complicated things are actually simple.
 
 Why can't we just say that the expected value of a random variable is the population mean? You are familiar, of course, with the formula for a mean. You just add up the numbers and divide by the number of numbers $n$:
@@ -611,7 +609,7 @@ $$
 \end{align*}
 $$
 
-The term *expected value* might be a little confusing. In this case, 5.4 is the expected value of $X$ but $X$ never once generates a value of 5.4. So the expected value is not "expected" in the sense that we expect to see it often. It is expected to be close to the mean of any randomly selected sample of the variable that is sufficiently large:
+The term *expected value* might be a little confusing. In this case, 5.4 is the expected value of $X$ but $X$ never once generates a value of 5.4. So the expected value is not "expected" in the sense that we expect to see it often. It is expected to be close to the mean of any randomly selected sample of the variable that is sufficiently large.
 
 ```{r fig-thinbins}
 #| fig-width: 5
@@ -698,6 +696,19 @@ If we multiply each value of $X$ by the height of its bin ($p$), we get the mean
 ```{r coder-fig-thinbins}
 <<fig-thinbins>>
 ```
+
+
+### Algebra of Expected Values
+
+If $k$ is a constant, its expected value is itself.
+
+$$\mathcal{E}(k)=k$$
+A constant can be factored out of an expected value operator.
+
+$$\mathcal{E}(kX)=k\mathcal{E}(X)$$
+The expected value of the sum of two random variables is the sum of their respective expected values:
+
+$$\mathcal{E}(X+Y)=\mathcal{E}(X)+\mathcal{E}(Y)$$
 
 
 ## Measures of Variability
@@ -1058,7 +1069,7 @@ $$
 &=\mathcal{E}\!\left(X^2\right)-2\mu^2+\mu^2\\
 &=\mathcal{E}\!\left(X^2\right)-\mu^2\\
 \end{aligned}
-$$
+$$ {#eq-variancedef}
 
 If all elements of a population with mean $\mu$ are known, the population variance is calculated like so:
 
@@ -1405,6 +1416,60 @@ The primary advantage of this statistic is that it is easy to explain to people 
 ## Skewness
 
 (Unfinished)
+
+Skewness refers to how lopsided the a distribution is. Skewness can range from negative to positive infinity. When a distribution has more extreme values on the upper end of its distribution (i.e., has a long right tail), it is positively skewed. When a distribution has more extreme values on the lower end of its distribution (i.e., has a long left tail), it is negatively skewed. A perfectly symmetrical distribution has a skewness of 0.
+
+```{r}
+#| label: fig-skewness
+#| fig-cap: Three distributions with different degrees of skewness
+
+tibble(x = seq(0,20,.1)) |>
+  ggplot(aes(x)) +
+  stat_function(n = 200,
+    fun = dnorm,
+    geom = "area",
+    alpha = .3,
+    args = list(mean = 10, sd = 3),
+    aes(fill = "Normal"),
+    size = 1.2
+  ) +
+  stat_function(
+    n = 500,
+    fun = dlnorm,
+    alpha = .3,
+    geom = "area",
+    args = list(meanlog = 1, sdlog = 1),
+    aes(fill = "Lognormal"),
+    size = 1.2
+  ) +
+  stat_function(
+    n = 500,
+    geom = "area",
+    alpha = .3,
+    fun = dweibull,
+    args = list(shape = 12, scale = 16),
+    aes(fill = "Weibull"),
+    size = 1.2
+  ) +
+  geom_text(data = tibble(x = c(2.2,10, 16), y = .08, label = c(paste("Lognormal\nSkewness = ", round(distributional::dist_lognormal(1,1) %>% distributional::skewness(),1)), "Normal", "Weibull")), aes(x = x, y = y, label = label), family = bfont, size = bsize, size.unit = "pt") +
+  scale_fill_manual(
+    "Distribution",
+    values = c(Normal = myfills[3], 
+               Lognormal = myfills[2], 
+               Weibull = myfills[1])
+  ) +
+  scale_y_continuous(NULL, breaks = NULL, expand = expansion()) +
+  scale_x_continuous(NULL, breaks = seq(0, 20, by = 2)) +
+  theme_minimal(base_size = bsize, base_family = bfont) +
+  theme(
+    panel.grid.major.x = element_blank(),
+    panel.grid.minor.x = element_blank(),
+    axis.ticks.x = element_line(color = "gray30"),
+    legend.position = "none",
+    legend.background = element_rect(fill = alpha("white", .6), color = NA)
+  )
+```
+
 
 ## Kurtosis
 

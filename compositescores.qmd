@@ -330,6 +330,71 @@ tibble::tribble(
 The symbol for a sample correlation is the Roman lowercase $r$, and a matrix of such correlations is an uppercase $\mathbf{R}.$ Therefore, the population correlation coefficient is a Greek lowercase rho: $\rho.$ This, unfortunately means that a matrix of correlations should be an uppercase rho: $\mathbf{P}.$ Somehow, statisticians are okay with $\rho$ looking a lot like an italicized Roman letter *p*. However, using an uppercase rho $(\mathbf{P})$ for a correlation matrix is too weird even for statisticians! You know, hobgoblins of little minds and all...
 :::
 
+:::{#fig-bienayme .column-margin}
+
+![](images/Bienayme.jpeg)
+
+Irénée-Jules Bienaymé (1796--1878)<br>[Image Credit](https://commons.wikimedia.org/wiki/File:Ir%C3%A9n%C3%A9e-Jules_Bienaym%C3%A9.jpeg)
+:::
+
+Irénée-Jules Bienaymé is credited with the derivation of @eq-variancesum. The 2-test version of the equation, @eq-bienayme, is called [Bienayme's Identity](https://en.wikipedia.org/wiki/Bienaym%C3%A9's_identity).
+
+$$
+\sigma_{X+Y}^2 = \sigma_X^2 + 2\sigma_{XY} +\sigma_Y^2
+$$ {#eq-bienayme}
+
+:::{.callout-note title="Proof of @eq-bienayme" collapse="true"}
+
+To prove @eq-bienayme, recall that variance in general is defined as 
+
+$$
+\begin{aligned}
+\mathrm{Var}(X)&=\mathcal{E}\left(\left(X-
+\mathcal{E}\left(X\right)\right)^2\right)\\
+&=\mathcal{E}\left(\left(X-
+\mu_X\right)^2\right)\\
+&=\sigma_X^2
+\end{aligned}
+$$ {#eq-variancedef}
+
+and that covariance is defined as
+
+$$
+\begin{aligned}
+\mathrm{Cov}(XY)&=\mathcal{E}\left(\left(X-
+\mathcal{E}\left(X\right)\right)\left(Y-
+\mathcal{E}\left(Y\right)\right)\right)\\
+&=\mathcal{E}\left(\left(X-
+\mu_X\right)\left(Y-
+\mu_Y\right)\right)\\
+&=\sigma_{XY}
+\end{aligned}
+$$ {#eq-covariancedef}
+
+Applying @eq-variancedef to $X+Y$ and making substitutions from @eq-covariancedef:
+
+$$
+\begin{aligned}
+\rm{Var}(X+Y)&=\mathcal{E}\left(\left(\left(X+Y\right)-
+\mathcal{E}\left(X+Y\right)\right)^2\right)\\
+&=\mathcal{E}\left(\left(X+Y-
+\mathcal{E}\left(X\right)-\mathcal{E}\left(Y\right)\right)^2\right)\\
+&=\mathcal{E}\left(\left(X+Y-
+\mu_X-\mu_Y\right)^2\right)\\
+&=\mathcal{E}\left(\left(\left(X-
+\mu_X\right)+\left(Y-\mu_Y\right)\right)^2\right)\\
+&=\mathcal{E}\left(\left(X-
+\mu_X\right)^2+2\left(X-\mu_X\right)\left(Y-\mu_Y\right)+\left(Y-\mu_Y\right)^2\right)\\
+&=\mathcal{E}\left(\left(X-
+\mu_X\right)^2\right)+2\mathcal{E}\left(\left(X-\mu_X\right)\left(Y-\mu_Y\right)\right)+\mathcal{E}\left(\left(Y-\mu_Y\right)^2\right)\\
+&=\sigma_X^2+2\sigma_{XY}+\sigma_Y^2
+\end{aligned}
+$$
+Proof adapted from @sochProofVarianceSum2020.
+
+:::
+
+
 
 Suppose that the standard deviations of $X_1$, $X_2$, and $X_3$ are all 15. Thus, $\sigma=\{15,15,15\}.$ The correlations among the three variables are shown in matrix $\mathbf{R}$:
 
@@ -559,7 +624,7 @@ C = \frac{x_S-\mu_S}{\sigma_{X_S}}\sigma_C + \mu_C
 (\#eq:Composite)
 \end{equation}
 
-```{r}
+```{r compositesymbols}
 tibble::tribble(
   ~Symbol,  ~Meaning,
   "$C$", "The composite variable $C$",

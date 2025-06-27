@@ -1251,7 +1251,9 @@ eigenrho
 
 Eigenvalues and eigenvectors are essential ingredients in principal component analysis, a useful data-reduction technique. Principal component analysis allow us to summarize many variables in a way that minimizes information loss. To take a simple example, if we measure the size of people's right and left feet, we would have two scores per person. The two scores are highly correlated because the left foot and right foot are nearly the same size in most people. However, for some people the size difference is notable. 
 
-Principal components transform the two correlated variables into two uncorrelated variables, one for the overall size of the foot and one for the difference between the two feet. The eigenvalues sum to the 2 (then number of variables being summarized) and are proportional to the variance explained by their respective principal components.
+Principal components analysis transforms the two correlated variables into two uncorrelated variables, one for the overall size of the foot and one for the difference between the two feet. Thus, we still have 2 scores, but the first score, the overall foot score, is the primary score that most people want to know. The second score, the difference between foot sizes, is important for some people, but is trivially small for most people. In general, principal components reorganizes the data so that the information from many scores can be succinctly summarized with a small number of scores.
+
+The eigenvalues sum to the 2 (then number of variables being summarized) and are proportional to the variance explained by their respective principal components.
 
 Eigenvectors have a magnitude of 1, but if they are scaled by the square root of the eigenvalues (and by the appropriate *z*-score), they become the principal axes of the ellipse that contains the 95% of the data (See @fig-eigenellipse). Why the square root of the eigenvalues? Because eigenvalues are variances of the (unstandardized) principal components. The square root of eigenvalues are principal components' standard deviations.
 

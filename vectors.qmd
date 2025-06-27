@@ -617,7 +617,7 @@ norm(x, type = "2")
 
 ### Unit Vectors
 
-A vector norm is useful for creating [unit vectors]{.defword title="A unit vector has a norm of 1" inmargin="false"}[A *unit vector* $\vec{u}$ has a norm of 1: $\left\|\vec{u}\right\|=1$]{.defword .column-margin}, which have the same direction as the original vector but have a norm (i.e, magnitude) of 1.
+A vector norm is useful for creating [unit vectors]{.defword title="A unit vector has a norm of 1" inmargin="false"}[A *unit vector* $\vec{u}$ has a norm of 1: $\left\|\vec{u}\right\|=1$]{.defword .column-margin}, which have the same direction as the original vector but have a norm (i.e., magnitude) of 1.
 
 So a unit vector $\vec{u}$ that has the same direction as vector $\vec{x} = \left(3,4\right)$ is:
 
@@ -649,7 +649,7 @@ There are several different ways that vectors can be multiplied. For now, the mo
 
 #### Element-wise Multiplication $(\circ)$
 
-This kind of multiplication is analogous to vector addition and subtraction. If two vectors have the same length (i.e, number of elements), element-wise multiplication creates a vector of the same length by multiplying each element. Thus,
+This kind of multiplication is analogous to vector addition and subtraction. If two vectors have the same length (i.e., number of elements), element-wise multiplication creates a vector of the same length by multiplying each element. Thus,
 
 $$
 \begin{aligned}
