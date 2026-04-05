@@ -62,7 +62,7 @@ nocite: |
 execute:
   echo: false
   freeze: auto
-  cache: true
+  cache: false
 knitr: 
   opts_chunk: 
     tbl-cap-location: margin
