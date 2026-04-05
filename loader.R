@@ -40,7 +40,10 @@ xfun::pkg_attach2(
     "tmvtnorm",
     "rmarkdown",
     "downlit",
-    "xml2")
+    "xml2",
+    "flextable",
+    "ftExtra",
+    "apa7")
   )
 
 
@@ -74,8 +77,8 @@ conflicts_prefer(dplyr::select,
 loadfonts("win", quiet = TRUE)
 
 
-
-knitr::knit_hooks$set(webgl = hook_webgl)
+# setupKnitr(autoprint = TRUE)
+# knitr::knit_hooks$set(webgl = hook_webgl)
 # Set options
 options(knitr.kable.digits = 2, knitr.kable.na = '')
 knitr::opts_template$set(

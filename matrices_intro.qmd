@@ -137,7 +137,7 @@ $$
 \end{bmatrix}
 $$
 
-In R, adding new rows to a matrix is done with the `rbind` function (Think "row bind"). To append rows, matrices must have the same number of columns to be compatible.
+In R, adding new rows to a matrix is done with the `rbind` function (Think "row bind"). To append rows, matrices must have the same number of columns to be compatible. If the matrices are incompatible, no appending is possible.
 
 ```{r demo-appendrbind}
 A <- matrix(1:12, nrow = 3, byrow = TRUE)

@@ -848,6 +848,8 @@ p_center <- crossing(x0 = 1:6, y0 = 1:6, r = r, space = space) %>%
   }) %>% 
   bind()
 
+
+
 # shape list
 ggdiagram(bfont) +
   ob_circle(p_center,
@@ -881,7 +883,7 @@ ggdiagram(bfont) +
           southwest = 270,
           southeast = 360
         )
-        e <- ob_ellipse(p,
+        e <<- ob_ellipse(p,
                         a = r + space / 2,
                         b = r + space / 2,
                         m1 = 12)
@@ -1890,7 +1892,7 @@ tibble::tribble(
   knitr::kable() 
 ```
 
-Atul Gawande [-@gawandeBetterSurgeonNotes2007, pp. 219--223] tells a marvelous anecdote about how a doctor used some statistics to help a young patient with cystic fibrosis to return to taking her medication more regularly. Because the story is full of pathos and masterfully told, I will not repeat a clumsy version of it here. However, unlike Gawande, I *will* show how the doctor's statistics were calculated. 
+Atul Gawande [-@gawandeBetterSurgeonsNotes2007, pp. 219--223] tells a marvelous anecdote about how a doctor used some statistics to help a young patient with cystic fibrosis to return to taking her medication more regularly. Because the story is full of pathos and masterfully told, I will not repeat a clumsy version of it here. However, unlike Gawande, I *will* show how the doctor's statistics were calculated. 
 
 According to the story, if a patient fails to take medication, the probability that a person with cystic fibrosis will develop a bad lung illness on any particular day is .005. If medication is taken, the risk is .0005. Although these probabilities are both close to zero, over the the course of a year, they result in very different levels of risk. Off medication, the patient has about an `r round(100 * pgeom(365,0.005),0)`% chance of getting sick within a year's time. On medication, the patient's risk falls to `r round(100 * pgeom(365,0.0005),0)`%. As seen in @fig-WithMedicationCDF, the cumulative risk over the course of 10 years is quite different. Without medication, the probability of becoming seriously ill within 10 years at least once is almost certain. With medication, however, a small but substantial percentage (~`r 100-round(100*pgeom(10*365,0.0005))`%) of patients will go at least 10 years without becoming ill. 
 

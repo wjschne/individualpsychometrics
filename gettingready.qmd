@@ -11,21 +11,17 @@ source("loader.R")
 
 
 
-This book can be read and understood without using R at all. However, many of the calculations discussed would be quite difficult without the statistical functions of a language like R.
+Most of this book can be read and understood without using R at all. However, many of the calculations discussed would be quite difficult without the statistical functions of a language like R.
 
 ## Get Ready for a Challenge
 
 !["*Blooming, buzzing confusion*?" I see what you did there. ---WJ](https://upload.wikimedia.org/wikipedia/commons/9/9c/William_James_b1842c.jpg "William James"){#fig-williamjames .column-margin fig-align="left" width=200}
-
-
 
 For R to pay off, you have to buy in. Learning challenging material does not have to be "fun" at every moment to be worthwhile. The beginning data analyst, assailed by statistical concepts, coding conventions, and baffling error messages, *feels it all as one great blooming, buzzing confusion*.
 
 The challenge of learning R is indeed going to be challenging at times, but just there will also be many little *a-ha* moments, several larger check-out-what-I-can-do celebrations, and a few peak experiences of eudaemonic reverie.
 
 ## What is R?
-
-
 
 ![[John Chambers](https://www.wikiwand.com/en/John_Chambers_(statistician))](images/John_Chambers.png "John Chambers"){#fig-chambers .column-margin width=200 fig-alt="A headshot of statistician John Chambers" fig-align="left"}
 
@@ -61,6 +57,10 @@ For example, this book was "created in R." That is, I wrote the text in a simple
 ## What is RStudio?
 
 Most users never actually open the R program directly. Why not? R's text editor works well for what it does, but it has limited functionality compared to other ways of interacting with R. Instead, we will run R code in an integrated development environment (IDE) called [RStudio](https://rstudio.com/products/rstudio/download/){target="_blank"}. An IDE is a program that makes programming easier. RStudio has many features that automates tasks what would otherwise be confusing, difficult, or tedious.
+
+## What is Positron?
+
+[Positron](https://positron.posit.co/) is a data science IDE made by Posit, the same company that makes Quarto and RStudio. Positron is inspired by RStudio but is multilingual by design, not just focused on R. Positron will likely become the default recommendation when it is further along in its development.
 
 ## Code \> Clicks
 

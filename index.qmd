@@ -58,6 +58,8 @@ Most of the figures for this book were created in R (via [ggplot2](https://ggplo
 #| code: !expr 'readLines("loader.R")'
 ```
 
-In addition, all the files and code used to create this book can be found in its [Github repository](https://github.com/wjschne/toolkit).
+In addition, all the files and code used to create this book can be found in its [Github repository](https://github.com/wjschne/toolkit). 
 
 To avoid repeated citation, I must note that in preparing this book, I have drawn heavily---and no doubt unconsciously---from many authoritative sources on psychometrics, statistical analysis, and linear algebra [@cohenAppliedMultipleRegression2003;@furrPsychometricsIntroduction2017;@crockerIntroductionClassicalModern2006;@nunnallyPsychometricTheory1967;@raykovIntroductionPsychometricTheory2011;@eatonMultivariateStatisticsVector2007; @strangIntroductionLinearAlgebra2016]. I also owe a debt of gratitude to the many unsung authors at  [Wikipedia](https://www.wikipedia.org/) and [Mathematica](https://www.wolfram.com/mathematica/) who maintain wonderfully comprehensive, up-to-date, and well-referenced documentation of all things mathematical and statistical.
+
+Throughout the book, I have used Matthew Butterick's [Equity](https://practicaltypography.com/equity.html) font family (specifically Equity Text A Tab). Equity is not free, but I was glad to pay for it in exchange for all I learned from Butterick's free online book, [*Practical Typography*](https://practicaltypography.com/). Equity was designed to fit in the same space as Times New Roman. If you need to render any figures but do not have access to Equity, then rendering with R's `serif` font (Times for Mac and Times New Roman for Windows) should provide similar results.

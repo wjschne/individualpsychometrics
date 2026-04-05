@@ -639,7 +639,7 @@ $$
 \mathbf{A}\mathbf{A}^{-1}=\mathbf{A}^{-1}\mathbf{A}=\mathbf{I}
 $$
 
-The calculation of an inverse is [quite complex](http://en.wikipedia.org/wiki/Invertible_matrix#Methods_of_matrix_inversion),computationally intensive, and best left to computers.
+The calculation of an inverse matrix is [quite complex](http://en.wikipedia.org/wiki/Invertible_matrix#Methods_of_matrix_inversion), computationally intensive, and best left to computers.
 
 Although only square matrices can have inverses, not all square matrices have inverses. The procedures for calculating the inverse of a matrix sometimes attempt to divide by 0, which is not possible. Because zero cannot be inverted (i.e., $\frac{1}{0}$ is undefined), any matrix that attempts division by 0 during the inversion process cannot be inverted.
 
@@ -656,7 +656,7 @@ There is no matrix we can multiply it by to produce the identity matrix. In the 
 
 The covariance matrix of [collinear]{.defword title="**Collinear** means that at least one of the variables can be perfectly predicted from the other variables."} variables is singular. In multiple regression, we use the inverse of the covariance matrix of the predictor variables to calculate the regression matrix. If the predictor variables are collinear, the regression coefficients cannot be calculated. For example, if $Z=X+Y$, we cannot use $X$, $Y$, and $Z$ together as predictors in a multiple regression equation. $Z$ is perfectly predicted from $X$ and $Y$. In the calculation of the regression coefficients, division by 0 will be attempted, and the calculation can proceed no further. 
 
-If use to bother me that that collinear variables could not be used together as predictors. However, thinking a little further, revealed why it is impossible. The definition of a regression coefficient is the independent effect of a variable after holding the other predictors constant. If a variable is perfectly predicted by the other variables, that variable cannot have an independent effect. Controlling for the other predictor, the variable no longer varies. It become a constant. Constants have no effect.
+It used to bother me that that collinear variables could not be used together as predictors. However, thinking a little further, revealed why it is impossible. The definition of a regression coefficient is the independent effect of a variable after holding the other predictors constant. If a variable is perfectly predicted by the other variables, that variable cannot have an independent effect. Controlling for the other predictor, the variable no longer varies. It becomes a constant. Constants have no effect.
 
 While regression with perfectly collinear predictors is impossible, regression with almost perfectly collinear predictors can produce strange and unstable results. For example, if we round $Z$, the rounding error makes $Z$ nearly collinear with $X$ and $Y$ but not quite perfectly collinear with them. In this case, the regression will run but might give misleading results that might differ dramatically depending on how finely rounded $Z$ is.
 
@@ -742,9 +742,9 @@ Thus, `solve(A)` is $\mathbf{A}^{-1}$
 ```{r demo-inverseA}
 A <- matrix(c(1,0.5,0.5,1),nrow = 2)
 A
-Ainverse <- solve(A)
-Ainverse
-A %*% Ainverse
+A_inverse <- solve(A)
+A_inverse
+A %*% A_inverse
 ```
 
 :::{.callout-note title="You Try"}
@@ -1098,7 +1098,7 @@ $$
 
 As explained in 3Blue1Brown's wonderful [*Essence of Linear Algebra*](https://youtu.be/PFDu9oVAE-g?si=PteIZU-T4KCGSCV1) series, we can think of the square matrix $\mathbf{A}$ as a mechanism for scaling and rotating vector $\vec{x}$ to become vector $\vec{b}$.
 
-Is there a non-zero vector $\vec{v}$ that $\mathbf{A}$ will scale but not rotate? If so, $\vec{v}$ is an [eigenvector]{.defword title="An **eigenvector**" of a matrix is a vector that the matrix does not rotate.}. The value $\lambda$ by which $\vec{v}$ is scaled is the [eigenvalue]{.defword title="The **eigenvalue** is the magnitude by which a matrix scales a unit eigenvector."}.
+Is there a non-zero vector $\vec{v}$ that $\mathbf{A}$ will scale but not rotate? If so, $\vec{v}$ is an [eigenvector]{.defword title="An **eigenvector** of a matrix is a vector that the matrix does not rotate."}. The value $\lambda$ by which $\vec{v}$ is scaled is the [eigenvalue]{.defword title="The **eigenvalue** is the magnitude by which a matrix scales a unit eigenvector."}.
 
 $$
 \mathbf{A}\vec{v}=\lambda\vec{v}
@@ -1123,7 +1123,7 @@ $$
 \mathbf{A}=`r bmatrix(A)`
 $$
 
-Because $\mathbf{A}$ is a 3 &times; 3 matrix, there are three [orthogonal]{.defword title="The word, **orthogonal** derives from the Greek word for "right-angled." Orthogonal vectors are mutually perpendicular."} unit vectors that are eigenvectors, $\vec{v}_1$, $\vec{v}_2$, and $\vec{v}_3$. We will collect the three eigenvectors as columns of matrix $\mathbf{V}$:
+Because $\mathbf{A}$ is a 3 &times; 3 matrix, there are three [orthogonal]{.defword title="The word, **orthogonal** derives from the Greek word for *right-angled*. Orthogonal vectors are mutually perpendicular."} unit vectors that are eigenvectors, $\vec{v}_1$, $\vec{v}_2$, and $\vec{v}_3$. We will collect the three eigenvectors as columns of matrix $\mathbf{V}$:
 
 
 ```{r eigenA}
@@ -1139,7 +1139,7 @@ $$
 \mathbf{V}= `r bmatrix(evectors)`
 $$
 
-The three eigenvalues of $\mathbf{A}$ are collected in the vector $\vec{\lambda}$
+The three eigenvalues of $\mathbf{A}$ are collected in the vector $\vec{\lambda}$:
 
 $$
 \vec{\lambda} = (`r paste0(round(evalues,2),collapse = ",")`)
@@ -1156,9 +1156,9 @@ $$
 
 Suppose we generate multivariate normal data with population correlations equal to matrix $\mathbf{A}$. Plotted in three dimensions, the data would have the shape of an ellipsoid. As seen in @fig-eigenplot, the eigenvectors of $\mathbf{A}$, scaled by the square roots of the eigenvalues align with and are proportional to the principal axes of the ellipsoid that contains 95% of the data.
 
-:::{#fig-eigenplot fig-cap="The eigenvectors align with the principal axes of the ellipsoid that contains 95% of the data. The principal axes are proportional to the squart roots of the eigenvalues." fig-cap-location="margin"}
+:::{#fig-eigenplot fig-cap="The eigenvectors align with the principal axes of the ellipsoid that contains 95% of the data. The principal axes are proportional to the squart roots of the eigenvalues. (Use your mouse to rotate the figure.)" fig-cap-location="margin"}
 
-```{r eigen3d, webgl = TRUE}
+```{r eigen3d}
 <<correlationA>>
 <<eigenA>>
 library(rgl)
@@ -1212,7 +1212,7 @@ aspect3d(1,1,1)
 view3d(zoom = 1, 
        userMatrix = rotationMatrix(0.4 * pi, 0.2, 1, 0.1))
 
- 
+rglwidget() 
 ```
 
 :::

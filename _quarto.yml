@@ -46,10 +46,12 @@ book:
         - file: continuousdistributions.qmd
           text: Distributions--Continuous
         - descriptives.qmd
+    - part: "Psychometric Foundations"
+      chapters:
+        - reliability.qmd
         - compositescores.qmd
         - file: relativeproficiency.qmd
           text: Relative Proficiency
-        - ojs.qmd
         - notation.qmd
         - unfinished.qmd
         - references.qmd
@@ -60,6 +62,7 @@ nocite: |
 execute:
   echo: false
   freeze: auto
+  cache: true
 knitr: 
   opts_chunk: 
     tbl-cap-location: margin
@@ -89,6 +92,7 @@ format:
     code-copy: true
     code-link: true
     smooth-scroll: true
+    anchor-sections: false
     toc-location: left
     toc-title: "Page Contents"
     theme: 

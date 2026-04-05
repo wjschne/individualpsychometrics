@@ -485,20 +485,7 @@ Confirmatory factor analysis
 
 Structural equation modeling
 
-## Reliability
 
-Retest reliability
-
-Alternate-form reliability
-
-Split-half reliability
-
-Internal consistency
-
-* Cronbach's Alpha
-* McDonald's Omega
-
-Conditional reliability (IRT)
 
 ## Validity
 

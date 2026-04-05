@@ -332,7 +332,7 @@ The symbol for a sample correlation is the Roman lowercase $r$, and a matrix of 
 
 :::{#fig-bienayme .column-margin}
 
-![](images/Bienayme.jpeg)
+![](images/Bienayme.jpeg){fig-align="left" width=175}
 
 Irénée-Jules Bienaymé (1796--1878)<br>[Image Credit](https://commons.wikimedia.org/wiki/File:Ir%C3%A9n%C3%A9e-Jules_Bienaym%C3%A9.jpeg)
 :::
@@ -619,10 +619,9 @@ All three methods give the same answer: $\sigma_X^2 = `r var_S_weighted`$
 
 We now have all of the information needed to make a composite score. First we will make an unweighted composite.
 
-\begin{equation}
+$$
 C = \frac{x_S-\mu_S}{\sigma_{X_S}}\sigma_C + \mu_C
-(\#eq:Composite)
-\end{equation}
+$$ {#eq-composite}
 
 ```{r compositesymbols}
 tibble::tribble(
@@ -657,6 +656,7 @@ In matrix notation, an unweighted composite score is calculated like so:
 $$
 C=\mathbf{\frac{1'(x-\mu_x)}{\sqrt{1'\Sigma 1}}}\sigma_C+\mu_C
 $$
+
 Replacing each vector of ones $\mathbf{1}$ with a weight vector $\mathbf{w}$ gives us the formula for computing a weighted composite score:
 
 $$
@@ -673,18 +673,18 @@ $$
 The nice thing about z-scores is that their means are zeros, their standard deviations are ones, and their covariances are correlations. Thus, the formula for a weighted composite score consisting of z-scores is fairly simple, especially if the composite score is a z-score itself:
   
 $$
-C = \frac{\mathbf{w^\prime z}}{\sqrt{\mathbf{w^\prime Rw}}}\sigma_C+\mu_C
+z_C = \frac{\mathbf{w^\prime z}}{\sqrt{\mathbf{w^\prime Rw}}}
 $$
 :::
 
 
-Continuing with our example, computing a composite score with $X_1=`r x[1]`$, $X_2=`r x[2]`$, and $X_3=`r x[3]`$:
+Continuing with our example, computing a composite score with $X_1=`r x[1]`$, $X_2=`r x[2]`$, and $X_3=`r x[3]`:$
 
 ```{r CalculateWeightedComposite, echo=TRUE}
 # C = The composite score
 C <- (t(w) %*% (x - m) / sqrt(t(w) %*% CM %*% w)) * 15  + 100
 
-# With index scores, we round to the nearest integer
+# With standard scores, we round to the nearest integer
 C <- round(C)
 
 # Notes:
@@ -721,12 +721,15 @@ The covariance matrix of the component true scores is exactly the same as the co
 
 
 $$
-\sigma_T^2=\mathbf{1}'\begin{bmatrix}
-  {\color{firebrick}r_{11}}\sigma_{1}^2 & \sigma_{12} & \cdots & \sigma_{1k} \\
-  \sigma_{21} & {\color{firebrick}r_{22}}\sigma_{2}^2 & \cdots & \sigma_{2 k} \\
+\begin{aligned}
+\sigma_T^2&=\mathbf{1}'\begin{bmatrix}
+  \color{firebrick}{r_{11}}\sigma_{1}^2 & \sigma_{12} & \cdots & \sigma_{1k} \\
+  \sigma_{21} & \color{firebrick}{r_{22}}\sigma_{2}^2 & \cdots & \sigma_{2 k} \\
   \vdots  & \vdots  & \ddots & \vdots  \\
-  \sigma_{k1} & \sigma_{k2} & \cdots & {\color{firebrick}r_{kk}}\sigma_{k}^2
- \end{bmatrix}\mathbf{1}
+  \sigma_{k1} & \sigma_{k2} & \cdots & \color{firebrick}{r_{kk}}\sigma_{k}^2
+ \end{bmatrix}\mathbf{1}\\
+ &=\mathbf{1}^\prime\Sigma \mathbf{1}+\text{diag}\left(\mathbf{\Sigma}\right)^\prime(\color{firebrick}{\vec{r}}-1)
+ \end{aligned}
 $$
 
 ```{r CalculateReliability, echo=TRUE}
@@ -734,11 +737,13 @@ $$
 r_XX <- c(0.88,0.80,0.76)
 
 # CM_T = Covariance matrix of true scores
-CM_T <- CM
-
 # Replace diagonal with true score variances
-diag(CM_T) <- diag(CM) * r_XX
+CM_T <- CM %>% `diag<-`(diag(CM) * r_XX)
 
+sum(diag(diag(CM) * (r_XX - 1)) + CM)
+
+
+sum(diag(CM) * (r_XX - 1)) + sum(CM)
 # r_C = Reliability coefficient of composite score
 r_C <- sum(CM_T) / sum(CM)
 ```
