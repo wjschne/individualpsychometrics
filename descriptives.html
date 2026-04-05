@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.14">
+<meta name="generator" content="quarto-1.10.1">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>11&nbsp; Descriptives – Individual Psychometrics</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -85,20 +88,18 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./compositescores.html" rel="next">
+<link href="./reliability.html" rel="next">
 <link href="./continuousdistributions.html" rel="prev">
 <link href="./images/Logo.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-497b9bc44165e1c7adfd168a7e56aadd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e2e101ba9ef849d96d4575492be540ea.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-10ea860d77d54c91d8a2b8ca3741f0bd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-900706161ae90bd864ef8cc55c77cc6d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -127,6 +128,8 @@ div.csl-indent {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link href="site_libs/tabwid-1.1.3/tabwid.css" rel="stylesheet">
+<script src="site_libs/tabwid-1.1.3/tabwid.js"></script>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", () => {
 // enable all tooltips with data-bs-toggle
@@ -325,22 +328,33 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Psychometric Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reliability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Reliability</span></span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./compositescores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./relativeproficiency.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Relative Proficiency</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ojs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">OJS figures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Relative Proficiency</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -432,66 +446,19 @@ window.Quarto = {
 </header>
 
 
-<div class="page-columns page-full"><p>When we encounter large lists of unsorted numbers, we have no natural capacity to perceive the list’s fundamental characteristics such as its average or its variability. Therefore, we need <span class="defword" title="<strong>Descriptive statistics</strong> summarize noteworthy characteristics of samples." data-bs-html="true" data-bs-toggle="tooltip">descriptive statistics</span> to quantify salient characteristics of distributions, or we need to display the numbers in a plot, making them easier to understand and communicate.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Descriptive statistics</strong> summarize noteworthy characteristics of samples.</span></div></div>
+<div class="page-columns page-full"><p>When we encounter a large list of unsorted numbers, we have no natural capacity to perceive fundamental characteristics of the list, such as its average or its variability. Therefore, we need <span class="defword" title="<strong>Descriptive statistics</strong> summarize noteworthy characteristics of samples." data-bs-html="true" data-bs-toggle="tooltip">descriptive statistics</span> to quantify salient characteristics of distributions, or we need to display the numbers in a plot, making them easier to understand and communicate.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Descriptive statistics</strong> summarize noteworthy characteristics of samples.</span></div></div>
 <section id="frequency-distribution-tables" class="level2 page-columns page-full" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="frequency-distribution-tables"><span class="header-section-number">11.1</span> Frequency Distribution Tables</h2>
+<h2 data-number="11.1" data-anchor-id="frequency-distribution-tables"><span class="header-section-number">11.1</span> Frequency Distribution Tables</h2>
 <div class="page-columns page-full"><p>A simple way to describe a distribution is to list how many times each value in the distribution occurs. For example, in this distribution: <span class="math inline">\{10, 3, 4, 10, 6, 4, 6, 4\}</span>, there is 1 three, 3 fours, 2 sixes, and 2 tens. The value that occurs most often is four. A <span class="defword" title="A <strong>frequency distribution table</strong> summarises a sample by showing the frequency counts of each member of the sample space." data-bs-html="true" data-bs-toggle="tooltip">frequency distribution table</span> displays the number of times each value occurs, as in <a href="#tbl-frequencydistributiontable" class="quarto-xref">Table&nbsp;<span>11.1</span></a>.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>frequency distribution table</strong> summarises a sample by showing the frequency counts of each member of the sample space.</span></div></div>
-<div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="bottom">
-<div id="tbl-frequencydistributiontable" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="bottom">
+<div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
+<div id="tbl-frequencydistributiontable" class="cell quarto-float quarto-figure quarto-figure-center page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
-<div aria-describedby="tbl-frequencydistributiontable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-
-<div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 7%">
-<col style="width: 13%">
-<col style="width: 31%">
-<col style="width: 14%">
-<col style="width: 32%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Value</th>
-<th style="text-align: right;">Frequency</th>
-<th style="text-align: right;">Cumulative<br>Frequency</th>
-<th style="text-align: right;">Proportion</th>
-<th style="text-align: right;">Cumulative<br>Proportion</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">.125</td>
-<td style="text-align: right;">.125</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">.375</td>
-<td style="text-align: right;">.500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">.250</td>
-<td style="text-align: right;">.750</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">.250</td>
-<td style="text-align: right;">1</td>
-</tr>
-</tbody>
-</table>
-</div></div></div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-frequencydistributiontable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-frequencydistributiontable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div class="tabwid tabwid_left"><style>.cl-f86e01b6{}.cl-f8315e82{font-family:'Equity Text A Tab';font-size:12pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-f867e876{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:8pt;padding-top:8pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-f8682976{width:0.823in;background-color:transparent;vertical-align: top;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f8682980{width:1.359in;background-color:transparent;vertical-align: top;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f868298a{width:1.469in;background-color:transparent;vertical-align: top;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f868298b{width:1.38in;background-color:transparent;vertical-align: top;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0.5pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f8682994{width:0.823in;background-color:transparent;vertical-align: top;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f8682995{width:1.359in;background-color:transparent;vertical-align: top;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f8682996{width:1.469in;background-color:transparent;vertical-align: top;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f8682997{width:1.38in;background-color:transparent;vertical-align: top;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f868299e{width:0.823in;background-color:transparent;vertical-align: top;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f86829a8{width:1.359in;background-color:transparent;vertical-align: top;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f86829a9{width:1.469in;background-color:transparent;vertical-align: top;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f86829aa{width:1.38in;background-color:transparent;vertical-align: top;border-bottom: 0.5pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-f86e01b6"><thead><tr style="overflow-wrap:break-word;"><th class="cl-f8682976"><p class="cl-f867e876"><span class="cl-f8315e82">Value</span></p></th><th class="cl-f8682980"><p class="cl-f867e876"><span class="cl-f8315e82">Frequency</span></p></th><th class="cl-f868298a"><p class="cl-f867e876"><span class="cl-f8315e82">Cumulative</span><br><span class="cl-f8315e82">Frequency</span></p></th><th class="cl-f868298b"><p class="cl-f867e876"><span class="cl-f8315e82">Proportion</span></p></th><th class="cl-f868298a"><p class="cl-f867e876"><span class="cl-f8315e82">Cumulative</span><br><span class="cl-f8315e82">Proportion</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-f8682994"><p class="cl-f867e876"><span class="cl-f8315e82">3</span></p></td><td class="cl-f8682995"><p class="cl-f867e876"><span class="cl-f8315e82">1</span></p></td><td class="cl-f8682996"><p class="cl-f867e876"><span class="cl-f8315e82">1</span></p></td><td class="cl-f8682997"><p class="cl-f867e876"><span class="cl-f8315e82">.125</span></p></td><td class="cl-f8682996"><p class="cl-f867e876"><span class="cl-f8315e82">.125</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f8682994"><p class="cl-f867e876"><span class="cl-f8315e82">4</span></p></td><td class="cl-f8682995"><p class="cl-f867e876"><span class="cl-f8315e82">3</span></p></td><td class="cl-f8682996"><p class="cl-f867e876"><span class="cl-f8315e82">4</span></p></td><td class="cl-f8682997"><p class="cl-f867e876"><span class="cl-f8315e82">.375</span></p></td><td class="cl-f8682996"><p class="cl-f867e876"><span class="cl-f8315e82">.500</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f8682994"><p class="cl-f867e876"><span class="cl-f8315e82">6</span></p></td><td class="cl-f8682995"><p class="cl-f867e876"><span class="cl-f8315e82">2</span></p></td><td class="cl-f8682996"><p class="cl-f867e876"><span class="cl-f8315e82">6</span></p></td><td class="cl-f8682997"><p class="cl-f867e876"><span class="cl-f8315e82">.250</span></p></td><td class="cl-f8682996"><p class="cl-f867e876"><span class="cl-f8315e82">.750</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-f868299e"><p class="cl-f867e876"><span class="cl-f8315e82">10</span></p></td><td class="cl-f86829a8"><p class="cl-f867e876"><span class="cl-f8315e82">2</span></p></td><td class="cl-f86829a9"><p class="cl-f867e876"><span class="cl-f8315e82">8</span></p></td><td class="cl-f86829aa"><p class="cl-f867e876"><span class="cl-f8315e82">.250</span></p></td><td class="cl-f86829a9"><p class="cl-f867e876"><span class="cl-f8315e82">1</span></p></td></tr></tbody></table></div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-tbl margin-caption" id="tbl-frequencydistributiontable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;11.1: Frequency Distribution Table<br>The median is 5, halfway between the two middle scores of 4 and 6.
 </figcaption>
 </figure>
@@ -510,7 +477,7 @@ Table&nbsp;11.1: Frequency Distribution Table<br>The median is 5, halfway betwee
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb1" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">10</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>reps <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">map2</span>(X, reps, rep) <span class="sc">%&gt;%</span> unlist <span class="sc">%&gt;%</span> </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">X =</span> .) <span class="sc">%&gt;%</span> </span>
@@ -525,19 +492,27 @@ Table&nbsp;11.1: Frequency Distribution Table<br>The median is 5, halfway betwee
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>sixes <span class="ot">&lt;-</span> reps[X <span class="sc">==</span> <span class="dv">6</span>]</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">=</span> <span class="fu">sum</span>(reps)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  d,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">col.names =</span> <span class="fu">c</span>(</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Value"</span>,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Frequency"</span>,</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cumulative&lt;br&gt;Frequency"</span> ,</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Proportion"</span>,</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Cumulative&lt;br&gt;Proportion"</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  ),</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">align =</span> <span class="st">"rrrrr"</span>,</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">escape =</span> F</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>d <span class="sc">|&gt;</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Value =</span> X,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>         <span class="at">Frequency =</span> f,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Cumulative</span><span class="sc">\\\n</span><span class="at">Frequency</span><span class="st">`</span> <span class="ot">=</span> cf,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">Proportion =</span> p,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>         <span class="st">`</span><span class="at">Cumulative</span><span class="sc">\\\n</span><span class="at">Proportion</span><span class="st">`</span> <span class="ot">=</span> cp) <span class="sc">|&gt;</span> </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apa_flextable</span>(<span class="at">font_family =</span> bfont, <span class="at">table_width =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">align</span>(<span class="at">j =</span> <span class="dv">1</span>, <span class="at">align =</span> <span class="st">"center"</span>, <span class="at">part =</span> <span class="st">"all"</span>) </span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># knitr::kable(</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   d,</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co">#   col.names = c(</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">#     "Value",</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">#     "Frequency",</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">#     "Cumulative&lt;br&gt;Frequency" ,</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">#     "Proportion",</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co">#     "Cumulative&lt;br&gt;Proportion"</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co">#   ),</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">#   align = "rrrrr",</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">#   escape = F</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -551,19 +526,19 @@ Table&nbsp;11.1: Frequency Distribution Table<br>The median is 5, halfway betwee
 <p>The cumulative proportion <span class="math inline">(cp)</span> is the proportion of scores less than or equal to a particular sample space element.</p>
 <p><span class="math display">cp_i = \frac{cf_i}{n}</span></p>
 <section id="frequency-distribution-tables-in-r" class="level3 page-columns page-full" data-number="11.1.1">
-<h3 data-number="11.1.1" class="anchored" data-anchor-id="frequency-distribution-tables-in-r"><span class="header-section-number">11.1.1</span> Frequency Distribution Tables in R</h3>
-<p>Let’s start with a data set from <span class="citation" data-cites="garciaWomenReactionsIngroup2010">Garcia et al. (<a href="references.html#ref-garciaWomenReactionsIngroup2010" role="doc-biblioref">2010</a>)</span>, which can accessed via the psych package.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-garciaWomenReactionsIngroup2010" class="csl-entry" role="listitem">
+<h3 data-number="11.1.1" data-anchor-id="frequency-distribution-tables-in-r"><span class="header-section-number">11.1.1</span> Frequency Distribution Tables in R</h3>
+<p>Let’s start with a data set from <span class="citation" data-cites="garciaWomensReactionsIngroup2010">Garcia et al. (<a href="references.html#ref-garciaWomensReactionsIngroup2010" role="doc-biblioref">2010</a>)</span>, which can accessed via the psych package.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-garciaWomensReactionsIngroup2010" class="csl-entry" role="listitem">
 Garcia, D. M., Schmitt, M. T., Branscombe, N. R., &amp; Ellemers, N. (2010). Women’s reactions to ingroup members who protest discriminatory treatment: <span>The</span> importance of beliefs about inequality and response appropriateness. <em>European Journal of Social Psychology</em>, <em>40</em>(5), 733–745.
 </div></div><div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb2" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the Garcia data set from the psych package</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> psych<span class="sc">::</span>Garcia</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the Garcia data set from the psych package</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> psych<span class="sc">::</span>Garcia</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>The sjmisc package <span class="citation" data-cites="R-sjmisc">(<a href="references.html#ref-R-sjmisc" role="doc-biblioref">Lüdecke, 2024</a>)</span> provides a quick and easy way to create a frequency distribution table with the <code>frq</code> function.</p>
+<p>The sjmisc package <span class="citation" data-cites="R-sjmisc">(<a href="references.html#ref-R-sjmisc" role="doc-biblioref">Lüdecke, 2025</a>)</span> provides a quick and easy way to create a frequency distribution table with the <code>frq</code> function.</p>
 <div class="no-row-height column-margin column-container"><div id="ref-R-sjmisc" class="csl-entry" role="listitem">
-Lüdecke, D. (2024). <em>Sjmisc: Data and variable transformation functions</em>. <a href="https://strengejacke.github.io/sjmisc/">https://strengejacke.github.io/sjmisc/</a>
+Lüdecke, D. (2025). <em>Sjmisc: Data and variable transformation functions</em>. <a href="https://strengejacke.github.io/sjmisc/">https://strengejacke.github.io/sjmisc/</a>
 </div></div><div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(d<span class="sc">$</span>anger)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sjmisc<span class="sc">::</span><span class="fu">frq</span>(d<span class="sc">$</span>anger)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>x &lt;numeric&gt; 
 # total N=129 valid N=129 mean=2.12 sd=1.66
@@ -581,7 +556,7 @@ Value |  N | Raw % | Valid % | Cum. %
 </div>
 </div>
 <p>Typically we use frequency distribution tables to check whether the values of a variable are correct and that the distribution makes sense to us. Thus the <code>frq</code> function is all we need most of the time. However, if you need a publication-ready frequency distribution table, you will probably have to make it from scratch (See <a href="#tbl-freqtablepub" class="quarto-xref">Table&nbsp;<span>11.2</span></a>).</p>
-<div id="tbl-freqtablepub" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
+<div id="tbl-freqtablepub" class="cell quarto-float quarto-figure quarto-figure-center page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-freqtablepub-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output cell-output-stdout">
@@ -613,7 +588,7 @@ Table&nbsp;11.2: Frequency Distribution Table for Anger<br><em>f</em>&nbsp;=&nbs
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb6" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Publication-quality frequency table</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Publication-quality frequency table</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">X =</span> anger) <span class="sc">%&gt;%</span> </span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(X, <span class="at">name =</span> <span class="st">"f"</span>) <span class="sc">%&gt;%</span> </span>
@@ -626,18 +601,18 @@ Table&nbsp;11.2: Frequency Distribution Table for Anger<br><em>f</em>&nbsp;=&nbs
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_remove</span>(<span class="st">"^0"</span>))) <span class="sc">%&gt;%</span> </span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(</span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">.fn =</span> <span class="cf">function</span>(x) <span class="fu">paste0</span>(<span class="st">"*"</span>,x,<span class="st">"*"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at"> </span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="st">`</span><span class="at"> </span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 </section>
 <section id="frequency-distribution-bar-plots" class="level3 page-columns page-full" data-number="11.1.2">
-<h3 data-number="11.1.2" class="anchored" data-anchor-id="frequency-distribution-bar-plots"><span class="header-section-number">11.1.2</span> Frequency Distribution Bar Plots</h3>
+<h3 data-number="11.1.2" data-anchor-id="frequency-distribution-bar-plots"><span class="header-section-number">11.1.2</span> Frequency Distribution Bar Plots</h3>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-freqbarplot" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-freqbarplot" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-freqbarplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-freqbarplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
@@ -651,7 +626,7 @@ Figure&nbsp;11.1: Frequency Distribution Bar Plot
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-freqstackedbarplot" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-freqstackedbarplot" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-freqstackedbarplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-freqstackedbarplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="250">
@@ -665,7 +640,7 @@ Figure&nbsp;11.2: Cumulative Frequency Stacked Bar Plot
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-freqstepplot" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-freqstepplot" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-freqstepplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-freqstepplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
@@ -690,7 +665,7 @@ Figure&nbsp;11.3: Cumulative Frequency Step Plot
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb7" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make frequency data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make frequency data</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>d_freq <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Anger =</span> anger) <span class="sc">%&gt;%</span> </span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Anger, <span class="at">name =</span> <span class="st">"f"</span>) <span class="sc">%&gt;%</span> </span>
@@ -712,14 +687,14 @@ Figure&nbsp;11.3: Cumulative Frequency Step Plot
 <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.09</span>))) <span class="sc">+</span></span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">30</span>, </span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">base_family =</span> bfont) <span class="sc">+</span> </span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>())       </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>())       </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 </section>
 <section id="frequency-distribution-stacked-bar-plots" class="level3" data-number="11.1.3">
-<h3 data-number="11.1.3" class="anchored" data-anchor-id="frequency-distribution-stacked-bar-plots"><span class="header-section-number">11.1.3</span> Frequency Distribution Stacked Bar Plots</h3>
+<h3 data-number="11.1.3" data-anchor-id="frequency-distribution-stacked-bar-plots"><span class="header-section-number">11.1.3</span> Frequency Distribution Stacked Bar Plots</h3>
 <p>In a standard bar plot, one may easily compare frequencies to each other, but that may not be what you wish the reader to notice first. A stacked bar plot emphasizes the proportions of each category as it relates to the whole. It also allows for the visual display of the cumulative frequencies and proportions. For example, in <a href="#fig-freqstackedbarplot" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>, it is easy to see that more than half of participants have an anger level of 1, and three quarters have an anger level of 2 or less.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -734,7 +709,7 @@ Figure&nbsp;11.3: Cumulative Frequency Step Plot
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb8" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stacked Frequency Bar Plot</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Stacked Frequency Bar Plot</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>d_freq <span class="sc">%&gt;%</span> </span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">factor</span>(<span class="st">"Anger"</span>), cf <span class="sc">-</span> f <span class="sc">/</span> <span class="dv">2</span>)) <span class="sc">+</span> </span>
@@ -764,14 +739,14 @@ Figure&nbsp;11.3: Cumulative Frequency Step Plot
 <span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
 <span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">vjust =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fl">0.5</span>, <span class="dv">7</span>),<span class="sc">-</span><span class="fl">0.3</span>))</span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 </section>
 <section id="frequency-distribution-step-line-plots" class="level3" data-number="11.1.4">
-<h3 data-number="11.1.4" class="anchored" data-anchor-id="frequency-distribution-step-line-plots"><span class="header-section-number">11.1.4</span> Frequency Distribution Step Line Plots</h3>
+<h3 data-number="11.1.4" data-anchor-id="frequency-distribution-step-line-plots"><span class="header-section-number">11.1.4</span> Frequency Distribution Step Line Plots</h3>
 <p>A step line plot can show the cumulative frequency’s relationship with the variable. For example, in <a href="#fig-freqstepplot" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>, it appears that the cumulative frequency rises quickly at first but then rises slowly and steadily thereafter.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -786,7 +761,7 @@ Figure&nbsp;11.3: Cumulative Frequency Step Plot
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb9" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency Step Plot</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency Step Plot</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>d_freq <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Anger, cf)) <span class="sc">+</span></span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_step</span>(<span class="at">direction =</span> <span class="st">"mid"</span>,</span>
@@ -844,7 +819,7 @@ Figure&nbsp;11.3: Cumulative Frequency Step Plot
 <span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="dv">129</span>,</span>
 <span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>],</span>
 <span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">0.5</span></span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>  ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -852,11 +827,11 @@ Figure&nbsp;11.3: Cumulative Frequency Step Plot
 </section>
 </section>
 <section id="measures-of-central-tendency" class="level2 page-columns page-full" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="measures-of-central-tendency"><span class="header-section-number">11.2</span> Measures of Central Tendency</h2>
+<h2 data-number="11.2" data-anchor-id="measures-of-central-tendency"><span class="header-section-number">11.2</span> Measures of Central Tendency</h2>
 <p>If we need to summarize an entire distribution with a single number with the least possible information loss, we use a measure of central tendency—usually the mode, the median, or the mean. Although these numbers are intended to represent the entire distribution, they often require accompaniment from other statistics to perform this role with sufficient fidelity.</p>
 <p>Our choice of which measure of central tendency we use to summarize a distribution depends on which type of variable we are summarizing (i.e., nominal, ordinal, interval, or ratio) and also a consideration of each central tendency measure’s strengths and weaknesses in particular situations.</p>
 <section id="mode" class="level3 page-columns page-full" data-number="11.2.1">
-<h3 data-number="11.2.1" class="anchored" data-anchor-id="mode"><span class="header-section-number">11.2.1</span> Mode</h3>
+<h3 data-number="11.2.1" data-anchor-id="mode"><span class="header-section-number">11.2.1</span> Mode</h3>
 <div class="page-columns page-full"><p>The <span class="defword" title="The <strong>mode</strong> is the value in a distribution that occurs most often." data-bs-html="true" data-bs-toggle="tooltip">mode</span> is the most frequent score in a distribution. Suppose we have a distribution that looks like this:</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>mode</strong> is the value in a distribution that occurs most often.</span></div></div>
 <p><span class="math display">\{1,2,2,2,2,3,3\}</span></p>
 <p>Because 2 occurs more frequently than the other values in the distribution, the mode is 2.</p>
@@ -869,7 +844,7 @@ Figure&nbsp;11.3: Cumulative Frequency Step Plot
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-bimodal" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-bimodal" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bimodal-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-bimodal-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -893,7 +868,7 @@ Figure&nbsp;11.4: A Bimodal Distribution
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb10" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A bimodal distribution</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A bimodal distribution</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="fl">3.5</span>, .<span class="dv">01</span>),</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">dnorm</span>(x,<span class="sc">-</span><span class="dv">1</span>, <span class="fl">0.5</span>) <span class="sc">/</span> <span class="fl">0.8</span> <span class="sc">+</span> </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">dnorm</span>(x, <span class="dv">1</span>, <span class="fl">0.75</span>)) <span class="sc">%&gt;%</span></span>
@@ -923,7 +898,7 @@ Figure&nbsp;11.4: A Bimodal Distribution
 <span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">25</span>))) <span class="sc">+</span></span>
 <span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">30</span>,</span>
 <span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>                <span class="at">base_family =</span> bfont) <span class="sc">+</span></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>()) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -933,35 +908,35 @@ Figure&nbsp;11.4: A Bimodal Distribution
 <div class="no-row-height column-margin column-container"><div id="ref-R-modeest" class="csl-entry" role="listitem">
 Poncet, P. (2019). <em>Modeest: Mode estimation</em>. <a href="https://github.com/paulponcet/modeest">https://github.com/paulponcet/modeest</a>
 </div></div><div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Mode</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>modeest<span class="sc">::</span><span class="fu">mfv</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>modeest<span class="sc">::</span><span class="fu">mfv</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 2</code></pre>
 </div>
 </div>
 <p>The <code>mfv</code> function will return all modes if there is more than one. In this example, the 1, 3, and 4 all occur twice.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Mode</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>modeest<span class="sc">::</span><span class="fu">mfv</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>modeest<span class="sc">::</span><span class="fu">mfv</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 1 3 4</code></pre>
 </div>
 </div>
 </section>
 <section id="median" class="level3 page-columns page-full" data-number="11.2.2">
-<h3 data-number="11.2.2" class="anchored" data-anchor-id="median"><span class="header-section-number">11.2.2</span> Median</h3>
+<h3 data-number="11.2.2" data-anchor-id="median"><span class="header-section-number">11.2.2</span> Median</h3>
 <div class="page-columns page-full"><p>The <span class="defword" title="The <strong>median</strong> is the point that divides the lower 50 percent of a distribution from the upper 50 percent." data-bs-html="true" data-bs-toggle="tooltip">median</span> is midpoint of a distribution, the point that divides the lower half of the distribution from the upper half. To calculate the median, you first need to sort the scores. If there is an odd number of scores, the median is the middle score. If there an even number of scores, it is the mean of the two middle scores. There are other definitions of the median that are a little more complex, but rarely is precision needed for calculating the median.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>median</strong> is the point that divides the lower 50 percent of a distribution from the upper 50 percent.</span></div></div>
 <p>To find the median using a frequency distribution table, find the first sample space element with a cumulative proportion greater than 0.5. For example, in the distribution shown in <a href="#tbl-mediantable" class="quarto-xref">Table&nbsp;<span>11.3</span></a>, the first cumulative proportion greater than 0.5 occurs at 5, which is therefore the median.</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-mediantable" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
+<div id="tbl-mediantable" class="cell quarto-float quarto-figure quarto-figure-center page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-mediantable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 6%">
 <col style="width: 15%">
@@ -1023,16 +998,16 @@ Table&nbsp;11.3: Finding the Median in a Frequency Distribution Table.<br>In thi
 <p>For ordinal variables, the median is the preferred measure of central tendency because it is usually more stable from one sample to the next compared to the mode.</p>
 <p>In R, the <code>median</code> function can compute the median:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">median</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 2</code></pre>
 </div>
 </div>
 </section>
 <section id="mean" class="level3 page-columns page-full" data-number="11.2.3">
-<h3 data-number="11.2.3" class="anchored" data-anchor-id="mean"><span class="header-section-number">11.2.3</span> Mean</h3>
+<h3 data-number="11.2.3" data-anchor-id="mean"><span class="header-section-number">11.2.3</span> Mean</h3>
 <div class="page-columns page-full"><p>The <span class="defword" title="The <strong>arithmetic mean</strong> is the balance point of a disribution." data-bs-html="true" data-bs-toggle="tooltip">arithmetic mean</span> is the sum of all values of a distribution divided by the size of the distribution.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>arithmetic mean</strong> is the balance point of a disribution.</span></div></div>
-<p><span class="math display">\mu_X = \frac{\sum_{i = 1}^n {X_i}}{n}</span></p>
+<p><span class="math display">\mu_X = \frac{\sum_{i=1}^n {X_i}}{n}</span></p>
 <p>Where <span class="math display">\begin{align*}
   \mu_X &amp;= \text{The population mean of } X\\
   n &amp;= \text{The number of values in } X
@@ -1042,7 +1017,7 @@ Table&nbsp;11.3: Finding the Median in a Frequency Distribution Table.<br>In thi
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-centraltendency" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-centraltendency" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-centraltendency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-centraltendency-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -1066,7 +1041,7 @@ Figure&nbsp;11.5: Sampling Distributions of Central Tendency Measures.<br>The st
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb17" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Central tendency function</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Central tendency function</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ct <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">sample_size =</span> <span class="dv">100</span>) {</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(sample_size)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  mo <span class="ot">&lt;-</span> DescTools<span class="sc">::</span><span class="fu">Mode</span>(<span class="fu">round</span>(x,<span class="dv">2</span>))</span>
@@ -1128,42 +1103,42 @@ Figure&nbsp;11.5: Sampling Distributions of Central Tendency Measures.<br>The st
 <span id="cb17-60"><a href="#cb17-60" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>()) <span class="sc">+</span> </span>
 <span id="cb17-61"><a href="#cb17-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> scales<span class="sc">::</span><span class="fu">muted</span>(</span>
 <span id="cb17-62"><a href="#cb17-62" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rep</span>(myfills[<span class="dv">1</span>], <span class="dv">3</span>),</span>
-<span id="cb17-63"><a href="#cb17-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">l =</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">55</span>, <span class="dv">40</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-63"><a href="#cb17-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">l =</span> <span class="fu">c</span>(<span class="dv">65</span>, <span class="dv">55</span>, <span class="dv">40</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 <p>In R, the <code>mean</code> function can compute the median:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 2</code></pre>
 </div>
 </div>
 <p>Watch out for missing values in R. If the distribution has even a single missning value, the <code>mean</code> function will return <code>NA</code>, as will most other summary functions in R (e.g., <code>median</code>, <code>sd</code>, <code>var</code>, and <code>cor</code>).</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="cn">NA</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="cn">NA</span>,<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] NA</code></pre>
 </div>
 </div>
 <p>To calculate the mean of all non-missing values, specify that all missing values shoule be removed prior to calculation like so:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="cn">NA</span>,<span class="dv">3</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="cn">NA</span>,<span class="dv">3</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 2</code></pre>
 </div>
 </div>
 </section>
 <section id="comparing-central-tendency-measures" class="level3 page-columns page-full" data-number="11.2.4">
-<h3 data-number="11.2.4" class="anchored" data-anchor-id="comparing-central-tendency-measures"><span class="header-section-number">11.2.4</span> Comparing Central Tendency Measures</h3>
+<h3 data-number="11.2.4" data-anchor-id="comparing-central-tendency-measures"><span class="header-section-number">11.2.4</span> Comparing Central Tendency Measures</h3>
 <p>Which measure of central tendency is best depends on what kind of variable is needed and also what purpuse it serves. <a href="#tbl-proconCT" class="quarto-xref">Table&nbsp;<span>11.4</span></a> has a list of comparative features of each of the three major central tendency measures.</p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-proconCT" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
+<div id="tbl-proconCT" class="cell quarto-float quarto-figure quarto-figure-center page-columns page-full" data-tbl-cap-location="margin" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-proconCT-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Feature</th>
@@ -1234,7 +1209,7 @@ Table&nbsp;11.4: Comparing Central Tendency Measures
 </section>
 </section>
 <section id="expected-values" class="level2 page-columns page-full" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="expected-values"><span class="header-section-number">11.3</span> Expected Values</h2>
+<h2 data-number="11.3" data-anchor-id="expected-values"><span class="header-section-number">11.3</span> Expected Values</h2>
 <div class="page-columns page-full"><p>At one level, the concept of the <span class="defword" title="The <strong>expected value</strong> of a random variable is the population mean of the values that the random variable generates." data-bs-html="true" data-bs-toggle="tooltip">expected value</span> of a random variable is really simple; it is just the population mean of the variable. So why don’t we just talk about population means and be done with this “expected value” business? It just complicates things! True. In this case, however, there is value in letting some simple things appear to become complicated for a while so that later we can show that some apparently complicated things are actually simple.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>expected value</strong> of a random variable is the population mean of the values that the random variable generates.</span></div></div>
 <p>Why can’t we just say that the expected value of a random variable is the population mean? You are familiar, of course, with the formula for a mean. You just add up the numbers and divide by the number of numbers <span class="math inline">n</span>:</p>
 <p><span class="math display">
@@ -1245,7 +1220,7 @@ m_X=\frac{\sum_{i=1}^{n} {x_i}}{n}
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-pmfX" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-pmfX" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pmfX-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-pmfX-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
@@ -1270,7 +1245,7 @@ Figure&nbsp;11.6: Probability Distribution of a Hypothetical Random Variable
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb24" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>), <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>),</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">8</span>), <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>),</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">p =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.5</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x,p)) <span class="sc">+</span> </span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span> </span>
@@ -1286,7 +1261,7 @@ Figure&nbsp;11.6: Probability Distribution of a Hypothetical Random Variable
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> prob_label</span>
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>                     ) <span class="sc">+</span> </span>
 <span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="st">"Sample Space"</span>, <span class="at">drop =</span> F ) <span class="sc">+</span> </span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1304,7 +1279,7 @@ Figure&nbsp;11.6: Probability Distribution of a Hypothetical Random Variable
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-thinbins" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-thinbins" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-thinbins-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-thinbins-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -1340,7 +1315,7 @@ Figure&nbsp;11.7: Slicing the Standard Normal Distribution into Ever Thinner Bin
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb25" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Slicing the standard normal distribution into ever thinner bins</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Slicing the standard normal distribution into ever thinner bins</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>make_bins <span class="ot">&lt;-</span> <span class="cf">function</span>(binPower,</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                      binWidth,</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                      LowerBound,</span>
@@ -1391,13 +1366,13 @@ Figure&nbsp;11.7: Slicing the Standard Normal Distribution into Ever Thinner Bin
 <span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.placement =</span> <span class="st">"outside"</span>,</span>
 <span id="cb25-50"><a href="#cb25-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text.y =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>),</span>
 <span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fu">c</span>(<span class="fu">rep</span>(.<span class="dv">75</span>, <span class="dv">4</span>), <span class="fu">rep</span>(<span class="fl">0.5</span>, <span class="dv">5</span>)))</span>
-<span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 <section id="algebra-of-expected-values" class="level3" data-number="11.3.1">
-<h3 data-number="11.3.1" class="anchored" data-anchor-id="algebra-of-expected-values"><span class="header-section-number">11.3.1</span> Algebra of Expected Values</h3>
+<h3 data-number="11.3.1" data-anchor-id="algebra-of-expected-values"><span class="header-section-number">11.3.1</span> Algebra of Expected Values</h3>
 <p>If <span class="math inline">k</span> is a constant, its expected value is itself.</p>
 <p><span class="math display">\mathcal{E}(k)=k</span> A constant can be factored out of an expected value operator.</p>
 <p><span class="math display">\mathcal{E}(kX)=k\mathcal{E}(X)</span> The expected value of the sum of two random variables is the sum of their respective expected values:</p>
@@ -1405,9 +1380,9 @@ Figure&nbsp;11.7: Slicing the Standard Normal Distribution into Ever Thinner Bin
 </section>
 </section>
 <section id="measures-of-variability" class="level2 page-columns page-full" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="measures-of-variability"><span class="header-section-number">11.4</span> Measures of Variability</h2>
+<h2 data-number="11.4" data-anchor-id="measures-of-variability"><span class="header-section-number">11.4</span> Measures of Variability</h2>
 <section id="variability-of-nominal-variables" class="level3 page-columns page-full" data-number="11.4.1">
-<h3 data-number="11.4.1" class="anchored" data-anchor-id="variability-of-nominal-variables"><span class="header-section-number">11.4.1</span> Variability of Nominal Variables</h3>
+<h3 data-number="11.4.1" data-anchor-id="variability-of-nominal-variables"><span class="header-section-number">11.4.1</span> Variability of Nominal Variables</h3>
 <p>For most purposes, the visual inspection of a frequency distribution table or bar plot is all that is needed to understand a nominal variable’s variability. I have never needed a statistic that measures the variability of a nominal variable, but if you need one, there are <a href="https://en.wikipedia.org/wiki/Qualitative_variation">many from which to choose</a>. For example, <span class="citation" data-cites="wilcoxIndicesQualitativeVariation1973">Wilcox (<a href="references.html#ref-wilcoxIndicesQualitativeVariation1973" role="doc-biblioref">1973</a>)</span> presented this analog to variance for nominal variables:</p>
 <div class="no-row-height column-margin column-container"><div id="ref-wilcoxIndicesQualitativeVariation1973" class="csl-entry" role="listitem">
 Wilcox, A. R. (1973). Indices of qualitative variation and political measurement. <em>The Western Political Quarterly</em>, <em>26</em>(2), 325. <a href="https://doi.org/10.2307/446831">https://doi.org/10.2307/446831</a>
@@ -1420,7 +1395,7 @@ Gombin, J. (2018). <em>Qualvar: Implements indices of qualitative variation prop
 </div></div><div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-nominalvar" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-nominalvar" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-nominalvar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-nominalvar-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="400">
@@ -1432,13 +1407,13 @@ Figure&nbsp;11.8: The Variance Analog (VA) index of qualitative variation ranges
 </div>
 </div></div></div>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qualvar)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qualvar)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequencies</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>frequencies <span class="ot">=</span>  <span class="fu">c</span>(<span class="at">A =</span> <span class="dv">60</span>, <span class="at">B =</span> <span class="dv">10</span>, <span class="at">C =</span> <span class="dv">25</span>, <span class="at">D =</span> <span class="dv">5</span>)</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># VA</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">VA</span>(frequencies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">VA</span>(frequencies)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre data-cap-location="margin"><code>[1] 0.7533333</code></pre>
 </div>
@@ -1457,7 +1432,7 @@ Figure&nbsp;11.8: The Variance Analog (VA) index of qualitative variation ranges
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb28" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The Variance Analog (VA) index of qualitative variation</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The Variance Analog (VA) index of qualitative variation</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>low_var <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">A =</span> <span class="dv">100</span>, <span class="at">B =</span> <span class="dv">0</span>, <span class="at">C =</span> <span class="dv">0</span>, <span class="at">D =</span> <span class="dv">0</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>mid_var <span class="ot">=</span>  <span class="fu">c</span>(<span class="at">A =</span> <span class="dv">60</span>, <span class="at">B =</span> <span class="dv">10</span>, <span class="at">C =</span> <span class="dv">25</span>, <span class="at">D =</span> <span class="dv">5</span>)</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>high_var <span class="ot">=</span> <span class="fu">c</span>(<span class="at">A =</span> <span class="dv">25</span>, <span class="at">B =</span> <span class="dv">25</span>, <span class="at">C =</span> <span class="dv">25</span>, <span class="at">D =</span> <span class="dv">25</span>)</span>
@@ -1498,19 +1473,19 @@ Figure&nbsp;11.8: The Variance Analog (VA) index of qualitative variation ranges
 <span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(<span class="at">cols =</span> <span class="fu">vars</span>(Variability)) <span class="sc">+</span></span>
 <span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_family =</span> bfont, <span class="at">base_size =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
 <span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 </section>
 <section id="interquartile-range" class="level3 page-columns page-full" data-number="11.4.2">
-<h3 data-number="11.4.2" class="anchored" data-anchor-id="interquartile-range"><span class="header-section-number">11.4.2</span> Interquartile Range</h3>
+<h3 data-number="11.4.2" data-anchor-id="interquartile-range"><span class="header-section-number">11.4.2</span> Interquartile Range</h3>
 <div class="page-columns page-full"><p>As with nominal variables, a bar plot or frequency distribution table can tell you most of what you want to know about the variability of an ordinal variable. If you need a quantitative measure of how much an ordinal variable varies, you have many options. The most important of these is the <span class="defword" title="The <strong>interquartile range</strong> (IQR) is the distance from the score at the 25th percentile to the score at the 75th percentile." data-bs-html="true" data-bs-toggle="tooltip">interquartile range</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>interquartile range</strong> (IQR) is the distance from the score at the 25th percentile to the score at the 75th percentile.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-normalIQR" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-normalIQR" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-normalIQR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-normalIQR-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:100.0%">
@@ -1535,7 +1510,7 @@ Figure&nbsp;11.9: In a normal distribution with a mean of 100 and a standard dev
 </div>
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb29" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>IQR_bounds <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fu">c</span>(.<span class="dv">25</span>, .<span class="dv">75</span>), <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>IQR_bounds <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="fu">c</span>(.<span class="dv">25</span>, .<span class="dv">75</span>), <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">15</span>)</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>l_height <span class="ot">=</span> .<span class="dv">05</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">160</span>), <span class="at">y =</span> <span class="fu">pnorm</span>(x, <span class="dv">100</span>, <span class="dv">15</span>)), <span class="fu">aes</span>(x)) <span class="sc">+</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> \(x) <span class="fu">dnorm</span>(x, <span class="dv">100</span>, <span class="dv">15</span>),</span>
@@ -1582,7 +1557,7 @@ Figure&nbsp;11.9: In a normal distribution with a mean of 100 and a standard dev
 <span id="cb29-45"><a href="#cb29-45" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"*IQR*&lt;br&gt;="</span>, <span class="fu">round</span>(IQR_bounds[<span class="dv">2</span>] <span class="sc">-</span> IQR_bounds[<span class="dv">1</span>], <span class="dv">1</span>)),</span>
 <span id="cb29-46"><a href="#cb29-46" aria-hidden="true" tabindex="-1"></a>           <span class="at">geom =</span> <span class="st">"richtext"</span>, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
 <span id="cb29-47"><a href="#cb29-47" aria-hidden="true" tabindex="-1"></a>           <span class="at">vjust =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
-<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-48"><a href="#cb29-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1591,7 +1566,7 @@ Figure&nbsp;11.9: In a normal distribution with a mean of 100 and a standard dev
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-ordinalIQR" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-ordinalIQR" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-ordinalIQR-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-ordinalIQR-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="300">
@@ -1615,7 +1590,7 @@ Figure&nbsp;11.10: In this ordinal variable, the interquartile range has a lower
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb30" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Agreement =</span> <span class="fu">c</span>(</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Strongly Disagree"</span>,</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Disagree"</span>,</span>
@@ -1644,7 +1619,7 @@ Figure&nbsp;11.10: In this ordinal variable, the interquartile range has a lower
 <span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(</span>
 <span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">round</span>(cp <span class="sc">*</span> <span class="dv">100</span>), <span class="st">"%"</span>)),</span>
 <span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="dv">0</span>,</span>
-<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.size =</span> <span class="dv">0</span>,</span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">0</span>,</span>
 <span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"gray30"</span></span>
 <span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
@@ -1675,7 +1650,7 @@ Figure&nbsp;11.10: In this ordinal variable, the interquartile range has a lower
 <span id="cb30-58"><a href="#cb30-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.y =</span> <span class="fu">element_line</span>(<span class="st">"gray30"</span>),</span>
 <span id="cb30-59"><a href="#cb30-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>()</span>
 <span id="cb30-60"><a href="#cb30-60" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-61"><a href="#cb30-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">clip =</span> <span class="st">"off"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1683,7 +1658,7 @@ Figure&nbsp;11.10: In this ordinal variable, the interquartile range has a lower
 <p>The median and the interquartile range are displayed in box and whiskers plots like <a href="#fig-IQRboxplot" class="quarto-xref">Figure&nbsp;<span>11.11</span></a>. The height of the box is the interquartile range, and the horizontal line is the median. The top “whisker” extends no higher than 1.5 × <em>IQR</em> above the 75th percentile. The bottom “whisker” extends no lower than 1.5 × <em>IQR</em> below the 25th percentile. Any data points outside the whiskers can be considered outliers.</p>
 <div class="cell fig-cap-location-top tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-IQRboxplot" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-IQRboxplot" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-IQRboxplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-IQRboxplot-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -1708,7 +1683,7 @@ Figure&nbsp;11.11: A Tukey-style Box and Whiskers Plot with Medians and Interqua
 </div>
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb31" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">A =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">10</span>),</span>
@@ -1776,37 +1751,38 @@ Figure&nbsp;11.11: A Tukey-style Box and Whiskers Plot with Medians and Interqua
 <span id="cb31-66"><a href="#cb31-66" aria-hidden="true" tabindex="-1"></a>    ),</span>
 <span id="cb31-67"><a href="#cb31-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span> my_arrowhead,</span>
 <span id="cb31-68"><a href="#cb31-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_fins =</span> my_arrowhead,</span>
-<span id="cb31-69"><a href="#cb31-69" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb31-70"><a href="#cb31-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(</span>
-<span id="cb31-71"><a href="#cb31-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">select</span>(d, grp, q25, q75, IQR) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-72"><a href="#cb31-72" aria-hidden="true" tabindex="-1"></a>      <span class="fu">unique</span>(),</span>
-<span id="cb31-73"><a href="#cb31-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb31-74"><a href="#cb31-74" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="fu">as.numeric</span>(grp) <span class="sc">-</span> width <span class="sc">-</span> <span class="fl">0.05</span>,</span>
-<span id="cb31-75"><a href="#cb31-75" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> (q25 <span class="sc">+</span> q75) <span class="sc">/</span> <span class="dv">2</span>,</span>
-<span id="cb31-76"><a href="#cb31-76" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">ifelse</span>(grp <span class="sc">==</span> <span class="st">"A"</span>, <span class="st">"*IQR* = "</span>, <span class="st">""</span>), scales<span class="sc">::</span><span class="fu">number</span>(IQR, .<span class="dv">1</span>))</span>
-<span id="cb31-77"><a href="#cb31-77" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb31-78"><a href="#cb31-78" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">90</span>,</span>
-<span id="cb31-79"><a href="#cb31-79" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.2</span>,</span>
-<span id="cb31-80"><a href="#cb31-80" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
-<span id="cb31-81"><a href="#cb31-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.padding =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">3</span>)</span>
-<span id="cb31-82"><a href="#cb31-82" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb31-83"><a href="#cb31-83" aria-hidden="true" tabindex="-1"></a>  ggbeeswarm<span class="sc">::</span><span class="fu">geom_quasirandom</span>(<span class="at">pch =</span> <span class="dv">16</span>,</span>
-<span id="cb31-84"><a href="#cb31-84" aria-hidden="true" tabindex="-1"></a>                               <span class="at">size =</span> <span class="dv">1</span>,</span>
-<span id="cb31-85"><a href="#cb31-85" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">aes</span>(<span class="at">color =</span> outlier),</span>
-<span id="cb31-86"><a href="#cb31-86" aria-hidden="true" tabindex="-1"></a>                               <span class="at">width =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb31-87"><a href="#cb31-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="st">"Group"</span>) <span class="sc">+</span></span>
-<span id="cb31-88"><a href="#cb31-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb31-89"><a href="#cb31-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> myfills <span class="sc">%&gt;%</span> </span>
-<span id="cb31-90"><a href="#cb31-90" aria-hidden="true" tabindex="-1"></a>                      scales<span class="sc">::</span><span class="fu">alpha</span>(.<span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb31-91"><a href="#cb31-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gray20"</span>, <span class="st">"firebrick"</span>)) <span class="sc">+</span></span>
-<span id="cb31-92"><a href="#cb31-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-69"><a href="#cb31-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="fl">1.25</span></span>
+<span id="cb31-70"><a href="#cb31-70" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb31-71"><a href="#cb31-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(</span>
+<span id="cb31-72"><a href="#cb31-72" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">select</span>(d, grp, q25, q75, IQR) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-73"><a href="#cb31-73" aria-hidden="true" tabindex="-1"></a>      <span class="fu">unique</span>(),</span>
+<span id="cb31-74"><a href="#cb31-74" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb31-75"><a href="#cb31-75" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="fu">as.numeric</span>(grp) <span class="sc">-</span> width <span class="sc">-</span> <span class="fl">0.05</span>,</span>
+<span id="cb31-76"><a href="#cb31-76" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> (q25 <span class="sc">+</span> q75) <span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb31-77"><a href="#cb31-77" aria-hidden="true" tabindex="-1"></a>      <span class="at">label =</span> <span class="fu">paste0</span>(<span class="fu">ifelse</span>(grp <span class="sc">==</span> <span class="st">"A"</span>, <span class="st">"*IQR* = "</span>, <span class="st">""</span>), scales<span class="sc">::</span><span class="fu">number</span>(IQR, .<span class="dv">1</span>))</span>
+<span id="cb31-78"><a href="#cb31-78" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb31-79"><a href="#cb31-79" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">90</span>,</span>
+<span id="cb31-80"><a href="#cb31-80" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.3</span>,</span>
+<span id="cb31-81"><a href="#cb31-81" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
+<span id="cb31-82"><a href="#cb31-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.padding =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">3</span>)</span>
+<span id="cb31-83"><a href="#cb31-83" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb31-84"><a href="#cb31-84" aria-hidden="true" tabindex="-1"></a>  ggbeeswarm<span class="sc">::</span><span class="fu">geom_quasirandom</span>(<span class="at">pch =</span> <span class="dv">16</span>,</span>
+<span id="cb31-85"><a href="#cb31-85" aria-hidden="true" tabindex="-1"></a>                               <span class="at">size =</span> <span class="dv">1</span>,</span>
+<span id="cb31-86"><a href="#cb31-86" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">aes</span>(<span class="at">color =</span> outlier),</span>
+<span id="cb31-87"><a href="#cb31-87" aria-hidden="true" tabindex="-1"></a>                               <span class="at">width =</span> .<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb31-88"><a href="#cb31-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="st">"Group"</span>) <span class="sc">+</span></span>
+<span id="cb31-89"><a href="#cb31-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb31-90"><a href="#cb31-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> myfills <span class="sc">%&gt;%</span> </span>
+<span id="cb31-91"><a href="#cb31-91" aria-hidden="true" tabindex="-1"></a>                      scales<span class="sc">::</span><span class="fu">alpha</span>(.<span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb31-92"><a href="#cb31-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"gray20"</span>, <span class="st">"firebrick"</span>)) <span class="sc">+</span></span>
+<span id="cb31-93"><a href="#cb31-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 </section>
 <section id="variance" class="level3 page-columns page-full" data-number="11.4.3">
-<h3 data-number="11.4.3" class="anchored" data-anchor-id="variance"><span class="header-section-number">11.4.3</span> Variance</h3>
+<h3 data-number="11.4.3" data-anchor-id="variance"><span class="header-section-number">11.4.3</span> Variance</h3>
 <div class="page-columns page-full"><p>A <span class="defword" title="A <strong>deviation</strong> is the distance of a score from the score’s mean." data-bs-html="true" data-bs-toggle="tooltip">deviation</span> is computed by subtracting a score from its mean:</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>deviation</strong> is the distance of a score from the score’s mean.</span></div></div>
 <p><span class="math display">X-\mu</span></p>
 <p>We would like to know the typical size of the deviation <span class="math inline">X-\mu</span>. To do so, it might seem intuitively correct to take the average (i.e., expected value) of the deviation, but this quantity is always 0:</p>
@@ -1820,15 +1796,7 @@ Figure&nbsp;11.11: A Tukey-style Box and Whiskers Plot with Medians and Interqua
 <p>Because the average deviation is always 0, it has no utility as a measure of variability. It would be reasonable to take the average absolute value of the deviations, but absolute values often cause algebraic difficulties later when we want to use them to derive other statistics. A more mathematically tractable solution is to make each deviation positive by squaring them.</p>
 <div class="page-columns page-full"><p><span class="defword" title="<strong>Variance</strong> is a measure of variability that gives the size of the average squared deviation from the mean." data-bs-html="true" data-bs-toggle="tooltip">Variance</span> <span class="math inline">\left(\sigma^2\right)</span> is the expected value of squared deviations from the mean <span class="math inline">\left(\mu\right)</span>:</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Variance</strong> is a measure of variability that gives the size of the average squared deviation from the mean.</span></div></div>
 <p><span id="eq-variancedef"><span class="math display">
-\begin{aligned}
-\sigma^2&amp;=\mathcal{E}\!\left(\left(X-\mu\right)^2\right)\\
-&amp;=\mathcal{E}\!\left(X^2-2X\mu+\mu^2\right)\\
-&amp;=\mathcal{E}\!\left(X^2\right)-\mathcal{E}\!\left(2X\mu\right)+\mathcal{E}\!\left(\mu^2\right)\\
-&amp;=\mathcal{E}\!\left(X^2\right)-2\mu\,\mathcal{E}\!\left(X\right)+\mu^2\\
-&amp;=\mathcal{E}\!\left(X^2\right)-2\mu\mu+\mu^2\\
-&amp;=\mathcal{E}\!\left(X^2\right)-2\mu^2+\mu^2\\
-&amp;=\mathcal{E}\!\left(X^2\right)-\mu^2\\
-\end{aligned}
+\sigma^2=\mathcal{E}\!\left(\left(X-\mu\right)^2\right)
 \tag{11.1}</span></span></p>
 <p>If all elements of a population with mean <span class="math inline">\mu</span> are known, the population variance is calculated like so:</p>
 <p><span class="math display">
@@ -1841,7 +1809,7 @@ s^2=\frac{\sum_i^n{\left(x_i-m\right)^2}}{n-1}
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-besselpic" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-besselpic" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-besselpic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Friedrich_Wilhelm_Bessel_(1839_painting).jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" width="250">
@@ -1856,7 +1824,7 @@ Figure&nbsp;11.12: Friedrich Wilhelm Bessel (1784–1846)<br><a href="https://en
 <p>Variance is rarely used for descriptive purposes because it is a squared quantity with no direct connection to the width of the distribution it describes. We mainly use variance as a stepping stone to compute other descriptive statistics (e.g., standard deviations and correlation coefficients) and as an essential ingredient in inferential statistics (e.g., analysis of variance, multiple regression, and structural equation modeling). However, <a href="#fig-variancevisualization" class="quarto-xref">Figure&nbsp;<span>11.13</span></a> attempts a visualization of what variance represents. Along the <span class="math inline">X</span>-axis, the values of a normally distributed variable <span class="math inline">X</span> are plotted as points. The <span class="math inline">Y</span>-axis represents the deviations of variable <span class="math inline">X</span> from <span class="math inline">\mu</span>, the mean of <span class="math inline">X</span>. For each value of <span class="math inline">X</span>, we can create a square with sides as long as the deviations from <span class="math inline">\mu</span>. The red squares have a positive deviation and the blue squares have a negative deviation. The darkness of the color represents the magnitude of the deviation. The black square has an area equal to the average area of all the squares. Its sides have a length equal to the standard deviation, the square root of variance.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-variancevisualization" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-variancevisualization" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-variancevisualization-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-variancevisualization-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -1881,7 +1849,7 @@ Figure&nbsp;11.13: Visualizing Variance.<br>The values of variable <em>X</em> ar
 </div>
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb32" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizing Variance</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizing Variance</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">70</span>, <span class="dv">10</span>, <span class="dv">3</span>)</span>
@@ -2084,14 +2052,14 @@ Figure&nbsp;11.13: Visualizing Variance.<br>The values of variable <em>X</em> ar
 <span id="cb32-201"><a href="#cb32-201" aria-hidden="true" tabindex="-1"></a>                          scales<span class="sc">::</span><span class="fu">number</span>(sigma <span class="sc">^</span> <span class="dv">2</span>, <span class="at">accuracy =</span> .<span class="dv">01</span>)),</span>
 <span id="cb32-202"><a href="#cb32-202" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> bfont,</span>
 <span id="cb32-203"><a href="#cb32-203" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> <span class="st">"gray20"</span>) <span class="sc">+</span></span>
-<span id="cb32-204"><a href="#cb32-204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">pch =</span> <span class="dv">16</span>, <span class="at">size =</span> <span class="fl">1.7</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-204"><a href="#cb32-204" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">pch =</span> <span class="dv">16</span>, <span class="at">size =</span> <span class="fl">1.7</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">alpha =</span> .<span class="dv">8</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 </section>
 <section id="standard-deviation" class="level3 page-columns page-full" data-number="11.4.4">
-<h3 data-number="11.4.4" class="anchored" data-anchor-id="standard-deviation"><span class="header-section-number">11.4.4</span> Standard Deviation</h3>
+<h3 data-number="11.4.4" data-anchor-id="standard-deviation"><span class="header-section-number">11.4.4</span> Standard Deviation</h3>
 <div class="page-columns page-full"><p>The <span class="defword" title="The <strong>standard deviation</strong> is a measure of variabily that estimates the typical distance of a score from its own mean." data-bs-html="true" data-bs-toggle="tooltip">standard deviation</span> is by far the most common measure of variability. The standard deviation <span class="math inline">\sigma</span> is the square root of the variance <span class="math inline">\sigma^2</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>standard deviation</strong> is a measure of variabily that estimates the typical distance of a score from its own mean.</span></div></div>
 <p><span class="math display">
 \begin{aligned}
@@ -2103,7 +2071,7 @@ s&amp;=\sqrt{s^2}=\sqrt{\frac{\sum_i^n{\left(x_i-m\right)^2}}{n-1}}
 <div class="page-columns page-full"><p>In a normal distribution, the standard deviation is the distance from the mean to the two <span class="defword" title="An <strong>inflection point</strong> in a curve is the point at which the curvature changes from upward to downward or vice versa." data-bs-html="true" data-bs-toggle="tooltip">inflection points</span> in the probability density curve (see <a href="#fig-normalinflection" class="quarto-xref">Figure&nbsp;<span>11.14</span></a>).</p><div class="no-row-height column-margin column-container"><span class="defword">An <strong>inflection point</strong> in a curve is the point at which the curvature changes from upward to downward or vice versa.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-normalinflection" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-normalinflection" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-normalinflection-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-normalinflection-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2128,7 +2096,7 @@ Figure&nbsp;11.14: The inflection points in the normal curve are 1 standard devi
 </div>
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb33" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The inflection points in the normal curve </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The inflection points in the normal curve </span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># are 1 standard deviation from the mean.</span></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>d_text <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>,<span class="sc">-</span><span class="fl">1.4</span>, <span class="fl">1.4</span>, <span class="sc">-</span>.<span class="dv">65</span>,.<span class="dv">65</span>),</span>
@@ -2154,57 +2122,50 @@ Figure&nbsp;11.14: The inflection points in the normal curve are 1 standard devi
 <span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_identity</span>() <span class="sc">+</span></span>
 <span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"Standard Deviation Units"</span>, </span>
 <span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="sc">-</span><span class="dv">4</span><span class="sc">:</span><span class="dv">4</span>, </span>
-<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> <span class="fu">paste0</span>(signs<span class="sc">::</span><span class="fu">signs</span>(<span class="sc">-</span><span class="dv">4</span><span class="sc">:</span><span class="dv">4</span>, </span>
-<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">accuracy =</span> <span class="dv">1</span>, </span>
-<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">label_at_zero =</span> <span class="st">"blank"</span>, </span>
-<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">add_plusses =</span> T),</span>
-<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"&lt;em&gt;"</span>,</span>
-<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>                                     <span class="fu">span_style</span>(<span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"&amp;sigma;"</span>, <span class="dv">4</span>), <span class="st">"&amp;mu;"</span>, <span class="fu">rep</span>(<span class="st">"&amp;sigma;"</span>, <span class="dv">4</span>))), </span>
-<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a>                                     <span class="st">"&lt;/em&gt;"</span>)) <span class="sc">+</span></span>
-<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="cn">NULL</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="cn">NA</span>), <span class="at">expand =</span> <span class="fu">expansion</span>()) <span class="sc">+</span></span>
-<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="dv">12</span>)  <span class="sc">+</span></span>
-<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"gray30"</span>) <span class="sc">+</span></span>
-<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb33-38"><a href="#cb33-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_markdown</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> WJSmisc<span class="sc">::</span><span class="fu">signs_centered</span>(<span class="sc">-</span><span class="dv">4</span><span class="sc">:</span><span class="dv">4</span>, </span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">accuracy =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="cn">NULL</span>, <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="cn">NA</span>), <span class="at">expand =</span> <span class="fu">expansion</span>()) <span class="sc">+</span></span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="dv">12</span>)  <span class="sc">+</span></span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"gray30"</span>) <span class="sc">+</span></span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(), <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="st">"gray"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="average-absolute-deviations" class="level3" data-number="11.4.5">
-<h3 data-number="11.4.5" class="anchored" data-anchor-id="average-absolute-deviations"><span class="header-section-number">11.4.5</span> Average Absolute Deviations</h3>
+<section id="average-absolute-deviations" class="level3 page-columns page-full" data-number="11.4.5">
+<h3 data-number="11.4.5" data-anchor-id="average-absolute-deviations"><span class="header-section-number">11.4.5</span> Average Absolute Deviations</h3>
 <p>Average absolute deviations summarize the absolution values of deviations from a central tendency measure. There are many kinds of average absolute deviations, depending which central tendency each value deviates from and then which measure of central tendency summarizes the absolute deviations. With three central tendency measures, we can imagine nine different “average” absolute deviations:</p>
 <p><span class="math display">\text{The}~\begin{bmatrix}mean\\ median\\ modal\end{bmatrix}~\text{absolute deviation around the}~\begin{bmatrix}mean\\ median\\ mode\end{bmatrix}.</span></p>
 <p>That said, two of these average absolute values are used more than the others: the median deviation around the median and mean deviation around the mean. One struggles to imagine what uses one might have for the others (e.g, the modal absolute deviation around the median or the mean absolute deviation around the mode).</p>
 <section id="median-absolute-deviation-around-the-median" class="level4" data-number="11.4.5.1">
-<h4 data-number="11.4.5.1" class="anchored" data-anchor-id="median-absolute-deviation-around-the-median"><span class="header-section-number">11.4.5.1</span> Median Absolute Deviation (around the Median)</h4>
+<h4 data-number="11.4.5.1" data-anchor-id="median-absolute-deviation-around-the-median"><span class="header-section-number">11.4.5.1</span> Median Absolute Deviation (around the Median)</h4>
 <p>Suppose that we have a random variable <span class="math inline">X</span>, which has a median of <span class="math inline">\tilde{X}</span>. The median absolute deviation (MAD) is the median of the absolute values of the deviations from the median:</p>
 <p><span class="math display">
 \text{Median Absolute Deviation (around the Median)}=\mathrm{median}\left(\left|X-\tilde{X}\right|\right)
 </span></p>
 <p>A primary advantage of the MAD over the standard deviation is that it is robust to the presence of outliers. For symmetric distributions, the MAD is half the distance of the interquartile range.</p>
 </section>
-<section id="mean-absolute-deviation-around-the-mean" class="level4" data-number="11.4.5.2">
-<h4 data-number="11.4.5.2" class="anchored" data-anchor-id="mean-absolute-deviation-around-the-mean"><span class="header-section-number">11.4.5.2</span> Mean Absolute Deviation (around the Mean)</h4>
+<section id="mean-absolute-deviation-around-the-mean" class="level4 page-columns page-full" data-number="11.4.5.2">
+<h4 data-number="11.4.5.2" data-anchor-id="mean-absolute-deviation-around-the-mean"><span class="header-section-number">11.4.5.2</span> Mean Absolute Deviation (around the Mean)</h4>
 <p>If the mean of random variable <span class="math inline">X</span> is <span class="math inline">\mu_X</span>, then:</p>
 <p><span class="math display">
-\text{Mean Absolute Deviation (around the Mean)}=\mathrm{mean}\left(\left|X-\mu_X\right|\right)
+\text{Mean Absolute Deviation (around the Mean)}=\mathcal{E}\left(\left|X-\mu_X\right|\right)
 </span></p>
-<p>The primary advantage of this statistic is that it is easy to explain to people with no statistical training. In a straightforward manner, it tells us how far each score is from the mean, on average.</p>
+<p>For normal distributions, the mean absolute deviation around the mean is smaller than the standard deviation by a factor of <span class="math inline">\sqrt{2\pi^{-1}}\approx 0.7979</span> <span class="citation" data-cites="gearyRatioMeanDeviation1935">(<a href="references.html#ref-gearyRatioMeanDeviation1935" role="doc-biblioref">Geary, 1935</a>)</span>.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-gearyRatioMeanDeviation1935" class="csl-entry" role="listitem">
+Geary, R. C. (1935). The ratio of the mean deviation to the standard deviation as a test of normality. <em>Biometrika</em>, <em>27</em>(3/4), 310. <a href="https://doi.org/10.2307/2332693">https://doi.org/10.2307/2332693</a>
+</div></div><p>The primary advantage of this statistic is that it is easy to explain to people with no statistical training. In a straightforward manner, it tells us how far each score is from the mean, on average. All else equal, when statisticians need to ensure that values are positive, they prefer to square values (as with variance) instead of taking absolute values. The absolute value often makes equations harder to manipulate algebraically and differentiate with calculus.</p>
 </section>
 </section>
 </section>
 <section id="skewness" class="level2 page-columns page-full" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="skewness"><span class="header-section-number">11.5</span> Skewness</h2>
+<h2 data-number="11.5" data-anchor-id="skewness"><span class="header-section-number">11.5</span> Skewness</h2>
 <p>(Unfinished)</p>
 <p>Skewness refers to how lopsided the a distribution is. Skewness can range from negative to positive infinity. When a distribution has more extreme values on the upper end of its distribution (i.e., has a long right tail), it is positively skewed. When a distribution has more extreme values on the lower end of its distribution (i.e., has a long left tail), it is negatively skewed. A perfectly symmetrical distribution has a skewness of 0.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre data-cap-location="margin"><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-ℹ Please use `linewidth` instead.</code></pre>
-</div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-skewness" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-skewness" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-skewness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-skewness-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2218,14 +2179,14 @@ Figure&nbsp;11.15: Three distributions with different degrees of skewness
 </div>
 </section>
 <section id="kurtosis" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="kurtosis"><span class="header-section-number">11.6</span> Kurtosis</h2>
+<h2 data-number="11.6" data-anchor-id="kurtosis"><span class="header-section-number">11.6</span> Kurtosis</h2>
 <p>(Unfinished)</p>
 </section>
 <section id="moments-cumulants-and-descriptive-statistics" class="level1 page-columns page-full" data-number="12">
 <h1 data-number="12"><span class="header-section-number">12</span> Moments, Cumulants, and Descriptive Statistics</h1>
 <p>We can define random variables in terms of their probability mass/density functions. We can also define them in terms of their moments and cumulants.</p>
 <section id="raw-moments" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="raw-moments"><span class="header-section-number">12.1</span> Raw Moments</h2>
+<h2 data-number="12.1" data-anchor-id="raw-moments"><span class="header-section-number">12.1</span> Raw Moments</h2>
 <p>The first raw moment <span class="math inline">\mu'_1</span> of a random variable <span class="math inline">X</span> is its expected value:</p>
 <p><span class="math display">\mu'_1=\mathcal{E}(X)=\mu_X</span></p>
 <p>The second raw moment <span class="math inline">\mu'_2</span> is the expected value of <span class="math inline">X^2</span>:</p>
@@ -2234,7 +2195,7 @@ Figure&nbsp;11.15: Three distributions with different degrees of skewness
 <p><span class="math display">\mu'_n=\mathcal{E}(X^n)</span></p>
 </section>
 <section id="central-moments" class="level2 page-columns page-full" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="central-moments"><span class="header-section-number">12.2</span> Central Moments</h2>
+<h2 data-number="12.2" data-anchor-id="central-moments"><span class="header-section-number">12.2</span> Central Moments</h2>
 <p>The first raw moment, the mean, has obvious significance and is easy to understand. The remaining raw moments do not lend themselves to easy interpretation. We would like to understand the higher moments after accounting for the lower moments. For this reason, we can discuss central moments, which are like raw moments after subtracting mean.</p>
 <p>One can evaluate a moment “about” a constant <span class="math inline">c</span> like so:<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;Alternately, we can say that this is the <span class="math inline">n</span>th moment <em>referred to</em> <span class="math inline">c</span>.</p></div></div><p><span class="math display">
@@ -2259,7 +2220,7 @@ Figure&nbsp;11.15: Three distributions with different degrees of skewness
 </span></p>
 </section>
 <section id="standardized-moments" class="level2 page-columns page-full" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="standardized-moments"><span class="header-section-number">12.3</span> Standardized Moments</h2>
+<h2 data-number="12.3" data-anchor-id="standardized-moments"><span class="header-section-number">12.3</span> Standardized Moments</h2>
 <p>A standardized moment<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> is the raw moment of a variable after it has been “standardized” (i.e., converted to a <em>z</em>-score):</p>
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;Standardized moments are also called <em>normalized central moments</em>.</p></div><div class="">
 <p>Standardizing a variable by converting it to <em>z</em>-score is accomplished like so: <span class="math display">
@@ -2284,7 +2245,7 @@ z=\frac{X-\mu_X}{\sigma_X}
 <p>Thus a positively skewed variable can be described having a tendency to be become more variable (more sparse) as its value increases.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-skewnessinterpretation" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-skewnessinterpretation" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-fig-align="center" data-cap-location="margin">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-skewnessinterpretation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="descriptives_files/figure-html/fig-skewnessinterpretation-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2309,62 +2270,62 @@ Figure&nbsp;12.1: Positive skewness can be interpeted as a tendency for the data
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb35" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">15</span>, .<span class="dv">01</span>), <span class="at">y =</span> <span class="fu">dchisq</span>(x, <span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">fill =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="dv">30</span>) <span class="sc">+</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"segment"</span>,</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">3</span>,</span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="dv">0</span>,</span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="dv">3</span>,</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fu">dchisq</span>(<span class="dv">3</span>, <span class="dv">3</span>) <span class="sc">+</span> .<span class="dv">01</span>,</span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(</span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">0</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>)),</span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span>  my_arrowhead,</span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
-<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">resect =</span> <span class="dv">1</span></span>
-<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(</span>
-<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">8</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>)),</span>
-<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span>  my_arrowhead,</span>
-<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
-<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">resect =</span> <span class="dv">1</span></span>
-<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(</span>
-<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(</span>
-<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="dv">3</span>,</span>
-<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> .<span class="dv">01</span>,</span>
-<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">l =</span> <span class="fu">c</span>(<span class="st">"Lower Values&lt;br&gt;Less Sparse"</span>, <span class="st">"Higher Values&lt;br&gt;More Sparse"</span>),</span>
-<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">hj =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>)</span>
-<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> l, <span class="at">hjust =</span> hj),</span>
-<span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">0</span>,</span>
-<span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="cn">NA</span>,</span>
-<span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
-<span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
-<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">16</span>),</span>
-<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.padding =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">6</span>, <span class="at">l =</span> <span class="dv">6</span>, <span class="at">b =</span> <span class="fl">3.5</span>)</span>
-<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(</span>
-<span id="cb35-42"><a href="#cb35-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">l =</span> <span class="fu">c</span>(<span class="st">"Mean"</span>)),</span>
-<span id="cb35-43"><a href="#cb35-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> l),</span>
-<span id="cb35-44"><a href="#cb35-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">1</span>,</span>
-<span id="cb35-45"><a href="#cb35-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
-<span id="cb35-46"><a href="#cb35-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">16</span>),</span>
-<span id="cb35-47"><a href="#cb35-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>]</span>
-<span id="cb35-48"><a href="#cb35-48" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb35-49"><a href="#cb35-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_blank</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="sc">-</span>.<span class="dv">02</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">15</span>, .<span class="dv">01</span>), <span class="at">y =</span> <span class="fu">dchisq</span>(x, <span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_area</span>(<span class="at">fill =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"segment"</span>,</span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="dv">3</span>,</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="dv">0</span>,</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">xend =</span> <span class="dv">3</span>,</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">yend =</span> <span class="fu">dchisq</span>(<span class="dv">3</span>, <span class="dv">3</span>) <span class="sc">+</span> .<span class="dv">01</span>,</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">0</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>)),</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span>  my_arrowhead,</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">resect =</span> <span class="dv">1</span></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_arrow</span>(</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">8</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.01</span>)),</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">arrow_head =</span>  my_arrowhead,</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">resect =</span> <span class="dv">1</span></span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(</span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(</span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">x =</span> <span class="dv">3</span>,</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> .<span class="dv">01</span>,</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">l =</span> <span class="fu">c</span>(<span class="st">"Lower Values&lt;br&gt;Less Sparse"</span>, <span class="st">"Higher Values&lt;br&gt;More Sparse"</span>),</span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">hj =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>)</span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> l, <span class="at">hjust =</span> hj),</span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">0</span>,</span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="cn">NA</span>,</span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">16</span>),</span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.padding =</span> <span class="fu">margin</span>(<span class="at">r =</span> <span class="dv">6</span>, <span class="at">l =</span> <span class="dv">6</span>, <span class="at">b =</span> <span class="fl">3.5</span>)</span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_richtext</span>(</span>
+<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">l =</span> <span class="fu">c</span>(<span class="st">"Mean"</span>)),</span>
+<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> l),</span>
+<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="dv">1</span>,</span>
+<span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.color =</span> <span class="cn">NA</span>,</span>
+<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">16</span>),</span>
+<span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">1</span>]</span>
+<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_blank</span>(<span class="at">data =</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="sc">-</span>.<span class="dv">02</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 <p>The fourth standardized moment is the expected value of the z-score raised to the fourth power. Conceptually this quantity represents the relationship between the extremity of the score and the variability of the score. When the fourth standardized moment is large, it means that scores become more variable as they become extreme at both ends of the distribution. That is, both tails of the distribution are thick, meaning that when there are outliers, they will be more extreme. When the fourth standardized moment is small, it means that scores become less variable at the extremes. In this case, the tails of the distribution will be thin such that outliers will be less extreme.</p>
 <p><span class="math display">\mathcal{E}\left(\left(\frac{X-\mu}{\sigma}\right)^4\right)=\mathcal{E}\left(z^4\right)=\mathcal{E}\left(\underbrace{z^2}_{\text{Extremity}}\cdot \underbrace{z^2}_{\text{Variability}}\right)</span></p>
-<div class="page-columns page-full"><p>The <span class="defword" title="<strong>Kurotosis</strong> measures the extremity of outliers at the tails of a distribution." data-bs-html="true" data-bs-toggle="tooltip">kurtosis</span> statistic is the fourth standardized moment minus three. Like the fourth standardizd moment, it is a measure of the thickness of a distributions tails.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Kurotosis</strong> measures the extremity of outliers at the tails of a distribution.</span></div></div>
+<div class="page-columns page-full"><p>The <span class="defword" title="<strong>Kurtosis</strong> measures the extremity of outliers at the tails of a distribution." data-bs-html="true" data-bs-toggle="tooltip">kurtosis</span> statistic is the fourth standardized moment minus three. Like the fourth standardized moment, it is a measure of the thickness of a distributions tails.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Kurtosis</strong> measures the extremity of outliers at the tails of a distribution.</span></div></div>
 <p><span class="math display">\text{Kurtosis}=\mathcal{E}\left(\left(\frac{X-\mu}{\sigma}\right)^4\right)-3</span></p>
 <p>Because the normal distribution has a fourth standardized moment of 3, its kurtosis is 0. Thus, kurtosis can be seen as a measure of how thick the tails of the distribution are compared to the tail thickness of the normal distribution. Kurtosis has no upper bound, but it does have a lower bound. The Bernoulli distribution with probability of .5 is either 0 or 1 with equal probability. This distribution has, essentially, no tails at all. The variability at its extremes is none whatsoever. The kurtosis of this distribution is −2, which is the lowest possible value this statistic can take.</p>
 
@@ -2377,13 +2338,6 @@ Figure&nbsp;12.1: Positive skewness can be interpeted as a tendency for the data
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -2426,13 +2380,14 @@ Figure&nbsp;12.1: Positive skewness can be interpeted as a tendency for the data
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -2781,8 +2736,8 @@ Figure&nbsp;12.1: Positive skewness can be interpeted as a tendency for the data
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./compositescores.html" class="pagination-link" aria-label="Composite Scores">
-        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Composite Scores</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./reliability.html" class="pagination-link" aria-label="Reliability">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Reliability</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

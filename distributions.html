@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.14">
+<meta name="generator" content="quarto-1.10.1">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>9&nbsp; Discrete Probability Distributions – Individual Psychometrics</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -90,15 +93,13 @@ div.csl-indent {
 <link href="./images/Logo.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-497b9bc44165e1c7adfd168a7e56aadd.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e2e101ba9ef849d96d4575492be540ea.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-10ea860d77d54c91d8a2b8ca3741f0bd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-900706161ae90bd864ef8cc55c77cc6d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -325,22 +326,33 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Descriptives</span></span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Psychometric Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reliability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Reliability</span></span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./compositescores.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Composite Scores</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./relativeproficiency.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Relative Proficiency</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./ojs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">OJS figures</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Relative Proficiency</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -415,7 +427,7 @@ window.Quarto = {
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-dicepmf" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-dicepmf" class="quarto-float quarto-figure quarto-figure-left" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-dicepmf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-dicepmf-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="250">
@@ -439,7 +451,7 @@ Figure&nbsp;9.1: The probability distribution of a throw of a single die
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb1" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>position_dice <span class="ot">&lt;-</span> <span class="cf">function</span>(i, <span class="at">r =</span> <span class="fl">1.85</span>, <span class="at">space =</span> <span class="dv">1</span>) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>position_dice <span class="ot">&lt;-</span> <span class="cf">function</span>(i, <span class="at">r =</span> <span class="fl">1.85</span>, <span class="at">space =</span> <span class="dv">1</span>) {</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Height of dice center</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  y0 <span class="ot">&lt;-</span> (<span class="dv">6</span> <span class="sc">-</span> i) <span class="sc">*</span> (<span class="dv">2</span> <span class="sc">*</span> r <span class="sc">+</span> space)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -506,7 +518,7 @@ Figure&nbsp;9.1: The probability distribution of a throw of a single die
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdiagram</span>(bfont) <span class="sc">+</span></span>
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>  sl <span class="sc">+</span></span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>  ss_label <span class="sc">+</span> </span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  pr_label</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>  pr_label</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -514,7 +526,7 @@ Figure&nbsp;9.1: The probability distribution of a throw of a single die
 <p>There is an infinite variety of probability distributions, but a small subset of them have been given names. Now, one can manage one’s affairs quite well without ever knowing what a Bernoulli distribution is, or what a <span class="math inline">\chi{^2}</span> distribution is, or even what a normal distribution is. However, sometimes life is a little easier if we have names for useful things that occur often. Most of the distributions with names are not really single distributions, but families of distributions. The various members of a family are unique but they are united by the fact that their probability distributions are generated by a particular mathematical function (more on that later). In such cases, the probability distribution is often represented by a graph in which the sample space is on the <span class="math inline">X</span>-axis and the associated probabilities are on the <span class="math inline">Y</span>-axis. In <a href="#fig-pdfIllustration" class="quarto-xref">Figure&nbsp;<span>9.2</span></a>, 16 probability distributions that might be interesting and useful to clinicians are illustrated. Keep in mind that what are pictured are only particular members of the families listed; some family members look quite different from what is shown in <a href="#fig-pdfIllustration" class="quarto-xref">Figure&nbsp;<span>9.2</span></a>.</p>
 <div class="cell fig-cap-location-top tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-pdfIllustration" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-pdfIllustration" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-pdfIllustration-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 <img src="images/pdfIllustration.svg" class="img-fluid quarto-figure quarto-figure-center figure-img column-page-right" style="width:100.0%">
@@ -539,7 +551,7 @@ Figure&nbsp;9.2: A gallery of useful distributions
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb2" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A gallery of useful distributions</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A gallery of useful distributions</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Run output file pdfIllustration.tex in LaTeX</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># pdflatex --enable-write18 --extra-mem-bot=10000000 --synctex=1 pdfIllustration.tex</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>tikzpackages <span class="ot">&lt;-</span> <span class="fu">paste</span>(</span>
@@ -1004,24 +1016,24 @@ Figure&nbsp;9.2: A gallery of useful distributions
 <span id="cb2-463"><a href="#cb2-463" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb2-464"><a href="#cb2-464" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">11</span>, .<span class="dv">32</span>), <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">42</span>, <span class="sc">-</span>.<span class="dv">25</span>), <span class="fu">c</span>(<span class="st">"X"</span>, <span class="st">"Y"</span>))</span>
 <span id="cb2-465"><a href="#cb2-465" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="st">"$</span><span class="sc">\\</span><span class="st">rho_{XY}=0.6$"</span>)</span>
-<span id="cb2-466"><a href="#cb2-466" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-466"><a href="#cb2-466" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 <section id="discrete-distrubitions" class="level2 page-columns page-full" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="discrete-distrubitions"><span class="header-section-number">9.1</span> Discrete Distrubitions</h2>
+<h2 data-number="9.1" data-anchor-id="discrete-distrubitions"><span class="header-section-number">9.1</span> Discrete Distrubitions</h2>
 <p>The sample spaces in discrete distributions are discrete sets. Thus, in the x-axis of the probability distributions, you will see isolated numbers with gaps between each number (e.g., integers).</p>
 <section id="sec:DiscreteUniform" class="level3 page-columns page-full" data-number="9.1.1">
-<h3 data-number="9.1.1" class="anchored" data-anchor-id="sec:DiscreteUniform"><span class="header-section-number">9.1.1</span> Discrete Uniform Distributions</h3>
+<h3 data-number="9.1.1" data-anchor-id="sec:DiscreteUniform"><span class="header-section-number">9.1.1</span> Discrete Uniform Distributions</h3>
 <div class="page-columns page-full"><p>The throw of a single die is a member of a family of distributions called the <span class="defword" title="A <strong>discrete uniform distribution</strong> is a family of random variable distributions in which the sample space is an evenly spaced sequence of numbers, each of which is equally likely to occur." data-bs-html="true" data-bs-toggle="tooltip">discrete uniform distribution</span>. It is “discrete” because the elements in the sample space are countable, with evenly spaced gaps between them. For example, there might be a sequence of 8, 9, 10, and 11 in the sample space, but there are no numbers in between. It is “uniform” because all outcomes are equally likely. With dice, the numbers range from a lower bound of 1 to an upper bound of 6. In the family of discrete uniform distributions, the lower and upper bounds are typically integers, mostly likely starting with 1. However, any real number <span class="math inline">a</span> can be the lower bound and the spacing <span class="math inline">k</span> between numbers can be any positive real number. For the sake of simplicity and convenience, I will assume that the discrete uniform distribution refers to consecutive integers ranging from a lower bound of <span class="math inline">a</span> and an upper bound of <span class="math inline">b</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>discrete uniform distribution</strong> is a family of random variable distributions in which the sample space is an evenly spaced sequence of numbers, each of which is equally likely to occur.</span></div></div>
 <p>This kind of discrete uniform distribution has a number of characteristics listed in <a href="#tbl-uniformfeatures" class="quarto-xref">Table&nbsp;<span>9.1</span></a>. I will explain each of them in the sections that follow. As we go, I will also explain the mathematical notation. For example, <span class="math inline">a \in \{\ldots,-1,0,1,\ldots\}</span> means that <span class="math inline">a</span> is an integer because <span class="math inline">\in</span> means <em>is a member of</em> and <span class="math inline">\{\ldots,-1,0,1,\ldots\}</span> is the set of all integers.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <span class="math inline">x \in \{a,a+1,\ldots,b\}</span> means that the each member of the sample space <span class="math inline">x</span> is a member of the set of integers that include <span class="math inline">a</span>, <span class="math inline">b</span>, and all the integers between <span class="math inline">a</span> and <span class="math inline">b</span>. The notation for the <a href="#sec:pmf">probability mass function</a> and the <a href="#sec:CumDist">cumuluative distribution function</a> function will be explained later in this chapter.</p>
 <div class="no-row-height column-margin column-container"><div id="fn1"><p><sup>1</sup>&nbsp;<strong>Notation note</strong>: Sometimes the set of all integers is referred to with the symbol <span class="math inline">\mathbb{Z}.</span></p></div></div><div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-uniformfeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
+<div id="tbl-uniformfeatures" class="cell quarto-float quarto-figure quarto-figure-center page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-uniformfeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="do-not-create-environment cell caption-top table table-sm table-striped small">
+<table class="cell caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 46%">
 <col style="width: 53%">
@@ -1085,7 +1097,7 @@ Table&nbsp;9.1: Features of Discrete Uniform Distributions
 </div>
 </section>
 <section id="parameters-of-random-variables" class="level3 page-columns page-full" data-number="9.1.2">
-<h3 data-number="9.1.2" class="anchored" data-anchor-id="parameters-of-random-variables"><span class="header-section-number">9.1.2</span> Parameters of Random Variables</h3>
+<h3 data-number="9.1.2" data-anchor-id="parameters-of-random-variables"><span class="header-section-number">9.1.2</span> Parameters of Random Variables</h3>
 <div class="page-columns page-full"><p>The lower bound <span class="math inline">a</span> and the upper bound <span class="math inline">b</span> are the discrete uniform distribution’s <span class="defword" title="A <strong>parameter</strong> is a defining feature of a random variable’s probability distribution." data-bs-html="true" data-bs-toggle="tooltip">parameters</span>. The word <em>parameter</em> has many meanings, but here it refers to a characteristic of a distribution family that helps us identify precisely which member of the family we are talking about. Most distribution families have one, two, or three parameters.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>parameter</strong> is a defining feature of a random variable’s probability distribution.</span></div></div>
 <p>If you have taken an algebra class, you have seen parameters before, though the word <em>parameter</em> may not have been used. Think about the formula of a line:</p>
 <p><span class="math display">
@@ -1095,13 +1107,13 @@ y=mx+b
 <div class="no-row-height column-margin column-container"><div id="fn2"><p><sup>2</sup>&nbsp;What about other mathematical functions? Do they have parameters? Yes! Most do! For example, in the equation for a parabola <span class="math inline">(y=ax^2+bx+c)</span>, <span class="math inline">a</span>, <span class="math inline">b</span>, and <span class="math inline">c</span> determine its precise shape.</p></div><div id="fn3"><p><sup>3</sup>&nbsp;If we allow the lower bound to be any real number and the spacing to be any positive real number, the discrete uniform distribution can be specified by three parameters: the lower bound <span class="math inline">a</span>, the spacing between numbers <span class="math inline">k</span> <span class="math inline">(k&gt;0)</span>, and the number of points <span class="math inline">n</span> <span class="math inline">(n&gt;1)</span>. The upper bound <span class="math inline">b</span> of such a distribution would be <span class="math inline">b=a+k(n-1)</span></p></div></div><p>The discrete uniform distribution (i.e., the typical variety consisting of consecutive integers) is defined by the lower and upper bound. Once we know the lower bound and the upper bound, we know exactly which distribution we are talking about.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Not all distributions are defined by their lower and upper bounds. Indeed, many distribution families are unbounded on one or both sides. Therefore, other features are used to characterize the distributions, such as the population mean <span class="math inline">(\mu)</span>.</p>
 </section>
 <section id="sec:pmf" class="level3 page-columns page-full" data-number="9.1.3">
-<h3 data-number="9.1.3" class="anchored" data-anchor-id="sec:pmf"><span class="header-section-number">9.1.3</span> Probability Mass Functions</h3>
+<h3 data-number="9.1.3" data-anchor-id="sec:pmf"><span class="header-section-number">9.1.3</span> Probability Mass Functions</h3>
 <div class="page-columns page-full"><p>Many distribution families are united by the fact that their probability distributions are generated by a particular mathematical function. For discrete distributions, those functions are called <span class="defword" title="A <strong>probability mass function</strong> is a mathematical expression that gives the probability that a discrete random variable will equal a particular element of the variable’s sample space." data-bs-html="true" data-bs-toggle="tooltip">probability mass functions</span>. In general, a mathematical function is an expression that takes one or more constants (i.e., parameters) and one or more input variables, which are then transformed according to some sort of rule to yield a single number.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>probability mass function</strong> is a mathematical expression that gives the probability that a discrete random variable will equal a particular element of the variable’s sample space.</span></div></div>
 <p>A probability mass function transforms a random variable’s sample space elements into probabilities. In <a href="#fig-dicepmf" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>, the probability mass function can be thought of as the arrows between the sample space and the probabilities. That is, the probability mass function is the thing that was done to the sample space elements to calculate the probabilities. In <a href="#fig-dicepmf" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>, each outcome of a throw of the the die was mapped onto a probability of ⅙. Why ⅙, and not some other number? The probability mass function of the discrete uniform distribution tells us the answer.</p>
 <p>The probability mass function of the discrete uniform distribution is fairly simple but the notation can be intimidating at first (<a href="#fig-pmf" class="quarto-xref">Figure&nbsp;<span>9.3</span></a>). By convention, a single random variable is denoted by a capital letter <span class="math inline">X</span>. Any particular value of <span class="math inline">X</span> in its sample space is represented by a lowercase <span class="math inline">x</span>. In other words, <span class="math inline">X</span> represents the variable in its totality whereas <span class="math inline">x</span> is merely one value that <span class="math inline">X</span> can take on. Confusing? Yes, statisticians work very hard to confuse us—and most of the time they succeed!</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-pmf" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-pmf" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-pmf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-pmf-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -1126,7 +1138,7 @@ Figure&nbsp;9.3: Probability mass functions tell us how probable each sample spa
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb3" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>xr <span class="ot">&lt;-</span> <span class="fu">ob_rectangle</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>xr <span class="ot">&lt;-</span> <span class="fu">ob_rectangle</span>(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">center =</span> <span class="fu">ob_point</span>(<span class="dv">0</span>, <span class="dv">0</span>), </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">1</span>, </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>, </span>
@@ -1247,7 +1259,7 @@ Figure&nbsp;9.3: Probability mass functions tell us how probable each sample spa
 <span id="cb3-119"><a href="#cb3-119" aria-hidden="true" tabindex="-1"></a>      <span class="fu">whitespace</span>(<span class="dv">2</span>),</span>
 <span id="cb3-120"><a href="#cb3-120" aria-hidden="true" tabindex="-1"></a>      <span class="st">") = ***p***"</span>),</span>
 <span id="cb3-121"><a href="#cb3-121" aria-hidden="true" tabindex="-1"></a>    <span class="at">center =</span> pmf_label<span class="sc">@</span>center <span class="sc">+</span> <span class="fu">ob_point</span>(<span class="dv">0</span>,.<span class="dv">5</span>), </span>
-<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-122"><a href="#cb3-122" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1302,7 +1314,7 @@ f_X\left(x;a,b\right)&amp;=\frac{1}{b-a+1}\\[2ex]
 <p>You might notice that <span class="math inline">x</span> is not needed to calculate the probability. Why? Because this is a <em>uniform</em> distribution. No matter which sample space element <span class="math inline">x</span> we are talking about, the probability associated with it is always the same. In distributions that are not uniform, the position of <span class="math inline">x</span> matters and thus influences the probability of its occurrence.</p>
 </section>
 <section id="sec:CumDist" class="level3 page-columns page-full" data-number="9.1.4">
-<h3 data-number="9.1.4" class="anchored" data-anchor-id="sec:CumDist"><span class="header-section-number">9.1.4</span> Cumulative Distribution Functions</h3>
+<h3 data-number="9.1.4" data-anchor-id="sec:CumDist"><span class="header-section-number">9.1.4</span> Cumulative Distribution Functions</h3>
 <div class="page-columns page-full"><p>The <span class="defword" title="A <strong>cumulative distribution function</strong> is a mathematical expression that gives the probability that a random variable will equal a particular element of the variable’s sample space or less." data-bs-html="true" data-bs-toggle="tooltip">cumulative distribution function</span> tells us where a sample space element ranks in a distribution. Whereas the probability mass function tells us the probability that a random variable will generate a particular number, the cumulative distribution function tells us the probability that a random variable will generate a particular number or less.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>cumulative distribution function</strong> is a mathematical expression that gives the probability that a random variable will equal a particular element of the variable’s sample space or less.</span></div></div>
 <p><span class="math display">
 F_X(x) = P(X \le x)=p
@@ -1310,7 +1322,7 @@ F_X(x) = P(X \le x)=p
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-cdfDie" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-cdfDie" class="quarto-float quarto-figure quarto-figure-left" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cdfDie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-cdfDie-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:90.0%">
@@ -1335,7 +1347,7 @@ Figure&nbsp;9.4: The cumulative distribution function of the roll of a die is <s
 </div>
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb4" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">1.85</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">1.85</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>space <span class="ot">&lt;-</span> <span class="fl">1.4</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>make_e_center <span class="ot">&lt;-</span> \(x0,y0, r, space) {</span>
@@ -1371,83 +1383,85 @@ Figure&nbsp;9.4: The cumulative distribution function of the roll of a die is <s
 <span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  }) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind</span>()</span>
 <span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co"># shape list</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdiagram</span>(bfont) <span class="sc">+</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ob_circle</span>(p_center,</span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>            <span class="at">radius =</span> .<span class="dv">35</span>,</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> p_center<span class="sc">@</span>color,</span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ob_ellipse</span>(e_center, <span class="at">a =</span> r, <span class="at">b =</span> r, <span class="at">m1 =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(x, y),</span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(</span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>      <span class="at">x0 =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">each =</span> <span class="dv">2</span>)[<span class="sc">-</span><span class="dv">12</span>], <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">1</span>),</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>      <span class="at">y0 =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">each =</span> <span class="dv">2</span>)[<span class="sc">-</span><span class="dv">1</span>], <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>      <span class="at">r =</span> r,</span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>      <span class="at">space =</span> space,</span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>      <span class="at">corner =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fu">c</span>(</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>        <span class="st">"northwest"</span>, <span class="st">"southeast"</span></span>
-<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>      ), <span class="dv">5</span>), <span class="st">"northwest"</span>, <span class="st">"northeast"</span>, <span class="st">"southeast"</span>, <span class="st">"southwest"</span>),</span>
-<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>      <span class="at">revsort =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="dv">5</span>), <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
-<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pmap_df</span>(\(x0, y0, r, space, corner, revsort) {</span>
-<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>        p <span class="ot">&lt;-</span> <span class="fu">make_e_center</span>(x0, y0, r, space)</span>
-<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>        l <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>          <span class="at">northeast =</span> <span class="dv">0</span>,</span>
-<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>          <span class="at">northwest =</span> <span class="dv">90</span>,</span>
-<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>          <span class="at">southwest =</span> <span class="dv">180</span>,</span>
-<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>          <span class="at">southeast =</span> <span class="dv">270</span></span>
-<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>        h <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>          <span class="at">northeast =</span> <span class="dv">90</span>,</span>
-<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>          <span class="at">northwest =</span> <span class="dv">180</span>,</span>
-<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>          <span class="at">southwest =</span> <span class="dv">270</span>,</span>
-<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>          <span class="at">southeast =</span> <span class="dv">360</span></span>
-<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>        e <span class="ot">&lt;-</span> <span class="fu">ob_ellipse</span>(p,</span>
-<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>                        <span class="at">a =</span> r <span class="sc">+</span> space <span class="sc">/</span> <span class="dv">2</span>,</span>
-<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>                        <span class="at">b =</span> r <span class="sc">+</span> space <span class="sc">/</span> <span class="dv">2</span>,</span>
-<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>                        <span class="at">m1 =</span> <span class="dv">12</span>)</span>
-<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>        e<span class="sc">@</span>polygon <span class="sc">%&gt;%</span></span>
-<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">diagonal =</span> x0 <span class="sc">==</span> y0) <span class="sc">%&gt;%</span></span>
-<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">filter</span>((diagonal <span class="sc">&amp;</span></span>
-<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>                           dplyr<span class="sc">::</span><span class="fu">between</span>(degree, l[corner], h[corner])) <span class="sc">|</span></span>
-<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>                          (<span class="sc">!</span>diagonal <span class="sc">&amp;</span> dplyr<span class="sc">::</span><span class="fu">between</span>(degree, <span class="dv">270</span>, <span class="dv">360</span>))) <span class="sc">%&gt;%</span></span>
-<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">new_degree =</span> revsort <span class="sc">*</span> degree) <span class="sc">%&gt;%</span></span>
-<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">arrange</span>(new_degree)</span>
-<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>      }),</span>
-<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">2</span>],</span>
-<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">1</span></span>
-<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>  {x_label <span class="ot">&lt;-</span> <span class="fu">ob_label</span>(</span>
-<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
-<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>    <span class="at">center =</span> purrr<span class="sc">::</span><span class="fu">pmap</span>(<span class="fu">tibble</span>(</span>
-<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>      <span class="at">x0 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
-<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>      <span class="at">y0 =</span> <span class="dv">1</span>,</span>
-<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>      <span class="at">r =</span> r,</span>
-<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>      <span class="at">space =</span> space</span>
-<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>    ), make_e_center) <span class="sc">%&gt;%</span> <span class="fu">bind</span>() <span class="sc">+</span> <span class="fu">ob_point</span>(<span class="dv">0</span>, <span class="sc">-</span><span class="dv">4</span>),</span>
-<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span>,</span>
-<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">20</span></span>
-<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>  )} <span class="sc">+</span> </span>
-<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>  {y_label <span class="ot">&lt;-</span> <span class="fu">ob_label</span>(</span>
-<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="st">"&amp;frasl;6"</span>),</span>
-<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>    <span class="at">center =</span> purrr<span class="sc">::</span><span class="fu">pmap</span>(<span class="fu">tibble</span>(</span>
-<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>      <span class="at">y0 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
-<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>      <span class="at">x0 =</span> <span class="dv">1</span>,</span>
-<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>      <span class="at">r =</span> r,</span>
-<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>      <span class="at">space =</span> space</span>
-<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>    ), make_e_center) <span class="sc">%&gt;%</span> <span class="fu">bind</span>() <span class="sc">+</span> <span class="fu">ob_point</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">0</span>),</span>
-<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span>,</span>
-<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">24</span></span>
-<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>  )} <span class="sc">+</span></span>
-<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>  (x_label<span class="sc">@</span>center<span class="sc">@</span>bounding_box<span class="sc">@</span>south <span class="sc">+</span> <span class="fu">ob_point</span>(<span class="dv">0</span>, <span class="sc">-</span><span class="dv">2</span>))<span class="sc">@</span><span class="fu">label</span>(</span>
-<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Die roll is this value or less"</span>, </span>
-<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
-<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>  (y_label<span class="sc">@</span>center<span class="sc">@</span>bounding_box<span class="sc">@</span>west <span class="sc">+</span> <span class="fu">ob_point</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">0</span>))<span class="sc">@</span><span class="fu">label</span>(</span>
-<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Probability"</span>, </span>
-<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">24</span>, </span>
-<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">90</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="co"># shape list</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdiagram</span>(bfont) <span class="sc">+</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ob_circle</span>(p_center,</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>            <span class="at">radius =</span> .<span class="dv">35</span>,</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>            <span class="at">fill =</span> p_center<span class="sc">@</span>color,</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ob_ellipse</span>(e_center, <span class="at">a =</span> r, <span class="at">b =</span> r, <span class="at">m1 =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(x, y),</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">tibble</span>(</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>      <span class="at">x0 =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">each =</span> <span class="dv">2</span>)[<span class="sc">-</span><span class="dv">12</span>], <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">1</span>),</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>      <span class="at">y0 =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">each =</span> <span class="dv">2</span>)[<span class="sc">-</span><span class="dv">1</span>], <span class="dv">6</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>      <span class="at">r =</span> r,</span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>      <span class="at">space =</span> space,</span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>      <span class="at">corner =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fu">c</span>(</span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>        <span class="st">"northwest"</span>, <span class="st">"southeast"</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>      ), <span class="dv">5</span>), <span class="st">"northwest"</span>, <span class="st">"northeast"</span>, <span class="st">"southeast"</span>, <span class="st">"southwest"</span>),</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>      <span class="at">revsort =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="dv">5</span>), <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pmap_df</span>(\(x0, y0, r, space, corner, revsort) {</span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>        p <span class="ot">&lt;-</span> <span class="fu">make_e_center</span>(x0, y0, r, space)</span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>        l <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>          <span class="at">northeast =</span> <span class="dv">0</span>,</span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>          <span class="at">northwest =</span> <span class="dv">90</span>,</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a>          <span class="at">southwest =</span> <span class="dv">180</span>,</span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>          <span class="at">southeast =</span> <span class="dv">270</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>        h <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>          <span class="at">northeast =</span> <span class="dv">90</span>,</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>          <span class="at">northwest =</span> <span class="dv">180</span>,</span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>          <span class="at">southwest =</span> <span class="dv">270</span>,</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>          <span class="at">southeast =</span> <span class="dv">360</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>        e <span class="ot">&lt;&lt;-</span> <span class="fu">ob_ellipse</span>(p,</span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>                        <span class="at">a =</span> r <span class="sc">+</span> space <span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>                        <span class="at">b =</span> r <span class="sc">+</span> space <span class="sc">/</span> <span class="dv">2</span>,</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>                        <span class="at">m1 =</span> <span class="dv">12</span>)</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>        e<span class="sc">@</span>polygon <span class="sc">%&gt;%</span></span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">diagonal =</span> x0 <span class="sc">==</span> y0) <span class="sc">%&gt;%</span></span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">filter</span>((diagonal <span class="sc">&amp;</span></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>                           dplyr<span class="sc">::</span><span class="fu">between</span>(degree, l[corner], h[corner])) <span class="sc">|</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>                          (<span class="sc">!</span>diagonal <span class="sc">&amp;</span> dplyr<span class="sc">::</span><span class="fu">between</span>(degree, <span class="dv">270</span>, <span class="dv">360</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">new_degree =</span> revsort <span class="sc">*</span> degree) <span class="sc">%&gt;%</span></span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>          dplyr<span class="sc">::</span><span class="fu">arrange</span>(new_degree)</span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>      }),</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> myfills[<span class="dv">2</span>],</span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">1</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a>  {x_label <span class="ot">&lt;-</span> <span class="fu">ob_label</span>(</span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a>    <span class="at">center =</span> purrr<span class="sc">::</span><span class="fu">pmap</span>(<span class="fu">tibble</span>(</span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a>      <span class="at">x0 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a>      <span class="at">y0 =</span> <span class="dv">1</span>,</span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a>      <span class="at">r =</span> r,</span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a>      <span class="at">space =</span> space</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a>    ), make_e_center) <span class="sc">%&gt;%</span> <span class="fu">bind</span>() <span class="sc">+</span> <span class="fu">ob_point</span>(<span class="dv">0</span>, <span class="sc">-</span><span class="dv">4</span>),</span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">20</span></span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>  )} <span class="sc">+</span> </span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>  {y_label <span class="ot">&lt;-</span> <span class="fu">ob_label</span>(</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>    <span class="fu">paste0</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="st">"&amp;frasl;6"</span>),</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>    <span class="at">center =</span> purrr<span class="sc">::</span><span class="fu">pmap</span>(<span class="fu">tibble</span>(</span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>      <span class="at">y0 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>      <span class="at">x0 =</span> <span class="dv">1</span>,</span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>      <span class="at">r =</span> r,</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>      <span class="at">space =</span> space</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>    ), make_e_center) <span class="sc">%&gt;%</span> <span class="fu">bind</span>() <span class="sc">+</span> <span class="fu">ob_point</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">0</span>),</span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">24</span></span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>  )} <span class="sc">+</span></span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a>  (x_label<span class="sc">@</span>center<span class="sc">@</span>bounding_box<span class="sc">@</span>south <span class="sc">+</span> <span class="fu">ob_point</span>(<span class="dv">0</span>, <span class="sc">-</span><span class="dv">2</span>))<span class="sc">@</span><span class="fu">label</span>(</span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Die roll is this value or less"</span>, </span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">24</span>) <span class="sc">+</span></span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a>  (y_label<span class="sc">@</span>center<span class="sc">@</span>bounding_box<span class="sc">@</span>west <span class="sc">+</span> <span class="fu">ob_point</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">0</span>))<span class="sc">@</span><span class="fu">label</span>(</span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Probability"</span>, </span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">24</span>, </span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a>    <span class="at">angle =</span> <span class="dv">90</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1508,7 +1522,7 @@ F_X(x;a=1,b=6)&amp;=\frac{x-a+1}{b-a+1}\\[2ex]
 <p>The cumulative distribution function is so-named because it adds all the probabilities in the probability mass function up to and including a particular member of the sample space. <a href="#fig-pmf2cdf" class="quarto-xref">Figure&nbsp;<span>9.5</span></a> shows how the each probability in the cumulative distribution function of the roll of a six-sided die is the sum of the current and all previous probabilities in the probability mass function.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-pmf2cdf" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-pmf2cdf" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-pmf2cdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/pmf2cdf.gif" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -1533,7 +1547,7 @@ Figure&nbsp;9.5: The cumulative distribution function is the sum of the current 
 </div>
 <div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb5" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The cumulative distribution function is the sum of the current </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The cumulative distribution function is the sum of the current </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and all previous elements of the probability mass function</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">crossing</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">%&gt;%</span> </span>
@@ -1603,18 +1617,18 @@ Figure&nbsp;9.5: The cumulative distribution function is the sum of the current 
 <span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>        <span class="at">device =</span> <span class="st">"svg"</span>,</span>
 <span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>        <span class="at">renderer =</span> <span class="fu">magick_renderer</span>(), </span>
 <span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>        <span class="at">width =</span> <span class="dv">8</span>,</span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>        <span class="at">height =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>        <span class="at">height =</span> <span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 </section>
 <section id="quantile-functions" class="level3 page-columns page-full" data-number="9.1.5">
-<h3 data-number="9.1.5" class="anchored" data-anchor-id="quantile-functions"><span class="header-section-number">9.1.5</span> Quantile functions</h3>
+<h3 data-number="9.1.5" data-anchor-id="quantile-functions"><span class="header-section-number">9.1.5</span> Quantile functions</h3>
 <div class="page-columns page-full"><p>The inverse of the cumulative distribution function is the <span class="defword" title="A <strong>quantile function</strong> tells us which value in the sample space of a random variable is greater than a particular proportion of the values the random variable generates." data-bs-html="true" data-bs-toggle="tooltip">quantile function</span>. The cumulative distribution starts with a value <span class="math inline">x</span> in the sample space and tells us <span class="math inline">p</span>, the proportion of values in that distribution that are less than or equal to <span class="math inline">x</span>. A quantile function starts with a proportion <span class="math inline">p</span> and tells us the value <span class="math inline">x</span> that splits the distribution such that the proportion <span class="math inline">p</span> of the distribution is less than or equal to <span class="math inline">x</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>quantile function</strong> tells us which value in the sample space of a random variable is greater than a particular proportion of the values the random variable generates.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-cdfvquantile" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-cdfvquantile" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-cdfvquantile-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-cdfvquantile-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -1640,7 +1654,7 @@ Figure&nbsp;9.6: The quantile function is the inverse of the cumulative distribu
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb6" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The quantile function is the inverse of the cumulative distribution function</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The quantile function is the inverse of the cumulative distribution function</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.01</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> <span class="fu">pnorm</span>(x))</span>
@@ -1741,17 +1755,17 @@ Figure&nbsp;9.6: The quantile function is the inverse of the cumulative distribu
 <span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.x =</span> ggtext<span class="sc">::</span><span class="fu">element_markdown</span>(),</span>
 <span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.title.y =</span> ggtext<span class="sc">::</span><span class="fu">element_markdown</span>())</span>
 <span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">+</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 </section>
 <section id="generating-a-random-sample-in-r" class="level3 page-columns page-full" data-number="9.1.6">
-<h3 data-number="9.1.6" class="anchored" data-anchor-id="generating-a-random-sample-in-r"><span class="header-section-number">9.1.6</span> Generating a Random Sample in R</h3>
+<h3 data-number="9.1.6" data-anchor-id="generating-a-random-sample-in-r"><span class="header-section-number">9.1.6</span> Generating a Random Sample in R</h3>
 <p>In R, the <code>sample</code> function generates numbers from the discrete uniform distribution.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># n = the sample size</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">6000</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># a = the lower bound</span></span>
@@ -1765,12 +1779,12 @@ Figure&nbsp;9.6: The quantile function is the inverse of the cumulative distribu
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># from the sample space with replacement at random</span></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">sample</span>(sample_space, </span>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> n, </span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-discreteplot" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-discreteplot" class="quarto-float quarto-figure quarto-figure-left" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-discreteplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-discreteplot-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="400">
@@ -1794,7 +1808,7 @@ Figure&nbsp;9.7: Frequency distribution of a discrete uniform random variable fr
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb8" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency distribution of a discrete uniform random variable from 1 to 6 </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency distribution of a discrete uniform random variable from 1 to 6 </span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">X =</span> <span class="fu">factor</span>(X)) <span class="sc">%&gt;%</span> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(X) <span class="sc">%&gt;%</span> </span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Frequency =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
@@ -1815,7 +1829,7 @@ Figure&nbsp;9.7: Frequency distribution of a discrete uniform random variable fr
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1000</span>,<span class="dv">200</span>)) <span class="sc">+</span> </span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="cn">NULL</span>) <span class="sc">+</span></span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(), </span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1823,9 +1837,9 @@ Figure&nbsp;9.7: Frequency distribution of a discrete uniform random variable fr
 <div class="page-columns page-full"><p>The frequencies of the random sample can be seen in <a href="#fig-discreteplot" class="quarto-xref">Figure&nbsp;<span>9.7</span></a>. Because of <span class="defword" title="Samples imperfectly represent the population from which they are drawn. <strong>Sampling error</strong> refers to differences between sample statistics and population parameters." data-bs-html="true" data-bs-toggle="tooltip">sampling error</span>, the frequencies are approximately the same, but not exactly the same. If the sample is larger, the sampling error is smaller, meaning that the sample’s characteristics will tend to more closely resemble the population characteristics. In this case, a larger sample size will produce frequency counts that will appear more even in their magnitude. However, as long as the sample is smaller than the population, sampling error will always be present. With random distributions, the population is assumed to be infinitely large, and thus sampling error at best becomes negligibly small.</p><div class="no-row-height column-margin column-container"><span class="defword">Samples imperfectly represent the population from which they are drawn. <strong>Sampling error</strong> refers to differences between sample statistics and population parameters.</span></div></div>
 </section>
 <section id="sec:BernoulliDist" class="level3 page-columns page-full" data-number="9.1.7">
-<h3 data-number="9.1.7" class="anchored" data-anchor-id="sec:BernoulliDist"><span class="header-section-number">9.1.7</span> Bernoulli Distributions</h3>
+<h3 data-number="9.1.7" data-anchor-id="sec:BernoulliDist"><span class="header-section-number">9.1.7</span> Bernoulli Distributions</h3>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[50,50]" data-tbl-cap-location="margin">
-<div id="tbl-bernoullifeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[50,50]">
+<div id="tbl-bernoullifeatures" class="cell quarto-float quarto-figure quarto-figure-center page-columns page-full" data-tbl-colwidths="[50,50]" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-bernoullifeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -1891,7 +1905,7 @@ Table&nbsp;9.2: Features of Bernoulli Distributions<br><strong>Notation note:</s
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-coin" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-coin" class="quarto-float quarto-figure quarto-figure-left" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-coin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-coin-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="300">
@@ -1915,7 +1929,7 @@ Figure&nbsp;9.8: The probability distribution of a coin toss
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb9" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdiagram</span>(bfont) <span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdiagram</span>(bfont) <span class="sc">+</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  ggimage<span class="sc">::</span><span class="fu">geom_image</span>(<span class="at">data =</span> <span class="fu">tibble</span>(</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">image =</span> <span class="fu">paste0</span>(<span class="st">"images/Quarter"</span>, </span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">c</span>(<span class="st">"Heads"</span>, <span class="st">"Tails"</span>), </span>
@@ -1948,7 +1962,7 @@ Figure&nbsp;9.8: The probability distribution of a coin toss
 <span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"gray70"</span></span>
 <span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="fu">c</span>(.<span class="dv">3</span>, .<span class="dv">5</span>))) <span class="sc">+</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">1</span>, .<span class="dv">1</span>))) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">add =</span> <span class="fu">c</span>(<span class="sc">-</span>.<span class="dv">1</span>, .<span class="dv">1</span>))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1956,7 +1970,7 @@ Figure&nbsp;9.8: The probability distribution of a coin toss
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-bernoullipic" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-bernoullipic" class="quarto-float quarto-figure quarto-figure-left" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-bernoullipic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Jakob_Bernoulli2.jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" width="200">
@@ -1971,11 +1985,11 @@ Figure&nbsp;9.9: Jakob Bernoulli (1654–1705)<br><a href="https://en.wikipedia.
 <div class="page-columns page-full"><p>In psychological assessment, many of the variables we encounter have a Bernoulli distribution. In ability test items in which there is no partial credit, examinees either succeed or fail. The probability of success on an item (in the whole population) is <span class="math inline">p</span>. In other words, <span class="math inline">p</span> is the proportion of the entire population that correctly answers the question. Some ability test items are very easy and the probability of success is high. In such cases, <span class="math inline">p</span> is close to 1. When <span class="math inline">p</span> is close to 0, few people succeed and items are deemed hard. Thus, in the context of ability testing, <span class="math inline">p</span> is called the <span class="defword" title="The <strong>difficulty parameter</strong> is the proportion of people who succeed on an ability item or endorse a yes/no questionnaire item." data-bs-html="true" data-bs-toggle="tooltip">difficulty parameter</span>. This is confusing because when <span class="math inline">p</span> is high, the item is easy, not difficult. Many people have suggested that it would make more sense to call it the <em>easiness parameter</em>, but the idea has never caught on.</p><div class="no-row-height column-margin column-container"><span class="defword">The <strong>difficulty parameter</strong> is the proportion of people who succeed on an ability item or endorse a yes/no questionnaire item.</span></div></div>
 <p>True/False and Yes/No items on questionnaires also have Bernoulli distributions. If an item is frequently endorsed as true (“I like ice cream.”), <span class="math inline">p</span> is high. If an item is infrequently endorsed (“I like black licorice and mayonnaise in my ice cream.”), <span class="math inline">p</span> is very low. Oddly, the language of ability tests prevails even here. Frequently endorsed questionnaire items are referred to as “easy” and infrequently endorsed items are referred to as “difficult,” even though there is nothing particularly easy or difficult about answering them either way.</p>
 <section id="generating-a-random-sample-from-the-bernoulli-distribution" class="level4 page-columns page-full" data-number="9.1.7.1">
-<h4 data-number="9.1.7.1" class="anchored" data-anchor-id="generating-a-random-sample-from-the-bernoulli-distribution"><span class="header-section-number">9.1.7.1</span> Generating a Random Sample from the Bernoulli Distribution</h4>
+<h4 data-number="9.1.7.1" data-anchor-id="generating-a-random-sample-from-the-bernoulli-distribution"><span class="header-section-number">9.1.7.1</span> Generating a Random Sample from the Bernoulli Distribution</h4>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-BernoulliSample" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-BernoulliSample" class="quarto-float quarto-figure quarto-figure-left" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-BernoulliSample-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-BernoulliSample-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="300">
@@ -1988,14 +2002,14 @@ Figure&nbsp;9.10: Counts of a Random Variable with a Bernoulli Distribution <spa
 </div></div></div>
 <p>In R, there is no specialized function for the Bernoulli distribution because it turns out that the Bernoulli distribution is a special case of the <a href="#sec:binomial">binomial distribution</a>, which will be described in the next section. With the function <code>rbinom</code>, we can generate data with a Bernoulli distribution by setting the <code>size</code> parameter equal to 1.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># n = sample size</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># n = sample size</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># p = probability</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># X = sample</span></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>X <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(n, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">prob =</span> p)</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a basic plot</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(X))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(X))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>In <a href="#fig-BernoulliSample" class="quarto-xref">Figure&nbsp;<span>9.10</span></a>, we can see that the random variable generated a sequence that consists of about 80% ones and 20% zeroes. However, because of sampling error, the results are rarely exactly what the population parameter specifies.</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center" data-button_before="true" data-button_after="true" data-codelabel="R Code">
@@ -2011,7 +2025,7 @@ Figure&nbsp;9.10: Counts of a Random Variable with a Bernoulli Distribution <spa
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb11" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Counts of a Random Variable with a Bernoulli Distribution</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Counts of a Random Variable with a Bernoulli Distribution</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">4</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># n = sample size</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
@@ -2031,7 +2045,7 @@ Figure&nbsp;9.10: Counts of a Random Variable with a Bernoulli Distribution <spa
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">family =</span> bfont,</span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">color =</span> <span class="st">"gray10"</span>) <span class="sc">+</span> </span>
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>(<span class="dv">18</span>, bfont) <span class="sc">+</span> </span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -2039,9 +2053,9 @@ Figure&nbsp;9.10: Counts of a Random Variable with a Bernoulli Distribution <spa
 </section>
 </section>
 <section id="sec:binomial" class="level3 page-columns page-full" data-number="9.1.8">
-<h3 data-number="9.1.8" class="anchored" data-anchor-id="sec:binomial"><span class="header-section-number">9.1.8</span> Binomial Distributions</h3>
+<h3 data-number="9.1.8" data-anchor-id="sec:binomial"><span class="header-section-number">9.1.8</span> Binomial Distributions</h3>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[50,50]" data-tbl-cap-location="margin">
-<div id="tbl-binomialfeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[50,50]">
+<div id="tbl-binomialfeatures" class="cell quarto-float quarto-figure quarto-figure-center page-columns page-full" data-tbl-colwidths="[50,50]" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-binomialfeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2110,7 +2124,7 @@ Table&nbsp;9.3: Features of Binomial Distributions
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-twocoin" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-twocoin" class="quarto-float quarto-figure quarto-figure-left" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-twocoin-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-twocoin-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:75.0%">
@@ -2135,7 +2149,7 @@ Figure&nbsp;9.11: Probability distribution of the number of heads observed when 
 </div>
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb12" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dv">2</span>, .<span class="dv">5</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>), <span class="dv">2</span>, .<span class="dv">5</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>nudged <span class="ot">&lt;-</span> <span class="fu">c</span>(.<span class="dv">7</span>, .<span class="dv">3</span>)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>),</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">dbinom</span>(x, <span class="dv">2</span>, .<span class="dv">5</span>)) <span class="sc">%&gt;%</span></span>
@@ -2157,7 +2171,7 @@ Figure&nbsp;9.11: Probability distribution of the number of heads observed when 
 <span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">32</span>, <span class="at">base_family =</span> bfont) <span class="sc">+</span></span>
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid =</span> <span class="fu">element_blank</span>(), <span class="at">axis.line.y =</span> <span class="fu">element_line</span>(<span class="st">"gray40"</span>, <span class="at">linewidth =</span> .<span class="dv">5</span>), <span class="at">axis.ticks =</span> <span class="fu">element_line</span>(<span class="st">"gray40"</span>, <span class="at">linewidth =</span> .<span class="dv">5</span>)) <span class="sc">+</span> </span>
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="st">"Number of Heads"</span>) <span class="sc">+</span></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,.<span class="dv">25</span>, .<span class="dv">5</span>), <span class="at">labels =</span> WJSmisc<span class="sc">::</span>prob_label, <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>,.<span class="dv">01</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="cn">NULL</span>, <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>,.<span class="dv">25</span>, .<span class="dv">5</span>), <span class="at">labels =</span> WJSmisc<span class="sc">::</span>prob_label, <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>,.<span class="dv">01</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -2204,7 +2218,7 @@ f_X(x;n,p)=\frac{n!}{x!\left(n-x\right)!}p^x\left(1-p\right)^{n-x}
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-pmf6" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-pmf6" class="quarto-float quarto-figure quarto-figure-left" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pmf6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-pmf6-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="350">
@@ -2233,7 +2247,7 @@ f_X(x)=\frac{n!}{x!\left(n-x\right)!}\left(\frac{1}{6}\right)^x\left(\frac{5}{6}
 </div>
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb13" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability of sixes</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability of sixes</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">sample_space =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
@@ -2260,18 +2274,18 @@ f_X(x)=\frac{n!}{x!\left(n-x\right)!}\left(\frac{1}{6}\right)^x\left(\frac{5}{6}
 <span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="dv">0</span>,.<span class="dv">09</span>)), </span>
 <span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>                     <span class="at">labels =</span> prob_label) <span class="sc">+</span> </span>
 <span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="st">"Sample Space (Number of Sixes)"</span>) <span class="sc">+</span> </span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>()) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 <section id="clinical-applications-of-the-binomial-distribution" class="level4 page-columns page-full" data-number="9.1.8.1">
-<h4 data-number="9.1.8.1" class="anchored" data-anchor-id="clinical-applications-of-the-binomial-distribution"><span class="header-section-number">9.1.8.1</span> Clinical Applications of the Binomial Distribution</h4>
+<h4 data-number="9.1.8.1" data-anchor-id="clinical-applications-of-the-binomial-distribution"><span class="header-section-number">9.1.8.1</span> Clinical Applications of the Binomial Distribution</h4>
 <div class="page-columns page-full"><p>When would a binomial distribution be used by a clinician? One particularly important use of the binomial distribution is in the detection of <span class="defword" title="A person who <strong>malingers</strong> is pretending to be sick to avoid work or some other responsibility." data-bs-html="true" data-bs-toggle="tooltip">malingering</span>. Sometimes people pretend to have memory loss or attention problems in order to win a lawsuit or collect insurance benefits. There are a number of ways to detect malingering but a common method is to give a very easy test of memory in which the person has at least a 50% chance of getting each test item correct even if the person guesses randomly.</p><div class="no-row-height column-margin column-container"><span class="defword">A person who <strong>malingers</strong> is pretending to be sick to avoid work or some other responsibility.</span></div></div>
 <p>Suppose that there are 20 questions. Even if a person has the worst memory possible, that person is likely to get about half the questions correct. However, it is possible for someone with a legitimate memory problem to guess randomly and by bad luck answer fewer than half of the questions correctly. Suppose that a person gets 4 questions correct. How likely is it that a person would, by random guessing, only answer 4 or fewer questions correctly?</p>
 <p>We can use the binomial distribution’s cumulative distribution function. However, doing so by hand is rather tedious. Using R, the answer is found with the <code>pbinom</code> function:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(<span class="dv">4</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(<span class="dv">4</span>,<span class="dv">20</span>,<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We can see that the probability of randomly guessing and getting 4 or fewer items correct out of 20 items total is approximately 0.006, which is so low that the hypothesis that the person is malingering seems plausible. Note here that there is a big difference between these two questions:</p>
 <ul>
@@ -2281,10 +2295,10 @@ f_X(x)=\frac{n!}{x!\left(n-x\right)!}\left(\frac{1}{6}\right)^x\left(\frac{5}{6}
 <p>Here we answer only the first question. It is an important question, but the answer to the second question is probably the one that we really want to know. We will answer it in another chapter when we discuss positive predictive power. For now, we should just remember that the questions are different and that the answers can be quite different.</p>
 </section>
 <section id="graphing-the-binomial-distribution" class="level4 page-columns page-full" data-number="9.1.8.2">
-<h4 data-number="9.1.8.2" class="anchored" data-anchor-id="graphing-the-binomial-distribution"><span class="header-section-number">9.1.8.2</span> Graphing the binomial distribution</h4>
+<h4 data-number="9.1.8.2" data-anchor-id="graphing-the-binomial-distribution"><span class="header-section-number">9.1.8.2</span> Graphing the binomial distribution</h4>
 <p>Suppose that there are <span class="math inline">n=10</span> trials, each of which have a probability of <span class="math inline">p=0.8</span>. The sample space is the sequence of integers from 0 to 10, which can be generated with the <code>seq</code> function (i.e., <code>seq(0,10)</code>) or with the colon operator <code>0:10</code>. First, the sample space is generated (a sequence from 0 to 10.), using the <code>seq</code> function. The associated probability mass function probabilities are found using the <code>dbinom</code> function. The cumulative distribution function probabilities are found using the <code>pbinom</code> function.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a sequence of numbers from 0 to 10</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a sequence of numbers from 0 to 10</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>SampleSpace <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability mass distribution for </span></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># binomial distribution (n = 10, p = 0.8)</span></span>
@@ -2299,9 +2313,9 @@ f_X(x)=\frac{n!}{x!\left(n-x\right)!}\left(\frac{1}{6}\right)^x\left(\frac{5}{6}
 <span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="co"># for binomial distribution (n = 10, p = 0.8)</span></span>
 <span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>cdfBinomial <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(SampleSpace, </span>
 <span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>                      <span class="at">size =</span> <span class="dv">10</span>, </span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>                      <span class="at">prob =</span> <span class="fl">0.8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>                      <span class="at">prob =</span> <span class="fl">0.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-binomGraphSimple" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-binomGraphSimple" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-binomGraphSimple-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-binomGraphSimple-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2314,7 +2328,7 @@ Figure&nbsp;9.13: Basic plot of a binomial probability mass function
 </div>
 </div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cumulative distribution function </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cumulative distribution function </span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># for binomial distribution (n = 10, p = 0.8)</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>cdfBinomial <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(SampleSpace, </span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">size =</span> <span class="dv">10</span>, </span>
@@ -2322,9 +2336,9 @@ Figure&nbsp;9.13: Basic plot of a binomial probability mass function
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a basic plot of the</span></span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># binomial cumulative distribution function</span></span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cdfBinomial <span class="sc">~</span> SampleSpace, </span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"b"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">type =</span> <span class="st">"b"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-binomGraphSimplecdf" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-binomGraphSimplecdf" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-binomGraphSimplecdf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-binomGraphSimplecdf-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2344,7 +2358,7 @@ Figure&nbsp;9.14: Basic plot of a binomial cumulative distribution function
 can be found in ggh4x::geom_pointpath.</code></pre>
 </div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-BinomialDistribution" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-BinomialDistribution" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-BinomialDistribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-BinomialDistribution-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2369,7 +2383,7 @@ Figure&nbsp;9.15: Probability Mass Function and Cumulative Distribution Function
 </div>
 <div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb18" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability Mass Function and Cumulative Distribution </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability Mass Function and Cumulative Distribution </span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Function of the Binomial Distribution</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">SampleSpace =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>,</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">pmf =</span> <span class="fu">dbinom</span>(SampleSpace, <span class="dv">10</span>, <span class="fl">0.8</span>),</span>
@@ -2418,7 +2432,7 @@ Figure&nbsp;9.15: Probability Mass Function and Cumulative Distribution Function
 <span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.size =</span> <span class="dv">0</span>,</span>
 <span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">family =</span> bfont,</span>
 <span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">"mm"</span>)</span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -2426,9 +2440,9 @@ Figure&nbsp;9.15: Probability Mass Function and Cumulative Distribution Function
 </section>
 </section>
 <section id="poisson-distributions" class="level3 page-columns page-full" data-number="9.1.9">
-<h3 data-number="9.1.9" class="anchored" data-anchor-id="poisson-distributions"><span class="header-section-number">9.1.9</span> Poisson Distributions</h3>
+<h3 data-number="9.1.9" data-anchor-id="poisson-distributions"><span class="header-section-number">9.1.9</span> Poisson Distributions</h3>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[50,50]" data-tbl-cap-location="margin">
-<div id="tbl-PoissonFeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[50,50]">
+<div id="tbl-PoissonFeatures" class="cell quarto-float quarto-figure quarto-figure-center page-columns page-full" data-tbl-colwidths="[50,50]" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-PoissonFeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2489,7 +2503,7 @@ Table&nbsp;9.4: Features of Poisson Distributions<br><strong>Notation note</stro
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-PoissonPortrait" class="quarto-float quarto-figure quarto-figure-left anchored" data-cap-location="margin" data-fig-align="left">
+<div id="fig-PoissonPortrait" class="quarto-float quarto-figure quarto-figure-left" data-cap-location="margin" data-fig-align="left">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-PoissonPortrait-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/Simeon_Poisson.jpg" class="img-fluid quarto-figure quarto-figure-left figure-img" width="250">
@@ -2504,7 +2518,7 @@ Figure&nbsp;9.16: Siméon Denis Poisson (1781–1840)<br><a href="https://en.wik
 <p>The Poisson distribution has a single parameter <span class="math inline">\lambda</span>, the average number of events per time interval. Interestingly, <span class="math inline">\lambda</span> is both the mean and the variance of this distribution. The distribution shape will differ depending on how long our interval is. If an event occurs on average 30 times per hour, <span class="math inline">\lambda</span> = 30. If we count how often the event occurs in 10-minute intervals, the same event will occur about 5 times per interval, on average (i.e., <span class="math inline">\lambda</span> = 1). If we choose to count how often the same event occurs every minute, then <span class="math inline">\lambda</span> = 0.5.</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-samelambda" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-samelambda" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-samelambda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-samelambda-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2529,7 +2543,7 @@ Figure&nbsp;9.17: The shape of the Poisson Distribution depends on the interval 
 </div>
 <div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb19" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The shape of the Poisson Distribution</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The shape of the Poisson Distribution</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">crossing</span>(<span class="at">lambda =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">5</span>, <span class="dv">30</span>), <span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">60</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">p =</span> <span class="fu">dpois</span>(x, lambda)) <span class="sc">%&gt;%</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lambda =</span> <span class="fu">factor</span>(lambda, <span class="at">labels =</span> <span class="fu">paste0</span>(</span>
@@ -2548,13 +2562,13 @@ Figure&nbsp;9.17: The shape of the Poisson Distribution depends on the interval 
 <span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(myfills[<span class="dv">1</span>], <span class="st">"darkorchid"</span>, myfills[<span class="dv">2</span>])) <span class="sc">+</span></span>
 <span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>(<span class="at">base_size =</span> <span class="dv">20</span>, <span class="at">base_family =</span> bfont) <span class="sc">+</span></span>
 <span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="st">"Probability"</span>, <span class="at">labels =</span> prob_label)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="st">"Probability"</span>, <span class="at">labels =</span> prob_label)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 <section id="a-clinical-application-of-the-the-poisson-distribution" class="level4 page-columns page-full" data-number="9.1.9.1">
-<h4 data-number="9.1.9.1" class="anchored" data-anchor-id="a-clinical-application-of-the-the-poisson-distribution"><span class="header-section-number">9.1.9.1</span> A clinical application of the the Poisson distribution</h4>
+<h4 data-number="9.1.9.1" data-anchor-id="a-clinical-application-of-the-the-poisson-distribution"><span class="header-section-number">9.1.9.1</span> A clinical application of the the Poisson distribution</h4>
 <p>Suppose that you begin treating an adult male client who has panic attacks that come at unpredictable times. Some weeks there are no panic attacks and some weeks there are many, but on average he has 2 panic attacks each week. The client knows this because he has kept detailed records in a spreadsheet for the last 5 years. The client had sought treatment once before, but terminated early and abruptly because, according to him, “It wasn’t working.” After sensitive querying, you discover that he expected that treatment should have quickly reduced the frequency of panic attacks to zero. When that did not happen, he became discouraged and stopped the treatment.</p>
 <p>Because your client is well educated and quantitatively inclined, you decide to to use the data he has collected as part of the intervention and also to help set a more realistic set of expectations. Obviously, you and your client both would prefer 0 panic attacks per week, but sometimes it takes more time to get to the final goal. We do not want to terminate treatment that is working just because the final goal has not yet been achieved.</p>
 <p>You plot the frequency of how often he had 0 panic attacks in a week, 1 panic attack in a week, 2 panic attacks in a week, and so forth, as shown in red in <a href="#fig-PanicFrequency" class="quarto-xref">Figure&nbsp;<span>9.18</span></a>. Because you have read this book, you immediately recognize that this is a Poisson distribution with <span class="math inline">\lambda</span> = 2. When you graph an actual Poison distribution and compare it with your client’s data, you see that it is almost a perfect match.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> Then you explain that although the goal is permanent cessation of the panic attacks, sometimes an intervention can be considered successful if the frequency of panic attacks is merely reduced. For example, suppose that in the early stages of treatment the frequency of panic attacks were reduced from twice per week to once every other week (<span class="math inline">\lambda</span> = 0.5), on average. If such a reduction were achieved, there would still be weeks in which two or more panic attacks occur. According to <a href="#fig-PanicCumulativeFrequency" class="quarto-xref">Figure&nbsp;<span>9.21</span></a>, this will occur about 9% of the time.</p>
@@ -2565,7 +2579,7 @@ Figure&nbsp;9.17: The shape of the Poisson Distribution depends on the interval 
 can be found in ggh4x::geom_pointpath.</code></pre>
 </div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-PanicFrequency" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-PanicFrequency" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-PanicFrequency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-PanicFrequency-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2590,7 +2604,7 @@ Figure&nbsp;9.18: The variability of a hypothetical client’s panic attack freq
 </div>
 <div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb21" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The variability of a hypothetical </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The variability of a hypothetical </span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># client's panic attack frequency</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>d_label <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>),</span>
@@ -2625,7 +2639,7 @@ Figure&nbsp;9.18: The variability of a hypothetical client’s panic attack freq
 <span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
 <span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> . <span class="sc">%&gt;%</span> <span class="fu">prob_label</span>(., <span class="fl">0.1</span>)) <span class="sc">+</span></span>
 <span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>, <span class="at">base_family =</span> bfont) <span class="sc">+</span></span>
-<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -2633,12 +2647,12 @@ Figure&nbsp;9.18: The variability of a hypothetical client’s panic attack freq
 <p>In R, you can use the <code>dpois</code> function to plot the Poisson probability mass function. For example, if the average number of events per time period is λ = 2, then the probability that there will be 0 events is <code>dpois(x = 0, lambda = 2)</code>, which evaluates to 0.1353.</p>
 <p>To calculate the cumulative distribution function of Poisson distribution in R, use the <code>ppois</code> function. For example, if we want to estimate the probability of having 4 panic attacks or more in a week if λ = 2, we must subtract the probability of having 3 panic attacks or less from 1, like so:</p>
 <div class="cell fig-cap-location-margin tbl-cap-location-margin" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">ppois</span>(<span class="at">q =</span> <span class="dv">3</span>, <span class="at">lambda =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">ppois</span>(<span class="at">q =</span> <span class="dv">3</span>, <span class="at">lambda =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><span class="math inline">p = 0.143</span></p>
 <p>Here is a simple way to plot the probability mass function and the cumulative distribution function using the <code>dpois</code> and <code>ppois</code> functions:</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a sequence of integers from 0 to 7</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a sequence of integers from 0 to 7</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>PanicAttacks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">7</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the probability mass function with lambda = 2</span></span>
@@ -2646,9 +2660,9 @@ Figure&nbsp;9.18: The variability of a hypothetical client’s panic attack freq
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic plot of the Poisson </span></span>
 <span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="co"># distribution's probability mass function</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Probability <span class="sc">~</span> PanicAttacks, <span class="at">type =</span> <span class="st">"b"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Probability <span class="sc">~</span> PanicAttacks, <span class="at">type =</span> <span class="st">"b"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-Panicpmf" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-Panicpmf" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-Panicpmf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-Panicpmf-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2661,15 +2675,15 @@ Figure&nbsp;9.19: Poisson Probability Mass Function <span class="math inline">(\
 </div>
 </div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the cumulative </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the cumulative </span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># distribution function with lambda = 2</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>CumulativeProbability <span class="ot">&lt;-</span> <span class="fu">ppois</span>(PanicAttacks, <span class="dv">2</span>)</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic plot of the Poisson distribution's </span></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># cumulative distribution function</span></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(CumulativeProbability <span class="sc">~</span> PanicAttacks, <span class="at">type =</span> <span class="st">"b"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(CumulativeProbability <span class="sc">~</span> PanicAttacks, <span class="at">type =</span> <span class="st">"b"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-PanicCDF" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-PanicCDF" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-PanicCDF-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-PanicCDF-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2689,7 +2703,7 @@ Figure&nbsp;9.20: Poisson Cumulative Distribution Function <span class="math inl
 can be found in ggh4x::geom_pointpath.</code></pre>
 </div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-PanicCumulativeFrequency" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-PanicCumulativeFrequency" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-PanicCumulativeFrequency-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-PanicCumulativeFrequency-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2714,7 +2728,7 @@ Figure&nbsp;9.21: The cumulative distribution function of a hypothetical client�
 </div>
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb26" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The cumulative distribution function </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The cumulative distribution function </span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># of a hypothetical client's</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># panic attack frequency before </span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># and after treatment</span></span>
@@ -2753,7 +2767,7 @@ Figure&nbsp;9.21: The cumulative distribution function of a hypothetical client�
 <span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">7</span>,</span>
 <span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a>                     <span class="at">minor_breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
 <span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">20</span>, <span class="at">base_family =</span> bfont) <span class="sc">+</span></span>
-<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -2761,9 +2775,9 @@ Figure&nbsp;9.21: The cumulative distribution function of a hypothetical client�
 </section>
 </section>
 <section id="geometric-distributions" class="level3 page-columns page-full" data-number="9.1.10">
-<h3 data-number="9.1.10" class="anchored" data-anchor-id="geometric-distributions"><span class="header-section-number">9.1.10</span> Geometric Distributions</h3>
+<h3 data-number="9.1.10" data-anchor-id="geometric-distributions"><span class="header-section-number">9.1.10</span> Geometric Distributions</h3>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-colwidths="[50,50]" data-tbl-cap-location="margin">
-<div id="tbl-GeometricFeatures" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin" data-tbl-colwidths="[50,50]">
+<div id="tbl-GeometricFeatures" class="cell quarto-float quarto-figure quarto-figure-center page-columns page-full" data-tbl-colwidths="[50,50]" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-GeometricFeatures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -2821,13 +2835,13 @@ Table&nbsp;9.5: Features of Geometric Distributions
 </figure>
 </div>
 </div>
-<p>Atul Gawande <span class="citation" data-cites="gawandeBetterSurgeonNotes2007">(<a href="references.html#ref-gawandeBetterSurgeonNotes2007" role="doc-biblioref">2007, pp. 219–223</a>)</span> tells a marvelous anecdote about how a doctor used some statistics to help a young patient with cystic fibrosis to return to taking her medication more regularly. Because the story is full of pathos and masterfully told, I will not repeat a clumsy version of it here. However, unlike Gawande, I <em>will</em> show how the doctor’s statistics were calculated.</p>
-<div class="no-row-height column-margin column-container"><div id="ref-gawandeBetterSurgeonNotes2007" class="csl-entry" role="listitem">
+<p>Atul Gawande <span class="citation" data-cites="gawandeBetterSurgeonsNotes2007">(<a href="references.html#ref-gawandeBetterSurgeonsNotes2007" role="doc-biblioref">2007, pp. 219–223</a>)</span> tells a marvelous anecdote about how a doctor used some statistics to help a young patient with cystic fibrosis to return to taking her medication more regularly. Because the story is full of pathos and masterfully told, I will not repeat a clumsy version of it here. However, unlike Gawande, I <em>will</em> show how the doctor’s statistics were calculated.</p>
+<div class="no-row-height column-margin column-container"><div id="ref-gawandeBetterSurgeonsNotes2007" class="csl-entry" role="listitem">
 Gawande, A. (2007). <em>Better: <span>A</span> surgeon’s notes on performance</em>. Metropolitan Books.
 </div></div><p>According to the story, if a patient fails to take medication, the probability that a person with cystic fibrosis will develop a bad lung illness on any particular day is .005. If medication is taken, the risk is .0005. Although these probabilities are both close to zero, over the the course of a year, they result in very different levels of risk. Off medication, the patient has about an 84% chance of getting sick within a year’s time. On medication, the patient’s risk falls to 17%. As seen in <a href="#fig-WithMedicationCDF" class="quarto-xref">Figure&nbsp;<span>9.22</span></a>, the cumulative risk over the course of 10 years is quite different. Without medication, the probability of becoming seriously ill within 10 years at least once is almost certain. With medication, however, a small but substantial percentage (~16%) of patients will go at least 10 years without becoming ill.&nbsp;</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
 <div class="cell-output-display page-columns page-full">
-<div id="fig-WithMedicationCDF" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-WithMedicationCDF" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-WithMedicationCDF-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-WithMedicationCDF-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2852,7 +2866,7 @@ Figure&nbsp;9.22: The cumulative risk of serious lung disease with and without m
 </div>
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode cell-code" id="cb27" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The cumulative risk of serious lung </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The cumulative risk of serious lung </span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># disease with and without medication</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>total_years <span class="ot">&lt;-</span> <span class="dv">10</span></span>
@@ -2888,7 +2902,7 @@ Figure&nbsp;9.22: The cumulative risk of serious lung disease with and without m
 <span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>           <span class="at">label.size =</span> <span class="dv">0</span>,</span>
 <span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>           <span class="at">family =</span> bfont,</span>
 <span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="fl">5.2</span></span>
-<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>           )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a>           )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -2898,11 +2912,11 @@ Figure&nbsp;9.22: The cumulative risk of serious lung disease with and without m
 f_X(x;p)=(1-p)^{x-1}p^x
 </span></p>
 <div class="cell page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
-<div id="tbl-geometric" class="cell quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
+<div id="tbl-geometric" class="cell quarto-float quarto-figure quarto-figure-center page-columns page-full" data-layout-align="center" data-tbl-cap-location="margin">
 <figure class="quarto-float quarto-float-tbl figure page-columns page-full">
 <div aria-describedby="tbl-geometric-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<table class="do-not-create-environment caption-top table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 9%">
 <col style="width: 90%">
@@ -2942,7 +2956,7 @@ Table&nbsp;9.6
 </div>
 <p>In R, the probability mass function of the geometric distribution is calculated with the <code>dgeom</code> function:</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a sequence of integers from 1 to 10</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a sequence of integers from 1 to 10</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">10</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the probability mass </span></span>
@@ -2951,9 +2965,9 @@ Table&nbsp;9.6
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic plot of the geometric </span></span>
 <span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co"># distribution's probability mass function</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Probability <span class="sc">~</span> x, <span class="at">type =</span> <span class="st">"b"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Probability <span class="sc">~</span> x, <span class="at">type =</span> <span class="st">"b"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-GeometricPMF" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-GeometricPMF" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-GeometricPMF-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-GeometricPMF-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -2971,15 +2985,15 @@ F_X(x;p)=1-(1-p)^x
 </span></p>
 <p>In R, the cumulative distribution function of the geometric distribution uses the <code>pgeom</code> function:</p>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb29" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the cumulative </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate the cumulative </span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># distribution function with p = 0.6</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>CumulativeProbability <span class="ot">&lt;-</span> <span class="fu">pgeom</span>(x, <span class="at">prob =</span> <span class="fl">0.6</span>)</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic plot of the geometric</span></span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># distribution's cumulative distribution function</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(CumulativeProbability <span class="sc">~</span> x, <span class="at">type =</span> <span class="st">"b"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(CumulativeProbability <span class="sc">~</span> x, <span class="at">type =</span> <span class="st">"b"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display page-columns page-full">
-<div id="fig-GeometricCDF" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-cap-location="margin" data-fig-align="center">
+<div id="fig-GeometricCDF" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-cap-location="margin" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-GeometricCDF-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="distributions_files/figure-html/fig-GeometricCDF-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -3001,13 +3015,6 @@ Figure&nbsp;9.24: Geometric Cumulative Distribution Function <span class="math i
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    const icon = "";
-    const anchorJS = new window.AnchorJS();
-    anchorJS.options = {
-      placement: 'right',
-      icon: icon
-    };
-    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -3050,13 +3057,14 @@ Figure&nbsp;9.24: Geometric Cumulative Distribution Function <span class="math i
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
