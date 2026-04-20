@@ -19,7 +19,7 @@ Most of this book can be read and understood without using R at all. However, ma
 
 For R to pay off, you have to buy in. Learning challenging material does not have to be "fun" at every moment to be worthwhile. The beginning data analyst, assailed by statistical concepts, coding conventions, and baffling error messages, *feels it all as one great blooming, buzzing confusion*.
 
-The challenge of learning R is indeed going to be challenging at times, but just there will also be many little *a-ha* moments, several larger check-out-what-I-can-do celebrations, and a few peak experiences of eudaemonic reverie.
+The challenge of learning R is indeed going to be challenging at times, but there will also be many little *a-ha* moments, several larger check-out-what-I-can-do celebrations, and a few peak experiences of eudaemonic reverie.
 
 ## What is R?
 

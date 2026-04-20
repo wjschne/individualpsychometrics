@@ -14,18 +14,20 @@ Humans are quite good at some things that are extraordinarily complex, such as p
 
 Most introductory psychometrics textbooks are designed to help researchers create well constructed tests and therefore cover many details that are not useful to clinicians and fail to cover many practical issues that clinicians should know about. This book is intended to help you extract useful information from the data you already have in ways that you may not have known were possible. 
 
-That my emphasis is on the practical in no way implies that this book is dumbed down. My aim is to make psychometrics *useful* to clinicians. If some useful ideas are complex, I hope to make them accessible---but without resorting to superficial glossing. Some background knowledge of psychometrics is necessary to understand how these tools work and, more importantly, when their underlying assumptions have been violated. 
-
-
-
-## Inspiration
-
 :::{#fig-philipleysolvents .column-margin .float-start}
 
 ![](images/Philip_Ley3.jpg){width="200px"}
 
 Philip Ley (1933--2015)<br>[Image Credit](https://www.sydney.edu.au/arms/archives/media/me_objects/7583)
 :::
+
+That my emphasis is on the practical in no way implies that this book is dumbed down. My aim is to make psychometrics *useful* to clinicians. If some useful ideas are complex, I hope to make them accessible---but without resorting to superficial glossing. Some background knowledge of psychometrics is necessary to understand how these tools work and, more importantly, when their underlying assumptions have been violated. 
+
+
+
+## Inspiration
+
+
 
 Whenever I go to a library, I find the book I need and then run my fingers over the books nearby that might also be interesting. Sometimes I see pretty much what I expect to find, but more often than not I go places I did know know were places to go. I like the idea of "wasting time" productively. I will read almost anything, even if it has no apparent value to me at the time, so long as it is the product of a disciplined mind trying to communicate clearly. From time to time, this pastime of casting a wide net pulled in some big surprises.
 
