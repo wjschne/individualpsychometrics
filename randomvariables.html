@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.11.1">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
 <title>8&nbsp; Random Variables, Sets and Sample Spaces – Individual Psychometrics</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -74,6 +83,7 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
+
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -86,14 +96,14 @@ div.csl-indent {
 <link href="./images/Logo.svg" rel="icon" type="image/svg+xml">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-1e109221fe8eae632e03f73489cfc8f3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-9c4ef5121a3ac951bde3e884ad1a5831.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5e68b1e8043f6d26ce0a931bf046b6b9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-d0c57aa409c3a6da46e2030fdcbf2c30.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -119,7 +129,8 @@ div.csl-indent {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><style>html{ scroll-behavior: smooth; }</style>
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", () => {
 // enable all tooltips with data-bs-toggle
@@ -131,7 +142,10 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 return new bootstrap.Tooltip(tooltipTriggerEl);
 });
 });
-</script><script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script><script>document.addEventListener("DOMContentLoaded", function () {
+</script>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
  for (var i = 0; i < mathElements.length; i++) {
@@ -144,7 +158,9 @@ return new bootstrap.Tooltip(tooltipTriggerEl);
     fleqn: false
    });
 }}});
-  </script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
 <script type="text/javascript">
 const typesetMath = (el) => {
   if (window.MathJax) {
@@ -170,13 +186,18 @@ const typesetMath = (el) => {
 window.Quarto = {
   typesetMath
 };
-</script><link rel="stylesheet" href="equity.css">
+</script>
+
+<link rel="stylesheet" href="equity.css">
 <link rel="stylesheet" href="individualpsychometrics.css">
 </head>
+
 <body class="nav-sidebar docked slimcontent quarto-light">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -187,11 +208,13 @@ window.Quarto = {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="./index.html" class="sidebar-logo-link">
-      </a>
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Individual Psychometrics</a> 
     </div>
@@ -203,7 +226,7 @@ window.Quarto = {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
@@ -217,8 +240,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span></a>
@@ -231,7 +254,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./matrix_algebra.html" class="sidebar-item-text sidebar-link">
@@ -240,8 +263,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./scalars.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Scalars</span></span></a>
@@ -266,7 +289,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
@@ -275,8 +298,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variable Scale Types</span></span></a>
@@ -307,7 +330,7 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
@@ -316,8 +339,8 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./reliability.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Reliability</span></span></a>
@@ -354,30 +377,32 @@ window.Quarto = {
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-    <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Page Contents</h2>
+    </div>
+    <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Page Contents</h2>
    
   <ul>
-<li>
-<a href="#sets" id="toc-sets" class="nav-link active" data-scroll-target="#sets"><span class="header-section-number">8.1</span> Sets</a>
+  <li><a href="#sets" id="toc-sets" class="nav-link active" data-scroll-target="#sets"><span class="header-section-number">8.1</span> Sets</a>
   <ul class="collapse">
-<li><a href="#discrete-sets" id="toc-discrete-sets" class="nav-link" data-scroll-target="#discrete-sets"><span class="header-section-number">8.1.1</span> Discrete Sets</a></li>
+  <li><a href="#discrete-sets" id="toc-discrete-sets" class="nav-link" data-scroll-target="#discrete-sets"><span class="header-section-number">8.1.1</span> Discrete Sets</a></li>
   <li><a href="#interval-sets" id="toc-interval-sets" class="nav-link" data-scroll-target="#interval-sets"><span class="header-section-number">8.1.2</span> Interval Sets</a></li>
-  </ul>
-</li>
+  </ul></li>
   <li><a href="#sec:SampleSpace" id="toc-sec:SampleSpace" class="nav-link" data-scroll-target="#sec\:SampleSpace"><span class="header-section-number">8.2</span> Sample Spaces</a></li>
-  </ul></nav>
-</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+  </ul>
+</nav>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./variables.html">Variables</a></li><li class="breadcrumb-item"><a href="./randomvariables.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distributions–Random Variables</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Random Variables, Sets and Sample Spaces</span>
-</h1>
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./variables.html">Variables</a></li><li class="breadcrumb-item"><a href="./randomvariables.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distributions–Random Variables</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Random Variables, Sets and Sample Spaces</span></h1>
 </div>
 
 
@@ -391,18 +416,23 @@ window.Quarto = {
   
 
 
-</header><p>Because we first learn about variables in an algebra class, we tend to think of variables as having values that can be solved for—if we have enough information about them. If I say that <span class="math inline">x</span> is a variable and that <span class="math inline">x+6=8</span>, we can use algebra to find that <span class="math inline">x</span> must equal 2.</p>
+</header>
+
+
+<p>Because we first learn about variables in an algebra class, we tend to think of variables as having values that can be solved for—if we have enough information about them. If I say that <span class="math inline">x</span> is a variable and that <span class="math inline">x+6=8</span>, we can use algebra to find that <span class="math inline">x</span> must equal 2.</p>
 <div class="page-columns page-full"><p><span class="defword" title="<strong>Random variables</strong> have values that are determined by a random process." data-bs-html="true" data-bs-toggle="tooltip">Random variables</span> are not like algebraic variables. Random variables simply take on values because of some random process. If we say that the outcome of a throw of a six-sided die is a random variable, there is nothing to “solve for.” There is no equation that determines the value of the die. Instead, it is determined by chance and the physical constraints of the die. That is, the outcome must be one of the numbers printed on the die, and the six numbers are equally likely to occur. This illustrates an important point. The word <em>random</em> here does not mean “anything can happen.” On a six-sided die, you will never roll a 7, 3.5, <span class="math inline">\sqrt{\pi}</span>, −36,000, or any other number that does not appear on the six sides of the die. Random variables have outcomes that are subject to random processes, but those random processes <em>do</em> have constraints on them such that some outcomes are more likely than others—and some outcomes never occur at all.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Random variables</strong> have values that are determined by a random process.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-randomvariable" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-randomvariable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-randomvariable" class="quarto-float quarto-figure quarto-figure-left" data-cap-location="margin" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-randomvariable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="randomvariables_files/figure-html/fig-randomvariable-1.gif" class="img-fluid quarto-figure quarto-figure-left figure-img" width="100">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-randomvariable-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.1: Rolling a six-sided die is a process that creates a randomly ordered series of integers from 1 to 6.
-</figcaption></figure>
+</figcaption>
+</figure>
 </div>
 </div></div></div>
 <p>When we say that the throw of a six-sided die is a random variable, we are not talking about any particular throw of a particular die but, in a sense, <em>every</em> throw (that has ever happened or ever could happen) of <em>every</em> die (that has ever existed or could exist). Imagine an immense, roaring, neverending, cascading flow of dice falling from the sky. As each die lands and disappears, a giant scoreboard nearby records the relative frequencies of ones, twos, threes, fours, fives, and sixes. That’s a random variable.</p>
@@ -419,51 +449,52 @@ Figure&nbsp;8.1: Rolling a six-sided die is a process that creates a randomly or
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Number of throws</span></span>
-<span><span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">50</span></span>
-<span></span>
-<span><span class="co"># Dot positions</span></span>
-<span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu">map2_df</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>,<span class="va">k</span>, replace <span class="op">=</span> <span class="cn">T</span><span class="op">)</span>, <span class="fl">1</span><span class="op">:</span><span class="va">k</span>, <span class="va">makedice</span><span class="op">)</span>  </span>
-<span></span>
-<span><span class="co"># Plot</span></span>
-<span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu">ggplot</span><span class="op">(</span><span class="va">d</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span>pch <span class="op">=</span> <span class="fl">16</span>, size <span class="op">=</span> <span class="fl">50</span>, <span class="fu">aes</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span><span class="op">)</span><span class="op">)</span>  <span class="op">+</span></span>
-<span>  <span class="fu">ob_ellipse</span><span class="op">(</span></span>
-<span>    a <span class="op">=</span> <span class="fl">1.85</span>,</span>
-<span>    b <span class="op">=</span> <span class="fl">1.85</span>,</span>
-<span>    m1 <span class="op">=</span> <span class="fl">12</span>,</span>
-<span>    linewidth <span class="op">=</span> <span class="fl">4</span></span>
-<span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">coord_equal</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme_void</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">transition_manual</span><span class="op">(</span><span class="va">id</span><span class="op">)</span> </span>
-<span></span>
-<span><span class="co"># Render animation</span></span>
-<span><span class="va">p_gif</span> <span class="op">&lt;-</span> <span class="fu">animate</span><span class="op">(</span></span>
-<span>  <span class="va">p</span>,</span>
-<span>  fps <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>  device <span class="op">=</span> <span class="st">"svg"</span>,</span>
-<span>  renderer <span class="op">=</span> <span class="fu">magick_renderer</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  width <span class="op">=</span> <span class="fl">8</span>,</span>
-<span>  height <span class="op">=</span> <span class="fl">8</span></span>
-<span><span class="op">)</span></span>
-<span><span class="va">p_gif</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of throws</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Dot positions</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">map2_df</span>(<span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,k, <span class="at">replace =</span> T), <span class="dv">1</span><span class="sc">:</span>k, makedice)  </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(d) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">pch =</span> <span class="dv">16</span>, <span class="at">size =</span> <span class="dv">50</span>, <span class="fu">aes</span>(x, y))  <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ob_ellipse</span>(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">a =</span> <span class="fl">1.85</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">b =</span> <span class="fl">1.85</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">m1 =</span> <span class="dv">12</span>,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">linewidth =</span> <span class="dv">4</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>() <span class="sc">+</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transition_manual</span>(id) </span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Render animation</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>p_gif <span class="ot">&lt;-</span> <span class="fu">animate</span>(</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  p,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">fps =</span> <span class="dv">1</span>,</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">device =</span> <span class="st">"svg"</span>,</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">renderer =</span> <span class="fu">magick_renderer</span>(),</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">8</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>p_gif</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
-<section id="sets" class="level2 page-columns page-full" data-number="8.1"><h2 data-number="8.1" data-anchor-id="sets">
-<span class="header-section-number">8.1</span> Sets</h2>
+<section id="sets" class="level2 page-columns page-full" data-number="8.1">
+<h2 data-number="8.1" data-anchor-id="sets"><span class="header-section-number">8.1</span> Sets</h2>
 <div class="page-columns page-full"><p>A <span class="defword" title="A <strong>set</strong> is a collection of distinct objects." data-bs-html="true" data-bs-toggle="tooltip">set</span> refers to a collection of objects. Each distinct object in a set is an <span class="defword" title="An <strong>element</strong> is a distinct member of a set." data-bs-html="true" data-bs-toggle="tooltip">element</span>.</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>set</strong> is a collection of distinct objects.</span><span class="defword">An <strong>element</strong> is a distinct member of a set.</span></div></div>
-<section id="discrete-sets" class="level3 page-columns page-full" data-number="8.1.1"><h3 data-number="8.1.1" data-anchor-id="discrete-sets">
-<span class="header-section-number">8.1.1</span> Discrete Sets</h3>
+<section id="discrete-sets" class="level3 page-columns page-full" data-number="8.1.1">
+<h3 data-number="8.1.1" data-anchor-id="discrete-sets"><span class="header-section-number">8.1.1</span> Discrete Sets</h3>
 <div class="page-columns page-full"><p>To show that a list of discrete elements is a <span class="defword" title="A <strong>discrete set</strong> has numbers that are isolated, meaning that each number has a range in which it is the only number in the overall set." data-bs-html="true" data-bs-toggle="tooltip">discrete set</span>, we can use curly braces. For example, the set of positive single-digit even numbers is <span class="math inline">\{2, 4, 6, 8\}</span>. With large sets with repeating patterns, it is convenient to use an ellipsis (“…”), the punctuation mark signifying an omission or pause. For example, rather than listing every two-digit positive even number, we can show the pattern like so:</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>discrete set</strong> has numbers that are isolated, meaning that each number has a range in which it is the only number in the overall set.</span></div></div>
 <p><span class="math display">\{10, 12, 14,\ldots, 98\}</span></p>
 <p>If we want the pattern to repeat forever, we can set an ellipsis on the left, right, or both sides. The set of odd integers extends to infinity in both directions:</p>
 <p><span class="math display">\{\ldots, -5, -3, -1, 1, 3, 5, \ldots\}</span></p>
-</section><section id="interval-sets" class="level3 page-columns page-full" data-number="8.1.2"><h3 data-number="8.1.2" data-anchor-id="interval-sets">
-<span class="header-section-number">8.1.2</span> Interval Sets</h3>
+</section>
+<section id="interval-sets" class="level3 page-columns page-full" data-number="8.1.2">
+<h3 data-number="8.1.2" data-anchor-id="interval-sets"><span class="header-section-number">8.1.2</span> Interval Sets</h3>
 <div class="page-columns page-full"><p>With continuous variables, we can define sets in terms of <span class="defword" title="<strong>Intervals</strong> are a continous range of numbers." data-bs-html="true" data-bs-toggle="tooltip">intervals</span>. Whereas the discrete set <span class="math inline">\{0,1\}</span> refers just to the numbers 0 and 1, the interval set <span class="math inline">(0,1)</span> refers to all the numbers between 0 and 1.</p><div class="no-row-height column-margin column-container"><span class="defword"><strong>Intervals</strong> are a continous range of numbers.</span></div></div>
 <div class="cell tbl-cap-location-margin page-columns page-full" data-layout-align="left">
 <div class="cell-output cell-output-stderr">
@@ -472,13 +503,15 @@ Figure&nbsp;8.1: Rolling a six-sided die is a process that creates a randomly or
 </div>
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
-<div id="fig-intervalnotation" class="quarto-float quarto-figure quarto-figure-left" data-fig-align="left" data-cap-location="margin">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-intervalnotation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-intervalnotation" class="quarto-float quarto-figure quarto-figure-left" data-cap-location="margin" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-intervalnotation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="randomvariables_files/figure-html/fig-intervalnotation-1.png" class="img-fluid quarto-figure quarto-figure-left figure-img" width="300">
 </div>
 <figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig" id="fig-intervalnotation-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;8.2: Interval Notation
-</figcaption></figure>
+</figcaption>
+</figure>
 </div>
 </div></div></div>
 <p>As shown in <a href="#fig-intervalnotation" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>, some intervals include their endpoints and others do not. Intervals noted with square brackets include their endpoints and intervals written with parentheses exclude them. Some intervals extend to positive or negative infinity: <span class="math inline">(-\infty,5]</span> and <span class="math inline">(-8,+\infty)</span>. Use a parenthesis with infinity instead of a square bracket because infinity is not a specific number that can be included in an interval.</p>
@@ -495,63 +528,68 @@ Figure&nbsp;8.2: Interval Notation
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-cap-location="margin"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Interval notation</span></span>
-<span><span class="fu">tibble</span><span class="op">(</span>lb <span class="op">=</span> <span class="fl">1L</span>,</span>
-<span>       ub <span class="op">=</span> <span class="fl">5L</span>,</span>
-<span>       y <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">4</span>,</span>
-<span>       meaning <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"includes 1 and 5"</span>,</span>
-<span>                   <span class="st">"excludes 1 and 5"</span>,</span>
-<span>                   <span class="st">"includes 1 but not 5"</span>,</span>
-<span>                   <span class="st">"includes 5 but not 1"</span><span class="op">)</span>,</span>
-<span>       l_bracket <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"["</span>, <span class="st">"("</span>, <span class="st">"["</span>, <span class="st">"("</span><span class="op">)</span>,</span>
-<span>       u_bracket <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"]"</span>, <span class="st">")"</span>, <span class="st">")"</span>, <span class="st">"]"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">mutate</span><span class="op">(</span>Interval <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">l_bracket</span>, <span class="va">lb</span>, <span class="st">","</span>, <span class="va">ub</span>, <span class="va">u_bracket</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>           <span class="fu">fct_inorder</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>           <span class="va">fct_rev</span>,</span>
-<span>         l_fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">l_bracket</span> <span class="op">==</span> <span class="st">"["</span>, <span class="va">myfills</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"white"</span><span class="op">)</span>,</span>
-<span>         u_fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">u_bracket</span> <span class="op">==</span> <span class="st">"]"</span>, <span class="va">myfills</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, <span class="st">"white"</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span> </span>
-<span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span><span class="va">lb</span>, <span class="va">Interval</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">geom_segment</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>xend <span class="op">=</span> <span class="va">ub</span>, yend <span class="op">=</span> <span class="va">Interval</span><span class="op">)</span>, </span>
-<span>               linewidth <span class="op">=</span> <span class="fl">2</span>, </span>
-<span>               color <span class="op">=</span> <span class="va">myfills</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">l_fill</span><span class="op">)</span>, </span>
-<span>             size <span class="op">=</span> <span class="fl">5</span>, </span>
-<span>             pch <span class="op">=</span> <span class="fl">21</span>, </span>
-<span>             stroke <span class="op">=</span> <span class="fl">2</span>, color <span class="op">=</span> <span class="va">myfills</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">geom_point</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>fill <span class="op">=</span> <span class="va">u_fill</span>, x <span class="op">=</span> <span class="va">ub</span><span class="op">)</span>, </span>
-<span>             size <span class="op">=</span> <span class="fl">5</span>, </span>
-<span>             pch <span class="op">=</span> <span class="fl">21</span>, </span>
-<span>             stroke <span class="op">=</span> <span class="fl">2</span>, </span>
-<span>             color <span class="op">=</span> <span class="va">myfills</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">geom_label</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">Interval</span>, <span class="va">meaning</span><span class="op">)</span>, x <span class="op">=</span> <span class="fl">3</span><span class="op">)</span>, </span>
-<span>             vjust <span class="op">=</span> <span class="op">-</span><span class="fl">.75</span>, </span>
-<span>             label.padding <span class="op">=</span> <span class="fu">unit</span><span class="op">(</span><span class="fl">0</span>,<span class="st">"lines"</span><span class="op">)</span>, </span>
-<span>             label.size <span class="op">=</span> <span class="fl">0</span>, </span>
-<span>             family <span class="op">=</span> <span class="va">bfont</span>, </span>
-<span>             size <span class="op">=</span> <span class="fu">ggtext_size</span><span class="op">(</span><span class="fl">27</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_fill_identity</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_y_discrete</span><span class="op">(</span><span class="cn">NULL</span>, expand <span class="op">=</span> <span class="fu">expansion</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.08</span>, <span class="fl">0.25</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">scale_x_continuous</span><span class="op">(</span><span class="cn">NULL</span>, minor_breaks <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu">theme_minimal</span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">27</span>, </span>
-<span>                base_family <span class="op">=</span> <span class="va">bfont</span><span class="op">)</span> <span class="op">+</span> </span>
-<span>  <span class="fu">theme</span><span class="op">(</span>axis.text.y <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>, </span>
-<span>        panel.grid.major <span class="op">=</span> <span class="fu">element_blank</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>        axis.line.x <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span>,</span>
-<span>        axis.ticks.x <span class="op">=</span> <span class="fu">element_line</span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">.25</span><span class="op">)</span>, </span>
-<span>        plot.margin <span class="op">=</span> <span class="fu">margin</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3" data-cap-location="margin"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Interval notation</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">lb =</span> <span class="dv">1</span>L,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">ub =</span> <span class="dv">5</span>L,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">meaning =</span> <span class="fu">c</span>(<span class="st">"includes 1 and 5"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"excludes 1 and 5"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"includes 1 but not 5"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"includes 5 but not 1"</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">l_bracket =</span> <span class="fu">c</span>(<span class="st">"["</span>, <span class="st">"("</span>, <span class="st">"["</span>, <span class="st">"("</span>),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">u_bracket =</span> <span class="fu">c</span>(<span class="st">"]"</span>, <span class="st">")"</span>, <span class="st">")"</span>, <span class="st">"]"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Interval =</span> <span class="fu">paste0</span>(l_bracket, lb, <span class="st">","</span>, ub, u_bracket) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>           <span class="fu">fct_inorder</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>           fct_rev,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>         <span class="at">l_fill =</span> <span class="fu">ifelse</span>(l_bracket <span class="sc">==</span> <span class="st">"["</span>, myfills[<span class="dv">1</span>], <span class="st">"white"</span>),</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">u_fill =</span> <span class="fu">ifelse</span>(u_bracket <span class="sc">==</span> <span class="st">"]"</span>, myfills[<span class="dv">1</span>], <span class="st">"white"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(lb, Interval)) <span class="sc">+</span> </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">xend =</span> ub, <span class="at">yend =</span> Interval), </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>               <span class="at">linewidth =</span> <span class="dv">2</span>, </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">fill =</span> l_fill), </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">5</span>, </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>             <span class="at">pch =</span> <span class="dv">21</span>, </span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>             <span class="at">stroke =</span> <span class="dv">2</span>, <span class="at">color =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span> </span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">fill =</span> u_fill, <span class="at">x =</span> ub), </span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="dv">5</span>, </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>             <span class="at">pch =</span> <span class="dv">21</span>, </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>             <span class="at">stroke =</span> <span class="dv">2</span>, </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> myfills[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">paste</span>(Interval, meaning), <span class="at">x =</span> <span class="dv">3</span>), </span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>             <span class="at">vjust =</span> <span class="sc">-</span>.<span class="dv">75</span>, </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>             <span class="at">label.padding =</span> <span class="fu">unit</span>(<span class="dv">0</span>,<span class="st">"lines"</span>), </span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>             <span class="at">label.size =</span> <span class="dv">0</span>, </span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> bfont, </span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="fu">ggtext_size</span>(<span class="dv">27</span>)) <span class="sc">+</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_identity</span>() <span class="sc">+</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_discrete</span>(<span class="cn">NULL</span>, <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fu">c</span>(<span class="fl">0.08</span>, <span class="fl">0.25</span>))) <span class="sc">+</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="cn">NULL</span>, <span class="at">minor_breaks =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">27</span>, </span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>                <span class="at">base_family =</span> bfont) <span class="sc">+</span> </span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> .<span class="dv">5</span>),</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_line</span>(<span class="at">linewidth =</span> .<span class="dv">25</span>), </span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
-</section></section><section id="sec:SampleSpace" class="level2 page-columns page-full" data-number="8.2"><h2 data-number="8.2" data-anchor-id="sec:SampleSpace">
-<span class="header-section-number">8.2</span> Sample Spaces</h2>
+</section>
+</section>
+<section id="sec:SampleSpace" class="level2 page-columns page-full" data-number="8.2">
+<h2 data-number="8.2" data-anchor-id="sec:SampleSpace"><span class="header-section-number">8.2</span> Sample Spaces</h2>
 <div class="page-columns page-full"><p>The set of all possible outcomes of a random variable is the <span class="defword" title="A <strong>sample space</strong> is the set of all possible values that a random variable can assume." data-bs-html="true" data-bs-toggle="tooltip">sample space</span>. Continuing with our example, the sample space of a single throw of a six-sided die is the set <span class="math inline">\{1,2,3,4,5,6\}</span>. <em>Sample space</em> is a curious term. Why <em>sample</em> and why <em>space</em>? With random variables, <span class="defword" title="A <strong>population</strong> consists of all entities under consideration." data-bs-html="true" data-bs-toggle="tooltip">populations</span> are infinitely large, at least theoretically. Random variables just keep spitting out numbers forever! So any time we actually observe numbers generated by a random variable, we are always observing a <span class="defword" title="A <strong>sample</strong> is a subset of a population." data-bs-html="true" data-bs-toggle="tooltip">sample</span>; actual infinities cannot be observed in their entirety. A <em>space</em> is a set that has mathematical structure. Most random variables generate either integers or real numbers, both of which are structured in many ways (e.g., order).</p><div class="no-row-height column-margin column-container"><span class="defword">A <strong>sample space</strong> is the set of all possible values that a random variable can assume.</span><span class="defword">A <strong>population</strong> consists of all entities under consideration.</span><span class="defword">A <strong>sample</strong> is a subset of a population.</span></div></div>
 <p>Unlike distributions having to do with dice, many distributions have a sample space with an infinite number of elements. Interestingly, there are two kinds of infinity we can consider. A distribution’s sample space might be the set of whole numbers: <span class="math inline">\{0,1,2,...\}</span>, which extends to positive infinity. The sample space of all integers extends to infinity in both directions: <span class="math inline">\{...-2,-1,0,1,2,...\}</span>.</p>
 <p>The sample space of continuous variables is infinitely large for another reason. Between any two points in a continuous distribution, there is an infinite number of other points. For example, in the beta distribution, the sample space consists of all real numbers between 0 and 1: <span class="math inline">(0,1)</span>. Many continuous distributions have sample spaces that involve both kinds of infinity. For example, the sample space of the <a href="#sec-normal">normal distribution</a> consists of all real numbers from negative infinity to positive infinity: <span class="math inline">(-\infty, +\infty)</span>.</p>
 
 
 
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
@@ -943,7 +981,9 @@ Figure&nbsp;8.2: Interval Notation
       }
     }
   });
-  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
       <a href="./variables.html" class="pagination-link" aria-label="Variable Scale Types">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variable Scale Types</span></span>
       </a>          
@@ -955,6 +995,7 @@ Figure&nbsp;8.2: Interval Notation
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
