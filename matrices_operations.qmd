@@ -71,7 +71,8 @@ $$
 
 The R code for matrix addition and subtraction works exactly like scalar addition and subtraction.
 
-```{r demo-AddingSubtracting}
+```{r}
+#| label: demo-AddingSubtracting
 A <- matrix(1:6,nrow = 2)
 A
 B <- matrix(seq(10,60,10),nrow = 2)
@@ -103,7 +104,8 @@ $$
 
 To perform scalar-matrix multiplication in R, define a scalar, create a matrix, and then multiply them with the `*` operator.
 
-```{r demo-ScalarMatrix}
+```{r}
+#| label: demo-ScalarMatrix
 k <- 10
 A <- matrix(1:6,nrow = 2)
 A
@@ -131,7 +133,8 @@ k <- _
 A <- _
 ```
 
-```{r solution-scalarmatrix}
+```{r}
+#| label: solution-scalarmatrix
 k <- 5
 A <- matrix(c(1,3,0,5), nrow = 2)
 k * A
@@ -162,7 +165,8 @@ $$
 
 @fig-mm gives a visual example of matrix multiplication. Every row vector of **A** is multiplied by every column vector of **B**.
 
-```{r make-mm}
+```{r}
+#| label: make-mm
 #| fig-width: 6
 #| fig-height: 7
 #| fig-cap: In the matrix multiplication of A times B, every row of A is multiplied by every column of B.
@@ -334,7 +338,8 @@ fnr <- file.remove(fn)
 
 ![In the matrix multiplication of **A** times **B**, every row of **A** is multiplied by every column of **B**.](images/matrix_multiplication.gif){#fig-mm fig-cap-location="margin"}
 
-```{r coder-fig-mm}
+```{r}
+#| label: coder-fig-mm
 <<make-mm>>
 ```
 
@@ -399,7 +404,8 @@ $$
 
 The `%*%` operator multiplies matrices (and the inner products of vectors).
 
-```{r demo-MMinR}
+```{r}
+#| label: demo-MMinR
 A <- matrix(1:6,nrow = 2,byrow = TRUE)
 A
 B <- matrix(seq(10,60,10),nrow = 3)
@@ -430,13 +436,17 @@ $$
 
 In R, elementwise multiplication is quite easy.
 
-```{r demo-ElementwiseMultiplication,eval=FALSE}
+```{r}
+#| label: demo-ElementwiseMultiplication
+#| eval: false
 C <- A * B
 ```
 
 Elementwise division works the same way.
 
-```{r ElementwiseDivision,eval=FALSE}
+```{r}
+#| label: ElementwiseDivision
+#| eval: false
 C <- A / B
 ```
 
@@ -444,7 +454,8 @@ C <- A / B
 
 Suppose we have these three matrices:
 
-```{r matrixmultyoutry}
+```{r}
+#| label: matrixmultyoutry
 A <- matrix(c(
   15,9,6,19, 
 	20,11,20,18, 
@@ -499,7 +510,8 @@ C <- matrix(c(
 _ + _
 ```
 
-```{r solution-matrixaddAB}
+```{r}
+#| label: solution-matrixaddAB
 A + B
 ```
 
@@ -522,7 +534,8 @@ A - B
 A _ B
 ```
 
-```{r solution-matrixhadamardAB}
+```{r}
+#| label: solution-matrixhadamardAB
 A * B
 ```
 
@@ -533,7 +546,8 @@ A * B
 A _ C
 ```
 
-```{r solution-matrixmultAB}
+```{r}
+#| label: solution-matrixmultAB
 A %*% C
 ```
 
@@ -607,7 +621,8 @@ If $\mathbf{A}$ has $m$ rows and $n$ columns, in $\mathbf{AI}$, it is assumed th
 
 To create an identity matrix, use the `diag` function with a single integer as its argument. For example `diag(6)` produces a 6 by 6 identity matrix.
 
-```{r demo-identity6}
+```{r}
+#| label: demo-identity6
 diag(6)
 ```
 
@@ -656,7 +671,7 @@ There is no matrix we can multiply it by to produce the identity matrix. In the 
 
 The covariance matrix of [collinear]{.defword title="**Collinear** means that at least one of the variables can be perfectly predicted from the other variables."} variables is singular. In multiple regression, we use the inverse of the covariance matrix of the predictor variables to calculate the regression matrix. If the predictor variables are collinear, the regression coefficients cannot be calculated. For example, if $Z=X+Y$, we cannot use $X$, $Y$, and $Z$ together as predictors in a multiple regression equation. $Z$ is perfectly predicted from $X$ and $Y$. In the calculation of the regression coefficients, division by 0 will be attempted, and the calculation can proceed no further. 
 
-It used to bother me that that collinear variables could not be used together as predictors. However, thinking a little further, revealed why it is impossible. The definition of a regression coefficient is the independent effect of a variable after holding the other predictors constant. If a variable is perfectly predicted by the other variables, that variable cannot have an independent effect. Controlling for the other predictor, the variable no longer varies. It becomes a constant. Constants have no effect.
+It used to bother me that that collinear variables could not be used together as predictors. However, thinking a little further revealed why it is impossible. The definition of a regression coefficient is the independent effect of a variable after holding the other predictors constant. If a variable is perfectly predicted by the other variables, that variable cannot have an independent effect. Controlling for the other predictor, the variable no longer varies. It becomes a constant. Constants have no effect.
 
 While regression with perfectly collinear predictors is impossible, regression with almost perfectly collinear predictors can produce strange and unstable results. For example, if we round $Z$, the rounding error makes $Z$ nearly collinear with $X$ and $Y$ but not quite perfectly collinear with them. In this case, the regression will run but might give misleading results that might differ dramatically depending on how finely rounded $Z$ is.
 
@@ -714,7 +729,8 @@ In R, problems of this sort are solved like so:
 
 `X -> solve(A,B)`
 
-```{r demo-solveAB}
+```{r}
+#| label: demo-solveAB
 A <- matrix(c(2, -9, -2,
              -2,  5,  3,
               2,  4, -3),
@@ -739,7 +755,8 @@ $$
 Thus, `solve(A)` is $\mathbf{A}^{-1}$
 
 
-```{r demo-inverseA}
+```{r}
+#| label: demo-inverseA
 A <- matrix(c(1,0.5,0.5,1),nrow = 2)
 A
 A_inverse <- solve(A)
@@ -749,7 +766,8 @@ A %*% A_inverse
 
 :::{.callout-note title="You Try"}
 
-```{r youtryAB}
+```{r}
+#| label: youtryAB
 A <- matrix(c(
   17,14,1,19, 
 	11,2,12,14, 
@@ -782,7 +800,8 @@ $$
 
 ```
 
-```{r solution-identity33}
+```{r}
+#| label: solution-identity33
 diag(3)
 ```
 
@@ -793,7 +812,8 @@ diag(3)
 
 ```
 
-```{r solution-inverseBC}
+```{r}
+#| label: solution-inverseBC
 solve(A %*% B)
 ```
 
@@ -805,7 +825,8 @@ solve(A %*% B)
 
 ```
 
-```{r solution-identityBC}
+```{r}
+#| label: solution-identityBC
 (A %*% B) %*% solve(A %*% B)
 ```
 
@@ -817,7 +838,8 @@ solve(A %*% B)
 
 ```
 
-```{r solution-inverseCtranspose}
+```{r}
+#| label: solution-inverseCtranspose
 solve(t(C) %*% C)
 ```
 
@@ -917,7 +939,8 @@ $$
 
 To create a $\mathbf{1}$ vector that is compatible with the matrix it post-multiplies, use the `ncol` function inside the `rep` function:
 
-```{r demo-rowsums}
+```{r}
+#| label: demo-rowsums
 A <- matrix(1:20,nrow = 4)
 Ones <- matrix(1, nrow = ncol(A)) 
 A %*% Ones
@@ -925,7 +948,8 @@ A %*% Ones
 
 Use the `nrow` function to make a $\mathbf{1}$ vector that is compatible with the matrix it pre-multiplies:
 
-```{r demo-columnsums}
+```{r}
+#| label: demo-columnsums
 Ones <- matrix(1, nrow = nrow(A))
 t(Ones) %*% A
 ```
@@ -935,19 +959,22 @@ Of course, creating $\mathbf{1}$ vectors like this can be tedious. Base R has co
 
 `rowSums(A)` will add the rows of $\mathbf{A}$:
 
-```{r demo-rowsumsbase}
+```{r}
+#| label: demo-rowsumsbase
 rowSums(A)
 ```
 
 `colSums(A)` with give the column totals of $\mathbf{A}$:
 
-```{r demo-colsumsbase}
+```{r}
+#| label: demo-colsumsbase
 colSums(A)
 ```
 
 `sum(A)` will give the overall total of $\mathbf{A}$:
 
-```{r demo-sumsbase}
+```{r}
+#| label: demo-sumsbase
 sum(A)
 ```
 
@@ -1041,7 +1068,8 @@ middle_axes(limits = c(0,5.1)) +
 
 ```
 
-```{r coder-fig-determinant}
+```{r}
+#| label: coder-fig-determinant
 <<fig-determinant>>
 ```
 
@@ -1057,7 +1085,9 @@ Note that this method of calculating the determinant is *recursive*, meaning tha
 
 For the purpose of illustration only, here is a recursive function for calculating a determinant. 
 
-```{r demo-determinant}
+```{r}
+#| label: demo-determinant
+
 my_determinant <- function(A) {
   # If A is a 1 by 1 matrix, return A
   if (nrow(A) == 1 && ncol(A) == 1) {
@@ -1083,7 +1113,8 @@ my_determinant(A)
 Compared to `det`, the actual R function to calculate the determinant of a matrix, my recursive function is very slow. The `det` function hands that task over to a much faster algorithm that runs in the `C` programming language, which is generally faster than R. For a small matrix like **A**, the speed difference hardly matters. For repeated calculations with large matrices (e.g., in 3D graphics), it makes a huge difference.
 
 
-```{r demo-det}
+```{r}
+#| label: demo-det
 det(A)
 ```
 
@@ -1104,7 +1135,7 @@ $$
 \mathbf{A}\vec{v}=\lambda\vec{v}
 $$
 
-Every eigenvector that exists for matrix $\mathbf{A}$, is accompanied by an infinite number of parallel vectors of varying lengths that are also eigenvectors. Thus, we focus on the unit eigenvectors and their accompanying eigenvalues.
+Every eigenvector that exists for matrix $\mathbf{A}$ is accompanied by an infinite number of parallel vectors of varying lengths that are also eigenvectors. Thus, we focus on the unit eigenvectors and their accompanying eigenvalues.
 
 Eigenvectors and eigenvalues are extremely important concepts in a wide variety of applications in many disciplines, including psychometrics. Via principal components analysis, eigenvectors can help us summarize a large number of variables with a much smaller set of variables.
 
@@ -1112,7 +1143,8 @@ Eigenvectors and eigenvalues are extremely important concepts in a wide variety 
 
 Suppose that matrix $\mathbf{A}$ is a correlation matrix:
 
-```{r correlationA}
+```{r}
+#| label: correlationA
 A <- matrix(c(1.0, 0.8, 0.5,
               0.8, 1.0, 0.4,
               0.5, 0.4, 1.0),
@@ -1123,10 +1155,11 @@ $$
 \mathbf{A}=`r bmatrix(A)`
 $$
 
-Because $\mathbf{A}$ is a 3 &times; 3 matrix, there are three [orthogonal]{.defword title="The word, **orthogonal** derives from the Greek word for *right-angled*. Orthogonal vectors are mutually perpendicular."} unit vectors that are eigenvectors, $\vec{v}_1$, $\vec{v}_2$, and $\vec{v}_3$. We will collect the three eigenvectors as columns of matrix $\mathbf{V}$:
+Because $\mathbf{A}$ is a 3 &times; 3 matrix, there are three [orthogonal]{.defword title="The word, **orthogonal** derives from the Greek word for *right-angled*. Orthogonal vectors are mutually perpendicular."} unit vectors that are eigenvectors, $\vec{v}_1$, $\vec{v}_2$, and $\vec{v}_3 .$ We will collect the three eigenvectors as columns of matrix $\mathbf{V}$:
 
 
-```{r eigenA}
+```{r}
+#| label: eigenA
 eig <- eigen(A)
 evectors <- eig$vectors %>% prob_label()
 evectors[1,] <- paste0("\\overset{\\vec{v}_", 1:3, "}{",evectors[1,],"}")
@@ -1154,11 +1187,12 @@ $$
 \end{aligned}
 $$
 
-Suppose we generate multivariate normal data with population correlations equal to matrix $\mathbf{A}$. Plotted in three dimensions, the data would have the shape of an ellipsoid. As seen in @fig-eigenplot, the eigenvectors of $\mathbf{A}$, scaled by the square roots of the eigenvalues align with and are proportional to the principal axes of the ellipsoid that contains 95% of the data.
+Suppose we generate multivariate normal data with population correlations equal to matrix $\mathbf{A}$. Plotted in three dimensions, the data would have the shape of an ellipsoid. As seen in @fig-eigenplot, the eigenvectors of $\mathbf{A}$, scaled by the square roots of the eigenvalues (and the appropriate *z*-score) align with and are proportional to the principal axes of the ellipsoid that contains 95% of the data.
 
 :::{#fig-eigenplot fig-cap="The eigenvectors align with the principal axes of the ellipsoid that contains 95% of the data. The principal axes are proportional to the squart roots of the eigenvalues. (Use your mouse to rotate the figure.)" fig-cap-location="margin"}
 
-```{r eigen3d}
+```{r}
+#| label: eigen3d
 <<correlationA>>
 <<eigenA>>
 library(rgl)
@@ -1239,7 +1273,8 @@ rho <- matrix(c(1,0.7,0.7,1),2)
 
 
 
-```{r solution-eigenrho}
+```{r}
+#| label: solution-eigenrho
 rho <- matrix(c(1,0.7,0.7,1),2)
 eigenrho <- eigen(rho)
 eigenrho
@@ -1257,7 +1292,8 @@ The eigenvalues sum to the 2 (then number of variables being summarized) and are
 
 Eigenvectors have a magnitude of 1, but if they are scaled by the square root of the eigenvalues (and by the appropriate *z*-score), they become the principal axes of the ellipse that contains the 95% of the data (See @fig-eigenellipse). Why the square root of the eigenvalues? Because eigenvalues are variances of the (unstandardized) principal components. The square root of eigenvalues are principal components' standard deviations.
 
-```{r fig-eigenellipse}
+```{r}
+#| label: fig-eigenellipse
 #| fig-cap: "The eigenvectors of rho scaled by the square roots of the eigenvectors are proportional to the principal axes of the ellipse that contains 95% of the data."
 #| fig-height: 8
 
@@ -1325,6 +1361,7 @@ tibble(t = z,
 ```
 
 
-```{r coder-fig-eigenellipse}
+```{r}
+#| label: coder-fig-eigenellipse
 <<fig-eigenellipse>>
 ```

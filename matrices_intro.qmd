@@ -494,7 +494,7 @@ $$
 
 ### Transposing in R
 
-In R the `t` function transposes matrices.
+In R, the `t` function transposes matrices.
 
 ```{r demo-transpose}
 A <- matrix(1:6, nrow = 2, byrow = TRUE)
@@ -605,5 +605,15 @@ The `diag` function can also be used to replace a diagonal of a matrix:
 ```{r demo-ReplaceDiagonal}
 diag(A) <- 5:8
 A
+```
+
+### Testing if a matrix is diagonal
+
+The Matrix package has a function `isDiagonal` that will test if a matrix is diagonal.
+
+```{r}
+library(Matrix)
+isDiagonal(matrix(c(1, 2, 3, 4), nrow = 2))
+isDiagonal(matrix(c(1, 0, 0, 2), nrow = 2))
 ```
 
