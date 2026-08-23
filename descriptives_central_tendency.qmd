@@ -1,0 +1,446 @@
+```{r loadpacksdescriptivescentraltendency}
+#| include: false
+#| cache: false
+source("loader.R")
+```
+
+## Measures of Central Tendency
+
+If we need to summarize an entire distribution with a single number with the least possible information loss, we use a measure of central tendency---usually the mode, the median, or the mean. Although these numbers are intended to represent the entire distribution, they often require accompaniment from other statistics to perform this role with sufficient fidelity. 
+
+Our choice of which measure of central tendency we use to summarize a distribution depends on which type of variable we are summarizing (i.e., nominal, ordinal, interval, or ratio) and also a consideration of each central tendency measure's strengths and weaknesses in particular situations.
+
+### Mode
+
+The [mode]{.defword title="The **mode** is the value in a distribution that occurs most often."} is the most frequent score in a distribution. Suppose we have a distribution that looks like this: 
+
+$$\{1,2,2,2,2,3,3\}$$
+
+Because 2 occurs more frequently than the other values in the distribution, the mode is 2. 
+
+```{r demo-garcia2}
+# Get the Garcia data set from the psych package
+d <- psych::Garcia
+```
+
+```{r d_mode}
+d_mode <- d %>% 
+  dplyr::select(anger) %>% 
+  dplyr::group_by(anger) %>% 
+  dplyr::count() %>% 
+  dplyr::ungroup() %>% 
+  dplyr::filter(n == max(n))
+```
+
+In a frequency distribution table, the mode is the value with the highest value in the $f$ (frequency) column. In @tbl-freqtablepub, the mode is `r d_mode$anger` because it has the highest frequency $(f = `r pull(d_mode, n)`)$. 
+
+In a bar plot, histogram, or probability density plot, the mode is the value that corresponds to the highest point in the plot. For example, in @fig-freqbarplot, the modal value is 1 because its frequency of 73 is the highest point in the bar plot. In @fig-bimodal, the mode is &minus;1 because that is the highest point in the density plot. 
+
+If two values tie, both values are the mode and the distribution is [bimodal]{.defword title="A **bimodal** distribution has two modes."}. Sometimes a distribution has two distinct clusters, each with its own local mode. The greater of these two modes is the *major mode*, and the lesser is the *minor mode* (See @fig-bimodal).
+
+```{r fig-bimodal}
+#| fig-cap: A Bimodal Distribution
+#| fig-column: margin
+#| fig-align: left
+# A bimodal distribution
+tibble(x = seq(-3, 3.5, .01),
+       y = dnorm(x,-1, 0.5) / 0.8 + 
+         dnorm(x, 1, 0.75)) %>%
+  ggplot(aes(x, y)) +
+  geom_area(fill = myfills[1], alpha = .5) +
+  geom_text(
+    data = . %>% dplyr::filter(x == -1),
+    vjust = -0.25,
+    label = "Major\nMode",
+    size = 8,
+    lineheight = 0.9,
+    color = "gray30"
+  ) +
+  geom_text(
+    data = . %>% dplyr::filter(x == 1),
+    vjust = -0.25,
+    label = "Minor\nMode",
+    size = 8,
+    lineheight = 0.9,
+    color = "gray30"
+  ) +
+  scale_x_continuous(NULL,
+                     minor_breaks = NULL,
+                     breaks = seq(-3, 3)) +
+  scale_y_continuous(NULL,
+                     breaks = NULL,
+                     expand = expansion(c(0, .25))) +
+  theme_minimal(base_size = 30,
+                base_family = bfont) +
+  theme(panel.grid.major.x = element_blank()) 
+```
+
+```{r coder-fig-bimodal}
+<<fig-bimodal>>
+```
+
+
+The mode is the only measure of central tendency that be computed for all variable types and is the only choice for nominal variables (See @tbl-proconCT).
+
+To compute the mode of a variable, use the `mfv` (most frequent value) function from the modeest package [@R-modeest]. In this example, the 2 occurs four times.
+
+```{r demo-mode}
+# Data
+x <- c(1,2,2,2,2,3,3)
+# Mode
+modeest::mfv(x)
+```
+
+The `mfv` function will return all modes if there is more than one. In this example, the 1, 3, and 4 all occur twice.
+
+```{r demo-multiplemode}
+# Data
+x <- c(1,1,3,3,4,4,5,6)
+# Mode
+modeest::mfv(x)
+```
+
+### Median
+
+The [median]{.defword title="The **median** is the point that divides the lower 50 percent of a distribution from the upper 50 percent."} is midpoint of a distribution, the point that divides the lower half of the distribution from the upper half. To calculate the median, you first need to sort the scores. If there is an odd number of scores, the median is the middle score. If there an even number of scores, it is the mean of the two middle scores. There are other definitions of the median that are a little more complex, but rarely is precision needed for calculating the median.
+
+To find the median using a frequency distribution table, find the first sample space element with a cumulative proportion greater than 0.5. For example, in the distribution shown in @tbl-mediantable, the first cumulative proportion greater than 0.5 occurs at 5, which is therefore the median.
+
+```{r tbl-mediantable}
+#| tbl-cap: "Finding the Median in a Frequency Distribution Table.<br>In this case, the median is 5 because it has the first cumulative proportion that is greater than 0.5."
+X <- c(1, 5, 7, 9)
+reps <- c(1, 3, 1, 2)
+map2(X, reps, rep) %>% unlist %>%
+  tibble(X = .) %>%
+  group_by(X) %>%
+  summarise(f = n()) %>%
+  mutate(cf = cumsum(f),
+         p = f / sum(f),
+         cp = cumsum(p)) %>%
+  mutate(across(
+    .cols = p:cp,
+    .fns = function(x)
+      prob_label(x, .01) %>%
+      str_remove("^0")
+  )) %>%
+  knitr::kable(
+    digits = 2,
+    align = "c",
+    col.names = c(
+      "*X*",
+      "Frequency",
+      "Cumulative Frequency" ,
+      "Proportion",
+      "Cumulative Proportion"
+    )
+  )
+```
+
+If a sample space element's cumulative proportion is exactly 0.5, average that sample space element with the next highest value. For example, in the distribution in @tbl-frequencydistributiontable, the cumulative proportion for 4 is exactly 0.5 and the next value is 6. Thus the median is 
+
+$$\frac{4+6}{2}=5$$
+
+The median can be computed for ordinal, interval, and ratio variables, but not for nominal variables (See @tbl-proconCT). Because nominal variables have no order, no value is "between" any other value. Thus, because the median is the middle score and nominal variables have no middle, nominal variables cannot have a median.
+
+For ordinal variables, the median is the preferred measure of central tendency because it is usually more stable from one sample to the next compared to the mode.
+
+In R, the `median` function can compute the median:
+
+```{r demo-median}
+median(c(1,2,3))
+```
+
+### Mean
+
+The [arithmetic mean]{.defword title="The **arithmetic mean** is the balance point of a disribution."} is the sum of all values of a distribution divided by the size of the distribution.
+
+$$\mu_X = \frac{\sum_{i=1}^n {X_i}}{n}$$
+
+Where \begin{align*}
+  \mu_X &= \text{The population mean of } X\\
+  n &= \text{The number of values in } X
+\end{align*}
+
+The arithmetic mean can only be calculated with interval or ratio variables. Why? The formula for the mean requires adding numbers, and the operation of addition is not defined for ordinal and nominal values.
+
+The arithmetic mean is usually the preferred measure of central tendency for interval and ration variables because it is usually more stable from sample to sample than the median and the mode. In @fig-centraltendency, it can be seen that the sampling distributions of the mean is narrower than that of the median and the mode. In other words, it has a smaller [standard error]{.defword title="The **standard error** is the standard deviation of a sampling distribution."}.
+
+```{r fig-centraltendency}
+#| fig-cap: "Sampling Distributions of Central Tendency Measures.<br>The standard normal distribution, $\\mathcal{N}(0,1),$ was used to generate 10,000 samples with a sample size of 100. The distribution of sample means is slightly narrower than the distribution of sample medians, meaning that the mean is slightly more stable than the median. The distribution of sample modes is very wide, meaning that the mode is much less stable than the mean and median."
+#| fig-column: margin
+#| fig-align: left
+
+# Central tendency function
+ct <- function(sample_size = 100) {
+  x <- rnorm(sample_size)
+  mo <- DescTools::Mode(round(x,2))
+  
+  c(Mean = mean(x), 
+       Median = median(x), 
+       Mode = sample(mo, 1))
+}
+
+# Replicate samples
+d_ct <- replicate(10000, ct(100)) %>% 
+  t() %>% 
+  as_tibble() %>% 
+  pivot_longer(cols = everything(), 
+               names_to = "CentralTendency",
+               values_to = "Value") %>% 
+  mutate(y = recode(CentralTendency, 
+                    `Mode` = 0.03, 
+                    `Median` = 0.07, 
+                    `Mean` = 0.135))
+
+# Summary data
+d_sum <- d_ct %>% 
+  filter(!is.na(Value)) %>% 
+  group_by(CentralTendency) %>% 
+  summarise(x = mean(Value),
+            y = mean(y),
+            ub = quantile(Value, 0.975),
+            lb = quantile(Value, 0.025)) %>% 
+  rename(Value = x)
+
+# Plot
+d_ct %>% 
+  filter(!is.na(Value)) %>% 
+  ggplot(aes(Value, y)) +
+  stat_function(geom = "area", 
+                fun = function(x) dnorm(x, 0, 1), 
+                n = 1000, 
+                color = NA, 
+                fill = "gray50", 
+                alpha = 0.2)  +
+  ggdist::stat_halfeye(aes(fill = CentralTendency), 
+                       scale = 1.2, 
+                       color = "gray20") +
+  geom_text(data = d_sum,
+            aes(label = CentralTendency),
+            vjust = 1.5,
+            size = ggtext_size(22),
+            color = "gray20") +
+  scale_x_continuous(name = NULL, 
+                     limits = c(-3.5,3.5), 
+                     breaks = seq(-4,4),
+                     labels = \(x) signs::signs(x, accuracy = 1)) +
+  theme_minimal(base_size = 22, 
+                base_family = bfont) +
+  theme(legend.position = "none", 
+        panel.grid = element_blank()) +
+  scale_y_continuous(NULL, breaks = NULL, 
+                     expand = expansion()) + 
+  scale_fill_manual(values = scales::muted(
+    rep(myfills[1], 3),
+    l = c(65, 55, 40)))
+
+```
+
+```{r coder-fig-centraltendency}
+<<fig-centraltendency>>
+```
+
+
+In R, the `mean` function can compute the median:
+
+```{r demo-meanfunction}
+mean(c(1,2,3))
+```
+
+Watch out for missing values in R. If the distribution has even a single missning value, the `mean` function will return `NA`, as will most other summary functions in R (e.g., `median`, `sd`, `var`, and `cor`).
+
+
+```{r demo-meanfunctionNA}
+mean(c(1,NA,3))
+```
+
+To calculate the mean of all non-missing values, specify that all missing values shoule be removed prior to calculation like so:
+
+```{r demo-meanfunctionnarm}
+mean(c(1,NA,3), na.rm = TRUE)
+```
+
+### Comparing Central Tendency Measures
+
+Which measure of central tendency is best depends on what kind of variable is needed and also what purpuse it serves. @tbl-proconCT has a list of comparative features of each of the three major central tendency measures.
+
+```{r tbl-proconCT}
+#| tbl-cap: Comparing Central Tendency Measures
+tibble::tribble(
+  ~Feature,    ~Mode,   ~Median,      ~Mean,
+  "Computable for Nominal Variables",    "Yes",      "No",       "No",
+  "Computable for Ordinal Variables",    "Yes",     "Yes",       "No",
+  "Computable for Interval Variables",    "Yes",     "Yes",      "Yes",
+  "Computable for Ratio Variables",    "Yes",     "Yes",      "Yes",                             
+  "Algebraic Formula",     "No",      "No",      "Yes",
+  "Unique Value",     "No",     "Yes",      "Yes",
+  "Sensitive to Outliers/Skewness",     "No",      "No",      "Yes",
+  "Standard Error", "Larger", "Smaller", "Smallest"
+  ) %>% 
+  kable(align = "lccc")
+```
+
+
+
+## Expected Values
+
+At one level, the concept of the [expected value]{.defword title="The **expected value** of a random variable is the population mean of the values that the random variable generates."} of a random variable is really simple; it is just the population mean of the variable. So why don't we just talk about population means and be done with this "expected value" business? It just complicates things! True. In this case, however, there is value in letting some simple things appear to become complicated for a while so that later we can show that some apparently complicated things are actually simple.
+
+Why can't we just say that the expected value of a random variable is the population mean? You are familiar, of course, with the formula for a mean. You just add up the numbers and divide by the number of numbers $n$:
+
+$$
+m_X=\frac{\sum_{i=1}^{n} {x_i}}{n}
+$$
+
+Fine. Easy. Except...hmm...random variables generate an infinite number of numbers. Dividing by infinity is tricky. We'll have to approach this from a different angle...
+
+The expected value of a random variable is a weighted mean. A mean of what? Everything in the sample space. How are the sample space elements weighted? Each element in the sample space is multiplied by its probability of occurring.
+
+```{r fig-pmfX}
+#| fig-cap: Probability Distribution of a Hypothetical Random Variable
+#| fig-width: 4
+#| out-width: "350"
+#| warning: false
+#| fig-column: margin
+#| fig-align: left
+tibble(x = factor(c(2,4,8), levels = 1:8),
+       p = c(0.3, 0.2, 0.5)) %>% 
+  ggplot(aes(x,p)) + 
+  geom_col(fill = myfills[1]) + 
+  geom_text(aes(label = prob_label(p)), 
+            vjust = -0.4, 
+            family = bfont, 
+            size = ggtext_size(18)) + 
+  theme_minimal(base_family = bfont, 
+                base_size = 18) + 
+  scale_y_continuous("Probability", 
+                     expand = expansion(mult = c(.01, .10)),
+                     breaks = seq(0,1,.1),
+                     labels = prob_label
+                     ) + 
+  scale_x_discrete("Sample Space", drop = F ) + 
+  theme(panel.grid.major.x = element_blank())
+
+```
+
+
+Suppose that the sample space of a random variable *X* is {2, 4, 8} with respective probabilities of {0.3, 0.2, 0.5}, as shown in @fig-pmfX. 
+
+```{r coder-fig-pmfX}
+<<fig-pmfX>>
+```
+
+
+The notation for taking the expected value of a random variable $X$ is $\mathcal{E}(X)$. Can we find the mean of this variable $X$ even if we do not have any samples it generates? Yes. To calculate the expected value of $X$, multiply each sample space element by its associated probability and then take the sum of all resulting products. Thus,
+
+$$
+\begin{align*}
+\mathcal{E}(X)&=\sum_{i=1}^{3}{p_i x_i}\\
+&= p_1x_1+p_2x_2+p_3x_3\\
+&= (.3\times 2)+(.2\times 4)+(.5\times 8)\\
+&=5.4
+\end{align*}
+$$
+
+The term *expected value* might be a little confusing. In this case, 5.4 is the expected value of $X$ but $X$ never once generates a value of 5.4. So the expected value is not "expected" in the sense that we expect to see it often. It is expected to be close to the mean of any randomly selected sample of the variable that is sufficiently large.
+
+```{r fig-thinbins}
+#| fig-width: 5
+#| fig-height: 7
+#| fig-cap: "Slicing the Standard Normal Distribution into Ever Thinner Bins"
+#| warning: false
+#| fig-column: margin
+#| fig-align: left
+# Slicing the standard normal distribution into ever thinner bins
+make_bins <- function(binPower,
+                      binWidth,
+                      LowerBound,
+                      UpperBound) {
+  tibble(x = seq(LowerBound, UpperBound, binWidth), binPower, binWidth)
+}
+
+pmap_df(tibble(
+  binPower = 0:4,
+  binWidth = 2 ^ (-1 * binPower),
+  LowerBound = -4,
+  UpperBound = 4
+),
+make_bins) %>%
+  mutate(
+    p = pnorm(x + binWidth / 2) - pnorm(x - binWidth / 2),
+    width_label = factor(
+      2 ^ binPower,
+      levels = 2 ^ (0:4),
+      labels = c("Width = 1",
+                 paste0("Width = 1/",
+                        2 ^ (1:4)))
+    )
+  ) %>%
+  ggplot(aes(x, p)) +
+  geom_col(
+    aes(width = binWidth),
+    fill = myfills[1],
+    color = "white",
+    lwd = 0.1
+  ) +
+  facet_grid(width_label ~ .,
+             scales = "free") +
+  theme_light(base_size = 24,
+              base_family = bfont) +
+  scale_x_continuous(
+    NULL,
+    breaks = -4:4,
+    labels = function(x)
+      signs::signs(x, accuracy = 1),
+    expand = c(0.01, 0)
+  ) +
+  scale_y_continuous(NULL,
+                     breaks = NULL) +
+  theme(
+    panel.grid = element_blank(),
+    # strip.text.y = element_blank(),
+    strip.placement = "outside",
+    strip.text.y = element_text(angle = 0),
+    axis.text.x = element_text(hjust = c(rep(.75, 4), rep(0.5, 5)))
+  )
+
+```
+
+
+$$
+\mathcal{E}(X)=\lim_{n \to \infty} \frac{1}{n}\sum_{i=1}^{n} {x_i}
+$$
+
+If a random variable $X$ is discrete, its expected value $\mathcal{E}(X)$ is the sum of each member of the sample space $x_i$ multiplied by its probability of occurring $p_i$. The probability of occurring is the output of $X$'s probability density function at that location: $p_i=f_X(x_i)$. Thus,
+
+$$
+\mathcal{E}(X)=\sum_{i=-\infty}^{\infty}{x_i f_X(x_i)}
+$$
+
+With continuous variables, the number of elements in a sample is infinite. Fortunately, calculus was designed to deal with this kind of infinity. The trick is to imagine that the continuous variable is sliced into bins and that the bins are sliced ever more thinly. If a continuous random variable has probability density function $f_X(x)$, the expected value is
+
+$$
+\mathcal{E}(X)=\int_{-\infty}^{\infty} {x f_X(x)\,\mathrm{d}x}
+$$
+
+
+If we multiply each value of $X$ by the height of its bin ($p$), we get the mean of the binned distribution. If the bins become ever thinner, as in @fig-thinbins, the product of $X$ and $p$ approximates the expected value of the smooth continuous distribution.
+
+```{r coder-fig-thinbins}
+<<fig-thinbins>>
+```
+
+
+### Algebra of Expected Values
+
+If $k$ is a constant, its expected value is itself.
+
+$$\mathcal{E}(k)=k$$
+A constant can be factored out of an expected value operator.
+
+$$\mathcal{E}(kX)=k\mathcal{E}(X)$$
+The expected value of the sum of two random variables is the sum of their respective expected values:
+
+$$\mathcal{E}(X+Y)=\mathcal{E}(X)+\mathcal{E}(Y)$$
+
+

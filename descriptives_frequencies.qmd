@@ -1,0 +1,281 @@
+```{r loadpacksdescriptivesfrequencies}
+#| include: false
+#| cache: false
+source("loader.R")
+```
+
+## Frequency Distribution Tables
+
+A simple way to describe a distribution is to list how many times each value in the distribution occurs. For example, in this distribution: $\{10, 3, 4, 10, 6, 4, 6, 4\}$, there is 1 three, 3 fours, 2 sixes, and 2 tens. The value that occurs most often is four. A [frequency distribution table]{.defword title="A **frequency distribution table** summarises a sample by showing the frequency counts of each member of the sample space."} displays the number of times each value occurs, as in @tbl-frequencydistributiontable.
+
+```{r}
+#| label: tbl-frequencydistributiontable
+#| tbl-cap: "Frequency Distribution Table<br>The median is 5, halfway between the two middle scores of 4 and 6."
+X <- c(3,4,6,10)
+reps <- c(1,3,2,2)
+d <- map2(X, reps, rep) %>% unlist %>% 
+  tibble(X = .) %>% 
+  group_by(X) %>% 
+  summarise(f = n()) %>% 
+  mutate(cf = cumsum(f),
+         p = (f / sum(f)) , 
+         cp = cumsum(p) %>% 
+           prob_label(accuracy = .001)) %>% 
+  mutate(p = prob_label(p, accuracy = .001))
+
+sixes <- reps[X == 6]
+sample_size = sum(reps)
+
+d |> 
+  rename(Value = X,
+         Frequency = f,
+         `Cumulative\\\nFrequency` = cf,
+         Proportion = p,
+         `Cumulative\\\nProportion` = cp) |> 
+  apa_flextable(font_family = bfont, table_width = 1) |> 
+  align(j = 1, align = "center", part = "all") 
+
+# knitr::kable(
+#   d,
+#   col.names = c(
+#     "Value",
+#     "Frequency",
+#     "Cumulative<br>Frequency" ,
+#     "Proportion",
+#     "Cumulative<br>Proportion"
+#   ),
+#   align = "rrrrr",
+#   escape = F
+# )
+```
+
+```{r coder-tbl-frequencydistributiontable}
+<<tbl-frequencydistributiontable>>
+```
+
+
+It is common to include alongside the frequencies of each value the proportion (or percentage) of times a value occurs. If the frequency of sample space element $i$ is $f_i$, and the total sample size is $n$, then the proportion of sample space element $i$ is
+
+$$p_i = \frac{f_i}{n}$$
+
+In @tbl-frequencydistributiontable, the frequency of sixes is $f=`r sixes`$ and there are $n = `r sample_size`$ numbers in the distribution, thus the proportion of sixes is $p = \frac{`r sixes`}{`r sample_size`} = `r WJSmisc::remove_leading_zero(sixes / sample_size)`$.
+
+It is also common to supplement frequency distribution tables with additional information such as the [cumulative frequency]{.defword title="The **cumulative frequency** tells us the number of scores in a distribution that are equal to or lower than a particular sample space element."}. For each sample space element, the cumulative frequency $(cf)$ is the sum of the frequencies $(f)$ of the current and all previous sample space elements.
+
+$$cf_i= \sum_{j=1}^{i}{f_j}$$
+
+Ordinal, interval, and ratio variables can have cumulative frequencies, but not nominal variables. To calculate cumulative frequencies, the sample space needs to be sorted in a meaningful way, which is not possible with true nominal variables. That is, there are no scores "below" any other scores in nominal variables.
+
+The cumulative proportion $(cp)$ is the proportion of scores less than or equal to a particular sample space element.
+
+$$cp_i = \frac{cf_i}{n}$$
+
+### Frequency Distribution Tables in R
+
+Let's start with a data set from @garciaWomensReactionsIngroup2010, which can accessed via the psych package. 
+
+```{r demo-garcia}
+# Get the Garcia data set from the psych package
+d <- psych::Garcia
+```
+
+The sjmisc package [@R-sjmisc] provides a quick and easy way to create a frequency distribution table with the `frq` function.
+
+```{r demo-frq}
+sjmisc::frq(d$anger)
+```
+
+Typically we use frequency distribution tables to check whether the values of a variable are correct and that the distribution makes sense to us. Thus the `frq` function is all we need most of the time. However, if you need a publication-ready frequency distribution table, you will probably have to make it from scratch (See @tbl-freqtablepub).
+
+```{r tbl-freqtablepub}
+#| tbl-cap: "Frequency Distribution Table for Anger<br>*f*&nbsp;=&nbsp;Frequency,*cf*&nbsp;=&nbsp;Cumulative Frequency, *p*&nbsp;=&nbsp;Proportion, and *cp*&nbsp;=&nbsp;Cumulative Proportion"
+# Publication-quality frequency table
+d %>% 
+  rename(X = anger) %>% 
+  count(X, name = "f") %>% 
+  mutate(cf = cumsum(f),
+         p = f / sum(f),
+         cp = cumsum(p)) %>% 
+  mutate(across(
+    .cols = p:cp,
+    .fns = function(x) scales::number(x, .01) %>% 
+      str_remove("^0"))) %>% 
+  rename_with(
+    .fn = function(x) paste0("*",x,"*")) %>% 
+  mutate(` ` = "") 
+```
+
+
+
+```{r coder-tbl-freqtablepub}
+<<tbl-freqtablepub>>
+```
+
+### Frequency Distribution Bar Plots
+
+```{r fig-freqbarplot}
+#| fig-height: 7
+#| fig-cap: "Frequency Distribution Bar Plot"
+#| out-width: "350"
+#| fig-column: margin
+#| fig-align: left
+# Make frequency data
+d_freq <- d %>% 
+  rename(Anger = anger) %>% 
+  count(Anger, name = "f") %>% 
+  mutate(cf = cumsum(f),
+         p = f / sum(f),
+         cp = cumsum(p))
+
+# Frequency Bar Plot
+d_freq %>% 
+  ggplot(aes(Anger, f)) + 
+  geom_col(fill = myfills[1]) + 
+  geom_richlabel(aes(label = f), 
+                 vjust = 0, 
+                 label.margin = margin(),
+                 text_size = 30) +
+  scale_x_continuous(breaks = 1:7, 
+                     minor_breaks = NULL) + 
+  scale_y_continuous("Frequency", 
+                     expand = expansion(c(0, 0.09))) +
+  theme_minimal(base_size = 30, 
+                base_family = bfont) + 
+  theme(panel.grid.major.x = element_blank())       
+```
+
+
+```{r fig-freqstackedbarplot}
+#| fig-width: 2.5
+#| fig-cap: "Cumulative Frequency Stacked Bar Plot"
+#| out-width: "250"
+#| warning: false
+#| fig-column: margin
+#| fig-align: left
+# Stacked Frequency Bar Plot
+
+d_freq %>% 
+  ggplot(aes(factor("Anger"), cf - f / 2)) + 
+  geom_tile(aes(height = f, fill = factor(Anger)), 
+            width = 1.2) +
+  geom_text(aes(label = paste0(
+    Anger, 
+    " (", 
+    f, 
+    ", ",
+    scales::percent(p, accuracy = 1),
+    ")"))) + 
+  scale_y_continuous(
+    "Cumulative Frequency",
+    breaks = c(0, d_freq$cf),
+    minor_breaks = NULL,
+    expand = expansion(c(0, .04)),
+    sec.axis = sec_axis(
+      trans = ~ .x,
+      labels = scales::percent(c(0, d_freq$cp), 
+                               accuracy = 1),
+      breaks = c(0, d_freq$cf),
+      name = "Cumulative Percentage"))  +
+  scale_fill_manual(values = tinter::tinter(myfills[1], 9)) +
+  scale_x_discrete(NULL) +
+  theme(
+    legend.position = "none",
+    panel.grid = element_blank(),
+    axis.text.y = element_text(vjust = c(rep(0.5, 7),-0.3))
+  ) 
+```
+
+
+
+```{r fig-freqstepplot}
+#| fig-cap: Cumulative Frequency Step Plot
+#| fig-height: 7
+#| out-width: "350"
+#| fig-column: margin
+#| fig-align: left
+# Frequency Step Plot
+d_freq %>%
+  ggplot(aes(Anger, cf)) +
+  geom_step(direction = "mid",
+            color = myfills[1],
+            linewidth = 0.5) +
+  geom_richlabel(
+    aes(label = cf),
+    vjust = 0,
+    color = myfills[1],
+    label.margin = margin(b = 1),
+    text_size = 30
+  ) +
+  geom_richlabel(
+    aes(label = signs::signs(
+      f, accuracy = 1, add_plusses = T
+    )),
+    vjust = 1,
+    color = "gray40",
+    text_size = 30
+  ) +
+  scale_x_continuous(breaks = 1:7,
+                     expand = expansion()) +
+  scale_y_continuous(
+    "Cumulative Frequency",
+    limits = c(0, NA),
+    breaks = 0,
+    minor_breaks = NULL,
+    expand = expansion(mult = c(0.001, 0.07))
+  ) +
+  theme_minimal(base_size = 30, base_family = bfont) +
+  theme(panel.grid.major.x = element_blank()) +
+  annotate(
+    geom = "segment",
+    x = 0.5,
+    y = 0,
+    xend = 0.5,
+    yend = 73,
+    color = myfills[1],
+    linewidth = 1
+  ) +
+  annotate(
+    geom = "segment",
+    x = 0.5,
+    y = 73,
+    xend = 1,
+    yend = 73,
+    color = myfills[1],
+    linewidth = 0.5
+  ) +
+  annotate(
+    geom = "segment",
+    x = 7,
+    y = 129,
+    xend = 7.5,
+    yend = 129,
+    color = myfills[1],
+    linewidth = 0.5
+  ) 
+  
+```
+
+In @fig-freqbarplot, the frequency distribution from @tbl-freqtablepub is translated into a standard bar plot in which each bar is proportional to the frequency of each response. A column bar plot allows for easy comparison of the frequency of each category. For example, in @fig-freqbarplot, the most frequent response to the Anger question---1 (low)---draws your attention immediately. In contrast to the mental effort needed to scan frequencies listed in a table, the relative height of each frequency in the bar plot is perceived, compared, and interpreted almost effortlessly. With a single glance at @fig-freqbarplot, no calculation is required to know that none of the other responses is even half as frequent as 1.
+
+
+```{r coder-fig-freqbarplot}
+<<fig-freqbarplot>>
+```
+
+### Frequency Distribution Stacked Bar Plots
+
+In a standard bar plot, one may easily compare frequencies to each other, but that may not be what you wish the reader to notice first. A stacked bar plot emphasizes the proportions of each category as it relates to the whole. It also allows for the visual display of the cumulative frequencies and proportions. For example, in @fig-freqstackedbarplot, it is easy to see that more than half of participants have an anger level of 1, and three quarters have an anger level of 2 or less.
+
+
+```{r coder-fig-freqstackedbarplot}
+<<fig-freqstackedbarplot>>
+```
+
+### Frequency Distribution Step Line Plots
+
+A step line plot can show the cumulative frequency's relationship with the variable. For example, in  @fig-freqstepplot, it appears that the cumulative frequency rises quickly at first but then rises slowly and steadily thereafter.
+
+```{r coder-fig-freqstepplot}
+<<fig-freqstepplot>>
+```
+

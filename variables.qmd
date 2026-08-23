@@ -281,7 +281,9 @@ bind_rows(
            label.padding = margin(1,1,1,1, "pt"),
            size = ggtext_size(26, 1), 
            label.size = 0, 
-           color = "gray20") +
+           color = "gray20",
+           fill = "white",
+           border.color = NA) +
   theme_void() + 
   theme(legend.position = "none") + 
   scale_color_identity() + 

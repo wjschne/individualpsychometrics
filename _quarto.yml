@@ -45,7 +45,15 @@ book:
           text: Distributions--Discrete
         - file: continuousdistributions.qmd
           text: Distributions--Continuous
-        - descriptives.qmd
+    - part: descriptives.qmd
+      text: Descriptive Statistics
+      chapters:
+        - file: descriptives_frequencies.qmd
+          text: Descriptive Statistics--Frequencies
+        - file: descriptives_central_tendency.qmd
+          text: Descriptive Statistics--Central Tendency
+        - file: descriptives_variability.qmd
+          text: Descriptive Statistics--Variability
     - part: "Psychometric Foundations"
       chapters:
         - reliability.qmd

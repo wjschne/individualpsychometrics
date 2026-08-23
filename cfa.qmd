@@ -6,7 +6,7 @@ knitr:
     echo: false
 format:
   html: default
-bibliography: references.bib
+bibliography: book.bib
 ---
 
 ```{r}
@@ -21,23 +21,23 @@ library(psych)
 library(lavaan)
 library(simstandard)
 library(ggtext)
+library(ggdiagram)
 font_opts <- list(dvisvgm.opts = "--font-format=woff")
+myfont <- "Roboto Condensed"
 ```
 
-This equation shows how factor loadings and error variances can be used to compute a correlation matrix:
-
-$$\Sigma=\Lambda\Phi\Lambda'+\Theta$$
-
-What does this mean?
-
-Suppose six observed variables are caused by 2 latent factors like so:
-
+Suppose six observed variables are caused by 2 latent factors as seen in @fig-model. 
 ```{r}
+#| label: fig-model
+#| fig-cap: Structural Model with Standardized Loadings and Residual Variances
+#| fig-height: 7
+#| cache: true
 m <- "
 A =~ .7 * A_1 + .8 * A_2 + .9 * A_3
 B =~ .6 * B_1 + .7 * B_2 + .8 * B_3
 A ~~ .4 * B
 "
+
 tikz_array <- function(x, ...) {
   apply(x, 2, WJSmisc::prob_label, ...) %>%
     apply(1, paste, collapse = ",") %>%
@@ -119,8 +119,7 @@ tikzload <- lambda %>%
   pivot_longer(-id) %>% 
   filter(value != 0) %>% 
   pivot_wider() %>%
-  select(-id) %>% 
-  tikz_array(accuracy = .1)
+  select(-id) 
 tikzvar <- ram$S[1:6,1:6] %>% 
   as.data.frame() %>% 
   rownames_to_column() %>% 
@@ -132,255 +131,227 @@ tikzvar <- ram$S[1:6,1:6] %>%
   select(-id) %>% 
   tikz_array(accuracy = .01)
 
+cA <- "#6E9BB1"
+cB <- "#79D09F"
 
-
-
-
+ggdiagram(font_family = myfont, font_size = 16) +
+  {
+    A3 <- ob_ellipse(m1 = 20, fill = cA, color = NA) |>
+      ob_array(
+        3,
+        sep = .2,
+        label = ob_label(
+          ggdiagram::subscript(rep("A", 3)),
+          fill = NA,
+          color = "white",
+          size = 36,
+          nudge_y = -.1
+        )
+      )
+  } +
+  {
+    B3 <- ob_ellipse(m1 = 20, fill = cB, color = NA) |>
+      place(A3@bounding_box, sep = .2) |>
+      ob_array(
+        3,
+        sep = .2,
+        anchor = "west",
+        label = ob_label(
+          ggdiagram::subscript(rep("B", 3)),
+          fill = NA,
+          color = "white",
+          size = 36,
+          nudge_y = -.1
+        )
+      )
+  } +
+  {
+    A <- ob_circle(
+      fill = cA,
+      color = NA,
+      radius = 2,
+      label = ob_label(
+        "A",
+        fill = NA,
+        color = "white",
+        size = 80,
+        nudge_y = -.1
+      )
+    ) |>
+      place(A3[2], "above", 3)
+  } +
+  {
+    B <- ob_circle(
+      fill = cB,
+      color = NA,
+      radius = 2,
+      label = ob_label(
+        "B",
+        fill = NA,
+        color = "white",
+        size = 80,
+        nudge_y = -.1
+      )
+    ) |>
+      place(B3[2], "above", 3)
+  } +
+connect(
+  A,
+  A3,
+  resect = 1,
+  color = cA,
+  label = ob_label(
+    paste0(ggdiagram::round_probability(lambda[1:3, 1]), "<span style='color:white'>.</span>"),
+    angle = 0,
+    label.padding = margin(b = 0, t = 3)
+  )
+)@set_label_y(.5) +
+  connect(
+    B,
+    B3,
+    resect = 1,
+    color = cB,
+    label = ob_label(
+      paste0(round_probability(lambda[4:6, 2]), "<span style='color:white'>.</span>"),
+      angle = 0,
+      label.padding = margin(b = 0, t = 3)
+    )
+  )@set_label_y(.5) + 
+{
+  eA <- ob_circle(radius = .9, fill = cA, color = NA) |>
+    ob_array(
+      3,
+      label = ob_label(
+        paste0("e<sub>A", 1:3, "</sub>"),
+        color = "white",
+        fill = NA,
+        size = 20
+      )
+    ) |>
+    place(A3, "below", sep = .8)
+} +
+  connect(eA, A3, color = cA, resect = 1) +
+  {
+    eB <- ob_circle(radius = .9, fill = cB, color = NA) |>
+      ob_array(
+        3,
+        label = ob_label(
+          paste0("e<sub>B", 1:3, "</sub>"),
+          color = "white",
+          fill = NA,
+          size = 20
+        )
+      ) |>
+      place(B3, "below", sep = .8)
+  } +
+  connect(eB, B3, color = cB, resect = 1) +
+  ob_variance(
+    eA,
+    where = "south",
+    color = cA,
+    resect = 1,
+    label = ob_label(
+      round_probability(diag(theta)[1:3]),
+      color = cA
+    ),
+    looseness = 1.3,
+    theta = 60
+  ) +
+  ob_variance(
+    eB,
+    where = "south",
+    color = cB,
+    resect = 1,
+    label = ob_label(
+      round_probability(diag(theta)[4:6]),
+      color = cB
+    ),
+    looseness = 1.3,
+    theta = 60
+  ) +
+  connect(
+    B,
+    A,
+    arc_bend = .6,
+    color = "gray",
+    resect = 1,
+    arrow_fins = ggdiagram::arrowhead(),
+    label = ob_label(round_probability(phi[1, 2]), color = "gray")
+  ) +
+  ob_variance(
+    A,
+    color = cA,
+    label = "1",
+    theta = 40,
+    looseness = .7,
+    resect = 1
+  ) +
+  ob_variance(
+    B,
+    color = cB,
+    label = "1",
+    theta = 40,
+    looseness = .7,
+    resect = 1
+  )
 ```
 
-```{tikz fig-pathdiagram, engine.opts=font_opts}
-#| echo: false
-#| fig-cap: "Factor Model"
-#| fig-align: center
-#| fig-ext: svg
-#| out-width: 100%
+
+In what is called the RAM Model [Reticular Action Model\; @mcardleAlgebraicPropertiesReticular1984]^[*Reticular* refers to things shaped or arranged as a net or network.], there are two types of paths in @fig-model: *asymmetric paths* (straight single-headed arrows) and *symmetric paths* (curved double-headed arrows). The asymmetric paths represent causal influences of one variable on another. The symmetric paths represent variances if the paths covariances if they connect two variables and variances if they loop back to the same variable. Any omitted path in @fig-model is assumed to be zero. Thus, we can arrange all the path coefficients in two matrices **A** and **B**, as seen in @fig-ram.
+
+```{r}
+#| label: fig-ram
+#| fig-cap: Asymmetric and Symmetric Standardized Path Coefficients
+#| fig-height: 7
 #| cache: true
-#| eval: true
-
-\usetikzlibrary{arrows,shapes,backgrounds, shadows,fadings, intersections, positioning, calc}
-\usetikzlibrary{ext.shapes.superellipse}
-
-
-\definecolor{cA}{HTML}{6E9BB1}
-\definecolor{cB}{HTML}{79D09F}
-
-\definecolor{cdA}{HTML}{2E6F8E}
-\definecolor{cdB}{HTML}{3EBC74}
-
-\newcommand{\leadingzero}[2]{
-	\pgfmathtruncatemacro{\i}{round(#1 * pow(10, #2))}%
-	.\i
-}
-
-\def\loadings{{.7,.6}, {.8,.7}, {.9,.8}}
-\def\residuals{{.51,.64}, {.36,.51}, {.19,.36}}
-\def\rr{{{.51,.64}, {.36,.51}, {.19,.36}}}
-\def\myloadings{{{.7,.6}, {.8,.7}, {.9,.8}}}
-\def\mysep{3pt}
-
-\begin{tikzpicture}[
-	latent/.style={
-		circle,
-		fill= black!10,
-		minimum size=2.256758cm,
-		align=center,
-		text = black!2,
-		font=\fontsize{36pt}{34pt}\selectfont,
-		inner sep = 0mm},
-	error/.style={
-		circle,
-		text=black!90,
-		fill = black!2,
-		inner sep=0mm,
-		minimum size=1cm,
-		font=\large},
-	ob/.style={
-		superellipse, 
-		superellipse exponent = 15, 
-		superellipse step = 3,
-		fill=black!10,
-		minimum width=2cm,
-		align=center,
-		minimum height= 2cm,
-		font=\Huge,
-		text = black!2},
-	post/.style={
-		->,
-		draw,
-		shorten >=\mysep,
-		shorten <=\mysep,
-		>=latex',
-		very thick,
-		color = black!15,
-		text = black},
-	cov/.style={
-		<->,
-		shorten >=\mysep,
-		shorten <=\mysep,
-		>=latex',
-		very thick,
-		looseness=1,
-		bend left=45,
-		color = black!25,
-		text = black!40,draw},
-	variance/.style={
-		<->,
-		>=latex',
-		very thick,
-		bend left=245,
-		looseness=5,
-		shorten >=\mysep,
-		shorten <=\mysep,
-		font=\small,
-		color = black!50,
-		text = black,
-		draw},	
-	label/.style={
-		fill=white,
-		font=\normalsize,
-		circle,
-		%	fill = A,
-		inner sep = -.5pt,
-		pos=.50}]
-		
-\node[ob, fill = cA] (A_1) {};
-\node[ob, fill = cA, right=2mm of A_1] (A_2) {};
-\node[ob, fill = cA, right=2mm of A_2] (A_3) {};
-\node[ob, fill = cB, right=6mm of A_3] (B_1) {};
-\node[ob, fill = cB, right=2mm of B_1] (B_2) {};
-\node[ob, fill = cB, right=2mm of B_2] (B_3) {};
-
-
-
-
-\node[latent, fill = cA, above=25mm of A_2] (A) {\emph{A}};
-\node[latent, fill = cB, above=25mm of B_2] (B) {\emph{B}};
-
-\path[cov] (A) to node[label, font = \Large]{.4} (B);
-
-\coordinate (half) at ($(A.south)!.48!(A_2.north)$);
-\coordinate (l1) at (A_1|-half);
-\coordinate (l2) at (B_3|-half);
-
-
-\foreach \i [count = \xi] in {A,B}{
-	\path[variance, c\i, looseness = 3] (\i.65) to node[label, yshift = 1pt, text = c\i]{\phantom{.}1\phantom{.}} (\i.115);
-	\foreach \j in {1,2,3}{
-		\pgfmathsetmacro{\l}{\myloadings[\j-1][\xi-1]}	
-		\def\myloading{\leadingzero{\l}{1}}
-		
-		\pgfmathsetmacro{\residual}{\rr[\j-1][\xi-1]}			
-		\pgfmathsetmacro{\r}{2*\residual}
-		\pgfmathsetmacro{\myerrorsize}{2*sqrt(4*\residual/3.1415)}		
-		
-		\path[post, c\i] (\i) to (\i_\j);
-		\node[fill = white, inner sep=0pt, circle, font=\Large, text = cd\i] at (intersection of  l1--l2 and \i_\j--\i){\myloading\phantom{.}};
-		\node[error, fill = c\i!50, below = 6mm of \i_\j, minimum size=\myerrorsize cm] (e\i_\j) {};
-		
-		\path[variance, c\i!50, looseness = 5 - \r*1.5] (e\i_\j.245) to node[label, yshift=-1pt, text = c\i]{\residual\phantom{.}} (e\i_\j.295);
-		
-		\path[post, c\i!50] (e\i_\j) to (\i_\j);	
-			
-		\begin{scope}	
-			\coordinate (sw) at (\i_\j.south-|\i_\j.west);
-			\coordinate (se) at (\i_\j.south-|\i_\j.east);
-			\coordinate (nw) at ($ (sw)+(0,\r) $);
-			\coordinate (ne) at ($ (se)+(0,\r) $);
-			\path[clip] (sw) -- (se) -- (ne) -- (nw) -- cycle;	
-			\node[ob, fill = c\i!65] at (\i_\j) {};
-		\end{scope}
-		\node[font=\Huge, text = black!2] at (\i_\j) {$\i_\j$};
-		
-	}
-}
-
-
-\end{tikzpicture}
+ram$A |> 
+  corrr::as_cordf(diagonal = 0) |> 
+  corrr::stretch() |> 
+  mutate(Matrix = "Asymmetric<br>Paths (**A**)") |> 
+  rbind(
+ram$S |> 
+  corrr::as_cordf(diagonal = diag(ram$S)) |> 
+  corrr::stretch() |> 
+  mutate(Matrix = "Symmetric<br>Paths (**S**)")) |> 
+  mutate(x = fct_inorder(ifelse(str_detect(x, "_"), paste0(str_replace(x, "_", "<sub>"), "</sub>") |> str_remove("_"), x)),
+         y = fct_inorder(ifelse(str_detect(y, "_"), paste0(str_replace(y, "_", "<sub>"), "</sub>") |> str_remove("_"), y)) |> fct_rev()) |> 
+  ggplot(aes(x,y)) + 
+  geom_tile(aes(fill = r)) + 
+  geom_text(aes(label = prob_label(r)), family = myfont, size = 16, size.unit = "pt") +
+  theme_light(base_family = myfont, base_size = 20) +
+  scale_x_discrete(NULL, expand = expansion(), position = "top") +
+  scale_y_discrete(NULL, expand = expansion()) +
+  scale_fill_gradient(low = "white") +
+  theme(axis.text.x.top = element_markdown(),
+        axis.text.y.left = element_markdown(), 
+        panel.grid = element_blank(), 
+        strip.text.y = element_markdown(angle = 0, color = "gray40"),
+        legend.position = "none", 
+        strip.background = element_rect(fill = "white")) + 
+  coord_fixed() +
+  facet_grid(rows = vars(Matrix), axes = "all")
 ```
 
-# Observed Correlations
 
-$\Sigma$ is the correlation matrix of the observed variables.[^1]
+# Model-Implied Correlations
 
-# Factor Loadings
 
-$\Lambda$ is a loading matrix. If there are 6 observed variables and 2 factors, $\Lambda$ has 6 rows and 2 columns.
+Model in @fig-model implies a specific correlation matrix. As explained in @bokerReticularActionModel2018, the correlations among the observed and latent variables can be calculated like so:
 
-$$
-\Lambda=`r latex_array(lambda, includenames = FALSE)`
-$$
+$$\boldsymbol{\Sigma} = \left(\bf{I-A}\right)^{-1}\bf{S}\left(\left(\bf{I-A}\right)^{-1}\right)'$$
 
-If the 2 factors are A and B, each with three subtests, we might label the matrix like so:
-
-$$
-\Lambda=`r latex_array(lambda)`
-$$
-
-The $\Lambda'$ matrix is just the $\Lambda$ matrix, but it has been transposed (i.e., the rows become columns and the columns become rows.). Therefore $\Lambda'$ is
-
-$$
-\Lambda'=`r latex_array(t(lambda))`
-$$
-
-# Latent Factor Correlations
-
-The $\Phi$ matrix is the correlation matrix of the factors.[^2] Let's say that A and B correlate at .4. This means:
-
-$$
-\Phi = `r latex_array(phi, digits = 1)`
-$$
-
-# Factor Uniquenesses and Residual Correlations
-
-The $\Theta$ matrix is the covariance matrix that contains any excess covariance or variance that is not accounted for by the loadings and factor correlations (i.e., $\Theta = \Sigma -\Lambda\Phi\Lambda'$).
-
-If the loadings and factor correlations perfectly account for the correlations, then $\Theta$ has zeroes everywhere except for the variances of the uniquenesses on the diagonal. With simple structure (i.e., each variable loads on factor only), the uniqueness variances are just one minus the loadings squared:
-
-$$
-\Theta=`r latex_array(theta)`
-$$
-
-If there is an additional correlation between observed variables, the excess correlation would appear in the off-diagonal values of $\Theta$.
-
-# Model-Implied Correlations Among Observed Variables
-
-$$
-\begin{aligned}
-\Sigma &=\Lambda\Phi\Lambda'+\Theta\\
-\Sigma &= \color{gray}\overbrace{\color{black}\begin{bmatrix}
-`r latex_data(lambda)`
-\end{bmatrix}}^{\Large\Lambda}
-\overbrace{\color{black}
-\begin{bmatrix}
-1&.4\\
-.4&1
-\end{bmatrix}}^{\Large\Phi}
-\overbrace{\color{black}
-\begin{bmatrix}
-`r latex_data(t(lambda))`
-\end{bmatrix}}^{\Large\Lambda'}{\color{black}+}
-\overbrace{\color{black}
-`r latex_array(theta, includenames = FALSE)`}^{\Large\Theta}\\
-\Sigma&\approx `r latex_array(R)`
-\end{aligned}
-$$
+$\boldsymbol{\Sigma}$ is the correlation matrix of the observed and latent variables.[^1] $\bf{A}$ is the matrix of asymmetric paths, $\bf{S}$ is the matrix of symmetric paths, and $\bf{I}$ is an identity matrix compatible with $\bf{A}$.
 
 ```{r fig-corr, dev='ragg_png'}
 #| fig-height: 8
 #| fig-width: 8
 #| echo: false
-#| fig-cap: Model-Implied Correlations Between Observed Variables
-l <- matrix(0, nrow = 6, ncol = 2)
-l[1:3,1] <- c(.7,.8,.9)
-l[4:6,2] <- c(.7,.8,.9)
-
-phi <- matrix(.4, nrow = 2, ncol = 2)
-diag(phi) <- 1
-
-lphil <- l %*% phi %*% t(l)
-
-theta <- diag(6) - diag(diag(lphil))
-
-Sigma <- lphil + theta
-vnames <- WJSmisc::cross_vectors(LETTERS[1:2], 1:3)
-cornames(Sigma) <- vnames
-
-myfont <- "Open Sans"
-Sigma %>% 
+#| fig-cap: Model-Implied Correlations Among Latent and Observed Variables
+get_model_implied_correlations(m, latent = TRUE) %>% 
   corrr::as_cordf(1) %>% 
   corrr::stretch() %>% 
   mutate(x = str_replace(x, "_", "<sub>") %>%
-           paste0("</sub>"),
+           paste0("</sub>") |> fct_inorder(),
          y = str_replace(y, "_", "<sub>") %>%
            paste0("</sub>") %>% fct_inorder() %>% fct_rev()) %>% 
   ggplot(aes(x,y)) + 
@@ -396,49 +367,12 @@ Sigma %>%
   scale_x_discrete(NULL, expand = expansion(), position = "top") + 
   scale_y_discrete(NULL, expand = expansion()) + 
   theme_minimal(18, myfont) + 
-  theme(axis.text = element_markdown(), legend.text = element_text(hjust = .5)) + 
+  theme(axis.text.x.top = element_markdown(), axis.text.y.left = element_markdown(), legend.text = element_text(hjust = 0.5)) + 
   coord_equal()
 
 ```
 
-# Correlations Among Observed, Latent, and Residual Variables
-
-
-```{r}
-A <- "
-v  	A   	B   	A1  	A2  	A3  	B1  	B2  	B3  	eA1 	eA2 	eA3 	eB1 	eB2 	eB3 
-A  	1.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00
-B  	0.00	1.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00
-A1 	0.70	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.714143	0.00	0.00	0.00	0.00	0.00
-A2 	0.80	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.60	0.00	0.00	0.00	0.00
-A3 	0.90	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.43589	0.00	0.00	0.00
-B1 	0.00	0.60	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.80	0.00	0.00
-B2 	0.00	0.70	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.714143	0.00
-B3 	0.00	0.90	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.43589
-eA1	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	1.00	0.00	0.00	0.00	0.00	0.00
-eA2	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	1.00	0.00	0.00	0.00	0.00
-eA3	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	1.00	0.00	0.00	0.00
-eB1	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	1.00	0.00	0.00
-eB2	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	1.00	0.00
-eB3	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	0.00	1.00" %>%
-	readr::read_tsv() %>%
-	tibble::column_to_rownames("v") %>%
-	as.matrix()
-
-fit <- sim_standardized_matrices(m)
-fit$v_names$v_observed
-fit$v_names$v_latent_exogenous
-fit$v_names$v_residual
-A <- ram$A
-S <- ram$S
-
-
-A
-```
-
-
-It is possible to estimate the correlation not just among observed variables, but all the variables in the model, including observed, latent, and residual variables. The Reticular Action Model [RAM\; @mcardleAlgebraicPropertiesReticular1984]
 
 [^1]: Actually it is the observed covariance matrix, but we will assume that all observed variables are standardized (mean = 0, sd = 1). In that case, $\Sigma$ is also standardized (i.e., a correlation matrix is a covariance matrix that consists of standardized variables).
 
-[^2]: Actually, the \Phi matrix could be a covariance matrix, but since we are thinking about latent variables, we might as well make them standardized.
+
