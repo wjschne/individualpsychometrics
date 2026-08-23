@@ -1,10 +1,4 @@
 # Descriptive Statistics
 
-```{r loadpacksdescriptives}
-#| include: false
-#| cache: false
-source("loader.R")
-```
-
 When we encounter a large list of unsorted numbers, we have no natural capacity to perceive fundamental characteristics of the list, such as its average or its variability. Therefore, we need [descriptive statistics]{.defword title="**Descriptive statistics** summarize noteworthy characteristics of samples."} to quantify salient characteristics of distributions, or we need to display the numbers in a plot, making them easier to understand and communicate.
 
