@@ -112,7 +112,7 @@ A
 k * A
 ```
 
-::: {#callout-note title="You Try"}
+::: {.callout-note title="You Try"}
 
 Create a scalar *k* equal to 5.
 
@@ -450,7 +450,7 @@ Elementwise division works the same way.
 C <- A / B
 ```
 
-::: {#callout-note title="You Try"}
+::: {.callout-note title="You Try"}
 
 Suppose we have these three matrices:
 

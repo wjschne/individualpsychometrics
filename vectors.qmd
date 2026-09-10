@@ -475,7 +475,7 @@ $$\vec{x}-a=\left(x_1-a, x_2-a,\ldots,x_n-a\right)$$
 
 [In R, almost everything---even things that look like scalars---are really vectors. When a scalar (i.e., a vector of length 1) and a longer vector are added, subtracted, multiplied, or divided, the scalar is "recycled" across all the values of longer vector. This is also true when a short vector (e.g., of length 2) is added to a longer vector (e.g., of length 4): the shorter vector is recycled across the longer vector. For example, `c(1,2) + c(1,2,3,4)` will return `2 4 4 6`]{.column-margin}
 
-Scalar-vector operations look just alike scalar-scalar operations:
+Scalar-vector operations look just like scalar-scalar operations:
 
 ```{r demo-scalarvectoradd}
 x <- c(1,2)

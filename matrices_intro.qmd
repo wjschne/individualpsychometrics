@@ -300,7 +300,8 @@ By default, whenever a single row, column, or element is returned from a matrix,
 A[, 3, drop = FALSE]
 ```
 
-::: {#callout-note title="You Try"}
+
+::: {.callout-note title="You Try"}
 
 Select column 1 of A.
 
@@ -330,7 +331,7 @@ Here are the 1^st^ and 4^th^ columns:
 A[, c(1, 4)]
 ```
 
-::: {#callout-note title="You Try"}
+::: {.callout-note title="You Try"}
 
 Select columns 1 and 3 of A. 
 
@@ -365,7 +366,7 @@ A[, s]
 ```
 
 
-::: {#callout-note title="You Try"}
+::: {.callout-note title="You Try"}
 
 Use a Boolean vector to select columns that begin with 2. The operator for "is equal to" is `==`.
 
@@ -401,7 +402,7 @@ Now we can select rows and columns by names. To select only the gold and bronze 
 A[c("Gold","Bronze"),]
 ```
 
-::: {#callout-note title="You Try"}
+::: {.callout-note title="You Try"}
 
 Use the column names to select the Uneven Bars column
 
@@ -452,7 +453,7 @@ A
 ```
 
 
-::: {#callout-note title="You Try"}
+::: {.callout-note title="You Try"}
 
 Replace the Vault column of $\mathbf{A}$ with a vector of $(10,20,30)$
 
@@ -503,7 +504,7 @@ A_prime <- t(A)
 A_prime
 ```
 
-::: {#callout-note title="You Try"}
+::: {.callout-note title="You Try"}
 
 1. Make a 2 $\times$ 5 matrix `A` of even numbers up to 20. 
 2. Transpose `A`, assigning it to a variable called `A_prime`.
